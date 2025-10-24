@@ -1,8 +1,4 @@
-Hello how are you
-IM FINE!!
-
 Written by Erik Stockglausner and his GPT Model
-
 
 Microgrid IA - ADDENDUM: STANDARDS UPDATE & UPS SAVINGS
 Revised Investment Analysis + Potential UPS Savings 
