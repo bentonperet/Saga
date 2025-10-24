@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ssh-keygen:*)",
+      "Read(//c/Users/eriks/.ssh/**)",
+      "Bash(ssh:*)",
+      "Bash(git remote set-url:*)",
+      "Bash(git push:*)",
+      "Bash(git pull:*)",
+      "Bash(rm:*)",
+      "Bash(git fsck:*)",
+      "Bash(find:*)",
+      "Bash(echo $USERPROFILE)",
+      "Bash(xcopy:*)",
+      "Bash(robocopy:*)",
+      "Bash(git rm:*)",
+      "Bash(git commit:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
