@@ -4,37 +4,103 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-This is an Obsidian vault - a personal knowledge management system organized using the PARA method (Projects, Areas, Resources, Archive). It contains markdown files with interconnected notes, not a software codebase.
+This is an Obsidian vault - a personal knowledge management system containing markdown files with interconnected notes, not a software codebase.
+
+**Primary Project: Saga Pryor Data Center**
+- A data center design and development project
+- Includes Basis of Design (BOD) documents organized by CSI divisions
+- BIM/architecture coordination at LOD200 level
+- Power systems design (utility, solar, BESS, generators)
+- Project management tracking via action items and meeting notes
+- Collaboration with Camelot (architect) and other consultants
+
+**Document Organization:**
+- Uses modified PARA method (Projects, Archive, Resources)
+- Living documents that evolve throughout project lifecycle
+- Cross-linked notes form a knowledge graph
 
 ## Structure
 
-<!-- claude - please update here -->
+The vault is organized around active projects and their supporting documentation:
+
+```
+Saga1/
+├── Saga Pryor DC/              # Primary project: Data center design & development
+│   ├── _Project Management/    # Project coordination & tracking
+│   │   ├── Actions/           # Action items, task lists, tracking scripts
+│   │   ├── Design Notes/      # Technical decisions & considerations
+│   │   ├── Future Phases/     # Forward-looking planning
+│   │   └── Meetings/          # Meeting notes & transcripts
+│   ├── Archive/               # Superseded documents & old versions
+│   ├── Basis of Design/       # BOD documents organized by CSI division
+│   ├── BIM-Architect/         # Architecture & BIM requirements
+│   ├── Power/                 # Power systems, BESS, solar, generators
+│   └── Reference Materials/   # Standards, specs, external documentation
+└── .obsidian/                 # Obsidian configuration (plugins, workspace)
+```
+
+**Key Navigation:**
+- Project root: `Saga Pryor DC/` contains all active work
+- BOD files: Numbered by CSI division (e.g., `7BOD - Electrical (CSI Div 26).md`)
+- Management: `_Project Management/` for coordination docs
+- Historical: `Archive/` for outdated content
 
 ## Working with This Vault
 
 **No build commands** - This is a documentation repository with no compilation, testing, or deployment steps.
 
 **Prompting:**
-- Many prompts given are "typed" in using a speech-to-text app. This often results in strange spellings of words or sentences that are slightly off-meaning but sound similar. Please infer what I actually mean vs. taking all text literally.
+- Many prompts are dictated via speech-to-text, which can result in:
+  - Homophone errors (e.g., "there" vs "their", "sight" vs "site")
+  - Technical terms transcribed phonetically
+  - Missing punctuation or run-on sentences
+- **Always infer the intended meaning** based on context rather than taking text literally
+- When uncertain about speech-to-text errors, ask for clarification
 
 **File Operations:**
 - All files are markdown (.md) unless otherwise specified
-- Files may contain Obsidian-specific syntax like `[[wikilinks]]` for internal linking
-- Images and attachments may be referenced inline or stored as separate files
-- Comments such as <!-- This is a comment --> are often used to provide commentary to both claude and to other users of the documents.
-- Please pay special attention when @claude is highlighted anywhere in a document as it means this information is intended for you.
+- Files may contain Obsidian-specific syntax:
+  - `[[wikilinks]]` for internal linking between notes
+  - `[[note#heading]]` for linking to specific sections
+  - `![[image.png]]` for embedding images
+  - Tags using `#tag` format (e.g., `#data-center`, `#electrical`)
+- HTML comments are used for inline instructions:
+  - `<!-- This is a comment -->` provides context for readers
+  - `<!-- @claude -->` flags content specifically for AI attention
+  - **Always pay attention to `@claude` mentions** - they contain important instructions
 
 **Common Tasks:**
-- Creating new notes: Add markdown files in the appropriate PARA category
-- Linking notes: Use `[[Note Title]]` format for internal links
-- Organizing: Move completed projects to Archive, active items to Projects
+- **Creating new notes:** Place in the appropriate project folder or subfolder
+- **Linking notes:** Use `[[Note Title]]` format for internal links
+- **Organizing:** Move superseded/outdated content to Archive folders
+- **Updating project docs:** BOD files and project management documents are living documents
+- **Cross-referencing:** Always search for related notes to link and build the knowledge graph
 
 **When Creating or Editing Notes:**
-- **Always add a timestamp** at the top of new files in the format: `**Created:** YYYY-MM-DD HH:MM` (use 24-hour format)
-- Add relevant tags using `#tag` format to categorize content (e.g., `#sales`, `#ai`, `#health`, `#recipe`, `#finance`)
-- Include links to related notes using `[[Note Title]]` format to build connections across the vault
-- Search for and link to existing notes on similar topics to strengthen the knowledge graph
-- Don't use too many line breaks. Ideally line breaks are between larger sections of the content. Example: If there's a 5 part paper, and within each part there are multiple sections, only put lines between parts not every section.
+
+1. **Add metadata header:**
+   ```markdown
+   **Created:** YYYY-MM-DD HH:MM
+   **Tags:** #tag1 #tag2 #tag3
+   **Related:** [[Related Note 1]], [[Related Note 2]]
+   ```
+
+2. **Use appropriate tags:**
+   - Project-specific: `#data-center`, `#pryor-dc`, `#bim`, `#electrical`
+   - Domain: `#architecture`, `#power-systems`, `#mechanical`, `#procurement`
+   - Document type: `#bod`, `#meeting-notes`, `#action-items`, `#reference`
+
+3. **Build connections:**
+   - Search for existing notes on similar topics before creating new ones
+   - Link to related notes using `[[Note Title]]` format
+   - Reference specific sections with `[[Note#Section]]`
+   - This strengthens the knowledge graph and prevents duplicate content
+
+4. **Formatting guidelines:**
+   - Use horizontal rules (`---`) sparingly - only between major sections
+   - Don't over-break content - keep related paragraphs together
+   - Example: In a 5-part document, use breaks between parts, not between every subsection
+   - Use headings (`##`, `###`) to structure content instead of excessive line breaks
 
 **Obsidian Configuration:**
 - Workspace state is stored in `.obsidian/workspace.json`
@@ -43,11 +109,36 @@ This is an Obsidian vault - a personal knowledge management system organized usi
 
 ## Git Syncing
 
-**To sync vault changes to GitHub:**
-When the user asks to "commit my obsidian updates" or similar:
-1. Run `git status` to check for changes
-2. Run `git diff` to view what changed
-3. Run `git add . && git commit -m "descriptive message" && git push`
-4. Use the standard commit message format with Claude Code attribution
+**Obsidian Git Plugin:**
+- The vault uses the Obsidian Git community plugin for automatic syncing
+- Configuration: `.obsidian/plugins/obsidian-git/data.json`
+- Auto-commit: Every 60 minutes
+- Auto-pull: Every 30 minutes
+- Auto-pull on startup: Enabled
 
-The repository is configured with GitHub CLI authentication, so pushes should work automatically.
+**Manual Git Operations:**
+When the user asks to "commit my obsidian updates" or similar:
+
+1. **Check status:**
+   ```bash
+   cd "Saga1" && git status
+   ```
+
+2. **Review changes:**
+   ```bash
+   git diff
+   ```
+
+3. **Commit and push:**
+   ```bash
+   git add . && git commit -m "vault backup: YYYY-MM-DD HH:mm:ss
+
+   🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+   Co-Authored-By: Claude <noreply@anthropic.com>" && git push
+   ```
+
+**Repository Details:**
+- Remote: `https://github.com/bentonperet/Saga.git`
+- Branch: `main`
+- Authentication: Configured via GitHub CLI/credentials
