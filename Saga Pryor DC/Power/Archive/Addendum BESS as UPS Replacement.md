@@ -1,4 +1,6 @@
 Hello how are you
+IM FINE!!
+
 Written by Erik Stockglausner and his GPT Model
 
 
