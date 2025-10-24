@@ -1,0 +1,52 @@
+﻿Name,Action Description,Assigned To,Category,Cost Impact,Dependencies,Due Date,Notes_Comments,Organization,Priority,Related Decision IDs,Status,Timeline Impact
+A-008,"Provide BESS-as-UPS analysis: capacity sizing and functionality, next steps",Benton,Power & Grid,,None,"October 18, 2025","Size BESS for UPS replacement + concurrency
+NO BESS - Need to submit paperwork to Saga",PGCIS,1-Critical Path,D1 U2,Review-Send,
+A-041,Complete generator or turbine configuration modeling,Benton,Power & Grid,,A-023 A-024,"November 8, 2025",,PGCIS,1-Critical Path,E1 D2,In Progress,
+A-002,Identify natural gas provider and confirm service availability and Provide natural gas line details (location provider specifications),David,Power & Grid,,None,"October 18, 2025","Critical for generator fuel strategy decision, do we have the pressure, reliability, etc. to run a turbine or gens?",Saga,1-Critical Path,D2 E5,In Progress,
+A-005,Send Camelot Scope to PGCIS for review,David,Power & Grid,,None,"October 15, 2025",Avoid overlap with PGCIS engineering work. DONE,Saga,1-Critical Path,V8 V10,Complete,
+A-049,Confirm that Environmental consultant will confirm emissions/air permitting path,David,Environmental/Permitting,,A-042,"November 8, 2025","Make sure we can run nat gas, diesel gens or turbine as needed",Saga,1-Critical Path,E4 E7,In Progress,2-6 months depending on path
+A-039,Initiate formal OG&E 138 kV interconnection application,Saga,Power & Grid,$50K-$150K study fees + upgrade costs,None,,"6-18+ month lead time - START IMMEDIATELY, Waiting on input from Camelot on CHILL and HILL process for large load interconnection. ",Saga,1-Critical Path,V10 D1,Not Started,6-18+ months if delayed
+A-038,Schedule follow-up meetings for next week (Monday/Tuesday Oct 20/21),Benton,Project Management,,None,"October 18, 2025","Mid-point check before Oct 30 meeting
+
+Also include an architecture walkthrough meeting so that we can get David to review internal. Wed Internal - Thur/Fri with Saga",PGCIS,2-Critical,All,Complete,
+A-011,Research turbine lead times (verify 5-year concern),Erik,Procurement,,None,"October 18, 2025",Critical decision driver for generator strategy - looks like a year lead time is about standard.,PGCIS,2-Critical,D2 P2 P7,Complete,5 years if true
+A-009,Provide BESS-as-UPS analysis: CapEx savings estimate (UPS elimination/reduction),Benton,Power & Grid,$3M-$5M savings,None,"October 18, 2025",Estimated $3-5M savings,PGCIS,2-Critical,D1,Complete,
+A-004,Confirm if ALTA survey (next week) includes natural gas utility info,David,Power & Grid,,None,"October 18, 2025",Add to survey scope if not included,Saga,2-Critical,D2,Not Started,
+A-020,Ask Camelot if fiber analysis includes GCP on-ramp feasibility,Aaron,Connectivity,,None,"October 18, 2025",Determine if separate telecom consultant needed,Saga,2-Critical,C2 C3,Not Started,
+A-040,Receive and review Camelot studies (net load fiber SPP market),Benton,Power & Grid,,None,"October 31, 2025",Expected end of October,PGCIS,3-High,V7 V8 V9,In Progress,
+A-036,Research GCP Cloud Interconnect requirements (if Camelot doesn't cover),Benton,Connectivity,,A-020,"October 25, 2025","Only if not in Camelot scope, and determine if telecom consultant is needed to engage",PGCIS,3-High,C1 C2,Blocked,
+A-032,Evaluate and recommend cooling strategy - integrated free cooling coil chillers vs current design,Erik,Mechanical/Cooling,TBD,None,"October 25, 2025","Closed-loop system analysis, Review free cooling hour curves for Tulsa climate",PGCIS,3-High,M1 M4,Not Started,
+A-034,Provide CapEx difference and efficiency comparison for closed-loop cooling,Benton,Mechanical/Cooling,TBD,A-032,"October 25, 2025","Sustainability vs efficiency trade-off
+
+CAPEX/OPEX / Total Cost of Ownership
+
+Use note:
+Packaged air cooled chiller with a free cooling coil. When you don’t need mech cooling you just pull the cold air across… ",PGCIS,3-High,M4,In Progress,
+A-047,Design for incremental RDHx deployment with base chilled water loop,Benton,Mechanical/Cooling,,A-019,"November 8, 2025",Allow customer-driven deployment,PGCIS,3-High,M3 O1,In Progress,
+F-002,Confirm diverse fiber routes to Google Pryor campus (4 miles away),David,Connectivity,,A-040,,"Client SOW indicates:
+”Site Resources:
+- Proximity to fiber and water for the site
+- Fiber information (requested by Client via email)”
+",Saga,3-High,C1,Not Started,
+A-030,Business case: Review power pass-through model and IRR calculations with consultant,David,Financial,IRR increase from 12.1% to 15-19%,None,"October 25, 2025",Look for IRR increase,Saga,3-High,D3 F1,In Progress,
+A-059,Saga to validate power pricing assumptions with financial consultant,David,Financial,,A-058,"November 22, 2025",Confirm modeling approach,Saga,3-High,D3 F1,Not Started,
+A-058,Saga financial consultant to model both power pricing strategies,David,Financial,,A-055 A-057,"November 22, 2025",All-in vs pass-through comparison,Saga,3-High,D3 F1,Not Started,
+A-001,Research demand response programs and incentive structure,Benton,Power & Grid,,None,"October 20, 2025",Determine if facility qualifies; assess revenue opportunity and design implications,Saga,3-High,D1 U3,Review-Send,
+A-043,Validate slab-on-grade can support equipment loads,Benton,Building & Site,,A-018,"November 8, 2025",After geotechnical review,PGCIS,4-Medium,S1 D4,In Progress,
+A-018,PGCIS to review geotech analysis for design implications,Benton,Building & Site,,None,"October 18, 2025",tbd,PGCIS,4-Medium,V6 S1,Not Started,
+A-012,Provide FM I-135 tornado standard details and specifications for roof,Erik,Building & Site,,None,"October 18, 2025",For insurance rate reduction analysis,PGCIS,4-Medium,E9 S7,Complete,
+A-044,Consider designing a tornado shelter specifications (location size access),Benton,Building & Site,TBD,A-012 A-029,"November 8, 2025","For 24/7 operations staff safety - include in insurance cost study as needed.
+
+Recommended hardened interiro room, such as the locker room that can double as tornado shelter.",PGCIS,4-Medium,E9,Review-Send,
+A-046,Evaluate roof type upgrade for wind/missile resistance,Benton,Building & Site,TBD,A-012 A-029,"November 8, 2025",FM I-135 compliance,PGCIS,4-Medium,E9,Complete,
+A-013,Document building envelope storm mitigation features For insurance advisor review,Benton,Building & Site,,None,"October 18, 2025",na,PGCIS,4-Medium,E9,Complete,
+A-029,Compare FM I-135 to ASCE wind map requirements for Tulsa region,Benton,Building & Site,,A-012,"October 25, 2025",Determine appropriate wind resistance standard,PGCIS,4-Medium,E9,Complete,
+A-019,"Provide CapEx difference analysis: RDHx vs fan walls
+
+Also update architecture about fan wall sizing, as this will free up lots of SQ FT in the DC.",Benton,Mechanical/Cooling,TBD,None,"October 18, 2025","Cost delta for cooling strategy change
+",PGCIS,4-Medium,O1 M3,In Progress,
+A-024,Validate substation transformer capacity from financial consultant baseline,David,Power & Grid,,None,"October 25, 2025",Verify 12-15 MVA sizing is adequate - Official Transformer sizing shall be 20/16/12 MVA ONAN/ONAF1/ONAF2              138kV-34.5kV 13.2kv TERT.,Saga,4-Medium,U1,Complete,
+A-021,Get Generac lead time quotes for diesel generators (4× 3750 kVA),David,Procurement,,None,"October 25, 2025",Compare to turbine lead times. Including in work with Constructiv,Saga,4-Medium,D2 P2,Not Started,$0.5M-$1M slip cost; 6-9 months if delayed
+A-022,Clarify OCP compliance specification rationale from fin. Consultant,David,Procurement,,Design Phase,,Why did they put this in?,Saga,4-Medium,E3,Not Started,
+A-018,Put geotechnical desktop analysis in Dropbox for PGCIS,David,Building & Site,,None,"October 18, 2025",PGCIS to review for design implications,Saga,4-Medium,V6 S1,Complete,
+F-012,Conduct formal water/wastewater capacity study,TBD,Mechanical/Cooling,$5K-$15K study + potential extension costs,A-035,,If not closed-loop: $5K-$15K study,TBD,4-Medium,M4,Not Started,Potential for expensive utility extensions

@@ -1,0 +1,87 @@
+{
+  "dataSource": {
+    "type": "csv",
+    "file": "Action Items.csv"
+  },
+  "columns": [
+    {
+      "name": "Action ID",
+      "key": "Action ID",
+      "input": "text",
+      "width": "100px"
+    },
+    {
+      "name": "Priority",
+      "key": "Priority",
+      "input": "select",
+      "options": [
+        "1-Critical Path",
+        "2-Critical",
+        "3-High",
+        "4-Medium"
+      ],
+      "width": "120px"
+    },
+    {
+      "name": "Category",
+      "key": "Category",
+      "input": "select",
+      "options": [
+        "Power & Grid",
+        "Building & Site",
+        "Financial",
+        "Mechanical/Cooling",
+        "Procurement",
+        "Connectivity",
+        "Environmental/Permitting",
+        "Project Management"
+      ],
+      "width": "150px"
+    },
+    {
+      "name": "Action",
+      "key": "Action Description",
+      "input": "text",
+      "width": "300px"
+    },
+    {
+      "name": "Assigned To",
+      "key": "Assigned To",
+      "input": "select",
+      "options": ["Benton", "David", "Erik", "Walker", "Saga", "TBD"],
+      "width": "100px"
+    },
+    {
+      "name": "Org",
+      "key": "Organization",
+      "input": "select",
+      "options": ["PGCIS", "Saga", "External", "TBD"],
+      "width": "80px"
+    },
+    {
+      "name": "Status",
+      "key": "Status",
+      "input": "select",
+      "options": ["Not Started", "In Progress", "Blocked", "Complete"],
+      "width": "120px"
+    },
+    {
+      "name": "Due Date",
+      "key": "Due Date",
+      "input": "date",
+      "width": "100px"
+    },
+    {
+      "name": "Dependencies",
+      "key": "Dependencies",
+      "input": "text",
+      "width": "100px"
+    },
+    {
+      "name": "Decisions",
+      "key": "Related Decision IDs",
+      "input": "text",
+      "width": "100px"
+    }
+  ]
+}
