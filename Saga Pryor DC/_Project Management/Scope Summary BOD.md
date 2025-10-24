@@ -16,7 +16,6 @@ Requirements & Feasibility Memo
 Produce a short decision-grade Requirements & Feasibility Memo that documents Equipment preferences and constraints, long-lead alerts, spatial/adjacency needs, KPI targets (PUE band, uptime objective), and “known unknowns” that could change scope or cost (telecom and ops interconnection complexity, floodplain/wetlands, major permitting obstacles). 
 
 This memo is a practical checklist for what must be resolved for investor confidence and for scoping the BoD/BIM work. It will list recommended triggers (e.g., “order switchgear if funding > X or after permit Y”) and immediate owner actions.
-
 Estimated hours (total for this deliverable): BIM Lead 4 hrs; Mechanical Lead 8 hrs; Electrical Lead 8 hrs; Ops Lead 8 hrs.
 
 Target delivery window: Week 1 (initial memo) with final update by Week 2 after intake.
