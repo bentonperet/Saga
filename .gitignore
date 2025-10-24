@@ -1,0 +1,13 @@
+# Obsidian workspace files (user-specific, don't sync)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+
+# Obsidian cache
+.obsidian/cache
+
+# macOS system files
+.DS_Store
+
+# Windows system files
+desktop.ini
+Thumbs.db
