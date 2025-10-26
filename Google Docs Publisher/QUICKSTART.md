@@ -16,7 +16,6 @@
    - Move to `Google Docs Publisher/client_secret.json`
 
 Bentons client ID: 802257196931-rli4hi6sndno44b4jmmrqdtuafstpi08.apps.googleusercontent.com
-
 Secret: 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
 
 1. **Authenticate**

@@ -18,16 +18,6 @@ class DocsPublisher {
   }
 
   /**
-   * Safely create a dimension object with proper units
-   */
-  makeDimension(magnitude) {
-    return {
-      magnitude: magnitude || 0,
-      unit: 'PT'
-    };
-  }
-
-  /**
    * Create a new Google Doc and publish content
    * @param {string} title - Document title
    * @param {Array} blocks - Parsed markdown blocks
@@ -183,9 +173,9 @@ class DocsPublisher {
         range: { startIndex, endIndex },
         paragraphStyle: {
           namedStyleType: namedStyle,
-          lineSpacing: (brandStyle.lineSpacing || 1.15) * 100,
-          spaceAbove: this.makeDimension(brandStyle.beforeSpacingPt),
-          spaceBelow: this.makeDimension(brandStyle.afterSpacingPt)
+          lineSpacing: brandStyle.lineSpacing * 100,
+          spaceAbove: { magnitude: brandStyle.beforeSpacingPt, unit: 'PT' },
+          spaceBelow: { magnitude: brandStyle.afterSpacingPt, unit: 'PT' }
         },
         fields: 'namedStyleType,lineSpacing,spaceAbove,spaceBelow'
       }
@@ -197,7 +187,7 @@ class DocsPublisher {
         range: { startIndex, endIndex: endIndex - 1 }, // Exclude newline
         textStyle: {
           bold: brandStyle.bold,
-          fontSize: this.makeDimension(brandStyle.fontSizePt),
+          fontSize: { magnitude: brandStyle.fontSizePt, unit: 'PT' },
           foregroundColor: {
             color: { rgbColor: hexToRgb(brandStyle.color) }
           }
@@ -262,7 +252,7 @@ class DocsPublisher {
         updateTextStyle: {
           range: { startIndex: itemStartIndex, endIndex: itemEndIndex - 1 },
           textStyle: {
-            fontSize: this.makeDimension(BRAND.BODY.fontSizePt),
+            fontSize: { magnitude: BRAND.BODY.fontSizePt, unit: 'PT' },
             foregroundColor: {
               color: { rgbColor: hexToRgb(BRAND.BODY.color) }
             }
@@ -315,7 +305,7 @@ class DocsPublisher {
       updateTextStyle: {
         range: { startIndex, endIndex: endIndex - 1 },
         textStyle: {
-          fontSize: this.makeDimension(BRAND.CODE.fontSizePt),
+          fontSize: { magnitude: BRAND.CODE.fontSizePt, unit: 'PT' },
           foregroundColor: {
             color: { rgbColor: hexToRgb(BRAND.CODE.color) }
           },
@@ -333,8 +323,8 @@ class DocsPublisher {
         range: { startIndex, endIndex },
         paragraphStyle: {
           lineSpacing: BRAND.CODE.lineSpacing * 100,
-          spaceAbove: this.makeDimension(BRAND.CODE.beforeSpacingPt),
-          spaceBelow: this.makeDimension(BRAND.CODE.afterSpacingPt)
+          spaceAbove: { magnitude: BRAND.CODE.beforeSpacingPt, unit: 'PT' },
+          spaceBelow: { magnitude: BRAND.CODE.afterSpacingPt, unit: 'PT' }
         },
         fields: 'lineSpacing,spaceAbove,spaceBelow'
       }
@@ -347,84 +337,43 @@ class DocsPublisher {
    * Insert a blockquote
    */
   insertBlockquote(block) {
-    // Flatten blockquote blocks into simple paragraphs with blockquote styling
     block.blocks.forEach(innerBlock => {
-      if (innerBlock.type === 'paragraph') {
-        // Insert as styled paragraph with blockquote styling
-        const startIndex = this.cursorIndex;
-        const fullText = innerBlock.runs.map(r => r.text).join('') + '\n';
-        const endIndex = startIndex + fullText.length;
+      const startIndex = this.cursorIndex;
 
-        // 1. Insert text
-        this.requests.push({
-          insertText: {
-            location: { index: startIndex },
-            text: fullText
-          }
-        });
+      // Process the inner block normally
+      this.processBlock(innerBlock);
 
-        // 1.5 Apply inline formatting to runs
-        let offset = 0;
-        innerBlock.runs.forEach(run => {
-          const runStart = startIndex + offset;
-          const runEnd = runStart + run.text.length;
+      const endIndex = this.cursorIndex;
 
-          const textStyle = {};
-          if (run.bold) textStyle.bold = true;
-          if (run.italic) textStyle.italic = true;
-          if (run.link) {
-            textStyle.link = { url: run.link };
-            textStyle.underline = true;
-          }
+      // Apply blockquote styling
+      this.requests.push({
+        updateParagraphStyle: {
+          range: { startIndex, endIndex },
+          paragraphStyle: {
+            indentStart: { magnitude: BRAND.BLOCKQUOTE.indentStart, unit: 'PT' },
+            borderLeft: {
+              color: { color: { rgbColor: hexToRgb(BRAND.BLOCKQUOTE.borderColor) } },
+              width: { magnitude: 3, unit: 'PT' },
+              dashStyle: 'SOLID'
+            }
+          },
+          fields: 'indentStart,borderLeft'
+        }
+      });
 
-          if (Object.keys(textStyle).length > 0) {
-            this.requests.push({
-              updateTextStyle: {
-                range: { startIndex: runStart, endIndex: runEnd },
-                textStyle,
-                fields: Object.keys(textStyle).join(',')
-              }
-            });
-          }
-
-          offset += run.text.length;
-        });
-
-        // 2. Apply blockquote paragraph style
-        this.requests.push({
-          updateParagraphStyle: {
-            range: { startIndex, endIndex },
-            paragraphStyle: {
-              lineSpacing: (BRAND.BLOCKQUOTE.lineSpacing || 1.15) * 100,
-              spaceAbove: this.makeDimension(BRAND.BLOCKQUOTE.beforeSpacingPt),
-              spaceBelow: this.makeDimension(BRAND.BLOCKQUOTE.afterSpacingPt),
-              indentStart: this.makeDimension(BRAND.BLOCKQUOTE.indentStart)
-              // Note: borderLeft is not supported via API - would need manual styling
-            },
-            fields: 'lineSpacing,spaceAbove,spaceBelow,indentStart'
-          }
-        });
-
-        // 3. Apply blockquote text style
-        this.requests.push({
-          updateTextStyle: {
-            range: { startIndex, endIndex: endIndex - 1 },
-            textStyle: {
-              fontSize: this.makeDimension(BRAND.BLOCKQUOTE.fontSizePt),
-              italic: true,
-              foregroundColor: {
-                color: { rgbColor: hexToRgb(BRAND.BLOCKQUOTE.color) }
-              }
-            },
-            fields: 'fontSize,italic,foregroundColor'
-          }
-        });
-
-        this.cursorIndex = endIndex;
-      } else {
-        // For other block types (headings, lists), process normally without blockquote styling
-        this.processBlock(innerBlock);
-      }
+      // Override text color for blockquote
+      this.requests.push({
+        updateTextStyle: {
+          range: { startIndex, endIndex: endIndex - 1 },
+          textStyle: {
+            italic: true,
+            foregroundColor: {
+              color: { rgbColor: hexToRgb(BRAND.BLOCKQUOTE.color) }
+            }
+          },
+          fields: 'italic,foregroundColor'
+        }
+      });
     });
   }
 
@@ -477,7 +426,7 @@ class DocsPublisher {
               range: { startIndex: cellIndex, endIndex: cellEndIndex },
               textStyle: {
                 weightedFontFamily,
-                fontSize: this.makeDimension(BRAND.BODY.fontSizePt),
+                fontSize: { magnitude: BRAND.BODY.fontSizePt, unit: 'PT' },
                 bold,
                 foregroundColor: {
                   color: { rgbColor: hexToRgb(BRAND.BODY.color) }
@@ -550,8 +499,8 @@ class DocsPublisher {
         range: { startIndex, endIndex },
         paragraphStyle: {
           alignment: 'CENTER',
-          spaceAbove: this.makeDimension(6),
-          spaceBelow: this.makeDimension(6)
+          spaceAbove: { magnitude: 6, unit: 'PT' },
+          spaceBelow: { magnitude: 6, unit: 'PT' }
         },
         fields: 'alignment,spaceAbove,spaceBelow'
       }
