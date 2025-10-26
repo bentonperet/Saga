@@ -32,7 +32,29 @@ Multi-layered security system protects critical infrastructure, customer equipme
 - **Layer 2:** Building perimeter (doors, windows, vehicle barriers)
 - **Layer 3:** Internal access control (data hall, electrical enclosures, NOC)
 - **Layer 4:** Customer cage/suite access (individual customer spaces)
-<!-- talk about construction-specific layers. Sometimes there will be construction workers in the envelope, think about how to represent this -->
+
+---
+
+## CONSTRUCTION PHASE SECURITY
+
+### Temporary Construction Perimeter
+- **Phased Build Separation:** Temporary fencing isolates construction zones from operational areas during phased deployments
+- **Construction Access Points:** Dedicated entry/exit for construction personnel separate from operational facility
+
+### Construction Worker Access Control
+- **Temporary Badge System:** Contractor badges valid only during project duration
+- **Sign-In/Sign-Out:** Daily logs at security checkpoint with photo ID verification
+- **Escort Requirements:** Non-badged vendors/deliveries require escort by badged contractor or facility staff
+
+### Equipment & Material Security
+- **Secure Staging:** Locked storage areas for high-value equipment (UPS modules, generators, network gear) during installation
+- **Delivery Acceptance:** Security checkpoint verifies deliveries against approved manifest before site entry
+- **After-Hours Access:** Requires 24-hour advance notice and facility approval
+
+### Transition to Operational Security
+- **Badge Deactivation:** All construction badges deactivated at substantial completion
+- **System Handoff:** Transfer from temporary construction security to permanent operational security systems
+- **Commissioning:** Final security system testing and integration with BMS/DCIM before customer occupancy
 
 ---
 
