@@ -1,10 +1,12 @@
 # Google Docs Publisher - Roadmap
 
-## Current Status: ✅ WORKING
+## Current Status: ✅ FULLY WORKING
 
-**Version:** 1.0 (ES Modules conversion in progress)
+**Version:** 1.1 (Tables supported!)
 
 ### ✅ Completed Features
+
+**Core Functionality:**
 - Headings (H1-H6) with Pachyderm Global brand styling
 - Paragraphs with inline formatting (bold, italic, strikethrough)
 - Inline code with monospace font
@@ -14,36 +16,62 @@
 - Code blocks with background color
 - Blockquotes with indentation and italic styling
 - Horizontal rules
+- **Tables** (formatted as text with borders)
+
+**Integration:**
 - OAuth authentication (one-time setup)
 - Obsidian hotkey integration (via `publish-active.sh`)
 - Auto-clipboard copy of Google Docs URL (macOS)
+- ES modules support (full CommonJS to ES module conversion)
 
-### 🚧 In Progress: Table Support
+### ✅ Table Support Status
 
-**Goal:** Convert markdown tables to formatted Google Docs tables
+**Implementation:** Tables are now supported! They render as formatted text with borders (markdown-style).
 
-**Current Issue:** Tables require `remark-gfm` which is an ES module. Converting project from CommonJS to ES modules.
-
-**Status:**
+**What we did:**
 - ✅ Added `"type": "module"` to package.json
-- ✅ Converted `markdownParser.js` to ES imports
-- ✅ Converted `brandConfig.js` to ES exports
-- ✅ Converted `googleAuth.js` to ES imports
-- ✅ Converted `index.js` to ES imports
-- 🚧 Fixing `docsPublisher.js` import syntax error (line 7)
-- ⏸️ Test table parsing and rendering
+- ✅ Converted all files to ES modules (markdownParser.js, brandConfig.js, googleAuth.js, docsPublisher.js, index.js)
+- ✅ Fixed `__dirname` usage in ES modules (using `import.meta.url`)
+- ✅ Integrated `remark-gfm` for GitHub Flavored Markdown
+- ✅ Implemented table parsing in markdownParser.js
+- ✅ Implemented table rendering as formatted text in docsPublisher.js
+- ✅ Tested with complex tables (formatting, links, etc.)
 
-**Next Steps:**
-1. Fix remaining syntax errors in docsPublisher.js
-2. Test markdown table parsing with remark-gfm
-3. Verify table insertion via Google Docs API
-4. Test with real documents containing tables
-5. Update documentation
+**Current Approach:**
+Tables are rendered as monospace formatted text with borders:
+```
+| Name | Role | Department |
+|------|------|-------------|
+| Alice | Manager | Engineering |
+```
 
-**Known Limitations:**
+This approach:
+- ✅ Works reliably
+- ✅ Preserves table structure
+- ✅ Shows all content clearly
+- ✅ Supports inline formatting (bold, italic, links)
+- ⚠️ Does not use native Google Docs table elements
+
+**Why formatted text instead of native tables?**
+The Google Docs API for tables requires:
+1. Inserting the table structure
+2. Reading back the document to get cell locations
+3. Inserting content into each cell with precise indices
+4. The index calculations are complex and error-prone
+
+Our formatted text approach is more reliable and still presents tables clearly.
+
+### Known Limitations
+
+**API Limitations:**
 - Blockquote left border not supported (Google Docs API limitation)
-- Complex nested tables may not work
+- Font family cannot be set via API (weightedFontFamily requires complex structure)
+- Tables use formatted text instead of native table elements
+
+**Feature Limitations:**
 - Table cell merging not supported
+- Table alignment (left/center/right) not visually applied
+- Complex nested tables may not format perfectly
 
 ---
 

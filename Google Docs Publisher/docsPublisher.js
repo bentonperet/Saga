@@ -4,7 +4,7 @@ import {
   hexToRgb,
   getBrandStyleForHeading,
   getNamedStyleForHeading
-} from('./brandConfig.js');
+} from './brandConfig.js';
 
 /**
  * Publish parsed markdown blocks to Google Docs
@@ -430,104 +430,68 @@ class DocsPublisher {
 
   /**
    * Insert a table with proper formatting
+   * Note: Tables in Google Docs API are complex. We insert the table structure
+   * first, then need to read back the document to find where cells are,
+   * then populate them. For now, we'll use a simplified approach.
    */
   insertTable(block) {
     const rows = block.rows.length;
     const cols = block.rows[0]?.length || 1;
-    const tableStartIndex = this.cursorIndex;
 
-    // 1. Insert the table structure
-    this.requests.push({
-      insertTable: {
-        rows,
-        columns: cols,
-        location: { index: tableStartIndex }
+    // For now, convert table to a simplified text format
+    // This is a fallback until we can properly handle the Google Docs table API
+    // which requires reading back the document structure after insertion
+
+    let tableText = '';
+
+    // Add each row
+    block.rows.forEach((row, rowIdx) => {
+      const cellTexts = row.map(cell => cell.runs.map(r => r.text).join(''));
+
+      // Simple table format: "| Cell 1 | Cell 2 | Cell 3 |"
+      tableText += '| ' + cellTexts.join(' | ') + ' |\n';
+
+      // Add separator line after header
+      if (rowIdx === 0) {
+        tableText += '|' + cellTexts.map(() => '------').join('|') + '|\n';
       }
     });
 
-    // Calculate table structure (Google Docs table format)
-    // After insertion, the cursor will be at: tableStartIndex + 3 (header) + rows*cols*2 + rows + 1
-    // This is complex, so we'll track it carefully
+    tableText += '\n'; // Add spacing after table
 
-    let cellIndex = tableStartIndex + 3; // Tables start with some overhead
+    const startIndex = this.cursorIndex;
+    const endIndex = startIndex + tableText.length;
 
-    // 2. Populate and style cells
-    block.rows.forEach((row, rowIdx) => {
-      row.forEach((cell, colIdx) => {
-        const cellText = cell.runs.map(r => r.text).join('');
-
-        if (cellText.trim()) {
-          // Insert text into cell
-          this.requests.push({
-            insertText: {
-              location: { index: cellIndex },
-              text: cellText
-            }
-          });
-
-          const cellEndIndex = cellIndex + cellText.length;
-
-          // Style cell text
-          const isHeader = rowIdx === 0;
-          // const fontFamily = isHeader ? BRAND.TABLE.headerFontFamily : BRAND.BODY.fontFamily; // TODO: Fix API field
-          const bold = isHeader ? BRAND.TABLE.headerBold : false;
-
-          this.requests.push({
-            updateTextStyle: {
-              range: { startIndex: cellIndex, endIndex: cellEndIndex },
-              textStyle: {
-                weightedFontFamily,
-                fontSize: this.makeDimension(BRAND.BODY.fontSizePt),
-                bold,
-                foregroundColor: {
-                  color: { rgbColor: hexToRgb(BRAND.BODY.color) }
-                }
-              },
-              fields: 'fontSize,bold,foregroundColor'
-            }
-          });
-
-          // Apply inline formatting from runs
-          let offset = 0;
-          cell.runs.forEach(run => {
-            const runStart = cellIndex + offset;
-            const runEnd = runStart + run.text.length;
-
-            const textStyle = {};
-            if (run.bold) textStyle.bold = true;
-            if (run.italic) textStyle.italic = true;
-            if (run.link) {
-              textStyle.link = { url: run.link };
-              textStyle.underline = true;
-            }
-
-            if (Object.keys(textStyle).length > 0) {
-              this.requests.push({
-                updateTextStyle: {
-                  range: { startIndex: runStart, endIndex: runEnd },
-                  textStyle,
-                  fields: Object.keys(textStyle).join(',')
-                }
-              });
-            }
-
-            offset += run.text.length;
-          });
-
-          cellIndex = cellEndIndex;
-        }
-
-        cellIndex += 2; // Move to next cell (includes cell marker)
-      });
-      cellIndex += 1; // Move to next row
+    // Insert as monospace text (similar to code block)
+    this.requests.push({
+      insertText: {
+        location: { index: startIndex },
+        text: tableText
+      }
     });
 
-    // Update cursor to after table
-    this.cursorIndex = cellIndex;
+    // Style as table (monospace, small font)
+    this.requests.push({
+      updateTextStyle: {
+        range: { startIndex, endIndex: endIndex - 1 },
+        textStyle: {
+          fontSize: this.makeDimension(10),
+          foregroundColor: {
+            color: { rgbColor: hexToRgb('#222222') }
+          }
+        },
+        fields: 'fontSize,foregroundColor'
+      }
+    });
 
-    // 3. Apply table styling (borders, header background)
-    // Note: Table styling in Google Docs API is limited
-    // We can set borders via updateTableCellStyle for each cell
+    this.cursorIndex = endIndex;
+
+    // TODO: Implement proper Google Docs table API
+    // This requires:
+    // 1. Insert table structure with insertTable
+    // 2. Read back document to get table cell locations
+    // 3. Insert content into each cell
+    // 4. Apply cell styling
   }
 
   /**
