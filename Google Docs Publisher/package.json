@@ -2,6 +2,7 @@
   "name": "obsidian-google-docs-publisher",
   "version": "1.0.0",
   "description": "Publish Obsidian markdown files to formatted Google Docs",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "publish": "node index.js",

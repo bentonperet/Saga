@@ -1,47 +1,51 @@
 # Obsidian → Google Docs Publisher
 
-Publish your Obsidian markdown notes to beautifully formatted Google Docs with one click.
+Publish your Obsidian markdown notes to beautifully formatted Google Docs with one hotkey.
+
+## ✅ Status: WORKING
+
+Tables support in progress (see [ROADMAP.md](ROADMAP.md))
 
 ## Quick Start
 
-1. **First-time setup** (see [SETUP.md](SETUP.md)):
-   - Create Google Cloud project
-   - Enable APIs (Docs + Drive)
-   - Download OAuth credentials to `client_secret.json`
-   - Run first-time authentication
+**[→ See QUICKSTART.md for 10-minute setup](QUICKSTART.md)**
 
-2. **Install Obsidian Shell Commands plugin**
-
-3. **Add command** in Obsidian:
-   ```bash
-   node "/path/to/Google Docs Publisher/index.js" "{{file_path:absolute}}"
-   ```
-
-4. **Set a hotkey** and publish!
+1. Create Google Cloud project + OAuth credentials
+2. Install Obsidian Shell Commands plugin
+3. Add publish command + hotkey
+4. Press hotkey → Get Google Doc link!
 
 ## Features
 
-✨ **Full markdown support:**
-- Headings with brand styling (Rubik font)
-- Bold, italic, strikethrough, code
-- Links
+**✅ Full Support:**
+- Headings (H1-H6) with Pachyderm Global brand styling (Rubik font, custom colors)
+- Inline formatting: **bold**, *italic*, ~~strikethrough~~, `code`
+- [Clickable links](https://example.com)
 - Bulleted & numbered lists
-- Tables with headers
-- Code blocks
-- Blockquotes
+- Code blocks with monospace font + background
+- Blockquotes with indentation
 - Horizontal rules
+- Auto-copy URL to clipboard (macOS)
 
-🎨 **Brand styling:**
-- Pachyderm Global color scheme
-- Professional fonts (Rubik + Source Sans 3)
-- Consistent spacing & formatting
-- Customizable in `brandConfig.js`
+**⏸️ In Progress:**
+- Tables (converting to ES modules - see ROADMAP.md)
 
-🚀 **Smart features:**
-- Auto-copy URL to clipboard
-- Optional URL append to markdown
-- Debug mode for troubleshooting
-- Fast batch API requests
+**❌ Not Supported:**
+- Images (shows `[Image: alt text]` placeholder)
+- Footnotes
+- Task lists (converted to bullets)
+- Mermaid diagrams
+
+## Usage
+
+### From Obsidian
+Press your hotkey (`Alt+Shift+P`) → Get Google Docs URL!
+
+### From Command Line
+```bash
+cd "Google Docs Publisher"
+node index.js "../path/to/file.md"
+```
 
 ## File Structure
 
@@ -49,57 +53,37 @@ Publish your Obsidian markdown notes to beautifully formatted Google Docs with o
 Google Docs Publisher/
 ├── index.js              # Main CLI script
 ├── googleAuth.js         # OAuth authentication
-├── markdownParser.js     # Markdown → structured blocks
+├── markdownParser.js     # Markdown → blocks
 ├── docsPublisher.js      # Google Docs API integration
-├── brandConfig.js        # Brand styles (colors, fonts)
-├── package.json          # Dependencies
-├── SETUP.md             # Detailed setup guide
-├── README.md            # This file
-├── client_secret.json   # Your OAuth credentials (git-ignored)
-└── token.json           # Auth token (auto-generated, git-ignored)
+├── brandConfig.js        # Brand styles (Rubik, Source Sans 3, colors)
+├── publish-active.sh     # Wrapper for Obsidian
+├── client_secret.json    # Your OAuth credentials (add this)
+├── token.json            # Auto-generated after first auth
+└── *.md                  # Documentation
 ```
-
-## Usage
-
-### From Command Line
-
-```bash
-# Basic
-node index.js "/path/to/note.md"
-
-# With options
-node index.js "/path/to/note.md" --append-url --debug
-```
-
-### From Obsidian
-
-Press your hotkey → Get Google Docs link!
 
 ## Customization
 
 Edit `brandConfig.js` to change:
 - Colors (hex codes)
-- Fonts (Google Fonts only)
+- Fonts (Google Fonts)
 - Font sizes
 - Line spacing
 - Paragraph spacing
 
-## Troubleshooting
+## Documentation
 
-See [SETUP.md](SETUP.md#troubleshooting) for common issues.
-
-**Quick fixes:**
-- Delete `token.json` and re-auth
-- Check that both APIs are enabled
-- Verify file paths in Obsidian command
-- Run with `--debug` flag
+- **[QUICKSTART.md](QUICKSTART.md)** - 10-minute setup
+- **[SETUP.md](SETUP.md)** - Detailed guide + troubleshooting
+- **[OBSIDIAN-SETUP.md](OBSIDIAN-SETUP.md)** - Obsidian integration
+- **[ROADMAP.md](ROADMAP.md)** - Status + future plans
 
 ## Tech Stack
 
-- **Node.js** - Runtime
-- **googleapis** - Google Docs/Drive API
-- **remark** - Markdown parsing
-- **remark-gfm** - GitHub Flavored Markdown (tables, etc.)
+- Node.js
+- `googleapis` - Google Docs/Drive API
+- `remark` + `remark-parse` - Markdown parsing
+- `remark-gfm` - Tables (in progress)
 
 ## License
 

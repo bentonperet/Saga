@@ -1,6 +1,6 @@
 
 
-Demand Response in a Regulated Power Market - Oklahoma
+Demand Response in a Regulated Power Market - OklahomaØ
 
   
 

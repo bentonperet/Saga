@@ -1,10 +1,10 @@
-const { google } = require('googleapis');
-const {
+import { google } from "googleapis";
+import {
   BRAND,
   hexToRgb,
   getBrandStyleForHeading,
   getNamedStyleForHeading
-} = require('./brandConfig');
+} from('./brandConfig.js');
 
 /**
  * Publish parsed markdown blocks to Google Docs
@@ -573,4 +573,4 @@ class DocsPublisher {
   }
 }
 
-module.exports = DocsPublisher;
+export default DocsPublisher;

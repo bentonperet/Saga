@@ -154,7 +154,7 @@ function getNamedStyleForHeading(level) {
   }
 }
 
-module.exports = {
+export {
   BRAND,
   hexToRgb,
   getBrandStyleForHeading,

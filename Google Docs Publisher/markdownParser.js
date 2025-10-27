@@ -1,7 +1,8 @@
-const { unified } = require('unified');
-const remarkParse = require('remark-parse').default;
-const { visit } = require('unist-util-visit');
-const { toString } = require('mdast-util-to-string');
+import { unified } from 'unified';
+import remarkParse from 'remark-parse';
+import remarkGfm from 'remark-gfm';
+import { visit } from 'unist-util-visit';
+import { toString } from 'mdast-util-to-string';
 
 /**
  * Parse markdown text into structured blocks for Google Docs
@@ -11,6 +12,7 @@ const { toString } = require('mdast-util-to-string');
 function parseMarkdownToBlocks(markdownText) {
   const tree = unified()
     .use(remarkParse)
+    .use(remarkGfm) // Enable GitHub Flavored Markdown (tables, strikethrough, etc.)
     .parse(markdownText);
 
   const blocks = [];
@@ -216,7 +218,7 @@ function optimizeRuns(runs) {
   return optimized;
 }
 
-module.exports = {
+export {
   parseMarkdownToBlocks,
   optimizeRuns
 };

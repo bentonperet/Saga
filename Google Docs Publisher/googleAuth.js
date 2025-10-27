@@ -1,7 +1,7 @@
-const fs = require('fs');
-const path = require('path');
-const { google } = require('googleapis');
-const readline = require('readline');
+import fs from 'fs';
+import path from 'path';
+import { google } from 'googleapis';
+import readline from 'readline';
 
 const SCOPES = [
   'https://www.googleapis.com/auth/documents',
@@ -91,4 +91,4 @@ async function getNewToken(oAuth2Client) {
   }
 }
 
-module.exports = { getAuth };
+export { getAuth };

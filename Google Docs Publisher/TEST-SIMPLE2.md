@@ -1,6 +1,6 @@
 # Why BESS Should Not Be UPS
 
-## Technical Analysis of BESS-as-UPS Failure Modes for Tier III Data Centers
+## Technical Analysis of BESS-as-UPS Failure Modes for Tier III Data Centers!
 
 **Saga Energy Pryor Data Center**
 
