@@ -20,7 +20,7 @@
 ---
 ## EXECUTIVE SUMMARY
 
-<!-- update all these with links to their source pages - then i won't have duplicate information to maintain -->
+<!-- update all these with links to their source pages - then i won't have duplicate information to maintain, right now these are the most updated -->
 #### **FACILITY OVERVIEW**
 - **IT Capacity:** 12 MW initial (Phase 1-4), expandable to 24MW ultimately
 - **White Space:** 20,000 SF total (Phase 1: 10,000 SF fitted, Phase 2: 10,000 SF shell)
@@ -29,6 +29,7 @@
 - **Availability:** Tier III-equivalent (N+1 redundancy, concurrent maintainability)
 - **Target PUE:** 1.2-1.35 (annual average)
 - **Site:** 121 acres, Mayes County, OK (~4 miles from Google Pryor)
+- **Building Layout**: Optimized for employee comfort and the corporate sales process
 
 #### **ELECTRICAL SYSTEMS**
 - Primary Service: 138 kV to 13.8 kV substation (15-20 MVA transformer)
@@ -36,21 +37,25 @@
 - UPS Topology: Dual A/B busways, concurrent maintainability
 - Generators: 5-6 units (N+1 redundancy), fuel type TBD based on grid availability
 - Generator Fuel: Diesel (if grid Day 1) or natural gas turbine (if no grid Day 1)
-	- <!-- look through all BOD docs, and we can highlight the choices / tradeoffs here -->
-- Electrical Enclosures: Outdoor containerized (2-3 units, ~12 ft × 55 ft each {TBC})
+	- <!-- Benton - Look through all BOD docs, and we can highlight the choices / tradeoffs here -->
+- Electrical Enclosures: Outdoor containerized (12 units (space for 16) , ~12 ft × 55 ft each {TBC})
+	- <!-- Benton - Work with Muhammed to create line diagram and populate details of what goes into the outdoor containers-->
 - Distribution: 480V overhead busway at 12-14 ft elevation {TBC}
 - Electrical Code: NEC 2023, Oklahoma amendments
+- <!-- Go through switch to get to equipment list -->
 
-<!-- no mech page (hvac plumb. etc, TBD action -->
+
 #### **MECHANICAL SYSTEMS** 
-- **Cooling:** ~16 air-cooled chillers (1.5 MW each) in modular 3 MW blocks (N+1 per block) <!-- Go through switch to get to equipment list -->
+- **Cooling:** ~16 air-cooled chillers (1.5 MW each) in modular 3 MW blocks (N+1 per block)
+	- <!-- Benton - verify chiller capacity to planned IT / facility load -->
 - **Chiller Configuration:** Phased deployment aligned with IT load growth
-- **IT Cooling:** CDUs + rack-based rear-door heat exchangers (RDHx) or potentially DDC {TBC}
-- **Data Hall HVAC:** Rooftop AHUs for comfort cooling and humidity control 
+- **IT Cooling:** CDUs + rack-based rear-door heat exchangers (RDHx) or potentially DDC Cabinets (top-cooling) {TBC}
+- **Data Hall HVAC:** Rooftop AHUs for comfort cooling and humidity control
 - **Zero Water Strategy:** No evaporative cooling, closed-loop chilled water
 - **Free Cooling:** ~215 days/year in Oklahoma climate (integrated free cooling mode)
-- **Controls:** BMS with chiller rotation, setpoint reset, pump VFD optimization {TBC} - this later design?
+- **Controls:** BMS with chiller rotation, setpoint reset, pump VFD optimization {TBC}
 - **Mechanical Code:** IMC 2021, ASHRAE 90.1-2019
+- <!-- Go through switch to get to equipment list -->
 
 #### **FACILITY CONSTRUCTION**
 - **Structure:** PEMB (steel frame with insulated metal panels)
@@ -58,7 +63,7 @@
 - **Roofing:** FM-150 tornado-rated (EF-2 resistance, 135 mph winds)
 - **Tornado Hardening:** +$150-250/SF premium for FM-150 envelope {TBC}
 - **Floor:** Structural slab-on-grade (no raised floor), 6-8" reinforced concrete {TBC}
-- **Ceiling Height:** ~30 ft clear in data hall
+- **Ceiling Height:** ~30 ft clearance in data hall
 - **Hot Aisle Containment:** Optional based on customer demand
 - **Security:** Perimeter fence, mantrap entry, CCTV, card access control
 
