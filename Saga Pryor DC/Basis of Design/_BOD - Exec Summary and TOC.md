@@ -58,7 +58,7 @@
 - **Roofing:** FM-150 tornado-rated (EF-2 resistance, 135 mph winds)
 - **Tornado Hardening:** +$150-250/SF premium for FM-150 envelope {TBC}
 - **Floor:** Structural slab-on-grade (no raised floor), 6-8" reinforced concrete {TBC}
-- **Ceiling Height:** 28-30 ft clear in data hall
+- **Ceiling Height:** ~30 ft clear in data hall
 - **Hot Aisle Containment:** Optional based on customer demand
 - **Security:** Perimeter fence, mantrap entry, CCTV, card access control
 
