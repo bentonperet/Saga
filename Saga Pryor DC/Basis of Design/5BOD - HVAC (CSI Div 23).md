@@ -32,7 +32,7 @@ Hybrid cooling strategy supporting high-density AI racks (liquid-cooled) and sta
 
 ---
 
-## CHILLED WATER PLANT {TBC}
+## CHILLED WATER PLANT
 
 ### Chiller Configuration - Updated Oct 2025
 
@@ -46,11 +46,57 @@ Hybrid cooling strategy supporting high-density AI racks (liquid-cooled) and sta
 **Original (RD109):** 3× 1,177 kW chillers for 7.4 MW
 **Updated (Oct 2025):** ~16× 1.5 MW chillers for 12-24 MW (phased)
 
-### Chiller Specifications
-- **Type:** Air-cooled screw compressor chillers with integrated free cooling
-- **Capacity per Unit:** 1.5 MW (5,100 MBH)
-- **Power Supply:** Dual power supply (A+B feeds from UPS/BESS via switchboards)
-- **Refrigerant:** Low-GWP refrigerant (R-134a replacement, TBD by manufacturer)
+### Chiller Technical Specifications
+
+| **Parameter** | **Specification** |
+|---|---|
+| **Chiller Type** | Air-cooled screw compressor with integrated free cooling |
+| **Nominal Cooling Capacity** | 1.5 MW (5,100 MBH / 428 tons) |
+| **Compressor Type** | Dual screw compressors (2 per unit for staging) |
+| **Refrigerant** | Low-GWP refrigerant (R-513A or R-1234ze) |
+| **Refrigerant Charge** | ~300-400 lbs per unit |
+| **Condenser Type** | Microchannel air-cooled coil with EC fans |
+| **Fan Configuration** | 4-6 variable speed EC fans per condenser section |
+| **Evaporator Type** | Brazed plate heat exchanger (BPHE) |
+| **Chilled Water Flow** | 360 GPM @ 10°F ΔT (adjustable) |
+| **Supply Temperature Range** | 45-50°F (7-10°C) adjustable |
+| **Entering Water Temperature** | 60-65°F (15-18°C) design |
+| **Operating Range** | -20°F to 115°F ambient (-29°C to 46°C) |
+| **Efficiency (Full Load)** | 0.85-0.95 kW/ton @ 95°F ambient |
+| **Efficiency (Free Cooling)** | 0.10-0.15 kW/ton @ 45°F ambient (fans only) |
+| **Part Load Performance** | IPLV 0.60-0.70 kW/ton per AHRI 550/590 |
+| **Sound Level** | ≤85 dBA @ 30 ft (with optional sound attenuation) |
+| **Power Supply** | 480V, 3-phase, 60 Hz |
+| **Electrical Connection** | Dual A+B feeds from mechanical switchboards (480V) |
+| **Full Load Amps (FLA)** | ~240-280A per unit |
+| **Locked Rotor Amps (LRA)** | ~1,200-1,400A per compressor |
+| **Starter Type** | VFD soft start on compressors |
+| **Control Interface** | BACnet/IP, Modbus TCP/IP to BMS |
+| **Operating Modes** | (1) Full Free Cooling, (2) Partial Free Cooling, (3) Mechanical Cooling |
+| **Safety Features** | High/low pressure cutouts, freeze protection, oil level monitoring |
+| **Dimensions (L×W×H)** | ~25 ft × 10 ft × 12 ft (TBD per vendor) |
+| **Operating Weight** | ~18,000-22,000 lbs per unit |
+| **Outdoor Rating** | NEMA 3R weatherproof enclosure |
+| **Seismic Rating** | IBC 2021, Seismic Design Category C (Oklahoma) |
+| **Warranty** | 5-year compressor, 1-year parts (standard manufacturer warranty) |
+
+### Integrated Free Cooling Technology
+
+**Free Cooling Capability:**
+- Each chiller equipped with integrated economizer mode
+- Refrigerant migration cooling (refrigerant circulates via natural thermosiphon when ambient < setpoint)
+- Transition from mechanical to free cooling is automatic and seamless
+
+**Control Logic:**
+- **Mode 1 (Full Free Cooling):** Ambient ≤50°F → Compressors off, fans modulate to maintain supply temp
+- **Mode 2 (Partial Free Cooling):** 50°F < Ambient ≤75°F → Compressors run at reduced capacity, fans assist
+- **Mode 3 (Mechanical Cooling):** Ambient >75°F → Full compressor operation, fans at design speed
+
+**Annual Performance (Pryor, OK Climate):**
+- Mode 1 hours: ~3,800 hrs/year (43%)
+- Mode 2 hours: ~2,900 hrs/year (33%)
+- Mode 3 hours: ~2,060 hrs/year (24%)
+- Weighted average efficiency: 0.45-0.55 kW/ton annual
 
 ### Free Cooling Operation Modes
 

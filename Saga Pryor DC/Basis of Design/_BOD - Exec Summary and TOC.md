@@ -42,13 +42,11 @@
   - Phase 5: 64 modules (32 MW capacity)
 - UPS Topology: Dual A/B busways, concurrent maintainability
 - IT Transformers: 5,000 kVA, 13.8kV-480Y/277V (Phase 1: 2, Phase 4: 5, Phase 5: 10 units)
-- IT Switchboards: 6,000A, 480V (quantities match transformers for N+1 chain)
+- IT Switchboards: 7,000A, 480V (quantities match transformers for N+1 chain)
 - Generators: 4.3 MW natural gas turbine (Phase 1: 2, Phase 4: 5, Phase 5: 10 units, N+1 redundancy)
-- Generator Fuel: Diesel (if grid Day 1) or natural gas turbine (if no grid Day 1)
 - Electrical Enclosures: Outdoor containerized (12 units with space for 16, ~12 ft × 55 ft each {TBC})
 - Distribution: 480V overhead busway at 12-14 ft elevation
 - Electrical Code: NEC 2023, Oklahoma amendments
-- **Design Note:** Generator → Transformer → Switchboard quantities match exactly to maintain unbroken N+1 redundancy chain
 
 
 #### **MECHANICAL SYSTEMS** 
