@@ -14,7 +14,7 @@
 - Structure: PEMB (steel frame with insulated metal panels)
 - Configuration: Single story
 - Roofing: FM-150 tornado-rated (EF-2 resistance, 135 mph winds)
-- Tornado Hardening: +$150-250/SF premium for FM-150 envelope {TBC}
+- Tornado Hardening: +$150-250/SF premium for FM-150 envelope {TBC} <!-- @claude please research these numbers and provide a percentage of confidence rating, that would be about $7M extra on the building? Seems high... -->
 - Floor: Structural slab-on-grade (no raised floor), 6-8" reinforced concrete {TBC}
 - Ceiling Height: 28-30 ft clear in data hall
 - Hot Aisle Containment: Overhead distribution, no underfloor plenum
@@ -24,7 +24,7 @@
 
 ## DIVISION 02 – EXISTING CONDITIONS
 
-### Site Surveys Required
+### Site Surveys Planned / Required
 - **ALTA/NSPS survey:** Confirm legal boundaries, easements, topography
 - **Geotechnical investigation:** Soil bearing capacity, foundation design
 - **Water delineation study:** Identify wetlands or floodplains
@@ -43,13 +43,13 @@
 ### Structural Slab - Confirmed Approach
 - **Type:** Reinforced concrete slab-on-grade (no raised floor)
 - **Thickness:** 6-8" (pending geotechnical report)
-- **Footprint:** Expanded to accommodate **40,000 SF total white space**
+- **Footprint:** Expanded to accommodate **20,000 SF total white space**
   - Phase 1: 10,000 SF fitted out with MEP systems
   - Phase 2: 10,000 SF shell space (empty, for future fit-out)
 
 ### Foundation System {TBC}
 - **Type:** Spread footings or drilled piers (TBD based on soil bearing capacity)
-- **Column Grid:** 50-60 ft typical spacing to minimize columns in data hall
+- **Column Grid:** Single column in the center of the data hall to reduce beam span
 - **Floor Load Capacity:** Designed for forklift operations (8,000 lb wheel loads)
 
 ### Support Spaces Concrete {TBC}
@@ -72,11 +72,10 @@
 ### Structural Steel Elements
 - **Roof Structure:** Clear-span steel frame designed for equipment loads (HVAC, cable tray)
 - **Tornado Resistance:** EF-2 tornado design (135 mph winds) for critical areas
-- **Column-Free Zones:** Data hall designed for maximum flexibility
 
 ### Cable Tray & Support Systems
 - **Overhead Distribution:** Extensive cable tray for power and communications
-- **Busway Supports:** Structural supports for 480V overhead busway at ~12-14 ft elevation
+- **Busway Supports:** Structural supports for 480V overhead busway
 - **Seismic Design:** Per Oklahoma seismic requirements (if applicable)
 
 ---
@@ -99,12 +98,12 @@
 **Roof Configuration:**
 - **Insulation:** R-30 minimum (exceeds ASHRAE 90.1-2019 for climate zone)
 - **Cool Roof:** Solar reflectance index (SRI) ≥78 to reduce cooling load {TBC}
-- **Height:** 28-30 ft clear ceiling height in data hall (accommodates overhead MEP distribution){TBC}
+- **Height:** ~30 ft clear ceiling height in data hall (accommodates overhead MEP distribution)
 
 **Cost Impact:**
 - **Tornado hardening premium:** +$150-250/SF building envelope
 - **Total for 20,000 SF white space + support:** ~$4-7M premium vs standard PEMB
-<!-- please recalculate my numbers -->
+<!-- @claude please research these numbers and provide a percentage of confidence rating -->
 
 ### Building Envelope
 - **Type:** Pre-engineered metal building (PEMB) with insulated metal panels
@@ -112,6 +111,7 @@
 - **Wall Insulation:** R-19 minimum
 - **Air Infiltration:** 0.25 CFM/SF @ 0.3" w.c. (tight envelope for PUE optimization)
 - **Data hall pressurization:** Maintain data hall at slight positive pressure.
+- <!-- @claude Does this envelope section meet the requirements of the tornado hardened FM-150 envelope -->
 
 ### Waterproofing & Moisture Protection
 - **Below-Grade:** Waterproofing membranes per manufacturer specs (if basement or below-grade areas)
@@ -123,13 +123,13 @@
 ## DIVISION 08 – OPENINGS
 
 ### Data Hall Access {TBC}
-- **Minimum Exit Doors:** 2 per IBC occupancy requirements
-- **Door Width:** 3 ft minimum, 4 ft preferred for equipment moves
+- **Exit Doors:** 2 large double doors, per IBC occupancy requirements and for equipment movement
+- **Door Width:** 4ft x 2 - for equipment moves
 - **Emergency Hardware:** Panic hardware on all egress doors (life safety compliance)
 - **Fire Rating:** 2-hour fire-rated doors where required by code
 
 ### Security Man-Trap
-- **Configuration:** Double-door airlock at data hall entry
+- **Configuration:** Double-door airlock at building secure zone entry
 - **Operation:** Outer door must close/latch before inner door opens (prevents tailgating)
 - **Access Control:** Card reader + PIN or biometric (two-factor authentication)
 - **Fire Override:** Both doors unlock on fire alarm (life safety compliance)
@@ -137,11 +137,11 @@
 ### Loading Dock {details TBC}
 - **Overhead Door:** 12 ft W × 14 ft H minimum for equipment delivery
 - **Dock Height:** 48" standard truck bed height
-- **Access Path:** Clear path to data hall and staging area (8-10 ft width minimum)
+- **Access Path:** Clear path to data hall and staging area
 
 ### Meet-Me Room Access
 - **Two Meet-Me Rooms:** North and south entries for diverse fiber paths
-- **Size:** 250-300 SF each (equal sizing) {TBD}
+- **Size:** XXX SF each (equal sizing) {TBD}
 - **Doors:** Interior doors acceptable (not required to open to exterior)
 - **Security:** Highest security access level
 
@@ -190,34 +190,22 @@
 
 ## SUPPORT SPACES SUMMARY
 
-### Data Hall
-- **Total White Space:** 40,000 SF
-  - Phase 1: 20,000 SF fitted out
-  - Phase 2: 20,000 SF shell
-- **Ceiling Height:** 28-30 ft clear
-- **Rack Layout:** Hot aisle containment {TBC}, overhead power/cooling distribution
-
 ### Electrical Enclosures {TBC}
-- **Configuration:** Outdoor containerized electrical enclosures (Switch Las Vegas model)
-- **Quantity:** 2-3 outdoor enclosures (A-side, B-side, +1 optional)
+- **Configuration:** Outdoor containerized electrical enclosures
+- **Quantity:** 12-16 outdoor enclosures (A-side, B-side, +1 optional)
 - **Size:** ~12 ft × 55 ft per enclosure {TBC}
 - **Location:** Outdoor equipment yard (side TBD)
 - **Equipment:** N+1 modular UPS (dual paths), switchboards, distribution panels
 - **Environmental Protection:** Integrated HVAC, fire suppression, weather-rated NEMA enclosures
 
-**Alignment with Oct 2025 Meeting:**
-- October architectural meeting recommended outdoor containerized electrical enclosures
-- Fully compatible with traditional N+1 UPS architecture (dual paths)
-- Reduces building footprint by eliminating indoor electrical room requirements (~6,000 SF savings)
-
-### Mechanical Rooms {TBC}
+### Mechanical Rooms {TBC} <!-- Check this -->
 - **Quantity:** 2 mechanical rooms (N+1 redundancy)
 - **Size:** ~2,000 SF each (total ~4,000 SF)
 - **Equipment:** Chilled water pumps, expansion tanks, pressurization units, water treatment
 - **Access:** Direct exterior access for equipment service
 
 ### Network Operations Center (NOC)
-- **Size:** At least 500 SF - centrally located in the building
+- **Size:** ~1500 SF - centrally located in the building
 - **Purpose:** 24/7 monitoring of facility systems (BMS, DCIM, security)
 - **Fit-Out:** Phase 1 (day one operations)
 
@@ -246,23 +234,6 @@
 - **Purpose:** Carrier cross-connects, GCP interconnection termination
 - **Security:** Highest access level required
 
----
-
-## KEY DESIGN CHANGES FROM ORIGINAL BOD
-
-### Capacity Increase
-- **Original:** 25,000 SF white space supporting 7.4 MW IT load
-- **Updated (Oct 2025):** 40,000 SF white space supporting 12 MW initial (20-24 MW ultimate)
-
-### Building Configuration
-- **Driver:** FM-150 roof requires substantial structural steel regardless of configuration
-
-### Electrical Enclosure Approach
-- **Original (Early 2025):** Traditional indoor electrical rooms
-- **Final (Oct 2025 Meeting):** Outdoor containerized electrical enclosures (Switch Las Vegas model)
-- **Reason:** Outdoor enclosures fully compatible with N+1 UPS architecture (dual paths), reduce building footprint
-- **Building Footprint Reduction:** Eliminates ~6,000 SF of indoor electrical room space
-- **Cost Impact:** ~$1M savings {TBC} vs indoor rooms, plus building shell savings
 
 ---
 

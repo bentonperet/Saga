@@ -70,39 +70,45 @@
 #### **RENEWABLE ENERGY & MICROGRID**
 - Solar: 12 MW DC array (~19-24 GWh/year generation)
 - Renewable Penetration: 60-80% of annual facility energy from on-site solar
-- Configuration: Behind-the-meter (BTM) single point of interconnection (POI)
-- EMS: Simplified power monitoring system ($200-400K)
-- Demand Response: Generators participate in OG&E Load Reduction Program ($600k/year revenue)
-- BESS: NOT INCLUDED (BESS-as-UPS violates Tier III; Economic BESS has negative NPV)
+- Configuration: Behind-the-meter (BTM) single point of interconnection (POI) {TBC}
+- EMS: Simplified power monitoring system ($200-400K) {TBC}
+- Demand Response: Assuming natural gas turbines, generators participate in OG&E Load Reduction Program ($600k/year revenue) 
+- BESS: Discuss inclusion of BESS at all
 
 #### **SUPPORT SPACES**
-- NOC: 550-600 SF with operator workstations, video wall, 24/7 staffing capability {TBC}
+- NOC: ~1500SF with overhead view of data hall, 24/7 staffing capability
 - Meet-Me Rooms: 2× 250-300 SF (north/south for diverse fiber paths) {TBC}
-- Electrical Enclosures: Outdoor containerized (2-3 units, eliminates indoor room requirement)
+	- <!-- @julia - confirm MMR sizes (include OME whatever room) -->
+- Electrical Enclosures: Outdoor containerized (12-16 units, eliminates indoor cost/risk)
 - Mechanical Rooms: 2× 2,000 SF (N+1 redundancy for pumps/controls)
 - Staging/Burn-In: 2,000 SF for pre-deployment equipment testing
+	- <!-- @julia - confirm MMR sizes (include OME whatever room) -->
 - Office/Conference: ~1,000 SF for management, engineering, sales meetings
+	- <!-- @julia - confirm MMR sizes (include OME whatever room) -->
 - Break Room/Kitchen: 400 SF with appliances, seating for 12 staff
+	- <!-- @julia - confirm MMR sizes (include OME whatever room) -->
 - Showers/Lockers: 700 SF with washer/dryer (supports 24/7 operations)
+	- <!-- @julia - confirm MMR sizes (include OME whatever room) -->
 
 #### **UTILITIES & INFRASTRUCTURE**
 - Utility Interconnection: 138 kV transmission line, OG&E service territory
 - Substation Transformer: 15-20 MVA (customer-owned or utility-owned, TBD)
-- Natural Gas: Pipeline service for turbine generators (~500-700 CFH per turbine)
+- Natural Gas: Pipeline service for turbine generators (~500-700 CFH per turbine) {TBC}
 - Diesel Storage: Belly tanks (interconnected and redundant fuel service contracts) or above-ground storage tank (48-hour minimum) {TBC}
-- Water: Municipal or on-site well (domestic use only, ~500-1,000 gal/day)
-- Sewer: Municipal or on-site septic system (domestic wastewater only)
-- Fiber: Dual diverse entries (recommend redundant fiber connections) via underground ductbank
+- Water: Municipal or on-site well (domestic use only, ~500-1,000 gal/day) {TBC}
+- Sewer: Municipal or on-site septic system (domestic wastewater only) {TBD}
+- Fiber: Dual diverse entries (recommend redundant fiber connections) via underground ductbank {TBC}
 - Stormwater: Detention pond
-- Cloud Onramp: GCP Dedicated Interconnect via dark fiber to Google Pryor (~4 miles)
+- Cloud Onramp: GCP Dedicated Interconnect via dark fiber to Google Pryor (~4 miles) {TBC}
 
 #### **FIRE PROTECTION & LIFE SAFETY**
 - Data Hall: Pre-action sprinkler or clean agent (FM-200/Novec 1230) per customer preference
 - UPS Rooms: Clean agent flooding systems per NFPA 2001
 - Detection: VESDA or aspirating smoke detection (ASD) in data hall
 - Spot Detection: Electrical rooms, mechanical rooms, support spaces
-- Egress: 2 minimum exits, 36" doors (44" preferred), panic hardware
+- Egress: Multiple exits, panic hardware
 - Emergency Lighting: 90-minute battery backup, 1 fc average illumination
+- Tornado Safety: Tornado shelter room in NOC area and hardened roof and exterior
 - NFPA Compliance: NFPA 72, 75, 2001, 101; IBC 2021
 
 #### **CONSTRUCTION & COST BASIS**
@@ -137,20 +143,30 @@
 - Monitoring: Comprehensive DCIM with BMS and EMS integration
 
 #### **ASSUMPTIONS REQUIRING VALIDATION**
-- Geotechnical: Based on preliminary assessment, detailed geotechnical study required
-- Utility Capacity: 138 kV capacity adequate, formal interconnection study required (6-18 month lead time)
+- Power Capacity: Is there enough grid power and can it be contracted? Formal interconnection study required (6-18 month lead time)
 - Natural Gas Service: Pipeline capacity adequate for turbine generators, confirmation required
+- Permitting: Special use permit for data center facility achievable
+- Permitting: Generators and air pollution permissions
+- Geotechnical: Based on preliminary assessment, detailed geotechnical study required
+	- <!-- Benton -They sent, check this survey for key info -->
 - Environmental: No contamination or protected species impacts (Phase I/II studies required)
 - Local Labor: Adequate skilled workforce availability (IBEW Local 584 Tulsa jurisdiction)
 - Material Delivery: No unusual transportation constraints to Mayes County site
-- Weather: Normal construction weather patterns (18-month duration estimate)
-- Permitting: Special use permit for data center facility achievable
 
 #### **ESTIMATE ACCURACY**
 - Class 3 (+/- 15-20%) based on preliminary design level information
 - Major cost variables: utility interconnection upgrades, geotechnical conditions, tornado hardening premium
 - Updated: October 2025 (post-BESS rejection, post-capacity increase to 12 MW)
+
 ---
+## FINANCIAL SUMMARY
+<!-- Create this section, there's some placeholder info right now -->
+
+**Major CAPEX Drivers**
+- Traditional N+1 UPS (dual paths): $26.3M total (phased: Phase 1 $4.5M, Phases 2-5 add modules)
+- Tornado hardening: +$150-250/SF building envelope premium
+- Chiller plant: ~16 chillers @ 1.5 MW each, phased deployment
+- Generators: $10.8M total (phased: Phase 1 $2.4M, Phases 2-5 add units)
 
 ## CSI MASTERFORMAT OUTLINE
 
@@ -244,6 +260,7 @@ See: [[BOD - Process Equipment (CSI Divs 40-48)]]
 ---
 
 ## DEVIATIONS FROM RD109 BASELINE
+<!-- Continue updating this section for Thur meeting -->
 
 ### Major Eliminations vs RD109
 - ❌ Fan walls (replaced with RDHx rack-based cooling)
@@ -251,21 +268,15 @@ See: [[BOD - Process Equipment (CSI Divs 40-48)]]
 - ❌ Raised floor (structural slab with overhead distribution)
 
 ### Major Additions vs RD109
-- Traditional N+1 modular UPS with dual paths (Phase 1: 6MW N+1 for $4.5M, phased to 28MW ultimate)
-- Natural gas turbine(s) for primary backup power
-- Potential Diesel generators for fuel diversity backup
+- Traditional N+1 modular UPS with dual paths
+- Natural gas turbine(s) for primary backup power / Potential Diesel generators for fuel diversity backup
 - Expanded chiller plant (~16 chillers vs RD109's 3)
 - Rooftop AHUs for data hall comfort cooling/humidity control
-
-### Rejected Alternatives
-- ❌ **BESS-as-UPS:** Violates Tier III concurrent maintainability (see [[Why BESS Should Not Be UPS]])
-- ❌ **Economic BESS:** Deeply negative NPV of -$5.3M to -$6.2M over 20 years (see [[Excess Solar Monetization Strategy]])
 
 ### Design Approach Changes
 - Shell + core phasing (20,000 SF data hall, 10,000 SF Phase 1 fit-out)
 - Modular 3 MW blocks for customer flexibility
 - Electrical equipment on one building side, mechanical on opposite
-
 
 ---
 
@@ -279,71 +290,4 @@ See: [[BOD - Process Equipment (CSI Divs 40-48)]]
 
 ---
 
-## DESIGN SUMMARY SPECIFICATIONS
 
-
-
----
-
-### Project Overview
-**Capacity:** 12 MW initial IT load (20-24 MW ultimate with density upgrades)
-**White Space:** 20,000 SF total (Phase 1: 10,000 SF fitted out, Phase 2: 10,000 SF shell)
-**Total Facility Size**: TBD
-**Location:** 121-acre site, Mayes County, Oklahoma (~4 miles from Google Pryor campus)
-**Target PUE:** 1.2-1.3 (annual average)
-**Availability:** Tier III-equivalent (N+1 redundancy, concurrent maintainability)
-
-### Critical Design Decisions
-
-**Traditional N+1 UPS Architecture with Dual Power Paths
-- **N+1 modular UPS with dual paths** provides Tier III-compliant concurrent maintainability
-- Phased JIT deployment: Phase 1 (6MW N+1) for $4.5M, expand as IT load grows
-
-**Generator Fuel Strategy**
-- **Option A (Grid Day 1):** Diesel generators - lower CAPEX, rare runtime
-- **Option B (No Grid Day 1):** Natural gas turbine - unlimited fuel for nightly operation
-- **Decision Driver:** Grid availability at facility opening
-
-**Zero Water Cooling**
-- Air-cooled chillers with integrated free cooling (no evaporative systems)
-- **~16 chillers** deployed in modular 3 MW blocks (3 chillers per block provides N+1)
-- Extended free cooling season in Oklahoma climate (~215 days/year)
-- Strong sustainability narrative
-
-**Renewable Energy Integration**
-- **12 MW solar array** (~19-24 GWh/year generation)
-- Target 60-80% renewable penetration of annual energy consumption
-- Behind-the-meter configuration maximizes solar utilization
-- Single point of interconnection (POI) for integrated microgrid operation
-
-### Key Differentiators
-1. **Modular 3 MW Blocks** - Customer flexibility, phased deployment aligned with lease-up
-2. **JIT UPS Deployment** - Deferred CAPEX, optimized IRR by matching capacity to revenue
-3. **Proximity to Google Pryor** - Low-latency GCP Dedicated Interconnect opportunity (<1 ms)
-4. **Oklahoma Climate Optimization** - Extended free cooling, tornado-hardened construction
-5. **Power Pass-Through Pricing** - Removes commodity risk from operator
-
-### Financial Model Inputs
-
-**Capacity & Power Density**
-- Initial: 12 MW IT load @ ~500 W/SF (air-cooled with RDHx)
-- Mid-term: Upgrades to ~1,000 W/SF with enhanced RDHx
-- Ultimate: 20-24 MW @ ~2,000 W/SF with liquid-to-chip cooling
-
-**Redundancy Configuration**
-- Electrical: Dual path UPS (A/B sides, N+1 per path), N+1 generators, N+1 transformers/switchboards
-- Mechanical: N+1 (chillers organized in 3 MW blocks)
-- Telecommunications: Diverse fiber entry (north and south MMRs)
-
-**Major CAPEX Drivers**
-- Traditional N+1 UPS (dual paths): $26.3M total (phased: Phase 1 $4.5M, Phases 2-5 add modules)
-- Tornado hardening: +$150-250/SF building envelope premium
-- Solar array: ~$12-15M (12 MW DC, owned by Saga Energy)
-- Chiller plant: ~16 chillers @ 1.5 MW each, phased deployment
-- Generators: $10.8M total (phased: Phase 1 $2.4M, Phases 2-5 add units)
-
-**Critical Path Items**
-- Utility interconnection study (138 kV, 15-20 MVA substation transformer)
-- Natural gas service confirmation for turbine generators
-- Geotechnical study for foundation design
-- UPS vendor selection and modular frame sizing

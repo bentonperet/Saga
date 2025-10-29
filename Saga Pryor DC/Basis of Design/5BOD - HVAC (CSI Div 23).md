@@ -298,6 +298,7 @@ Hybrid cooling strategy supporting high-density AI racks (liquid-cooled) and sta
 | Adiabatic cooler elimination savings | -$750K to -$1M |
 | **Net chiller plant cost increase** | +$150-450K |
 
+
 ---
 
 **Tags:** #saga-project #hvac #cooling #chillers #rdx #csi-division-23

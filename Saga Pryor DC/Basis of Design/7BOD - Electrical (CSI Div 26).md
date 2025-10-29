@@ -13,7 +13,7 @@
 
 Electrical systems provide Tier III-compliant N+1 redundant power distribution with dual power paths (A/B) supporting 12 MW initial IT load (20-24 MW ultimate). Traditional modular UPS architecture confirmed as only proven, bankable solution for project finance.
 
-**Major Design Decision:** Traditional modular UPS provides concurrent maintainability required for Tier III compliance. BESS-as-UPS topology rejected due to non-maintainable single point of failure (see [[Why BESS Should Not Be UPS]]). Economic BESS separately evaluated and rejected due to deeply negative NPV (see [[Excess Solar Monetization Strategy]]).
+**Major Design Decision:** Traditional modular UPS provides concurrent maintainability required for Tier III compliance. BESS-as-UPS topology rejected due to non-maintainable single point of failure (see [[Why BESS Should Not Be UPS]]). Economic BESS separately evaluated and rejected due to negative NPV (see [[Excess Solar Monetization Strategy]]).
 
 #### **ELECTRICAL SYSTEMS**
 - Primary Service: 138 kV to 13.8 kV substation (15-20 MVA transformer)

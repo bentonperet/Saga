@@ -44,7 +44,7 @@ Fire protection designed to meet NFPA, IBC, and insurance requirements while pro
 - **Concentration:** Per NFPA 2001 for Class A/C fires
 - **Discharge Time:** ≤10 seconds
 - **Cost Impact:** +$500K-800K vs pre-action system
-- **Use Case:** If customer prefers gas suppression (some hyperscale operators require this)
+- **Use Case:** If customer prefers gas suppression
 
 **Decision:** Align with customer preferences and insurance requirements. Pre-action is lower cost; clean agent preferred by some operators.
 
@@ -54,36 +54,20 @@ Fire protection designed to meet NFPA, IBC, and insurance requirements while pro
 
 ### Outdoor Containerized Electrical Enclosures
 - **System Type:** Integrated fire suppression within containers (clean agent or pre-action)
-- **Quantity:** 2-3 outdoor electrical enclosures (A-side, B-side, +1 optional for dual path UPS)
+- **Quantity:** 12-16 outdoor electrical enclosures (A-side, B-side, +1 optional for dual path UPS)
 - **Size:** ~12 ft × 55 ft per enclosure {TBC}
-- **Rationale:** Protects high-value UPS and electrical equipment without water damage risk
+- **Rationale:** Protects high-value UPS and electrical equipment without water damage risk or fire damage risk inside the data hall. Furthermore, square footage of container space is less expensive per sq ft than main building space.
 - **Coverage:** Integrated suppression system per enclosure, designed per NFPA 2001
 - **Integration:** Automatic activation on smoke detection; manual abort capability
 
-**Alignment with Oct 2025 Meeting:**
-- October architectural meeting recommended outdoor containerized electrical enclosures
-- Fire suppression integrated into containerized enclosure design
-- Cost: ~$100-200K per enclosure {TBC} vs ~$200-400K for indoor room suppression
 
 ---
 
-## MECHANICAL ROOMS
+## MECHANICAL ROOMS {TBC}
 
 - **System Type:** Wet pipe sprinkler system
 - **Coverage:** Sprinkler heads per NFPA 13 spacing requirements
 - **Equipment Protection:** Avoid sprinkler heads directly above sensitive controls (use sidewall heads where needed)
-
----
-
-## BESS ENCLOSURE - NOT APPLICABLE
-
-**BESS REJECTED:**
-- **BESS-as-UPS:** Violates Tier III concurrent maintainability requirement (see [[Why BESS Should Not Be UPS]])
-- **Economic BESS:** Deeply negative NPV of -$5.3M to -$6.2M over 20 years (see [[Excess Solar Monetization Strategy]])
-
-**NFPA 855 Requirements:** No longer applicable to this project
-
-**Cost Savings:** -$150-300K (NFPA 855 fire suppression system not required)
 
 ---
 
@@ -152,7 +136,7 @@ Fire protection designed to meet NFPA, IBC, and insurance requirements while pro
 
 ## FIRE PUMP & WATER SUPPLY
 
-### Water Supply (If Sprinkler System Selected)
+### Water Supply
 
 **Demand Calculation:**
 - **Design Basis:** Per NFPA 13 for data hall (most demanding area)
@@ -161,11 +145,13 @@ Fire protection designed to meet NFPA, IBC, and insurance requirements while pro
 **Fire Pump:**
 - **Type:** Electric or diesel-driven fire pump sized to meet demand
 - **Redundancy:** Single pump acceptable (fire pump itself is not N+1 redundant)
+	- <!-- I think we have two pump rooms, one each side, so this is redundant -->
 
 **Storage Tank:**
 - **Size:** 50,000-100,000 gallon on-site fire water storage tank
 - **Use Case:** If municipal supply insufficient or unavailable
 - **Refill:** Periodic water truck delivery (if no municipal service)
+- <!-- @claude is this tank a requirement? -->
 
 **Backflow Prevention:**
 - **Type:** Double-check backflow preventer on fire service connection
@@ -192,17 +178,15 @@ Fire protection designed to meet NFPA, IBC, and insurance requirements while pro
 
 ## COST IMPACTS
 
-| System | Cost Estimate |
-|---|---|
-| Data hall pre-action sprinkler | Baseline (~$300-500K) |
-| Data hall clean agent (alternative) | +$500-800K |
-| Outdoor electrical enclosure suppression (2-3 units) | ~$200-400K {TBC} |
-| Fire alarm system (addressable, networked) | ~$150-250K |
-| Fire pump + storage tank (if needed) | +$500K-1M |
-| **Total Fire Suppression** | ~$1.15-2.95M {TBC} |
-
-**Cost Savings Without BESS:**
-- Avoided NFPA 855 fire suppression: **-$150-300K**
+| System                                               | Cost Estimate         |
+| ---------------------------------------------------- | --------------------- |
+| Data hall pre-action sprinkler                       | Baseline (~$300-500K) |
+| Data hall clean agent (alternative)                  | +$500-800K            |
+| Outdoor electrical enclosure suppression (2-3 units) | ~$200-400K {TBC}      |
+| Fire alarm system (addressable, networked)           | ~$150-250K            |
+| Fire pump + storage tank (if needed)                 | +$500K-1M             |
+| **Total Fire Suppression**                           | ~$1.15-2.95M {TBC}    |
+<!-- @claude, please go deep to confirm these numbers and provide another column that highlights your percentage confidence in the estimate -->
 
 ---
 
