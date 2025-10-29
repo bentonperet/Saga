@@ -42,6 +42,7 @@ class DocsPublisher {
     this.docId = createRes.data.documentId;
     this.requests = [];
     this.cursorIndex = 1;
+    this.pendingTables = [];
 
     // Build all content requests
     blocks.forEach(block => this.processBlock(block));
@@ -53,6 +54,9 @@ class DocsPublisher {
         requestBody: { requests: this.requests }
       });
     }
+
+    // Process any tables that were created (requires second batch update)
+    await this.processPendingTables();
 
     return {
       documentId: this.docId,
@@ -429,69 +433,228 @@ class DocsPublisher {
   }
 
   /**
-   * Insert a table with proper formatting
-   * Note: Tables in Google Docs API are complex. We insert the table structure
-   * first, then need to read back the document to find where cells are,
-   * then populate them. For now, we'll use a simplified approach.
+   * Insert a table with proper Google Docs table structure and brand styling
+   * This is stored for later processing since tables require a two-phase approach
    */
   insertTable(block) {
     const rows = block.rows.length;
     const cols = block.rows[0]?.length || 1;
+    const tableStartIndex = this.cursorIndex;
 
-    // For now, convert table to a simplified text format
-    // This is a fallback until we can properly handle the Google Docs table API
-    // which requires reading back the document structure after insertion
+    // Store table data for processing in a separate batch
+    if (!this.pendingTables) {
+      this.pendingTables = [];
+    }
 
-    let tableText = '';
+    this.pendingTables.push({
+      block,
+      startIndex: tableStartIndex,
+      rows,
+      cols
+    });
 
-    // Add each row
-    block.rows.forEach((row, rowIdx) => {
-      const cellTexts = row.map(cell => cell.runs.map(r => r.text).join(''));
-
-      // Simple table format: "| Cell 1 | Cell 2 | Cell 3 |"
-      tableText += '| ' + cellTexts.join(' | ') + ' |\n';
-
-      // Add separator line after header
-      if (rowIdx === 0) {
-        tableText += '|' + cellTexts.map(() => '------').join('|') + '|\n';
+    // Insert the table structure
+    this.requests.push({
+      insertTable: {
+        rows,
+        columns: cols,
+        location: { index: tableStartIndex }
       }
     });
 
-    tableText += '\n'; // Add spacing after table
+    // Calculate end index of table
+    // Table structure: start + 1 (table start) + (rows * (1 row start + cols * 2)) + 1 (table end)
+    const tableEndIndex = tableStartIndex + 2 + (rows * (1 + cols * 2));
+    this.cursorIndex = tableEndIndex;
+  }
 
-    const startIndex = this.cursorIndex;
-    const endIndex = startIndex + tableText.length;
+  /**
+   * Process pending tables after initial table structures are created
+   * This must be called after the first batchUpdate completes
+   */
+  async processPendingTables() {
+    if (!this.pendingTables || this.pendingTables.length === 0) {
+      return;
+    }
 
-    // Insert as monospace text (similar to code block)
-    this.requests.push({
-      insertText: {
-        location: { index: startIndex },
-        text: tableText
+    // Read back the document to get actual table cell locations
+    const doc = await this.docs.documents.get({ documentId: this.docId });
+
+    const tableRequests = [];
+
+    for (const tableData of this.pendingTables) {
+      const { block, startIndex, rows, cols } = tableData;
+
+      // Find the table in the document structure
+      const table = this.findTableAtIndex(doc.data.body.content, startIndex);
+
+      if (!table) {
+        console.warn(`Could not find table at index ${startIndex}`);
+        continue;
       }
-    });
 
-    // Style as table (monospace, small font)
-    this.requests.push({
-      updateTextStyle: {
-        range: { startIndex, endIndex: endIndex - 1 },
-        textStyle: {
-          fontSize: this.makeDimension(10),
-          foregroundColor: {
-            color: { rgbColor: hexToRgb('#222222') }
+      // Process cells in reverse order to avoid index shifting
+      for (let rowIdx = rows - 1; rowIdx >= 0; rowIdx--) {
+        const row = block.rows[rowIdx];
+        const tableRow = table.table.tableRows[rowIdx];
+
+        for (let colIdx = cols - 1; colIdx >= 0; colIdx--) {
+          const cell = row[colIdx] || { runs: [{ text: '' }] };
+          const tableCell = tableRow.tableCells[colIdx];
+
+          // Get the actual start index of the cell's first paragraph
+          // Each cell contains at least one paragraph
+          const cellContent = tableCell.content[0]; // First element is the paragraph
+          if (!cellContent || !cellContent.paragraph) {
+            console.warn(`Cell at row ${rowIdx}, col ${colIdx} has no paragraph content`);
+            continue;
           }
-        },
-        fields: 'fontSize,foregroundColor'
+          const cellStartIndex = cellContent.startIndex;
+          const cellText = cell.runs.map(r => r.text).join('');
+
+          console.log(`Cell [${rowIdx},${colIdx}]: startIndex=${cellStartIndex}, text="${cellText}", endIndex=${cellContent.endIndex}`);
+
+          // Insert cell content
+          if (cellText) {
+            tableRequests.push({
+              insertText: {
+                location: { index: cellStartIndex },
+                text: cellText
+              }
+            });
+
+            // Apply inline formatting to each run within the cell
+            let offset = 0;
+            cell.runs.forEach(run => {
+              if (run.text) {
+                const runStart = cellStartIndex + offset;
+                const runEnd = runStart + run.text.length;
+
+                const textStyle = {};
+                if (run.bold) textStyle.bold = true;
+                if (run.italic) textStyle.italic = true;
+                if (run.strikethrough) textStyle.strikethrough = true;
+                if (run.code) {
+                  textStyle.weightedFontFamily = { fontFamily: BRAND.CODE.fontFamily };
+                  textStyle.fontSize = this.makeDimension(BRAND.CODE.fontSizePt);
+                  textStyle.backgroundColor = {
+                    color: { rgbColor: hexToRgb(BRAND.CODE.backgroundColor) }
+                  };
+                }
+
+                // Apply text style if there's any formatting
+                if (Object.keys(textStyle).length > 0) {
+                  tableRequests.push({
+                    updateTextStyle: {
+                      range: { startIndex: runStart, endIndex: runEnd },
+                      textStyle,
+                      fields: Object.keys(textStyle).join(',')
+                    }
+                  });
+                }
+
+                // Apply links
+                if (run.link) {
+                  tableRequests.push({
+                    updateTextStyle: {
+                      range: { startIndex: runStart, endIndex: runEnd },
+                      textStyle: {
+                        link: { url: run.link },
+                        foregroundColor: {
+                          color: { rgbColor: hexToRgb('#4F81BD') }
+                        },
+                        underline: true
+                      },
+                      fields: 'link,foregroundColor,underline'
+                    }
+                  });
+                }
+
+                offset += run.text.length;
+              }
+            });
+          }
+
+          // Apply header row styling (first row)
+          if (rowIdx === 0 && cellText) {
+            const cellEndIndex = cellStartIndex + cellText.length;
+            tableRequests.push({
+              updateTextStyle: {
+                range: { startIndex: cellStartIndex, endIndex: cellEndIndex },
+                textStyle: {
+                  bold: BRAND.TABLE.headerBold,
+                  weightedFontFamily: { fontFamily: BRAND.TABLE.headerFontFamily },
+                  fontSize: this.makeDimension(BRAND.BODY.fontSizePt)
+                },
+                fields: 'bold,weightedFontFamily,fontSize'
+              }
+            });
+          }
+        }
       }
-    });
 
-    this.cursorIndex = endIndex;
+      // Style header row with background color and borders
+      if (rows > 0) {
+        tableRequests.push({
+          updateTableCellStyle: {
+            tableRange: {
+              tableCellLocation: {
+                tableStartLocation: { index: startIndex },
+                rowIndex: 0,
+                columnIndex: 0
+              },
+              rowSpan: 1,
+              columnSpan: cols
+            },
+            tableCellStyle: {
+              backgroundColor: {
+                color: { rgbColor: hexToRgb(BRAND.TABLE.headerBackgroundColor) }
+              },
+              borderBottom: {
+                color: {
+                  color: { rgbColor: hexToRgb(BRAND.TABLE.borderColor) }
+                },
+                width: this.makeDimension(1),
+                dashStyle: 'SOLID'
+              },
+              paddingTop: this.makeDimension(BRAND.TABLE.cellPaddingPt),
+              paddingBottom: this.makeDimension(BRAND.TABLE.cellPaddingPt),
+              paddingLeft: this.makeDimension(BRAND.TABLE.cellPaddingPt),
+              paddingRight: this.makeDimension(BRAND.TABLE.cellPaddingPt)
+            },
+            fields: 'backgroundColor,borderBottom,paddingTop,paddingBottom,paddingLeft,paddingRight'
+          }
+        });
+      }
+    }
 
-    // TODO: Implement proper Google Docs table API
-    // This requires:
-    // 1. Insert table structure with insertTable
-    // 2. Read back document to get table cell locations
-    // 3. Insert content into each cell
-    // 4. Apply cell styling
+    // Execute all table content requests in a second batch update
+    if (tableRequests.length > 0) {
+      await this.docs.documents.batchUpdate({
+        documentId: this.docId,
+        requestBody: { requests: tableRequests }
+      });
+    }
+
+    // Clear pending tables
+    this.pendingTables = [];
+  }
+
+  /**
+   * Find a table in the document content at a specific index
+   */
+  findTableAtIndex(content, targetIndex) {
+    for (const element of content) {
+      if (element.table && element.startIndex === targetIndex) {
+        return element;
+      }
+      // Check nested content (like in sections)
+      if (element.sectionBreak || element.paragraph) {
+        // Tables are top-level, skip these
+        continue;
+      }
+    }
+    return null;
   }
 
   /**

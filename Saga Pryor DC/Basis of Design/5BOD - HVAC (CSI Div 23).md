@@ -12,7 +12,6 @@
 ## OVERVIEW
 Hybrid cooling strategy supporting high-density AI racks (liquid-cooled) and standard-density network racks. Target PUE 1.2-1.35 through extended free cooling, efficient equipment, and zero water consumption.
 
-
 ---
 
 ## COOLING ARCHITECTURE {TBC}
@@ -25,7 +24,7 @@ Hybrid cooling strategy supporting high-density AI racks (liquid-cooled) and sta
 - **Modular Deployment:** Equipment deployed in 3 MW increments aligned with customer lease-up
 
 ### Target Performance
-- **PUE:** 1.2-1.3 (annual average)
+- **PUE:** 1.2-1.35 (annual average)
   - Free cooling months (Oct-Apr): 1.15-1.25
   - Mechanical cooling months (May-Sep): 1.25-1.35
 - **IT Space Conditions:** 18-27°C (64-80°F), 5.5°C-60% RH dew point per ASHRAE A1
@@ -34,126 +33,118 @@ Hybrid cooling strategy supporting high-density AI racks (liquid-cooled) and sta
 
 ## CHILLED WATER PLANT
 
-### Chiller Configuration - Updated Oct 2025
+### Chiller Sizing & Configuration
 
-**Expanded Capacity for 12 MW Initial / 20-24 MW Ultimate**
-- **Chiller Count:** ~16 total chillers (phased deployment)
-- **Chiller Sizing:** 1.5 MW per chiller (air-cooled with integrated free cooling)
-- **Modular 3 MW Blocks:** 3 chillers per 3 MW IT load block (provides N+1 redundancy per block)
-- **Phase 1 Deployment:** Chillers for initial 12 MW capacity
-- **Phase 2 Deployment:** Additional chillers as density upgrades occur (20-24 MW ultimate)
+**Cooling Load Calculation:**
+| Phase | IT Load | Cooling Required | Notes |
+|---|---|---|---|
+| 1 | 3 MW | 3.3 MW | IT + ~0.3 MW non-IT loads |
+| 2 | 6 MW | 6.5 MW | IT + ~0.5 MW non-IT loads |
+| 3 | 9 MW | 9.8 MW | IT + ~0.8 MW non-IT loads |
+| 4 | 12 MW | 13 MW | IT + ~1 MW non-IT loads |
+| 5 | 20-24 MW | 21-25 MW | IT + ~1-1.5 MW non-IT loads |
 
-**Original (RD109):** 3× 1,177 kW chillers for 7.4 MW
-**Updated (Oct 2025):** ~16× 1.5 MW chillers for 12-24 MW (phased)
+**Chiller Configuration:**
+- **Standard Chillers:** 1.5 MW each (air-cooled with integrated free cooling)
+- **High-Capacity Chillers (Phase 5):** 2.5 MW each for high-density AI loads
+- **Modular Deployment:**
+  - Phase 1: 4 × 1.5 MW = 6 MW capacity (for 3.3 MW load)
+  - Phase 2: 8 × 1.5 MW = 12 MW capacity (for 6.5 MW load)
+  - Phase 3: 12 × 1.5 MW = 18 MW capacity (for 9.8 MW load)
+  - Phase 4: 12 × 1.5 MW = 18 MW capacity (for 13 MW load)
+  - Phase 5: 12 × 1.5 MW + 4 × 2.5 MW = 28 MW capacity (for 21-25 MW load)
 
-### Chiller Technical Specifications
+### IT Load Density Evolution
 
-| **Parameter** | **Specification** |
-|---|---|
-| **Chiller Type** | Air-cooled screw compressor with integrated free cooling |
-| **Nominal Cooling Capacity** | 1.5 MW (5,100 MBH / 428 tons) |
-| **Compressor Type** | Dual screw compressors (2 per unit for staging) |
-| **Refrigerant** | Low-GWP refrigerant (R-513A or R-1234ze) |
-| **Refrigerant Charge** | ~300-400 lbs per unit |
-| **Condenser Type** | Microchannel air-cooled coil with EC fans |
-| **Fan Configuration** | 4-6 variable speed EC fans per condenser section |
-| **Evaporator Type** | Brazed plate heat exchanger (BPHE) |
-| **Chilled Water Flow** | 360 GPM @ 10°F ΔT (adjustable) |
-| **Supply Temperature Range** | 45-50°F (7-10°C) adjustable |
-| **Entering Water Temperature** | 60-65°F (15-18°C) design |
-| **Operating Range** | -20°F to 115°F ambient (-29°C to 46°C) |
-| **Efficiency (Full Load)** | 0.85-0.95 kW/ton @ 95°F ambient |
-| **Efficiency (Free Cooling)** | 0.10-0.15 kW/ton @ 45°F ambient (fans only) |
-| **Part Load Performance** | IPLV 0.60-0.70 kW/ton per AHRI 550/590 |
-| **Sound Level** | ≤85 dBA @ 30 ft (with optional sound attenuation) |
-| **Power Supply** | 480V, 3-phase, 60 Hz |
-| **Electrical Connection** | Dual A+B feeds from mechanical switchboards (480V) |
-| **Full Load Amps (FLA)** | ~240-280A per unit |
-| **Locked Rotor Amps (LRA)** | ~1,200-1,400A per compressor |
-| **Starter Type** | VFD soft start on compressors |
-| **Control Interface** | BACnet/IP, Modbus TCP/IP to BMS |
-| **Operating Modes** | (1) Full Free Cooling, (2) Partial Free Cooling, (3) Mechanical Cooling |
-| **Safety Features** | High/low pressure cutouts, freeze protection, oil level monitoring |
-| **Dimensions (L×W×H)** | ~25 ft × 10 ft × 12 ft (TBD per vendor) |
-| **Operating Weight** | ~18,000-22,000 lbs per unit |
-| **Outdoor Rating** | NEMA 3R weatherproof enclosure |
-| **Seismic Rating** | IBC 2021, Seismic Design Category C (Oklahoma) |
-| **Warranty** | 5-year compressor, 1-year parts (standard manufacturer warranty) |
+**Why Two Chiller Sizes:**
 
-### Integrated Free Cooling Technology
+The data center industry is experiencing a fundamental shift in rack power density driven by AI workloads. Traditional air-cooled network/storage racks operate at 5-15 kW, while modern AI/GPU racks require 50-100+ kW with liquid cooling. This density evolution drives our dual-chiller strategy:
 
-**Free Cooling Capability:**
-- Each chiller equipped with integrated economizer mode
-- Refrigerant migration cooling (refrigerant circulates via natural thermosiphon when ambient < setpoint)
-- Transition from mechanical to free cooling is automatic and seamless
+- **Phase 1-4 (1.5 MW chillers):** Optimized for traditional air-cooled IT at 10-15 kW/rack
+- **Phase 5 (2.5 MW chillers):** Sized for high-density liquid-cooled AI at 50-100 kW/rack
 
-**Control Logic:**
-- **Mode 1 (Full Free Cooling):** Ambient ≤50°F → Compressors off, fans modulate to maintain supply temp
-- **Mode 2 (Partial Free Cooling):** 50°F < Ambient ≤75°F → Compressors run at reduced capacity, fans assist
-- **Mode 3 (Mechanical Cooling):** Ambient >75°F → Full compressor operation, fans at design speed
+Using larger chillers for Phase 5 provides:
+- Better efficiency at higher cooling loads
+- Reduced yard footprint (16 total chillers vs 24)
+- Dedicated capacity for liquid-cooled zones
+- Future flexibility as AI workloads grow
 
-**Annual Performance (Pryor, OK Climate):**
-- Mode 1 hours: ~3,800 hrs/year (43%)
-- Mode 2 hours: ~2,900 hrs/year (33%)
-- Mode 3 hours: ~2,060 hrs/year (24%)
-- Weighted average efficiency: 0.45-0.55 kW/ton annual
+### Key Chiller Specifications (Basis of Design)
 
-### Free Cooling Operation Modes
+| **Parameter** | **1.5 MW Standard** | **2.5 MW High-Capacity** |
+|---|---|---|
+| **Type** | Air-cooled screw with free cooling | Air-cooled screw with free cooling |
+| **Capacity** | 1.5 MW (428 tons) | 2.5 MW (710 tons) |
+| **Refrigerant** | Low-GWP (R-513A or equiv) | Low-GWP (R-513A or equiv) |
+| **Supply Temp** | 45-50°F adjustable | 45-50°F adjustable |
+| **Efficiency** | 0.85-0.95 kW/ton @ 95°F | 0.80-0.90 kW/ton @ 95°F |
+| **Free Cooling** | <0.15 kW/ton @ 45°F | <0.15 kW/ton @ 45°F |
+| **Power** | 480V, 3-phase | 480V or 4160V, 3-phase |
+| **Dimensions** | ~25 ft × 10 ft | ~30 ft × 12 ft |
 
-**Mode 1: Full Free Cooling (Winter)**
-- **Conditions:** Ambient <50-55°F
-- **Operation:** Compressors off, heat rejected via air-cooled coils only
-- **PUE Impact:** Minimal cooling energy, PUE ~1.15-1.20
+### Free Cooling Strategy
 
-**Mode 2: Partial Free Cooling (Spring/Fall)**
-- **Conditions:** Ambient 55-75°F
-- **Operation:** Compressors run at reduced capacity
-- **PUE Impact:** Moderate cooling energy, PUE ~1.20-1.25
+**Operating Modes:**
+- **Full Free Cooling:** Ambient ≤45°F → Compressors off, fans only
+- **Partial Free Cooling:** 45°F < Ambient ≤70°F → Reduced compressor operation
+- **Mechanical Cooling:** Ambient >70°F → Full mechanical cooling
 
-**Mode 3: Full Mechanical Cooling (Summer)**
-- **Conditions:** Ambient >75°F
-- **Operation:** Compressors run at full capacity
-- **PUE Impact:** Maximum cooling energy, PUE ~1.25-1.35
+**Oklahoma Climate Advantage:**
+- ~200+ days/year of free or partial free cooling
+- Design conditions: 95°F summer / 10°F winter (ASHRAE 99.6%)
+- Annual average efficiency target: 0.45-0.55 kW/ton
 
-### Oklahoma Climate Optimization
-- **Design Conditions (Pryor, OK):**
-  - Summer: 95°F dry bulb / 78°F wet bulb (99.6% ASHRAE design day)
-  - Winter: 10°F dry bulb (99.6% ASHRAE design day)
-- **Free Cooling Season:** ~215 days/year (Oct-Apr)
-- **Extended free cooling vs Dallas:** +30 days/year due to colder Oklahoma winters
 
-### Chiller Yard Layout - Updated Oct 2025
-- **Location:** South side of building (opposite electrical equipment)
-- **Configuration:** Horizontal arrangement (one long row or two rows)
-- **Clearances:** 8-10 ft minimum between chillers for airflow and maintenance access
-- **Future Expansion:** Leave blank positions for additional chillers as density increases
-- **Sound Attenuation:** Outdoor enclosures or acoustic barriers if noise ordinance requires
+### Chiller Yard Layout
+- **Location:** Opposite side of building to electrical equipment
+- **Configuration:** Single or double row arrangement to fit 16 total chillers
+- **Clearances:** 8-10 ft minimum between units for airflow and maintenance
+- **Yard Capacity:** Sized for maximum 16 chillers (12 × 1.5 MW + 4 × 2.5 MW)
+- **Phased Installation:**
+  - Phase 1-4: Progressive installation in single row
+  - Phase 5: Add larger 2.5 MW units in available positions
+- **Sound Attenuation:** Acoustic barriers if required by local ordinance
 
-### Adiabatic Fluid Cooler Elimination - Confirmed
-- **RD109 Baseline:** 5× adiabatic fluid coolers (1,478 kW each) with evaporative pre-cooling
-- **Saga Pryor:** Eliminated (zero water consumption strategy)
-- **Cost Impact:** +$150-450K net (larger chillers offset by eliminating fluid coolers)
-- **PUE Impact:** +0.02-0.05 during peak summer (minimal annual impact due to extended free cooling)
-- **OPEX Savings:** -$15-25K/year (water cost + treatment + maintenance)
 
 ---
 
-## PUMPING & DISTRIBUTION {TBC}
+## PUMPING & DISTRIBUTION
 
-### Chilled Water Pumps
-- **Configuration:** Primary/secondary pumping loops
-- **Primary Pumps:** Constant flow through chillers
-- **Secondary Pumps:** Variable flow to data hall loads (CDUs, RDHx, AHUs)
-- **Redundancy:** N+1 (any single pump failure does not impact cooling capacity)
-- **VFD Control:** Variable frequency drives on secondary pumps for energy optimization
+### System Architecture
 
-**Pump Count:** 5-8 pumps total (exact count TBD during detailed design, scaled for 12 MW capacity)
+**Primary/Secondary Configuration with Hydraulic Decoupling**
+- **Primary Loop:** Constant flow through chillers (protects equipment)
+- **Secondary Loop:** Variable flow to loads (energy efficiency)
+- **Common Pipe:** Hydraulic separation between loops
+- **Topology confirmed:** Industry-standard for data center applications
+
+### Pump Sizing
+
+**Primary Pumps (Constant Speed):**
+- One pump per chiller, plus shared standby pumps
+- ~360 GPM per chiller @ 60-80 ft head
+- 20-30 HP motors, 480V power
+
+**Secondary Pumps (Variable Speed with VFDs):**
+- Phase 1-4: 3 pumps (2 duty + 1 standby) for 12 MW
+- Phase 5: 5-6 pumps for 24 MW
+- 1,200-1,500 GPM each @ 100-140 ft head
+- 75-100 HP motors with VFDs for energy optimization
+
 
 ### Piping Distribution
-- **Supply Temperature:** 45-50°F (adjustable based on load profile)
-- **Return Temperature:** 60-65°F (ΔT = 10-15°F target)
-- **Piping Material:** Schedule 40 steel or CPVC (indoor), insulated to prevent condensation
-- **Routing:** Overhead distribution (no raised floor)
+
+**Design Parameters:**
+- **Supply/Return Temperatures:** 45-50°F supply, 60-65°F return (15°F ΔT)
+- **Distribution:** Overhead piping at 12-14 ft elevation (no raised floor)
+- **Material:** Schedule 40 steel with grooved connections for flexibility
+- **Insulation:** 1.5" closed-cell foam with vapor barrier (condensation control)
+
+**Key Features:**
+- Primary loop connects chillers in mechanical room/yard
+- Secondary loop distributes to data hall via overhead routing
+- Quick-connect fittings at rack locations for CDU/RDHx connections
+- Isolation valves for maintenance without system shutdown
 
 ### Balance of Plant Equipment
 - **Pressurization Units (PU):** 2× dual pump units (N+1) with feeder tank
@@ -189,74 +180,35 @@ Hybrid cooling strategy supporting high-density AI racks (liquid-cooled) and sta
 - **Mixed Density Support:** Handle varying rack densities in same row without airflow conflicts
 - **Scalability:** Add RDHx only where needed (not entire data hall upfront)
 
-**Cost Impact:** +$3-5K per RDHx unit (~48 network racks × $3-5K = +$144-240K total)
+### Liquid Cooling for AI Racks (Client-Specific Deployment)
 
-**Deviation:** RD109 used fan walls at end of hot aisles. RDHx provides better flexibility for colocation model.
+**Coolant Distribution Units (CDUs):**
+- **Quantity:** 9× CDU units (nominal, adjustable based on client requirements)
+- **Capacity:** 50-80 kW cooling per CDU (supports 1-2 high-density AI racks)
+- **Function:** Secondary heat exchanger between facility chilled water (45-50°F) and rack-level coolant loop
+- **Rack Connection:** Quick-connect fittings, leak detection at all connections
+- **Client-Specific:** Final CDU deployment and rack-level cooling hardware determined by tenant requirements
 
-### Liquid Cooling for AI Racks {TBC}
-
-**Coolant Distribution Units (CDUs)**
-- **Quantity:** 9× MCDU-50 equivalent units (or similar)
-- **Capacity:** ~50 kW per CDU (scalable based on rack count)
-- **Function:** Rack-level chilled water distribution and return collection
-- **Coolant Type:** Facility chilled water (45-50°F supply) or dielectric fluid (for direct-to-chip)
-
-**Rack-Level Liquid Cooling Options:**
-1. **Rear-Door Liquid Coils:** Chilled water coil on rack rear door
-   - Capacity: 50-80 kW/rack
-   - Simple retrofit, lower cost
-2. **Direct-to-Chip:** Cold plates mounted directly on CPUs/GPUs
-   - Capacity: 100-150+ kW/rack
-   - Higher efficiency, requires server OEM support
-
-**Deployment Strategy:**
-- **Pre-Install:** CDUs and chilled water manifolds for 48 AI racks
-- **Customer-Specific:** Liquid cooling hardware deployed when customer moves in
-- **Flexibility:** Lower-density AI racks may use air cooling; reserve liquid capacity for high-density customers
-
-**Manifold Distribution:**
-- Overhead chilled water manifolds parallel to rack rows
-- Quick-connect fittings at each rack position
-- Leak detection sensors under all connections (integrated with BMS)
-
-### Hot Aisle Containment
-
-**Configuration:**
-- **Type:** Hard-sided hot aisle containment with doors
-- **Materials:** Polycarbonate panels or metal framed doors (transparent for visibility)
-- **Height:** Floor-to-overhead cable tray (no raised floor)
-- **Pressure:** Negative pressure in hot aisle (fans pull air from containment)
-
-**Benefits:**
-- Prevents hot/cold air mixing (improves cooling efficiency)
-- Increases supply air temperature setpoint (reduces chiller energy)
-- Enables higher density deployments
-
-**Access:**
-- Hot aisle doors for maintenance access to rear of racks
-- Interlocked with fire suppression (doors auto-open on fire alarm)
+### Hot Aisle Containment 
+*Optional based on customer demand*
 
 ---
 
-## ROOFTOP AIR HANDLING UNITS (AHUs) - UPDATED OCT 2025 {TBC}
+## ROOFTOP AIR HANDLING UNITS (AHUs)
 
-### Comfort Cooling & Air Quality Strategy
+### Data Hall Environmental Control
 
-**Equipment:** Rooftop AHUs for data hall environmental conditioning
+**Purpose:** Humidity control and building pressurization (NOT primary cooling)
 
-**Functions:**
-- **Humidity Control:** Maintain 5.5°C-60% RH dew point per ASHRAE A1
-- **Building Over-Pressurization:** Prevent dust ingress from exterior
-- **Air Quality:** MERV filtration for particulate removal
-- **Minimal Sensible Cooling:** RDHx/CDUs handle IT heat; AHUs address building envelope, lighting, PDU losses
+**Configuration:**
+- **Quantity:** 3-4 units Phase 1, 5-6 units Ultimate (N+1 redundancy)
+- **Capacity:** 10-15 tons cooling per unit (handles non-IT loads only)
+- **Primary Function:** Maintain ASHRAE A1 environmental conditions
+  - Temperature: 64-80°F (controlled by RDHx/CDUs)
+  - Humidity: 20-60% RH (controlled by AHUs)
+  - Pressurization: +0.02-0.05" WC (prevent dust ingress)
 
-**Redundancy:** N+1 AHU configuration
-
-**Phasing:**
-- **Phase 1:** AHU capacity for 20,000 SF fitted out white space
-- **Phase 2:** Add remaining AHU capacity when second 20,000 SF fitted out
-
-**Deviation:** RD109 did not explicitly call out rooftop AHUs for comfort. Saga Pryor adds this for improved environmental control.
+**Note:** IT cooling handled by RDHx/CDUs. AHUs provide environmental control only.
 
 ---
 
@@ -297,6 +249,65 @@ Hybrid cooling strategy supporting high-density AI racks (liquid-cooled) and sta
 
 ---
 
+## MECHANICAL SYSTEM REDUNDANCY TOPOLOGY
+
+### Chilled Water System Flow Diagram
+
+```
+                    CHILLER PLANT (N+1 per 3MW Block)
+                              │
+        ┌─────────────────────┼─────────────────────┐
+        │                     │                     │
+    Chiller 1            Chiller 2            Chiller 3
+    (1.5 MW)             (1.5 MW)             (1.5 MW)
+        │                     │                     │
+        └─────────────────────┼─────────────────────┘
+                              │
+                    PRIMARY LOOP HEADER
+                              │
+        ┌─────────────────────┼─────────────────────┐
+        │                     │                     │
+   Primary Pump 1      Primary Pump 2      Primary Pump 3
+   (Lead)              (Lag)               (Standby)
+        │                     │                     │
+        └─────────────────────┼─────────────────────┘
+                              │
+                      COMMON PIPE (Decoupler)
+                              │
+        ┌─────────────────────┼─────────────────────┐
+        │                     │                     │
+  Secondary Pump 1    Secondary Pump 2    Secondary Pump 3
+  (VFD - Lead)        (VFD - Lag)         (VFD - Standby)
+        │                     │                     │
+        └─────────────────────┼─────────────────────┘
+                              │
+                  SECONDARY LOOP HEADER (Variable Flow)
+                              │
+        ┌─────────────────────┼─────────────────────┐
+        │                     │                     │
+   Data Hall CDUs      Data Hall RDHx         Rooftop AHUs
+   (Liquid-Cooled      (Air-Cooled           (Humidity Control)
+    AI Racks)           Network Racks)
+```
+
+### N+1 Redundancy Paths
+
+**Chiller Plant Redundancy:**
+- Each 3 MW block: 3 chillers @ 1.5 MW each = 4.5 MW total capacity
+- IT Load: 3 MW + Facility Overhead @ 1.25 PUE = 3.75 MW cooling required
+- N+1 Configuration: Any 2 of 3 chillers can support full block load
+- Failure Mode: Single chiller failure → remaining 2 chillers at 94% capacity (within design margin)
+
+**Pump Redundancy:**
+- Primary Loop: 3 pumps (2 running + 1 standby) per 3 MW block
+- Secondary Loop: 3 pumps (2 running + 1 standby) for entire facility
+- Control: Automatic switchover on pump failure (BMS-controlled)
+
+**Distribution Redundancy:**
+- Multiple parallel piping paths to data hall
+- Isolation valves allow section isolation without full system shutdown
+- Quick-connect fittings at each rack for easy maintenance
+
 ## MECHANICAL REDUNDANCY SUMMARY
 
 **N+1 Configuration Within Each 3 MW Block:**
@@ -331,18 +342,106 @@ Hybrid cooling strategy supporting high-density AI racks (liquid-cooled) and sta
 
 ---
 
-## COST IMPACTS
+## MECHANICAL EQUIPMENT SCHEDULE
 
-| System | Cost Estimate |
-|---|---|
-| Chiller plant (~16 chillers @ 1.5 MW) | ~$8-12M (phased) |
-| Chilled water pumps & piping | ~$2-3M |
-| CDUs (9× units for liquid cooling) | ~$500K-1M |
-| RDHx (48 network racks) | +$144-240K |
-| Rooftop AHUs (comfort cooling) | ~$300-500K |
-| Balance of plant (tanks, treatment, etc.) | ~$500K-1M |
-| Adiabatic cooler elimination savings | -$750K to -$1M |
-| **Net chiller plant cost increase** | +$150-450K |
+### HVAC Equipment by Phase
+
+| Equipment | Description | Phase 1 (3MW) | Phase 2 (6MW) | Phase 3 (9MW) | Phase 4 (12MW) | Phase 5 (20-24MW) |
+|---|---|---|---|---|---|---|
+| **1.5 MW Chiller** | Standard air-cooled with free cooling | 4 | 8 | 12 | 12 | 12 |
+| **2.5 MW Chiller** | High-capacity for AI loads | 0 | 0 | 0 | 0 | 4 |
+| **Primary CHW Pump** | 360 GPM @ 60-80 ft (1.5MW), 600 GPM (2.5MW) | 5 | 9 | 13 | 13 | 17 |
+| **Secondary CHW Pump** | 1,200-1,500 GPM @ 100-140 ft, 75-100 HP, VFD | 3 | 3 | 3 | 3 | 5-6 |
+| **Expansion Tank** | Bladder-type, ASME rated | 1 | 2 | 2 | 2 | 3 |
+| **Pressurization Unit** | Dual pump with feeder tank | 1 | 1 | 1 | 1 | 2 |
+| **Chemical Treatment** | Dosing pots, separators, filters | 1 set | 1 set | 1 set | 1 set | 2 sets |
+| **CDU (if liquid cooling)** | 50-80 kW per unit | As needed | As needed | As needed | As needed | High qty |
+| **Rooftop AHU** | Environmental control, 10-15 tons | 3 | 3 | 4 | 4 | 5-6 |
+| **Support Space HVAC** | Mechanical rooms, offices | 1 set | 1 set | 1 set | 1 set | 1 set |
+
+**Notes:**
+- Phase 1-4: 1.5 MW chillers in groups of 4 (3 duty + 1 standby)
+- Phase 5: Add 4 × 2.5 MW chillers for high-density liquid cooling
+- Total chiller yard capacity: 16 units maximum
+- Primary pumps: One per chiller + shared standby
+- CDUs/RDHx: Customer-specific based on rack type
+### Phasing Strategy
+- **Phase 1 (3 MW IT):** Initial deployment with first 3 MW block
+- **Phase 2 (6 MW IT):** Add second 3 MW block
+- **Phase 3 (9 MW IT):** Add third 3 MW block
+- **Phase 4 (12 MW IT):** Complete initial buildout (may not need additional chillers from Phase 3)
+- **Phase 5 (20-24 MW IT):** Density upgrade - add chillers for increased load from liquid cooling
+
+---
+
+## COST IMPACTS & FINANCIAL ANALYSIS
+
+**Cost Analysis Prompt for Future Detailed Work:**
+
+```
+MECHANICAL SYSTEMS COST ESTIMATION PROMPT
+
+Using the equipment schedules above and the detailed specifications throughout this BOD,
+perform a comprehensive cost analysis for the mechanical systems including:
+
+1. EQUIPMENT PRICING BY PHASE
+   - Itemize costs for each piece of equipment listed in the schedule
+   - Include installation labor, rigging, startup, and commissioning
+   - Provide vendor quotes or recent comparable project pricing
+   - Account for geographic location (Mayes County, OK / Tulsa labor market)
+
+2. VENDOR CONFIDENCE LEVELS
+   - Assign confidence level (High/Medium/Low) to each line item
+   - High = Recent vendor quote or comparable installation
+   - Medium = Industry pricing guides with regional adjustment
+   - Low = Preliminary estimate requiring detailed engineering
+
+3. ALTERNATIVE OPTIONS WITH COST DELTAS
+   - Compare air-cooled chillers vs evaporative-assisted (adiabatic pre-cooling)
+   - Evaluate VFD vs constant speed pumps (CAPEX vs OPEX trade-off)
+   - Consider thermal storage tanks (CAPEX impact, PUE/OPEX benefit)
+
+4. OPEX IMPLICATIONS
+   - Annual energy consumption by equipment type (chillers, pumps, fans)
+   - Maintenance costs (preventive maintenance, filter replacement, water treatment)
+   - Water consumption (if any - currently zero water strategy)
+   - Refrigerant leak/replacement costs
+
+5. PUE IMPACT ANALYSIS
+   - Calculate PUE contribution of each major system component
+   - Model annual PUE based on Oklahoma climate (free cooling hours)
+   - Compare PUE to industry benchmarks for air-cooled data centers
+
+6. IRR CONSIDERATIONS
+   - Evaluate CAPEX vs OPEX trade-offs for alternative designs
+   - Model impact of free cooling on annual operating costs
+   - Consider phased deployment capital efficiency
+   - Revenue opportunity from PUE-optimized customer contracts
+
+OUTPUT FORMAT:
+- Detailed cost breakdown table by CSI division and equipment type
+- Confidence level assigned to each line item with justification
+- Executive summary of total mechanical systems CAPEX by phase
+- Annual OPEX projection and PUE impact summary
+```
+
+**Preliminary Cost Estimate:**
+
+| System | Phase 1-4 (3-12 MW) | Phase 5 (20-24 MW) | Notes |
+|---|---|---|---|
+| 1.5 MW Chillers | $6-8M (12 units) | -- | Standard units @ $500-650K each |
+| 2.5 MW Chillers | -- | +$3.2-4M (4 units) | High-capacity @ $800K-1M each |
+| Pumps & Piping | $2-3M | +$1-1.5M | Primary/secondary system |
+| Rooftop AHUs | $0.3-0.5M | +$0.2M | Environmental control only |
+| Balance of Plant | $0.5-1M | +$0.5M | Tanks, treatment, controls |
+| **Total HVAC** | **$8.8-12.5M** | **+$4.9-6.2M** | Excludes customer rack cooling |
+
+**Notes:**
+- CDUs and RDHx excluded (customer-specific)
+- Detailed vendor quotes required for Phase 1 pricing
+- Oklahoma labor rates and site conditions apply
+
+**Note:** Detailed cost analysis to be completed in separate financial modeling exercise per prompt above.
 
 
 ---
@@ -350,7 +449,10 @@ Hybrid cooling strategy supporting high-density AI racks (liquid-cooled) and sta
 **Tags:** #saga-project #hvac #cooling #chillers #rdx #csi-division-23
 
 **Related Documents:**
-- [[_BOD - Exec Summary and TOC]] - Main title page
-- [[4BOD - Plumbing (CSI Div 22)]] - Chilled water treatment
-- [[6BOD - Integrated Automation (CSI Div 25)]] - BMS controls
-- [[Architectural Meeting Changes by CSI Division]] - October 2025 updates
+- [[_BOD - Exec Summary and TOC]] - Main title page and facility overview
+- [[4BOD - Plumbing (CSI Div 22)]] - Chilled water treatment chemistry, leak detection details
+- [[6BOD - Integrated Automation (CSI Div 25)]] - BMS controls, DCIM integration, monitoring points
+- [[7BOD - Electrical (CSI Div 26)]] - Mechanical switchboards, power supply to pumps/chillers
+- [[2BOD - Facility Construction (CSI Divs 02-14)]] - Building envelope, rooftop AHU mounting
+- [[10BOD - Site and Infrastructure (CSI Divs 31-32)]] - Chiller yard layout, equipment placement
+- [[Architectural Meeting Changes by CSI Division]] - October 2025 design updates

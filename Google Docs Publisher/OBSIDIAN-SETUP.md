@@ -69,14 +69,17 @@ Now we'll tell the plugin what command to run when you press your hotkey.
 
    Claude will give you something like:
    ```
-   "/Users/YourName/.../Google Docs Publisher/publish-active.sh"
+   "/Users/YourName/.../Google Docs Publisher/publish-active.sh" "{{file_path}}"
    ```
 
-   **Why is this needed?** The path tells Obsidian exactly where to find the publisher script on your computer.
+   **Why is this needed?** The path tells Obsidian exactly where to find the publisher script, and `{{file_path}}` tells it to pass the active file's path to the script.
 
 4. **Enter the command**
-   - Paste the full path (with quotes) into the command box
-   - Make sure it includes quotes around the whole path!
+   - Paste the full command (with quotes) into the command box
+   - Make sure it includes:
+     - Quotes around the script path
+     - A space
+     - `"{{file_path}}"` at the end
 
 5. **Add an alias (friendly name)**
    - In the **"Alias"** field below the command, type: `Publish to Google Docs`
@@ -147,14 +150,14 @@ Let's make it easy to publish with just a keyboard shortcut!
 **Technical details** (you don't need to know this to use it, but it's interesting!)
 
 The tool uses a script called `publish-active.sh` that:
-1. Searches your entire vault for `.md` files
-2. Finds the one that was modified most recently
+1. Receives the currently active file path from Obsidian via the `{{file_path}}` variable
+2. Verifies the file exists
 3. Sends it to the publisher
 4. Returns the Google Docs URL
 
-**Why does it find the most recent file?** The file you're currently working on is always the most recently edited one. This approach is more reliable than trying to detect which file is "active" in Obsidian.
+**How does it know which file is active?** The Shell Commands plugin provides a `{{file_path}}` variable that automatically contains the path to the file you're currently viewing or editing in Obsidian. This is passed directly to our script, so it always publishes exactly the file you're looking at.
 
-**Why not use the Shell Commands plugin's `{{file_path}}` variable?** We tried that first! But it had issues with special characters in file paths getting escaped incorrectly. The "find most recent file" approach works perfectly every time.
+**Fallback behavior:** If for some reason the file path isn't provided, the script will fall back to finding the most recently modified file in your vault (the old behavior).
 
 ---
 
@@ -199,19 +202,24 @@ Or fix it yourself:
 
 ### Wrong file gets published
 
-The tool publishes whichever markdown file was edited most recently. To make sure the right file publishes:
+The tool should always publish the file you're currently viewing or editing. If the wrong file is getting published:
 
-**Method 1: Make it the most recent**
-1. Click into the file you want to publish
-2. Make a tiny edit (add a space, then delete it)
-3. Save (`Cmd+S` or `Ctrl+S`)
-4. Press your hotkey - it will publish that file
+**Step 1: Verify you're viewing the correct file**
+- Check the file name in the tab at the top of Obsidian
+- Make sure you've clicked into the correct file pane if you have multiple panes open
 
-**Method 2: Use Command Palette for specific files**
-If you have multiple files open and haven't edited the one you want recently, repeat Method 1.
+**Step 2: Reload Obsidian if needed**
+- Sometimes after updating the plugin configuration, Obsidian needs to be reloaded
+- Press `Cmd+R` (Mac) or `Ctrl+R` (Windows) to reload
+- Or close and reopen Obsidian
 
-**Method 3: Use Terminal for precise control**
-💡 Ask Claude Code: "Please publish this specific file: path/to/my-note.md"
+**Step 3: Check the console output**
+- The notification should show "Using provided file path: /path/to/your/file.md"
+- If it says "No file path provided, finding most recently modified file..." then the `{{file_path}}` variable isn't working
+- In that case, check your Shell Commands plugin configuration (see Step 4 in the setup)
+
+**Still having issues?**
+💡 Ask Claude Code: "Help me debug the Obsidian export - wrong file is being published"
 
 ### Hotkey conflicts with another plugin
 
@@ -242,17 +250,17 @@ This works great if you only publish occasionally!
 
 ### Which file gets published?
 
-**Remember:** The most recently edited/saved file is what gets published.
+**Remember:** The file you're currently viewing or editing is what gets published.
 
 **Good workflow:**
-1. Write your note
-2. Save it (`Cmd+S` or `Ctrl+S`)
-3. Immediately press your publish hotkey
-4. The doc you just saved will be published
+1. Open or click into the note you want to publish
+2. Press your publish hotkey
+3. That exact file will be published
 
-**Multiple notes open?**
-- Just edit and save the one you want to publish before pressing the hotkey
-- Or close all other notes to avoid confusion
+**Multiple panes open?**
+- Make sure you've clicked into the correct pane before pressing the hotkey
+- The active file (the one with focus) is what will be published
+- You don't need to save the file first - it works on any file you're viewing
 
 ### Publishing vs. Updating
 
