@@ -20,6 +20,9 @@
 ---
 ## EXECUTIVE SUMMARY
 
+ This plan assumes a phased deployment designed to optimize CapEx spend to closely align with customer occupation of the data center. The entire data center shell will be constructed, as well as the relevant out-buildings, but only half of the data center will be fit out. Next, the space required for updating MEP to accommodate additional rack density has been included in the plan.
+
+
 <!-- update all these with links to their source pages - then i won't have duplicate information to maintain, right now these are the most updated -->
 #### **FACILITY OVERVIEW**
 - **IT Capacity:** 12 MW initial (Phase 1-4), expandable to 24MW ultimately

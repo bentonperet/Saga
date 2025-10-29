@@ -18,15 +18,23 @@ Division 00 defines project delivery approach, contracting strategy, and phasing
 
 
 ---
-<!-- Everything below: this document needs a complete rewrite -->
+
 
 ## PHASED DEPLOYMENT STRATEGY
+
+| Phase | IT Load | Facility Load (PUE 1.2-1.35) | Buildout Timeline |
+| ----- | ------- | ---------------------------- | ----------------- |
+| **1** | 3MW     | 3.6-4.05 MW                  | Months 0-12       |
+| **2** | 6MW     | 7.2-8.1 MW                   | Months 12-24      |
+| **3** | 9MW     | 10.8-12.15 MW                | Months 24-36      |
+| **4** | 12MW    | 14.4-16.2 MW                 | Months 36-48      |
+| **5** | 20-24MW | 24.0-32.4 MW                 | Months 48-60+     |
 
 ### Phase 1: Initial Build (Day One)
 
 **Scope:**
-- **Building Shell:** 40,000 SF envelope (complete structure)
-- **White Space Fit-Out:** 20,000 SF (half building only)
+- **Building Shell:** ~36,000 SF envelope (complete structure)
+- **White Space Fit-Out:** 10,000 SF (half building only initially)
 - **IT Capacity:** 3 MW initial build
 - **UPS:** 3MW N+1 (2N modular frames with Phase 1 modules only)
 - **Generators:** 2 units (N+1 for ~4 MW load)
@@ -37,10 +45,10 @@ Division 00 defines project delivery approach, contracting strategy, and phasing
 
 **Timeline:** TBD
 
-### Phase 2: Shell Space Fit-Out
+### Phase 3+: Shell Space Fit-Out
 
 **Scope:**
-- **White Space Fit-Out:** Additional 20,000 SF (complete 40,000 SF total)
+- **White Space Fit-Out:** Additional 10,000 SF (complete 20,000 SF total)
 - **IT Capacity:** +6 MW additional capacity
 - **UPS:** Add modules to existing 2N frames (expand from 6MW to 10-12MW N+1)
 - **Generators:** Add 2-3 units (N+1 for expanded load)
@@ -52,13 +60,13 @@ Division 00 defines project delivery approach, contracting strategy, and phasing
 
 **Trigger:** 70-80% occupancy of Phase 1 white space
 
-### Phases 3-5: Density Upgrades
+### Phases 5+: Density Upgrades
 
 **Scope:**
-- **IT Capacity:** Density upgrades from 500 W/SF → 1,000 W/SF → 2,000 W/SF
-- **UPS:** Phased module additions to reach ultimate 28MW capacity
-- **Generators:** Additional units to support ultimate load (8 total)
-- **Chillers:** Additional units to support density increases (~16 total ultimate)
+- **IT Capacity:** Density upgrades from 1,000 W/SF → 2,000 W/SF
+- **UPS:** Phased module additions to reach ultimate 24MW capacity
+- **Generators:** Additional units to support ultimate load (8 total) {TBC}
+- **Chillers:** Additional units to support density increases (~16 total ultimate) {TBC}
 - **Cooling Upgrades:** Enhanced RDHx, liquid-to-chip infrastructure
 
 **CAPEX:** $TBD (equipment-focused, minimal building changes)
@@ -66,30 +74,6 @@ Division 00 defines project delivery approach, contracting strategy, and phasing
 **Timeline:** Phased over 5-10 years based on customer demand
 
 **Trigger:** Customer requests for higher-density deployments
-
----
-
-## MODULAR 3 MW BLOCK STRATEGY
-
-| Phase | IT Load | Facility Load (PUE 1.35-1.42) | Buildout Timeline |
-| ----- | ------- | ----------------------------- | ----------------- |
-| **1** | 3MW     | 4.0-4.3MW                     | Months 0-12       |
-| **2** | 6MW     | 8.0-8.5MW                     | Months 12-24      |
-| **3** | 9MW     | 12.0-12.8MW                   | Months 24-36      |
-| **4** | 12MW    | 16.0-17.0MW                   | Months 36-48      |
-| **5** | 20MW    | 27.0-28.4MW                   | Months 48-60+     |
-|       |         |                               |                   |
-
-### Customer Flexibility Model
-
-**Concept:**
-- Each 3 MW block = 3 chillers (N+1 redundancy within block)
-- MEP systems deployed in 3 MW increments aligned with lease commitments
-
-**Benefits:**
-- **Capital Efficiency:** Deploy cooling capacity only as revenue materializes
-- **Customer Optionality:** Flexibility for phased move-ins or expansion
-- **Risk Mitigation:** Avoid stranded capacity if lease-up slower than projected
 
 
 ---

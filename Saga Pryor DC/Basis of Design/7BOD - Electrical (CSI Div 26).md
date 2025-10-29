@@ -32,6 +32,21 @@ Electrical systems provide Tier III-compliant N+1 redundant power distribution w
 
 <!-- Start with switch ATL electrical design to create the equipment list - ex: each chiller is tuned to the market (we can specify by size and generic) -->
 
+
+| Equipment         | Abbreviation  | Location        | Description                                                                                               | Phase1 Qty 3MW | Phase4 Qty 12MW | Phase5 Qty 24MW |
+| ----------------- | ------------- | --------------- | --------------------------------------------------------------------------------------------------------- | -------------- | --------------- | --------------- |
+| Generator         | **GEN**       | Outdoor         | 4.3MW Natural Gas Generator {more info needed?}<br><br><!--3000kW/3750kVA DCCP-Rated Diesel Generator --> | 2              | 5               | 9-10            |
+| MV/LV Transformer | **TX**        | Outdoor         | TBD<br><br><!--VPI Power-Dry II 3000kVA 3PH 5.75% 13.8kV-480Y/277 V-->                                    | 4              |                 |                 |
+| MV/LV Transformer | **MECH TX**   | Outdoor         | VPI Power-Dry II 1500kVA 3PH 5.75% 13.8kV-480Y/277 V                                                      | 2              |                 |                 |
+| Main Switchboard  | **SWBD**      | Electrical Room | QED-2 switchboard 65kA-1s / 480V / 4000A                                                                  | 4              |                 |                 |
+| UPS               | **UPS**       | Electrical Room | Galaxy VX UPS 1500kW 480V                                                                                 | 8              |                 |                 |
+| UPS Batteries     | **LI-BATT**   | Electrical Room | Galaxy Lithium-ion battery cabinet with 17 battery modules                                                | 32             |                 |                 |
+| HVAC Switchboard  | **MECH SWBD** | Mechanical Room | QED-2 switchboard 35kA-1s / 480V / 1600A                                                                  | 2              |                 |                 |
+| UPS               | **MUPS**      | Mechanical Room | Galaxy VL UPS 200kW 480V                                                                                  | 2              |                 |                 |
+| UPS Batteries     | **LIB**       | Mechanical Room | Galaxy Lithium-ion battery cabinet with 16 battery modules                                                | 2              |                 |                 |
+
+
+
 ## TRADITIONAL N+1 UPS ARCHITECTURE WITH DUAL POWER PATHS {TBC}
 
 ### System Configuration
