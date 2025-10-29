@@ -16,7 +16,6 @@ Division 00 defines project delivery approach, contracting strategy, and phasing
 
 *Note: This division is not a technical specification; it is the "front-end" documentation that contains all the business and legal information required to bid on and enter into a contract for the project.*
 
-
 ---
 
 

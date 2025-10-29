@@ -5,8 +5,11 @@
 ## How It Works
 
 When you press your hotkey (like `Alt+Shift+P`), the tool:
-1. Finds whichever markdown file you edited most recently
-2. Converts it to a beautifully formatted Google Doc
+1. Takes the file you're currently viewing or editing
+2. Converts it to a beautifully formatted Google Doc with:
+   - Professional tables with styled headers
+   - Proper headings, lists, and formatting
+   - Code blocks, links, and inline styles
 3. Shows you the link in a popup
 4. Copies the link to your clipboard (on Mac)
 

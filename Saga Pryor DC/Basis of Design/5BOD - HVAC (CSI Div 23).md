@@ -24,10 +24,15 @@ Hybrid cooling strategy supporting high-density AI racks (liquid-cooled) and sta
 - **Modular Deployment:** Equipment deployed in 3 MW increments aligned with customer lease-up
 
 ### Target Performance
-- **PUE:** 1.2-1.35 (annual average)
-  - Free cooling months (Oct-Apr): 1.15-1.25
-  - Mechanical cooling months (May-Sep): 1.25-1.35
+- **PUE:** 1.20-1.35 (annual average)
+  - Free cooling months: 1.15-1.25
+  - Mechanical cooling months: 1.25-1.35
 - **IT Space Conditions:** 18-27°C (64-80°F), 5.5°C-60% RH dew point per ASHRAE A1
+
+**Note on PUE vs Cooling Load:**
+- Cooling load = IT heat to be removed (nearly 1:1 with IT power)
+- Cooling power = Energy to run chillers/pumps/fans (varies with efficiency)
+- Example: 12 MW IT with PUE 1.25 = 15 MW total, ~3 MW for cooling power
 
 ---
 
@@ -36,31 +41,30 @@ Hybrid cooling strategy supporting high-density AI racks (liquid-cooled) and sta
 ### Chiller Sizing & Configuration
 
 **Cooling Load Calculation:**
+
 | Phase | IT Load | Cooling Required | Notes |
-|---|---|---|---|
-| 1 | 3 MW | 3.3 MW | IT + ~0.3 MW non-IT loads |
-| 2 | 6 MW | 6.5 MW | IT + ~0.5 MW non-IT loads |
-| 3 | 9 MW | 9.8 MW | IT + ~0.8 MW non-IT loads |
-| 4 | 12 MW | 13 MW | IT + ~1 MW non-IT loads |
-| 5 | 20-24 MW | 21-25 MW | IT + ~1-1.5 MW non-IT loads |
+|-------|---------|------------------|-------|
+| 1 | 3 MW | 3.2 MW | IT heat + pumps/fans (~7% adder) |
+| 2 | 6 MW | 6.4 MW | IT heat + pumps/fans (~7% adder) |
+| 3 | 9 MW | 9.6 MW | IT heat + pumps/fans (~7% adder) |
+| 4 | 12 MW | 12.8 MW | IT heat + pumps/fans (~7% adder) |
+| 5 | 20-24 MW | 21.4-25.7 MW | IT heat + pumps/fans (~7% adder) |
 
 **Chiller Configuration:**
 - **Standard Chillers:** 1.5 MW each (air-cooled with integrated free cooling)
 - **High-Capacity Chillers (Phase 5):** 2.5 MW each for high-density AI loads
 - **Modular Deployment:**
-  - Phase 1: 4 × 1.5 MW = 6 MW capacity (for 3.3 MW load)
-  - Phase 2: 8 × 1.5 MW = 12 MW capacity (for 6.5 MW load)
-  - Phase 3: 12 × 1.5 MW = 18 MW capacity (for 9.8 MW load)
-  - Phase 4: 12 × 1.5 MW = 18 MW capacity (for 13 MW load)
-  - Phase 5: 12 × 1.5 MW + 4 × 2.5 MW = 28 MW capacity (for 21-25 MW load)
+  - Phase 1: 4 × 1.5 MW = 6 MW capacity (for 3.2 MW load)
+  - Phase 2: 8 × 1.5 MW = 12 MW capacity (for 6.4 MW load)
+  - Phase 3: 8 × 1.5 MW = 12 MW capacity (for 9.6 MW load) - no new chillers
+  - Phase 4: 12 × 1.5 MW = 18 MW capacity (for 12.8 MW load)
+  - Phase 5: 12 × 1.5 MW + 4 × 2.5 MW = 28 MW capacity (for 21.4-25.7 MW load)
 
 ### IT Load Density Evolution
 
 **Why Two Chiller Sizes:**
-
 The data center industry is experiencing a fundamental shift in rack power density driven by AI workloads. Traditional air-cooled network/storage racks operate at 5-15 kW, while modern AI/GPU racks require 50-100+ kW with liquid cooling. This density evolution drives our dual-chiller strategy:
-
-- **Phase 1-4 (1.5 MW chillers):** Optimized for traditional air-cooled IT at 10-15 kW/rack
+- **Phase 1-4 (1.5 MW chillers):** Optimized for traditional air-cooled IT at 10-15 kW/rack - w
 - **Phase 5 (2.5 MW chillers):** Sized for high-density liquid-cooled AI at 50-100 kW/rack
 
 Using larger chillers for Phase 5 provides:
@@ -89,10 +93,12 @@ Using larger chillers for Phase 5 provides:
 - **Partial Free Cooling:** 45°F < Ambient ≤70°F → Reduced compressor operation
 - **Mechanical Cooling:** Ambient >70°F → Full mechanical cooling
 
-**Oklahoma Climate Advantage:**
-- ~200+ days/year of free or partial free cooling
+**Oklahoma Climate Analysis:**
+- Full free cooling (<45°F): ~100-120 days/year
+- Partial free cooling (45-70°F): ~80-100 days/year
+- Total free/partial cooling: ~180-220 days/year
 - Design conditions: 95°F summer / 10°F winter (ASHRAE 99.6%)
-- Annual average efficiency target: 0.45-0.55 kW/ton
+- Annual weighted efficiency: 0.50-0.60 kW/ton (conservative)
 
 
 ### Chiller Yard Layout
@@ -121,15 +127,20 @@ Using larger chillers for Phase 5 provides:
 ### Pump Sizing
 
 **Primary Pumps (Constant Speed):**
-- One pump per chiller, plus shared standby pumps
-- ~360 GPM per chiller @ 60-80 ft head
-- 20-30 HP motors, 480V power
+- One pump per chiller plus standby capacity
+- 360 GPM per 1.5MW chiller, 600 GPM per 2.5MW chiller
+- 20-30 HP for 1.5MW chillers, 40-50 HP for 2.5MW chillers
+- 480V power, constant speed operation
 
 **Secondary Pumps (Variable Speed with VFDs):**
-- Phase 1-4: 3 pumps (2 duty + 1 standby) for 12 MW
-- Phase 5: 5-6 pumps for 24 MW
-- 1,200-1,500 GPM each @ 100-140 ft head
-- 75-100 HP motors with VFDs for energy optimization
+- Sized for total system flow with N+1 redundancy
+- Flow calculation: Cooling tons × 24 GPM/ton / ΔT (using 15°F ΔT)
+- Phase 1 (3.2MW cooling): ~1,456 GPM = 2+1 pumps @ 750 GPM each
+- Phase 2 (6.4MW cooling): ~2,912 GPM = 3+1 pumps @ 1,000 GPM each
+- Phase 3 (9.6MW cooling): ~4,368 GPM = 4+1 pumps @ 1,100 GPM each
+- Phase 4 (12.8MW cooling): ~5,824 GPM = 5+1 pumps @ 1,200 GPM each
+- Phase 5 (21.4-25.7MW cooling): ~9,730-11,680 GPM = 8+2 pumps @ 1,250-1,500 GPM each
+- 75-150 HP motors with VFDs for energy optimization
 
 
 ### Piping Distribution
@@ -235,12 +246,12 @@ Using larger chillers for Phase 5 provides:
 ## ENERGY EFFICIENCY MEASURES
 
 ### PUE Optimization Strategies
-1. **Extended Free Cooling:** Maximize hours of free cooling operation (~215 days/year in Oklahoma)
+1. **Extended Free Cooling:** Maximize hours of free cooling operation (~180-220 days/year in Oklahoma)
 2. **Variable Speed Drives (VFDs):** All pumps and AHU fans on VFDs for part-load efficiency
 3. **High Supply Temperature:** Increase chilled water supply temp to 50°F (reduces chiller lift)
 4. **Hot Aisle Containment:** Prevents hot/cold air mixing
 5. **LED Lighting:** High-efficiency LED with occupancy sensors
-6. **BESS-as-UPS:** Eliminates 4-8% UPS conversion losses (if BESS-as-UPS confirmed)
+6. **Optimized UPS:** Modern modular UPS with >96% efficiency at typical loads
 
 ### Monitoring & Verification
 - Real-time PUE monitoring via DCIM platform
@@ -348,15 +359,15 @@ Using larger chillers for Phase 5 provides:
 
 | Equipment | Description | Phase 1 (3MW) | Phase 2 (6MW) | Phase 3 (9MW) | Phase 4 (12MW) | Phase 5 (20-24MW) |
 |---|---|---|---|---|---|---|
-| **1.5 MW Chiller** | Standard air-cooled with free cooling | 4 | 8 | 12 | 12 | 12 |
+| **1.5 MW Chiller** | Standard air-cooled with free cooling | 4 | 8 | 8 | 12 | 12 |
 | **2.5 MW Chiller** | High-capacity for AI loads | 0 | 0 | 0 | 0 | 4 |
-| **Primary CHW Pump** | 360 GPM @ 60-80 ft (1.5MW), 600 GPM (2.5MW) | 5 | 9 | 13 | 13 | 17 |
-| **Secondary CHW Pump** | 1,200-1,500 GPM @ 100-140 ft, 75-100 HP, VFD | 3 | 3 | 3 | 3 | 5-6 |
-| **Expansion Tank** | Bladder-type, ASME rated | 1 | 2 | 2 | 2 | 3 |
-| **Pressurization Unit** | Dual pump with feeder tank | 1 | 1 | 1 | 1 | 2 |
+| **Primary CHW Pump** | 360 GPM @ 60-80 ft, 20-30 HP | 4+1 spare | 8+1 spare | 8+1 spare | 12+2 spare | 16+2 spare |
+| **Secondary CHW Pump** | 750-1500 GPM @ 100-140 ft, 75-150 HP, VFD | 2+1 spare | 3+1 spare | 4+1 spare | 5+1 spare | 8+2 spare |
+| **Expansion Tank** | Bladder-type, ASME rated | 1 | 1 | 2 | 2 | 3 |
+| **Pressurization Unit** | Dual pump with feeder tank | 1 | 1 | 1 | 2 | 2 |
 | **Chemical Treatment** | Dosing pots, separators, filters | 1 set | 1 set | 1 set | 1 set | 2 sets |
 | **CDU (if liquid cooling)** | 50-80 kW per unit | As needed | As needed | As needed | As needed | High qty |
-| **Rooftop AHU** | Environmental control, 10-15 tons | 3 | 3 | 4 | 4 | 5-6 |
+| **Rooftop AHU** | Environmental control, 10-15 tons | 2+1 spare | 3+1 spare | 3+1 spare | 3+1 spare | 4+2 spare |
 | **Support Space HVAC** | Mechanical rooms, offices | 1 set | 1 set | 1 set | 1 set | 1 set |
 
 **Notes:**

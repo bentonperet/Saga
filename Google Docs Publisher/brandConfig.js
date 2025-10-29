@@ -99,8 +99,10 @@ const BRAND = {
     borderColor: '#CCCCCC'
   },
   TABLE: {
-    borderColor: '#CCCCCC',
-    headerBackgroundColor: '#F0F0F0',
+    borderColor: '#000000',
+    borderWidth: 0.5,
+    headerBackgroundColor: '#044A74',
+    headerTextColor: '#FFFFFF',
     headerFontFamily: 'Source Sans 3',
     headerBold: true,
     cellPaddingPt: 6

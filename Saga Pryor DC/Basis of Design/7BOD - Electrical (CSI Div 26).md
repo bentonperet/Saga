@@ -53,14 +53,33 @@ Electrical systems provide Tier III-compliant N+1 redundant power distribution w
 | UPS Module             | 500 kW modular hot-swappable UPS, double-conversion, 96-97% efficiency, 480V input/output, dual A/B paths (N+1 per path)                                       | 8              | 16             | 24             | 32              | 64              |
 | UPS Battery Cabinet    | Lithium-ion or VRLA battery cabinet, 15-min backup at full load, distributed per UPS module                                                                    | 32             | 64             | 96             | 128             | 256             |
 | Mechanical Switchboard | 2,000A (Phase 1-2) or 6,000A (Phase 3-5), 480V, 3-phase, 35kA SCCR, feeds chiller plant, pumps, DX units, support HVAC                                         | 2              | 2              | 3              | 3               | 3               |
-
 | Mechanical UPS           | 250 kW UPS for critical mechanical controls, pumps, BMS, 480V input, dual-conversion, N+1 configuration                                                        | 2              | 3              | 3              | 4               | 6               |
 | Mechanical UPS Batteries | VRLA or Li-ion batteries for mechanical UPS, 15-min backup for critical mechanical systems                                                                     | 2              | 3              | 3              | 4               | 6               |
 
 
-<!-- @benton REVIEW BATTERY CABINET COUNT: Equipment table specifies 32 battery cabinets for only 8 UPS modules (4:1 ratio). Industry standard is typically 1-2 cabinets per 500kW module. Is the 15-minute runtime requirement driving this high count? Verify with UPS vendor quotes. Potential cost optimization opportunity. -->
+**Battery Cabinet Count Explanation:**
+The 4:1 ratio (32 cabinets for 8 UPS modules) is driven by the 15-minute runtime requirement at full load. Industry standard for 500kW UPS modules typically uses 1-2 cabinets for 5-10 minute runtime, but this project requires 15 minutes to accommodate natural gas turbine startup time (5-10 minutes). Calculation basis:
+- Each 500kW module needs ~125 kWh for 15-min runtime (500kW × 0.25 hr)
+- Standard Li-ion cabinet: ~30-40 kWh per cabinet
+- Required cabinets per module: 125 kWh ÷ 35 kWh = ~3.6, rounded to 4 cabinets
 
-<!-- @benton VERIFY MECHANICAL UPS SIZING: 250 kW UPS × 4 units = 1 MW total capacity for Phase 4. Mechanical load analysis: 3× 5,000 kVA transformers = 4.2 MW total mechanical capacity. If critical mechanical loads (chillers, pumps) represent 30-40% of total = ~1.5 MW minimum requirement. Current specification may be undersized. Recommend load calculation review. -->
+**{TBC}** Verify exact battery cabinet counts with vendor quotes (Schneider Galaxy VXL or equivalent). May be reduced to 2-3 cabinets per module depending on battery technology selected.
+
+**Mechanical UPS Sizing Analysis:**
+Phase 4 mechanical UPS capacity: 4 × 250 kW = 1 MW total (N+1 configuration)
+
+Critical mechanical loads requiring UPS backup:
+- Primary/secondary chilled water pumps: ~700 kW (from HVAC BOD 5BOD:143)
+- Critical BMS/controls: ~50-100 kW
+- Emergency lighting and critical ventilation: ~100-150 kW
+- **Total critical mechanical load: ~850-950 kW**
+
+With N+1 redundancy:
+- Operating capacity required: 850-950 kW
+- N+1 configuration: 3 × 250 kW = 750 kW available (any 2 of 3 running)
+- **Analysis: Current specification appears UNDERSIZED by ~100-200 kW**
+
+**{TBC}** Recommend increasing mechanical UPS to 300-350 kW modules or adding fifth unit for Phase 4. Non-critical mechanical loads (chillers) will ride through on generator power only.
 
 ## GENERATOR SYSTEMS {TBC}
 
@@ -130,7 +149,7 @@ The system is built using 500 kW modular blocks, with 8 modules (4A + 4B) deploy
 | **Backup Time**   | 15 minutes at full load                       |
 | **Configuration** | Distributed battery cabinets per UPS          |
 
-<!-- @benton CONFIRM UPS OUTPUT VOLTAGE: Current spec shows 480V input AND output. This means dual transformation: 480V UPS → RPP (480V-208V step-down) → 208V racks. Verify this matches vendor quotes and is intentional vs. alternative of 480V input / 208V output UPS (single transformation). Dual transformation reduces efficiency but may improve distribution flexibility. -->
+<!-- @benton CONFIRM UPS OUTPUT VOLTAGE: Current spec shows 480V input AND output. This means dual transformation: 480V UPS → RPP (480V-208V step-down) → 208V racks. Verify this matches vendor quotes and is intentional vs. alternative of 480V input / 208V output UPS (single transformation). Dual transformation reduces efficiency but may improve distribution flexibility.   -->
 
 ---
 
@@ -459,31 +478,31 @@ To optimize cost and complexity, the following are accepted single points of fai
 
 ### Phase 4: 12 MW IT Load (Cumulative)
 
-| Equipment Item | Qty Added | Unit Cost (Mid) | Phase 4 Incremental | Cumulative Total |
-|----------------|-----------|-----------------|---------------------|------------------|
-| **Power Generation** |
-| Natural Gas Turbine Generator (4.3 MW) | +1 | $3,720,000 | $3,720,000 | 5 units total |
-| Generator Paralleling Switchgear expansion | 1 bay | $200,000 | $200,000 | Expanded for 5 units |
-| **Transformation** |
-| IT Transformer (5,000 kVA) | +1 | $55,000 | $55,000 | 5 units total |
-| Mechanical Transformer (5,000 kVA) | 0 | - | - | 3 units sufficient (N+1) |
-| **UPS Systems** |
-| UPS Module + Battery (500 kW) | +8 | $450,000 | $3,600,000 | 32 units total (16A + 16B) |
-| Mechanical UPS (250 kW) | +1 | $250,000 | $250,000 | 4 units total |
-| **Distribution** |
-| IT Switchboard (7,000A) | +1 | $125,000 | $125,000 | 5 units total |
-| Mechanical Switchboard (6,000A) | 0 | - | - | 3 units sufficient (N+1) |
-| Overhead Busway (additional 300 LF) | +3 | $12,000 | $36,000 | - |
-| **Enclosures & Infrastructure** |
-| Containerized Electrical Enclosure | +2 | $150,000 | $300,000 | 8 units total |
-| Rack Power Panels (RPPs) | +40 | $8,000 | $320,000 | 160 total |
-| **Installation & Other** |
-| Electrical installation labor (20%) | - | - | $1,721,200 | - |
-| Commissioning services (3%) | - | - | $258,180 | - |
-| **Phase 4 Incremental** | | | **$10,585,380** | |
-| **Contingency (15%)** | | | **$1,587,807** | |
-| **Phase 4 Total** | | | **$12,173,187** | **~$12.2M** |
-| **Cumulative Through Phase 4** | | | **$55,959,851** | **~$56.0M** |
+| Equipment Item                             | Qty Added | Unit Cost (Mid) | Phase 4 Incremental | Cumulative Total           |
+| ------------------------------------------ | --------- | --------------- | ------------------- | -------------------------- |
+| **Power Generation**                       |           |                 |                     |                            |
+| Natural Gas Turbine Generator (4.3 MW)     | +1        | $3,720,000      | $3,720,000          | 5 units total              |
+| Generator Paralleling Switchgear expansion | 1 bay     | $200,000        | $200,000            | Expanded for 5 units       |
+| **Transformation**                         |           |                 |                     |                            |
+| IT Transformer (5,000 kVA)                 | +1        | $55,000         | $55,000             | 5 units total              |
+| Mechanical Transformer (5,000 kVA)         | 0         | -               | -                   | 3 units sufficient (N+1)   |
+| **UPS Systems**                            |           |                 |                     |                            |
+| UPS Module + Battery (500 kW)              | +8        | $450,000        | $3,600,000          | 32 units total (16A + 16B) |
+| Mechanical UPS (250 kW)                    | +1        | $250,000        | $250,000            | 4 units total              |
+| **Distribution**                           |           |                 |                     |                            |
+| IT Switchboard (7,000A)                    | +1        | $125,000        | $125,000            | 5 units total              |
+| Mechanical Switchboard (6,000A)            | 0         | -               | -                   | 3 units sufficient (N+1)   |
+| Overhead Busway (additional 300 LF)        | +3        | $12,000         | $36,000             | -                          |
+| **Enclosures & Infrastructure**            |           |                 |                     |                            |
+| Containerized Electrical Enclosure         | +2        | $150,000        | $300,000            | 8 units total              |
+| Rack Power Panels (RPPs)                   | +40       | $8,000          | $320,000            | 160 total                  |
+| **Installation & Other**                   |           |                 |                     |                            |
+| Electrical installation labor (20%)        | -         | -               | $1,721,200          | -                          |
+| Commissioning services (3%)                | -         | -               | $258,180            | -                          |
+| **Phase 4 Incremental**                    |           |                 | **$10,585,380**     |                            |
+| **Contingency (15%)**                      |           |                 | **$1,587,807**      |                            |
+| **Phase 4 Total**                          |           |                 | **$12,173,187**     | **~$12.2M**                |
+| **Cumulative Through Phase 4**             |           |                 | **$55,959,851**     | **~$56.0M**                |
 
 ---
 

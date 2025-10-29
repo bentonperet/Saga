@@ -44,10 +44,41 @@ class DocsPublisher {
     this.cursorIndex = 1;
     this.pendingTables = [];
 
-    // Build all content requests
-    blocks.forEach(block => this.processBlock(block));
+    // Process blocks sequentially, handling tables specially
+    for (const block of blocks) {
+      if (block.type === 'table') {
+        // Flush any pending non-table requests first
+        if (this.requests.length > 0) {
+          await this.docs.documents.batchUpdate({
+            documentId: this.docId,
+            requestBody: { requests: this.requests }
+          });
+          this.requests = [];
+        }
 
-    // Execute all requests in a single batch update
+        // Insert and populate this table immediately
+        const insertIndex = this.cursorIndex;
+        await this.insertAndPopulateTable(block, insertIndex);
+
+        // Read back document to find where cursor should be after table
+        const doc = await this.docs.documents.get({ documentId: this.docId });
+        const table = this.findTableNearIndex(doc.data.body.content, insertIndex);
+        if (table) {
+          this.cursorIndex = table.endIndex;
+        } else {
+          console.warn(`Could not find table near index ${insertIndex}, cursor position may be incorrect`);
+          // Estimate based on table size
+          const rows = block.rows.length;
+          const cols = block.rows[0]?.length || 1;
+          this.cursorIndex = insertIndex + 3 + (rows * (cols * 2 + 1));
+        }
+      } else {
+        // Regular block - process normally
+        this.processBlock(block);
+      }
+    }
+
+    // Flush any remaining requests
     if (this.requests.length > 0) {
       await this.docs.documents.batchUpdate({
         documentId: this.docId,
@@ -55,14 +86,237 @@ class DocsPublisher {
       });
     }
 
-    // Process any tables that were created (requires second batch update)
-    await this.processPendingTables();
-
     return {
       documentId: this.docId,
       url: `https://docs.google.com/document/d/${this.docId}/edit`,
       title
     };
+  }
+
+  /**
+   * Insert a table and populate it immediately (two-phase process)
+   */
+  async insertAndPopulateTable(block, insertIndex) {
+    const rows = block.rows.length;
+    const cols = block.rows[0]?.length || 1;
+
+    // Phase 1: Create empty table structure
+    await this.docs.documents.batchUpdate({
+      documentId: this.docId,
+      requestBody: {
+        requests: [{
+          insertTable: {
+            rows,
+            columns: cols,
+            location: { index: insertIndex }
+          }
+        }]
+      }
+    });
+
+    // Phase 2: Read back document and populate table
+    const doc = await this.docs.documents.get({ documentId: this.docId });
+
+    // Find the table - it might be at insertIndex ±1 due to document structure
+    let table = this.findTableAtIndex(doc.data.body.content, insertIndex);
+
+    if (!table) {
+      // Try nearby indexes (table structure can shift by 1-2 positions)
+      table = this.findTableNearIndex(doc.data.body.content, insertIndex, 5);
+    }
+
+    if (!table) {
+      console.error(`Could not find table near index ${insertIndex}`);
+      return;
+    }
+
+    const tableRequests = this.buildTableContentRequests(block, table, rows, cols);
+
+    if (tableRequests.length > 0) {
+      try {
+        await this.docs.documents.batchUpdate({
+          documentId: this.docId,
+          requestBody: { requests: tableRequests }
+        });
+      } catch (error) {
+        console.error(`Error populating table:`, error.message);
+        if (error.errors) {
+          error.errors.forEach(err => console.error(`  - ${err.message}`));
+        }
+        throw error;
+      }
+    }
+  }
+
+  /**
+   * Build requests for table content and styling
+   */
+  buildTableContentRequests(block, table, rows, cols) {
+    const tableRequests = [];
+    const startIndex = table.startIndex;
+
+    // Process cells in reverse order to avoid index shifting
+    for (let rowIdx = rows - 1; rowIdx >= 0; rowIdx--) {
+      const row = block.rows[rowIdx];
+      const tableRow = table.table.tableRows[rowIdx];
+
+      for (let colIdx = cols - 1; colIdx >= 0; colIdx--) {
+        const cell = row[colIdx] || { runs: [{ text: '' }] };
+        const tableCell = tableRow.tableCells[colIdx];
+
+        // Get the actual start index of the cell's first paragraph
+        const cellContent = tableCell.content[0];
+        if (!cellContent || !cellContent.paragraph) {
+          console.warn(`Cell at row ${rowIdx}, col ${colIdx} has no paragraph content`);
+          continue;
+        }
+
+        // Get the paragraph's first element index (where we can insert)
+        const paragraph = cellContent.paragraph;
+        let cellStartIndex;
+
+        if (paragraph.elements && paragraph.elements.length > 0) {
+          cellStartIndex = paragraph.elements[0].startIndex;
+        } else {
+          cellStartIndex = cellContent.startIndex + 1;
+        }
+
+        const cellText = cell.runs.map(r => r.text).join('');
+
+        // Insert cell content
+        if (cellText) {
+          tableRequests.push({
+            insertText: {
+              location: { index: cellStartIndex },
+              text: cellText
+            }
+          });
+
+          // Apply inline formatting
+          let offset = 0;
+          cell.runs.forEach(run => {
+            if (run.text) {
+              const runStart = cellStartIndex + offset;
+              const runEnd = runStart + run.text.length;
+
+              const textStyle = {};
+              if (run.bold) textStyle.bold = true;
+              if (run.italic) textStyle.italic = true;
+              if (run.strikethrough) textStyle.strikethrough = true;
+              if (run.code) {
+                textStyle.weightedFontFamily = { fontFamily: BRAND.CODE.fontFamily };
+                textStyle.fontSize = this.makeDimension(BRAND.CODE.fontSizePt);
+                textStyle.backgroundColor = {
+                  color: { rgbColor: hexToRgb(BRAND.CODE.backgroundColor) }
+                };
+              }
+
+              if (Object.keys(textStyle).length > 0) {
+                tableRequests.push({
+                  updateTextStyle: {
+                    range: { startIndex: runStart, endIndex: runEnd },
+                    textStyle,
+                    fields: Object.keys(textStyle).join(',')
+                  }
+                });
+              }
+
+              if (run.link) {
+                tableRequests.push({
+                  updateTextStyle: {
+                    range: { startIndex: runStart, endIndex: runEnd },
+                    textStyle: {
+                      link: { url: run.link },
+                      foregroundColor: { color: { rgbColor: hexToRgb('#4F81BD') } },
+                      underline: true
+                    },
+                    fields: 'link,foregroundColor,underline'
+                  }
+                });
+              }
+
+              offset += run.text.length;
+            }
+          });
+        }
+
+        // Apply header row styling (white text on dark blue background)
+        if (rowIdx === 0 && cellText) {
+          const cellEndIndex = cellStartIndex + cellText.length;
+          tableRequests.push({
+            updateTextStyle: {
+              range: { startIndex: cellStartIndex, endIndex: cellEndIndex },
+              textStyle: {
+                bold: BRAND.TABLE.headerBold,
+                weightedFontFamily: { fontFamily: BRAND.TABLE.headerFontFamily },
+                fontSize: this.makeDimension(BRAND.BODY.fontSizePt),
+                foregroundColor: {
+                  color: { rgbColor: hexToRgb(BRAND.TABLE.headerTextColor) }
+                }
+              },
+              fields: 'bold,weightedFontFamily,fontSize,foregroundColor'
+            }
+          });
+        }
+      }
+    }
+
+    // Apply borders to all cells (0.5pt black grid)
+    const borderStyle = {
+      color: { color: { rgbColor: hexToRgb(BRAND.TABLE.borderColor) } },
+      width: this.makeDimension(BRAND.TABLE.borderWidth),
+      dashStyle: 'SOLID'
+    };
+
+    tableRequests.push({
+      updateTableCellStyle: {
+        tableRange: {
+          tableCellLocation: {
+            tableStartLocation: { index: startIndex },
+            rowIndex: 0,
+            columnIndex: 0
+          },
+          rowSpan: rows,
+          columnSpan: cols
+        },
+        tableCellStyle: {
+          borderTop: borderStyle,
+          borderBottom: borderStyle,
+          borderLeft: borderStyle,
+          borderRight: borderStyle,
+          paddingTop: this.makeDimension(BRAND.TABLE.cellPaddingPt),
+          paddingBottom: this.makeDimension(BRAND.TABLE.cellPaddingPt),
+          paddingLeft: this.makeDimension(BRAND.TABLE.cellPaddingPt),
+          paddingRight: this.makeDimension(BRAND.TABLE.cellPaddingPt)
+        },
+        fields: 'borderTop,borderBottom,borderLeft,borderRight,paddingTop,paddingBottom,paddingLeft,paddingRight'
+      }
+    });
+
+    // Style header row with dark blue background
+    if (rows > 0) {
+      tableRequests.push({
+        updateTableCellStyle: {
+          tableRange: {
+            tableCellLocation: {
+              tableStartLocation: { index: startIndex },
+              rowIndex: 0,
+              columnIndex: 0
+            },
+            rowSpan: 1,
+            columnSpan: cols
+          },
+          tableCellStyle: {
+            backgroundColor: {
+              color: { rgbColor: hexToRgb(BRAND.TABLE.headerBackgroundColor) }
+            }
+          },
+          fields: 'backgroundColor'
+        }
+      });
+    }
+
+    return tableRequests;
   }
 
   /**
@@ -86,7 +340,8 @@ class DocsPublisher {
         this.insertBlockquote(block);
         break;
       case 'table':
-        this.insertTable(block);
+        // Tables are handled separately in publish() method
+        // This case should not be reached
         break;
       case 'hr':
         this.insertHorizontalRule();
@@ -503,16 +758,29 @@ class DocsPublisher {
           const tableCell = tableRow.tableCells[colIdx];
 
           // Get the actual start index of the cell's first paragraph
-          // Each cell contains at least one paragraph
+          // Each cell contains at least one paragraph with content
           const cellContent = tableCell.content[0]; // First element is the paragraph
           if (!cellContent || !cellContent.paragraph) {
             console.warn(`Cell at row ${rowIdx}, col ${colIdx} has no paragraph content`);
             continue;
           }
-          const cellStartIndex = cellContent.startIndex;
-          const cellText = cell.runs.map(r => r.text).join('');
 
-          console.log(`Cell [${rowIdx},${colIdx}]: startIndex=${cellStartIndex}, text="${cellText}", endIndex=${cellContent.endIndex}`);
+          // The paragraph element has a startIndex, but we need to insert INSIDE it
+          // The paragraph's first content element (if it exists) tells us where to insert
+          // For an empty paragraph, we insert right after the paragraph start
+          const paragraph = cellContent.paragraph;
+          let cellStartIndex;
+
+          if (paragraph.elements && paragraph.elements.length > 0) {
+            // Use the first element's start index
+            cellStartIndex = paragraph.elements[0].startIndex;
+          } else {
+            // Empty paragraph - insert at start + 1
+            cellStartIndex = cellContent.startIndex + 1;
+          }
+
+          const cellText = cell.runs.map(r => r.text).join('');
+          console.log(`Cell [${rowIdx},${colIdx}]: cellStartIndex=${cellStartIndex}, paragraphStart=${cellContent.startIndex}, text="${cellText}"`);
 
           // Insert cell content
           if (cellText) {
@@ -648,21 +916,40 @@ class DocsPublisher {
       if (element.table && element.startIndex === targetIndex) {
         return element;
       }
-      // Check nested content (like in sections)
-      if (element.sectionBreak || element.paragraph) {
-        // Tables are top-level, skip these
-        continue;
-      }
     }
     return null;
   }
 
   /**
-   * Insert a horizontal rule (represented as a centered line)
+   * Find a table near a specific index (within ±10 positions)
+   * Useful when index might have shifted due to content insertion
+   */
+  findTableNearIndex(content, targetIndex, tolerance = 10) {
+    let closestTable = null;
+    let closestDistance = Infinity;
+
+    for (const element of content) {
+      if (element.table) {
+        const distance = Math.abs(element.startIndex - targetIndex);
+        if (distance <= tolerance && distance < closestDistance) {
+          closestTable = element;
+          closestDistance = distance;
+        }
+      }
+    }
+
+    return closestTable;
+  }
+
+  /**
+   * Insert a horizontal rule as a visual line
+   * (Google Docs API doesn't support insertHorizontalRule directly)
    */
   insertHorizontalRule() {
-    const text = '—'.repeat(20) + '\n';
     const startIndex = this.cursorIndex;
+    // Use Unicode box drawing character for a solid line
+    const lineChar = '─'; // Box Drawings Light Horizontal (U+2500)
+    const text = lineChar.repeat(60) + '\n';
     const endIndex = startIndex + text.length;
 
     this.requests.push({
@@ -672,13 +959,14 @@ class DocsPublisher {
       }
     });
 
+    // Style the line
     this.requests.push({
       updateParagraphStyle: {
         range: { startIndex, endIndex },
         paragraphStyle: {
           alignment: 'CENTER',
-          spaceAbove: this.makeDimension(6),
-          spaceBelow: this.makeDimension(6)
+          spaceAbove: this.makeDimension(8),
+          spaceBelow: this.makeDimension(8)
         },
         fields: 'alignment,spaceAbove,spaceBelow'
       }
@@ -690,9 +978,10 @@ class DocsPublisher {
         textStyle: {
           foregroundColor: {
             color: { rgbColor: hexToRgb('#CCCCCC') }
-          }
+          },
+          fontSize: this.makeDimension(8)
         },
-        fields: 'foregroundColor'
+        fields: 'foregroundColor,fontSize'
       }
     });
 
