@@ -32,19 +32,29 @@ Electrical systems provide Tier III-compliant N+1 redundant power distribution w
 
 <!-- Start with switch ATL electrical design to create the equipment list - ex: each chiller is tuned to the market (we can specify by size and generic) -->
 
+**Phasing Reminder**
 
-| Equipment         | Abbreviation  | Location        | Description                                                                                               | Phase1 Qty 3MW | Phase4 Qty 12MW | Phase5 Qty 24MW |
-| ----------------- | ------------- | --------------- | --------------------------------------------------------------------------------------------------------- | -------------- | --------------- | --------------- |
-| Generator         | **GEN**       | Outdoor         | 4.3MW Natural Gas Generator {more info needed?}<br><br><!--3000kW/3750kVA DCCP-Rated Diesel Generator --> | 2              | 5               | 9-10            |
-| MV/LV Transformer | **TX**        | Outdoor         | TBD<br><br><!--VPI Power-Dry II 3000kVA 3PH 5.75% 13.8kV-480Y/277 V-->                                    | 4              |                 |                 |
-| MV/LV Transformer | **MECH TX**   | Outdoor         | VPI Power-Dry II 1500kVA 3PH 5.75% 13.8kV-480Y/277 V                                                      | 2              |                 |                 |
-| Main Switchboard  | **SWBD**      | Electrical Room | QED-2 switchboard 65kA-1s / 480V / 4000A                                                                  | 4              |                 |                 |
-| UPS               | **UPS**       | Electrical Room | Galaxy VX UPS 1500kW 480V                                                                                 | 8              |                 |                 |
-| UPS Batteries     | **LI-BATT**   | Electrical Room | Galaxy Lithium-ion battery cabinet with 17 battery modules                                                | 32             |                 |                 |
-| HVAC Switchboard  | **MECH SWBD** | Mechanical Room | QED-2 switchboard 35kA-1s / 480V / 1600A                                                                  | 2              |                 |                 |
-| UPS               | **MUPS**      | Mechanical Room | Galaxy VL UPS 200kW 480V                                                                                  | 2              |                 |                 |
-| UPS Batteries     | **LIB**       | Mechanical Room | Galaxy Lithium-ion battery cabinet with 16 battery modules                                                | 2              |                 |                 |
+| Phase | IT Load | Facility Load (PUE 1.2-1.35) |
+| ----- | ------- | ---------------------------- |
+| **1** | 3MW     | 3.6-4.05 MW                  |
+| **2** | 6MW     | 7.2-8.1 MW                   |
+| **3** | 9MW     | 10.8-12.15 MW                |
+| **4** | 12MW    | 14.4-16.2 MW                 |
+| **5** | 20-24MW | 24.0-32.4 MW                 |
 
+### List of Equipment for Natural Gas Generation
+
+| Equipment                | Location        | Description                                                                                                                     | Phase1 Qty 3MW | Phase4 Qty 12MW | Phase5 Qty 24MW |
+| ------------------------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------- | -------------- | --------------- | --------------- |
+| Generator                | Outdoor         | 4.3 MW Natural Gas Turbine Generator                                                                                            | 2              | 5               | 10              |
+| IT Transformer           | Outdoor         | 5,000 kVA, 13.8kV-480Y/277V, VPI dry-type, outdoor rated, 5.75% impedance, forced air cooling, feeds IT switchboards      | 2              | 5               | 10               |
+| Mechanical Transformer   | Outdoor         | 2,000 kVA (Phase 1) or 5,000 kVA (Phase 4-5), 13.8kV-480Y/277V, VPI dry-type, outdoor rated, 5.75% impedance, feeds mechanical loads (chillers, pumps, etc.) | 2              | 3               | 3               |
+| IT Switchboard           | Electrical Shed | 6,000A, 480V, 3-phase, 65kA SCCR, main lug or breaker, feeds overhead busway to data hall                                 | 2              | 5               | 10               |
+| UPS Module               | Electrical Shed | 500 kW modular hot-swappable UPS, double-conversion, 96-97% efficiency, 480V input/output, dual A/B paths (N+1 per path)  | 8              | 32              | 64              |
+| UPS Battery Cabinet      | Electrical Shed | Lithium-ion or VRLA battery cabinet, 15-min backup at full load, distributed per UPS module                                     | 32             | 128              | 256             |
+| Mechanical Switchboard   | Mechanical Room | 2,000A (Phase 1) or 6,000A (Phase 4-5), 480V, 3-phase, 35kA SCCR, feeds chiller plant, pumps, DX units, support HVAC                                      | 2              | 3               | 3               |
+| Mechanical UPS           | Mechanical Room | 250 kW UPS for critical mechanical controls, pumps, BMS, 480V input, dual-conversion, N+1 configuration                     | 2              | 4               | 6               |
+| Mechanical UPS Batteries | Mechanical Room | VRLA or Li-ion batteries for mechanical UPS, 15-min backup for critical mechanical systems                                      | 2              | 4               | 6               |
 
 
 ## TRADITIONAL N+1 UPS ARCHITECTURE WITH DUAL POWER PATHS {TBC}
@@ -57,29 +67,15 @@ Electrical systems provide Tier III-compliant N+1 redundant power distribution w
 - **Concurrent Maintainability:** Can take entire A-side offline for maintenance while B-side carries full load
 - **Backup Duration:** 15 minutes at full load (bridges to generator startup)
 
-**JIT Phased Deployment:**
-
-| Phase | Facility Load | UPS Capacity Deployed | UPS CAPEX | Cumulative Cost |
-|-------|---------------|----------------------|-----------|-----------------|
-| **1** | 4.0-4.3MW | 6MW (N+1) | $4.5M | $4.5M |
-| **2** | 8.0-8.5MW | Add 4MW modules | $3.0M | $7.5M |
-| **3** | 12.0-12.8MW | Add 5MW modules | $3.8M | $11.3M |
-| **4** | 16.0-17.0MW | Add 6MW modules | $4.5M | $15.8M |
-| **5** | 27.0-28.4MW | Add 14MW modules | $10.5M | $26.3M |
-
-**Phase 1 CAPEX Advantage (illustrative numbers):**
-- Deploy only $4.5M Phase 1 vs $26.3M upfront
-- Preserves $21.8M cash for improved IRR
-- Matches capacity deployment with revenue generation
-
 ### UPS Technical Specifications
 
 **Power Modules:**
-- **Type:** Modular hot-swappable UPS modules (500kW or 1MW per module)
+- **Type:** Modular hot-swappable UPS modules (500 kW per module)
 - **Topology:** Double-conversion online UPS (VFI per IEC 62040-3)
 - **Efficiency:** 96-97% at full load, 98-99% in eco-mode
 - **Input:** 480V, 3-phase
 - **Output:** 480V, 3-phase for overhead busway distribution
+- **Scaling:** 8 modules per 3 MW IT load block (4 modules per A/B side, N+1 redundancy per side)
 
 **Battery Systems:**
 - **Type:** Valve-Regulated Lead-Acid (VRLA) or Lithium-Ion (vendor-dependent)
@@ -113,10 +109,10 @@ A-Side UPS (Modules 1-5)  ←→  B-Side UPS (Modules 6-10)
 4. Return A-Side to service, transfer load back to balanced A+B operation
 
 **Why This Works:**
-- ✅ No single point of failure (loss of A or B does not impact IT)
-- ✅ Concurrently maintainable (service either side without downtime)
-- ✅ Proven topology (40+ years track record, thousands of deployments)
-- ✅ Lender acceptance (no exotic risk premium, standard DC design)
+- No single point of failure (loss of A or B does not impact IT)
+- Concurrently maintainable (service either side without downtime)
+- Proven topology (40+ years track record, thousands of deployments)
+- Lender acceptance (no exotic risk premium, standard DC design)
 
 ---
 
@@ -126,7 +122,6 @@ A-Side UPS (Modules 1-5)  ←→  B-Side UPS (Modules 6-10)
 - **Type:** Weather-rated containerized electrical enclosures
 - **Quantity:** 2-3 outdoor enclosures (A-side, B-side, +1 optional)
 - **Size:** ~12 ft × 55 ft per enclosure {TBC}
-- **Location:** Outdoor equipment yard (side TBD)
 - **Access:** Ground-level access for equipment delivery and maintenance
 
 ### Equipment Housed in Electrical Enclosures
@@ -148,10 +143,14 @@ A-Side UPS (Modules 1-5)  ←→  B-Side UPS (Modules 6-10)
 ## SWITCHBOARD EQUIPMENT - RETAINED {TBC}
 
 ### Low Voltage Switchboards
-- **IT Switchboards (SWBD):** 4× units, 4,000A, 480V, 65kA SCCR
-  - One per transformer (feeds overhead busway to data hall)
-- **Mechanical Switchboards (MECH SWBD):** 2× units, 1,600A, 480V, 35kA SCCR
-  - Feeds chiller plant, pumps, DX units, support spaces
+- **IT Switchboards (SWBD):** 6,000A, 480V, 3-phase, 65kA SCCR
+  - Phase 1: 2 units (one per IT transformer)
+  - Phase 4: 5 units (one per IT transformer)
+  - Phase 5: 10 units (one per IT transformer)
+  - Each feeds overhead busway to data hall
+- **Mechanical Switchboards (MECH SWBD):** 480V, 3-phase, 35kA SCCR
+  - Phase 1: 2× units at 2,000A (feeds chiller plant, pumps, support spaces)
+  - Phase 4-5: 3× units at 6,000A (N+1 redundancy for mechanical loads)
 
 ### Distribution Architecture
 - Each IT switchboard feeds overhead busway running through data hall
@@ -202,15 +201,21 @@ A-Side UPS (Modules 1-5)  ←→  B-Side UPS (Modules 6-10)
 
 ### Distribution Topology
 - Utility service → 138kV/13.8kV transformer → Main switchgear
-- Main switchgear → Generator paralleling switchgear (or BESS inverter switchgear)
-- Generator/BESS switchgear → 4× IT transformers (3,000 kVA each)
-- Generator/BESS switchgear → 2× Mechanical transformers (1,500 kVA each)
+- Main switchgear → Generator paralleling switchgear
+- Generator switchgear → IT transformers (Phase 1: 2×, Phase 4: 5×, Phase 5: 10× at 5,000 kVA each)
+- Generator switchgear → Mechanical transformers (Phase 1: 2× at 2,000 kVA, Phase 4-5: 3× at 5,000 kVA)
 
 ### Transformer Specifications
-- **IT Transformers:** 4× 3,000 kVA, 13.8kV-480Y/277V, VPI dry-type, outdoor rated
-- **Mechanical Transformers:** 2× 1,500 kVA, 13.8kV-480Y/277V, VPI dry-type, outdoor rated
+- **IT Transformers:** 5,000 kVA, 13.8kV-480Y/277V, VPI dry-type, outdoor rated
+  - Phase 1: 2 units (N+1 for 4.3 MW generator blocks)
+  - Phase 4: 5 units (N+1 for 4.3 MW generator blocks)
+  - Phase 5: 10 units (N+1 for 4.3 MW generator blocks)
+- **Mechanical Transformers:** 13.8kV-480Y/277V, VPI dry-type, outdoor rated
+  - Phase 1: 2× 2,000 kVA (supports ~1.05 MW mechanical load)
+  - Phase 4-5: 3× 5,000 kVA (N+1 redundancy, supports 4.2-8.4 MW mechanical load)
 - **Impedance:** 5.75% typical
 - **Cooling:** Dry-type, forced air (fans for overload conditions)
+- **Design Note:** IT transformer sizing (5,000 kVA) is matched to 4.3 MW generator output to ensure proper power delivery through the N+1 redundancy chain
 
 **Note:** Substation transformer sizing addressed in [[11BOD - Utilities DC Critical (CSI Div 33)]].
 
@@ -246,9 +251,12 @@ A-Side UPS (Modules 1-5)  ←→  B-Side UPS (Modules 6-10)
 
 ### N+1 Redundancy with Dual Power Paths
 - **UPS:** Dual paths (A-side and B-side independent trains, each N+1 within path)
-- **Generators:** 5-6 total (fuel type TBD, N+1 configuration)
-- **Transformers:** 4 IT transformers (2 per path, can lose one per side)
-- **Switchboards:** 4 IT switchboards (2 per path, each side feeds A or B busway)
+  - Phase 1: 8 modules (4A + 4B)
+  - Phase 4: 32 modules (16A + 16B)
+  - Phase 5: 64 modules (32A + 32B)
+- **Generators:** N+1 configuration (Phase 1: 2, Phase 4: 5, Phase 5: 10 units at 4.3 MW each)
+- **Transformers:** IT transformers match generator quantities for complete N+1 chain (Phase 1: 2, Phase 4: 5, Phase 5: 10 at 5,000 kVA each)
+- **Switchboards:** IT switchboards match transformer quantities (Phase 1: 2, Phase 4: 5, Phase 5: 10 at 6,000A each)
 
 ### Dual Power Paths to Racks
 - **A-Side:** Utility/Gen → TX-A → UPS-A → SWBD-A → Busway-A → RPP-A → Rack PDU-A
@@ -287,17 +295,39 @@ A-Side UPS (Modules 1-5)  ←→  B-Side UPS (Modules 6-10)
 
 ## PHASED DEPLOYMENT INFRASTRUCTURE {TBC}
 
-### Phase 1 (Build Day One)
+### Phase 1 (Build Day One - 3 MW IT Load)
 - Substation transformer: 15-20 MVA (sized for ultimate capacity)
 - 13.8kV switchgear: Sized for ultimate load
-- UPS: Dual path frames installed with Phase 1 modules (6MW N+1 total)
-- Generator yard: 2× generators (N+1 for Phase 1 load)
-- Electrical enclosures: 2-3 outdoor containerized enclosures (houses Phase 1 UPS/battery capacity)
+- UPS: 8 modules (500 kW each, 4A + 4B for N+1 per side)
+- IT Transformers: 2 units at 5,000 kVA each
+- IT Switchboards: 2 units at 6,000A each
+- Generators: 2 units at 4.3 MW each (N+1 configuration)
+- Mechanical Transformers: 2 units at 2,000 kVA each
+- Mechanical Switchboards: 2 units at 2,000A each
+- Mechanical UPS: 2 units at 250 kW each
+- Electrical enclosures: 2-3 outdoor containerized enclosures (houses Phase 1 equipment)
 
-### Phase 2-5 (Triggered by IT Load Growth)
-- Add UPS modules to existing frames (no new frames required)
-- Add generators as load increases (Phases 2-5 per table in Generator Systems section)
-- Add electrical enclosures if needed for expansion (modular approach)
+### Phase 2-3 (6 MW and 9 MW IT Load)
+- Add UPS modules to existing frames (maintaining N+1 per side)
+- Add generators, transformers, and switchboards as needed for intermediate phases
+
+### Phase 4 (12 MW IT Load)
+- UPS: Total 32 modules (16A + 16B)
+- IT Transformers: Total 5 units at 5,000 kVA each (maintains N+1 chain)
+- IT Switchboards: Total 5 units at 6,000A each (maintains N+1 chain)
+- Generators: Total 5 units at 4.3 MW each (N+1 configuration)
+- Mechanical Transformers: Total 3 units at 5,000 kVA each (N+1 for mech load)
+- Mechanical Switchboards: Total 3 units at 6,000A each
+- Mechanical UPS: Total 4 units at 250 kW each
+
+### Phase 5 (24 MW IT Load - Ultimate)
+- UPS: Total 64 modules (32A + 32B)
+- IT Transformers: Total 10 units at 5,000 kVA each (maintains N+1 chain)
+- IT Switchboards: Total 10 units at 6,000A each (maintains N+1 chain)
+- Generators: Total 10 units at 4.3 MW each (N+1 configuration)
+- Mechanical Transformers: 3 units at 5,000 kVA each (N+1 for mech load)
+- Mechanical Switchboards: 3 units at 6,000A each
+- Mechanical UPS: Total 6 units at 250 kW each
 
 ### Procurement Strategy
 - Execute UPS contract with modular expansion options
@@ -332,17 +362,23 @@ A-Side UPS (Modules 1-5)  ←→  B-Side UPS (Modules 6-10)
 
 | System                                                          | Cost Estimate                  |
 | --------------------------------------------------------------- | ------------------------------ |
-| Traditional N+1 UPS with dual paths (Phase 1: 6MW N+1)          | $4.5M                          |
-| Traditional N+1 UPS with dual paths (Phases 2-5, ultimate 28MW) | +$21.8M (phased over 4 phases) |
-| **Total UPS (all phases)**                                      | **$26.3M**                     |
-| Generator systems Phase 1 (2× units, N+1)                       | $2.4M                          |
-| Generator systems ultimate (8× units total, phased)             | +$8.4M (Phases 2-5)            |
-| **Total Generators (all phases)**                               | **$10.8M**                     |
+| Traditional N+1 UPS Phase 1 (8 modules @ 500 kW = 4 MW)         | $3.0-4.0M                      |
+| Traditional N+1 UPS Phase 4 (32 modules total = 16 MW)          | +$9.0-12.0M (Phases 2-4)       |
+| Traditional N+1 UPS Phase 5 (64 modules total = 32 MW)          | +$12.0-16.0M (Phase 5)         |
+| **Total UPS (all phases)**                                      | **$24.0-32.0M**                |
+| Generator systems Phase 1 (2× units @ 4.3 MW)                   | $2.4M                          |
+| Generator systems Phase 4 (5× units total)                      | +$3.6M (Phases 2-4)            |
+| Generator systems Phase 5 (10× units total)                     | +$6.0M (Phase 5)               |
+| **Total Generators (all phases)**                               | **$12.0M**                     |
+| IT Transformers Phase 1 (2× 5,000 kVA)                          | $0.4M                          |
+| IT Transformers Phase 4 (5× total)                              | +$0.6M (Phases 2-4)            |
+| IT Transformers Phase 5 (10× total)                             | +$1.0M (Phase 5)               |
+| **Total IT Transformers (all phases)**                          | **$2.0M**                      |
 | Outdoor electrical enclosures (2-3 containerized units)         | ~$1-2M {TBC}                   |
-| Medium voltage distribution (transformers, switchgear)          | ~$3-5M                         |
+| Medium voltage distribution (switchgear, cabling)               | ~$2-3M                         |
 | Low voltage distribution (switchboards, busway, RPPs)           | ~$4-6M                         |
-| **Total Electrical (Phase 1)**                                  | ~$15-21M                       |
-| **Total Electrical (Ultimate, Phases 1-5)**                     | ~$46-55M                       |
+| **Total Electrical (Phase 1)**                                  | ~$11-16M                       |
+| **Total Electrical (Ultimate, Phases 1-5)**                     | ~$45-58M                       |
 
 **BESS-as-UPS Avoided:**
 - BESS-as-UPS Phase 1 would have been $29.7-31.2M (vs $4.5M traditional UPS Phase 1)

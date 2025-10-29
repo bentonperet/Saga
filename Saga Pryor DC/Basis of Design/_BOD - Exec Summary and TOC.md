@@ -34,19 +34,21 @@
 - **Site:** 121 acres, Mayes County, OK (~4 miles from Google Pryor)
 - **Building Layout**: Optimized for employee comfort and the corporate sales process
 
-#### **ELECTRICAL SYSTEMS** {Send to Muhammed}
+#### **ELECTRICAL SYSTEMS**
 - Primary Service: 138 kV to 13.8 kV substation (15-20 MVA transformer)
-- UPS: N+1 modular UPS with dual paths A/B
+- UPS: N+1 modular UPS (500 kW modules) with dual paths A/B
+  - Phase 1: 8 modules (4 MW capacity)
+  - Phase 4: 32 modules (16 MW capacity)
+  - Phase 5: 64 modules (32 MW capacity)
 - UPS Topology: Dual A/B busways, concurrent maintainability
-- Transformers: 
-- Generators: 5-6 units (N+1 redundancy), fuel type TBD based on grid availability
+- IT Transformers: 5,000 kVA, 13.8kV-480Y/277V (Phase 1: 2, Phase 4: 5, Phase 5: 10 units)
+- IT Switchboards: 6,000A, 480V (quantities match transformers for N+1 chain)
+- Generators: 4.3 MW natural gas turbine (Phase 1: 2, Phase 4: 5, Phase 5: 10 units, N+1 redundancy)
 - Generator Fuel: Diesel (if grid Day 1) or natural gas turbine (if no grid Day 1)
-	- <!-- Benton - Look through all BOD docs, and we can highlight the choices / tradeoffs here -->
-- Electrical Enclosures: Outdoor containerized (12 units (space for 16) , ~12 ft × 55 ft each {TBC})
-	- <!-- Benton - Work with Muhammed to create line diagram and populate details of what goes into the outdoor containers-->
-- Distribution: 480V overhead busway at 12-14 ft elevation {TBC}
+- Electrical Enclosures: Outdoor containerized (12 units with space for 16, ~12 ft × 55 ft each {TBC})
+- Distribution: 480V overhead busway at 12-14 ft elevation
 - Electrical Code: NEC 2023, Oklahoma amendments
-- <!-- Go through switch to get to equipment list -->
+- **Design Note:** Generator → Transformer → Switchboard quantities match exactly to maintain unbroken N+1 redundancy chain
 
 
 #### **MECHANICAL SYSTEMS** 
@@ -167,10 +169,11 @@
 <!-- Create this section, there's some placeholder info right now -->
 
 **Major CAPEX Drivers**
-- Traditional N+1 UPS (dual paths): $26.3M total (phased: Phase 1 $4.5M, Phases 2-5 add modules)
+- Traditional N+1 UPS (dual paths): $24-32M total (phased: Phase 1 $3-4M, Phase 4 +$9-12M, Phase 5 +$12-16M)
+- Generators: $12M total (phased: Phase 1 $2.4M, Phase 4 +$3.6M, Phase 5 +$6M)
+- IT Transformers: $2M total (phased: Phase 1 $0.4M, Phase 4 +$0.6M, Phase 5 +$1M)
 - Tornado hardening: +$150-250/SF building envelope premium
 - Chiller plant: ~16 chillers @ 1.5 MW each, phased deployment
-- Generators: $10.8M total (phased: Phase 1 $2.4M, Phases 2-5 add units)
 
 ## CSI MASTERFORMAT OUTLINE
 
