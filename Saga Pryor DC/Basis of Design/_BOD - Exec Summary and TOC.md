@@ -31,10 +31,11 @@
 - **Site:** 121 acres, Mayes County, OK (~4 miles from Google Pryor)
 - **Building Layout**: Optimized for employee comfort and the corporate sales process
 
-#### **ELECTRICAL SYSTEMS**
+#### **ELECTRICAL SYSTEMS** {Send to Muhammed}
 - Primary Service: 138 kV to 13.8 kV substation (15-20 MVA transformer)
 - UPS: N+1 modular UPS with dual paths A/B
 - UPS Topology: Dual A/B busways, concurrent maintainability
+- Transformers: 
 - Generators: 5-6 units (N+1 redundancy), fuel type TBD based on grid availability
 - Generator Fuel: Diesel (if grid Day 1) or natural gas turbine (if no grid Day 1)
 	- <!-- Benton - Look through all BOD docs, and we can highlight the choices / tradeoffs here -->
