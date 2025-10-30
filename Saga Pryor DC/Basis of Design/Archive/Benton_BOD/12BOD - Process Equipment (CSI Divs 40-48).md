@@ -8,7 +8,6 @@
 **Related:** [[Basis of Design - Part 1 Core Systems]] | [[Why BESS Should Not Be UPS]] | [[Excess Solar Monetization Strategy]]
 
 ---
-
 ## OVERVIEW
 
 Process equipment includes solar array, generators, and microgrid control systems that integrate renewable energy with data center operations.
