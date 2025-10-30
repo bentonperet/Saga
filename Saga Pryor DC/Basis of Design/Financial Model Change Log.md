@@ -3,7 +3,7 @@
 # FINANCIAL MODEL CHANGE LOG
 ## Saga Energy – Pryor Data Center
 
-**Parent Document:** [[Saga Pryor DC/Basis of Design/Benton_BOD/_BOD - Exec Summary and TOC]]
+**Parent Document:** [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/_BOD - Exec Summary and TOC]]
 
 ---
 
@@ -106,7 +106,7 @@ This document tracks all design changes that require updates to the financial mo
 
 ## COOLING SYSTEM CHANGES
 
-### Expanded Chiller Plant (October 2025)
+### Expanded Chiller Plant
 
 **Change:** ~3 chillers (RD109 baseline) → ~16 chillers (1.5 MW each in modular 3 MW blocks)
 
