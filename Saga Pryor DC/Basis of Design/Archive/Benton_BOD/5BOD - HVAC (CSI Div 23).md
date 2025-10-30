@@ -4,7 +4,7 @@
 ## CSI Division 23
 ### Saga Energy – Pryor Data Center
 
-**Parent Document:** [[Saga Pryor DC/Basis of Design/Benton_BOD/_BOD - Exec Summary and TOC]]
+**Parent Document:** [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/_BOD - Exec Summary and TOC]]
 **Related:** 
 
 ---
@@ -303,7 +303,7 @@ Hybrid cooling strategy supporting high-density AI racks (liquid-cooled) and sta
 **Tags:** #saga-project #hvac #cooling #chillers #rdx #csi-division-23
 
 **Related Documents:**
-- [[Saga Pryor DC/Basis of Design/Benton_BOD/_BOD - Exec Summary and TOC]] - Main title page
-- [[Saga Pryor DC/Basis of Design/Benton_BOD/4BOD - Plumbing (CSI Div 22)]] - Chilled water treatment
-- [[Saga Pryor DC/Basis of Design/Benton_BOD/6BOD - Integrated Automation (CSI Div 25)]] - BMS controls
+- [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/_BOD - Exec Summary and TOC]] - Main title page
+- [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/4BOD - Plumbing (CSI Div 22)]] - Chilled water treatment
+- [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/6BOD - Integrated Automation (CSI Div 25)]] - BMS controls
 - [[Architectural Meeting Changes by CSI Division]] - October 2025 updates

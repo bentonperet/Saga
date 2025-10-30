@@ -3,7 +3,7 @@
 # FINANCIAL MODEL CHANGE LOG
 ## Saga Energy – Pryor Data Center
 
-**Parent Document:** [[Saga Pryor DC/Basis of Design/Benton_BOD/_BOD - Exec Summary and TOC]]
+**Parent Document:** [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/_BOD - Exec Summary and TOC]]
 
 ---
 

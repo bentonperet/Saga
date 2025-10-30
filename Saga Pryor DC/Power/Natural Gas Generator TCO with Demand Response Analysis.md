@@ -8,7 +8,7 @@
 **Related Documents:**
 - [[Diesel vs NatGas Generator CAPEX]] - Base CAPEX comparison
 - [[Demand Response Revenue Opportunity - Internal Memo]] - DR program details
-- [[7BOD - Electrical (CSI Div 26)]] - Generator specifications
+- [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/7BOD - Electrical (CSI Div 26)]] - Generator specifications
 
 ---
 
@@ -404,5 +404,5 @@ Natural gas generators have **$4M-5.5M higher 10-year TCO** than diesel even wit
 - [[Diesel vs NatGas Generator CAPEX]] - Base CAPEX comparison (keep as-is)
 - [[Demand Response Revenue Opportunity - Internal Memo]] - DR program details
 - [[Demand Response in a Regulated Power Market - Oklahoma V2]] - Full market analysis
-- [[7BOD - Electrical (CSI Div 26)]] - Generator specifications and deployment strategy
-- [[0BOD - Procurement and Contracting (CSI Div 00)]] - Phasing and procurement approach
+- [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/7BOD - Electrical (CSI Div 26)]] - Generator specifications and deployment strategy
+- [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/0BOD - Procurement and Contracting (CSI Div 00)]] - Phasing and procurement approach

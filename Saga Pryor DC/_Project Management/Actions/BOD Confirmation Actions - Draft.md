@@ -390,7 +390,7 @@
 
 **Related Documents:**
 - [[Action Items.csv]] - Existing action tracking
-- [[Saga Pryor DC/Basis of Design/Benton_BOD/_BOD - Exec Summary and TOC]] - Basis of Design overview
+- [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/_BOD - Exec Summary and TOC]] - Basis of Design overview
 - [[Why BESS Should Not Be UPS]] - Technical analysis supporting design decisions
 - [[Excess Solar Monetization Strategy]] - Economic analysis supporting design decisions
 - [[Camelot SOW Summary]] - Consultant scope and deliverables

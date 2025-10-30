@@ -1,5 +1,5 @@
 **Created:** 2025-10-30
-**Referenced from:** [[1BOD - General Requirements (CSI Div 01)]]
+**Referenced from:** [[Saga Pryor DC/Basis of Design/Erik_BOD_Updated/1BOD - General Requirements (CSI Div 01)]]
 
 # APPENDIX A - ASSET NAMING AND TAGGING STANDARD
 ## SAGA DATA CENTERS GLOBAL NAMING CONVENTION

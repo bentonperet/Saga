@@ -4,7 +4,7 @@
 ## CSI Division 21
 ### Saga Energy – Pryor Data Center
 
-**Parent Document:** [[Saga Pryor DC/Basis of Design/Benton_BOD/_BOD - Exec Summary and TOC]]
+**Parent Document:** [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/_BOD - Exec Summary and TOC]]
 
 ---
 
@@ -209,6 +209,6 @@ Fire protection designed to meet NFPA, IBC, and insurance requirements while pro
 **Tags:** #saga-project #fire-suppression #nfpa-855 #life-safety #csi-division-21
 
 **Related Documents:**
-- [[Saga Pryor DC/Basis of Design/Benton_BOD/_BOD - Exec Summary and TOC]] - Main title page
-- [[Saga Pryor DC/Basis of Design/Benton_BOD/7BOD - Electrical (CSI Div 26)]] - Electrical enclosure details
-- [[Saga Pryor DC/Basis of Design/Benton_BOD/12BOD - Process Equipment (CSI Divs 40-48)]] - BESS specifications
+- [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/_BOD - Exec Summary and TOC]] - Main title page
+- [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/7BOD - Electrical (CSI Div 26)]] - Electrical enclosure details
+- [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/12BOD - Process Equipment (CSI Divs 40-48)]] - BESS specifications

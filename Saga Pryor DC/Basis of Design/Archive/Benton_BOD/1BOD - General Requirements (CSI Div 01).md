@@ -4,8 +4,8 @@
 ## CSI Division 01
 ### Saga Energy – Pryor Data Center
 
-**Parent Document:** [[Saga Pryor DC/Basis of Design/Benton_BOD/_BOD - Exec Summary and TOC]]
-**Related:** [[Saga Pryor DC/Basis of Design/Benton_BOD/0BOD - Procurement and Contracting (CSI Div 00)]] | [[Basis of Design - Part 1 Core Systems]]
+**Parent Document:** [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/_BOD - Exec Summary and TOC]]
+**Related:** [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/0BOD - Procurement and Contracting (CSI Div 00)]] | [[Basis of Design - Part 1 Core Systems]]
 
 ---
 
@@ -528,8 +528,8 @@ Contractor to provide pricing for extended warranty options (5-year, 10-year) fo
 **Tags:** #saga-project #commissioning #testing #quality-control #csi-division-01
 
 **Related Documents:**
-- [[Saga Pryor DC/Basis of Design/Benton_BOD/_BOD - Exec Summary and TOC]] - Main title page
-- [[Saga Pryor DC/Basis of Design/Benton_BOD/0BOD - Procurement and Contracting (CSI Div 00)]] - Contracting strategy
-- [[Saga Pryor DC/Basis of Design/Benton_BOD/7BOD - Electrical (CSI Div 26)]] - UPS and generator testing requirements
-- [[Saga Pryor DC/Basis of Design/Benton_BOD/5BOD - HVAC (CSI Div 23)]] - Chiller commissioning requirements
-- [[Saga Pryor DC/Basis of Design/Benton_BOD/6BOD - Integrated Automation (CSI Div 25)]] - BMS and DCIM commissioning
+- [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/_BOD - Exec Summary and TOC]] - Main title page
+- [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/0BOD - Procurement and Contracting (CSI Div 00)]] - Contracting strategy
+- [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/7BOD - Electrical (CSI Div 26)]] - UPS and generator testing requirements
+- [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/5BOD - HVAC (CSI Div 23)]] - Chiller commissioning requirements
+- [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/6BOD - Integrated Automation (CSI Div 25)]] - BMS and DCIM commissioning

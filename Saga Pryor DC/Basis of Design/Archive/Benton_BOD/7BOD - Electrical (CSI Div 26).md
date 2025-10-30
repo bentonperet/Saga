@@ -4,7 +4,7 @@
 ## CSI Division 26
 ### Saga Energy – Pryor Data Center
 
-**Parent Document:** [[Saga Pryor DC/Basis of Design/Benton_BOD/_BOD - Exec Summary and TOC]]
+**Parent Document:** [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/_BOD - Exec Summary and TOC]]
 **Related:** [[Why BESS Should Not Be UPS]] | [[Excess Solar Monetization Strategy]] | [[Architectural Meeting Changes by CSI Division]]
 
 ---
@@ -261,7 +261,7 @@ Transformers are specified in two N+1 redundant groups: one for the IT load and 
 - **Function:** Provides N+1 power to the central mechanical plant (chillers, pumps, etc.).
 - **Sizing:** 2,000 kVA (Phase 1) and 5,000 kVA (Phase 4-5)
 
-**Note:** Substation transformer sizing addressed in [[Saga Pryor DC/Basis of Design/Benton_BOD/11BOD - Utilities DC Critical (CSI Div 33)]].
+**Note:** Substation transformer sizing addressed in [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/11BOD - Utilities DC Critical (CSI Div 33)]].
 
 
 ---
@@ -543,9 +543,9 @@ To optimize cost and complexity, the following are accepted single points of fai
 **Tags:** #saga-project #electrical #traditional-ups #tier3-compliance #generators #distribution #csi-division-26
 
 **Related Documents:**
-- [[Saga Pryor DC/Basis of Design/Benton_BOD/_BOD - Exec Summary and TOC]] - Main title page
+- [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/_BOD - Exec Summary and TOC]] - Main title page
 - [[Why BESS Should Not Be UPS]] - Technical analysis rejecting BESS-as-UPS
 - [[Excess Solar Monetization Strategy]] - Economic BESS evaluation (rejected)
-- [[Saga Pryor DC/Basis of Design/Benton_BOD/12BOD - Process Equipment (CSI Divs 40-48)]] - Generator and solar details
-- [[Saga Pryor DC/Basis of Design/Benton_BOD/11BOD - Utilities DC Critical (CSI Div 33)]] - Utility interconnection
+- [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/12BOD - Process Equipment (CSI Divs 40-48)]] - Generator and solar details
+- [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/11BOD - Utilities DC Critical (CSI Div 33)]] - Utility interconnection
 - [[Architectural Meeting Changes by CSI Division]] - October 2025 updates

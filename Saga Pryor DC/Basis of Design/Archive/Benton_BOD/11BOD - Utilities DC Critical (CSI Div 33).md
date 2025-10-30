@@ -4,7 +4,7 @@
 ## CSI Division 33
 ### Saga Energy – Pryor Data Center
 
-**Parent Document:** [[Saga Pryor DC/Basis of Design/Benton_BOD/_BOD - Exec Summary and TOC]]
+**Parent Document:** [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/_BOD - Exec Summary and TOC]]
 **Related:** [[Basis of Design - Part 1 Core Systems]]
 
 ---
@@ -13,7 +13,7 @@
 
 **Note on Separate Page:** Division 33 Utilities receives a dedicated page separate from Site & Infrastructure (Divs 31-32) due to the **critical importance** of utility systems for data center operations. Utility interconnection, capacity, and reliability are primary project risks and CAPEX drivers.
 
-This page covers utility services essential for data center operation: electrical interconnection, natural gas, water/sewer. Standard site utilities (stormwater) are covered in [[Saga Pryor DC/Basis of Design/Benton_BOD/10BOD - Site and Infrastructure (CSI Divs 31-32)]].
+This page covers utility services essential for data center operation: electrical interconnection, natural gas, water/sewer. Standard site utilities (stormwater) are covered in [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/10BOD - Site and Infrastructure (CSI Divs 31-32)]].
 
 ---
 
@@ -177,7 +177,7 @@ Initiate formal interconnection request with OG&E immediately. This study will d
 - Confirm physical diversity
 - Estimate connectivity installation timeline and costs
 
-**Detailed specifications:** See [[Saga Pryor DC/Basis of Design/Benton_BOD/8BOD - Communications (CSI Div 27)]]
+**Detailed specifications:** See [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/8BOD - Communications (CSI Div 27)]]
 
 ---
 
@@ -236,8 +236,8 @@ Initiate formal interconnection request with OG&E immediately. This study will d
 **Tags:** #saga-project #utilities #electrical-interconnection #natural-gas #water-sewer #csi-division-33
 
 **Related Documents:**
-- [[Saga Pryor DC/Basis of Design/Benton_BOD/_BOD - Exec Summary and TOC]] - Main title page
-- [[Saga Pryor DC/Basis of Design/Benton_BOD/7BOD - Electrical (CSI Div 26)]] - Electrical distribution details
-- [[Saga Pryor DC/Basis of Design/Benton_BOD/4BOD - Plumbing (CSI Div 22)]] - Water usage and treatment
-- [[Saga Pryor DC/Basis of Design/Benton_BOD/8BOD - Communications (CSI Div 27)]] - Fiber infrastructure
+- [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/_BOD - Exec Summary and TOC]] - Main title page
+- [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/7BOD - Electrical (CSI Div 26)]] - Electrical distribution details
+- [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/4BOD - Plumbing (CSI Div 22)]] - Water usage and treatment
+- [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/8BOD - Communications (CSI Div 27)]] - Fiber infrastructure
 - [[Architectural Meeting Changes by CSI Division]] - October 2025 updates

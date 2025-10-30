@@ -4,7 +4,7 @@
 ## CSI Division 28
 ### Saga Energy – Pryor Data Center
 
-**Parent Document:** [[Saga Pryor DC/Basis of Design/Benton_BOD/_BOD - Exec Summary and TOC]]
+**Parent Document:** [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/_BOD - Exec Summary and TOC]]
 **Related:** [[Basis of Design - Part 2 Supporting Systems]]
 
 ---
@@ -219,7 +219,7 @@ Multi-layered security system protects critical infrastructure, customer equipme
 **Tags:** #saga-project #security #access-control #cctv #intrusion-detection #csi-division-28
 
 **Related Documents:**
-- [[Saga Pryor DC/Basis of Design/Benton_BOD/_BOD - Exec Summary and TOC]] - Main title page
-- [[Saga Pryor DC/Basis of Design/Benton_BOD/8BOD - Communications (CSI Div 27)]] - Network infrastructure for IP cameras
-- [[Saga Pryor DC/Basis of Design/Benton_BOD/6BOD - Integrated Automation (CSI Div 25)]] - BMS/DCIM integration
-- [[Saga Pryor DC/Basis of Design/Benton_BOD/3BOD - Fire Suppression (CSI Div 21)]] - Fire alarm integration with security
+- [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/_BOD - Exec Summary and TOC]] - Main title page
+- [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/8BOD - Communications (CSI Div 27)]] - Network infrastructure for IP cameras
+- [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/6BOD - Integrated Automation (CSI Div 25)]] - BMS/DCIM integration
+- [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/3BOD - Fire Suppression (CSI Div 21)]] - Fire alarm integration with security

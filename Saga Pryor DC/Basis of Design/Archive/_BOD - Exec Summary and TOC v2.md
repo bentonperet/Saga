@@ -11,7 +11,7 @@
 **Purpose:** Comprehensive Basis of Design for Pryor Data Center organized by CSI MasterFormat
 
 **Related Documents:**
-- [[_BOD - Exec Summary and TOC]] - Current baseline version
+- [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/_BOD - Exec Summary and TOC]] - Current baseline version
 - [[7BOD - Electrical (CSI Div 26) vErik]] - Erik's electrical BOD
 
 ---

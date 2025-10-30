@@ -6,7 +6,7 @@
 ### Pryor Data Center - PACHYDERM GLOBAL
 
 **Parent Document:** [[_BOD - Exec Summary and TOC v2]]
-**Related:** [[7BOD - Electrical (CSI Div 26)]] - Current baseline version
+**Related:** [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/7BOD - Electrical (CSI Div 26)]] - Current baseline version
 
 ---
 

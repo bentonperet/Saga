@@ -4,7 +4,7 @@
 ## CSI Divisions 40-48
 ### Saga Energy – Pryor Data Center
 
-**Parent Document:** [[Saga Pryor DC/Basis of Design/Benton_BOD/_BOD - Exec Summary and TOC]]
+**Parent Document:** [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/_BOD - Exec Summary and TOC]]
 **Related:** [[Basis of Design - Part 1 Core Systems]] | [[Why BESS Should Not Be UPS]] | [[Excess Solar Monetization Strategy]]
 
 ---
@@ -84,7 +84,7 @@ The facility operates as a simplified microgrid coordinating:
 
 **Cost:** $200-400K for simplified power monitoring system (vs $1.05-1.55M for full IEEE 2030.7/2030.8 microgrid controller)
 
-**Detailed EMS specifications:** See [[Saga Pryor DC/Basis of Design/Benton_BOD/6BOD - Integrated Automation (CSI Div 25)]]
+**Detailed EMS specifications:** See [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/6BOD - Integrated Automation (CSI Div 25)]]
 
 ---
 
@@ -176,7 +176,7 @@ Utility 138kV
 - Traditional 2N UPS provides 15 minutes backup (bridges to generator startup)
 - Generators provide extended backup power (unlimited runtime with natural gas, 48+ hours with diesel)
 
-**Detailed generator specifications:** See [[Saga Pryor DC/Basis of Design/Benton_BOD/7BOD - Electrical (CSI Div 26)]]
+**Detailed generator specifications:** See [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/7BOD - Electrical (CSI Div 26)]]
 
 ---
 
@@ -190,7 +190,7 @@ Utility 138kV
 
 ### Generator N+1 Redundancy Strategy
 - **Phase 1:** 2× generators (N+1 for ~4MW load)
-- **Phase 2-5:** Add generators as load increases (see table in [[Saga Pryor DC/Basis of Design/Benton_BOD/7BOD - Electrical (CSI Div 26)]])
+- **Phase 2-5:** Add generators as load increases (see table in [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/7BOD - Electrical (CSI Div 26)]])
 - **Ultimate:** 8× generators total (N+1 for ~28MW ultimate load)
 
 ### Solar Array Match
@@ -247,7 +247,7 @@ Utility 138kV
 - **Solar Array:** Full 12 MW DC installation
 - **Generators:** Phase 1 generators (2× units, N+1 for initial load)
 - **EMS:** Simplified power monitoring system ($200-400K)
-- **UPS:** 2N frames with Phase 1 modules (see [[Saga Pryor DC/Basis of Design/Benton_BOD/7BOD - Electrical (CSI Div 26)]])
+- **UPS:** 2N frames with Phase 1 modules (see [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/7BOD - Electrical (CSI Div 26)]])
 
 ### Phase 2-5 (Triggered by IT Load Growth)
 - **Generators:** Add generators as load increases (phased per load growth)
@@ -300,9 +300,9 @@ Utility 138kV
 **Tags:** #saga-project #solar #bess #generators #microgrid #renewable-energy #csi-divisions-40-48
 
 **Related Documents:**
-- [[Saga Pryor DC/Basis of Design/Benton_BOD/_BOD - Exec Summary and TOC]] - Main title page
+- [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/_BOD - Exec Summary and TOC]] - Main title page
 - [[BESS as UPS Replacement - Feasibility Analysis V2]] - Detailed BESS analysis
-- [[Saga Pryor DC/Basis of Design/Benton_BOD/7BOD - Electrical (CSI Div 26)]] - Electrical integration details
-- [[Saga Pryor DC/Basis of Design/Benton_BOD/6BOD - Integrated Automation (CSI Div 25)]] - Microgrid control system (EMS)
-- [[Saga Pryor DC/Basis of Design/Benton_BOD/11BOD - Utilities DC Critical (CSI Div 33)]] - Utility interconnection strategy
+- [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/7BOD - Electrical (CSI Div 26)]] - Electrical integration details
+- [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/6BOD - Integrated Automation (CSI Div 25)]] - Microgrid control system (EMS)
+- [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/11BOD - Utilities DC Critical (CSI Div 33)]] - Utility interconnection strategy
 - [[Architectural Meeting Changes by CSI Division]] - October 2025 updates

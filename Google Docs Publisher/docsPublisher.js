@@ -285,9 +285,6 @@ class DocsPublisher {
     this.cursorIndex = 1;
     this.pendingTables = [];
 
-    // Insert branded header at the top of the document
-    await this.insertHeader();
-
     // Process blocks sequentially, handling tables specially
     for (const block of blocks) {
       if (block.type === 'table') {
