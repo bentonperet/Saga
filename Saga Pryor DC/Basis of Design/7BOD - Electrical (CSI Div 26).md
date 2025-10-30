@@ -62,7 +62,7 @@ Electrical systems provide Tier III-compliant power distribution with N+1 IT UPS
 - **Available Substations (Kamo Power Electric Co-op):**
   - **Sportsman Substation (SW):** 345 kV service, 3 lines
   - **Dry Gulch Substation (N):** 161 kV service, 2 lines
-- **Note:** Final voltage selection (345 kV vs 161 kV) depends on utility interconnection study, available capacity, and comparative economics. May change to 161 kV service with 161kV/13.8kV transformers if substation cost savings justify it.
+- **Note:** Final voltage selection (345 kV vs 161 kV) depends on utility interconnection study, available capacity, and comparative economics. If the utility saving favor purchasing a larger step-down transformer, it may be the ideal path. Or if there is no savings, and the 161 kV service is possible then that may be the better economic decision.
 - **Capacity:** 25-30 MVA (sized for 24 MW master plan + solar/BESS)
 - **Metering:** Revenue-grade metering at transmission voltage (utility-owned)
 - **Protection:** Distance relay, differential, overcurrent per utility standards
