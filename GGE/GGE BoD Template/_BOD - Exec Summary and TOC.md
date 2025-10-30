@@ -1,14 +1,14 @@
 **Created:** 2025-10-29
-**Updated from:** Pryor_Bod_EVS_Rev01.md
+**Updated from:** Tbilisi_Bod_Rev01.md
 
 # BASIS OF DESIGN - CSI MASTERFORMAT
-## Pryor Data Center - PACHYDERM GLOBAL
-### Pryor, Oklahoma
+## Tbilisi Data Center - PACHYDERM GLOBAL
+### Tbilisi, Georgia
 
 **Document Status:** REVISION 02 - 345 kV Substation + 13.8 kV Distribution (US Standard Voltage)
 **Prepared by:** EVS / PGCIS Team
 **Date:** October 30, 2025 
-**Purpose:** Comprehensive Basis of Design for Pryor Data Center organized by CSI Master Format
+**Purpose:** Comprehensive Basis of Design for Tbilisi Data Center organized by CSI Master Format
 
 ---
 
@@ -22,7 +22,7 @@
 - **Availability:** Tier III (2N IT power, N+1 mechanical, concurrent maintainability)
 - **Target PUE:** 1.35 (Phase 1), 1.25 (Phase 2)
 - **Target WUE:** <0.5 L/kWh (air-cooled, zero water consumption)
-- **Site:** Pryor, Oklahoma (Tornado Alley - FM 1-150 protection)
+- **Site:** Tbilisi, Georgia (Tornado Alley - FM 1-150 protection)
 - **Key Differentiator:** Customer-owned 345 kV substation with 13.8 kV distribution and true microgrid capability
 
 ---
@@ -54,7 +54,7 @@
   - House generators: 2 × 250-350 kW natural gas (N+1 redundancy)
   - Serves: offices, bathrooms, hallways, SCR, SCB, loading dock, NOC, gym, storm shelter
   - Portable UPS: ~20-30 units for IT equipment ride-through in non-critical areas
-- **Electrical Code:** NEC 2023, Oklahoma amendments
+- **Electrical Code:** NEC 2023, Georgia amendments
 
 ---
 
@@ -71,7 +71,7 @@
   - D2C cooling: 8 × 1,500 kW air-cooled chillers (Loop 3 independent, N+1)
   - CDUs: 60 × 300 kW units (2 per cabinet, A/B redundancy)
   - Supply temp: 25°C; COP: 5.0-5.5 (higher efficiency than air cooling)
-- **Free Cooling:** ~3,500-4,000 hours/year (Oklahoma climate)
+- **Free Cooling:** ~3,500-4,000 hours/year (Georgia climate)
 - **Zero Water Strategy:** No evaporative cooling, closed-loop glycol
 - **Building HVAC:** RTUs for offices, NOC, support spaces
 - **Mechanical Code:** IMC 2021, ASHRAE 90.1-2019
@@ -134,7 +134,7 @@
 - **Water:** Municipal or well (domestic use only, ~500-1,000 gal/day)
 - **Sewer:** Municipal or septic (domestic wastewater)
 - **Natural Gas:** Utility service for house generators (backup power to non-critical areas)
-- **[TBD] OPTIONAL Micro-Turbine Natural Gas Generators:** For Oklahoma SB 480 qualification (budget in Solar/BESS CAPEX, not Data Center)
+- **[TBD] OPTIONAL Micro-Turbine Natural Gas Generators:** For Georgia Renewable Energy Incentives qualification (budget in Solar/BESS CAPEX, not Data Center)
 - **Fiber:** Dual diverse entries via underground ductbank
 
 ---
@@ -230,7 +230,7 @@
 
 #### **Division 00 – Procurement and Contracting Requirements**
 
-See: [[GGE-Bilik'i Pryor DC/Basis of Design/Erik_BOD_Updated/0BOD - Procurement & Contracting (CSI Div 00)]]
+
 
 **Summary:**
 - **Delivery Method:** Design-Build (DB) with Guaranteed Maximum Price (GMP)
@@ -250,7 +250,7 @@ See: [[GGE-Bilik'i Pryor DC/Basis of Design/Erik_BOD_Updated/0BOD - Procurement 
 
 **Division 01 – General Requirements**
 
-See: [[GGE-Bilik'i Pryor DC/Basis of Design/Erik_BOD_Updated/1BOD - General Requirements (CSI Div 01)]]
+
 
 **Summary:**
 - **Project Coordination:** BIM-based design (LOD 400); weekly OAC meetings; design-assist from key subcontractors
@@ -266,7 +266,7 @@ See: [[GGE-Bilik'i Pryor DC/Basis of Design/Erik_BOD_Updated/1BOD - General Requ
 
 #### **FACILITY CONSTRUCTION SUBGROUP**
 
-See: [[GGE-Bilik'i Pryor DC/Basis of Design/Erik_BOD_Updated/2BOD - Facility Construction (CSI Divs 02-14)]]
+
 
 **Summary:**
 - **Division 02 (Existing Conditions):** Greenfield site; clearing, grubbing, erosion control per SWPPP
@@ -294,7 +294,7 @@ See: [[GGE-Bilik'i Pryor DC/Basis of Design/Erik_BOD_Updated/2BOD - Facility Con
 
 **Division 21 – Fire Suppression**
 
-See: [[GGE-Bilik'i Pryor DC/Basis of Design/Erik_BOD_Updated/3BOD - Fire Suppression (CSI Div 21)]]
+
 
 **Summary:**
 - **Data halls:** Pre-action sprinkler (NFPA 13) with VESDA early warning detection
@@ -312,7 +312,7 @@ See: [[GGE-Bilik'i Pryor DC/Basis of Design/Erik_BOD_Updated/3BOD - Fire Suppres
 
 **Division 22 – Plumbing**
 
-See: [[GGE-Bilik'i Pryor DC/Basis of Design/Erik_BOD_Updated/4BOD - Plumbing (CSI Div 22)]]
+
 
 **Summary:**
 - **Domestic water:** Municipal or well supply; 500-1,000 GPD usage (restrooms, kitchen, emergency eyewash)
@@ -327,7 +327,7 @@ See: [[GGE-Bilik'i Pryor DC/Basis of Design/Erik_BOD_Updated/4BOD - Plumbing (CS
 
 **Division 23 – HVAC**
 
-See: [[GGE-Bilik'i Pryor DC/Basis of Design/Erik_BOD_Updated/5BOD - HVAC (CSI Div 23)]]
+
 
 **Summary:**
 - **Phase 1 (Air Cooling):**
@@ -335,7 +335,7 @@ See: [[GGE-Bilik'i Pryor DC/Basis of Design/Erik_BOD_Updated/5BOD - HVAC (CSI Di
   - Cabinet FCUs: 100 kW capacity each (dual coils: 50 kW Loop 1 + 50 kW Loop 2)
   - Chillers: 4 × 1,500 kW air-cooled (N+1 redundancy, shared plant for Loops 1+2)
   - Supply temp: 7-10°C; COP: 3.8-4.2 (mechanical), 15-25 (free cooling)
-  - Free cooling: ~3,500-4,000 hours/year (Oklahoma climate)
+  - Free cooling: ~3,500-4,000 hours/year (Georgia climate)
 - **Phase 2 (Air + D2C Cooling):**
   - IT load: 12,000 kW (30 cabinets @ 400 kW: 100 kW air + 300 kW D2C per cabinet)
   - Air cooling: Same 4 chillers (Loops 1+2, 3,000 kW unchanged)
@@ -351,7 +351,7 @@ See: [[GGE-Bilik'i Pryor DC/Basis of Design/Erik_BOD_Updated/5BOD - HVAC (CSI Di
 
 **Division 25 – Integrated Automation**
 
-See: [[GGE-Bilik'i Pryor DC/Basis of Design/Erik_BOD_Updated/6BOD - Integrated Automation (CSI Div 25)]]
+
 
 **Summary:**
 - **Building Management System (BMS):** Schneider Electric EcoStruxure or Johnson Controls Metasys
@@ -367,7 +367,7 @@ See: [[GGE-Bilik'i Pryor DC/Basis of Design/Erik_BOD_Updated/6BOD - Integrated A
 
 **Division 26 – Electrical**
 
-See: [[GGE-Bilik'i Pryor DC/Basis of Design/Erik_BOD_Updated/7BOD - Electrical (CSI Div 26)]]
+
 
 **Summary:**
 - **Utility service:** 345 kV transmission → 2 × 25 MVA transformers (345kV/13.8kV) → 13.8 kV common bus
@@ -386,7 +386,7 @@ See: [[GGE-Bilik'i Pryor DC/Basis of Design/Erik_BOD_Updated/7BOD - Electrical (
 
 **Division 27 – Communications**
 
-See: [[GGE-Bilik'i Pryor DC/Basis of Design/Erik_BOD_Updated/8BOD - Communications (CSI Div 27)]]
+
 
 **Summary:**
 - **Fiber entrance:** 2 × geographically diverse MPOEs (Main Points of Entry)
@@ -402,7 +402,7 @@ See: [[GGE-Bilik'i Pryor DC/Basis of Design/Erik_BOD_Updated/8BOD - Communicatio
 
 **Division 28 – Electronic Safety and Security**
 
-See: [[GGE-Bilik'i Pryor DC/Basis of Design/Erik_BOD_Updated/9BOD - Electronic Safety and Security (CSI Div 28)]]
+
 
 **Summary:**
 - **Perimeter security:** K-rated fence (8 ft height), dual gates with card readers, anti-ram barriers
@@ -420,12 +420,12 @@ See: [[GGE-Bilik'i Pryor DC/Basis of Design/Erik_BOD_Updated/9BOD - Electronic S
 
 **Divisions 31-32 – Site and Infrastructure**
 
-See: [[GGE-Bilik'i Pryor DC/Basis of Design/Erik_BOD_Updated/3BOD - Site & Infrastructure (CSI Divs 31-32)]]
+
 
 **Summary:**
 - **Site area:** 20+ acres total; 50,000 GSF building footprint
 - **Grading:** Cut/fill balance; positive drainage away from building; 2% min slope
-- **Stormwater management:** Detention pond (100-year storm); SWPPP compliance (>1 acre disturbance); Oklahoma DEQ permit
+- **Stormwater management:** Detention pond (100-year storm); SWPPP compliance (>1 acre disturbance); Georgia DEQ permit
 - **Paving:** Reinforced concrete (equipment yards, loading dock); asphalt (parking, drives); 8" base course
 - **Utilities:**
   - Water: 6" main from municipal or well
@@ -502,7 +502,7 @@ See: [[GGE-Bilik'i Pryor DC/Basis of Design/Erik_BOD_Updated/3BOD - Site & Infra
 
 ---
 
-**Tags:** #pryor-data-center #basis-of-design #csi-masterformat #tier-iii #tilt-up-construction
+**Tags:** #Tbilisi-data-center #basis-of-design #csi-masterformat #tier-iii #tilt-up-construction
 
 **Next Steps:**
 1. Confirm utility voltage (13.8 kV, 12.47 kV, or 34.5 kV)
@@ -514,7 +514,7 @@ See: [[GGE-Bilik'i Pryor DC/Basis of Design/Erik_BOD_Updated/3BOD - Site & Infra
 ---
 
 **Document Control:**
-- **Source:** Pryor_Bod_EVS_Rev01.md
+- **Source:** Tbilisi_Bod_Rev01.md
 - **Date Updated:** October 29, 2025
 - **Prepared by:** EVS / PGCIS Team
 - **Corrections:** Tilt-up construction, utility voltage options, mechanical yard sizing

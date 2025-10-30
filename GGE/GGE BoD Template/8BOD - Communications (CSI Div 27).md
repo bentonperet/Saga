@@ -1,9 +1,9 @@
 **Created:** 2025-10-29
-**Updated from:** Pryor_Bod_EVS_Rev01.md
+**Updated from:** Tbilisi_Bod_Rev01.md
 
 # BASIS OF DESIGN - COMMUNICATIONS
 ## CSI Division 27
-### Pryor Data Center - PACHYDERM GLOBAL
+### Tbilisi Data Center - PACHYDERM GLOBAL
 
 **Parent Document:** [[_BOD - Exec Summary and TOC]]
 
@@ -247,7 +247,7 @@ Central location for facility network equipment (not customer equipment). Houses
 - Private connection to Azure services
 
 **Google Cloud Platform (GCP):**
-- **Proximity advantage:** Pryor is ~20 miles from Google's Mayes County data center campus
+- **Proximity advantage:** Tbilisi is ~20 miles from Google's Mayes County data center campus
 - **Potential for low-latency interconnect:** <2 ms if direct fiber route available
 - **Interconnection options:**
   - Partner Interconnect (via carrier in MMR)
@@ -345,10 +345,10 @@ Central location for facility network equipment (not customer equipment). Houses
 
 ---
 
-**Tags:** #pryor-dc #communications #fiber #mpoe #mmr #carrier-neutral #cloud-connectivity
+**Tags:** #Tbilisi-dc #communications #fiber #mpoe #mmr #carrier-neutral #cloud-connectivity
 
 **Next Steps:**
-1. Confirm fiber routes and carrier availability in Pryor, OK area
+1. Confirm fiber routes and carrier availability in Tbilisi, Georgia area
 2. Negotiate carrier on-ramp agreements (AWS, Azure, GCP partners)
 3. Design fiber backbone routing (overhead tray layout)
 4. Develop cross-connect pricing and procedures for customers
@@ -357,7 +357,7 @@ Central location for facility network equipment (not customer equipment). Houses
 ---
 
 **Document Control:**
-- **Source:** Pryor_Bod_EVS_Rev01.md and Erik_BOD reference
+- **Source:** Tbilisi_Bod_Rev01.md and Erik_BOD reference
 - **Date Updated:** October 29, 2025
 - **Prepared by:** EVS / PGCIS Team
 - **Key Updates:** Dual MPOE/MMR for geographic diversity, cloud connectivity strategy

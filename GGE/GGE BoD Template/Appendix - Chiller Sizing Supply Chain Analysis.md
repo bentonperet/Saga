@@ -1,6 +1,6 @@
 # APPENDIX - AIR-COOLED CHILLER SIZING ANALYSIS
 ## Supply Chain, Cost, and Availability Assessment
-### Pryor Data Center - PACHYDERM GLOBAL
+### Tbilisi Data Center - PACHYDERM GLOBAL
 
 **Parent Document:** [[_BOD - Exec Summary and TOC]]  
 **Created:** 2025-10-30  
@@ -12,7 +12,7 @@
 
 **Recommendation: 1,200-1,500 kW (340-430 ton) Chiller Module Size**
 
-After analyzing supply chain constraints, equipment costs, redundancy configurations, and long-term maintainability, **1,200-1,500 kW chillers are optimal** for the Pryor data center.
+After analyzing supply chain constraints, equipment costs, redundancy configurations, and long-term maintainability, **1,200-1,500 kW chillers are optimal** for the Tbilisi Data Center.
 
 **Key Findings:**
 - **Supply chain:** 1,000-1,500 kW range has best availability (12-16 week lead times) from all major vendors
@@ -170,7 +170,7 @@ After analyzing supply chain constraints, equipment costs, redundancy configurat
 | **1,000-1,500 kW** | **Local distributor** | **Same-day (major cities)** | **2-4 hours** | **8-16 hours** |
 | 2,000+ kW | Special order | 3-7 days | 8-12 hours | 24-48 hours |
 
-**Key Finding:** **1,000-1,500 kW range has best parts availability** (local distributor stock in Oklahoma City, Tulsa, Dallas).
+**Key Finding:** **1,000-1,500 kW range has best parts availability** (local distributor stock in Georgia City, Tulsa, Dallas).
 
 ---
 
@@ -248,7 +248,7 @@ After analyzing supply chain constraints, equipment costs, redundancy configurat
 - **Control:** Automatic switchover based on ambient temperature and leaving water setpoint
 - **Efficiency:** COP 15-25 in free cooling mode (vs. COP 3.8-4.2 mechanical cooling)
 
-### Oklahoma Climate Analysis (Pryor, OK)
+### Georgia Climate Analysis (Tbilisi, Georgia)
 
 **Annual Temperature Distribution:**
 - **<10°C (50°F):** ~3,500 hours/year (40% of year) → Full free cooling
@@ -342,7 +342,7 @@ After analyzing supply chain constraints, equipment costs, redundancy configurat
 - Months 4-6: 2,000 kW avg load
 - Months 7-12: 3,000 kW avg load
 - Electricity: $0.08/kWh
-- Oklahoma climate: 3,500 hrs free cooling, 5,260 hrs mechanical cooling
+- Georgia climate: 3,500 hrs free cooling, 5,260 hrs mechanical cooling
 
 | Configuration | Year 1 Cooling Energy | Cost | vs. 1,500 kW |
 |---------------|-----------------------|------|-------------|
@@ -636,7 +636,7 @@ After analyzing supply chain constraints, equipment costs, redundancy configurat
 
 ## CONCLUSION
 
-**The 1,500 kW chiller module is the optimal choice for the Pryor data center:**
+**The 1,500 kW chiller module is the optimal choice for the Tbilisi Data Center:**
 
 ✅ **True N+1 redundancy with operational margin** (50% buffer Phase 1, 17% buffer Phase 2)  
 ✅ **Excellent supply chain availability** (12-16 weeks, 6+ vendors)  
@@ -674,7 +674,7 @@ After analyzing supply chain constraints, equipment costs, redundancy configurat
 
 ---
 
-**Tags:** #pryor-dc #mechanical #chiller-sizing #supply-chain #air-cooling #free-cooling #equipment-procurement
+**Tags:** #Tbilisi-dc #mechanical #chiller-sizing #supply-chain #air-cooling #free-cooling #equipment-procurement
 
 **Next Actions:**
 1. Issue RFP for Phase 1 chillers (4 × 1,500 kW) with Phase 2 option (8 × 1,500 kW)

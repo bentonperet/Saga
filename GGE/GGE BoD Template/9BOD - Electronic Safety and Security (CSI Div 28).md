@@ -1,9 +1,9 @@
 **Created:** 2025-10-29
-**Updated from:** Pryor_Bod_EVS_Rev01.md
+**Updated from:** Tbilisi_Bod_Rev01.md
 
 # BASIS OF DESIGN - ELECTRONIC SAFETY AND SECURITY
 ## CSI Division 28
-### Pryor Data Center - PACHYDERM GLOBAL
+### Tbilisi Data Center - PACHYDERM GLOBAL
 
 **Parent Document:** [[_BOD - Exec Summary and TOC]]
 
@@ -39,14 +39,14 @@ The data center is divided into distinct security zones creating a layered defen
 
 ### Risk Level Classification
 
-GGE-Bilik'i assesses threat level for each site. The Pryor Data Center is classified as **High Risk (HR)** due to:
+GGE-Bilik'i assesses threat level for each site. The Tbilisi Data Center is classified as **High Risk (HR)** due to:
 - Critical infrastructure role in data center operations
 - Tornado Alley location requiring enhanced physical protection
 - High-value IT assets and sensitive customer data
 
 **Risk Level Requirements Summary:**
 
-| Requirement | Medium Risk (MR) | High Risk (HR) - **Pryor DC** |
+| Requirement | Medium Risk (MR) | High Risk (HR) - **Tbilisi DC** |
 |-------------|------------------|-------------------------------|
 | **Perimeter Berm** | Not required | **Required** |
 | **Perimeter Lighting** | Reactive (motion) | **Persistent (always on)** |
@@ -379,7 +379,7 @@ Security portals (mantraps) are critical for preventing tailgating and unauthori
 
 **Exterior Walls:**
 - **MR sites:** 5-minute penetration resistance
-- **HR sites (Pryor DC):** **15-minute penetration resistance**
+- **HR sites (Tbilisi DC):** **15-minute penetration resistance**
 
 **Exterior Doors:**
 - Utility and emergency exit doors kept to minimum
@@ -1093,7 +1093,7 @@ Security personnel are integral to physical security system effectiveness. Fixed
 
 ---
 
-**Tags:** #pryor-dc #security #access-control #cctv #intrusion-detection #perimeter-security
+**Tags:** #Tbilisi-dc #security #access-control #cctv #intrusion-detection #perimeter-security
 
 **Next Steps:**
 1. Select access control and VMS platforms (single vendor preferred for integration)
@@ -1105,7 +1105,7 @@ Security personnel are integral to physical security system effectiveness. Fixed
 ---
 
 **Document Control:**
-- **Source:** Pryor_Bod_EVS_Rev01.md and Erik_BOD reference
+- **Source:** Tbilisi_Bod_Rev01.md and Erik_BOD reference
 - **Date Updated:** October 29, 2025
 - **Prepared by:** EVS / PGCIS Team
 - **Key Updates:** Man-trap design, customer cage security, SOC 2/ISO 27001 compliance

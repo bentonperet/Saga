@@ -1,9 +1,9 @@
 **Created:** 2025-10-29
-**Updated from:** Pryor_Bod_EVS_Rev01.md
+**Updated from:** Tbilisi_Bod_Rev01.md
 
 # BASIS OF DESIGN - FIRE SUPPRESSION
 ## CSI Division 21
-### Pryor Data Center - PACHYDERM GLOBAL
+### Tbilisi Data Center - PACHYDERM GLOBAL
 
 **Parent Document:** [[_BOD - Exec Summary and TOC]]
 
@@ -321,7 +321,7 @@ Fire protection systems protect personnel, IT equipment, and facility infrastruc
 - **NFPA 2001** (Clean Agent Fire Extinguishing Systems)
 - **NFPA 101** (Life Safety Code)
 - **NFPA 20** (Installation of Stationary Pumps for Fire Protection)
-- **IBC 2021** (International Building Code), Oklahoma amendments
+- **IBC 2021** (International Building Code), Georgia amendments
 - **FM Global Data Sheet 5-4** (Transformers)
 - **FM Global Data Sheet 5-32** (General Storage)
 
@@ -372,7 +372,7 @@ Fire protection systems protect personnel, IT equipment, and facility infrastruc
 
 ---
 
-**Tags:** #pryor-dc #fire-suppression #preaction #clean-agent #vesda #nfpa #tier-iii
+**Tags:** #Tbilisi-dc #fire-suppression #preaction #clean-agent #vesda #nfpa #tier-iii
 
 **Next Steps:**
 1. Coordinate with insurance broker for FM Global approval requirements
@@ -384,7 +384,7 @@ Fire protection systems protect personnel, IT equipment, and facility infrastruc
 ---
 
 **Document Control:**
-- **Source:** Pryor_Bod_EVS_Rev01.md and Erik_BOD reference
+- **Source:** Tbilisi_Bod_Rev01.md and Erik_BOD reference
 - **Date Updated:** October 29, 2025
 - **Prepared by:** EVS / PGCIS Team
 - **Key Updates:** Preaction vs. clean agent analysis, VESDA specifications, FM Global compliance

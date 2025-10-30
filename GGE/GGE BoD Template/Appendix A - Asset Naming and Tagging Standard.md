@@ -1,5 +1,5 @@
 **Created:** 2025-10-30
-**Referenced from:** [[GGE-Bilik'i Pryor DC/Basis of Design/Erik_BOD_Updated/1BOD - General Requirements (CSI Div 01)]]
+**Referenced from:** 
 
 # APPENDIX A - ASSET NAMING AND TAGGING STANDARD
 ## GGE-Bilik'i DATA CENTERS GLOBAL NAMING CONVENTION
@@ -15,7 +15,7 @@
 ### Level 1: Campus Code (Airport IATA Code)
 **Format:** `XXX` (3-letter airport code)
 
-**Pryor, Oklahoma:**
+**Tbilisi, Georgia:**
 - Nearest major airport: **Tulsa International (TUL)**
 - Campus Code: **`TUL`**
 
@@ -35,7 +35,7 @@
 ### Level 2: Data Center Building Number
 **Format:** `XXX-##` (Campus + Building Number)
 
-**Pryor Campus:**
+**Tbilisi Campus:**
 - First building: **`TUL-01`**
 - Future expansion: `TUL-02`, `TUL-03`, etc.
 
@@ -49,7 +49,7 @@
 ### Level 3: Floor Level
 **Format:** `XXX-##-F#` (Campus + Building + Floor)
 
-**Pryor Data Center (Multi-Level):**
+**Tbilisi Data Center (Multi-Level):**
 - Ground floor: **`TUL-01-F1`**
 - Mezzanine (NOC, offices): **`TUL-01-F2`**
 - Upper level (gym): **`TUL-01-F3`**
@@ -86,7 +86,7 @@
 | **BRK** | Break Room | - |
 | **LDG** | Loading Dock | - |
 
-**Pryor Examples:**
+**Tbilisi Examples:**
 - **`TUL-01-F1-DH1`** = Data Hall 1 (ground floor)
 - **`TUL-01-F1-DH2`** = Data Hall 2 (ground floor)
 - **`TUL-01-F2-NOC`** = Network Operations Center (mezzanine)
@@ -195,7 +195,7 @@
 ### Cabinets/Racks
 **Format:** `XXX-##-F#-DH#-R###` (Campus-Building-Floor-DataHall-Rack)
 
-**Pryor Examples:**
+**Tbilisi Examples:**
 - **`TUL-01-F1-DH1-R001`** = Data Hall 1, Rack 001
 - **`TUL-01-F1-DH1-R030`** = Data Hall 1, Rack 030
 - **`TUL-01-F1-DH2-R001`** = Data Hall 2, Rack 001
@@ -375,7 +375,7 @@ All dual-fed equipment includes path suffix:
 
 ---
 
-## EXAMPLE: COMPLETE PRYOR DATA CENTER ASSET LIST (SAMPLE)
+## EXAMPLE: COMPLETE Tbilisi Data Center ASSET LIST (SAMPLE)
 
 ### Electrical Equipment (Sample)
 
