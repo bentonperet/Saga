@@ -71,7 +71,7 @@ const BRAND = {
     color: '#222222',
     fontSizePt: 11.5,
     bold: false,
-    lineSpacing: 1.28,
+    lineSpacing: 1.0,
     beforeSpacingPt: 0,
     afterSpacingPt: 4
   },

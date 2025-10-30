@@ -549,6 +549,22 @@ class DocsPublisher {
           bulletPreset: block.ordered ? 'NUMBERED_DECIMAL_ALPHA_ROMAN' : 'BULLET_DISC_CIRCLE_SQUARE'
         }
       });
+
+      // Reduce spacing between list items (30% less than default)
+      this.requests.push({
+        updateParagraphStyle: {
+          range: {
+            startIndex: item.startIndex,
+            endIndex: item.endIndex
+          },
+          paragraphStyle: {
+            spaceAbove: this.makeDimension(0),
+            spaceBelow: this.makeDimension(3),
+            lineSpacing: 100 // 1.0 line spacing
+          },
+          fields: 'spaceAbove,spaceBelow,lineSpacing'
+        }
+      });
     });
   }
 
