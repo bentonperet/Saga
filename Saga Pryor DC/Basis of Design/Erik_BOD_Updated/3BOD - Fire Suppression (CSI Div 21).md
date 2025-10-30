@@ -240,7 +240,6 @@ Fire protection systems protect personnel, IT equipment, and facility infrastruc
 ## EGRESS & LIFE SAFETY
 
 ### Occupancy & Load
-
 **Data Halls:**
 - Classification: Group B (Business) per IBC Section 304
 - Occupant load: ~10 persons (one person per 100 SF gross)

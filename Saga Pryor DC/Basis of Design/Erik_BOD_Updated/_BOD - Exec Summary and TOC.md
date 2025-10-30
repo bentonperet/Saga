@@ -7,7 +7,7 @@
 
 **Document Status:** REVISION 01 - 138 kV Substation + Microgrid Design
 **Prepared by:** EVS / PGCIS Team
-**Date:** October 29, 2025
+**Date:** October 29, 2025 
 **Purpose:** Comprehensive Basis of Design for Pryor Data Center organized by CSI Master Format
 
 ---

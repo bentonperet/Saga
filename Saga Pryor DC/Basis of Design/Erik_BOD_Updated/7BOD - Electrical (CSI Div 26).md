@@ -5,13 +5,13 @@
 ## CSI Division 26
 ### Pryor Data Center - PACHYDERM GLOBAL
 
-**Parent Document:** [[Saga Pryor DC/Basis of Design/Erik_BOD_Updated/_BOD - Exec Summary and TOC]]
+**Parent Document:** [[Saga Pryor DC/Basis of Design/Erik_BOD_Updated/_BOD - Exec Summary and TOC|_BOD - Exec Summary and TOC]]
 
 ---
 
 ## OVERVIEW
 
-Electrical systems provide Tier III-compliant power distribution with N+1 IT UPS architecture backed by self-healing 11 kV dual-ring MV distribution, N+1 generators and transformers, supporting 3 MW Phase 1 (expandable to 12 MW Phase 2). Customer-owned 138 kV substation with 11 kV distribution integrates utility, solar, BESS, and generators on common voltage infrastructure.
+Electrical systems provide Tier III-compliant power distribution with N+1 IT UPS architecture backed by self-healing 11 kV dual-ring MV distribution, N+1 generators and transformers, supporting 3 MW Phase 1 (expandable to 12 MW Phase 2). Customer-owned 138 kV substation with 11 kV distribution integrates utility, solar, BESS, and generators on common voltage infrastructure. 
 
 **Design Philosophy:**
 - **Path redundancy:** 11 kV self-healing dual-ring MV distribution with automated SCADA switching

@@ -59,6 +59,7 @@ Phased mechanical cooling strategy supporting 3 MW Phase 1 (air cooling only) ex
 
 **This is true N+N redundancy at the cabinet level.**
 
+
 ---
 
 ## LOOPS 1+2 SHARED CHILLER PLANT
@@ -407,6 +408,7 @@ Phased mechanical cooling strategy supporting 3 MW Phase 1 (air cooling only) ex
 | **Secondary Pumps (Loops 1+2)** | 4 | 0 | 4 | 22 kW | Cabinet distribution |
 | **Primary Pumps (Loop 3)** | 0 | 4 | 4 | 56 kW | Loop 3 circulation |
 | **Building RTUs** | 3-4 | 0 | 3-4 | Varies | Office/NOC HVAC |
+
 
 ---
 

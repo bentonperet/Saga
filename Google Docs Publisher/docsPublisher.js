@@ -826,11 +826,12 @@ class DocsPublisher {
       }
     });
 
-    // Apply code styling
+    // Apply code styling with monospace font
     this.requests.push({
       updateTextStyle: {
         range: { startIndex, endIndex: endIndex - 1 },
         textStyle: {
+          weightedFontFamily: { fontFamily: BRAND.CODE.fontFamily },
           fontSize: this.makeDimension(BRAND.CODE.fontSizePt),
           foregroundColor: {
             color: { rgbColor: hexToRgb(BRAND.CODE.color) }
@@ -839,7 +840,7 @@ class DocsPublisher {
             color: { rgbColor: hexToRgb(BRAND.CODE.backgroundColor) }
           }
         },
-        fields: 'fontSize,foregroundColor,backgroundColor'
+        fields: 'weightedFontFamily,fontSize,foregroundColor,backgroundColor'
       }
     });
 
@@ -1200,13 +1201,13 @@ class DocsPublisher {
 
   /**
    * Insert a horizontal rule as a visual line
-   * (Google Docs API doesn't support insertHorizontalRule directly)
+   * (Google Docs API doesn't support insertHorizontalRule or paragraph borders)
    */
   insertHorizontalRule() {
     const startIndex = this.cursorIndex;
-    // Use Unicode box drawing character for a solid line
-    const lineChar = '─'; // Box Drawings Light Horizontal (U+2500)
-    const text = lineChar.repeat(60) + '\n';
+    // Use a thin underline character repeated to create a line
+    const lineChar = '_';
+    const text = lineChar.repeat(80) + '\n';
     const endIndex = startIndex + text.length;
 
     this.requests.push({
@@ -1216,29 +1217,29 @@ class DocsPublisher {
       }
     });
 
-    // Style the line
-    this.requests.push({
-      updateParagraphStyle: {
-        range: { startIndex, endIndex },
-        paragraphStyle: {
-          alignment: 'CENTER',
-          spaceAbove: this.makeDimension(8),
-          spaceBelow: this.makeDimension(8)
-        },
-        fields: 'alignment,spaceAbove,spaceBelow'
-      }
-    });
-
+    // Style the line - light gray, small font, centered
     this.requests.push({
       updateTextStyle: {
         range: { startIndex, endIndex: endIndex - 1 },
         textStyle: {
           foregroundColor: {
-            color: { rgbColor: hexToRgb('#CCCCCC') }
+            color: { rgbColor: hexToRgb('#D3D3D3') }
           },
-          fontSize: this.makeDimension(8)
+          fontSize: this.makeDimension(6)
         },
         fields: 'foregroundColor,fontSize'
+      }
+    });
+
+    this.requests.push({
+      updateParagraphStyle: {
+        range: { startIndex, endIndex },
+        paragraphStyle: {
+          alignment: 'CENTER',
+          spaceAbove: this.makeDimension(4),
+          spaceBelow: this.makeDimension(4)
+        },
+        fields: 'alignment,spaceAbove,spaceBelow'
       }
     });
 
