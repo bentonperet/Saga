@@ -1,0 +1,24 @@
+{
+  "name": "obsidian-google-docs-publisher",
+  "version": "1.0.0",
+  "description": "Publish Obsidian markdown files to formatted Google Docs",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "publish": "node index.js",
+    "test": "node test.js"
+  },
+  "keywords": ["obsidian", "google-docs", "markdown", "publisher"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "googleapis": "^128.0.0",
+    "remark": "^15.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-gfm": "^4.0.0",
+    "unified": "^11.0.4",
+    "unist-util-visit": "^5.0.0",
+    "mdast-util-to-string": "^4.0.0"
+  },
+  "devDependencies": {}
+}
