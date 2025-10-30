@@ -5,16 +5,28 @@ import {
   getBrandStyleForHeading,
   getNamedStyleForHeading
 } from './brandConfig.js';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// ES module equivalent of __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Path to the logo file
+const LOGO_PATH = path.join(__dirname, '..', 'Saga Pryor DC', 'Elephant Globe No_Inner_Shadow 220x230 no Words 20250128.png');
 
 /**
  * Publish parsed markdown blocks to Google Docs
  */
 class DocsPublisher {
   constructor(auth) {
+    this.auth = auth;
     this.docs = google.docs({ version: 'v1', auth });
     this.drive = google.drive({ version: 'v3', auth });
     this.requests = [];
     this.cursorIndex = 1; // Docs body starts at index 1
+    this.logoImageId = null;
   }
 
   /**
@@ -25,6 +37,235 @@ class DocsPublisher {
       magnitude: magnitude || 0,
       unit: 'PT'
     };
+  }
+
+  /**
+   * Upload logo image to Google Drive and return the image ID
+   * @returns {Promise<string>} Image ID for use in Google Docs
+   */
+  async uploadLogo() {
+    if (this.logoImageId) {
+      return this.logoImageId; // Already uploaded
+    }
+
+    if (!fs.existsSync(LOGO_PATH)) {
+      console.warn('⚠️  Logo file not found, skipping header');
+      return null;
+    }
+
+    try {
+      const fileMetadata = {
+        name: 'Pachyderm Global Logo',
+        mimeType: 'image/png'
+      };
+
+      const media = {
+        mimeType: 'image/png',
+        body: fs.createReadStream(LOGO_PATH)
+      };
+
+      const file = await this.drive.files.create({
+        requestBody: fileMetadata,
+        media: media,
+        fields: 'id'
+      });
+
+      // Make the image accessible to anyone with the link
+      await this.drive.permissions.create({
+        fileId: file.data.id,
+        requestBody: {
+          role: 'reader',
+          type: 'anyone'
+        }
+      });
+
+      this.logoImageId = file.data.id;
+      return this.logoImageId;
+    } catch (error) {
+      console.warn('⚠️  Failed to upload logo:', error.message);
+      return null;
+    }
+  }
+
+  /**
+   * Insert Pachyderm Global branded header at the top of the document
+   */
+  async insertHeader() {
+    // Upload logo first
+    const imageId = await this.uploadLogo();
+    if (!imageId) {
+      return; // Skip header if logo upload failed
+    }
+
+    const startIndex = this.cursorIndex;
+
+    // Get the logo URL for embedding
+    const imageUrl = `https://drive.google.com/uc?id=${imageId}`;
+
+    // Insert a table for the header layout (1 row, 2 columns)
+    await this.docs.documents.batchUpdate({
+      documentId: this.docId,
+      requestBody: {
+        requests: [{
+          insertTable: {
+            rows: 1,
+            columns: 2,
+            location: { index: startIndex }
+          }
+        }]
+      }
+    });
+
+    // Read back document to get table structure
+    const doc = await this.docs.documents.get({ documentId: this.docId });
+    const headerTable = this.findTableNearIndex(doc.data.body.content, startIndex, 5);
+
+    if (!headerTable) {
+      console.warn('⚠️  Could not find header table, skipping header');
+      return;
+    }
+
+    const tableStartIndex = headerTable.startIndex;
+    const leftCell = headerTable.table.tableRows[0].tableCells[0];
+    const rightCell = headerTable.table.tableRows[0].tableCells[1];
+
+    // Get cell content indexes - need to find the paragraph inside the cell
+    const leftParagraph = leftCell.content[0].paragraph;
+    const rightParagraph = rightCell.content[0].paragraph;
+
+    const leftCellIndex = leftParagraph.elements[0].startIndex;
+    const rightCellIndex = rightParagraph.elements[0].startIndex;
+
+    // Build header content requests
+    const textRequests = [];
+
+    // RIGHT CELL: Insert company info text first
+    const companyText =
+      'PACHYDERM GLOBAL\n' +
+      'CRITICAL INFRASTRUCTURE SERVICES\n' +
+      'NA Headquarters\n' +
+      '6275 W. Plano Parkway, Suite 500, Plano, Texas 75093 USA\n' +
+      '+1 469 727 5717  pgcis.com\n\n' +
+      'EMEA Headquarters\n' +
+      'Rahmannstraße 11, 65760, Eschborn, Hessen, Germany\n' +
+      '+49 6196 97-340-97  pgcis.com/de';
+
+    textRequests.push({
+      insertText: {
+        location: { index: rightCellIndex },
+        text: companyText
+      }
+    });
+
+    // Style the text in right cell - using dynamic position tracking
+    const segments = [
+      { text: 'PACHYDERM GLOBAL', style: { bold: true, size: 18, color: '#044A74', font: 'Rubik' } },
+      { text: 'CRITICAL INFRASTRUCTURE SERVICES', style: { size: 10, color: '#666666', font: 'Source Sans 3' } },
+      { text: 'NA Headquarters', style: { bold: true, size: 9, font: 'Source Sans 3' } },
+      { text: '6275 W. Plano Parkway, Suite 500, Plano, Texas 75093 USA', style: { size: 9, font: 'Source Sans 3' } },
+      { text: '+1 469 727 5717  ', style: { size: 9, font: 'Source Sans 3' } },
+      { text: 'pgcis.com', style: { size: 9, font: 'Source Sans 3', link: 'https://pgcis.com', color: '#4F81BD' } },
+      { text: '\n\n', style: null }, // Spacer between sections
+      { text: 'EMEA Headquarters', style: { bold: true, size: 9, font: 'Source Sans 3' } },
+      { text: 'Rahmannstraße 11, 65760, Eschborn, Hessen, Germany', style: { size: 9, font: 'Source Sans 3' } },
+      { text: '+49 6196 97-340-97  ', style: { size: 9, font: 'Source Sans 3' } },
+      { text: 'pgcis.com/de', style: { size: 9, font: 'Source Sans 3', link: 'https://pgcis.com/de', color: '#4F81BD' } }
+    ];
+
+    let currentIndex = rightCellIndex;
+    for (const segment of segments) {
+      if (segment.style) {
+        const textStyle = {
+          fontSize: this.makeDimension(segment.style.size),
+          weightedFontFamily: { fontFamily: segment.style.font }
+        };
+
+        if (segment.style.bold) {
+          textStyle.bold = true;
+        }
+
+        if (segment.style.color) {
+          textStyle.foregroundColor = {
+            color: { rgbColor: hexToRgb(segment.style.color) }
+          };
+        }
+
+        if (segment.style.link) {
+          textStyle.link = { url: segment.style.link };
+        }
+
+        const fields = ['fontSize', 'weightedFontFamily'];
+        if (segment.style.bold) fields.push('bold');
+        if (segment.style.color) fields.push('foregroundColor');
+        if (segment.style.link) fields.push('link');
+
+        textRequests.push({
+          updateTextStyle: {
+            range: {
+              startIndex: currentIndex,
+              endIndex: currentIndex + segment.text.length
+            },
+            textStyle,
+            fields: fields.join(',')
+          }
+        });
+      }
+
+      currentIndex += segment.text.length;
+
+      // Add newline if not the spacer segment
+      if (segment.style && segments.indexOf(segment) < segments.length - 1 && segment.text !== '\n\n') {
+        currentIndex += 1; // Account for newline in companyText
+      }
+    }
+
+    // Remove table borders and set padding
+    textRequests.push({
+      updateTableCellStyle: {
+        tableRange: {
+          tableCellLocation: {
+            tableStartLocation: { index: tableStartIndex },
+            rowIndex: 0,
+            columnIndex: 0
+          },
+          rowSpan: 1,
+          columnSpan: 2
+        },
+        tableCellStyle: {
+          paddingTop: this.makeDimension(6),
+          paddingBottom: this.makeDimension(12),
+          paddingLeft: this.makeDimension(0),
+          paddingRight: this.makeDimension(0)
+        },
+        fields: 'paddingTop,paddingBottom,paddingLeft,paddingRight'
+      }
+    });
+
+    // Apply text formatting first
+    await this.docs.documents.batchUpdate({
+      documentId: this.docId,
+      requestBody: { requests: textRequests }
+    });
+
+    // Now insert the logo image in the left cell
+    await this.docs.documents.batchUpdate({
+      documentId: this.docId,
+      requestBody: {
+        requests: [{
+          insertInlineImage: {
+            location: { index: leftCellIndex },
+            uri: imageUrl,
+            objectSize: {
+              height: { magnitude: 120, unit: 'PT' },
+              width: { magnitude: 115, unit: 'PT' }
+            }
+          }
+        }]
+      }
+    });
+
+    // Update cursor position to after the header table
+    this.cursorIndex = headerTable.endIndex;
   }
 
   /**
@@ -43,6 +284,9 @@ class DocsPublisher {
     this.requests = [];
     this.cursorIndex = 1;
     this.pendingTables = [];
+
+    // Insert branded header at the top of the document
+    await this.insertHeader();
 
     // Process blocks sequentially, handling tables specially
     for (const block of blocks) {
