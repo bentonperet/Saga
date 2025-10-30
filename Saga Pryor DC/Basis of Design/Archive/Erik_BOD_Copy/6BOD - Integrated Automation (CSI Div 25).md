@@ -4,8 +4,8 @@
 ## CSI Division 25
 ### Saga Energy – Pryor Data Center
 
-**Parent Document:** [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/_BOD - Exec Summary and TOC]]
-**Related:** [[Basis of Design - Part 2 Supporting Systems]] | [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/12BOD - Process Equipment (CSI Divs 40-48)]]
+**Parent Document:** [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/_BOD - Exec Summary and TOC]]
+**Related:** [[Basis of Design - Part 2 Supporting Systems]] | [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/12BOD - Process Equipment (CSI Divs 40-48)]]
 
 ---
 
@@ -108,7 +108,7 @@ Integrated monitoring and control systems ensure reliable operations, rapid faul
 - Without BESS, standard generator ATS and solar inverter controls are sufficient
 - Significant cost savings vs full microgrid controller
 
-**Detailed requirements:** See [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/12BOD - Process Equipment (CSI Divs 40-48)]]
+**Detailed requirements:** See [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/12BOD - Process Equipment (CSI Divs 40-48)]]
 
 ### Key Control Functions
 
@@ -245,7 +245,7 @@ Integrated monitoring and control systems ensure reliable operations, rapid faul
 **Tags:** #saga-project #bms #dcim #ems #microgrid-controls #csi-division-25
 
 **Related Documents:**
-- [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/_BOD - Exec Summary and TOC]] - Main title page
-- [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/5BOD - HVAC (CSI Div 23)]] - HVAC control sequences
-- [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/7BOD - Electrical (CSI Div 26)]] - Electrical monitoring
-- [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/12BOD - Process Equipment (CSI Divs 40-48)]] - Microgrid integration details
+- [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/_BOD - Exec Summary and TOC]] - Main title page
+- [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/5BOD - HVAC (CSI Div 23)]] - HVAC control sequences
+- [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/7BOD - Electrical (CSI Div 26)]] - Electrical monitoring
+- [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/12BOD - Process Equipment (CSI Divs 40-48)]] - Microgrid integration details

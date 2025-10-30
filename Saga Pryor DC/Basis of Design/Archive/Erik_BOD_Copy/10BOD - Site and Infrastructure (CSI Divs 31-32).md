@@ -4,7 +4,7 @@
 ## CSI Divisions 31-32
 ### Saga Energy – Pryor Data Center
 
-**Parent Document:** [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/_BOD - Exec Summary and TOC]]
+**Parent Document:** [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/_BOD - Exec Summary and TOC]]
 **Related:** [[Basis of Design - Part 1 Core Systems]] | [[Architectural Meeting Changes by CSI Division]]
 
 ---
@@ -170,9 +170,9 @@
 **Tags:** #saga-project #site-development #earthwork #stormwater #equipment-yards #csi-divisions-31-32
 
 **Related Documents:**
-- [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/_BOD - Exec Summary and TOC]] - Main title page
-- [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/4BOD - Plumbing (CSI Div 22)]] - Stormwater management details
-- [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/5BOD - HVAC (CSI Div 23)]] - Chiller yard layout
-- [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/7BOD - Electrical (CSI Div 26)]] - Generator yard and BESS enclosure
-- [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/11BOD - Utilities DC Critical (CSI Div 33)]] - Utility transformer placement
+- [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/_BOD - Exec Summary and TOC]] - Main title page
+- [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/4BOD - Plumbing (CSI Div 22)]] - Stormwater management details
+- [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/5BOD - HVAC (CSI Div 23)]] - Chiller yard layout
+- [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/7BOD - Electrical (CSI Div 26)]] - Generator yard and BESS enclosure
+- [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/11BOD - Utilities DC Critical (CSI Div 33)]] - Utility transformer placement
 - [[Architectural Meeting Changes by CSI Division]] - October 2025 updates

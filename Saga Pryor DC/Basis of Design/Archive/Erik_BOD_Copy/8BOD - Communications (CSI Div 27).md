@@ -4,7 +4,7 @@
 ## CSI Division 27
 ### Saga Energy – Pryor Data Center
 
-**Parent Document:** [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/_BOD - Exec Summary and TOC]]
+**Parent Document:** [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/_BOD - Exec Summary and TOC]]
 **Related:** [[Basis of Design - Part 2 Supporting Systems]]
 
 ---
@@ -167,6 +167,6 @@ Data center is ~4 miles from Google Pryor campus, enabling **low-latency direct 
 **Tags:** #saga-project #communications #fiber #gcp-interconnection #meet-me-room #csi-division-27
 
 **Related Documents:**
-- [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/_BOD - Exec Summary and TOC]] - Main title page
-- [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/9BOD - Electronic Safety and Security (CSI Div 28)]] - Security integration
-- [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/6BOD - Integrated Automation (CSI Div 25)]] - Facility network backbone
+- [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/_BOD - Exec Summary and TOC]] - Main title page
+- [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/9BOD - Electronic Safety and Security (CSI Div 28)]] - Security integration
+- [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/6BOD - Integrated Automation (CSI Div 25)]] - Facility network backbone

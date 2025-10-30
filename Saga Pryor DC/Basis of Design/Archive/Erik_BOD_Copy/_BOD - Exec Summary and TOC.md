@@ -152,7 +152,7 @@
 
 #### **Division 00 – Procurement and Contracting Requirements**
 
-See: [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/0BOD - Procurement and Contracting (CSI Div 00)]]
+See: [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/0BOD - Procurement and Contracting (CSI Div 00)]]
 
 - *Project delivery, contracting strategy, phasing approach*
 - Phase 1: 12 MW (20,000 SF white space + support spaces)
@@ -167,7 +167,7 @@ See: [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/0BOD - Procurement and Contra
 
 **Division 01 – General Requirements**
 
-See: [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/1BOD - General Requirements (CSI Div 01)]]
+See: [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/1BOD - General Requirements (CSI Div 01)]]
 
 - *General project requirements, submittals, quality control*
 - Commissioning requirements (FAT, SAT, integrated systems testing)
@@ -177,7 +177,7 @@ See: [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/1BOD - General Requirements (
 ---
 #### **FACILITY CONSTRUCTION SUBGROUP**
 
-See: [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/2BOD - Facility Construction (CSI Divs 02-14)]]
+See: [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/2BOD - Facility Construction (CSI Divs 02-14)]]
 
 - **Division 02 – Existing Conditions** - *Site surveys, demolition (if any), hazardous materials*
 - **Division 03 – Concrete** - *Structural slab-on-grade (no raised floor), foundations*
@@ -198,22 +198,22 @@ See: [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/2BOD - Facility Construction 
 #### **FACILITY SERVICES SUBGROUP**
 
 - **Division 20** - *Reserved for Future Expansion*
-- **Division 21 – Fire Suppression** - *Pre-action sprinklers, clean agent for UPS rooms* - [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/3BOD - Fire Suppression (CSI Div 21)]]
-- **Division 22 – Plumbing** - *Domestic water, sanitary sewer, chilled water makeup* - [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/4BOD - Plumbing (CSI Div 22)]]
-- **Division 23 – HVAC** - *16 air-cooled chillers, CDUs, RDHx, rooftop AHUs* - [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/5BOD - HVAC (CSI Div 23)]]
+- **Division 21 – Fire Suppression** - *Pre-action sprinklers, clean agent for UPS rooms* - [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/3BOD - Fire Suppression (CSI Div 21)]]
+- **Division 22 – Plumbing** - *Domestic water, sanitary sewer, chilled water makeup* - [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/4BOD - Plumbing (CSI Div 22)]]
+- **Division 23 – HVAC** - *16 air-cooled chillers, CDUs, RDHx, rooftop AHUs* - [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/5BOD - HVAC (CSI Div 23)]]
 - **Division 24** - *Reserved for Future Expansion*
-- **Division 25 – Integrated Automation** - *BMS, DCIM, simplified EMS* - [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/6BOD - Integrated Automation (CSI Div 25)]]
-- **Division 26 – Electrical** - *N+1 modular UPS (dual paths), generators, switchboards, distribution* - [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/7BOD - Electrical (CSI Div 26)]]
-- **Division 27 – Communications** - *Dual MMRs, fiber diversity, GCP interconnection* - [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/8BOD - Communications (CSI Div 27)]]
-- **Division 28 – Electronic Safety and Security** - *Access control, CCTV, intrusion detection* - [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/9BOD - Electronic Safety and Security (CSI Div 28)]]
+- **Division 25 – Integrated Automation** - *BMS, DCIM, simplified EMS* - [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/6BOD - Integrated Automation (CSI Div 25)]]
+- **Division 26 – Electrical** - *N+1 modular UPS (dual paths), generators, switchboards, distribution* - [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/7BOD - Electrical (CSI Div 26)]]
+- **Division 27 – Communications** - *Dual MMRs, fiber diversity, GCP interconnection* - [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/8BOD - Communications (CSI Div 27)]]
+- **Division 28 – Electronic Safety and Security** - *Access control, CCTV, intrusion detection* - [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/9BOD - Electronic Safety and Security (CSI Div 28)]]
 - **Division 29** - *Reserved for Future Expansion*
 
 ---
 #### **SITE AND INFRASTRUCTURE SUBGROUP**
 
 - **Division 30** - *Reserved for Future Expansion*
-- **Divisions 31-32 – Earthwork & Exterior Improvements** - *Grading, stormwater pond, equipment yards, landscaping* - [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/10BOD - Site and Infrastructure (CSI Divs 31-32)]]
-- **Division 33 – Utilities** - *138kV interconnection, natural gas, water/sewer* - [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/11BOD - Utilities DC Critical (CSI Div 33)]]
+- **Divisions 31-32 – Earthwork & Exterior Improvements** - *Grading, stormwater pond, equipment yards, landscaping* - [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/10BOD - Site and Infrastructure (CSI Divs 31-32)]]
+- **Division 33 – Utilities** - *138kV interconnection, natural gas, water/sewer* - [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/11BOD - Utilities DC Critical (CSI Div 33)]]
 - **Division 34 – Transportation** - *Not applicable*
 - **Division 35 – Waterway and Marine Construction** - *Not applicable*
 - **Divisions 36-39** - *Reserved for Future Expansion*

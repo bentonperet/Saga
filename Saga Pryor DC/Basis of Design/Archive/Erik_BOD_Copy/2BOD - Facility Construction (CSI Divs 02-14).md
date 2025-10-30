@@ -4,7 +4,7 @@
 ## CSI Divisions 02-14
 ### Saga Energy – Pryor Data Center
 
-**Parent Document:** [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/_BOD - Exec Summary and TOC]]
+**Parent Document:** [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/_BOD - Exec Summary and TOC]]
 **Related:**
 
 ---
@@ -269,6 +269,6 @@
 **Tags:** #saga-project #facility-construction #csi-divisions #architecture #structure
 
 **Related Documents:**
-- [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/_BOD - Exec Summary and TOC]] - Main title page
+- [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/_BOD - Exec Summary and TOC]] - Main title page
 - [[Architectural Meeting Changes by CSI Division]] - October 2025 updates
 - [[Basis of Design - Part 1 Core Systems]] - Original technical baseline

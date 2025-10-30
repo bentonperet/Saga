@@ -4,7 +4,7 @@
 ## CSI Division 26
 ### Saga Energy – Pryor Data Center
 
-**Parent Document:** [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/_BOD - Exec Summary and TOC]]
+**Parent Document:** [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/_BOD - Exec Summary and TOC]]
 **Related:** [[Why BESS Should Not Be UPS]] | [[Excess Solar Monetization Strategy]] | [[Architectural Meeting Changes by CSI Division]]
 
 ---
@@ -197,7 +197,7 @@ A-Side UPS (Modules 1-5)  ←→  B-Side UPS (Modules 6-10)
 - **Impedance:** 5.75% typical
 - **Cooling:** Dry-type, forced air (fans for overload conditions)
 
-**Note:** Substation transformer sizing addressed in [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/11BOD - Utilities DC Critical (CSI Div 33)]].
+**Note:** Substation transformer sizing addressed in [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/11BOD - Utilities DC Critical (CSI Div 33)]].
 
 ---
 
@@ -340,9 +340,9 @@ A-Side UPS (Modules 1-5)  ←→  B-Side UPS (Modules 6-10)
 **Tags:** #saga-project #electrical #traditional-ups #tier3-compliance #generators #distribution #csi-division-26
 
 **Related Documents:**
-- [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/_BOD - Exec Summary and TOC]] - Main title page
+- [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/_BOD - Exec Summary and TOC]] - Main title page
 - [[Why BESS Should Not Be UPS]] - Technical analysis rejecting BESS-as-UPS
 - [[Excess Solar Monetization Strategy]] - Economic BESS evaluation (rejected)
-- [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/12BOD - Process Equipment (CSI Divs 40-48)]] - Generator and solar details
-- [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/11BOD - Utilities DC Critical (CSI Div 33)]] - Utility interconnection
+- [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/12BOD - Process Equipment (CSI Divs 40-48)]] - Generator and solar details
+- [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/11BOD - Utilities DC Critical (CSI Div 33)]] - Utility interconnection
 - [[Architectural Meeting Changes by CSI Division]] - October 2025 updates

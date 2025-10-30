@@ -174,8 +174,8 @@ Division 00 defines project delivery approach, contracting strategy, and phasing
 **Tags:** #saga-project #procurement #contracting #phasing #csi-division-00
 
 **Related Documents:**
-- [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/_BOD - Exec Summary and TOC]] - Main title page
-- [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/1BOD - General Requirements (CSI Div 01)]] - Commissioning and testing requirements
+- [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/_BOD - Exec Summary and TOC]] - Main title page
+- [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/1BOD - General Requirements (CSI Div 01)]] - Commissioning and testing requirements
 - [[Financial Model Change Log]] - CAPEX phasing and JIT deployment strategy
-- [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/7BOD - Electrical (CSI Div 26)]] - UPS and generator specifications
-- [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/5BOD - HVAC (CSI Div 23)]] - Chiller procurement strategy
+- [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/7BOD - Electrical (CSI Div 26)]] - UPS and generator specifications
+- [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/5BOD - HVAC (CSI Div 23)]] - Chiller procurement strategy

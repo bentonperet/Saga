@@ -4,8 +4,8 @@
 ## CSI Division 22
 ### Saga Energy – Pryor Data Center
 
-**Parent Document:** [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/_BOD - Exec Summary and TOC]]
-**Related:** [[Basis of Design - Part 1 Core Systems]] | [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/11BOD - Utilities DC Critical (CSI Div 33)]]
+**Parent Document:** [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/_BOD - Exec Summary and TOC]]
+**Related:** [[Basis of Design - Part 1 Core Systems]] | [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/11BOD - Utilities DC Critical (CSI Div 33)]]
 
 ---
 
@@ -30,7 +30,7 @@ Plumbing systems support domestic use, fire suppression fill, and chilled water 
 - **Meter Size:** 2-3" meter (adequate for domestic flow + fire system fill)
 - **Backflow Prevention:** Reduced pressure backflow preventer (RP) required by code
 
-**Action Required:** Confirm water service availability via Water & Wastewater Availability Study (see [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/11BOD - Utilities DC Critical (CSI Div 33)]])
+**Action Required:** Confirm water service availability via Water & Wastewater Availability Study (see [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/11BOD - Utilities DC Critical (CSI Div 33)]])
 
 ---
 
@@ -181,6 +181,6 @@ Leak alarm triggers:
 **Tags:** #saga-project #plumbing #water-systems #leak-detection #csi-division-22
 
 **Related Documents:**
-- [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/_BOD - Exec Summary and TOC]] - Main title page
-- [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/5BOD - HVAC (CSI Div 23)]] - Chilled water system details
-- [[Saga Pryor DC/Basis of Design/Erik_BOD_Copy/11BOD - Utilities DC Critical (CSI Div 33)]] - Water/sewer availability
+- [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/_BOD - Exec Summary and TOC]] - Main title page
+- [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/5BOD - HVAC (CSI Div 23)]] - Chilled water system details
+- [[Saga Pryor DC/Basis of Design/Archive/Erik_BOD_Copy/11BOD - Utilities DC Critical (CSI Div 33)]] - Water/sewer availability
