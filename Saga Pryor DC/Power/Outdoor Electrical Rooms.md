@@ -14,4 +14,4 @@ UPS equipment CAN be housed outdoors in weatherproof enclosures
     - Easier expansion: Add more outdoor enclosures as you scale
     - Cost savings: Outdoor enclosures typically cheaper than building interior electrical rooms
 
-[[7BOD - Electrical (CSI Div 26)]]
+[[Saga Pryor DC/Basis of Design/Benton_BOD/7BOD - Electrical (CSI Div 26)]]
