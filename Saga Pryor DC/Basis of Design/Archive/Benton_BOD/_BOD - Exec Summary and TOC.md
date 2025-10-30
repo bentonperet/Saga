@@ -54,7 +54,7 @@
 	- <!-- Benton - verify chiller capacity to planned IT / facility load -->
 - **Chiller Configuration:** Phased deployment aligned with IT load growth
 - **IT Cooling:** CDUs + rack-based rear-door heat exchangers (RDHx) or potentially DDC Cabinets (top-cooling) {TBC}
-- **Data Hall HVAC:** Rooftop AHUs for comfort cooling and humidity control
+- **Data Hall HVAC:** Rooftop AHUs for space pressurization, humidity control, and comfort cooling 
 - **Zero Water Strategy:** No evaporative cooling, closed-loop chilled water
 - **Free Cooling:** ~215 days/year in Oklahoma climate (integrated free cooling mode)
 - **Controls:** BMS with chiller rotation, setpoint reset, pump VFD optimization {TBC}
