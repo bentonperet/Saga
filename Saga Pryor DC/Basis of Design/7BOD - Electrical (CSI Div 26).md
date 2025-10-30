@@ -57,29 +57,9 @@ Electrical systems provide Tier III-compliant N+1 redundant power distribution w
 | Mechanical UPS Batteries | VRLA or Li-ion batteries for mechanical UPS, 15-min backup for critical mechanical systems                                                                     | 2              | 3              | 3              | 4               | 6               |
 
 
-**Battery Cabinet Count Explanation:**
-The 4:1 ratio (32 cabinets for 8 UPS modules) is driven by the 15-minute runtime requirement at full load. Industry standard for 500kW UPS modules typically uses 1-2 cabinets for 5-10 minute runtime, but this project requires 15 minutes to accommodate natural gas turbine startup time (5-10 minutes). Calculation basis:
-- Each 500kW module needs ~125 kWh for 15-min runtime (500kW × 0.25 hr)
-- Standard Li-ion cabinet: ~30-40 kWh per cabinet
-- Required cabinets per module: 125 kWh ÷ 35 kWh = ~3.6, rounded to 4 cabinets
+<!-- @benton REVIEW BATTERY CABINET COUNT: Equipment table specifies 32 battery cabinets for only 8 UPS modules (4:1 ratio). Industry standard is typically 1-2 cabinets per 500kW module. Is the 15-minute runtime requirement driving this high count? Verify with UPS vendor quotes. Potential cost optimization opportunity. -->
 
-**{TBC}** Verify exact battery cabinet counts with vendor quotes (Schneider Galaxy VXL or equivalent). May be reduced to 2-3 cabinets per module depending on battery technology selected.
-
-**Mechanical UPS Sizing Analysis:**
-Phase 4 mechanical UPS capacity: 4 × 250 kW = 1 MW total (N+1 configuration)
-
-Critical mechanical loads requiring UPS backup:
-- Primary/secondary chilled water pumps: ~700 kW (from HVAC BOD 5BOD:143)
-- Critical BMS/controls: ~50-100 kW
-- Emergency lighting and critical ventilation: ~100-150 kW
-- **Total critical mechanical load: ~850-950 kW**
-
-With N+1 redundancy:
-- Operating capacity required: 850-950 kW
-- N+1 configuration: 3 × 250 kW = 750 kW available (any 2 of 3 running)
-- **Analysis: Current specification appears UNDERSIZED by ~100-200 kW**
-
-**{TBC}** Recommend increasing mechanical UPS to 300-350 kW modules or adding fifth unit for Phase 4. Non-critical mechanical loads (chillers) will ride through on generator power only.
+<!-- @benton VERIFY MECHANICAL UPS SIZING: 250 kW UPS × 4 units = 1 MW total capacity for Phase 4. Mechanical load analysis: 3× 5,000 kVA transformers = 4.2 MW total mechanical capacity. If critical mechanical loads (chillers, pumps) represent 30-40% of total = ~1.5 MW minimum requirement. Current specification may be undersized. Recommend load calculation review. -->
 
 ## GENERATOR SYSTEMS {TBC}
 
