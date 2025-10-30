@@ -32,7 +32,7 @@
   - **345 kV Transmission:** Direct connection to utility transmission system
   - **Substation Transformers:** 2 × 25 MVA, 345kV/13.8kV (2N redundancy)
   - **Capacity:** Supports 24 MW master plan without utility upgrades
-  - **Cost:** ~$7-12M (higher than lower voltages due to larger equipment and clearances)
+  - **Cost:** ~$7-12M (higher than 138 kV due to larger equipment and clearances)
 - **13.8 kV Common Bus:** Single voltage platform for utility, solar, BESS, generators, data center (US standard voltage)
 - **MV Distribution:** 13.8 kV dual-ring topology (Ring A + Ring B) via 6 RMUs
 - **Generators:** 6 × 4.0 MW @ 13.8 kV, diesel, Tier 4 Final (N+1)
@@ -166,9 +166,9 @@
 - Blended average: $5.1-6.3M per MW
 
 **Phase 1 Electrical Breakdown:**
-- Generators (3 × 4.0 MW @ 13.8 kV diesel): $4.5M
+- Generators (3 × 4.0 MW @ 11 kV diesel): $4.5M
 - House generators (2 × 300 kW natural gas): $0.1M
-- Transformers (3 × 3,500 kVA, 13.8kV/480V): $0.5M
+- Transformers (3 × 3,500 kVA, 11kV/480V): $0.5M
 - RMUs, MV switchgear, cable (including dual-ring SCADA controls): $1.4M
 - LV switchboards, distribution: $1.3M
 - IT UPS (5-6 × 1,250 kVA N+1 + batteries): $1.2M
@@ -188,17 +188,17 @@
 - Cabinet PDU upgrades: $0.45M
 - Installation, testing, commissioning: $3.0M
 
-**Note:** If utility provides 34.5 kV service, add ~$1.0-1.5M for two 34.5kV/13.8kV step-down transformers
+**Note:** If utility provides 34.5 kV service, add ~$1.0-1.5M for two 34.5kV/11kV step-down transformers
 
 ---
 
 ### **DESIGN STANDARDS**
 - **Redundancy:** 
-  - **Path redundancy:** 13.8 kV dual-ring MV distribution with self-healing automated switching
+  - **Path redundancy:** 11 kV dual-ring MV distribution with self-healing automated switching
   - **Component redundancy:** N+1 (IT UPS, generators, transformers, chillers)
   - **Cooling redundancy:** N+N (air cooling loops - Loop 1 + Loop 2 independent)
 - **Concurrent Maintainability:** All systems serviceable without IT interruption
-- **Zero Single Points of Failure:** From 345 kV utility to cabinet-level distribution
+- **Zero Single Points of Failure:** From 138 kV utility to cabinet-level distribution
 - **Uptime:** Tier III-equivalent (99.982% = 1.6 hours downtime/year)
 - **Monitoring:** DCIM with BMS and EPMS integration
 
@@ -370,10 +370,10 @@ See: [[Saga Pryor DC/Basis of Design/Erik_BOD_Updated/6BOD - Integrated Automati
 See: [[Saga Pryor DC/Basis of Design/Erik_BOD_Updated/7BOD - Electrical (CSI Div 26)]]
 
 **Summary:**
-- **Utility service:** 345 kV transmission → 2 × 25 MVA transformers (345kV/13.8kV) → 13.8 kV common bus
-- **MV distribution:** 13.8 kV self-healing dual-ring topology via 6 RMUs (Ring A + Ring B) with automated SCADA switching
-- **Generators:** 6 × 4.0 MW @ 13.8 kV diesel (N+1); Tier 4 Final emissions; ~2,000 gal belly tanks + central bulk fuel
-- **Transformers:** 8 × 3,500 kVA (13.8 kV/480V) oil-filled (N+1 with concurrent maintainability)
+- **Utility service:** 138 kV transmission → 2 × 25 MVA transformers (138kV/11kV) → 11 kV common bus
+- **MV distribution:** 11 kV self-healing dual-ring topology via 6 RMUs (Ring A + Ring B) with automated SCADA switching
+- **Generators:** 6 × 4.0 MW @ 11 kV diesel (N+1); Tier 4 Final emissions; ~2,000 gal belly tanks + central bulk fuel
+- **Transformers:** 8 × 3,500 kVA (11 kV/480V) oil-filled (N+1 with concurrent maintainability)
 - **IT UPS:** N+1 modular architecture; Phase 1: 5-6 × 1,250 kVA (4-5 running, 1 standby); Phase 2: 13-15 × 1,250 kVA (12-13 running, 1-2 standby)
 - **UPS batteries:** 5-minute runtime maximum; Lithium-ion preferred (longer life, smaller footprint)
 - **Mechanical UPS:** N+1 for pumps/fans; Phase 1: 8 × 250 kW; Phase 2: 20 × 250 kW
@@ -446,10 +446,10 @@ See: [[Saga Pryor DC/Basis of Design/Erik_BOD_Updated/3BOD - Site & Infrastructu
 
 | Equipment | Phase 1 | Phase 2 Add | Total | Unit Size |
 |-----------|---------|-------------|-------|-----------|
-| **Generators** | 3 | +3 | 6 | 4.0 MW @ 13.8 kV |
-| **Transformers (13.8kV/480V)** | 3 | +5 | 8 | 3,500 kVA |
-| **Utility Xfmrs (if 34.5kV)** | 2 | 0 | 2 | ~20 MVA (34.5kV/13.8kV) |
-| **RMUs** | 6 | 0 | 6 | 13.8 kV, 630A |
+| **Generators** | 3 | +3 | 6 | 4.0 MW @ 11 kV |
+| **Transformers (11kV/480V)** | 3 | +5 | 8 | 3,500 kVA |
+| **Utility Xfmrs (if 34.5kV)** | 2 | 0 | 2 | ~20 MVA (34.5kV/11kV) |
+| **RMUs** | 6 | 0 | 6 | 11 kV, 630A |
 | **IT UPS** | 5-6 | +8-9 | 13-15 | 1,250 kVA |
 | **Mech UPS** | 8 | +12 | 20 | 250 kW |
 | **Chillers (Loops 1+2)** | 4 | 0 | 4 | 1,500 kW |
@@ -469,16 +469,16 @@ See: [[Saga Pryor DC/Basis of Design/Erik_BOD_Updated/3BOD - Site & Infrastructu
 - **Cost:** ~$15-25/SF premium over PEMB, justified by insurance savings and resilience
 
 ### **Utility Voltage Options**
-- **13.8 kV or 12.47 kV:** Direct connection to 13.8 kV generators and MV distribution (no step-down required)
-- **34.5 kV:** Requires two 34.5kV/13.8kV step-down transformers (~20 MVA each, N-1 redundancy)
+- **13.8 kV or 12.47 kV:** Direct connection to 11 kV generators and MV distribution (no step-down required)
+- **34.5 kV:** Requires two 34.5kV/11kV step-down transformers (~20 MVA each, N-1 redundancy)
   - Cost adder: ~$1.0-1.5M
   - Benefits: Often lower utility rates, better stability on high-voltage transmission
 
-### **Why 13.8 kV Generators (Not 480V)**
+### **Why 11 kV Generators (Not 480V)**
 - Standard product availability (3-5 MW range)
-- Cable sizing: 13.8 kV reduces current by 29×
+- Cable sizing: 11 kV reduces current by 23×
   - 4 MW @ 480V = 8,333 A (requires 6 × 500 kcmil/phase)
-  - 4 MW @ 13.8 kV = 290 A (requires 1 × 2/0/phase)
+  - 4 MW @ 11 kV = 364 A (requires 1 × 2/0/phase)
 - Easier paralleling and lower I²R losses
 
 ### **Why Separate Loop 3 (D2C Cooling)**
@@ -488,7 +488,7 @@ See: [[Saga Pryor DC/Basis of Design/Erik_BOD_Updated/3BOD - Site & Infrastructu
 - **Benefits of separation:** Optimized controls, clear contractor boundaries, independent maintenance, fault isolation
 
 ### **Why N+1 IT UPS with MV Dual-Ring (Not Traditional 2N UPS)**
-- **Path redundancy** provided by 13.8 kV self-healing dual-ring MV distribution
+- **Path redundancy** provided by 11 kV self-healing dual-ring MV distribution
 - **Component redundancy** provided by N+1 modular UPS architecture
 - IT equipment retains dual PDUs fed from different 480V panels (SWBD-A/B on different MV ring segments)
 - **Advantages:** Lower capital cost (~40-50% fewer UPS modules), higher efficiency, simplified maintenance

@@ -57,8 +57,8 @@
 
 **Design Specifications:**
 - **Duct bank construction:** PVC-coated steel or HDPE conduit encased in concrete
-- **Conduit sizing:** [TBD based on 11 kV or 480V distribution voltage and cable type]
-  - Typical: 4-6" conduits for MV feeders (11 kV)
+- **Conduit sizing:** [TBD based on 13.8 kV or 480V distribution voltage and cable type]
+  - Typical: 4-6" conduits for MV feeders (13.8 kV)
   - Multiple conduits per duct bank for redundancy and capacity
 - **Concrete encasement:** 6" minimum on all sides per NEC 300.5 and 300.50
 - **Burial depth:** Minimum 30" below finished grade; coordinate with foundation depth

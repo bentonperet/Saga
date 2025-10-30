@@ -226,7 +226,7 @@ To enhance security beyond card-based access, MFA is required at high-risk trans
 - **Location:**
   - Building entry points (main entrance, loading dock)
   - Generator yard perimeter
-  - 138kV substation perimeter
+  - 345kV substation perimeter
   - Critical transformer locations
 - **Spacing:** 4-5 ft on center (prevent vehicle passage)
 - **Material:** Steel-reinforced concrete or steel pipe filled with concrete
@@ -582,7 +582,7 @@ All personnel (employees, contractors, vendors) must be formally granted a secur
 **Exterior Critical Areas:**
 - Generator yard (each generator)
 - Chiller yard (all chillers)
-- 138kV substation (transformers, switchgear)
+- 345kV substation (transformers, switchgear)
 - Loading dock (deliveries)
 
 **Interior:**

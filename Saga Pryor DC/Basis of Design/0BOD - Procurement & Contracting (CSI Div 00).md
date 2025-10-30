@@ -359,7 +359,7 @@ To minimize risk and ensure long-term supportability, all critical systems must 
 
 **Notes:**
 - Costs assume greenfield site (no demolition or remediation)
-- Medium-voltage electrical service (11 kV or 35 kV) from utility
+- Medium-voltage electrical service (345 kV transmission with customer-owned substation → 13.8 kV distribution)
 - Precast tilt-up construction (not PEMB)
 - FM 1-150 tornado-rated roof
 - N+1 mechanical, 2N electrical architecture

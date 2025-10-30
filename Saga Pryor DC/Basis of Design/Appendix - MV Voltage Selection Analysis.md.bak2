@@ -226,23 +226,23 @@ Most large modular UPS systems (>1 MW) accept 480V input, so MV voltage selectio
 
 ### Utility Interconnection Scenarios
 
-#### Scenario 1: 345 kV Utility Service (BOD Current Design)
+#### Scenario 1: 138 kV Utility Service (BOD Current Design)
 
 **Configuration:**
 ```
-345 kV UTILITY
+138 kV UTILITY
     │
 [Customer-Owned Substation]
     │
-[2 × 25 MVA Transformers: 345kV → XX kV]
+[2 × 25 MVA Transformers: 138kV → XX kV]
     │
     ▼
  XX kV COMMON BUS (Data Center MV Distribution)
 ```
 
 **Options:**
-- **Option A (11 kV):** 345kV/11kV transformers (custom order, higher cost)
-- **Option B (13.8 kV):** 345kV/13.8kV transformers (standard product, lower cost) - **SELECTED**
+- **Option A (11 kV):** 138kV/11kV transformers (custom order, higher cost)
+- **Option B (13.8 kV):** 138kV/13.8kV transformers (standard product, lower cost)
 
 **Recommendation:** **13.8 kV secondary** reduces transformer cost by ~$200-300K and lead time by 4-8 weeks.
 
@@ -275,7 +275,7 @@ Most large modular UPS systems (>1 MW) accept 480V input, so MV voltage selectio
 ```
 
 **Advantages:**
-- **No step-down transformation required** (eliminates 345kV or 34.5kV substation transformers)
+- **No step-down transformation required** (eliminates 138kV or 34.5kV substation transformers)
 - **Lower capital cost:** Save ~$1.5-3.0M on substation infrastructure
 - **Simpler design:** Direct generator and load connection at 13.8 kV
 - **Higher efficiency:** No transformation losses
@@ -342,12 +342,12 @@ Most large modular UPS systems (>1 MW) accept 480V input, so MV voltage selectio
 
 ### System Architecture (Revised)
 
-**345 kV Utility Service → 13.8 kV Data Center Distribution**
+**138 kV Utility Service → 13.8 kV Data Center Distribution**
 
 ```
-345 kV TRANSMISSION (Utility)
+138 kV TRANSMISSION (Utility)
     │
-[2 × 25 MVA Transformers: 345kV/13.8kV] (2N Redundancy)
+[2 × 25 MVA Transformers: 138kV/13.8kV] (2N Redundancy)
     │
     ▼
 ┌─────────────────────────────────────┐
@@ -366,7 +366,7 @@ Most large modular UPS systems (>1 MW) accept 480V input, so MV voltage selectio
 - Generator specification: 6 × 4 MW @ **13.8 kV** (not 11 kV)
 - Transformers: 8 × 3.5 MVA, **13.8 kV/480V** (not 11 kV/480V)
 - RMUs: 6 units, **13.8 kV, 630A** rated (not 11 kV)
-- Substation transformers: 2 × 25 MVA, **345kV/13.8kV** (not 138kV/11kV)
+- Substation transformers: 2 × 25 MVA, **138kV/13.8kV** (not 138kV/11kV)
 
 ---
 
@@ -377,7 +377,7 @@ Most large modular UPS systems (>1 MW) accept 480V input, so MV voltage selectio
 | Equipment | Current Spec (11 kV) | Revised Spec (13.8 kV) |
 |-----------|----------------------|------------------------|
 | Generators | 6 × 4 MW @ 11 kV | **6 × 4 MW @ 13.8 kV** |
-| Substation Transformers | 2 × 25 MVA, 345kV/11kV | **2 × 25 MVA, 345kV/13.8kV** |
+| Substation Transformers | 2 × 25 MVA, 138kV/11kV | **2 × 25 MVA, 138kV/13.8kV** |
 | Step-Down Transformers | 8 × 3.5 MVA, 11kV/480V | **8 × 3.5 MVA, 13.8kV/480V** |
 | RMUs | 11 kV, 630A | **13.8 kV, 630A** |
 | MV Switchgear | 11 kV rated | **15 kV class (13.8 kV nominal)** |
@@ -406,7 +406,7 @@ Most large modular UPS systems (>1 MW) accept 480V input, so MV voltage selectio
 **Scenario:** Utility only offers 34.5 kV or other voltage incompatible with 13.8 kV direct connection.
 
 **Mitigation:**
-- 345kV/13.8kV or 34.5kV/13.8kV transformation is standard (covered in BOD)
+- 138kV/13.8kV or 34.5kV/13.8kV transformation is standard (covered in BOD)
 - Substation transformers widely available for these ratios
 - No impact on data center internal 13.8 kV distribution
 

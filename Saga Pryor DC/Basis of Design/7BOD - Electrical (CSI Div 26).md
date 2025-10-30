@@ -11,104 +11,106 @@
 
 ## OVERVIEW
 
-Electrical systems provide Tier III-compliant power distribution with N+1 IT UPS architecture backed by self-healing 11 kV dual-ring MV distribution, N+1 generators and transformers, supporting 3 MW Phase 1 (expandable to 12 MW Phase 2). Customer-owned 138 kV substation with 11 kV distribution integrates utility, solar, BESS, and generators on common voltage infrastructure. 
+Electrical systems provide Tier III-compliant power distribution with N+1 IT UPS architecture backed by self-healing 13.8 kV dual-ring MV distribution, N+1 generators and transformers, supporting 3 MW Phase 1 (expandable to 12 MW Phase 2). Customer-owned 345 kV substation with 13.8 kV distribution integrates utility, solar, BESS, and generators on common voltage infrastructure.
 
 **Design Philosophy:**
-- **Path redundancy:** 11 kV self-healing dual-ring MV distribution with automated SCADA switching
+- **Path redundancy:** 13.8 kV self-healing dual-ring MV distribution with automated SCADA switching
 - **Component redundancy:** N+1 (IT UPS, generators, transformers, mechanical UPS)
 - **Concurrent maintainability:** Service any component without IT interruption
-- **138kV/11kV substation:** Customer-owned, integrates all power sources at 11 kV
+- **345kV/13.8kV substation:** Customer-owned, integrates all power sources at 13.8 kV
 - **Prefabricated PDMs:** Factory-tested electrical enclosures accelerate schedule
 
 ---
 
 ## UTILITY SERVICE & SUBSTATION
 
-### Customer-Owned 138 kV Substation
+### Customer-Owned 345 kV Substation
 
 **Configuration:**
 ```
-138 kV TRANSMISSION (Utility)
+345 kV TRANSMISSION (Utility)
         │
-   [Utility Revenue Metering - 138 kV]
+   [Utility Revenue Metering - 345 kV]
         │
         ▼
-   ┌─────────────────────────────┐
-   │  CUSTOMER-OWNED SUBSTATION   │
-   │                              │
-   │  [138 kV Switchyard]         │
-   │        │                     │
-   │  [XFMR-A: 138kV/11kV, 25MVA] │
-   │  [XFMR-B: 138kV/11kV, 25MVA] │ (2N redundancy)
-   │        │                     │
-   └────────┼─────────────────────┘
+   ┌─────────────────────────────────┐
+   │  CUSTOMER-OWNED SUBSTATION       │
+   │                                  │
+   │  [345 kV Switchyard]             │
+   │        │                         │
+   │  [XFMR-A: 345kV/13.8kV, 25MVA]  │
+   │  [XFMR-B: 345kV/13.8kV, 25MVA]  │ (2N redundancy)
+   │        │                         │
+   └────────┼─────────────────────────┘
             │
             ▼
-   ┌─────────────────────────────┐
-   │    11 kV COMMON BUS          │
-   │  (Dual Ring Topology)        │
-   ├─────────────────────────────┤
-   │ • Solar Inverters (8+ MW)    │
-   │ • BESS Inverters (4-8 MWh)   │
-   │ • Generators (6 × 4 MW)      │
-   │ • Data Center Load (12-24MW) │
-   └─────────────────────────────┘
+   ┌─────────────────────────────────┐
+   │    13.8 kV COMMON BUS            │
+   │  (Dual Ring Topology)            │
+   ├─────────────────────────────────┤
+   │ • Solar Inverters (8+ MW)        │
+   │ • BESS Inverters (4-8 MWh)       │
+   │ • Generators (6 × 4 MW)          │
+   │ • Data Center Load (12-24MW)     │
+   └─────────────────────────────────┘
 ```
 
-### 138 kV Primary Service
+### 345 kV Primary Service
 
 **Utility Interconnection:**
-- **Voltage:** 138 kV transmission
+- **Voltage:** 345 kV transmission
 - **Capacity:** 25-30 MVA (sized for 24 MW master plan + solar/BESS)
-- **Metering:** Revenue-grade metering at 138 kV (utility-owned)
+- **Metering:** Revenue-grade metering at 345 kV (utility-owned)
 - **Protection:** Distance relay, differential, overcurrent per utility standards
 
-**138kV/11kV Substation Transformers:**
+**345kV/13.8kV Substation Transformers:**
 - **Quantity:** 2 transformers (N+1 redundancy - either can carry full load)
-- **Rating:** 25 MVA each @ 138kV/11kV
+- **Rating:** 25 MVA each @ 345kV/13.8kV
 - **Type:** Oil-filled, ONAN cooling
 - **Configuration:** Delta-wye with neutral solidly grounded
-- **Impedance:** ~7-8%
+- **Impedance:** ~8-10%
 - **Location:** Outdoor substation yard on data center site
 
-**Cost:** ~$5-9M for complete customer-owned substation
+**Cost:** ~$7-12M for complete customer-owned substation (345 kV requires larger equipment and clearances than lower voltages)
 
 **Benefits:**
-- **Single 11 kV infrastructure** for utility, solar, BESS, generators, data center
-- **Microgrid capability** - island at 11 kV during utility outages
+- **Single 13.8 kV infrastructure** for utility, solar, BESS, generators, data center
+- **US data center standard voltage** - better equipment availability and contractor familiarity
+- **Microgrid capability** - island at 13.8 kV during utility outages
 - **Future expansion** - no utility upgrades required for 24 MW build-out
 - **Export capability** - sell excess solar to grid (if permitted)
-- **Better power quality** - transmission-level connection (stiffer grid)
+- **Superior power quality** - 345 kV transmission-level connection (extremely stiff grid)
+- **Renewable compatibility** - matches standard solar/BESS inverter voltages (13.8 kV)
 
 ---
 
-## MEDIUM VOLTAGE DISTRIBUTION (11 kV)
+## MEDIUM VOLTAGE DISTRIBUTION (13.8 kV)
 
 ### System Configuration
 
 **Dual-Ring MV Topology:**
 ```
-138kV UTILITY ──[XFMR-A: 25MVA]──[RMU-1]──[RMU-2]──[RMU-3]── RING A
+345kV UTILITY ──[XFMR-A: 25MVA]──[RMU-1]──[RMU-2]──[RMU-3]── RING A
                                      │        │        │
                                  [XFR-1]  [XFR-3]  [XFR-5]
 
-138kV UTILITY ──[XFMR-B: 25MVA]──[RMU-4]──[RMU-5]──[RMU-6]── RING B
+345kV UTILITY ──[XFMR-B: 25MVA]──[RMU-4]──[RMU-5]──[RMU-6]── RING B
                                      │        │        │
                                  [XFR-2]  [XFR-4]  [XFR-6]
 
 Phase 2: Add [XFR-7] and [XFR-8]
 
-GENERATORS (6 × 4.0 MW @ 11 kV) ─► Connect to both rings via paralleling switchgear
-SOLAR INVERTERS (8+ MW) ─────────► Connect to 11 kV common bus
-BESS INVERTERS (4-8 MWh) ────────► Connect to 11 kV common bus
+GENERATORS (6 × 4.0 MW @ 13.8 kV) ─► Connect to both rings via paralleling switchgear
+SOLAR INVERTERS (8+ MW) ──────────► Connect to 13.8 kV common bus (direct - no transformer)
+BESS INVERTERS (4-8 MWh) ─────────► Connect to 13.8 kV common bus (direct - no transformer)
 ```
 
 ### Ring Main Units (RMUs)
 
-**Equipment:** 6 × RMUs (11 kV, 630A rated)
+**Equipment:** 6 × RMUs (13.8 kV, 630A rated)
 - **Configuration:** 3 RMUs per ring (Ring A and Ring B)
 - **Type:** SF6 or vacuum circuit breakers
-- **Rating:** 11 kV, 630A continuous, 20 kA short-circuit
+- **Rating:** 13.8 kV, 630A continuous, 20 kA short-circuit
 - **Controls:** SCADA-controlled remote switching for load transfer
 - **Location:** Electrical equipment yard, generator/PDM boundary
 - **Function:** Isolate transformers, enable ring reconfiguration, interconnect generators/solar/BESS
@@ -125,7 +127,7 @@ BESS INVERTERS (4-8 MWh) ────────► Connect to 11 kV common bus
 
 ### Configuration
 
-**6 × 4.0 MW @ 11 kV Diesel Generators (N+1 Redundancy)**
+**6 × 4.0 MW @ 13.8 kV Diesel Generators (N+1 Redundancy)**
 - **Phase 1:** 3 generators (positions 1-3)
 - **Phase 2:** +3 generators (positions 4-6)
 - **N+1 Operation:** 5 generators carry full Phase 2 load (18.2 MW), 1 standby
@@ -134,10 +136,10 @@ BESS INVERTERS (4-8 MWh) ────────► Connect to 11 kV common bus
 
 | Parameter | Specification |
 |-----------|---------------|
-| **Rating** | 4,000 kW continuous @ 11 kV, 3-phase, 60 Hz |
+| **Rating** | 4,000 kW continuous @ 13.8 kV, 3-phase, 60 Hz |
 | **Standby Rating** | 4,400 kW |
 | **Power Factor** | 0.8 lagging |
-| **Voltage** | 11,000V ±5% |
+| **Voltage** | 13,800V ±5% |
 | **Fuel** | Diesel (EPA Tier 4 Final emissions) |
 | **Fuel Consumption** | ~85 gal/hr at full load (verify with vendor) |
 | **Fuel Capacity** | ~2,000 gal belly tank per unit (connected to central bulk fuel tank farm via common manifold) |
@@ -148,16 +150,16 @@ BESS INVERTERS (4-8 MWh) ────────► Connect to 11 kV common bus
 | **Seismic** | IBC 2018 certified for SDC B |
 | **Emissions** | NOx < 0.67 g/bhp-hr (Tier 4 Final) |
 
-### Why 11 kV Generators (Not 480V)
+### Why 13.8 kV Generators (Not 480V)
 
 **Technical Advantages:**
-- **Cable sizing:** 11 kV reduces current by 23× vs. 480V
+- **Cable sizing:** 13.8 kV reduces current by 29× vs. 480V
   - 4 MW @ 480V = 8,333 A → requires 6 × 500 kcmil per phase
-  - 4 MW @ 11 kV = 364 A → requires 1 × 2/0 per phase
+  - 4 MW @ 13.8 kV = 290 A → requires 1 × 1/0 per phase (even smaller than 11 kV!)
 - **I²R losses:** Lower current = dramatically reduced cable losses
 - **Paralleling:** Easier to parallel MV generators than massive LV generators
-- **Standard products:** 3-5 MW @ 11 kV is off-the-shelf for data centers
-- **Common voltage:** Matches utility substation, solar inverters, BESS inverters
+- **US standard voltage:** 13.8 kV is the dominant voltage for US data center generators (better availability, shorter lead times)
+- **Common voltage:** Matches utility substation, solar inverters, BESS inverters (13.8 kV is standard US renewable voltage)
 
 ### Generator Yard Layout
 
@@ -169,11 +171,11 @@ BESS INVERTERS (4-8 MWh) ────────► Connect to 11 kV common bus
 
 ---
 
-## TRANSFORMER SYSTEM (11 kV/480V)
+## TRANSFORMER SYSTEM (13.8 kV/480V)
 
 ### Configuration
 
-**8 × 3,500 kVA (11 kV/480V) Oil-Filled Transformers**
+**8 × 3,500 kVA (13.8 kV/480V) Oil-Filled Transformers**
 - **Phase 1:** 3 transformers (N+1 for 5.8 MW load)
 - **Phase 2:** +5 transformers (8 total for 18.2 MW load)
 
@@ -182,12 +184,12 @@ BESS INVERTERS (4-8 MWh) ────────► Connect to 11 kV common bus
 | Parameter | Specification |
 |-----------|---------------|
 | **Rating** | 3,500 kVA |
-| **Voltage** | 11,000V delta / 480Y/277V |
+| **Voltage** | 13,800V delta / 480Y/277V |
 | **Impedance** | 5.75% |
 | **Efficiency** | 98.5% at full load |
 | **Cooling** | ONAN (oil natural, air natural) |
 | **Insulation** | 65°C rise, 150°C hot spot |
-| **BIL** | 95 kV (primary), 30 kV (secondary) |
+| **BIL** | 110 kV (primary), 30 kV (secondary) |
 | **Sound** | 60 dBA @ 10 feet |
 | **Liquid** | Mineral oil or high fire-point vegetable oil |
 | **Containment** | Secondary containment per EPA 40 CFR 112 |
@@ -216,16 +218,16 @@ BESS INVERTERS (4-8 MWh) ────────► Connect to 11 kV common bus
 
 **Configuration:**
 - **Capacity:** 8+ MW DC solar array (adjacent to data center)
-- **Inverters:** String or central inverters outputting 11 kV AC
-- **Connection:** Direct to 11 kV common bus via dedicated circuit breaker
+- **Inverters:** String or central inverters outputting 13.8 kV AC (standard US voltage - no transformer required)
+- **Connection:** Direct to 13.8 kV common bus via dedicated circuit breaker
 - **Metering:** Bi-directional revenue metering (production + export)
 
 ### BESS Interconnection
 
 **Configuration:**
 - **Capacity:** 4-8 MWh battery energy storage system
-- **Inverters:** Bi-directional inverters (charge/discharge) outputting 11 kV AC
-- **Connection:** Direct to 11 kV common bus via dedicated circuit breaker
+- **Inverters:** Bi-directional inverters (charge/discharge) outputting 13.8 kV AC (standard US voltage - no transformer required)
+- **Connection:** Direct to 13.8 kV common bus via dedicated circuit breaker
 - **Function:** Peak shaving, demand response, solar smoothing, backup power
 
 ### Microgrid Operation
@@ -236,7 +238,7 @@ BESS INVERTERS (4-8 MWh) ────────► Connect to 11 kV common bus
 
 **Island Mode (Utility Outage):**
 - Solar + BESS + Generators → Data Center Load
-- 11 kV bus disconnects from utility, operates as microgrid
+- 13.8 kV bus disconnects from utility, operates as microgrid
 - Black start capability via BESS or generators
 
 ---
@@ -248,7 +250,7 @@ BESS INVERTERS (4-8 MWh) ────────► Connect to 11 kV common bus
 **N+1 Modular Topology with MV Dual-Ring Path Redundancy**
 
 ```
-           11 kV DUAL RING (Ring A + Ring B)
+           13.8 kV DUAL RING (Ring A + Ring B)
                  │           │
            [XFMR-A]       [XFMR-B]
                  │           │
@@ -289,7 +291,7 @@ BESS INVERTERS (4-8 MWh) ────────► Connect to 11 kV common bus
 - Feeds: Multiple IT distribution panels fed from different 480V switchboards
 
 **Path Redundancy:**
-- **MV dual-ring:** Switchboards A and B fed from different segments of 11 kV dual-ring
+- **MV dual-ring:** Switchboards A and B fed from different segments of 13.8 kV dual-ring
 - **Automated switching:** SCADA-controlled ring switching provides path redundancy
 - **Cabinet dual PDUs:** Fed from different 480V distribution panels (connected to SWBD-A and SWBD-B)
 
@@ -309,14 +311,14 @@ BESS INVERTERS (4-8 MWh) ────────► Connect to 11 kV common bus
 ### Redundancy Philosophy
 
 **Two Layers of Redundancy:**
-1. **Path redundancy:** 11 kV dual-ring with self-healing automated switching (feeds SWBD-A and SWBD-B from different ring segments)
+1. **Path redundancy:** 13.8 kV dual-ring with self-healing automated switching (feeds SWBD-A and SWBD-B from different ring segments)
 2. **Component redundancy:** N+1 UPS modular architecture (any single UPS module failure tolerated)
 
 **Cabinet Dual PDUs:**
 - Each cabinet has two PDUs fed from different 480V distribution panels
 - Distribution panels connected to different switchboards (SWBD-A vs SWBD-B)
-- SWBD-A and SWBD-B fed from different 11 kV ring segments
-- Result: Full path diversity from 11 kV through cabinet PDU
+- SWBD-A and SWBD-B fed from different 13.8 kV ring segments
+- Result: Full path diversity from 13.8 kV through cabinet PDU
 
 **Advantages over Traditional 2N UPS:**
 - **Lower capital cost:** ~40-50% fewer/smaller UPS modules
@@ -373,7 +375,7 @@ Protect critical mechanical loads (pumps, fans, CDUs) from brief utility interru
 - **SWBD-A fed from:** Transformers on Ring A (MV dual-ring segment A)
 - **SWBD-B fed from:** Transformers on Ring B (MV dual-ring segment B)
 - **Short-circuit rating:** 65 kA SCCR
-- **Path diversity:** Each switchboard receives power from different 11 kV ring segment
+- **Path diversity:** Each switchboard receives power from different 13.8 kV ring segment
 
 ### Distribution Panels (All Dual-Fed)
 
@@ -431,7 +433,7 @@ Protect critical mechanical loads (pumps, fans, CDUs) from brief utility interru
 ### Utility Service
 
 **Primary Power:**
-- **Source:** Single 11kV/480V transformer fed from Solar/BESS system (via 11 kV common bus)
+- **Source:** Single 13.8kV/480V transformer fed from Solar/BESS system (via 13.8 kV common bus)
 - **Voltage:** 480V, 3-phase, 4-wire
 - **Capacity:** ~400 kVA (300-350 kW sustained load)
 - **Single Point of Failure:** Acceptable (redundant natural gas house generators provide backup)
@@ -527,19 +529,19 @@ Protect critical mechanical loads (pumps, fans, CDUs) from brief utility interru
 
 ---
 
-**Tags:** #pryor-dc #electrical #138kv-substation #11kv-distribution #microgrid #tier-iii
+**Tags:** #pryor-dc #electrical #345kv-substation #13.8kv-distribution #microgrid #tier-iii
 
 **Next Steps:**
-1. Utility interconnection study for 138 kV transmission connection
-2. Substation engineering design (138kV/11kV transformers, switchyard)
-3. Solar and BESS inverter specifications (11 kV output)
+1. Utility interconnection study for 345 kV transmission connection
+2. Substation engineering design (345kV/13.8kV transformers, switchyard, increased clearances)
+3. Solar and BESS inverter specifications (13.8 kV output - US standard voltage)
 4. Generator paralleling and microgrid control strategy
-5. Protection coordination study (138 kV through 480V)
+5. Protection coordination study (345 kV through 480V)
 
 ---
 
 **Document Control:**
 - **Source:** Pryor_Bod_EVS_Rev01.md
-- **Date Updated:** October 29, 2025
+- **Date Updated:** October 30, 2025
 - **Prepared by:** EVS / PGCIS Team
-- **Key Updates:** 138 kV substation, removed all N-1 references
+- **Key Updates:** Changed from 138kV/11kV to 345kV/13.8kV (US data center standard voltage, better renewable integration)

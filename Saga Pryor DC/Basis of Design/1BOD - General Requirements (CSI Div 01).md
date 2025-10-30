@@ -12,7 +12,7 @@
 ## 01 10 00 – SUMMARY
 
 - Scope includes design, procurement, construction, commissioning, and turnover of a 50,000 GSF Tier III data center with 3 MW Phase 1 IT and 12 MW Phase 2.
-- All critical systems shall be concurrently maintainable: N+1 IT UPS with 11 kV dual-ring MV path redundancy, N+1 mechanical, N+1 generators and transformers.
+- All critical systems shall be concurrently maintainable: N+1 IT UPS with 13.8 kV dual-ring MV path redundancy, N+1 mechanical, N+1 generators and transformers.
 
 ---
 
@@ -191,7 +191,7 @@ See [[Appendix A - Asset Naming and Tagging Standard]] for complete rubric, equi
 
 ## 01 60 00 – PRODUCT REQUIREMENTS
 
-- Standardize on: 11 kV MV equipment, 3,500 kVA transformers, 4.0 MW MV gens, 1,500 kW chillers, 1,250 kVA IT UPS modules (N+1), 250 kW mech UPS.
+- Standardize on: 13.8 kV MV equipment, 3,500 kVA transformers, 4.0 MW MV gens, 1,500 kW chillers, 1,250 kVA IT UPS modules (N+1), 250 kW mech UPS.
 - Spares: Filters, UPS modules (one spare module per 5 deployed), sensors, controller cards.
 
 ---

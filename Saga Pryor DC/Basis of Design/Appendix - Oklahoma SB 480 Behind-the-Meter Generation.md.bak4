@@ -165,9 +165,9 @@ Oklahoma SB 480 redefines Oklahoma's energy framework to allow private entities 
 ### Current Design Status
 
 **Existing Infrastructure:**
-- 345 kV owner-constructed substation (2 × 25 MVA transformers, 345kV/13.8kV)
-- 13.8 kV common bus architecture
-- 6 × 4.0 MW diesel generators @ 13.8 kV (N+1 redundancy)
+- 138 kV owner-constructed substation (2 × 25 MVA transformers, 138kV/11kV)
+- 11 kV common bus architecture
+- 6 × 4.0 MW diesel generators @ 11 kV (N+1 redundancy)
 - 8+ MW solar array (adjacent, behind-the-meter)
 - Battery Energy Storage System (BESS) integration planned
 
@@ -181,9 +181,9 @@ Oklahoma SB 480 redefines Oklahoma's energy framework to allow private entities 
 **Option 1: Add Natural Gas Turbine Generators**
 
 **Configuration:**
-- Add 2-4 × natural gas turbine generators @ 13.8 kV
+- Add 2-4 × natural gas turbine generators @ 11 kV
 - Capacity: 3-5 MW each (similar to existing diesel generators)
-- Integration: Parallel with 13.8 kV common bus
+- Integration: Parallel with 11 kV common bus
 - Fuel: Natural gas via pipeline connection
 
 **Advantages:**
@@ -301,7 +301,7 @@ Oklahoma SB 480 redefines Oklahoma's energy framework to allow private entities 
 **Phase 3: Procurement & Construction (Months 10-24)**
 1. Procure natural gas generators or dual-fuel retrofit kits (long-lead: 12-16 months)
 2. Construct natural gas pipeline extension and metering station (6-9 months)
-3. Install generators and integrate with 13.8 kV common bus
+3. Install generators and integrate with 11 kV common bus
 4. Commission natural gas generation system
 5. Document SB 480 compliance (natural gas component operational)
 

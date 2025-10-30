@@ -11,12 +11,12 @@
 
 ## OVERVIEW
 
-Integrated monitoring and control systems provide real-time visibility, automated optimization, and rapid fault response across electrical, mechanical, fire, and security systems. Microgrid controller coordinates 345kV utility, solar, BESS, and generators on common 13.8kV bus.
+Integrated monitoring and control systems provide real-time visibility, automated optimization, and rapid fault response across electrical, mechanical, fire, and security systems. Microgrid controller coordinates 138kV utility, solar, BESS, and generators on common 11kV bus.
 
 **System Integration Architecture:**
 - **BMS (Building Management System):** HVAC, lighting, environmental control
 - **EPMS (Electrical Power Monitoring System):** Utility, generators, UPS, transformers
-- **Microgrid Controller:** Coordinates utility, solar, BESS, generators at 13.8kV
+- **Microgrid Controller:** Coordinates utility, solar, BESS, generators at 11kV
 - **DCIM (Data Center Infrastructure Management):** Rack-level power, cooling, capacity
 - **Fire Alarm System:** Life safety integration (monitoring only)
 - **Access Control System:** Security integration
@@ -124,14 +124,14 @@ Integrated monitoring and control systems provide real-time visibility, automate
 
 ### System Scope
 
-**Medium Voltage Monitoring (13.8kV):**
-- 345kV/13.8kV substation transformers (2 × 25 MVA)
-- 13.8kV dual ring bus (Ring A + Ring B)
+**Medium Voltage Monitoring (11kV):**
+- 138kV/11kV substation transformers (2 × 25 MVA)
+- 11kV dual ring bus (Ring A + Ring B)
 - Ring main units (6 × RMUs, switching status)
-- 13.8kV/480V transformers (8 × 3,500 kVA)
+- 11kV/480V transformers (8 × 3,500 kVA)
 
 **Generator Monitoring:**
-- 6 × 4.0 MW @ 13.8kV diesel generators
+- 6 × 4.0 MW @ 11kV diesel generators
 - Parameters: kW, kVA, voltage, frequency, fuel level, run hours
 - Paralleling status, load sharing
 - Fuel tank levels (with low-level alarms)
@@ -152,8 +152,8 @@ Integrated monitoring and control systems provide real-time visibility, automate
 - Status, load, battery runtime
 
 **Revenue Metering:**
-- Utility import/export at 345kV (utility-owned)
-- Solar production (13.8kV inverter output)
+- Utility import/export at 138kV (utility-owned)
+- Solar production (11kV inverter output)
 - BESS charge/discharge (if BESS deployed)
 
 ### EPMS Platform
@@ -166,8 +166,8 @@ Integrated monitoring and control systems provide real-time visibility, automate
 **Architecture:**
 - **SCADA server:** 2 × redundant servers (A/B)
 - **Power meters:** IEC 61850-compliant meters at all major points
-  - 345kV substation: Utility-grade meters
-  - 13.8kV ring bus: SEL or ABB relays with metering
+  - 138kV substation: Utility-grade meters
+  - 11kV ring bus: SEL or ABB relays with metering
   - 480V switchboards: Schneider PM8000 or equivalent
 - **Network:** Fiber (redundant ring topology)
 - **Protocols:** Modbus TCP, IEC 61850, DNP3
@@ -175,7 +175,7 @@ Integrated monitoring and control systems provide real-time visibility, automate
 ### Monitoring Functions
 
 **Real-Time Power Flow:**
-- Single-line diagram (SLD) showing power flow from 345kV → 13.8kV → 480V → IT load
+- Single-line diagram (SLD) showing power flow from 138kV → 11kV → 480V → IT load
 - kW values at every major point (updated every 1-2 seconds)
 
 **Load Trending:**
@@ -195,22 +195,22 @@ Integrated monitoring and control systems provide real-time visibility, automate
 
 ---
 
-## MICROGRID CONTROLLER (345kV/13.8kV SYSTEM)
+## MICROGRID CONTROLLER (138kV/11kV SYSTEM)
 
 ### Purpose
 
-Coordinates utility, solar, BESS, and generators on common 13.8kV bus infrastructure. Manages islanding (utility outage), load shedding, and seamless transitions between grid-connected and island modes.
+Coordinates utility, solar, BESS, and generators on common 11kV bus infrastructure. Manages islanding (utility outage), load shedding, and seamless transitions between grid-connected and island modes.
 
 ### System Configuration
 
-**Power Sources on 13.8kV Bus:**
-- 345kV utility (2 × 25 MVA transformers, 2N)
-- Solar array (8+ MW AC via 13.8kV inverters)
-- BESS (4-8 MWh via 13.8kV bi-directional inverters)
-- Generators (6 × 4.0 MW @ 13.8kV)
+**Power Sources on 11kV Bus:**
+- 138kV utility (2 × 25 MVA transformers, 2N)
+- Solar array (8+ MW AC via 11kV inverters)
+- BESS (4-8 MWh via 11kV bi-directional inverters)
+- Generators (6 × 4.0 MW @ 11kV)
 
-**Loads on 13.8kV Bus:**
-- Data center (8 × 13.8kV/480V transformers → IT + mechanical loads)
+**Loads on 11kV Bus:**
+- Data center (8 × 11kV/480V transformers → IT + mechanical loads)
 - Auxiliary loads (minimal)
 
 ### Control Modes
@@ -222,14 +222,14 @@ Coordinates utility, solar, BESS, and generators on common 13.8kV bus infrastruc
 - Export: If permitted, sell excess solar to grid
 
 **Mode 2: Island Mode (Utility Outage)**
-- Disconnect from utility at 345kV (automatic transfer switch or breaker)
+- Disconnect from utility at 138kV (automatic transfer switch or breaker)
 - Generators + Solar + BESS → Data Center Load
 - Generator black start (if needed) or BESS provides voltage reference
 - Solar output curtailed if load < generation (no export in island mode)
 - Duration: Unlimited (diesel fuel + solar during daylight)
 
 **Mode 3: Transition Back to Grid (Utility Restored)**
-- Synchronize 13.8kV bus with utility (match voltage, frequency, phase)
+- Synchronize 11kV bus with utility (match voltage, frequency, phase)
 - Close utility breaker (seamless transfer)
 - Unload generators (ramp down over 5-10 minutes)
 - Resume normal grid-connected operation
@@ -257,10 +257,10 @@ Coordinates utility, solar, BESS, and generators on common 13.8kV bus infrastruc
 
 **Cost:** [ROM] $1.0-1.5M (IEEE 2030.7/2030.8 compliant controller + engineering)
 
-### Benefits of Customer-Owned 345kV Substation + Microgrid
+### Benefits of Customer-Owned 138kV Substation + Microgrid
 
 **Resiliency:**
-- True microgrid capability (island at 13.8kV during utility outage)
+- True microgrid capability (island at 11kV during utility outage)
 - Solar + BESS + generators operate indefinitely without utility
 
 **Flexibility:**
@@ -271,7 +271,7 @@ Coordinates utility, solar, BESS, and generators on common 13.8kV bus infrastruc
 **Cost Savings:**
 - Avoid utility demand charges via peak shaving (BESS discharge during peaks)
 - Avoid utility interconnection fees for each new load addition
-- Single 13.8kV infrastructure for all power sources and loads
+- Single 11kV infrastructure for all power sources and loads
 
 ---
 
@@ -462,8 +462,8 @@ Coordinates utility, solar, BESS, and generators on common 13.8kV bus infrastruc
 - Verify: Remaining chillers pick up load, no temperature excursion in data hall, alarm notification
 
 **Scenario 2: Utility Loss**
-- Disconnect utility at 345kV
-- Verify: Generators auto-start, 13.8kV bus islands, IT load uninterrupted (IT UPS provides bridging)
+- Disconnect utility at 138kV
+- Verify: Generators auto-start, 11kV bus islands, IT load uninterrupted (IT UPS provides bridging)
 - Duration: Run for 4 hours to verify stability
 
 **Scenario 3: Fire Alarm Activation**
@@ -502,4 +502,4 @@ Coordinates utility, solar, BESS, and generators on common 13.8kV bus infrastruc
 - **Source:** Pryor_Bod_EVS_Rev01.md and Erik_BOD reference
 - **Date Updated:** October 29, 2025
 - **Prepared by:** EVS / PGCIS Team
-- **Key Updates:** Microgrid controller integration, 345kV/13.8kV coordination, IEEE 2030.7 compliance
+- **Key Updates:** Microgrid controller integration, 138kV/11kV coordination, IEEE 2030.7 compliance

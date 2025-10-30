@@ -25,7 +25,7 @@
 
 ### Site Grading and Pads
 - **Building pad:** 50,000 GSF building (precast tilt-up) + aprons
-- **Electrical yard:** ~100,000 SF (138 kV substation, MV gear, generator yard)
+- **Electrical yard:** ~100,000 SF (345 kV substation, MV gear, generator yard)
 - **Mechanical yard:** ~50,000 SF (air-cooled chillers, pumps, headers)
 - **Solar array area:** Allocate 10–20 acres adjacent (phased build)
 - **BESS yard:** Allow 6–10 container positions (future-ready)
@@ -39,20 +39,20 @@
 
 ## DIVISION 32 – EXTERIOR IMPROVEMENTS
 
-### 138 kV Substation Yard (Customer-Owned)
+### 345 kV Substation Yard (Customer-Owned)
 - **Footprint:** ~35,000–50,000 SF fenced yard
-- **Equipment:** 138 kV switchyard, 2 × 25 MVA 138/11 kV transformers (2N), protection & control house
+- **Equipment:** 345 kV switchyard, 2 × 25 MVA 345kV/13.8kV transformers (2N), protection & control house
 - **Grounding:** Copper grid per IEEE 80; step/touch potential analysis
 - **Oil containment:** Transformer spill containment per EPA SPCC
 - **Security:** 8–10 ft fence + barbed wire, cameras, access control
 
-### Medium-Voltage (11 kV) Distribution
+### Medium-Voltage (13.8 kV) Distribution
 - Dual-ring MV ductbanks encircling building (Ring A/B)
 - Concrete-encased ductbank, galvanized ground grid bonding at RMUs
 - Pull boxes/manholes at 300–500 ft intervals; spare conduits for expansion
 
 ### Generator Yard (MV Generators)
-- **Capacity:** 6 × 4.0 MW @ 11 kV diesel gens (N+1 at 12 MW design)
+- **Capacity:** 6 × 4.0 MW @ 13.8 kV diesel gens (N+1 at 12 MW design)
 - **Pads:** Individual concrete pads with anchorage; crane access aisle
 - **Fuel:** ~2,000 gal belly tanks per unit connected via common fuel manifold to centralized bulk fuel storage tank farm (24 hours runtime); spill containment per SPCC
 - **Bulk Fuel Storage:** Above-ground or underground tank farm (~12,000 gal capacity for Phase 2) with redundant fuel service contracts (24-hour SLA)
@@ -81,8 +81,8 @@
 - Location: Marked on as-built drawings with clear access paths from equipment yards
 
 ### Solar and BESS Areas
-- **Solar:** Inverter stations at 11 kV tie to common bus (separate fenced area)
-- **BESS:** 4–8 MWh containers; 11 kV bi-directional inverters; space for growth
+- **Solar:** Inverter stations at 13.8 kV tie to common bus (separate fenced area)
+- **BESS:** 4–8 MWh containers; 13.8 kV bi-directional inverters; space for growth
 - **Fire lanes:** 20 ft access; signage; clearances per NFPA 855 for energy storage
 
 ### Stormwater Management
@@ -169,4 +169,4 @@
 - **Source:** Pryor_Bod_EVS_Rev01.md, Electrical Div 26, Erik_BOD references
 - **Date Updated:** October 29, 2025
 - **Prepared by:** EVS / PGCIS Team
-- **Key Updates:** 138 kV substation yard, MV rings, BESS/solar yards, 50,000 SF mech yard
+- **Key Updates:** 345 kV substation yard, MV rings, BESS/solar yards, 50,000 SF mech yard
