@@ -1,6 +1,6 @@
 # EQUIPMENT YARD SPACE CALCULATIONS
 ## 24 MW Master Plan (2 Data Halls × 12 MW Each)
-### Pryor Data Center - PACHYDERM GLOBAL
+### Tbilisi Data Center - PACHYDERM GLOBAL
 
 **Parent Document:** [[_BOD - Exec Summary and TOC]]
 

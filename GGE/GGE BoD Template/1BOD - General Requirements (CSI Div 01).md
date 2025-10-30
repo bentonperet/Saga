@@ -1,9 +1,9 @@
 **Created:** 2025-10-29
-**Updated from:** Pryor_Bod_EVS_Rev01.md + Erik_BOD references
+**Updated from:** Tbilisi_Bod_Rev01.md + Erik_BOD references
 
 # BASIS OF DESIGN - GENERAL REQUIREMENTS
 ## CSI Division 01
-### Pryor Data Center - PACHYDERM GLOBAL
+### Tbilisi Data Center - PACHYDERM GLOBAL
 
 **Parent Document:** [[_BOD - Exec Summary and TOC]]
 
@@ -60,7 +60,7 @@
 
 ### Asset Naming Hierarchy
 
-**Campus Code:** `TUL` (Tulsa International Airport - nearest major airport to Pryor, OK)
+**Campus Code:** `TUL` (Tulsa International Airport - nearest major airport to Tbilisi, Georgia)
 
 **Building Numbering:** `TUL-##`
 - First building: `TUL-01`
@@ -244,7 +244,7 @@ See [[Appendix A - Asset Naming and Tagging Standard]] for complete rubric, equi
 ---
 
 **Document Control:**
-- **Source:** Pryor_Bod_EVS_Rev01.md, Erik_BOD references
+- **Source:** Tbilisi_Bod_Rev01.md, Erik_BOD references
 - **Date Updated:** October 29, 2025
 - **Prepared by:** EVS / PGCIS Team
 - **Key Updates:** Standardized equipment list, commissioning scope, training

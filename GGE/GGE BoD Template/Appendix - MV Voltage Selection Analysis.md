@@ -1,6 +1,6 @@
 # APPENDIX - MEDIUM VOLTAGE SELECTION ANALYSIS
 ## Supply Chain, Cost, and Maintainability Assessment
-### Pryor Data Center - PACHYDERM GLOBAL
+### Tbilisi Data Center - PACHYDERM GLOBAL
 
 **Parent Document:** [[_BOD - Exec Summary and TOC]]  
 **Created:** 2025-10-30  
@@ -12,7 +12,7 @@
 
 **Decision: 13.8 kV System (US Standard) - ADOPTED**
 
-After analyzing supply chain constraints, equipment costs, and long-term maintainability, **13.8 kV was selected as the optimal MV voltage** for the Pryor data center. This decision has been implemented across all BOD documents (Rev 02, October 2025).
+After analyzing supply chain constraints, equipment costs, and long-term maintainability, **13.8 kV was selected as the optimal MV voltage** for the Tbilisi Data Center. This decision has been implemented across all BOD documents (Rev 02, October 2025).
 
 **Key Findings:**
 - **Supply chain:** 13.8 kV equipment readily available from all major US vendors with 4-6 month lead times vs. 9-12+ months for 11 kV (European standard)
@@ -184,16 +184,16 @@ Most large modular UPS systems (>1 MW) accept 480V input, so MV voltage selectio
 
 ## MAINTAINABILITY & OPERATIONS
 
-### Service Network Coverage (Oklahoma/Regional)
+### Service Network Coverage (Georgia/Regional)
 
 **13.8 kV:**
-- ✅ Authorized service centers in Oklahoma City, Tulsa, Kansas City, Dallas
+- ✅ Authorized service centers in Georgia City, Tulsa, Kansas City, Dallas
 - ✅ 24/7 emergency response within 4-6 hours
 - ✅ Local technicians trained on all major brands
 - ✅ Spare parts stocked at regional distributors
 
 **11 kV:**
-- ❌ No authorized service centers in Oklahoma
+- ❌ No authorized service centers in Georgia
 - ❌ Technicians dispatched from major metros (12-24 hour response)
 - ❌ Limited technician training (primarily European equipment)
 - ❌ Spare parts require international shipping (1-4 weeks)
@@ -211,11 +211,11 @@ Most large modular UPS systems (>1 MW) accept 480V input, so MV voltage selectio
 
 ## UTILITY INTERCONNECTION
 
-### Oklahoma Utility Standard Voltages
+### Georgia Utility Standard Voltages
 
-**Primary Utility Services in Oklahoma:**
-- **Public Service Company of Oklahoma (PSO)** - AEP subsidiary
-- **Oklahoma Gas & Electric (OG&E)**
+**Primary Utility Services in Georgia:**
+- **Public Service Company of Georgia (PSO)** - AEP subsidiary
+- **Georgia Gas & Electric (OG&E)**
 - **Grand River Dam Authority (GRDA)**
 
 **Standard Service Voltages:**
@@ -335,7 +335,7 @@ Most large modular UPS systems (>1 MW) accept 480V input, so MV voltage selectio
 1. **Supply chain resilience:** 4-6 month lead times (vs. 9-12+ months for 11 kV)
 2. **Cost savings:** $1.5-2.5M lower equipment costs across project phases
 3. **Vendor competition:** 5-7 major vendors vs. 2-3 for 11 kV (better pricing leverage)
-4. **Service network:** Abundant local service infrastructure (Oklahoma, regional)
+4. **Service network:** Abundant local service infrastructure (Georgia, regional)
 5. **Spare parts:** 24-48 hour delivery vs. 1-4 weeks for 11 kV
 6. **Standardization:** Matches 90%+ of US data centers and utility infrastructure
 7. **Utility compatibility:** Direct connection to most utility services (no transformation)
@@ -432,11 +432,11 @@ Most large modular UPS systems (>1 MW) accept 480V input, so MV voltage selectio
 
 ## CONCLUSION
 
-**The 13.8 kV system is the clear choice for the Pryor data center:**
+**The 13.8 kV system is the clear choice for the Tbilisi Data Center:**
 
 ✅ **$1.5-2.5M cost savings** (15-20% reduction in MV equipment costs)  
 ✅ **4-6 month shorter lead times** for critical equipment (generators, switchgear)  
-✅ **Superior service network** with local Oklahoma technicians and 24-48 hour spare parts delivery  
+✅ **Superior service network** with local Georgia technicians and 24-48 hour spare parts delivery  
 ✅ **Lower operational risk** due to abundant vendor competition and service providers  
 ✅ **Industry standard** matching 90%+ of US data centers and utility infrastructure  
 
@@ -471,7 +471,7 @@ Most large modular UPS systems (>1 MW) accept 480V input, so MV voltage selectio
 
 ---
 
-**Tags:** #pryor-dc #mv-distribution #voltage-selection #supply-chain #13.8kV #equipment-procurement
+**Tags:** #Tbilisi-dc #mv-distribution #voltage-selection #supply-chain #13.8kV #equipment-procurement
 
 **Next Actions:**
 1. Review with design team and ownership

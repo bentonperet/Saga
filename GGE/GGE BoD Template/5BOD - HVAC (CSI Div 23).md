@@ -1,9 +1,9 @@
 **Created:** 2025-10-29
-**Updated from:** Pryor_Bod_EVS_Rev01.md
+**Updated from:** Tbilisi_Bod_Rev01.md
 
 # BASIS OF DESIGN - HVAC
 ## CSI Division 23
-### Pryor Data Center - PACHYDERM GLOBAL
+### Tbilisi Data Center - PACHYDERM GLOBAL
 
 **Parent Document:** [[_BOD - Exec Summary and TOC]]
 
@@ -89,9 +89,9 @@ Phased mechanical cooling strategy supporting 3 MW Phase 1 (air cooling only) ex
 | **Controls** | BACnet/IP integration with facility BMS |
 | **Enclosure** | Outdoor-rated, sound-attenuated |
 
-### Free Cooling Operation (Oklahoma Climate)
+### Free Cooling Operation (Georgia Climate)
 
-**Oklahoma provides ~3,500-4,000 hours/year of free cooling opportunity**
+**Georgia provides ~3,500-4,000 hours/year of free cooling opportunity**
 
 **Mode 1: Full Free Cooling (Ambient < 10°C)**
 - Compressors off, heat rejected via air-cooled coils only
@@ -353,7 +353,7 @@ Phased mechanical cooling strategy supporting 3 MW Phase 1 (air cooling only) ex
 
 ## MECHANICAL CODES AND STANDARDS
 
-- **IMC 2021** (International Mechanical Code), Oklahoma amendments
+- **IMC 2021** (International Mechanical Code), Georgia amendments
 - **ASHRAE 90.1-2019** (Energy Standard for Buildings)
 - **ASHRAE 62.1** (Ventilation for Acceptable Indoor Air Quality)
 - **ASHRAE TC 9.9** (Mission Critical Facilities)
@@ -412,7 +412,7 @@ Phased mechanical cooling strategy supporting 3 MW Phase 1 (air cooling only) ex
 
 ---
 
-**Tags:** #pryor-dc #hvac #csi-div-23 #air-cooling #direct-to-chip #free-cooling #zero-water
+**Tags:** #Tbilisi-dc #hvac #csi-div-23 #air-cooling #direct-to-chip #free-cooling #zero-water
 
 **Next Steps:**
 1. Chiller vendor selection and performance verification
@@ -424,6 +424,6 @@ Phased mechanical cooling strategy supporting 3 MW Phase 1 (air cooling only) ex
 ---
 
 **Document Control:**
-- **Source:** Pryor_Bod_EVS_Rev01.md
+- **Source:** Tbilisi_Bod_Rev01.md
 - **Date Updated:** October 29, 2025
 - **Prepared by:** EVS / PGCIS Team

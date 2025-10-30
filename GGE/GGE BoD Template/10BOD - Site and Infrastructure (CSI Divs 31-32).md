@@ -1,9 +1,9 @@
 **Created:** 2025-10-29
-**Updated from:** Pryor_Bod_EVS_Rev01.md + Erik_BOD references
+**Updated from:** Tbilisi_Bod_Rev01.md + Erik_BOD references
 
 # BASIS OF DESIGN - SITE AND INFRASTRUCTURE
 ## CSI Divisions 31-32
-### Pryor Data Center - PACHYDERM GLOBAL
+### Tbilisi Data Center - PACHYDERM GLOBAL
 
 **Parent Document:** [[_BOD - Exec Summary and TOC]]
 
@@ -15,7 +15,7 @@
 - **Parcel:** ~120 acres (master plan)
 - **Topography:** Slightly rolling; balanced cut/fill expected
 - **Flood/Tornado:** Outside FEMA floodplain; high tornado risk (EF3+ region)
-- **Soils:** TBD by geotechnical; design for frost depth per Oklahoma code
+- **Soils:** TBD by geotechnical; design for frost depth per Georgia code
 
 ### Required Surveys and Studies
 - ALTA/NSPS land survey (boundaries, easements, topo)
@@ -136,7 +136,7 @@
 - IBC/IFC 2021 (local amendments)
 - NFPA 110, 70 (NEC), 855 (for BESS if deployed)
 - IEEE 80 (substation grounding), 142 (grounding), 484/485 (battery rooms as applicable)
-- Oklahoma DEQ stormwater and erosion control
+- Georgia DEQ stormwater and erosion control
 
 ---
 
@@ -166,7 +166,7 @@
 ---
 
 **Document Control:**
-- **Source:** Pryor_Bod_EVS_Rev01.md, Electrical Div 26, Erik_BOD references
+- **Source:** Tbilisi_Bod_Rev01.md, Electrical Div 26, Erik_BOD references
 - **Date Updated:** October 29, 2025
 - **Prepared by:** EVS / PGCIS Team
 - **Key Updates:** 345 kV substation yard, MV rings, BESS/solar yards, 50,000 SF mech yard

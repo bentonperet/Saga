@@ -1,9 +1,9 @@
 **Created:** 2025-10-29
-**Updated from:** Pryor_Bod_EVS_Rev01.md
+**Updated from:** Tbilisi_Bod_Rev01.md
 
 # BASIS OF DESIGN - PLUMBING
 ## CSI Division 22
-### Pryor Data Center - PACHYDERM GLOBAL
+### Tbilisi Data Center - PACHYDERM GLOBAL
 
 **Parent Document:** [[_BOD - Exec Summary and TOC]]
 
@@ -85,10 +85,10 @@ Plumbing systems provide domestic water service, fire protection water supply, s
 - **Cleanouts:** Every 100 ft, at direction changes
 
 **If Municipal Sewer Unavailable:**
-- On-site septic system per Oklahoma DEQ
+- On-site septic system per Georgia DEQ
 - Sized for 2,000 gallons/day peak flow
 - Leach field area: ~5,000-8,000 SF
-- Permitting: Oklahoma DEQ approval required
+- Permitting: Georgia DEQ approval required
 
 **Grease Management:**
 - No grease trap required (no commercial kitchen)
@@ -103,7 +103,7 @@ Plumbing systems provide domestic water service, fire protection water supply, s
 **System Type:** Interior roof drains with overflow scuppers
 
 **Sizing:**
-- Design storm: 100-year, 1-hour duration (Oklahoma)
+- Design storm: 100-year, 1-hour duration (Georgia)
 - Rainfall intensity: [ROM] 5-6 inches/hour
 - Roof area: 50,000 SF
 - Primary drains: [ROM] 8-12 × 6" drains
@@ -117,7 +117,7 @@ Plumbing systems provide domestic water service, fire protection water supply, s
 ### Site Stormwater Management
 
 **Detention/Retention:**
-- Detention pond(s) sized per Oklahoma DEQ stormwater permit
+- Detention pond(s) sized per Georgia DEQ stormwater permit
 - Capacity: [ROM] 50,000-100,000 CF (varies by site grading)
 - Outlet control structure (restricts discharge to pre-development rates)
 
@@ -347,12 +347,12 @@ Critical for protecting IT equipment from water damage.
 
 ## CODES AND STANDARDS
 
-- **IPC 2021** (International Plumbing Code), Oklahoma amendments
+- **IPC 2021** (International Plumbing Code), Georgia amendments
 - **UPC** (Uniform Plumbing Code) if adopted locally
 - **ASHRAE 188** (Legionella risk management for building water systems)
 - **EPA SPCC** (Spill Prevention, Control, and Countermeasure) for glycol storage >1,320 gallons
 - **ANSI Z358.1** (Emergency eyewash and shower equipment)
-- **Oklahoma DEQ** (Stormwater, septic system regulations)
+- **Georgia DEQ** (Stormwater, septic system regulations)
 
 ---
 
@@ -367,7 +367,7 @@ Critical for protecting IT equipment from water damage.
 
 **Comparison:**
 - Traditional data centers: 1.8 L/kWh (cooling towers)
-- Pryor DC: <0.5 L/kWh (air-cooled) ✓
+- Tbilisi DC: <0.5 L/kWh (air-cooled) ✓
 
 ### Low-Flow Fixtures
 
@@ -396,19 +396,19 @@ Critical for protecting IT equipment from water damage.
 
 ---
 
-**Tags:** #pryor-dc #plumbing #domestic-water #glycol-systems #leak-detection #wue
+**Tags:** #Tbilisi-dc #plumbing #domestic-water #glycol-systems #leak-detection #wue
 
 **Next Steps:**
 1. Confirm municipal water/sewer availability via utility coordination
 2. Design glycol mix stations and bulk storage
 3. Detail leak detection routing and zones
 4. Coordinate eyewash/safety shower locations with OSHA compliance review
-5. Stormwater permit application (Oklahoma DEQ)
+5. Stormwater permit application (Georgia DEQ)
 
 ---
 
 **Document Control:**
-- **Source:** Pryor_Bod_EVS_Rev01.md and Erik_BOD reference
+- **Source:** Tbilisi_Bod_Rev01.md and Erik_BOD reference
 - **Date Updated:** October 29, 2025
 - **Prepared by:** EVS / PGCIS Team
 - **Key Updates:** Glycol system details, leak detection expansion for D2C

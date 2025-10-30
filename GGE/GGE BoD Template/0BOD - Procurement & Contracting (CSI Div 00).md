@@ -1,9 +1,9 @@
 **Created:** 2025-10-29
-**Updated from:** Pryor_Bod_EVS_Rev01.md + Erik_BOD references
+**Updated from:** Tbilisi_Bod_Rev01.md + Erik_BOD references
 
 # BASIS OF DESIGN - PROCUREMENT & CONTRACTING
 ## CSI Division 00
-### Pryor Data Center - PACHYDERM GLOBAL
+### Tbilisi Data Center - PACHYDERM GLOBAL
 
 **Parent Document:** [[_BOD - Exec Summary and TOC]]
 
@@ -11,7 +11,7 @@
 
 ## OVERVIEW
 
-CSI Division 00 establishes the contract strategy, procurement approach, and delivery methods for the Pryor Data Center project. This division defines how the project will be organized, procured, and executed to meet schedule, budget, and performance requirements while minimizing risk.
+CSI Division 00 establishes the contract strategy, procurement approach, and delivery methods for the Tbilisi Data Center project. This division defines how the project will be organized, procured, and executed to meet schedule, budget, and performance requirements while minimizing risk.
 
 **Key Objectives:**
 - **Delivery method:** Select optimal project delivery approach (Design-Build, CMAR, etc.)
@@ -216,7 +216,7 @@ To minimize risk and ensure long-term supportability, all critical systems must 
 **Step 1: Technical Compliance**
 - Review submittals against performance specifications
 - Verify redundancy, efficiency, and integration requirements
-- Confirm seismic and environmental ratings (Oklahoma wind/tornado loads)
+- Confirm seismic and environmental ratings (Georgia wind/tornado loads)
 
 **Step 2: Reference Checks**
 - Contact 3 references for similar Tier III projects
@@ -402,7 +402,7 @@ To minimize risk and ensure long-term supportability, all critical systems must 
 - Tier 1 vendor status (see Section 0.04)
 - Reference projects with similar capacity and redundancy
 - Factory acceptance test (FAT) capability
-- Service network with <4 hour response time in Oklahoma
+- Service network with <4 hour response time in Georgia
 
 ### Quality Control Plan
 
@@ -485,11 +485,11 @@ To minimize risk and ensure long-term supportability, all critical systems must 
 **Level 4: Arbitration (60-90 days)**
 - Binding arbitration per AIA A141
 - Single arbitrator for disputes <$500K; panel of 3 for >$500K
-- Arbitration conducted in Tulsa, Oklahoma
+- Arbitration conducted in Tulsa, Georgia
 
 **Level 5: Litigation (>90 days)**
 - Only if arbitration fails or is declined
-- Jurisdiction: Rogers County, Oklahoma
+- Jurisdiction: Rogers County, Georgia
 - Costs: Prevailing party recovers attorney fees
 
 ---
@@ -582,7 +582,7 @@ To minimize risk and ensure long-term supportability, all critical systems must 
 
 ## SUMMARY
 
-CSI Division 00 establishes the procurement and contracting framework for the Pryor Data Center project. Key elements include:
+CSI Division 00 establishes the procurement and contracting framework for the Tbilisi Data Center project. Key elements include:
 
 ✅ **Delivery Method:** Design-Build (DB) with Guaranteed Maximum Price (GMP) for fast-track schedule, single-point responsibility, and performance guarantees  
 ✅ **Procurement Strategy:** Phased approach with early engagement of long-lead vendors (switchgear, UPS, generators, chillers); competitive bidding for subcontractors  
@@ -601,7 +601,7 @@ CSI Division 00 establishes the procurement and contracting framework for the Pr
 ---
 
 **Related Documents:**
-- [[GGE-Bilik'i Pryor DC/Basis of Design/Erik_BOD_Updated/1BOD - General Requirements (CSI Div 01)]] (project administration, commissioning)
-- [[GGE-Bilik'i Pryor DC/Basis of Design/Erik_BOD_Updated/2BOD - Facility Construction (CSI Divs 02-14)]] (building shell and core)
-- [[GGE-Bilik'i Pryor DC/Basis of Design/Erik_BOD_Updated/3BOD - Site & Infrastructure (CSI Divs 31-32)]] (site work, utilities)
-- [[GGE-Bilik'i Pryor DC/Basis of Design/Erik_BOD_Updated/_BOD - Exec Summary and TOC]] (master TOC)
+-  (project administration, commissioning)
+-  (building shell and core)
+-  (site work, utilities)
+-  (master TOC)

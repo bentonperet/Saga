@@ -1,9 +1,9 @@
 **Created:** 2025-10-29
-**Updated from:** Pryor_Bod_EVS_Rev01.md
+**Updated from:** Tbilisi_Bod_Rev01.md
 
 # BASIS OF DESIGN - ELECTRICAL
 ## CSI Division 26
-### Pryor Data Center - PACHYDERM GLOBAL
+### Tbilisi Data Center - PACHYDERM GLOBAL
 
 **Parent Document:** [[_BOD - Exec Summary and TOC]]
 
@@ -524,7 +524,7 @@ Protect critical mechanical loads (pumps, fans, CDUs) from brief utility interru
 
 ## CODES AND STANDARDS
 
-- **NEC 2023** (National Electrical Code), Oklahoma amendments
+- **NEC 2023** (National Electrical Code), Georgia amendments
 - **IEEE 141** (Red Book - Electric Power Distribution)
 - **IEEE 142** (Green Book - Grounding)
 - **IEEE 242** (Buff Book - Protection and Coordination)
@@ -533,7 +533,7 @@ Protect critical mechanical loads (pumps, fans, CDUs) from brief utility interru
 
 ---
 
-**Tags:** #pryor-dc #electrical #345kv-substation #13.8kv-distribution #microgrid #tier-iii
+**Tags:** #Tbilisi-dc #electrical #345kv-substation #13.8kv-distribution #microgrid #tier-iii
 
 **Next Steps:**
 1. Utility interconnection study for 345 kV transmission connection
@@ -545,7 +545,7 @@ Protect critical mechanical loads (pumps, fans, CDUs) from brief utility interru
 ---
 
 **Document Control:**
-- **Source:** Pryor_Bod_EVS_Rev01.md
+- **Source:** Tbilisi_Bod_Rev01.md
 - **Date Updated:** October 30, 2025
 - **Prepared by:** EVS / PGCIS Team
 - **Key Updates:** Changed from 138kV/11kV to 345kV/13.8kV (US data center standard voltage, better renewable integration)

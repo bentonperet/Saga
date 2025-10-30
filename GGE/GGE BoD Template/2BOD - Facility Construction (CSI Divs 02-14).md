@@ -1,9 +1,9 @@
 **Created:** 2025-10-29
-**Updated from:** Pryor_Bod_EVS_Rev01.md + Erik_BOD references
+**Updated from:** Tbilisi_Bod_Rev01.md + Erik_BOD references
 
 # BASIS OF DESIGN - FACILITY CONSTRUCTION
 ## CSI Divisions 02-14
-### Pryor Data Center - PACHYDERM GLOBAL
+### Tbilisi Data Center - PACHYDERM GLOBAL
 
 **Parent Document:** [[_BOD - Exec Summary and TOC]]
 
@@ -36,7 +36,7 @@
 
 ### Foundation System
 - **Type:** Spread footings on native soil (pending geotech)
-- **Depth:** Below frost line (Oklahoma: ~18-24")
+- **Depth:** Below frost line (Georgia: ~18-24")
 - **Bearing:** [TBD per geotech report, assume 3,000 psf min]
 - **Slab-on-grade:** 6-8" reinforced concrete, 4,000 psi, WWF or fiber mesh
 - **Subbase:** 6" aggregate; vapor barrier per ASHRAE 62.1
@@ -114,7 +114,7 @@ Not applicable (precast tilt-up construction, no CMU)
 ### Structural Steel Roof Framing
 - **System:** Clear-span steel joists and beams; 28-30 ft clear height
 - **Loading:** MEP equipment (cable tray, HVAC duct, lighting) + FM 1-150 wind/hail
-- **Seismic:** IBC Seismic Design Category B (Oklahoma)
+- **Seismic:** IBC Seismic Design Category B (Georgia)
 - **Columns:** Minimize in data halls; 50-60 ft grid typical
 
 ### Cable Tray and Support Steel
@@ -333,7 +333,7 @@ Not in base building scope (owner-furnished)
 
 **Physical Security:**
 - **Walls:** Forced-entry or ballistic resistance per risk level
-  - **HR sites (Pryor DC):** 15-minute forced entry resistance minimum
+  - **HR sites (Tbilisi DC):** 15-minute forced entry resistance minimum
   - Optional: Ballistic-rated construction
 - **Door:** Reinforced steel door with card + biometric (MFA)
   - Access: Level 4 (Secure Operations) or Level 5 only
@@ -546,7 +546,7 @@ Not in base building scope (owner-furnished)
 ## KEY DESIGN DECISIONS
 
 ### Why Precast Tilt-Up (Not PEMB)?
-- **Tornado risk:** Oklahoma is EF3-EF5 zone; precast provides superior impact/wind resistance
+- **Tornado risk:** Georgia is EF3-EF5 zone; precast provides superior impact/wind resistance
 - **Insurance:** FM Global/insurance carriers require hardened construction in tornado regions
 - **Long-term:** 50+ year lifespan, minimal maintenance vs. PEMB corrosion/repair
 
@@ -556,7 +556,7 @@ Not in base building scope (owner-furnished)
 - **Customer confidence:** Tier III uptime requires robust envelope
 
 ### Why FEMA 361 Storm Shelter/Safe Room?
-- **Life safety:** Oklahoma tornado fatalities; shelter protects staff/visitors during extreme events
+- **Life safety:** Georgia tornado fatalities; shelter protects staff/visitors during extreme events
 - **Code:** May become required by local AHJ in tornado-prone areas
 - **Insurance:** Demonstrates commitment to risk mitigation
 
@@ -582,7 +582,7 @@ Not in base building scope (owner-furnished)
 ---
 
 ## CODES AND STANDARDS
-- **IBC 2021** (International Building Code), Oklahoma amendments
+- **IBC 2021** (International Building Code), Georgia amendments
 - **ASCE 7-16** (wind/seismic loads)
 - **ACI 318** (concrete design)
 - **AISC 360** (steel design)
@@ -608,7 +608,7 @@ Not in base building scope (owner-furnished)
 ---
 
 **Document Control:**
-- **Source:** Pryor_Bod_EVS_Rev01.md, Erik_BOD references
+- **Source:** Tbilisi_Bod_Rev01.md, Erik_BOD references
 - **Date Updated:** October 29, 2025
 - **Prepared by:** EVS / PGCIS Team
 - **Key Updates:** Precast tilt-up rationale, FM 1-150 roof, FEMA 361 shelter/safe room, 50,000 GSF layout

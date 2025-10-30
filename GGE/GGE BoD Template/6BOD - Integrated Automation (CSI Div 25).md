@@ -1,9 +1,9 @@
 **Created:** 2025-10-29
-**Updated from:** Pryor_Bod_EVS_Rev01.md
+**Updated from:** Tbilisi_Bod_Rev01.md
 
 # BASIS OF DESIGN - INTEGRATED AUTOMATION
 ## CSI Division 25
-### Pryor Data Center - PACHYDERM GLOBAL
+### Tbilisi Data Center - PACHYDERM GLOBAL
 
 **Parent Document:** [[_BOD - Exec Summary and TOC]]
 
@@ -77,7 +77,7 @@ Integrated monitoring and control systems provide real-time visibility, automate
 - Mode 1: OAT <10°C → 100% free cooling (compressors off)
 - Mode 2: OAT 10-15°C → Partial free cooling (part-load compressors)
 - Mode 3: OAT >15°C → Full mechanical cooling
-- Target: 3,500-4,000 hrs/year free cooling in Pryor, OK
+- Target: 3,500-4,000 hrs/year free cooling in Tbilisi, Georgia
 
 **Chiller Sequencing:**
 - Target 67% utilization per chiller for optimal efficiency
@@ -487,7 +487,7 @@ Coordinates utility, solar, BESS, and generators on common 13.8kV bus infrastruc
 
 ---
 
-**Tags:** #pryor-dc #bms #epms #microgrid-controller #dcim #noc #ieee-2030
+**Tags:** #Tbilisi-dc #bms #epms #microgrid-controller #dcim #noc #ieee-2030
 
 **Next Steps:**
 1. Select BMS/EPMS/DCIM platforms (coordinate with equipment vendors)
@@ -499,7 +499,7 @@ Coordinates utility, solar, BESS, and generators on common 13.8kV bus infrastruc
 ---
 
 **Document Control:**
-- **Source:** Pryor_Bod_EVS_Rev01.md and Erik_BOD reference
+- **Source:** Tbilisi_Bod_Rev01.md and Erik_BOD reference
 - **Date Updated:** October 29, 2025
 - **Prepared by:** EVS / PGCIS Team
 - **Key Updates:** Microgrid controller integration, 345kV/13.8kV coordination, IEEE 2030.7 compliance
