@@ -54,9 +54,9 @@
 ### Generator Yard (MV Generators)
 - **Capacity:** 6 × 4.0 MW @ 13.8 kV diesel gens (N+1 at 12 MW design)
 - **Pads:** Individual concrete pads with anchorage; crane access aisle
-- **Fuel:** ~2,000 gal belly tanks per unit connected via common fuel manifold to centralized bulk fuel storage tank farm (24 hours runtime); spill containment per SPCC
-- **Bulk Fuel Storage:** Above-ground or underground tank farm (~12,000 gal capacity for Phase 2) with redundant fuel service contracts (24-hour SLA)
-- **Noise:** Enclosures targeting ≤65 dBA @ 7 m at property line compliance
+- **Fuel:** Belly tanks per unit connected via common fuel manifold to centralized bulk fuel storage tank farm (24 hours runtime); spill containment per SPCC
+- **Bulk Fuel Storage:** Above-ground or underground tank farm (sized for 24-hour runtime Phase 2) with redundant fuel service contracts
+- **Noise:** Enclosures per local noise ordinance compliance
 - **Security:** Fenced, CCTV, vehicle barriers at perimeter
 - **Access:** East-west emergency/maintenance access points for equipment delivery and temporary rental equipment
 

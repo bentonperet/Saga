@@ -116,7 +116,7 @@ Telecommunications infrastructure provides carrier-neutral, diverse, and redunda
 
 **Fiber Cross-Connect Panels:**
 - LC duplex or MTP/MPO high-density panels
-- Capacity: 288-576 fibers per panel (adequate for 12 MW)
+- Capacity: Adequate for 12 MW facility with expansion capability
 - Labeling: Customer ID, circuit ID, carrier name
 
 **Cable Management:**
@@ -239,7 +239,7 @@ Central location for facility network equipment (not customer equipment). Houses
 **AWS Direct Connect:**
 - Via carrier partners (Equinix, Megaport, etc.)
 - Bandwidth: 1 Gbps, 10 Gbps, or 100 Gbps
-- Latency: <5 ms to nearest AWS region (likely Dallas or Kansas City)
+- Low-latency connection to nearest AWS region
 
 **Microsoft Azure ExpressRoute:**
 - Via carrier partners
@@ -247,8 +247,8 @@ Central location for facility network equipment (not customer equipment). Houses
 - Private connection to Azure services
 
 **Google Cloud Platform (GCP):**
-- **Proximity advantage:** Pryor is ~20 miles from Google's Mayes County data center campus
-- **Potential for low-latency interconnect:** <2 ms if direct fiber route available
+- **Proximity advantage:** Pryor is near Google's Mayes County data center campus
+- **Potential for low-latency interconnect:** Direct fiber route possible
 - **Interconnection options:**
   - Partner Interconnect (via carrier in MMR)
   - Dedicated Interconnect (if direct fiber to Google facility negotiated)
