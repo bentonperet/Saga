@@ -1,12 +1,10 @@
-**Created:** 2025-10-29
-**Updated from:** Pryor_Bod_EVS_Rev01.md
 
 # BASIS OF DESIGN - CSI MASTERFORMAT
 ## Pryor Data Center - PACHYDERM GLOBAL
 ### Pryor, Oklahoma
 
 **Document Status:** REVISION 02 - 345 kV Substation + 13.8 kV Distribution (US Standard Voltage)
-**Prepared by:** EVS / PGCIS Team
+**Prepared by:** PGCIS Team
 **Date:** October 30, 2025 
 **Purpose:** Comprehensive Basis of Design for Pryor Data Center organized by CSI Master Format
 
@@ -30,9 +28,7 @@
 ### **ELECTRICAL SYSTEMS**
 - **Primary Utility Service:** Customer-owned 345 kV substation
   - **345 kV Transmission:** Direct connection to utility transmission system
-  - **Substation Transformers:** 2 × 25 MVA, 345kV/13.8kV (2N redundancy)
-  - **Capacity:** Supports 24 MW master plan without utility upgrades
-  - **Cost:** ~$7-12M (higher than lower voltages due to larger equipment and clearances)
+  - **Substation Transformers:** 2 × 25 MVA, 345kV/13.8kV (2N redundancy????)
 - **13.8 kV Common Bus:** Single voltage platform for utility, solar, BESS, generators, data center (US standard voltage)
 - **MV Distribution:** 13.8 kV dual-ring topology (Ring A + Ring B) via 6 RMUs
 - **Generators:** 6 × 4.0 MW @ 13.8 kV, diesel, Tier 4 Final (N+1)
