@@ -1,10 +1,23 @@
+📄 Reading markdown file...
+🔍 Parsing markdown...
+   Found 240 blocks
+🔐 Authenticating with Google...
+📝 Creating Google Doc...
+
+✅ Document published successfully!
+
+   Title: Appendix - Chiller Sizing Supply Chain Analysis
+   URL:   https://docs.google.com/document/d/15jC2UN-R_O9kB0YB54xK_-316Cz26Kl3AY1VKgKpEg8/edit
+
 # APPENDIX - AIR-COOLED CHILLER SIZING ANALYSIS
+
+
 ## Supply Chain, Cost, and Availability Assessment
-### Tbilisi Data Center - PACHYDERM GLOBAL
 
 **Parent Document:** [[_BOD - Exec Summary and TOC]]  
 **Created:** 2025-10-30  
-**Purpose:** Evaluate optimal air-cooled chiller capacity sizing for cost, equipment availability, redundancy flexibility, and supply chain resilience
+**Purpose:** Evaluate optimal air-cooled chiller capacity sizing for cost, equipment availability, redundancy flexibility, and supply chain resilience📄 Reading markdown file...
+
 
 ---
 
@@ -231,9 +244,9 @@ After analyzing supply chain constraints, equipment costs, redundancy configurat
 
 | Configuration | Equipment Count | Footprint (each) | Total Footprint | Clearances | Total Yard Area |
 |---------------|-----------------|------------------|-----------------|------------|-----------------|
-| 4 × 1,500 kW | 4 | 30' × 12' | 1,440 SF | 8-10' | ~5,000 SF |
-| 6 × 1,000 kW | 6 | 25' × 10' | 1,500 SF | 8-10' | ~5,500 SF |
-| 8 × 750 kW | 8 | 22' × 10' | 1,760 SF | 8-10' | ~6,500 SF |
+| 4 × 1,500 kW | 4 | 30' × 12' (9.1 m × 3.7 m) | 1,440 SF (134 m²) | 8-10' (2.4-3.0 m) | ~5,000 SF (465 m²) |
+| 6 × 1,000 kW | 6 | 25' × 10' (7.6 m × 3.0 m) | 1,500 SF (139 m²) | 8-10' (2.4-3.0 m) | ~5,500 SF (511 m²) |
+| 8 × 750 kW | 8 | 22' × 10' (6.7 m × 3.0 m) | 1,760 SF (164 m²) | 8-10' (2.4-3.0 m) | ~6,500 SF (604 m²) |
 
 **Key Finding:** **Larger chillers require 20-30% less yard space** (lower site development costs).
 

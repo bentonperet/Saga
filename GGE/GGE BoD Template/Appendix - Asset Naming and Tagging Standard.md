@@ -1,3 +1,14 @@
+📄 Reading markdown file...
+🔍 Parsing markdown...
+   Found 153 blocks
+🔐 Authenticating with Google...
+📝 Creating Google Doc...
+
+✅ Document published successfully!
+
+   Title: Appendix - Asset Naming and Tagging Standard
+   URL:   https://docs.google.com/document/d/1QOy6Y6e7356HHOUq4Yxq47LlI6ePb6mIZj1hIEW_q2g/edit
+
 **Created:** 2025-10-30
 **Referenced from:** 
 
@@ -304,13 +315,13 @@ All dual-fed equipment includes path suffix:
 ```
 
 **Label Specifications:**
-- **Size:** 4" × 6" minimum (larger for big equipment)
+- **Size:** 4" × 6" (102 mm × 152 mm) minimum (larger for big equipment)
 - **QR Code:** Links to DCIM asset record (dynamic URL)
 - **Font:** Sans-serif, minimum 12pt for human-readable text
 - **Colors:** Black text on white/silver background (high contrast)
 
 **Label Placement:**
-- **Primary label:** Front panel, eye level (5-6 ft AFF)
+- **Primary label:** Front panel, eye level (5-6 ft (1.5-1.8 m) AFF)
 - **Backup label:** Rear or side panel (for large equipment)
 - **Cable entry:** Small labels at cable/conduit entry points
 
@@ -341,7 +352,7 @@ All dual-fed equipment includes path suffix:
 - `INST` = Instrumentation
 
 **Cable Labels:**
-- **Frequency:** Every 10 ft + at terminations (both ends)
+- **Frequency:** Every 10 ft (3 m) + at terminations (both ends)
 - **Material:** Vinyl wrap-around labels or heat-shrink sleeves
 - **Color coding:** Optional by voltage level (red=480V, yellow=11kV, blue=fiber)
 

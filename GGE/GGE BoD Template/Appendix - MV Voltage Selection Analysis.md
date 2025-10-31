@@ -1,3 +1,14 @@
+📄 Reading markdown file...
+🔍 Parsing markdown...
+   Found 172 blocks
+🔐 Authenticating with Google...
+📝 Creating Google Doc...
+
+✅ Document published successfully!
+
+   Title: Appendix - MV Voltage Selection Analysis
+   URL:   https://docs.google.com/document/d/1GtwtRIHNIJ0FtJmL94VRnUE64LfjTfquYwVdh_Arccs/edit
+
 # APPENDIX - MEDIUM VOLTAGE SELECTION ANALYSIS
 ## Supply Chain, Cost, and Maintainability Assessment
 ### Tbilisi Data Center - PACHYDERM GLOBAL

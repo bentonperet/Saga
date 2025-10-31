@@ -1,16 +1,15 @@
 📄 Reading markdown file...
 🔍 Parsing markdown...
-   Found 128 blocks
+   Found 127 blocks
 🔐 Authenticating with Google...
 📝 Creating Google Doc...
 
 ✅ Document published successfully!
 
    Title: _BOD - Exec Summary and TOC
-   URL:   https://docs.google.com/document/d/1bVcrGiPJ2krcsgy-Z422vrmbh275MlbS4ZZo6NZ2tdE/edit
+   URL:   https://docs.google.com/document/d/18Xq3BDVuSW06Q-42oA76UF8ucCbRTnyWCtBH-eHLoKk/edit
 
-**Created:** 2025-10-29
-**Updated from:** Tbilisi_Bod_Rev01.md
+
 
 # BASIS OF DESIGN - CSI MASTERFORMAT
 ## Tbilisi Data Center - PACHYDERM GLOBAL
