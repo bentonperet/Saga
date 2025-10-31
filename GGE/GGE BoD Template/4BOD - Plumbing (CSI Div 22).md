@@ -1,7 +1,17 @@
 **Created:** 2025-10-29
 **Updated from:** Tbilisi_Bod_Rev01.md
+📄 Reading markdown file...
+🔍 Parsing markdown...
+   Found 166 blocks
+🔐 Authenticating with Google...
+📝 Creating Google Doc...
 
-# BASIS OF DESIGN - PLUMBING
+✅ Document published successfully!
+
+   Title: 4BOD - Plumbing (CSI Div 22)
+   URL:   https://docs.google.com/document/d/1c4zAo4wFnOdJnXiFI1DnJ3eki6FESXkHEAXa-ntZTFY/edit
+
+
 ## CSI Division 22
 ### Tbilisi Data Center - PACHYDERM GLOBAL
 
@@ -29,29 +39,29 @@ Plumbing systems provide domestic water service, fire protection water supply, s
 - Restrooms: 6-8 fixtures (staff + visitors)
 - Break rooms: Sinks, dishwasher, ice maker
 - Showers/lockers: 2-4 shower stalls (24/7 operations support)
-- **Estimated demand:** 500-1,000 gallons/day (10-20 occupants)
+- **Estimated demand:** 500-1,000 gallons/day (1,890-3,785 L/day) (10-20 occupants)
 
 **One-Time Fill Requirements:**
-- Fire sprinkler system: 8,000-15,000 gallons (wet pipe areas)
-- Chilled water loops: 15,000-25,000 gallons total
-  - Loops 1+2: ~5,000 gallons (Phase 1)
-  - Loop 3: ~15,000 gallons (Phase 2)
-- **Total initial fill:** ~25,000-40,000 gallons
+- Fire sprinkler system: 8,000-15,000 gallons (30,280-56,780 L) (wet pipe areas)
+- Chilled water loops: 15,000-25,000 gallons (56,780-94,635 L) total
+  - Loops 1+2: ~5,000 gallons (18,930 L) (Phase 1)
+  - Loop 3: ~15,000 gallons (56,780 L) (Phase 2)
+- **Total initial fill:** ~25,000-40,000 gallons (94,635-151,420 L)
 
 **Annual Makeup (Closed-Loop Systems):**
 - Chilled water makeup: <1% volume/year (leak replacement only)
-- Glycol concentration maintenance: Minimal (~100-200 gallons/year)
+- Glycol concentration maintenance: Minimal (~100-200 gallons/year (380-760 L/year))
 
 ### Service Specifications
 
 **Municipal Connection:**
-- **Service size:** 3-4" water main
-- **Pressure required:** 60-80 psi at building entry
-- **Meter:** 3" compound meter with remote reading
+- **Service size:** 3-4" (76-102 mm) water main
+- **Pressure required:** 60-80 psi (414-552 kPa) at building entry
+- **Meter:** 3" (76 mm) compound meter with remote reading
 - **Backflow prevention:** Reduced pressure zone (RPZ) backflow preventer per IPC
 
 **If Municipal Service Unavailable:**
-- On-site well system (capacity: 50-100 GPM)
+- On-site well system (capacity: 50-100 GPM (189-379 L/min))
 - Pressure tank and booster pumps
 - Water quality testing and treatment as required
 - Backup well for redundancy (if mission-critical)
@@ -69,8 +79,8 @@ Plumbing systems provide domestic water service, fire protection water supply, s
 
 **Domestic Wastewater:**
 - Restrooms, showers, break room sinks
-- **Flow:** 500-1,000 gallons/day average
-- **Peak:** 2,000 gallons/day (shift change, events)
+- **Flow:** 500-1,000 gallons/day (1,890-3,785 L/day) average
+- **Peak:** 2,000 gallons/day (7,570 L/day) (shift change, events)
 
 **No Process Wastewater:**
 - Closed-loop cooling (no blowdown or discharge)
@@ -80,14 +90,14 @@ Plumbing systems provide domestic water service, fire protection water supply, s
 ### Service Requirements
 
 **Municipal Sewer Connection:**
-- **Pipe size:** 6" sanitary sewer lateral
+- **Pipe size:** 6" (152 mm) sanitary sewer lateral
 - **Invert depth:** Per local utility requirements
-- **Cleanouts:** Every 100 ft, at direction changes
+- **Cleanouts:** Every 100 ft (30 m), at direction changes
 
 **If Municipal Sewer Unavailable:**
 - On-site septic system per Georgia DEQ
-- Sized for 2,000 gallons/day peak flow
-- Leach field area: ~5,000-8,000 SF
+- Sized for 2,000 gallons/day (7,570 L/day) peak flow
+- Leach field area: ~5,000-8,000 SF (465-743 m²)
 - Permitting: Georgia DEQ approval required
 
 **Grease Management:**
@@ -104,9 +114,9 @@ Plumbing systems provide domestic water service, fire protection water supply, s
 
 **Sizing:**
 - Design storm: 100-year, 1-hour duration (Georgia)
-- Rainfall intensity: [ROM] 5-6 inches/hour
-- Roof area: 50,000 SF
-- Primary drains: [ROM] 8-12 × 6" drains
+- Rainfall intensity: [ROM] 5-6 inches/hour (127-152 mm/hour)
+- Roof area: 50,000 SF (4,645 m²)
+- Primary drains: [ROM] 8-12 × 6" (152 mm) drains
 - Overflow: Scuppers at roof edge (backup)
 
 **Routing:**
@@ -137,28 +147,28 @@ Plumbing systems provide domestic water service, fire protection water supply, s
 ### Glycol System Fill (Closed-Loop)
 
 **System Volumes:**
-- **Loops 1+2 (Phase 1):** ~5,000 gallons (30% glycol = 1,500 gal glycol + 3,500 gal water)
-- **Loop 3 (Phase 2):** ~15,000 gallons (30% glycol = 4,500 gal glycol + 10,500 gal water)
-- **Total (Phase 2):** ~20,000 gallons (6,000 gal glycol + 14,000 gal water)
+- **Loops 1+2 (Phase 1):** ~5,000 gallons (18,930 L) (30% glycol = 1,500 gal (5,680 L) glycol + 3,500 gal (13,250 L) water)
+- **Loop 3 (Phase 2):** ~15,000 gallons (56,780 L) (30% glycol = 4,500 gal (17,035 L) glycol + 10,500 gal (39,750 L) water)
+- **Total (Phase 2):** ~20,000 gallons (75,710 L) (6,000 gal (22,710 L) glycol + 14,000 gal (53,000 L) water)
 
 **Initial Fill Procedure:**
 - Deionized or softened water only (no raw municipal water)
 - Pre-mix glycol to 30% concentration in fill tanks
 - Pump into system via fill stations (one per loop)
 - Purge air via high-point vents, circulation
-- Test concentration via refractometer (target: -15°F freeze point)
+- Test concentration via refractometer (target: -15°F (-26°C) freeze point)
 
 ### Makeup Water System
 
 **Equipment:**
-- 3 × 500-gallon glycol mix tanks (one per loop)
+- 3 × 500-gallon (1,890 L) glycol mix tanks (one per loop)
 - Circulation pumps for mixing
 - Fill connections at each chiller plant
 - Totalizing flow meters (track makeup volume)
 
 **Annual Makeup Requirements:**
 - Target: <1% of system volume per year
-- Typical: 100-200 gallons/year (leak replacement, expansion tank overflow)
+- Typical: 100-200 gallons/year (380-760 L/year) (leak replacement, expansion tank overflow)
 - Alarm if makeup exceeds threshold (indicates leak)
 
 ### Water Treatment
@@ -193,12 +203,12 @@ Plumbing systems provide domestic water service, fire protection water supply, s
 ### Bulk Glycol Storage
 
 **Phase 1 Initial Fill:**
-- 1,500 gallons propylene glycol (30% of 5,000 gal system)
-- Delivered in 55-gallon drums or 275-gallon totes
+- 1,500 gallons (5,680 L) propylene glycol (30% of 5,000 gal (18,930 L) system)
+- Delivered in 55-gallon (208 L) drums or 275-gallon (1,041 L) totes
 - Storage: Outdoor chemical storage shed with secondary containment
 
 **Phase 2 Additional:**
-- 4,500 gallons propylene glycol (Loop 3)
+- 4,500 gallons (17,035 L) propylene glycol (Loop 3)
 - Bulk delivery via tanker truck (if available)
 - Temporary storage in totes during fill operation
 
@@ -212,7 +222,7 @@ Plumbing systems provide domestic water service, fire protection water supply, s
 **One Fill Station per Loop (3 Total):**
 - Location: Near each chiller plant
 - Equipment: Hose connection, isolation valves, drain
-- Pump: Portable transfer pump (200-300 GPM)
+- Pump: Portable transfer pump (200-300 GPM (760-1,135 L/min))
 - Venting: High-point manual air vents during fill
 
 ---
@@ -239,7 +249,7 @@ Critical for protecting IT equipment from water damage.
 **Sensing Cable:**
 - Conductive fluid detection cable (continuous sensing)
 - Detects water, glycol, or other conductive fluids
-- Length: [ROM] 1,000-2,000 ft per data hall
+- Length: [ROM] 1,000-2,000 ft (305-610 m) per data hall
 
 **Spot Detectors:**
 - Discrete leak detectors at high-risk points
@@ -285,9 +295,9 @@ Critical for protecting IT equipment from water damage.
 ### Break Rooms
 
 **Equipment:**
-- Sinks: 2-3 sinks, 1.5 GPM faucets
+- Sinks: 2-3 sinks, 1.5 GPM (5.7 L/min) faucets
 - Dishwasher: Residential-grade (low-flow)
-- Ice maker: Self-contained (30-50 lb/day)
+- Ice maker: Self-contained (30-50 lb/day (14-23 kg/day))
 - Coffee/beverage: Point-of-use water filter
 
 ### Showers & Lockers
@@ -298,7 +308,7 @@ Critical for protecting IT equipment from water damage.
 - 2-4 shower stalls (private, ADA-accessible)
 - 10-15 lockers
 - Changing area with benches
-- **Flow:** 2.0 GPM low-flow showerheads
+- **Flow:** 2.0 GPM (7.6 L/min) low-flow showerheads
 
 **Drainage:** Dedicated drain line to sanitary sewer
 
@@ -307,7 +317,7 @@ Critical for protecting IT equipment from water damage.
 **Eyewash/Safety Showers:**
 - Required at chemical storage area (glycol, water treatment chemicals)
 - Required in mechanical rooms (per OSHA 1910.151)
-- **Flow:** 3 GPM eyewash, 20 GPM safety shower (ANSI Z358.1)
+- **Flow:** 3 GPM (11.4 L/min) eyewash, 20 GPM (75.7 L/min) safety shower (ANSI Z358.1)
 
 ---
 
@@ -318,8 +328,8 @@ Critical for protecting IT equipment from water damage.
 **Heat Source:** Electric water heaters (no gas available)
 
 **Equipment:**
-- 2 × 80-gallon electric water heaters (N+1 redundancy)
-- 120°F setpoint (tempered to 110°F at fixtures)
+- 2 × 80-gallon (303 L) electric water heaters (N+1 redundancy)
+- 120°F (49°C) setpoint (tempered to 110°F (43°C) at fixtures)
 - Recirculation pumps for instant hot water
 
 **Distribution:**
@@ -362,8 +372,8 @@ Critical for protecting IT equipment from water damage.
 
 **Target: <0.5 L/kWh**
 - Air-cooled chillers: Zero evaporative cooling water
-- Closed-loop glycol: Minimal makeup (<200 gal/year)
-- Domestic water only: Staff use (~500-1,000 gal/day)
+- Closed-loop glycol: Minimal makeup (<200 gal/year (760 L/year))
+- Domestic water only: Staff use (~500-1,000 gal/day (1,890-3,785 L/day))
 
 **Comparison:**
 - Traditional data centers: 1.8 L/kWh (cooling towers)
@@ -384,13 +394,13 @@ Critical for protecting IT equipment from water damage.
 
 | System | Equipment | Quantity | Notes |
 |--------|-----------|----------|-------|
-| **Domestic Water** | 3-4" service connection | 1 | Municipal or well |
+| **Domestic Water** | 3-4" (76-102 mm) service connection | 1 | Municipal or well |
 | **Backflow Prevention** | RPZ backflow preventer | 1 | Required by code |
-| **Sanitary Sewer** | 6" lateral connection | 1 | Municipal or septic |
-| **Glycol Mix Tanks** | 500-gallon tanks | 3 | One per loop (1, 2, 3) |
-| **Fill Pumps** | Transfer pumps | 3 | 200-300 GPM portable |
-| **Water Heaters** | 80-gallon electric | 2 | N+1 redundancy |
-| **Leak Detection Cable** | Conductive sensing cable | 2,000-3,000 ft | Data halls + mech rooms |
+| **Sanitary Sewer** | 6" (152 mm) lateral connection | 1 | Municipal or septic |
+| **Glycol Mix Tanks** | 500-gallon (1,890 L) tanks | 3 | One per loop (1, 2, 3) |
+| **Fill Pumps** | Transfer pumps | 3 | 200-300 GPM (760-1,135 L/min) portable |
+| **Water Heaters** | 80-gallon (303 L) electric | 2 | N+1 redundancy |
+| **Leak Detection Cable** | Conductive sensing cable | 2,000-3,000 ft (610-915 m) | Data halls + mech rooms |
 | **Leak Spot Detectors** | Discrete detectors | 100+ | CDUs, valves, pumps |
 | **Emergency Fixtures** | Eyewash/shower stations | 2-3 | Chemical storage, mech rooms |
 

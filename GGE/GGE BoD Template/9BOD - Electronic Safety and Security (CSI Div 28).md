@@ -1,5 +1,16 @@
 **Created:** 2025-10-29
 **Updated from:** Tbilisi_Bod_Rev01.md
+📄 Reading markdown file...
+🔍 Parsing markdown...
+   Found 410 blocks
+🔐 Authenticating with Google...
+📝 Creating Google Doc...
+
+✅ Document published successfully!
+
+   Title: 9BOD - Electronic Safety and Security (CSI Div 28)
+   URL:   https://docs.google.com/document/d/1hskZcB_rkOjDAYYR7ddw73BGr213OzQZdBwQHjc0cWg/edit
+
 
 # BASIS OF DESIGN - ELECTRONIC SAFETY AND SECURITY
 ## CSI Division 28
@@ -52,10 +63,10 @@ GGE-Bilik'i assesses threat level for each site. The Tbilisi Data Center is clas
 | **Perimeter Lighting** | Reactive (motion) | **Persistent (always on)** |
 | **Main Vehicle Entrance** | K4-rated arrestor | **Sally Port with K4** |
 | **Pedestrian Entrances** | Standard gate | **Full-height turnstiles** |
-| **Fence-to-Building Standoff** | 45 ft (15 m) min | **100 ft (30 m) min** |
+| **Fence-to-Building Standoff** | 45 ft (14 m) min | **100 ft (30 m) min** |
 | **Permanent Visitor Center** | Not required | **Required at gate** |
 | **Exterior Orange Zone Doors** | Standard | **15-min forced entry resistance** |
-| **SCR Transaction Window** | 4×6 in. opening | **Solid with transaction drawer** |
+| **SCR Transaction Window** | 4×6 in. (100×150 mm) opening | **Solid with transaction drawer** |
 | **Roof Surveillance** | Inside doors only | **Inside + outside with thermal** |
 
 ### Foundational Security Tenets
@@ -130,7 +141,7 @@ To enhance security beyond card-based access, MFA is required at high-risk trans
 
 **Fencing:**
 - **Type:** 8 ft (2.4 m) tall anti-scale, rigid, forced-entry/crash-rated fence
-- **Material:** Galvanized steel, 9-gauge wire, 2" mesh (or anti-climb mesh)
+- **Material:** Galvanized steel, 9-gauge wire, 2" (50 mm) mesh (or anti-climb mesh)
 - **Anti-Dig Barrier:** Concrete barrier 12 in. (300 mm) width × 18 in. (457 mm) depth along fence base
 - **Standoff Distance:** **100 ft (30 m) minimum** from fence to building (HR site requirement)
 - **Clear Zone:** Standoff area kept clear of obstructions aiding climbing or providing concealment
@@ -150,7 +161,7 @@ To enhance security beyond card-based access, MFA is required at high-risk trans
 - **Staffing:** Permanent manned visitor center (HR requirement)
 - **Usage:** Primary entrance for all normal operations, deliveries, visitors, and personnel
 - **Sized for:** Largest anticipated delivery trucks
-- **K4-rated vehicle arrestor:** 15,000 lb vehicle at 30 mph
+- **K4-rated vehicle arrestor:** 15,000 lb (6,800 kg) vehicle at 30 mph (48 km/h)
 - **Rejection lane:** For vehicles turned away without entering secure perimeter
 
 **Access Control:**
@@ -189,7 +200,7 @@ To enhance security beyond card-based access, MFA is required at high-risk trans
 - **Location:** Adjacent to main vehicle sally port at NE corner
 - **Full-height turnstile** (HR site requirement) or card-controlled gate
 - Card reader and video intercom on both sides
-- Located minimum 15 ft from vehicular sally port for safety
+- Located minimum 15 ft (4.5 m) from vehicular sally port for safety
 
 **Secondary Pedestrian Access (NW Corner):**
 - **Location:** Adjacent to secondary emergency/construction vehicle entrance
@@ -222,13 +233,13 @@ To enhance security beyond card-based access, MFA is required at high-risk trans
 ### Vehicle Barriers
 
 **Crash-Rated Bollards:**
-- **Rating:** K4 (15,000 lb vehicle at 30 mph) minimum; K12 (15,000 lb at 50 mph) for highest risk areas
+- **Rating:** K4 (15,000 lb (6,800 kg) vehicle at 30 mph (48 km/h)) minimum; K12 (15,000 lb at 50 mph (80 km/h)) for highest risk areas
 - **Location:**
   - Building entry points (main entrance, loading dock)
   - Generator yard perimeter
   - 345kV substation perimeter
   - Critical transformer locations
-- **Spacing:** 4-5 ft on center (prevent vehicle passage)
+- **Spacing:** 4-5 ft (1.2-1.5 m) on center (prevent vehicle passage)
 - **Material:** Steel-reinforced concrete or steel pipe filled with concrete
 - **Standards:** ASTM F2656, DOS SD-STD-02.01
 
@@ -389,7 +400,7 @@ Security portals (mantraps) are critical for preventing tailgating and unauthori
 ### Security Control Room (SCR)
 
 **Dimensions:**
-- Minimum 12 ft × 24 ft (3.65 m × 7.3 m)
+- Minimum 12 ft × 24 ft (3.7 m × 7.3 m)
 
 **Workstation Security:**
 - All workstations enforce clear screen policy

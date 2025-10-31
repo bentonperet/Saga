@@ -1,22 +1,15 @@
 **Created:** 2025-10-29
 **Updated from:** Tbilisi_Bod_Rev01.md + Erik_BOD references
-
-# BASIS OF DESIGN - FACILITY CONSTRUCTION📄 Reading markdown file...
+📄 Reading markdown file...
 🔍 Parsing markdown...
-   Found 207 blocks
-🔐 Authenticating with Google...📄 Reading markdown file...
-🔍 Parsing markdown...
-   Found 208 blocks
+   Found 206 blocks
 🔐 Authenticating with Google...
 📝 Creating Google Doc...
 
 ✅ Document published successfully!
 
    Title: 2BOD - Facility Construction (CSI Divs 02-14)
-   URL:   https://docs.google.com/document/d/1N2R3Y5WCPaKgS-DXX_0AV5DwFKA2ftX6LiTEQbsmkWw/edit
-
-
-📝 Creating Google Doc...
+   URL:   https://docs.google.com/document/d/1Rrp49RXAty_vWk3q3pwaO6gVKwBFpKM5PoboCtMK-4Q/edit
 
 ## CSI Divisions 02-14
 ### Tbilisi Data Center - PACHYDERM GLOBAL
@@ -27,13 +20,13 @@
 
 ## OVERVIEW
 
-50,000 GSF single-story precast concrete tilt-up building with FM 1-150 tornado-resistant roof, housing 20,000 SF of white space (two 10,000 SF data halls), 30,000 SF support spaces, and multi-level central spine.
+50,000 GSF (4,645 m²) single-story precast concrete tilt-up building with FM 1-150 tornado-resistant roof, housing 20,000 SF (1,858 m²) of white space (two 10,000 SF (929 m²) data halls), 30,000 SF (2,787 m²) support spaces, and multi-level central spine.
 
 **Key Features:**
 - **Construction:** Precast concrete tilt-up walls (tornado resistance)
 - **Roof:** FM 1-150 rating (150 mph 3-second gust, hail resistance)
 - **Floor:** Slab-on-grade (raised floor: Not Applicable), sealed concrete
-- **Ceiling height:** 28-30 ft data halls (overhead MEP distribution)
+- **Ceiling height:** 28-30 ft (8.5-9.1 m) data halls (overhead MEP distribution)
 - **Containment:** Not Applicable (DDC cabinets provide integrated cooling)
 - **Storm shelter:** FEMA 361 compliant (EF5 protection)
 
@@ -52,10 +45,10 @@
 
 ### Foundation System
 - **Type:** Spread footings on native soil (pending geotech)
-- **Depth:** Below frost line (Georgia: ~18-24")
-- **Bearing:** [TBD per geotech report, assume 3,000 psf min]
-- **Slab-on-grade:** 6-8" reinforced concrete, 4,000 psi, WWF or fiber mesh
-- **Subbase:** 6" aggregate; vapor barrier per ASHRAE 62.1
+- **Depth:** Below frost line (Georgia: ~18-24" (457-610 mm))
+- **Bearing:** [TBD per geotech report, assume 3,000 psf (14.6 kPa) min]
+- **Slab-on-grade:** 6-8" (152-203 mm) reinforced concrete, 4,000 psi (27.6 MPa), WWF or fiber mesh
+- **Subbase:** 6" (152 mm) aggregate; vapor barrier per ASHRAE 62.1
 
 ### Under-Building Electrical Duct Banks
 
@@ -74,10 +67,10 @@
 **Design Specifications:**
 - **Duct bank construction:** PVC-coated steel or HDPE conduit encased in concrete
 - **Conduit sizing:** [TBD based on 13.8 kV or 480V distribution voltage and cable type]
-  - Typical: 4-6" conduits for MV feeders (13.8 kV)
+  - Typical: 4-6" (102-152 mm) conduits for MV feeders (13.8 kV)
   - Multiple conduits per duct bank for redundancy and capacity
-- **Concrete encasement:** 6" minimum on all sides per NEC 300.5 and 300.50
-- **Burial depth:** Minimum 30" below finished grade; coordinate with foundation depth
+- **Concrete encasement:** 6" (152 mm) minimum on all sides per NEC 300.5 and 300.50
+- **Burial depth:** Minimum 30" (762 mm) below finished grade; coordinate with foundation depth
 - **Spacing:** Adequate separation between duct banks for thermal management and maintenance access
 - **Pull boxes:** Located at strategic points for cable installation and maintenance
 - **Entry risers:** Sealed penetrations through foundation with fire-stop and waterproofing
@@ -100,18 +93,18 @@
 - **Flatness:** FF 50 / FL 40 minimum (forklift traffic, server racks)
 - **Finish:** Power-troweled, densifier/sealer (dust-proof, cleanable)
 - **Color:** Light gray or epoxy coating (optional for reflectivity)
-- **Joints:** Saw-cut control joints @15 ft o.c.; sealed
+- **Joints:** Saw-cut control joints @15 ft (4.6 m) o.c.; sealed
 
 ### AI Rack Floor Load Design Criteria
-- **Live Load:** 750 PSF sustained (accommodates AI/HPC racks up to 3,500 lbs)
-- **Slab Thickness:** 8-10" reinforced concrete (final thickness per geotechnical report)
-- **Concrete Strength:** 4,000 PSI minimum
-- **Reinforcement:** #4 rebar @ 12" o.c. each way, OR welded wire fabric (WWF) 6×6 W2.9×W2.9
-- **Subbase:** 6" compacted aggregate base, 95% compaction (ASTM D698)
+- **Live Load:** 750 PSF (3,666 kg/m²) sustained (accommodates AI/HPC racks up to 3,500 lbs (1,588 kg))
+- **Slab Thickness:** 8-10" (203-254 mm) reinforced concrete (final thickness per geotechnical report)
+- **Concrete Strength:** 4,000 PSI (27.6 MPa) minimum
+- **Reinforcement:** #4 rebar @ 12" (305 mm) o.c. each way, OR welded wire fabric (WWF) 6×6 W2.9×W2.9
+- **Subbase:** 6" (152 mm) compacted aggregate base, 95% compaction (ASTM D698)
 - **Flatness:** FF 50 / FL 40 (laser-level tolerance for rack alignment)
-- **Joints:** Saw-cut control joints @ 15 ft o.c., sealed with polyurethane sealant
+- **Joints:** Saw-cut control joints @ 15 ft (4.6 m) o.c., sealed with polyurethane sealant
 - **Finish:** Power-troweled, densifier/sealer (dust-proof, cleanable)
-- **Load Cases:** Supports 3,500 lb racks like NVIDIA GB200 NVL72, forklift wheel loads up to 8,000 lbs
+- **Load Cases:** Supports 3,500 lb (1,588 kg) racks like NVIDIA GB200 NVL72, forklift wheel loads up to 8,000 lbs (3,629 kg)
 - **Future-proof:** Designed for AI/HPC rack configurations expected through 2030+
 
 ### Equipment Pad Foundations
@@ -128,15 +121,15 @@ Not applicable (precast tilt-up construction, no CMU)
 ## DIVISION 05 – METALS
 
 ### Structural Steel Roof Framing
-- **System:** Clear-span steel joists and beams; 28-30 ft clear height
+- **System:** Clear-span steel joists and beams; 28-30 ft (8.5-9.1 m) clear height
 - **Loading:** MEP equipment (cable tray, HVAC duct, lighting) + FM 1-150 wind/hail
 - **Seismic:** IBC Seismic Design Category B (Georgia)
-- **Columns:** Minimize in data halls; 50-60 ft grid typical
+- **Columns:** Minimize in data halls; 50-60 ft (15.2-18.3 m) grid typical
 
 ### Cable Tray and Support Steel
 - **Overhead:** Unistrut or equivalent trapeze hangers; seismic bracing
 - **Capacity:** Sized for power + fiber cable fills + 25% spare
-- **Height:** 12-14 ft above finished floor (AFF) typical
+- **Height:** 12-14 ft (3.7-4.3 m) above finished floor (AFF) typical
 
 ---
 
@@ -156,21 +149,21 @@ Minimal scope (office millwork, shelving)
 - **Fire resistance:** Non-combustible, 4-hour fire rating (if required)
 
 **Panel Specifications:**
-- **Thickness:** 8-10" precast concrete panels
+- **Thickness:** 8-10" (203-254 mm) precast concrete panels
 - **Insulation:** Rigid foam insulation sandwich (R-19 min)
 - **Finish:** Architectural texture or smooth finish (exterior); painted drywall (interior)
 - **Connections:** Steel embeds, welded/bolted to foundation and roof
 
 **Cost Premium:**
-- Precast tilt-up ~$25-40/SF more than PEMB
-- Total building envelope premium: ~$1.3-2.0M for 50,000 GSF
+- Precast tilt-up ~$25-40/SF ($269-431/m²) more than PEMB
+- Total building envelope premium: ~$1.3-2.0M for 50,000 GSF (4,645 m²)
 - Offset by insurance savings (~$200-300K/year → 5-7 year payback)
 
 ### Roof System (FM 1-150 Rating)
 
 **FM 1-150 Compliance:**
-- **Wind:** 150 mph 3-second gust (EF2-EF3 tornado resistance)
-- **Hail:** Class 4 hail impact resistance (2" diameter ice balls)
+- **Wind:** 150 mph (241 km/h) 3-second gust (EF2-EF3 tornado resistance)
+- **Hail:** Class 4 hail impact resistance (2" (51 mm) diameter ice balls)
 - **Fire:** Class A roof assembly (non-combustible)
 
 **Roof Assembly:**
@@ -189,36 +182,36 @@ Minimal scope (office millwork, shelving)
 - **Perimeter protection:** Storm-rated heavy-duty stainless steel debris screen around roof perimeter
   - **Purpose:** Absorb, deflect, or shred flying debris during storm events
   - **Standards:** FEMA P-361 (missile impact resistance), ICC 500, ASTM E1886/E1996 (hurricane debris impact)
-  - **Design:** Engineered to withstand 150 mph winds with 15 lb 2×4 timber projectile at 100 mph
+  - **Design:** Engineered to withstand 150 mph (241 km/h) winds with 15 lb (6.8 kg) 2×4 timber projectile at 100 mph (161 km/h)
 - **Equipment protection:** Each roof-mounted unit (HVAC, AHU, DAHU, exhaust fans, vent shafts) protected with:
   - Impact-resistant enclosures or screens
   - Hail guards (mesh or louver design) for intake/exhaust openings
   - Secure mounting per ASCE 7-16 wind loads and FM 1-150
-  - Equipment rated for Class 4 hail impact (2" diameter)
+  - Equipment rated for Class 4 hail impact (2" (51 mm) diameter)
 - **Rationale:** Minimize damage from hail, falling debris, and windborne projectiles during tornado/severe storm events
 
 **Roof Drainage:**
-- Interior roof drains (6" diameter) at low points
+- Interior roof drains (6" (152 mm) diameter) at low points
 - Overflow scuppers at roof edge (backup)
 - Design for 100-year storm event per IBC
 
 **Cost:**
-- FM 1-150 premium: ~$8-12/SF vs. standard roof
+- FM 1-150 premium: ~$8-12/SF ($86-129/m²) vs. standard roof
 - Debris screen and equipment protection: ~$100-200K
-- Total roof premium: ~$500-800K for 50,000 GSF
+- Total roof premium: ~$500-800K for 50,000 GSF (4,645 m²)
 
 ### Air and Vapor Barriers
 - **Air barrier:** Self-adhered membrane at precast joints, penetrations
 - **Vapor barrier:** Under slab (6 mil poly); at wall insulation per climate
-- **Target:** <0.25 CFM/SF @ 0.3" w.g. (tight envelope for PUE)
+- **Target:** <0.25 CFM/SF (1.27 L/s·m²) @ 0.3" w.g. (75 Pa) (tight envelope for PUE)
 
 ---
 
 ## DIVISION 08 – OPENINGS
 
 ### Exterior Doors
-- **Main entry:** Glazed aluminum storefront, double doors (6 ft clear)
-- **Loading dock:** Overhead sectional door (12 ft W × 14 ft H, insulated)
+- **Main entry:** Glazed aluminum storefront, double doors (6 ft (1.8 m) clear)
+- **Loading dock:** Overhead sectional door (12 ft (3.7 m) W × 14 ft (4.3 m) H, insulated)
 - **Emergency exits:** Steel doors with panic hardware (minimum 2 per data hall)
 - **Fire rating:** 2-hour where required by IBC
 
@@ -252,8 +245,8 @@ Minimal scope (office millwork, shelving)
 - Reception desk for visitor check-in
 
 ### Data Hall Doors
-- **Large equipment doors:** At least two double doors per data hall with 10 ft H × 8 ft W minimum clear opening for large equipment moves (UPS modules, chillers, transformers)
-- **Standard doors:** Other doors may be 4 ft single pedestrian doors
+- **Large equipment doors:** At least two double doors per data hall with 10 ft (3.0 m) H × 8 ft (2.4 m) W minimum clear opening for large equipment moves (UPS modules, chillers, transformers)
+- **Standard doors:** Other doors may be 4 ft (1.2 m) single pedestrian doors
 - **Hardware:** Card reader + biometric (two-factor authentication, MFA required)
 - **Clearance:** Level 4 (Secure Operations) or higher for unescorted access
 - **Vision panels:** Wire glass (optional for visibility)
@@ -261,7 +254,7 @@ Minimal scope (office millwork, shelving)
 - **Integration:** Access events logged to DCIM for asset correlation
 
 ### Electrical and Mechanical Room Doors (Red Zone)
-- **Width:** 3-4 ft single doors
+- **Width:** 3-4 ft (0.9-1.2 m) single doors
 - **Hardware:** Card reader + biometric (MFA)
 - **Clearance:** Level 3 (Technical Staff) minimum, Level 5 for certain areas
 - **Forced entry resistance (HR sites):** 15-minute rating for exterior doors
@@ -344,7 +337,7 @@ Not in base building scope (owner-furnished)
 **Purpose:** Primary central monitoring station for all electronic security systems, providing 24/7 continuous security oversight.
 
 **Dimensions:**
-- Minimum 12 ft × 24 ft (3.65 m × 7.3 m)
+- Minimum 12 ft × 24 ft (3.7 m × 7.3 m)
 - Sized for 3-4 operator workstations plus equipment racks
 
 **Physical Security:**
@@ -412,10 +405,10 @@ Not in base building scope (owner-furnished)
 - Adjacent to Blue Zone or Yellow Zone transition
 
 **Space Requirements:**
-- Minimum 300-500 SF
+- Minimum 300-500 SF (28-46 m²)
 - Adequate space for:
   - Security officer station
-  - Item inspection tables (minimum 2 tables, 6 ft × 3 ft each)
+  - Item inspection tables (minimum 2 tables, 6 ft × 3 ft (1.8 m × 0.9 m) each)
   - Full-height magnetometer walkthrough
   - Handheld screening device storage
   - Queuing area for personnel
@@ -469,7 +462,7 @@ Not in base building scope (owner-furnished)
 
 ### Elevator
 - **Type:** Hydraulic or traction elevator
-- **Capacity:** 2,500-3,500 lb (12-16 persons)
+- **Capacity:** 2,500-3,500 lb (1,134-1,588 kg) (12-16 persons)
 - **Stops:** 4 stops (Level 1, Level 2, Level 3, Roof)
 - **Purpose:** Access to Level 2 (Secure NOC), Level 3 (Fitness Area/Tour Route), and Roof (inspections/maintenance)
 - **Roof access:** Weather-protected door with overhang for rain/hail/snow protection
@@ -481,10 +474,10 @@ Not in base building scope (owner-furnished)
 
 ## BUILDING LAYOUT (50,000 GSF)
 
-### Data Halls (20,000 SF - Orange Zone CP 4)
-- **Data Hall 1 (East):** 9,980 SF (Phase 1 operational) - Orange Zone CP 4
-- **Data Hall 2 (West):** 9,980 SF (powered shell, future fit-out) - Orange Zone CP 4
-- **Ceiling height:** 28-30 ft clear
+### Data Halls (20,000 SF (1,858 m²) - Orange Zone CP 4)
+- **Data Hall 1 (East):** 9,980 SF (927 m²) (Phase 1 operational) - Orange Zone CP 4
+- **Data Hall 2 (West):** 9,980 SF (927 m²) (powered shell, future fit-out) - Orange Zone CP 4
+- **Ceiling height:** 28-30 ft (8.5-9.1 m) clear
 - **Layout:** Overhead power/cooling distribution (containment: Not Applicable - DDC cabinets)
 - **Access:** 4 secure doors per hall accessible from perimeter corridor (card + biometric MFA required)
 
@@ -535,7 +528,7 @@ Not in base building scope (owner-furnished)
 - Gaming area/room (TBD)
 
 **Level 2 (Secure NOC - Red Zone CP 5):**
-- Network Operations Center (NOC, ~2,060 SF) - 24/7 operations
+- Network Operations Center (NOC, ~2,060 SF (191 m²)) - 24/7 operations
 - Private NOC area
 - NOC landing area with restroom/janitor
 
@@ -593,7 +586,7 @@ Not in base building scope (owner-furnished)
 || **FEMA 361 Storm Shelter/Safe Room** | $0.075-0.15M |
 || **Total Building Construction (shell + core)** | **$9.7-16.3M** |
 
-**Cost per SF:** ~$194-326/SF (higher than typical DC due to tornado hardening and infrastructure)
+**Cost per SF:** ~$194-326/SF ($2,088-3,509/m²) (higher than typical DC due to tornado hardening and infrastructure)
 
 ---
 

@@ -347,22 +347,22 @@ To minimize risk and ensure long-term supportability, all critical systems must 
 
 ### Preliminary Cost Estimate (Order of Magnitude)
 
-**Project Scope:** 50,000 GSF, 3 MW Phase 1 IT load, Tier III
+**Project Scope:** 50,000 GSF (4,645 m²), 3 MW Phase 1 IT load, Tier III
 
-| Cost Category | Estimated Cost | $/SF | % of Total |
+| Cost Category | Estimated Cost | $/SF ($/m²) | % of Total |
 |---------------|----------------|------|------------|
-| **Site Work (Div 31-32)** | $2,500,000 | $50 | 8% |
-| **Building Shell (Div 02-14)** | $7,500,000 | $150 | 23% |
-| **Electrical (Div 26)** | $12,000,000 | $240 | 37% |
-| **Mechanical (Div 23)** | $8,000,000 | $160 | 25% |
-| **Fire Protection (Div 21)** | $500,000 | $10 | 2% |
-| **Controls & Security (Div 25, 28)** | $1,000,000 | $20 | 3% |
-| **Commissioning** | $500,000 | $10 | 2% |
-| **Subtotal (Construction)** | $32,000,000 | $640 | 100% |
-| **Design fees (8%)** | $2,560,000 | $51 | — |
-| **Permitting & fees (1%)** | $320,000 | $6 | — |
-| **Owner contingency (10%)** | $3,200,000 | $64 | — |
-| **TOTAL PROJECT COST** | **$38,080,000** | **$762** | — |
+| **Site Work (Div 31-32)** | $2,500,000 | $50 ($538) | 8% |
+| **Building Shell (Div 02-14)** | $7,500,000 | $150 ($1,615) | 23% |
+| **Electrical (Div 26)** | $12,000,000 | $240 ($2,583) | 37% |
+| **Mechanical (Div 23)** | $8,000,000 | $160 ($1,722) | 25% |
+| **Fire Protection (Div 21)** | $500,000 | $10 ($108) | 2% |
+| **Controls & Security (Div 25, 28)** | $1,000,000 | $20 ($215) | 3% |
+| **Commissioning** | $500,000 | $10 ($108) | 2% |
+| **Subtotal (Construction)** | $32,000,000 | $640 ($6,889) | 100% |
+| **Design fees (8%)** | $2,560,000 | $51 ($549) | — |
+| **Permitting & fees (1%)** | $320,000 | $6 ($65) | — |
+| **Owner contingency (10%)** | $3,200,000 | $64 ($689) | — |
+| **TOTAL PROJECT COST** | **$38,080,000** | **$762 ($8,201)** | — |
 
 **Cost per MW (IT load):** ~$12.7M per MW
 

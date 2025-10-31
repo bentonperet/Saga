@@ -27,13 +27,13 @@
 
 ### **FACILITY OVERVIEW**
 - **IT Capacity:** 3 MW Phase 1 (30 cabinets @ 100 kW); 12 MW Phase 2 (30 cabinets @ 400 kW);  [TBD] - Follow-on Phases up to 12 MW
-- **White Space:** 20,000 SF total all Phases (two 10,000 SF data halls); Phase 1 & 2 inside first 10,000 SF Data Hall (DH-E - East End of the Building)
-- **Power Density:** Phase 1: 300 W/SF; Phase 2: 1,200 W/SF; up to 1,200 W/SF in Data Hall W (DH-W)
-- **Cabinet Configuration:** Master Planned 30 × DDC S-Series cabinets (52U, 36" wide)
+- **White Space:** 20,000 SF (1,858 m²) total all Phases (two 10,000 SF (929 m²) data halls); Phase 1 & 2 inside first 10,000 SF (929 m²) Data Hall (DH-E - East End of the Building)
+- **Power Density:** Phase 1: 300 W/SF (3,229 W/m²); Phase 2: 1,200 W/SF (12,917 W/m²); up to 1,200 W/SF (12,917 W/m²) in Data Hall W (DH-W)
+- **Cabinet Configuration:** Master Planned 30 × DDC S-Series cabinets (52U, 36" (914 mm) wide)
 - **Availability:** Tier III (2N IT power, N+1 mechanical, concurrent maintainability)
 - **Target PUE:** 1.35 (Phase 1), 1.25 (Phase 2)
 - **Target WUE:** <0.5 L/kWh (air-cooled, zero water consumption)
-- **Site:** Tbilisi, Georgia (Tornado Alley - FM 1-150 protection)
+- **Site:** Tbilisi, Georgia (Tornado Alley - FM 1-150 protection (150 mph (241 km/h) winds))
 - **Key Differentiator:** Customer-owned 345 kV substation with 13.8 kV distribution and true microgrid capability
 
 ---
@@ -48,7 +48,7 @@
 - **MV Distribution:** 13.8 kV dual-ring topology (Ring A + Ring B) via 6 RMUs
 - **Generators:** 6 × 4.0 MW @ 13.8 kV, diesel, Tier 4 Final (N+1)
   - Phase 1: 3 units; Phase 2: +3 units
-  - Fuel: ~2,000 gal belly tanks per unit connected via common manifold to centralized bulk fuel storage (24-hour runtime with redundant fuel contracts)
+  - Fuel: ~2,000 gal (7,571 L) belly tanks per unit connected via common manifold to centralized bulk fuel storage (24-hour runtime with redundant fuel contracts)
 - **Transformers:** 8 × 3,500 kVA (13.8 kV/480V) oil-filled, N+1 with concurrent maintainability
   - Phase 1: 3 units; Phase 2: +5 units
 - **IT UPS:** N+1 modular architecture (path redundancy from self-healing MV dual-ring)
@@ -93,14 +93,14 @@
 - **Structure:** Pre-cast concrete tilt-up construction (tornado-resistant)
 - **Total Building:** 50,000 GSF
 - **Configuration:** Two 10,000 SF data halls + 30,000 SF support spaces
-- **Roofing:** FM 1-150 tornado-rated (150 mph winds, Class 4 hail); storm-rated stainless steel debris screen; protected roof equipment
-- **Walls:** Tilt-up concrete panels (8-12" thick, reinforced for high wind loads)
+- **Roofing:** FM 1-150 tornado-rated (150 mph (241 km/h) winds, Class 4 hail); storm-rated stainless steel debris screen; protected roof equipment
+- **Walls:** Tilt-up concrete panels (8-12" (203-305 mm) thick, reinforced for high wind loads)
 - **Floor:** Slab-on-grade (raised floor: Not Applicable), sealed concrete with optional epoxy
-- **Ceiling Height:** 28-30 ft clear in data halls
+- **Ceiling Height:** 28-30 ft (8.5-9.1 m) clear in data halls
 - **Containment:** Not Applicable (DDC cabinets provide integrated cooling)
 - **Storm Shelter/Safe Room:** FEMA 361 compliant prefabricated module (EF5 protection), 20 person capacity, located on Level 1 adjacent to elevator
 - **Security:** 
-  - K-rated perimeter fence (8 ft height, 100 ft building standoff)
+  - K-rated perimeter fence (8 ft (2.4 m) height, 100 ft (30 m) building standoff)
   - **Two property entrances:**
     - **Main entrance (NE corner):** Sally port vehicle trap with permanent manned visitor center
     - **Secondary entrance (NW side):** Emergency/construction access (normally unmanned, visible from loading dock SCB)
@@ -142,7 +142,7 @@
 - **Primary Utility Service:** Owner-constructed 345 kV substation with 2 × 25 MVA transformers (345kV/13.8kV, 2N redundancy)
   - Dual redundant 345 kV transmission line feeds
   - All power transformed to 13.8 kV common bus (US standard voltage for data centers and renewables)
-- **Water:** Municipal or well (domestic use only, ~500-1,000 gal/day)
+- **Water:** Municipal or well (domestic use only, ~500-1,000 gal/day (1,893-3,785 L/day))
 - **Sewer:** Municipal or septic (domestic wastewater)
 - **Natural Gas:** Utility service for house generators (backup power to non-critical areas)
 - **[TBD] OPTIONAL Micro-Turbine Natural Gas Generators:** For Georgia Renewable Energy Incentives qualification (budget in Solar/BESS CAPEX, not Data Center)
@@ -155,7 +155,7 @@
 - **Cabinet Suppression:** Integrated fire suppression in DDC cabinets
 - **Prefabricated PDMs:** Clean agent or other suppression per NFPA standards in PDM enclosures housing UPS, switchboards, MV gear
 - **Detection:** VESDA (Very Early Smoke Detection Apparatus) in data halls
-- **Egress:** 2 minimum exits per data hall, 36" doors (44" preferred)
+- **Egress:** 2 minimum exits per data hall, 36" (914 mm) doors (44" (1,118 mm) preferred)
 - **Emergency Lighting:** 90-minute battery backup
 - **NFPA Compliance:** NFPA 72, 75, 76, 2001, 101; IBC 2021
 
@@ -282,22 +282,22 @@
 **Summary:**
 - **Division 02 (Existing Conditions):** Greenfield site; clearing, grubbing, erosion control per SWPPP
 - **Division 03 (Concrete):** 
-  - Foundation: Spread footings below frost line (18-24"); bearing capacity TBD per geotech
-  - Data hall slab: 6-8" reinforced concrete, 4,000 PSI, FF 50 / FL 40 flatness, densifier/sealer finish
-  - **AI rack floor load:** 750 PSF sustained (supports 3,500 lb racks like NVIDIA GB200 NVL72)
+  - Foundation: Spread footings below frost line (18-24" (457-610 mm)); bearing capacity TBD per geotech
+  - Data hall slab: 6-8" (152-203 mm) reinforced concrete, 4,000 PSI (27.6 MPa), FF 50 / FL 40 flatness, densifier/sealer finish
+  - **AI rack floor load:** 750 PSF (3,662 kg/m²) sustained (supports 3,500 lb (1,588 kg) racks like NVIDIA GB200 NVL72)
   - Equipment pads: Isolated pads for chillers/generators; oil containment for transformers
 - **Division 04 (Masonry):** Not applicable (precast tilt-up construction)
-- **Division 05 (Metals):** Clear-span steel joists/beams (28-30 ft height); seismic IBC Category B; cable tray trapeze hangers
+- **Division 05 (Metals):** Clear-span steel joists/beams (28-30 ft (8.5-9.1 m) height); seismic IBC Category B; cable tray trapeze hangers
 - **Division 07 (Thermal/Moisture Protection):**
-  - **Precast tilt-up walls:** 8-10" panels with R-19 insulation sandwich; tornado resistance (EF3+); 50+ year lifespan
-  - **FM 1-150 roof:** 150 mph wind, Class 4 hail, fire-rated; TPO/EPDM fully adhered; storm-rated debris protection; premium: ~$500-800K
+  - **Precast tilt-up walls:** 8-10" (203-254 mm) panels with R-19 insulation sandwich; tornado resistance (EF3+); 50+ year lifespan
+  - **FM 1-150 roof:** 150 mph (241 km/h) wind, Class 4 hail (2" (51 mm) diameter), fire-rated; TPO/EPDM fully adhered; storm-rated debris protection; premium: ~$500-800K
   - **Cost premium:** Precast ~$1.3-2.0M more than PEMB; offset by insurance savings ($200-300K/year)
-- **Division 08 (Openings):** Security mantrap; data hall doors (at least two 10 ft H × 8 ft W double doors per hall for large equipment, other doors 4 ft single; card + biometric); loading dock; no windows in data halls
+- **Division 08 (Openings):** Security mantrap; data hall doors (at least two 10 ft H × 8 ft W (3 m × 2.4 m) double doors per hall for large equipment, other doors 4 ft (1.2 m) single; card + biometric); loading dock; no windows in data halls
 - **Division 09 (Finishes):** Sealed concrete floors, painted gypsum walls, exposed MEP ceiling in data halls
 - **Division 13 (Special Construction):**
   - **FEMA 361 storm shelter/safe room:** Prefabricated module, 20 person capacity, located Level 1 adjacent to elevator, EF5 protection
 - **Division 14 (Conveying Equipment):**
-  - **Elevator:** 4-stop (Level 1/2/3/Roof), 2,500-3,500 lb capacity, hydraulic or traction, weather-protected roof access with overhang
+  - **Elevator:** 4-stop (Level 1/2/3/Roof), 2,500-3,500 lb (1,134-1,588 kg) capacity, hydraulic or traction, weather-protected roof access with overhang
 
 ---
 

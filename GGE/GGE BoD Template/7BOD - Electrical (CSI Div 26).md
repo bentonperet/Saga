@@ -1,8 +1,18 @@
 **Created:** 2025-10-29
 **Updated from:** Tbilisi_Bod_Rev01.md
 
-# BASIS OF DESIGN - ELECTRICAL
-## CSI Division 26
+📄 Reading markdown file...
+🔍 Parsing markdown...
+   Found 165 blocks
+🔐 Authenticating with Google...
+📝 Creating Google Doc...
+
+✅ Document published successfully!
+
+   Title: 7BOD - Electrical (CSI Div 26)
+   URL:   https://docs.google.com/document/d/1mHMNnyuSQH-28DG3AB7ZATmI_gwIHhL9pykoK4Ah1ME/edit
+
+
 ### Tbilisi Data Center - PACHYDERM GLOBAL
 
 **Parent Document:** [[_BOD - Exec Summary and TOC]]
@@ -145,12 +155,12 @@ BESS INVERTERS (4-8 MWh) ─────────► Connect to 13.8 kV commo
 | **Power Factor** | 0.8 lagging |
 | **Voltage** | 13,800V ±5% |
 | **Fuel** | Diesel (EPA Tier 4 Final emissions) |
-| **Fuel Consumption** | ~85 gal/hr at full load (verify with vendor) |
-| **Fuel Capacity** | ~2,000 gal belly tank per unit (connected to central bulk fuel tank farm via common manifold) |
+| **Fuel Consumption** | ~85 gal/hr (322 L/hr) at full load (verify with vendor) |
+| **Fuel Capacity** | ~2,000 gal (7,570 L) belly tank per unit (connected to central bulk fuel tank farm via common manifold) |
 | **Endurance** | ~24 hours at full load (central bulk fuel storage + redundant supply contracts) |
 | **Paralleling Controls** | Woodward easYgen 3500 series (or equivalent) |
 | **Synchronizing** | Automatic paralleling with load sharing |
-| **Enclosure** | Sound-attenuated (-65 dBA @ 7m) |
+| **Enclosure** | Sound-attenuated (-65 dBA @ 7m (23 ft)) |
 | **Seismic** | IBC 2018 certified for SDC B |
 | **Emissions** | NOx < 0.67 g/bhp-hr (Tier 4 Final) |
 
@@ -168,8 +178,8 @@ BESS INVERTERS (4-8 MWh) ─────────► Connect to 13.8 kV commo
 ### Generator Yard Layout
 
 - **Location:** Outdoor electrical equipment yard (south side)
-- **Arrangement:** Horizontal layout with 8-10 ft clearances
-- **Fuel:** ~2,000 gal belly tanks per generator connected via common fuel manifold to centralized bulk fuel storage tank farm (24 hours runtime) with redundant supply contracts
+- **Arrangement:** Horizontal layout with 8-10 ft (2.4-3.0 m) clearances
+- **Fuel:** ~2,000 gal (7,570 L) belly tanks per generator connected via common fuel manifold to centralized bulk fuel storage tank farm (24 hours runtime) with redundant supply contracts
 - **Testing:** Closed-transition load bank, monthly run tests, annual full-load tests
 - **Maintenance Access:** Crane pad for major overhauls
 

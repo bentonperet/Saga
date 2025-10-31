@@ -1,21 +1,13 @@
 📄 Reading markdown file...
 🔍 Parsing markdown...
-   Found 97 blocks
-🔐 Authenticating with Google...
-📝 Creating Google Doc...
-**Created:** 2025-10-29
-**Updated from:** Tbilisi_Bod_Rev01.md + Erik_BOD references
-📄 Reading markdown file...
-🔍 Parsing markdown...
-   Found 97 blocks
+   Found 96 blocks
 🔐 Authenticating with Google...
 📝 Creating Google Doc...
 
 ✅ Document published successfully!
 
    Title: 1BOD - General Requirements (CSI Div 01)
-   URL:   https://docs.google.com/document/d/1HVBXvycWJ4Iw50SemmC5msHl-LAKIDZ1r_rY0BzytXI/edit
-
+   URL:   https://docs.google.com/document/d/1KExdAghSLcYz-9wiOEWrXS9zxhIHR9BlTLGSLtjVGQI/edit
 
 # BASIS OF DESIGN - GENERAL REQUIREMENTS
 ## CSI Division 01
@@ -27,7 +19,7 @@
 
 ## 01 10 00 – SUMMARY
 
-- Scope includes design, procurement, construction, commissioning, and turnover of a 50,000 GSF Tier III data center with 3 MW Phase 1 IT and 12 MW Phase 2.
+- Scope includes design, procurement, construction, commissioning, and turnover of a 50,000 GSF (4,645 m²) Tier III data center with 3 MW Phase 1 IT and 12 MW Phase 2.
 - All critical systems shall be concurrently maintainable: N+1 IT UPS with 13.8 kV dual-ring MV path redundancy, N+1 mechanical, N+1 generators and transformers.
 
 ---
@@ -156,7 +148,7 @@ Examples:
 - Fiber: `MMR1-DH1-R001-FIBER-001`
 
 **Labeling Frequency:**
-- Every 10 ft along cable route
+- Every 10 ft (3 m) along cable route
 - At both termination points
 - At all junction boxes and pull points
 

@@ -1,7 +1,18 @@
 **Created:** 2025-10-29
 **Updated from:** Tbilisi_Bod_Rev01.md
 
-# BASIS OF DESIGN - FIRE SUPPRESSION
+# 📄 Reading markdown file...
+🔍 Parsing markdown...
+   Found 153 blocks
+🔐 Authenticating with Google...
+📝 Creating Google Doc...
+
+✅ Document published successfully!
+
+   Title: 3BOD - Fire Suppression (CSI Div 21)
+   URL:   https://docs.google.com/document/d/18ggJ6CMm7X7RGP3XZg1TtUkzQyX8Rl9cUcmVavFdRg8/edit
+
+BASIS OF DESIGN - FIRE SUPPRESSION
 ## CSI Division 21
 ### Tbilisi Data Center - PACHYDERM GLOBAL
 
@@ -23,7 +34,7 @@ Fire protection systems protect personnel, IT equipment, and facility infrastruc
 
 ## FIRE SUPPRESSION STRATEGY
 
-### Data Hall 1 (10,000 SF White Space - Orange Zone CP 4)
+### Data Hall 1 (10,000 SF (929 m²) White Space - Orange Zone CP 4)
 
 **System Type: ZONED PREACTION SPRINKLER (Primary System)**
 
@@ -36,9 +47,9 @@ Fire protection systems protect personnel, IT equipment, and facility infrastruc
   3. Heat activation (sprinkler fusible link) → water release to specific zone only
 - **Benefit:** Dry pipe until both smoke + heat detected; zoned activation limits water discharge area
 - **Sprinkler heads:** ESFR (Early Suppression Fast Response), K-25.2
-- **Coverage:** Per NFPA 13 (130-200 SF per head for data center)
-- **Water demand:** [ROM] 1,500-2,000 GPM @ 70 psi (full system)
-- **Zoned demand:** Lower flow rate per zone activation (typical 500-800 GPM per zone)
+- **Coverage:** Per NFPA 13 (130-200 SF (12-19 m²) per head for data center)
+- **Water demand:** [ROM] 1,500-2,000 GPM (5,680-7,570 L/min) @ 70 psi (483 kPa) (full system)
+- **Zoned demand:** Lower flow rate per zone activation (typical 500-800 GPM (1,890-3,030 L/min) per zone)
 
 **DDC Cabinet Integrated Suppression:**
 - DDC cabinets include factory-integrated fire suppression
@@ -91,10 +102,10 @@ Fire protection systems protect personnel, IT equipment, and facility infrastruc
 
 **Configuration:**
 - Standard NFPA 13 coverage
-- Sprinkler heads: 130-200 SF per head
+- Sprinkler heads: 130-200 SF (12-19 m²) per head
 - Avoid heads directly above electrical panels (sidewall heads if needed)
 
-### Outdoor Chiller Yard (~50,000 SF)
+### Outdoor Chiller Yard (~50,000 SF (4,645 m²))
 
 **System Type:** Portable fire extinguishers
 
@@ -112,7 +123,7 @@ Fire protection systems protect personnel, IT equipment, and facility infrastruc
 **Coverage:**
 - Standard commercial spacing per NFPA 13
 - Light hazard occupancy (offices)
-- Sprinkler heads: ~130 SF per head
+- Sprinkler heads: ~130 SF (~12 m²) per head
 
 **Special Areas:**
 
@@ -140,7 +151,7 @@ Fire protection systems protect personnel, IT equipment, and facility infrastruc
 **Data Halls (Critical Detection):**
 - **Type:** VESDA (Very Early Smoke Detection Apparatus) or equivalent ASD
 - **Sampling points:** Air sampling pipes at ceiling level
-  - Holes every 10-15 ft along pipe
+  - Holes every 10-15 ft (3.0-4.6 m) along pipe
   - 4-6 sampling pipes per data hall
 - **Sensitivity levels:**
   - Alert: 0.005% obscuration/ft (investigate, no evacuation)
@@ -152,16 +163,16 @@ Fire protection systems protect personnel, IT equipment, and facility infrastruc
 
 **PDMs (Electrical Rooms):**
 - Spot-type photoelectric smoke detectors (addressable)
-- Heat detectors (rate-of-rise + fixed temp 135°F)
+- Heat detectors (rate-of-rise + fixed temp 135°F (57°C))
 - Integration with clean agent suppression system
 
 **Mechanical Rooms:**
-- Spot-type smoke detectors (every 500 SF)
-- Heat detectors (135°F fixed temp)
+- Spot-type smoke detectors (every 500 SF (46 m²))
+- Heat detectors (135°F (57°C) fixed temp)
 
 **Office/NOC/Support Spaces:**
 - Spot-type smoke detectors per NFPA 72
-- Spacing: Every 500-900 SF depending on ceiling height
+- Spacing: Every 500-900 SF (46-84 m²) depending on ceiling height
 - Duct smoke detectors in HVAC supply/return
 
 **Generator Yard:**
@@ -207,27 +218,27 @@ Fire protection systems protect personnel, IT equipment, and facility infrastruc
 ### Municipal Water Connection
 
 **If Available:**
-- 8-12" fire service connection (separate from domestic)
+- 8-12" (200-300 mm) fire service connection (separate from domestic)
 - Underground loop with PIV (post indicator valve) and FDC (fire department connection)
 - Backflow preventer: Double-check valve assembly
-- Hydrant spacing: ~300 ft around perimeter
+- Hydrant spacing: ~300 ft (91 m) around perimeter
 
 **Demand Calculation:**
 - Design basis: ESFR sprinklers in data hall (most demanding)
-- Estimated demand: 1,500-2,000 GPM @ 70 psi for 2 hours
-- Duration: ~180,000-240,000 gallons
+- Estimated demand: 1,500-2,000 GPM (5,680-7,570 L/min) @ 70 psi (483 kPa) for 2 hours
+- Duration: ~180,000-240,000 gallons (680,000-908,000 L)
 
 ### Fire Pump & Storage (If Municipal Service Inadequate)
 
 **Fire Pump:**
 - **Type:** Electric or diesel-driven (diesel preferred for reliability)
-- **Capacity:** Sized to meet demand (1,500-2,000 GPM @ 70 psi)
+- **Capacity:** Sized to meet demand (1,500-2,000 GPM (5,680-7,570 L/min) @ 70 psi (483 kPa))
 - **Rating:** UL-listed per NFPA 20
 - **Location:** Separate fire pump room (non-freezing)
 - **Controller:** Automatic start on pressure drop
 
 **Storage Tank:**
-- **Capacity:** 250,000-300,000 gallons (includes hose stream allowance)
+- **Capacity:** 250,000-300,000 gallons (946,000-1,136,000 L) (includes hose stream allowance)
 - **Type:** Bolted steel or welded steel, API 650
 - **Location:** Outdoor, adjacent to fire pump room
 - **Makeup:** Municipal water or periodic water delivery (if no utility)
@@ -242,7 +253,7 @@ Fire protection systems protect personnel, IT equipment, and facility infrastruc
 ### Occupancy & Load
 **Data Halls:**
 - Classification: Group B (Business) per IBC Section 304
-- Occupant load: ~10 persons (one person per 100 SF gross)
+- Occupant load: ~10 persons (one person per 100 SF (9.3 m²) gross)
 
 **Support Spaces:**
 - Offices, NOC, break rooms: Group B
@@ -255,13 +266,13 @@ Fire protection systems protect personnel, IT equipment, and facility infrastruc
 - Exits remotely located (diagonal separation)
 
 **Exit Width:**
-- Minimum 36" clear width per IBC
-- Preferred 44" (allows equipment carts)
+- Minimum 36" (914 mm) clear width per IBC
+- Preferred 44" (1,118 mm) (allows equipment carts)
 
 **Travel Distance:**
-- Maximum 200 ft to nearest exit (unsprinklered areas)
-- Maximum 300 ft (sprinklered areas) per IBC Table 1017.2
-- Data hall travel distance: [ROM] <150 ft (compliant)
+- Maximum 200 ft (61 m) to nearest exit (unsprinklered areas)
+- Maximum 300 ft (91 m) (sprinklered areas) per IBC Table 1017.2
+- Data hall travel distance: [ROM] <150 ft (46 m) (compliant)
 
 **Doors:**
 - Panic hardware on exit doors (no keys required for egress)
@@ -282,7 +293,7 @@ Fire protection systems protect personnel, IT equipment, and facility infrastruc
 **Exit Signs:**
 - Illuminated LED exit signs (battery-backed)
 - Red or green letters (AHJ preference)
-- Maximum 100 ft spacing in corridors
+- Maximum 100 ft (30 m) spacing in corridors
 
 ---
 
@@ -292,22 +303,22 @@ Fire protection systems protect personnel, IT equipment, and facility infrastruc
 
 **Class A/C (Offices, Data Halls):**
 - Type: ABC dry chemical or clean agent (Halotron for data halls)
-- Size: 10-20 lb
-- Spacing: Maximum 75 ft travel distance per NFPA 10
+- Size: 10-20 lb (4.5-9.1 kg)
+- Spacing: Maximum 75 ft (23 m) travel distance per NFPA 10
 
 **Class B (Generator Yard, Mechanical):**
 - Type: ABC dry chemical or Purple K
-- Size: 20 lb
-- Spacing: Maximum 50 ft travel distance
+- Size: 20 lb (9.1 kg)
+- Spacing: Maximum 50 ft (15 m) travel distance
 
 **Special Locations:**
-- Data hall entrances: 2 × 20 lb Halotron
-- Generator sets: 2 × 20 lb ABC per generator
-- Mechanical rooms: 2 × 20 lb ABC per room
+- Data hall entrances: 2 × 20 lb (9.1 kg) Halotron
+- Generator sets: 2 × 20 lb (9.1 kg) ABC per generator
+- Mechanical rooms: 2 × 20 lb (9.1 kg) ABC per room
 
 ### Mounting & Signage
 
-- Wall-mounted brackets (5 ft AFF to handle)
+- Wall-mounted brackets (5 ft (1.5 m) AFF to handle)
 - Signage: "FIRE EXTINGUISHER" with directional arrow
 - Inspections: Annual inspection, 6-year maintenance, 12-year hydrostatic test
 
@@ -359,7 +370,7 @@ Fire protection systems protect personnel, IT equipment, and facility infrastruc
 
 | System | Cost Estimate |
 |--------|---------------|
-| **Data Hall Preaction (10,000 SF)** | $300-500K |
+| **Data Hall Preaction (10,000 SF (929 m²))** | $300-500K |
 | **Data Hall Clean Agent (Alternative)** | +$500-800K |
 | **PDM Integrated Suppression (2 units)** | Included in PDM cost |
 | **Wet Pipe (Support Spaces)** | $150-250K |

@@ -1,5 +1,13 @@
-**Created:** 2025-10-29
-**Updated from:** Tbilisi_Bod_Rev01.md
+📄 Reading markdown file...
+🔍 Parsing markdown...
+   Found 153 blocks
+🔐 Authenticating with Google...
+📝 Creating Google Doc...
+
+✅ Document published successfully!
+
+   Title: 5BOD - HVAC (CSI Div 23)
+   URL:   https://docs.google.com/document/d/1-bv1ZUSZZUWwrrDKBdY5qT45eDF1SDdT2Po1XvV-gfE/edit
 
 # BASIS OF DESIGN - HVAC
 ## CSI Division 23
@@ -26,7 +34,7 @@ Phased mechanical cooling strategy supporting 3 MW Phase 1 (air cooling only) ex
 
 ### IT Heat Load
 
-**30 cabinets @ 100 kW each = 3,000 kW IT load**
+**30 cabinets @ 100 kW each = 3,000 kW (10.2 million BTU/hr) IT load**
 
 ### Cabinet Integrated Cooling
 
@@ -76,7 +84,7 @@ Phased mechanical cooling strategy supporting 3 MW Phase 1 (air cooling only) ex
 
 | Parameter | Specification |
 |-----------|---------------|
-| **Capacity** | 1,500 kW (430 ton) |
+| **Capacity** | 1,500 kW (430 ton) (5.1 million BTU/hr) |
 | **Type** | Air-cooled screw compressor with integrated free cooling |
 | **Supply Temperature** | 7-10°C (45-50°F) |
 | **Return Temperature** | 15-18°C (59-64°F) |
@@ -261,14 +269,14 @@ Phased mechanical cooling strategy supporting 3 MW Phase 1 (air cooling only) ex
 ### Layout
 
 **Location:** North side of building (opposite electrical yard)
-**Area:** ~50,000 SF (sized for all 12 chillers)
+**Area:** ~50,000 SF (4,645 m²) (sized for all 12 chillers)
 
 **Equipment Arrangement:**
 - **Loops 1+2 Zone:** 4 × 1,500 kW chillers (Phase 1)
 - **Loop 3 Zone:** 8 × 1,500 kW chillers (Phase 2)
 - **Elevated Platforms:** All chillers on 1.5-meter (5 ft) structural steel platforms
 - **Buffer Tanks:** Integrated with chiller platforms for thermal mass
-- **Clearances:** 8-10 ft between chillers for airflow and maintenance access
+- **Clearances:** 8-10 ft (2.4-3.0 m) between chillers for airflow and maintenance access
 
 **No Pump Rooms Required:**
 - All pumps integrated within packaged chiller systems
@@ -276,7 +284,7 @@ Phased mechanical cooling strategy supporting 3 MW Phase 1 (air cooling only) ex
 - Eliminates separate pump room construction
 
 **Enclosure:**
-- Solid CMU walls (12-15 ft height) with exterior trellis and vine plantings ("green wall")
+- Solid CMU walls (12-15 ft (3.7-4.6 m) height) with exterior trellis and vine plantings ("green wall")
 - Security, noise attenuation, visual screening
 - Gated access for maintenance and equipment delivery
 
@@ -290,8 +298,8 @@ Phased mechanical cooling strategy supporting 3 MW Phase 1 (air cooling only) ex
 
 **Pressurization System:**
 - **Type:** Dedicated DOAS (Dedicated Outdoor Air System)
-- **Capacity:** [ROM] 10,000-15,000 CFM per data hall
-- **Pressure Target:** +0.02-0.05 in. w.g. relative to adjacent spaces
+- **Capacity:** [ROM] 10,000-15,000 CFM (17,000-25,500 m³/hr) per data hall
+- **Pressure Target:** +0.02-0.05 in. w.g. (5-12 Pa) relative to adjacent spaces
 - **Why:** Prevents dust/contaminant infiltration, maintains ASHRAE A1 environment
 - **Redundancy:** N+1 units (2 × 100% capacity per data hall)
 
@@ -307,7 +315,7 @@ Phased mechanical cooling strategy supporting 3 MW Phase 1 (air cooling only) ex
 - **Filter monitoring:** Differential pressure sensors, scheduled replacement
 
 **DOAS Specifications:**
-- **Supply air temp:** 18-20°C (tempered, not for primary cooling)
+- **Supply air temp:** 18-20°C (64-68°F) (tempered, not for primary cooling)
 - **Outdoor air:** 100% OA (no recirculation)
 - **Energy recovery:** Enthalpy wheel (recovers cooling/heating energy)
 - **Controls:** BACnet/IP to BMS, modulating dampers for pressure control
@@ -336,7 +344,7 @@ Phased mechanical cooling strategy supporting 3 MW Phase 1 (air cooling only) ex
 
 **Equipment:**
 - **Type:** Precision CRAC or mini-split systems
-- **Capacity:** [ROM] 50 kW
+- **Capacity:** [ROM] 50 kW (171,000 BTU/hr)
 - **Redundancy:** N+1 (dual units)
 - **Supply temp:** 20-22°C (68-72°F) for operator comfort
 
@@ -346,8 +354,8 @@ Phased mechanical cooling strategy supporting 3 MW Phase 1 (air cooling only) ex
 
 **Equipment:**
 - **Type:** Integrated HVAC within PDM containers (factory-installed)
-- **Capacity:** [ROM] 50-75 kW per PDM
-- **Setpoint:** 25°C ±2°C (maintains UPS/switchboard optimal operating temp)
+- **Capacity:** [ROM] 50-75 kW (171,000-256,000 BTU/hr) per PDM
+- **Setpoint:** 25°C ±2°C (77°F ±4°F) (maintains UPS/switchboard optimal operating temp)
 
 ---
 
