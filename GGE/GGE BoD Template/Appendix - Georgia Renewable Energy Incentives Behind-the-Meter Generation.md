@@ -215,7 +215,7 @@ Georgia Renewable Energy Incentives redefines Georgia's energy framework to allo
 **Configuration:**
 - Retrofit 3-6 existing diesel generators for dual-fuel operation
 - Primary fuel: Natural gas (pipeline)
-- Backup fuel: Diesel (~2,000 gal belly tanks per generator + centralized bulk fuel storage)
+- Backup fuel: Diesel (~2,000 gal (7,571 L) belly tanks per generator + centralized bulk fuel storage)
 - Mode: Natural gas primary with diesel pilot injection
 
 **Advantages:**

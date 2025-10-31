@@ -629,7 +629,7 @@ After analyzing supply chain constraints, equipment costs, redundancy configurat
 
 ### Risk: Single Chiller Failure During Peak Load
 
-**Scenario:** One chiller fails during summer peak (>30°C ambient).
+**Scenario:** One chiller fails during summer peak (>30°C (86°F) ambient).
 
 **Mitigation:**
 - **N+1 redundancy:** Design accommodates single failure without IT impact

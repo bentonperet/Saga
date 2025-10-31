@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/eriks/Documents/Obsidian/Saga/GGE/GGE Design Review/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
