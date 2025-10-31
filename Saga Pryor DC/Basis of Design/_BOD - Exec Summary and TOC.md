@@ -76,21 +76,20 @@
 
 ### **FACILITY CONSTRUCTION**
 - **Structure:** Pre-cast concrete tilt-up construction (tornado-resistant)
-- **Total Building:** 50,000 GSF
+- **Total Building:** 50,000 GSF <!--I think this is wrong -->
 - **Configuration:** Two 10,000 SF data halls + 30,000 SF support spaces
 - **Roofing:** FM 1-150 tornado-rated (150 mph winds, Class 4 hail); storm-rated stainless steel debris screen; protected roof equipment
 - **Walls:** Tilt-up concrete panels (8-12" thick, reinforced for high wind loads)
 - **Floor:** Slab-on-grade (raised floor: Not Applicable), sealed concrete with optional epoxy
-- **Ceiling Height:** 28-30 ft clear in data halls
+- **Ceiling Height:** 30+ ft clear in data halls
 - **Containment:** Not Applicable (DDC cabinets provide integrated cooling)
 - **Storm Shelter/Safe Room:** FEMA 361 compliant prefabricated module (EF5 protection), 20 person capacity, located on Level 1 adjacent to elevator
 - **Security:** 
   - K-rated perimeter fence (8 ft height, 100 ft building standoff)
   - **Two property entrances:**
-    - **Main entrance (NE corner):** Sally port vehicle trap with permanent manned visitor center
-    - **Secondary entrance (NW side):** Emergency/construction access (normally unmanned, visible from loading dock SCB)
+    - **Main entrance (NE corner):** Sally port vehicle trap
+    - **Secondary entrance (NW side):** Emergency/construction access (visible from loading dock SCB)
   - Mantrap entry, full MFA (card + biometric), CCTV with 90-day retention
-- **Rationale for Tilt-Up:** Superior tornado resistance vs. PEMB, better thermal mass, lower insurance premiums
 
 ---
 
