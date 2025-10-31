@@ -17,7 +17,7 @@
 - **White Space:** 20,000 SF total all Phases (two 10,000 SF data halls); Phase 1 & 2 inside first 10,000 SF Data Hall (DH-E - East End of the Building)
 - **Power Density:** Phase 1: 300 W/SF; Phase 2: 1,200 W/SF; up to 1,200 W/SF in Data Hall W (DH-W)
 - **Cabinet Configuration:** Master Planned 30 × DDC S-Series cabinets (52U, 36" wide)
-- **Availability:** Tier III (2N IT power, N+1 mechanical, concurrent maintainability)
+- **Availability:** Tier III (N+1 IT UPS with MV dual-ring path redundancy, N+1 mechanical, concurrent maintainability)
 - **Target PUE:** 1.35 (Phase 1), 1.25 (Phase 2)
 - **Target WUE:** <0.5 L/kWh (air-cooled, zero water consumption)
 - **Site:** Pryor, Oklahoma (Tornado Alley - FM 1-150 protection)
@@ -28,7 +28,7 @@
 ### **ELECTRICAL SYSTEMS**
 - **Primary Utility Service:** Customer-owned 345 kV substation
   - **345 kV Transmission:** Direct connection to utility transmission system
-  - **Substation Transformers:** 2 × 25 MVA, 345kV/13.8kV (2N redundancy????)
+  - **Substation Transformers:** 2 × 25 MVA, 345kV/13.8kV (N+1 redundancy - either can carry full load)
 - **13.8 kV Common Bus:** Single voltage platform for utility, solar, BESS, generators, data center (US standard voltage)
 - **MV Distribution:** 13.8 kV dual-ring topology (Ring A + Ring B) via 6 RMUs
 - **Generators:** 6 × 4.0 MW @ 13.8 kV, diesel, Tier 4 Final (N+1)
@@ -37,8 +37,8 @@
 - **Transformers:** 8 × 3,500 kVA (13.8 kV/480V) oil-filled, N+1 with concurrent maintainability
   - Phase 1: 3 units; Phase 2: +5 units
 - **IT UPS:** N+1 modular architecture (path redundancy from self-healing MV dual-ring)
-  - Phase 1: 5-6 × 1,250 kVA modules (4-5 running, 1 standby)
-  - Phase 2: 13-15 × 1,250 kVA modules (12-13 running, 1-2 standby)
+  - Phase 1: ~5 × 1,250 kVA modules
+  - Phase 2: ~13 × 1,250 kVA modules (add ~8)
   - Battery: 5-minute runtime maximum (allows for MV generator sync to bus, even two attempts)
   - **Redundancy Philosophy:** 13.8 kV dual-ring provides path redundancy via self-healing SCADA switching; N+1 UPS provides component redundancy
 - **Mechanical UPS:** Phase 1: 8 × 250 kW; Phase 2: 20 × 250 kW (N+1 for pumps/fans)
@@ -167,7 +167,7 @@
 - Transformers (3 × 3,500 kVA, 13.8kV/480V): $0.5M
 - RMUs, MV switchgear, cable (including dual-ring SCADA controls): $1.4M
 - LV switchboards, distribution: $1.3M
-- IT UPS (5-6 × 1,250 kVA N+1 + batteries): $1.2M
+- IT UPS (~5 × 1,250 kVA N+1 + batteries): $1.2M
 - Mechanical UPS (8 × 250 kW): $0.8M
 - Portable UPS (non-critical areas): $0.05M
 - PDMs (2 units): $2.5M
@@ -177,7 +177,7 @@
 - Generators (3 × 4.0 MW): $4.5M
 - Transformers (5 × 3,500 kVA): $0.85M
 - MV/LV distribution expansion: $1.5M
-- IT UPS (8-9 × 1,250 kVA N+1 + batteries): $1.8M
+- IT UPS (~8 × 1,250 kVA N+1 + batteries): $1.8M
 - Mechanical UPS (12 × 250 kW): $1.2M
 - Chillers Loop 3 (8 × 1,500 kW): $6.0M
 - CDUs (60 units): $3.0M
@@ -205,7 +205,7 @@
 **Phase 1: Foundation Operations (3 MW)**
 - Data Hall 1 operational: 30 cabinets @ 100 kW each
 - Air cooling: Loops 1+2 (4 chillers, N+1)
-- Power: 3 generators, 3 transformers, 4 IT UPS, 8 mechanical UPS
+- Power: 3 generators, 3 transformers, ~5 IT UPS modules, 8 mechanical UPS
 - Data Hall 2: Built as powered shell
 - Timeline: [ROM] 18-24 months
 - Cost: [ROM] $34-41M
@@ -213,7 +213,7 @@
 **Phase 2: High-Density Expansion (12 MW)**
 - Same 30 cabinets: Upgrade to 400 kW (100 kW air + 300 kW D2C)
 - D2C cooling: Loop 3 (8 chillers, 60 CDUs, independent from air cooling)
-- Power: Add 3 generators, 5 transformers, 6 IT UPS, 12 mechanical UPS
+- Power: Add 3 generators, 5 transformers, ~8 IT UPS modules, 12 mechanical UPS
 - Zero-downtime implementation
 - Timeline: [ROM] 12-15 months
 - Cost: [ROM] $27-34M
@@ -340,7 +340,7 @@ See: [[Saga Pryor DC/Basis of Design/Erik_BOD_Updated/5BOD - HVAC (CSI Div 23)]]
   - Supply temp: 25°C; COP: 5.0-5.5 (higher efficiency than air cooling)
 - **Zero water strategy:** No evaporative cooling; closed-loop glycol only
 - **Building HVAC:** Rooftop units (RTUs) for offices, NOC, support spaces
-- **Containment:** Cold aisle containment with doors (48" cold aisles, 60" hot aisles)
+- **Containment:** Not Applicable (DDC cabinets provide integrated cooling)
 - **Controls:** BMS integration with DCIM; temperature/humidity monitoring; alarm escalation
 
 ---
@@ -370,7 +370,7 @@ See: [[Saga Pryor DC/Basis of Design/Erik_BOD_Updated/7BOD - Electrical (CSI Div
 - **MV distribution:** 13.8 kV self-healing dual-ring topology via 6 RMUs (Ring A + Ring B) with automated SCADA switching
 - **Generators:** 6 × 4.0 MW @ 13.8 kV diesel (N+1); Tier 4 Final emissions; ~2,000 gal belly tanks + central bulk fuel
 - **Transformers:** 8 × 3,500 kVA (13.8 kV/480V) oil-filled (N+1 with concurrent maintainability)
-- **IT UPS:** N+1 modular architecture; Phase 1: 5-6 × 1,250 kVA (4-5 running, 1 standby); Phase 2: 13-15 × 1,250 kVA (12-13 running, 1-2 standby)
+- **IT UPS:** N+1 modular architecture; Phase 1: ~5 × 1,250 kVA modules; Phase 2: ~13 × 1,250 kVA modules (add ~8)
 - **UPS batteries:** 5-minute runtime maximum; Lithium-ion preferred (longer life, smaller footprint)
 - **Mechanical UPS:** N+1 for pumps/fans; Phase 1: 8 × 250 kW; Phase 2: 20 × 250 kW
 - **LV distribution:** Dual switchboards (SWBD-A/B) fed from different MV ring segments
@@ -446,7 +446,7 @@ See: [[Saga Pryor DC/Basis of Design/Erik_BOD_Updated/3BOD - Site & Infrastructu
 | **Transformers (13.8kV/480V)** | 3 | +5 | 8 | 3,500 kVA |
 | **Utility Xfmrs (if 34.5kV)** | 2 | 0 | 2 | ~20 MVA (34.5kV/13.8kV) |
 | **RMUs** | 6 | 0 | 6 | 13.8 kV, 630A |
-| **IT UPS** | 5-6 | +8-9 | 13-15 | 1,250 kVA |
+| **IT UPS** | ~5 | ~8 | ~13 | 1,250 kVA |
 | **Mech UPS** | 8 | +12 | 20 | 250 kW |
 | **Chillers (Loops 1+2)** | 4 | 0 | 4 | 1,500 kW |
 | **Chillers (Loop 3)** | 0 | 8 | 8 | 1,500 kW |
