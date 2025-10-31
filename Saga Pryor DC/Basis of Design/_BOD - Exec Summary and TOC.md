@@ -152,11 +152,11 @@
 
 ### **COST SUMMARY**
 
-| Phase | IT Capacity | Electrical Cost | Total Project Cost* |
-|-------|-------------|-----------------|---------------------|
-| Phase 1 | 3 MW | $14.3M | $34-41M |
-| Phase 2 | +9 MW (12 MW total) | $22.3M | $27-34M |
-| **Total** | **12 MW** | **$36.6M** | **$61-75M** |
+| Phase     | IT Capacity         | Electrical Cost | Total Project Cost* |
+| --------- | ------------------- | --------------- | ------------------- |
+| Phase 1   | 3 MW                | $14.3M          | $34-41M             |
+| Phase 2   | +9 MW (12 MW total) | $22.3M          | $27-34M             |
+| **Total** | **12 MW**           | **$36.6M**      | **$61-75M**         |
 
 *Total project includes civil, architectural, site work, MEP systems
 
