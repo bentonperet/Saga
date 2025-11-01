@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Read(//c/Users/eriks/Documents/Obsidian/Saga/GGE/GGE Design Review/**)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(for file in ~/.claude/agents/data-center*.md ~/.claude/agents/bod-document*.md ~/.claude/agents/commissioning*.md)",
+      "Bash(done)"
     ],
     "deny": [],
     "ask": []
