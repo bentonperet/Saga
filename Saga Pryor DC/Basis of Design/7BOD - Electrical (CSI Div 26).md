@@ -11,10 +11,10 @@
 
 ## OVERVIEW
 
-Electrical systems provide Tier III-compliant power distribution with N+1 IT UPS architecture backed by self-healing 13.8 kV dual-ring MV distribution, N+1 generators and transformers, supporting 3 MW Phase 1 (expandable to 12 MW Phase 2). Customer-owned 345 kV substation with 13.8 kV distribution integrates utility, solar, BESS, and generators on common voltage infrastructure.
+Electrical systems provide Tier III-compliant power distribution with N+1 IT UPS architecture backed by self-healing 13.8 kV dual-ring MV distribution with 8 RMU's, N+1 generators and transformers, supporting 3 MW Phase 1 (expandable to 12 MW Phase 2). Customer-owned 345 kV substation with 13.8 kV distribution integrates utility, solar, BESS, and generators on common voltage infrastructure.
 
 **Design Philosophy:**
-- **Path redundancy:** 13.8 kV self-healing dual-ring MV distribution with automated SCADA switching
+- **Path redundancy:** 13.8 kV self-healing dual-ring MV distribution with RMU's and automated SCADA switching
 - **Component redundancy:** N+1 (IT UPS, generators, transformers, mechanical UPS)
 - **Concurrent maintainability:** Service any component without IT interruption
 - **345kV/13.8kV substation:** Customer-owned, integrates all power sources at 13.8 kV
