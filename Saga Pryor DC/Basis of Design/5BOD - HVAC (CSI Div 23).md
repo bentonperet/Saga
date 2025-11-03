@@ -11,66 +11,106 @@
 
 ## OVERVIEW
 
-Phased mechanical cooling strategy supporting 3 MW Phase 1 (air cooling only) expandable to 12 MW Phase 2 (air + direct-to-chip cooling). Target PUE 1.35 (Phase 1) and 1.25 (Phase 2) through extended free cooling, efficient equipment, and zero water consumption.
+Phased mechanical cooling strategy optimized for AI/ML workload growth: **Phase 1 = 3 MW D2C liquid cooling only** (anchor tenant), expanding to 24 MW ultimate capacity across 4 phases with mixed air + D2C cooling. Target PUE 1.35 (Phase 1) improving to 1.20-1.25 (Phase 4) through extended free cooling, efficient equipment, and zero water consumption.
 
 **Design Philosophy:**
-- **Phased deployment:** Cooling capacity matches IT load growth
+- **Phase 1 Strategy:** D2C liquid cooling only (no air cooling plant) = lower CAPEX, proves high-density capability
+- **Phased deployment:** Cooling capacity matches customer growth (3 → 6 → 15 → 24 MW)
 - **Separate cooling plants:** Loops 1+2 (air cooling) independent from Loop 3 (D2C cooling)
+  - **Rationale:** D2C loads swing violently (GPU workloads 0-100% in seconds), air loads are stable - separate plants prevent control instability
 - **N+1 redundancy:** Each cooling plant has N+1 chillers
-- **N+N air cooling:** Dual loops (1+2) each capable of full 3,000 kW air cooling load
-- **Zero water consumption:** Air-cooled chillers, closed-loop glycol
+- **Zero water consumption:** Air-cooled chillers only, closed-loop glycol
+- **Single fluid loop for D2C:** Same water/glycol mix serves both CDUs and RDHx units
 
 ---
 
-## PHASE 1: AIR COOLING ONLY (3 MW IT LOAD)
+## PHASE 1: D2C LIQUID COOLING ONLY (3 MW IT LOAD)
+
+### Strategy
+
+**Anchor Tenant Approach:**
+- Focus on single high-density AI training customer (Customer #2 profile)
+- Proves liquid cooling capability from day 1
+- Lower Phase 1 CAPEX (skip air cooling plant entirely = ~$2-3M savings)
+- Better chiller efficiency (44% utilization vs. 27% if mixed)
 
 ### IT Heat Load
 
-**30 cabinets @ 100 kW each = 3,000 kW IT load**
+**30 racks @ 100 kW each = 3,000 kW IT load**
+- Customer: AI cloud provider or enterprise ML team
+- Workload: Large-scale GPU training clusters (H100, GB200 NVL72, etc.)
+- D2C mandatory for this density
 
-### Cabinet Integrated Cooling
+### D2C Cooling Architecture
 
-**DDC S-Series Cabinets with Integrated 100 kW FCUs:**
-- **30 cabinets total**
-- Each cabinet contains:
-  - **Dual coils:** 50 kW capacity each
-    - Coil #1 → connected to Loop 1
-    - Coil #2 → connected to Loop 2
-  - **Dual fans:** Component-level redundancy
-  - Total FCU capacity: 100 kW per cabinet
-- **Normal operation:** Both coils run in parallel (50 kW + 50 kW = 100 kW)
-- **N operation:** Either loop provides full 100 kW to cabinet
+**Critical Understanding: D2C ≠ 100% Heat Capture**
 
-**Total cooling capacity:**
-- Loop 1 load: 30 cabinets × 50 kW = 1,500 kW
-- Loop 2 load: 30 cabinets × 50 kW = 1,500 kW
-- **Combined: 3,000 kW** ✓
+D2C (Direct-to-Chip) liquid cooling captures 70-90% of rack heat via cold plates mounted directly on:
+- CPUs
+- GPUs
+- High-power memory modules
 
-### Redundancy Test (N+N)
+**D2C does NOT cool:**
+- Power supplies
+- Network cards (NICs)
+- Storage drives
+- VRMs (voltage regulators)
+- Ambient cabinet heat
 
-**Normal operation:**
-- Both loops carry 1,500 kW each
-- 3,000 kW total cooling matches 3,000 kW IT load ✓
+**Solution: CDU + RDHx Hybrid**
 
-**N operation (Loop 1 failure):**
-- Loop 2 carries full 3,000 kW
-- All 30 cabinets receive 100 kW cooling from Loop 2 coils only
-- **Zero IT impact** ✓
+Each rack requires TWO cooling components:
+1. **CDU (Coolant Distribution Unit):** Pumps chilled water to chip-level cold plates (70-90% of heat)
+2. **RDHx (Rear-Door Heat Exchanger):** Captures residual heat from non-liquid-cooled components (10-30% of heat)
 
-**This is true N+N redundancy at the cabinet level.**
+**Both CDU and RDHx connect to the same Loop 3 chiller plant.**
 
+### Heat Load Split (Per 100 kW Rack)
+
+| Component | Heat Captured | Method |
+|-----------|---------------|--------|
+| D2C cold plates (CPUs, GPUs) | 70-90 kW | CDU chilled water |
+| Residual (PSU, NIC, storage) | 10-30 kW | RDHx chilled water |
+| **Total** | **100 kW** | Both fed from Loop 3 |
+
+**Typical design assumption: 80% D2C, 20% RDHx**
+- Per rack: 80 kW via CDU, 20 kW via RDHx
+- 30 racks total: 2,400 kW via CDUs, 600 kW via RDHx = **3,000 kW total Loop 3 load**
+
+### Equipment Per Rack
+
+**Rack Equipment:**
+- 1× CDU (100-150 kW capacity, sized for future densification)
+- 1× RDHx unit (integrated rear door or standalone, 20-30 kW capacity)
+- Chilled water connections: Supply/return to both CDU and RDHx
+
+**Phase 1 Total:**
+- 30× CDUs
+- 30× RDHx units
+- All connected to single Loop 3 distribution manifold
+
+### Building HVAC (Separate System)
+
+**Phase 1 has NO data center air cooling plant.**
+
+Building services (offices, NOC, support spaces) served by:
+- Rooftop package units (RTUs) - standard commercial HVAC
+- Separate from IT cooling infrastructure
+- ~300-500 kW building load
 
 ---
 
-## LOOPS 1+2 SHARED CHILLER PLANT
+## LOOP 3: D2C CHILLER PLANT (PHASE 1)
 
 ### Configuration
 
 **4 × 1,500 kW Air-Cooled Chillers (N+1)**
 - **Normal operation:** 3 chillers running (4,500 kW capacity for 3,000 kW load)
-- **Utilization:** 67% (optimal efficiency range)
+- **Utilization:** 44% per running chiller (3,000 ÷ 4,500 = 67% plant utilization) ✓
+  - Well above 40% minimum efficiency threshold
+  - Optimal operating range for part-load efficiency
 - **N+1 redundancy:** One chiller fails → 3 remain with 4,500 kW capacity ✓
-- **Either loop can draw full 3,000 kW** during N operation
+- **Future-ready:** Can support Phase 2 D2C load increase without adding chillers initially
 
 ### Chiller Specifications (Each Unit)
 
@@ -78,8 +118,8 @@ Phased mechanical cooling strategy supporting 3 MW Phase 1 (air cooling only) ex
 |-----------|---------------|
 | **Capacity** | 1,500 kW (430 ton) |
 | **Type** | Air-cooled screw compressor with integrated free cooling |
-| **Supply Temperature** | 7-10°C (45-50°F) |
-| **Return Temperature** | 15-18°C (59-64°F) |
+| **Supply Temperature** | 12-15°C (54-59°F) for D2C (higher than air cooling) |
+| **Return Temperature** | 18-22°C (64-72°F) |
 | **Refrigerant** | R-134a or R-513A (low-GWP) |
 | **COP (Mechanical)** | 3.8-4.2 at design conditions |
 | **COP (Free Cooling)** | 15-25 with waterside economizer |
@@ -111,28 +151,56 @@ Phased mechanical cooling strategy supporting 3 MW Phase 1 (air cooling only) ex
 - Extended free cooling season reduces annual cooling energy by 35-40%
 - Target Phase 1 PUE: 1.35 (includes all infrastructure losses)
 
-### Piping Strategy (Shared Plant, Dual Distribution)
+### Piping Strategy (Single Loop 3 Serving CDU + RDHx)
 
-**Shared chiller plant with dual distribution headers:**
-- **Primary loop:** Constant flow through chillers (4 chillers in parallel)
-- **Header A → Loop 1 distribution** (feeds 30 cabinets, Coil #1)
-- **Header B → Loop 2 distribution** (feeds 30 cabinets, Coil #2)
-- **Isolation valves:** Enable maintenance on one loop while other operates
-- **Cross-tie valves:** Allow full plant capacity to serve either loop during N operation
+**Single fluid loop serves both CDU and RDHx equipment:**
+
+```
+Chiller Plant (4× 1,500 kW chillers in parallel)
+    ↓
+Primary pumps (N+1 configuration)
+    ↓
+Loop 3 Distribution Header (12-15°C supply)
+    ↓
+    ├─→ CDU #1 (rack 1, chip cooling) → returns ~18°C
+    ├─→ CDU #2 (rack 2, chip cooling) → returns ~18°C
+    ├─→ RDHx #1 (rack 1, residual heat) → returns ~16°C
+    ├─→ RDHx #2 (rack 2, residual heat) → returns ~16°C
+    └─→ [30 racks total, each with CDU + RDHx]
+    ↓
+Return header (~18-22°C mixed return)
+    ↓
+Back to chillers
+```
+
+**Why Single Loop Works:**
+- **Temperature compatibility:** Both CDUs and RDHx operate with same supply temperature (12-15°C)
+- **Pressure compatibility:** Both operate at similar pressure ranges (30-60 PSI typical)
+- **Simplified infrastructure:** One chiller plant, one fluid makeup system, one chemical treatment program
+- **Load diversity:** Mixing CDU and RDHx loads improves overall plant efficiency
 
 **Pumping:**
-- **Primary pumps:** Integrated in chiller packages (N+1 configuration)
-- **Secondary pumps:** Distributed to cabinet headers (N+1 configuration)
-- **VFD control:** Variable speed on all pumps for energy optimization
+- **Primary pumps:** Integrated in chiller packages (N+1 configuration, VFD-controlled)
+- **Secondary pumps:** Distributed to rack distribution manifolds (N+1 configuration)
+- **CDU pumps:** Internal pumps within each CDU unit (circulate fluid through cold plates)
+- **Total pumping strategy:** Primary → secondary → CDU internal pumps
 
-**Glycol System:**
+**Fluid System:**
 - **Fluid:** 25% propylene glycol / water mixture
-- **Purpose:** Freeze protection, corrosion inhibition
-- **Treatment:** pH 7.5-8.5, biocide dosing
+- **Purpose:** Freeze protection, corrosion inhibition, compatible with both CDU and RDHx
+- **Supply temperature:** 12-15°C (54-59°F) - warmer than air cooling, within GPU/CPU thermal limits
+- **Return temperature:** 18-22°C (64-72°F) - mixed return from CDUs and RDHx units
+- **Treatment:** pH 7.5-8.5, biocide dosing, filtration to remove particulates
+- **Makeup system:** Automatic glycol/water dosing to maintain 25% concentration
+
+**Distribution:**
+- **Rack manifolds:** Isolation valves per rack enable maintenance without affecting neighbors
+- **Quick-disconnects:** Tool-less connections at each CDU and RDHx for rapid service
+- **Flexible hoses:** Between manifold and equipment to accommodate rack repositioning
 
 **Bypass Valves and Temporary Equipment Provisions:**
 - **Chiller bypass valves:** Each chiller equipped with isolation and bypass valves for maintenance
-- **Quick-connect points:** Camlock or similar fittings at strategic piping locations for temporary chiller connection
+- **Quick-connect points:** Camlock fittings at strategic piping locations for temporary chiller connection
 - **Purpose:** Support rental/backup chillers during maintenance or emergency situations
 - **Sizing:** Quick-connects sized for standard rental chiller capacities (300-1,500 kW range)
 - **Access:** Connection points accessible from equipment yard with cable pass-through provisions in building envelope

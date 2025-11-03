@@ -496,29 +496,161 @@ Protect critical mechanical loads (pumps, fans, CDUs) from brief utility interru
 
 ---
 
-## ELECTRICAL LOAD SUMMARY
+## ELECTRICAL PHASING STRATEGY
 
-### Phase 1
+### Overview: 4-Phase Buildout (3 / 6 / 15 / 24 MW)
 
-| Load | Power (kW) |
-|------|------------|
-| IT (through IT UPS) | 3,125 |
-| Mechanical (through Mech UPS) | 1,700 |
-| Building/Lighting | 399 |
-| **Design Load** | **5,800** |
+The electrical infrastructure is designed for phased deployment aligned with customer growth, starting with a high-density D2C anchor tenant and progressively adding customer diversity.
 
-**Generator Capacity (N+1):** 3 × 4.0 MW = 12 MW (2 running = 8 MW, 38% margin) ✓
+**Key Design Features:**
+- **Phase 1:** D2C liquid cooling only (no air cooling plant = lower CAPEX)
+- **Phase 2:** Add air cooling plant + customer diversity
+- **Phase 3:** Commission second data hall (DH-E)
+- **Phase 4:** Full 24 MW densification
+- **Interruptible Power:** Rough-in Phase 1, commission Phase 2 (third power path for Specialty Compute customers)
 
-### Phase 2
+---
 
-| Load | Power (kW) |
-|------|------------|
-| IT (through IT UPS) | 12,500 |
-| Mechanical (through Mech UPS) | 4,576 |
-| Building/Lighting | 399 |
-| **Design Load** | **18,200** |
+### Phase 1: D2C Anchor (3 MW IT Load)
 
-**Generator Capacity (N+1):** 6 × 4.0 MW = 24 MW (5 running = 20 MW, 10% margin) ✓
+**Strategy:** Prove high-density liquid cooling capability with AI training anchor tenant
+
+**Load Summary:**
+
+| Load | Power (kW) | Notes |
+|------|------------|-------|
+| IT (through IT UPS) | 3,000 | 30 racks @ 100 kW each (D2C) |
+| Mechanical (through Mech UPS) | 1,200 | D2C chillers, pumps (Loop 3 only) |
+| Building/Lighting | 300 | Offices, NOC, package HVAC units |
+| **Total Facility Load** | **~4,500** | |
+
+**Electrical Infrastructure:**
+- **Generators:** 3 × 4.0 MW @ 13.8 kV diesel (N+1)
+  - Running capacity: 2 × 4.0 MW = 8.0 MW
+  - Margin: 78% over 4.5 MW load ✓
+- **Transformers:** 3 × 3,500 kVA (13.8 kV/480V) (N+1)
+  - Running capacity: 2 × 3,500 kVA = 7.0 MVA
+  - Margin: 56% over 4.9 MVA load ✓
+- **IT UPS:** 5-6 × 1,250 kVA modules (N+1)
+- **Mechanical UPS:** 8 × 250 kW (N+1 for Loop 3 D2C pumps/fans)
+- **Interruptible Power:** Distribution panels roughed-in, not commissioned
+
+**Data Halls:** DH-W commissioned (30 racks), DH-E shell built
+
+---
+
+### Phase 2: Add Customer Diversity (6 MW IT Load)
+
+**Strategy:** Fill DH-W to capacity (140 racks) with mixed customer types
+
+**Load Summary:**
+
+| Load | Power (kW) | Notes |
+|------|------------|-------|
+| IT (through IT UPS) | 5,400 | 100 racks mixed density (30 D2C + 70 air/mixed) |
+| Mechanical (through Mech UPS) | 2,800 | Add air cooling (Loops 1+2), continue Loop 3 |
+| Building/Lighting | 300 | No change |
+| Interruptible (non-UPS) | ~600 | Specialty Compute (Customer #4) |
+| **Total Facility Load** | **~9,000** | |
+
+**Electrical Infrastructure Additions:**
+- **Generators:** Add 1-2 units (4-5 total)
+- **Transformers:** Add 2 units (5 total)
+- **IT UPS:** Add 3-4 modules (8-10 total)
+- **Mechanical UPS:** Add 4-6 units (12-14 total)
+- **Interruptible Power:** Commission third power path
+  - 1× transformer (13.8 kV → 480V, bypass UPS)
+  - Distribution panels for interruptible racks
+  - Automatic load-shedding capability
+
+**Data Halls:** DH-W at full 140-rack capacity, DH-E remains shell
+
+---
+
+### Phase 3: Second Data Hall (15 MW IT Load)
+
+**Strategy:** Commission DH-E, replicate successful customer mix
+
+**Load Summary:**
+
+| Load | Power (kW) | Notes |
+|------|------------|-------|
+| IT (through IT UPS) | 13,400 | 260 racks total (140 DH-W + 120 DH-E) |
+| Mechanical (through Mech UPS) | 6,500 | Scale both air and D2C cooling plants |
+| Building/Lighting | 400 | Slight increase for DH-E support |
+| Interruptible (non-UPS) | ~1,500 | Expand Specialty Compute |
+| **Total Facility Load** | **~22,000** | |
+
+**Electrical Infrastructure Additions:**
+- **Generators:** Add 1-2 units (5-6 total)
+- **Transformers:** Add 2-3 units (7-8 total)
+- **IT UPS:** Add 4-6 modules (12-16 total)
+- **Mechanical UPS:** Add 6-8 units (18-22 total)
+- **Interruptible Power:** Add 1× transformer (2 total for interruptible)
+
+**Data Halls:** Both DH-W (140 racks) and DH-E (120 racks) operational
+
+---
+
+### Phase 4: Full Densification (24 MW IT Load)
+
+**Strategy:** Maximize revenue per rack through power/cooling upgrades
+
+**Load Summary:**
+
+| Load | Power (kW) | Notes |
+|------|------------|-------|
+| IT (through IT UPS) | 23,000 | 280 racks at maximum density |
+| Mechanical (through Mech UPS) | 10,000 | Final cooling plant capacity |
+| Building/Lighting | 400 | No change |
+| Interruptible (non-UPS) | ~3,000 | Maximize interruptible capacity filler |
+| **Total Facility Load** | **~36,000** | |
+
+**Electrical Infrastructure Final Build:**
+- **Generators:** 6 × 4.0 MW @ 13.8 kV (N+1)
+  - Running capacity: 5 × 4.0 MW = 20 MW
+  - Supports 36 MW facility at N+1 with BESS/solar assist
+- **Transformers:** 8 × 3,500 kVA (13.8 kV/480V) (N+1)
+- **IT UPS:** 16-18 × 1,250 kVA modules (N+1)
+- **Mechanical UPS:** 24-28 × 250 kW (N+1)
+- **Interruptible Power:** 2-3× transformers (full third power path)
+
+**Data Halls:** Both halls at 140-rack maximum capacity (280 total)
+
+---
+
+### Phasing Summary Table
+
+| Phase | IT MW | Total Facility MW | Generators | Transformers | IT UPS Modules | Mech UPS Units | Interruptible TX |
+|-------|-------|-------------------|------------|--------------|----------------|----------------|------------------|
+| **1** | 3 | ~4.5 | 3 | 3 | 5-6 | 8 | Roughed-in |
+| **2** | 6 | ~9 | 4-5 | 5 | 8-10 | 12-14 | 1 (commissioned) |
+| **3** | 15 | ~22 | 5-6 | 7-8 | 12-16 | 18-22 | 2 |
+| **4** | 24 | ~36 | 6 | 8 | 16-18 | 24-28 | 2-3 |
+
+---
+
+### Three Power Paths (Unique Design Feature)
+
+**Path 1: Tier III Critical (IT UPS)**
+- Serves: AI Training, AI Inference, Industrial Enterprise customers
+- Route: 345 kV utility → 13.8 kV dual-ring → transformers → IT UPS → 480V distribution
+- Redundancy: N+1 UPS + dual-ring path redundancy
+
+**Path 2: House Power (Non-Critical)**
+- Serves: Building services (offices, HVAC, lighting, NOC)
+- Route: 345 kV utility → 13.8 kV → natural gas house generators backup
+- Redundancy: N+1 house generators
+
+**Path 3: Interruptible (Non-UPS) - NEW**
+- Serves: Specialty Compute customers (Customer #4 - crypto, rendering, batch jobs)
+- Route: 345 kV utility → 13.8 kV dual-ring → dedicated transformers → **direct 480V** (bypass UPS)
+- Features:
+  - Automatic load-shedding during grid emergencies
+  - 30-40% lower power pricing
+  - Can tolerate outages (no UPS ride-through needed)
+- Phase 1: Rough-in distribution panels and transformer pads
+- Phase 2: Commission when demand materializes
 
 ---
 

@@ -1,6 +1,7 @@
 **Created:** 2025-11-03
-**Tags:** #phasing #strategy #customer-profiles #capacity-planning
-**Status:** Active Discussion
+**Updated:** 2025-11-03
+**Tags:** #phasing #strategy #customer-profiles #capacity-planning #finalized
+**Status:** FINALIZED - Implemented in BOD Documents
 
 # Pryor DC Phasing Strategy - Discussion Context
 
@@ -365,5 +366,63 @@ Does the ~60 kW → ~130 kW → ~165 kW average density curve feel realistic?
 
 ---
 
-**Context saved:** 2025-11-03 15:00
-**Ready to continue:** Waiting for user decisions on open questions
+---
+
+## FINALIZATION - 2025-11-03
+
+### Decisions Made:
+1. **Number of phases:** 4 phases (3 / 6 / 15 / 24 MW)
+2. **Phase 1 strategy:** D2C liquid cooling ONLY (no air cooling plant)
+   - 30 racks @ 100 kW each
+   - Single AI training anchor tenant
+   - 4× 1,500 kW chillers (Loop 3 only)
+   - Building HVAC via package units (separate)
+   - Lower CAPEX (~$2-3M savings vs. mixed approach)
+   - Better chiller efficiency (44% utilization)
+3. **Chiller sizing:** 4× 1,500 kW chillers acceptable (right-sized for Phase 1, optimal efficiency)
+4. **Generator phasing:** Gradual additions (3 → 4-5 → 5-6 → 6 total)
+5. **DH-W shell timing:** Build both hall shells in Phase 1, commission DH-W only (Phases 1-2), DH-E in Phase 3
+6. **Interruptible power:** Rough-in Phase 1, commission Phase 2
+7. **D2C cooling architecture:** Single water/glycol loop serves both CDU + RDHx units
+
+### Key Insights:
+- **Google proximity value proposition** is the killer differentiator:
+  - 4 miles from us-central2
+  - Direct fiber interconnect eliminates $40K-$60K egress fees per training run
+  - 500 TB dataset transfer in 11 hours vs. 4.6 days
+  - 70% cost savings vs. running on native GCP compute
+- **D2C requires CDU + RDHx:** D2C cold plates capture 70-90% of heat, RDHx captures residual 10-30%
+- **Single fluid loop works:** Same 25% propylene glycol mix, 12-15°C supply, serves both CDU and RDHx
+- **Separate air and D2C plants:** D2C loads swing violently (GPU workloads), air loads stable - prevent control instability
+
+### BOD Documents Updated:
+✅ **Executive Summary** (`_BOD - Exec Summary and TOC.md`):
+- Facility Overview section updated with 4-phase buildout
+- Strategic location (Google proximity) highlighted
+- Phase-by-phase summary table added
+- Market Positioning section added with full value proposition
+
+✅ **Electrical BOD** (`7BOD - Electrical (CSI Div 26).md`):
+- Complete phasing strategy section added (Phases 1-4)
+- Equipment counts per phase (generators, transformers, UPS)
+- Three power paths documented (Critical UPS, House, Interruptible)
+- Phase-by-phase load summaries
+
+✅ **Mechanical BOD** (`5BOD - HVAC (CSI Div 23).md`):
+- Overview updated to reflect D2C-first strategy
+- Phase 1 section completely rewritten (D2C only, no air cooling)
+- CDU + RDHx architecture explained
+- Single Loop 3 piping strategy documented
+- Temperature requirements for D2C (12-15°C supply vs. 7-10°C for air)
+
+### Next Steps:
+1. ✅ Update equipment schedules with finalized phasing
+2. ⏳ Create SLD diagrams for Phases 2, 3, 4 (Phase 1 already exists)
+3. ⏳ Update cost estimates per phase
+4. ⏳ Complete Mechanical BOD Phase 2-4 sections (currently shows old 2-phase model)
+5. ⏳ Revise construction timeline
+
+---
+
+**Context finalized:** 2025-11-03 16:00
+**Status:** Phasing strategy implemented in BOD documents, ready for detailed equipment lists and cost estimates

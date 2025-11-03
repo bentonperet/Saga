@@ -13,15 +13,26 @@
 ## EXECUTIVE SUMMARY
 
 ### **FACILITY OVERVIEW**
-- **IT Capacity:** 3 MW Phase 1 (30 cabinets @ 100 kW); 12 MW Phase 2 (30 cabinets @ 400 kW);  [TBD] - Follow-on Phases up to 12 MW
-- **White Space:** 20,000 SF total all Phases (two 10,000 SF data halls); Phase 1 & 2 inside first 10,000 SF Data Hall (DH-E - East End of the Building)
-- **Power Density:** Phase 1: 300 W/SF; Phase 2: 1,200 W/SF; up to 1,200 W/SF in Data Hall W (DH-W)
-- **Cabinet Configuration:** Master Planned 30 × DDC S-Series cabinets (52U, 36" wide)
+- **IT Capacity:** 4-phase buildout to 24 MW ultimate capacity
+  - Phase 1: 3 MW (30 racks @ 100 kW, D2C anchor tenant)
+  - Phase 2: 6 MW (100 racks mixed density, add customer diversity)
+  - Phase 3: 15 MW (260 racks total, commission second data hall)
+  - Phase 4: 24 MW (280 racks, full densification)
+- **White Space:** 20,000 SF total (two 10,000 SF data halls: DH-W and DH-E)
+  - Phase 1-2: DH-W only (up to 140 racks capacity)
+  - Phase 3+: Both halls operational (280 racks total capacity)
+- **Power Density:** Scales from 300 W/SF (Phase 1) to 1,200 W/SF (Phase 4)
+- **Rack Capacity:** 140 racks per hall maximum (280 total facility)
 - **Availability:** Tier III (N+1 IT UPS with MV dual-ring path redundancy, N+1 mechanical, concurrent maintainability)
-- **Target PUE:** 1.35 (Phase 1), 1.25 (Phase 2)
-- **Target WUE:** <0.5 L/kWh (air-cooled, zero water consumption)
+- **Target PUE:** 1.35 (Phase 1), 1.20-1.25 (Phase 4, optimized at scale)
+- **Target WUE:** <0.5 L/kWh (air-cooled chillers, zero water consumption)
 - **Site:** Pryor, Oklahoma (Tornado Alley - FM 1-150 protection)
-- **Key Differentiator:** Customer-owned 345 kV substation with 13.8 kV distribution and true microgrid capability
+- **Strategic Location:** **4 miles from Google's us-central2 data center campus** - enables direct fiber interconnect for AI/ML hybrid cloud workloads
+- **Key Differentiators:**
+  - Google Cloud proximity (sub-millisecond latency, eliminate data egress costs)
+  - Customer-owned 345 kV substation with 13.8 kV distribution
+  - D2C liquid cooling ready from day 1
+  - True microgrid capability (utility + solar + BESS + generators)
 
 ---
 
@@ -55,21 +66,31 @@
 ---
 
 ### **MECHANICAL SYSTEMS**
-- **Cooling Strategy:** Phased deployment aligned with IT load growth
-- **Phase 1 (Air Cooling Only):**
-  - IT Load: 3,000 kW (30 cabinets @ 100 kW each)
-  - Cabinet FCUs: 100 kW capacity each (dual coils: 50 kW Loop 1 + 50 kW Loop 2)
-  - Chillers: 4 × 1,500 kW air-cooled (Loops 1+2 shared plant, N+1)
-  - Supply temp: 7-10°C; COP: 3.8-4.2 (mechanical), 15-25 (free cooling)
-- **Phase 2 (Air + D2C Cooling):**
-  - IT Load: 12,000 kW (30 cabinets @ 400 kW: 100 kW air + 300 kW D2C)
-  - Air cooling: Same 4 chillers (Loops 1+2, 3,000 kW load unchanged)
-  - D2C cooling: 8 × 1,500 kW air-cooled chillers (Loop 3 independent, N+1)
-  - CDUs: 60 × 300 kW units (2 per cabinet, A/B redundancy)
-  - Supply temp: 25°C; COP: 5.0-5.5 (higher efficiency than air cooling)
+- **Cooling Strategy:** Phased deployment optimized for AI/ML workload growth
+- **Phase 1 (D2C Liquid Cooling Only - 3 MW):**
+  - IT Load: 3,000 kW (30 racks @ 100 kW each, AI training anchor tenant)
+  - D2C Cooling: 4 × 1,500 kW air-cooled chillers (Loop 3, N+1 redundancy)
+  - CDUs: 30 units (1 per rack, 100+ kW capacity each)
+  - RDHx: 30 rear-door heat exchangers (captures residual heat not cooled by D2C)
+  - Fluid: 25% propylene glycol mix, 55°F supply, single loop serves both CDU + RDHx
+  - Load split: ~80% D2C (2,400 kW), ~20% RDHx (600 kW)
+  - Chiller utilization: 44% (optimal efficiency)
+  - Building HVAC: Separate package units for offices/support spaces
+- **Phase 2 (Add Air Cooling - 6 MW):**
+  - Add customer diversity: AI inference, enterprise, specialty compute
+  - Add air cooling plant: 4 × 1,500 kW chillers (Loops 1+2, N+1)
+  - D2C remains: Same 4 chillers (Loop 3)
+  - Total cooling: Two independent plants (air and D2C separated)
+  - Air cooling load: ~1,800 kW; D2C cooling load: ~3,000 kW
+- **Phase 3 (Second Data Hall - 15 MW):**
+  - Commission DH-E with mixed customer types
+  - Scale air cooling: 6× chillers total (Loops 1+2)
+  - Scale D2C cooling: 8× chillers total (Loop 3)
+- **Phase 4 (Full Build - 24 MW):**
+  - Final capacity: 6× chillers air (9 MW), 10× chillers D2C (15 MW)
 - **Free Cooling:** ~3,500-4,000 hours/year (Oklahoma climate)
-- **Zero Water Strategy:** No evaporative cooling, closed-loop glycol
-- **Building HVAC:** RTUs for offices, NOC, support spaces
+- **Zero Water Strategy:** No evaporative cooling, closed-loop glycol only
+- **Cooling Separation Rationale:** D2C loads swing violently (GPU workloads 0-100% in seconds), air loads are stable - separate plants prevent control instability
 - **Mechanical Code:** IMC 2021, ASHRAE 90.1-2019
 
 ---
@@ -201,21 +222,183 @@
 
 ### **PHASING STRATEGY**
 
-**Phase 1: Foundation Operations (3 MW)**
-- Data Hall 1 operational: 30 cabinets @ 100 kW each
-- Air cooling: Loops 1+2 (4 chillers, N+1)
-- Power: 3 generators, 3 transformers, ~5 IT UPS modules, 8 mechanical UPS
-- Data Hall 2: Built as powered shell
-- Timeline: [ROM] 18-24 months
-- Cost: [ROM] $34-41M
+#### **Overview: Customer-Driven 4-Phase Buildout**
 
-**Phase 2: High-Density Expansion (12 MW)**
-- Same 30 cabinets: Upgrade to 400 kW (100 kW air + 300 kW D2C)
-- D2C cooling: Loop 3 (8 chillers, 60 CDUs, independent from air cooling)
-- Power: Add 3 generators, 5 transformers, ~8 IT UPS modules, 12 mechanical UPS
-- Zero-downtime implementation
-- Timeline: [ROM] 12-15 months
-- Cost: [ROM] $27-34M
+The phasing strategy is optimized for **AI/ML workload growth**, starting with a dense D2C anchor tenant and progressively adding customer diversity to de-risk operations while maximizing revenue per rack.
+
+**Target Customer Mix:**
+1. **AI Training** (70-130 kW/rack, D2C mandatory) - Phase 1 anchor
+2. **AI Inference** (30-60 kW/rack, flexible air or D2C) - Phase 2+ growth
+3. **Industrial Enterprise** (8-25 kW/rack, air cooling) - Phase 2+ diversification
+4. **Specialty Compute** (30-80 kW/rack, interruptible power) - Phase 2+ capacity filler
+
+---
+
+**Phase 1: D2C Anchor (3 MW IT Load)**
+- **Strategy:** Prove high-density D2C capability with single anchor tenant (AI training cluster)
+- **Racks:** 30 racks @ 100 kW each (D2C liquid cooling)
+- **Customer:** AI cloud provider or enterprise ML team (Customer #2 profile)
+- **Data Halls:** DH-W commissioned, DH-E shell built (not commissioned)
+- **Cooling:** 4 × 1,500 kW chillers (Loop 3 D2C only), building HVAC via package units
+- **Equipment:** 30× CDUs, 30× RDHx units (single water/glycol loop)
+- **Power:** 3× generators, 3× transformers, IT UPS (size TBD), 8× mechanical UPS, interruptible power roughed-in
+- **Chiller efficiency:** 44% utilization (optimal range)
+- **Timeline:** [ROM] 18-24 months
+- **Cost:** [ROM] Lower than previous Phase 1 estimate (no air cooling plant = ~$2-3M savings)
+
+---
+
+**Phase 2: Add Customer Diversity (6 MW IT Load)**
+- **Strategy:** Fill DH-W to capacity (140 racks) with mixed customer types
+- **Racks Added:** +70 racks (100 total in DH-W)
+  - 40 racks AI Inference @ 45 kW avg (1.8 MW)
+  - 25 racks Industrial Enterprise @ 15 kW avg (0.4 MW)
+  - 5 racks Specialty Compute @ 50 kW avg (0.25 MW)
+  - Existing: 30 racks AI Training @ 100 kW (3.0 MW)
+- **Data Halls:** DH-W at full 140-rack capacity, DH-E remains shell
+- **Cooling:** ADD 4 × 1,500 kW chillers (Loops 1+2 for air cooling) - now two independent chiller plants
+- **Power:** Add 1-2× generators, 2× transformers, additional IT UPS modules, commission interruptible power
+- **Timeline:** [ROM] 12-18 months after Phase 1
+- **Cost:** [ROM] TBD (includes air cooling plant addition)
+
+---
+
+**Phase 3: Second Data Hall (15 MW IT Load)**
+- **Strategy:** Commission DH-E, replicate successful customer mix from DH-W
+- **Racks Added:** +160 racks (260 total facility)
+  - DH-W: 140 racks (no change from Phase 2)
+  - DH-E: 120 racks mixed customer types
+- **Data Halls:** Both DH-W and DH-E operational
+- **Cooling:** Scale both plants - 6× chillers air (Loops 1+2), 8× chillers D2C (Loop 3)
+- **Power:** Add 2× generators (5 total), 3× transformers (7-8 total), scale UPS systems
+- **Timeline:** [ROM] 12-24 months after Phase 2
+- **Cost:** [ROM] TBD
+
+---
+
+**Phase 4: Full Densification (24 MW IT Load)**
+- **Strategy:** Maximize revenue per rack through densification + fill remaining capacity
+- **Racks:** 280 total (both halls at 140-rack maximum)
+- **Approach:** Densify existing racks (upgrade power/cooling per rack) rather than just adding racks
+  - DH-W: 140 racks @ 71 kW avg = 10 MW
+  - DH-E: 140 racks @ 93 kW avg = 13 MW
+- **Data Halls:** Both halls at maximum capacity
+- **Cooling:** Final build - 6× chillers air, 10× chillers D2C
+- **Power:** Final build - 6× generators, 8× transformers, full UPS deployment
+- **Timeline:** [ROM] 12-18 months after Phase 3
+- **Cost:** [ROM] TBD
+
+---
+
+**Phasing Summary Table:**
+
+| Phase | IT MW | Total Racks | Active Halls | Primary Customer Type(s) | Key Infrastructure |
+|-------|-------|-------------|--------------|-------------------------|-------------------|
+| **1** | 3 | 30 | DH-W only | AI Training (anchor) | D2C cooling only, 4× chillers Loop 3 |
+| **2** | 6 | 100 | DH-W only | Mix: AI Training + Inference + Enterprise + Specialty | ADD air cooling, 4× chillers Loops 1+2 |
+| **3** | 15 | 260 | DH-W + DH-E | Replicate mix in both halls | Scale both plants, commission DH-E |
+| **4** | 24 | 280 | DH-W + DH-E | Densify all customer types | Final capacity, 16 total chillers |
+
+---
+
+### **MARKET POSITIONING: GOOGLE CLOUD PROXIMITY VALUE PROPOSITION**
+
+#### **Strategic Location Advantage**
+
+The Pryor DC is located **4 miles from Google's us-central2 data center campus** in Pryor, Oklahoma. This proximity enables a **direct fiber interconnect** (Google Cloud Interconnect / Partner Interconnect) that fundamentally changes the economics and performance of AI/ML workloads.
+
+---
+
+#### **Why This Matters for AI Training Workloads (Phase 1 Anchor Target)**
+
+**Customer Profile:** AI cloud providers (CoreWeave, Lambda Labs style) or enterprise ML teams running large-scale GPU training clusters
+
+**The Problem They Face:**
+- **Data Egress Costs:** Moving 500 TB of training data from Google Cloud over public internet = **$40,000-$60,000** in egress fees (@$0.08-$0.12/GB)
+- **Transfer Time:** 500 TB over 10 Gbps internet = **4.6 days** of waiting before training can start
+- **GCP Compute Costs:** Running H100 GPUs on Google Cloud = **~$500K per large model training job**
+
+**The Pryor DC Solution:**
+- **Direct Fiber Interconnect** (100 Gbps private link to Google, <1ms latency)
+- **Egress Cost Reduction:** $40K-$60K → $5K-$10K per training run (5-10× savings via interconnect pricing @$0.01-$0.02/GB)
+- **Transfer Speed:** 500 TB in **11 hours** instead of 4.6 days (10× faster)
+- **Compute Cost Reduction:** Customer-owned GPUs at Pryor DC colocation rates = ~$150K per training job vs. $500K on GCP (70% savings)
+
+**Hybrid Cloud Architecture:**
+```
+Customer's GCP Environment (us-central2, Pryor)
+├─ Production databases, applications, SaaS platform
+├─ Training datasets (500 TB in Cloud Storage)
+├─ Versioned models (Cloud Storage)
+└─ Real-time serving infrastructure
+        ↕
+  100 Gbps Direct Fiber (<1ms latency)
+        ↕
+Pryor DC Training Cluster (Phase 1: 30 racks, 240 GPUs)
+├─ Pull training data from GCP via interconnect
+├─ Train models for 48-72 hours
+├─ Push completed model back to GCP
+└─ Customer deploys from GCP (never leaves Google ecosystem)
+```
+
+**Customer Value Proposition:**
+*"Keep your data in Google Cloud where it's safe and accessible. When you need massive GPU power, pull it over our high-speed link to our specialized AI infrastructure 4 miles away. Train at 1/3 the cost. Push the trained model back. Your customers never know it left Google's network."*
+
+**Economics That Close the Deal:**
+- Training 1 large language model on GCP: ~$500K
+- Same training at Pryor DC (customer-owned GPUs, colo rates): ~$150K
+- **Savings per model:** $350K (70% cost reduction)
+- Interconnect cost: ~$5K/month (100 Gbps port)
+- **ROI:** Interconnect pays for itself in less than 1 week of training
+
+---
+
+#### **Why This Matters for AI Inference Workloads (Phase 2+ Growth)**
+
+**Customer Profile:** SaaS companies running real-time AI inference on Google Cloud
+
+**The Value:**
+- **Ultra-low latency:** Sub-millisecond to GCP us-central2 (real-time user requests)
+- **Cost arbitrage:** Inference compute at Pryor DC 40-60% cheaper than GCP native instances
+- **Data locality:** Keep databases/applications in GCP, run inference 4 miles away
+- **No egress fees:** Inference queries/responses via interconnect (minimal data transfer costs)
+
+**Example Use Case:**
+- Customer has 100 TB product catalog in Google Cloud Storage
+- Real-time recommendation engine runs at Pryor DC
+- User request → GCP API → Pryor DC inference → GCP → user response (<5ms total)
+
+---
+
+#### **Competitive Positioning**
+
+**vs. Coastal Markets (Ashburn, Santa Clara):**
+- ✅ **40-50% lower power costs** (Oklahoma electricity rates)
+- ✅ **Available capacity** (coastal markets constrained)
+- ❌ Not next to AWS/Azure (but Google adjacency is unique in region)
+
+**vs. Other Midwest Markets (Kansas City, Dallas):**
+- ✅ **Google proximity** (nobody else has direct GCP adjacency in the region)
+- ✅ **Direct interconnect economics** (eliminate egress fees)
+- ≈ **Similar power costs** and labor markets
+
+**vs. Google Cloud Native Compute:**
+- ✅ **60-70% lower $/GPU-hour** (customer-owned hardware + colo rates)
+- ✅ **Customer controls refresh cycle** (not locked to GCP's hardware)
+- ✅ **No egress fees for intra-region data movement**
+- ❌ Not fully managed (customer manages infrastructure)
+
+---
+
+#### **Phase 1 Target Customer: AI Cloud Provider**
+
+**Ideal Profile:**
+- Already has GCP customers wanting cheaper GPU access
+- Needs 30 racks (240 GPUs) to start, plans to scale to 100+ racks
+- Values: GCP proximity + cheap power + liquid cooling ready
+
+**The Pitch:**
+*"Your customers keep their data in Google Cloud (us-central2). You run training jobs 4 miles away at 1/3 the cost. Direct fiber interconnect means 500 TB datasets transfer in hours, not days. Save $50K per training run on egress fees alone. Your customers never leave the Google ecosystem—you just give them access to cheaper, denser GPUs with liquid cooling from day 1."*
 
 ---
 
@@ -467,20 +650,7 @@ See: [[Saga Pryor DC/Basis of Design/Erik_BOD_Updated/3BOD - Site & Infrastructu
 - **13.8 kV or 12.47 kV:** Direct connection to 13.8 kV generators and MV distribution (no step-down required)
 - **34.5 kV:** Requires two 34.5kV/13.8kV step-down transformers (~20 MVA each, N-1 redundancy)
   - Cost adder: ~$1.0-1.5M
-  - Benefits: Often lower utility rates, better stability on high-voltage transmission
-
-### **Why 13.8 kV Generators (Not 480V)**
-- Standard product availability (3-5 MW range)
-- Cable sizing: 13.8 kV reduces current by 29×
-  - 4 MW @ 480V = 8,333 A (requires 6 × 500 kcmil/phase)
-  - 4 MW @ 13.8 kV = 290 A (requires 1 × 2/0/phase)
-- Easier paralleling and lower I²R losses
-
-### **Why Separate Loop 3 (D2C Cooling)**
-- **Air cooling (Loops 1+2):** Predictable, stable loads (±10% variation)
-- **D2C cooling (Loop 3):** Violent load swings (0-100% in seconds)
-- **Problems if mixed:** Control hunting, reduced efficiency, accelerated wear
-- **Benefits of separation:** Optimized controls, clear contractor boundaries, independent maintenance, fault isolation
+  - Benefits: Often lower utility rates, better stability on high-voltage transmission 
 
 ### **Why N+1 IT UPS with MV Dual-Ring (Not Traditional 2N UPS)**
 - **Path redundancy** provided by 13.8 kV self-healing dual-ring MV distribution
