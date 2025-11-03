@@ -89,14 +89,14 @@
 - Unit Number: `###` (3-digit sequential)
 
 **Key Equipment Type Codes:**
-- Generators: `GEN` (e.g., `TUL-01-F1-EYS-GEN-001`)
-- Transformers: `XFMR` (e.g., `TUL-01-F1-EYS-XFMR-001`)
-- UPS Modules: `UPS-IT`, `UPS-MC`
-- Chillers: `CHLR` (e.g., `TUL-01-F1-EYN-CHLR-L1-001`)
+- Generators: `GEN`
+- Transformers: `XFMR`
+- UPS Modules: `UPS`
+- Chillers: `CHLR`
 - Pumps: `PUMP`
 - CDUs: `CDU`
 - Switchboards: `SWBD`
-- Racks/Cabinets: Format `TUL-01-F1-DH1-R001` (R001 through R030)
+- Racks/Cabinets: `R###`
 
 ### Path and Loop Designation
 

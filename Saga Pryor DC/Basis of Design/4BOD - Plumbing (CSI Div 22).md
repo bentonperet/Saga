@@ -137,21 +137,22 @@ Plumbing systems provide domestic water service, fire protection water supply, s
 ### Glycol System Fill (Closed-Loop)
 
 **System Volumes:**
-- **Loops 1+2 (Phase 1):** ~5,000 gallons (30% glycol = 1,500 gal glycol + 3,500 gal water)
-- **Loop 3 (Phase 2):** ~15,000 gallons (30% glycol = 4,500 gal glycol + 10,500 gal water)
-- **Total (Phase 2):** ~20,000 gallons (6,000 gal glycol + 14,000 gal water)
+- **Loops 1+2 (Phase 1):** ~5,000 gallons total (includes glycol mixture)
+- **Loop 3 (Phase 2):** ~15,000 gallons total (includes glycol mixture)
+- **Total (Phase 2):** ~20,000 gallons total
+- **Glycol concentration:** 25-30% for freeze protection
 
 **Initial Fill Procedure:**
 - Deionized or softened water only (no raw municipal water)
-- Pre-mix glycol to 30% concentration in fill tanks
+- Pre-mix glycol per design concentration
 - Pump into system via fill stations (one per loop)
 - Purge air via high-point vents, circulation
-- Test concentration via refractometer (target: -15°F freeze point)
+- Test concentration with refractometer
 
 ### Makeup Water System
 
 **Equipment:**
-- 3 × 500-gallon glycol mix tanks (one per loop)
+- Glycol mix tanks (sized per system volumes, one per loop)
 - Circulation pumps for mixing
 - Fill connections at each chiller plant
 - Totalizing flow meters (track makeup volume)
@@ -176,15 +177,15 @@ Plumbing systems provide domestic water service, fire protection water supply, s
 
 **Chemical Dosing:**
 - Manual dosing via chemical dosing pots (CDPs)
-- 2 × 8-liter CDPs per loop
-- Replenish every 6-12 months based on testing
+- Sized per loop volume and chemical treatment program
+- Replenish per testing schedule
 
 ### Filtration
 
 **Side-Stream Filtration:**
-- 2 × dirt and air separators (DAS) per loop
+- Dirt and air separators (DAS) per loop
 - Removes particulates, deaerates fluid
-- 5-micron cartridge filters (replaceable)
+- Replaceable cartridge filters
 
 ---
 

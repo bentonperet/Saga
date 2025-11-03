@@ -454,19 +454,19 @@
 
 ## EQUIPMENT SUMMARY
 
-| Equipment | Phase 1 | Phase 2 Add | Total | Unit Size |
-|-----------|---------|-------------|-------|-----------|
-| **Generators** | 3 | +3 | 6 | 4.0 MW @ 13.8 kV |
-| **Transformers (13.8kV/480V)** | 3 | +5 | 8 | 3,500 kVA |
-| **Utility Xfmrs (if 34.5kV)** | 2 | 0 | 2 | ~20 MVA (34.5kV/13.8kV) |
-| **RMUs** | 6 | 0 | 6 | 13.8 kV, 630A |
-| **IT UPS** | 5-6 | +8-9 | 13-15 | 1,250 kVA |
-| **Mech UPS** | 8 | +12 | 20 | 250 kW |
-| **Chillers (Loops 1+2)** | 4 | 0 | 4 | 1,500 kW |
-| **Chillers (Loop 3)** | 0 | 8 | 8 | 1,500 kW |
-| **CDUs** | 0 | 60 | 60 | 300 kW each |
-| **Cabinets** | 30 | 0 | 30 | DDC S-Series |
-| **PDUs** | 60 | upgrade | 60 | 50 kW → 200 kW |
+| Equipment                      | Phase 1 | Phase 2 Add | Total | Unit Size               |
+| ------------------------------ | ------- | ----------- | ----- | ----------------------- |
+| **Generators**                 | 3       | +3          | 6     | 4.0 MW @ 13.8 kV        |
+| **Transformers (13.8kV/480V)** | 3       | +5          | 8     | 3,500 kVA               |
+| **Utility Xfmrs (if 34.5kV)**  | 2       | 0           | 2     | ~20 MVA (34.5kV/13.8kV) |
+| **RMUs**                       | 6       | 0           | 6     | 13.8 kV, 630A           |
+| **IT UPS**                     | 5-6     | +8-9        | 13-15 | 1,250 kVA               |
+| **Mech UPS**                   | 8       | +12         | 20    | 250 kW                  |
+| **Chillers (Loops 1+2)**       | 4       | 0           | 4     | 1,500 kW                |
+| **Chillers (Loop 3)**          | 0       | 8           | 8     | 1,500 kW                |
+| **CDUs**                       | 0       | 60          | 60    | 300 kW each             |
+| **Cabinets**                   | 30      | 0           | 30    | DDC S-Series            |
+| **PDUs**                       | 60      | upgrade     | 60    | 50 kW → 200 kW          |
 
 ---
 

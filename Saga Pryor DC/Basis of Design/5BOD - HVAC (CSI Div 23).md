@@ -82,9 +82,8 @@ Phased mechanical cooling strategy supporting 3 MW Phase 1 (air cooling only) ex
 | **Return Temperature** | 15-18°C (59-64°F) |
 | **Refrigerant** | R-134a or R-513A (low-GWP) |
 | **COP (Mechanical)** | 3.8-4.2 at design conditions |
-| **COP (Free Cooling)** | 15-25 when ambient < 10°C |
-| **Power Consumption** | ~395 kW at full mechanical cooling load |
-| **Integrated Pumps** | VFD-controlled, 30 HP (22 kW) each |
+| **COP (Free Cooling)** | 15-25 with waterside economizer |
+| **Integrated Pumps** | VFD-controlled |
 | **Free Cooling Mode** | Waterside economizer, active below 10°C ambient |
 | **Controls** | BACnet/IP integration with facility BMS |
 | **Enclosure** | Outdoor-rated, sound-attenuated |
@@ -95,18 +94,17 @@ Phased mechanical cooling strategy supporting 3 MW Phase 1 (air cooling only) ex
 
 **Mode 1: Full Free Cooling (Ambient < 10°C)**
 - Compressors off, heat rejected via air-cooled coils only
-- COP: 15-25 (vs. 3.8-4.2 mechanical)
-- Power: ~30 kW (pumps + fans only, no compressor load)
-- **Season:** Late October through April (~215 days/year)
+- Significantly improved COP vs. mechanical cooling
+- **Season:** Late October through April (extended free cooling season)
 
 **Mode 2: Partial Free Cooling (Ambient 10-15°C)**
 - Compressors run at reduced capacity (part-load)
-- COP: 6-10 (blended)
+- Blended efficiency mode
 - **Season:** Spring/fall transition periods
 
 **Mode 3: Full Mechanical Cooling (Ambient > 15°C)**
 - Compressors run at full capacity
-- COP: 3.8-4.2
+- Standard mechanical cooling efficiency
 - **Season:** May through September (peak summer)
 
 **Annual PUE Impact:**
@@ -123,8 +121,8 @@ Phased mechanical cooling strategy supporting 3 MW Phase 1 (air cooling only) ex
 - **Cross-tie valves:** Allow full plant capacity to serve either loop during N operation
 
 **Pumping:**
-- **Primary pumps:** 4 × 22 kW (integrated in chiller packages, 3 running + 1 standby)
-- **Secondary pumps:** 4 × 22 kW (distributed to cabinet headers, 3 running + 1 standby)
+- **Primary pumps:** Integrated in chiller packages (N+1 configuration)
+- **Secondary pumps:** Distributed to cabinet headers (N+1 configuration)
 - **VFD control:** Variable speed on all pumps for energy optimization
 
 **Glycol System:**
@@ -204,8 +202,8 @@ Phased mechanical cooling strategy supporting 3 MW Phase 1 (air cooling only) ex
 - **Power consumption:** ~273 kW at full load (vs. 395 kW for colder air cooling)
 
 **Why warmer supply temp:**
-- D2C cold plates can accept 25-30°C coolant (GPUs tolerate higher temps than air-cooled servers)
-- Higher chiller leaving water temp = higher COP = lower energy consumption
+- D2C cold plates can accept warmer coolant (GPUs tolerate higher temps than air-cooled servers)
+- Higher chiller leaving water temp enables improved efficiency
 - **Phase 2 PUE improvement:** Loop 3 efficiency gain contributes to target PUE 1.25
 
 ---
@@ -230,11 +228,8 @@ Phased mechanical cooling strategy supporting 3 MW Phase 1 (air cooling only) ex
 | Parameter | Specification |
 |-----------|---------------|
 | **Capacity** | 300 kW heat rejection |
-| **Primary Side** | Chilled water from Loop 3 (25°C supply, 30-35°C return) |
-| **Secondary Side** | Dielectric fluid to cold plates (30-40°C) |
-| **Flow Rate** | [ROM] 60-80 GPM |
-| **Pressure Drop** | [ROM] 15-25 psi |
-| **Power** | 15 kW (pumps + controls + monitoring) |
+| **Primary Side** | Chilled water from Loop 3 (supply/return per design) |
+| **Secondary Side** | Dielectric fluid to cold plates |
 | **Redundancy** | Dual CDUs per cabinet (A-side + B-side) |
 | **Controls** | Modbus TCP, BACnet integration |
 | **Leak Detection** | Integrated sensors at all connections |
@@ -368,19 +363,14 @@ Phased mechanical cooling strategy supporting 3 MW Phase 1 (air cooling only) ex
 
 **Phase 1 Target: 1.35 (Air Cooling)**
 - IT load: 3,000 kW
-- Cooling: ~650 kW (chillers + pumps + fans)
-- Power distribution losses: ~200 kW (transformers, UPS, cable)
-- Building/lighting: ~200 kW
-- Total facility: 4,050 kW
-- PUE = 4,050 / 3,000 = **1.35** ✓
+- Infrastructure loads: cooling, power distribution losses, building/lighting
+- Target PUE: 1.35
 
 **Phase 2 Target: 1.25 (Air + D2C Cooling)**
 - IT load: 12,000 kW
-- Cooling: ~2,200 kW (all loops, improved efficiency from Loop 3)
-- Power distribution losses: ~800 kW
-- Building/lighting: ~200 kW
-- Total facility: 15,200 kW
-- PUE = 15,200 / 12,000 = **1.27** (target 1.25) ✓
+- Infrastructure loads: all cooling loops, power distribution, building systems
+- Target PUE: 1.25
+- Improved efficiency from Loop 3 warmer supply temperature and free cooling
 
 ### WUE (Water Usage Effectiveness)
 

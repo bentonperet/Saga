@@ -35,11 +35,10 @@
 ## DIVISION 03 – CONCRETE
 
 ### Foundation System
-- **Type:** Spread footings on native soil (pending geotech)
-- **Depth:** Below frost line (Oklahoma: ~18-24")
-- **Bearing:** [TBD per geotech report, assume 3,000 psf min]
-- **Slab-on-grade:** 6-8" reinforced concrete, 4,000 psi, WWF or fiber mesh
-- **Subbase:** 6" aggregate; vapor barrier per ASHRAE 62.1
+- **Type:** Spread footings below frost line (18-24")
+- **Bearing:** [TBD per geotech report]
+- **Data hall slab:** 6-8" reinforced concrete, 4,000 PSI, FF 50 / FL 40 flatness, densifier/sealer finish
+- **AI rack floor load:** 750 PSF sustained (supports 3,500 lb racks like NVIDIA GB200 NVL72)
 
 ### Under-Building Electrical Duct Banks
 
@@ -56,13 +55,8 @@
   - Future expansion capability to full 24 MW master plan
 
 **Design Specifications:**
-- **Duct bank construction:** PVC-coated steel or HDPE conduit encased in concrete
-- **Conduit sizing:** [TBD based on 13.8 kV or 480V distribution voltage and cable type]
-  - Typical: 4-6" conduits for MV feeders (13.8 kV)
-  - Multiple conduits per duct bank for redundancy and capacity
-- **Concrete encasement:** 6" minimum on all sides per NEC 300.5 and 300.50
-- **Burial depth:** Minimum 30" below finished grade; coordinate with foundation depth
-- **Spacing:** Adequate separation between duct banks for thermal management and maintenance access
+- **Duct bank construction:** PVC-coated steel or HDPE conduit encased in concrete per NEC 300.5 and 300.50
+- **Conduit sizing:** Multiple conduits per duct bank for redundancy and capacity
 - **Pull boxes:** Located at strategic points for cable installation and maintenance
 - **Entry risers:** Sealed penetrations through foundation with fire-stop and waterproofing
 
@@ -79,24 +73,6 @@
 - **Reliability:** Multiple duct banks provide redundancy and diverse pathways
 
 **Cost:** ~$300-500K (duct banks, concrete encasement, excavation, coordination)
-
-### Data Hall Slab
-- **Flatness:** FF 50 / FL 40 minimum (forklift traffic, server racks)
-- **Finish:** Power-troweled, densifier/sealer (dust-proof, cleanable)
-- **Color:** Light gray or epoxy coating (optional for reflectivity)
-- **Joints:** Saw-cut control joints @15 ft o.c.; sealed
-
-### AI Rack Floor Load Design Criteria
-- **Live Load:** 750 PSF sustained (accommodates AI/HPC racks up to 3,500 lbs)
-- **Slab Thickness:** 8-10" reinforced concrete (final thickness per geotechnical report)
-- **Concrete Strength:** 4,000 PSI minimum
-- **Reinforcement:** #4 rebar @ 12" o.c. each way, OR welded wire fabric (WWF) 6×6 W2.9×W2.9
-- **Subbase:** 6" compacted aggregate base, 95% compaction (ASTM D698)
-- **Flatness:** FF 50 / FL 40 (laser-level tolerance for rack alignment)
-- **Joints:** Saw-cut control joints @ 15 ft o.c., sealed with polyurethane sealant
-- **Finish:** Power-troweled, densifier/sealer (dust-proof, cleanable)
-- **Load Cases:** Supports 3,500 lb racks like NVIDIA GB200 NVL72, forklift wheel loads up to 8,000 lbs
-- **Future-proof:** Designed for AI/HPC rack configurations expected through 2030+
 
 ### Equipment Pad Foundations
 - **Chillers, generators:** Individual isolated pads; vibration isolation if required
@@ -158,10 +134,10 @@ Minimal scope (office millwork, shelving)
 - **Fire:** Class A roof assembly (non-combustible)
 
 **Roof Assembly:**
-- **Deck:** 22-gauge steel roof deck, welded to joists
-- **Insulation:** Polyisocyanurate (polyiso), R-30 min, mechanically fastened + adhered
-- **Membrane:** TPO or EPDM, fully adhered (not mechanically fastened), min 80 mil
-- **Attachment:** Enhanced deck attachment per FM 1-150 standard
+- **Structural deck:** Steel roof deck (substrate for roofing assembly)
+- **Insulation:** Polyisocyanurate or equivalent, mechanically fastened + adhered
+- **Roofing membrane:** TPO or EPDM, fully adhered (final weather surface)
+- **Compliance:** FM 1-150 standard for 150 mph wind, Class 4 hail, fire rating
 
 **Roof Access:**
 - **Location:** Via elevator and adjacent stairwell from central spine
@@ -170,15 +146,15 @@ Minimal scope (office millwork, shelving)
 - **Code:** OSHA 1910.23 (guardrails/fall protection), IBC roof access requirements
 
 **Roof-Mounted Equipment Protection:**
-- **Perimeter protection:** Storm-rated heavy-duty stainless steel debris screen around roof perimeter
+- **Perimeter protection:** Storm-rated debris screen around roof perimeter
   - **Purpose:** Absorb, deflect, or shred flying debris during storm events
-  - **Standards:** FEMA P-361 (missile impact resistance), ICC 500, ASTM E1886/E1996 (hurricane debris impact)
-  - **Design:** Engineered to withstand 150 mph winds with 15 lb 2×4 timber projectile at 100 mph
-- **Equipment protection:** Each roof-mounted unit (HVAC, AHU, DAHU, exhaust fans, vent shafts) protected with:
+  - **Standards:** FEMA P-361 (missile impact resistance), ICC 500
+  - **Design:** Engineered per FM 1-150 wind and impact requirements
+- **Equipment protection:** Each roof-mounted unit (HVAC, exhaust fans, vent shafts) protected with:
   - Impact-resistant enclosures or screens
-  - Hail guards (mesh or louver design) for intake/exhaust openings
-  - Secure mounting per ASCE 7-16 wind loads and FM 1-150
-  - Equipment rated for Class 4 hail impact (2" diameter)
+  - Hail guards for intake/exhaust openings
+  - Secure mounting per ASCE 7 wind loads and FM 1-150
+  - Equipment rated for Class 4 hail impact
 - **Rationale:** Minimize damage from hail, falling debris, and windborne projectiles during tornado/severe storm events
 
 **Roof Drainage:**
@@ -220,7 +196,7 @@ Minimal scope (office millwork, shelving)
 - **Outer door:** Card reader (all authorized personnel, visitors with escort)
 - **Inner door:** Card reader + biometric MFA (Level 2+ clearance required)
 - **Interlock:** Outer must close before inner opens
-- **Surveillance:** CCTV cameras with 125 PPFW (Pixels Per Face Width) for positive identification
+- **Surveillance:** CCTV cameras with facial recognition capability
 - **Fire override:** Both doors unlock on fire alarm
 - **Delayed egress system:** Local alarm for tailgating deterrence
 
@@ -412,7 +388,7 @@ Not in base building scope (owner-furnished)
   - Sensitivity adjustable for different screening levels
 - **Handheld Scanners:** Storage and charging station for handheld metal detectors/wands
 - **CCTV Coverage:**
-  - **Critical Point Identification standard:** 125 PPFW resolution
+  - Facial recognition capability at screening points
   - Coverage of all inspection tables
   - Coverage of personnel screening point
   - Integration with SCR for live monitoring
