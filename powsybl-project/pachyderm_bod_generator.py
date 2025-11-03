@@ -19,7 +19,12 @@ import re
 import math
 import json
 import pypowsybl as pp
-from pypowsybl import diagram
+try:
+    from pypowsybl import diagram
+    DIAGRAM_AVAILABLE = True
+except ImportError:
+    DIAGRAM_AVAILABLE = False
+    print("Note: pypowsybl-diagram not available. Diagram generation will be skipped.")
 from datetime import datetime
 
 
