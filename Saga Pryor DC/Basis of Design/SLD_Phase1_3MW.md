@@ -1,6 +1,6 @@
 **Created:** 2025-11-03
 **Tags:** #pryor-dc #sld #electrical #phase-1 #3mw
-**Related:** [[7BOD - Electrical (CSI Div 26)]], [[_BOD - Exec Summary and TOC]]
+**Related:** [[7BOD - Electrical (CSI Div 26)]], [[_BOD - Exec Summary]]
 
 # SINGLE-LINE DIAGRAM - PHASE 1 (3 MW)
 ## Pryor Data Center - PACHYDERM GLOBAL
@@ -19,7 +19,7 @@
 - **Data Halls:** DH-E operational, DH-W powered shell
 - **Topology:** Dual-ring 13.8 kV MV distribution with N+1 redundancy
 - **Target PUE:** 1.35
-- **Target WUE:** <0.5 L/kWh (air-cooled, zero water)
+- **Target WUE:** <0.5 L/kWh (air-cooled, zero water) 
 
 ---
 
