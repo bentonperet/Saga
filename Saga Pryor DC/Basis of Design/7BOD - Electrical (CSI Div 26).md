@@ -11,10 +11,10 @@
 
 ## OVERVIEW
 
-Electrical systems provide Tier III-compliant power distribution with N+1 IT UPS architecture backed by self-healing 13.8 kV dual-ring MV distribution, N+1 generators and transformers, supporting 3 MW Phase 1 (expandable to 12 MW Phase 2). Customer-owned 345 kV substation with 13.8 kV distribution integrates utility, solar, BESS, and generators on common voltage infrastructure. 
+Electrical systems provide Tier III-compliant power distribution with N+1 IT UPS architecture backed by self-healing 13.8 kV dual-ring MV distribution with 8 RMU's, N+1 generators and transformers, supporting 3 MW Phase 1 (expandable to 12 MW Phase 2). Customer-owned 345 kV substation with 13.8 kV distribution integrates utility, solar, BESS, and generators on common voltage infrastructure.
 
 **Design Philosophy:**
-- **Path redundancy:** 13.8 kV self-healing dual-ring MV distribution with automated SCADA switching
+- **Path redundancy:** 13.8 kV self-healing dual-ring MV distribution with RMU's and automated SCADA switching
 - **Component redundancy:** N+1 (IT UPS, generators, transformers, mechanical UPS)
 - **Concurrent maintainability:** Service any component without IT interruption
 - **345kV/13.8kV substation:** Customer-owned, integrates all power sources at 13.8 kV
@@ -62,20 +62,29 @@ Electrical systems provide Tier III-compliant power distribution with N+1 IT UPS
 - **Available Substations (Kamo Power Electric Co-op):**
   - **Sportsman Substation (SW):** 345 kV service, 3 lines
   - **Dry Gulch Substation (N):** 161 kV service, 2 lines
-- **Note:** Final voltage selection (345 kV vs 161 kV) depends on utility interconnection study, available capacity, and comparative economics. If the utility saving favor purchasing a larger step-down transformer, it may be the ideal path. Or if there is no savings, and the 161 kV service is possible then that may be the better economic decision.
-- **Capacity:** ~30 MVA (sized for 24 MW master plan + solar/BESS with margin)
+- **Note:** Final voltage selection (345 kV vs 161 kV) depends on utility interconnection study, available capacity, and comparative economics. May change to 161 kV service with 161kV/13.8kV transformers if substation cost savings justify it.
+- **Capacity:** 25-30 MVA (sized for 24 MW master plan + solar/BESS)
 - **Metering:** Revenue-grade metering at transmission voltage (utility-owned)
-- **Protection:** Per utility interconnection requirements
+- **Protection:** Distance relay, differential, overcurrent per utility standards
 
 **345kV/13.8kV Substation Transformers:**
 - **Quantity:** 2 transformers (N+1 redundancy - either can carry full load)
 - **Rating:** 25 MVA each @ 345kV/13.8kV
 - **Type:** Oil-filled, ONAN cooling
 - **Configuration:** Delta-wye with neutral solidly grounded
+- **Impedance:** ~8-10%
 - **Location:** Outdoor substation yard on data center site
 
 **Cost:** ~$7-12M for complete customer-owned substation (345 kV requires larger equipment and clearances than lower voltages)
 
+**Benefits:**
+- **Single 13.8 kV infrastructure** for utility, solar, BESS, generators, data center
+- **US data center standard voltage** - better equipment availability and contractor familiarity
+- **Microgrid capability** - island at 13.8 kV during utility outages
+- **Future expansion** - no utility upgrades required for 24 MW build-out
+- **Export capability** - sell excess solar to grid (if permitted)
+- **Superior power quality** - 345 kV transmission-level connection (extremely stiff grid)
+- **Renewable compatibility** - matches standard solar/BESS inverter voltages (13.8 kV)
 
 ---
 
@@ -99,13 +108,13 @@ GENERATORS (6 × 4.0 MW @ 13.8 kV) ─► Connect to both rings via paralleling 
 SOLAR INVERTERS (8+ MW) ──────────► Connect to 13.8 kV common bus (direct - no transformer)
 BESS INVERTERS (4-8 MWh) ─────────► Connect to 13.8 kV common bus (direct - no transformer)
 ```
-@Muhammed - NEEDS CONFIRMATION
+
 ### Ring Main Units (RMUs)
 
 **Equipment:** 6 × RMUs (13.8 kV, 630A rated)
 - **Configuration:** 3 RMUs per ring (Ring A and Ring B)
 - **Type:** SF6 or vacuum circuit breakers
-- **Rating:** 13.8 kV, 630A continuous (short-circuit rating per fault study)
+- **Rating:** 13.8 kV, 630A continuous, 20 kA short-circuit
 - **Controls:** SCADA-controlled remote switching for load transfer
 - **Location:** Electrical equipment yard, generator/PDM boundary
 - **Function:** Isolate transformers, enable ring reconfiguration, interconnect generators/solar/BESS
@@ -129,25 +138,39 @@ BESS INVERTERS (4-8 MWh) ─────────► Connect to 13.8 kV commo
 
 ### Generator Specifications (Each Unit)
 
-| Parameter                | Specification                                                                                 |
-| ------------------------ | --------------------------------------------------------------------------------------------- |
-| **Rating**               | 4,000 kW continuous @ 13.8 kV, 3-phase, 60 Hz                                                 |
-| **Fuel**                 | Diesel (EPA Tier 4 Final emissions)                                                           |
-| **Fuel Capacity**        | ~2,000 gal belly tank per unit (connected to central bulk fuel tank farm via common manifold) |
-| **Endurance**            | ~24 hours at full load (central bulk fuel storage + redundant supply contracts)               |
-| **Synchronizing**        | Automatic paralleling with load sharing                                                       |
-| **Enclosure**            | Sound-attenuated outdoor enclosure                                                             |
-| **Seismic**              | Per IBC seismic requirements for site location                                                 |
+| Parameter | Specification |
+|-----------|---------------|
+| **Rating** | 4,000 kW continuous @ 13.8 kV, 3-phase, 60 Hz |
+| **Standby Rating** | 4,400 kW |
+| **Power Factor** | 0.8 lagging |
+| **Voltage** | 13,800V ±5% |
+| **Fuel** | Diesel (EPA Tier 4 Final emissions) |
+| **Fuel Consumption** | ~85 gal/hr at full load (verify with vendor) |
+| **Fuel Capacity** | ~2,000 gal belly tank per unit (connected to central bulk fuel tank farm via common manifold) |
+| **Endurance** | ~24 hours at full load (central bulk fuel storage + redundant supply contracts) |
+| **Paralleling Controls** | Woodward easYgen 3500 series (or equivalent) |
+| **Synchronizing** | Automatic paralleling with load sharing |
+| **Enclosure** | Sound-attenuated (-65 dBA @ 7m) |
+| **Seismic** | IBC 2018 certified for SDC B |
+| **Emissions** | NOx < 0.67 g/bhp-hr (Tier 4 Final) |
 
 ### Why 13.8 kV Generators (Not 480V)
 
 **Technical Advantages:**
+- **Cable sizing:** 13.8 kV reduces current by 29× vs. 480V
+  - 4 MW @ 480V = 8,333 A → requires 6 × 500 kcmil per phase
+  - 4 MW @ 13.8 kV = 290 A → requires 1 × 1/0 per phase (even smaller than 11 kV!)
+- **I²R losses:** Lower current = dramatically reduced cable losses
+- **Paralleling:** Easier to parallel MV generators than massive LV generators
 - **US standard voltage:** 13.8 kV is the dominant voltage for US data center generators (better availability, shorter lead times)
 - **Common voltage:** Matches utility substation, solar inverters, BESS inverters (13.8 kV is standard US renewable voltage)
 
 ### Generator Yard Layout
+
 - **Location:** Outdoor electrical equipment yard (south side)
-- **Arrangement:** Horizontal layout per vendor and code clearance requirements
+- **Arrangement:** Horizontal layout with 8-10 ft clearances
+- **Fuel:** ~2,000 gal belly tanks per generator connected via common fuel manifold to centralized bulk fuel storage tank farm (24 hours runtime) with redundant supply contracts
+- **Testing:** Closed-transition load bank, monthly run tests, annual full-load tests
 - **Maintenance Access:** Crane pad for major overhauls
 
 ---
@@ -166,23 +189,61 @@ BESS INVERTERS (4-8 MWh) ─────────► Connect to 13.8 kV commo
 |-----------|---------------|
 | **Rating** | 3,500 kVA |
 | **Voltage** | 13,800V delta / 480Y/277V |
+| **Impedance** | 5.75% |
+| **Efficiency** | 98.5% at full load |
 | **Cooling** | ONAN (oil natural, air natural) |
+| **Insulation** | 65°C rise, 150°C hot spot |
+| **BIL** | 110 kV (primary), 30 kV (secondary) |
+| **Sound** | 60 dBA @ 10 feet |
 | **Liquid** | Mineral oil or high fire-point vegetable oil |
 | **Containment** | Secondary containment per EPA 40 CFR 112 |
 
 ### Why 8 Transformers
 
-**Phase 1:** 3 × 3,500 kVA transformers
-- N+1 operation: 2 transformers support ~5.8 MW design load with margin
+**Phase 1:** 3 × 3,500 kVA = 10,500 kVA = 9,660 kW @ 0.92 PF
+- Design load: 5,800 kW
+- N+1 operation: 2 transformers = 6,440 kW for 5.8 kW load (11% margin) ✓
 
-**Phase 2:** 8 × 3,500 kVA transformers
-- N+1 operation: 6 transformers support ~18.2 MW design load with margin
+**Phase 2:** 8 × 3,500 kVA = 28,000 kVA = 25,760 kW @ 0.92 PF
+- Design load: 18,200 kW
+- Running: 7 transformers = 22,540 kW (24% margin) ✓
+- N+1: 6 transformers = 19,320 kW (6% margin) ✓
 
 **8th transformer provides:**
 - Better load distribution (lower per-unit utilization = longer life)
 - Future expansion headroom
 - True concurrent maintainability with margin
 
+---
+
+## SOLAR & BESS INTEGRATION
+
+### Solar Array Interconnection
+
+**Configuration:**
+- **Capacity:** 8+ MW DC solar array (adjacent to data center)
+- **Inverters:** String or central inverters outputting 13.8 kV AC (standard US voltage - no transformer required)
+- **Connection:** Direct to 13.8 kV common bus via dedicated circuit breaker
+- **Metering:** Bi-directional revenue metering (production + export)
+
+### BESS Interconnection
+
+**Configuration:**
+- **Capacity:** 4-8 MWh battery energy storage system
+- **Inverters:** Bi-directional inverters (charge/discharge) outputting 13.8 kV AC (standard US voltage - no transformer required)
+- **Connection:** Direct to 13.8 kV common bus via dedicated circuit breaker
+- **Function:** Peak shaving, demand response, solar smoothing, backup power
+
+### Microgrid Operation
+
+**Normal Mode (Grid-Connected):**
+- Utility + Solar + BESS → Data Center Load
+- Export excess solar to grid (if permitted)
+
+**Island Mode (Utility Outage):**
+- Solar + BESS + Generators → Data Center Load
+- 13.8 kV bus disconnects from utility, operates as microgrid
+- Black start capability via BESS or generators
 
 ---
 
@@ -225,12 +286,12 @@ BESS INVERTERS (4-8 MWh) ─────────► Connect to 13.8 kV commo
                (Dual PDUs per cabinet)
 ```
 
-### Phase 1: ~5 × 1,250 kVA IT UPS Modules
+### Phase 1: 5-6 × 1,250 kVA IT UPS Modules
 
 **Modular Configuration:**
-- ~5 × 1,250 kVA / 1,000 kW modules in parallel
-- 4 modules running, 1 standby (N+1)
-- Running capacity: ~4,000 kW for ~3,000 kW IT load
+- 5-6 × 1,250 kVA / 1,000 kW modules in parallel
+- 4-5 modules running, 1 standby (N+1)
+- Running capacity: 4,000-5,000 kW for 3,000 kW IT load ✓
 - Feeds: Multiple IT distribution panels fed from different 480V switchboards
 
 **Path Redundancy:**
@@ -244,12 +305,12 @@ BESS INVERTERS (4-8 MWh) ─────────► Connect to 13.8 kV commo
 
 **Battery:** 5-minute runtime maximum (allows for MV generator sync to bus, even two attempts) (Lithium-ion preferred)
 
-### Phase 2: ~13 × 1,250 kVA IT UPS Modules (add ~8)
+### Phase 2: 13-15 × 1,250 kVA IT UPS Modules (add 8-9)
 
 **Modular Configuration:**
-- ~13 × 1,250 kVA total
-- 12 modules running, 1 standby (N+1)
-- Running capacity: ~12,000 kW for ~12,000 kW IT load
+- 13-15 × 1,250 kVA = 16,250-18,750 kVA total
+- 12-13 modules running, 1-2 standby (N+1 or N+2)
+- Running capacity: 12,000-13,000 kW for 12,000 kW load ✓
 
 ### Redundancy Philosophy
 
@@ -274,14 +335,19 @@ BESS INVERTERS (4-8 MWh) ─────────► Connect to 13.8 kV commo
 | Parameter | Specification |
 |-----------|---------------|
 | **Rating** | 1,250 kVA / 1,000 kW per module |
+| **Efficiency** | 96% (ECO mode), 94% (double-conversion) |
 | **Topology** | Online double-conversion (VFI per IEC 62040-3) |
-| **Input/Output** | 480V, 3-phase |
-| **Battery** | External Lithium-ion cabinets, 5-minute runtime |
+| **Input** | 480V, 3-phase |
+| **Output** | 480V, 3-phase |
+| **Battery** | External Lithium-ion cabinets, 5-minute runtime (max for MV gen sync) |
+| **Bypass** | Automatic static bypass + manual maintenance bypass |
+| **Monitoring** | SNMP, Modbus TCP, BACnet integration |
+| **Hot-Swap** | Individual module replacement without downtime |
 
 **Recommended UPS Vendors:**
-- Schneider Electric Galaxy VX/VL (or equivalent approved)
-- Eaton 93PM/93PR (or equivalent approved)
-- Vertiv Liebert EXL S1 (or equivalent approved)
+- Schneider Electric Galaxy VX/VL
+- Eaton 93PM/93PR
+- Vertiv Liebert EXL S1
 
 ---
 
@@ -294,13 +360,13 @@ Protect critical mechanical loads (pumps, fans, CDUs) from brief utility interru
 
 ### Configuration
 
-**Phase 1: ~8 × 250 kW Static UPS Modules (N+1)**
-- Protected load: ~1,600 kW (chillers, pumps, fans)
+**Phase 1: 8 × 250 kW Static UPS Modules (N+1)**
+- Protected load: 1,631 kW (chillers, pumps, fans)
+- 7 running = 1,750 kW capacity ✓
 
-**Phase 2: ~20 × 250 kW Static UPS Modules (add ~12)**
-- Protected load: ~4,600 kW (all loops, chillers, pumps, CDUs, fans)
-
-**Design Rationale:** Mechanical UPS provides cost-effective protection for HVAC/cooling loads with shorter runtime requirements (~30-60 seconds for generator start). This approach reserves expensive long-runtime battery capacity for IT loads only, optimizing capital cost while maintaining Tier III reliability.
+**Phase 2: 20 × 250 kW Static UPS Modules (add 12)**
+- Protected load: 4,576 kW (all loops, chillers, pumps, CDUs, fans)
+- 19 running = 4,750 kW capacity ✓
 
 ---
 
@@ -309,25 +375,39 @@ Protect critical mechanical loads (pumps, fans, CDUs) from brief utility interru
 ### Main Switchboards (Dual Switchboards Fed from Different MV Ring Segments)
 
 **SWBD-A and SWBD-B**
-- **Configuration:** Dual main switchboards rated for design load with redundant feeds from separate MV ring segments
+- **Rating:** 4,000A copper busbar, 480V, 3-phase, 4-wire
 - **SWBD-A fed from:** Transformers on Ring A (MV dual-ring segment A)
 - **SWBD-B fed from:** Transformers on Ring B (MV dual-ring segment B)
+- **Short-circuit rating:** 65 kA SCCR
 - **Path diversity:** Each switchboard receives power from different 13.8 kV ring segment
-- **Final ratings:** Per detailed engineering (load study and fault analysis)
 
 ### Distribution Panels (All Dual-Fed)
 
-**Philosophy:** Dual A/B distribution panels provide redundant paths from separate MV ring segments. Final panel quantities, ratings, and circuit allocation will be determined during detailed engineering.
-
-**Key Distribution Categories:**
-- **IT Distribution** - Cabinet PDUs, dual-fed
-- **Mechanical Distribution** - Chillers, pumps, CDUs (separate panels for Loops 1+2 and Loop 3)
-- **UPS Distribution** - IT UPS output distribution
-- **Building/House Power** - Separate system (see Non-Critical Building Power)
+|| Panel | Rating | Loads |
+||-------|--------|-------|
+|| **IT Distribution A/B** | 800A | Cabinet PDUs |
+|| **Mech Dist 1A/1B** | 800A | Loops 1+2 chillers, pumps |
+|| **Mech Dist 2A/2B (Phase 2)** | 1,200A | Loop 3 chillers, CDUs |
+|| **UPS Distribution A/B** | 400A | IT UPS output |
+|| **Building/House Power** | 400A | Separate system - see Non-Critical Building Power |
 
 ---
 
+## CABINET POWER DISTRIBUTION
 
+### Phase 1: 30 Cabinets @ 100 kW IT Load
+
+- 30 cabinets × 2 PDUs = 60 PDUs
+- Each PDU: 50 kW capacity
+- Cabinet power: 2 × 50 kW = 100 kW (2N for 100 kW IT load) ✓
+
+### Phase 2: 30 Cabinets @ 400 kW IT Load
+
+- Upgrade PDUs to 200 kW capacity each
+- Cabinet power: 2 × 200 kW = 400 kW (2N for 400 kW IT load) ✓
+- Cost: ~$450K for 60 upgraded PDUs
+
+---
 
 ## NON-CRITICAL BUILDING POWER (HOUSE POWER)
 
@@ -359,7 +439,7 @@ Protect critical mechanical loads (pumps, fans, CDUs) from brief utility interru
 **Primary Power:**
 - **Source:** Single 13.8kV/480V transformer fed from Solar/BESS system (via 13.8 kV common bus)
 - **Voltage:** 480V, 3-phase, 4-wire
-- **Capacity:** ~400 kVA for non-critical building loads
+- **Capacity:** ~400 kVA (300-350 kW sustained load)
 - **Single Point of Failure:** Acceptable (redundant natural gas house generators provide backup)
 - **No PDMs Required:** House power uses standard distribution, not prefabricated modules
 
@@ -371,19 +451,21 @@ Protect critical mechanical loads (pumps, fans, CDUs) from brief utility interru
 - **Quantity:** 2 generators (N+1 redundancy)
 - **Rating:** 250-350 kW each @ 480V, 3-phase, 60 Hz
 - **Fuel:** Natural gas (piped from utility or on-site propane if NG not available)
-- **Fuel supply:** Utility natural gas service
+- **Fuel supply:** Utility natural gas service with redundant supply contract
 - **Endurance:** Unlimited runtime (continuous fuel supply)
+- **Automatic Transfer Switch (ATS):** Two ATSs (one per generator) with priority load shedding
+- **Start time:** <10 seconds to rated voltage
+- **Paralleling:** Capable of paralleling for load sharing
 - **Enclosure:** Sound-attenuated outdoor enclosure
 - **Emissions:** EPA-compliant natural gas emissions
 
 **Rationale for Natural Gas:**
+- **Unlimited runtime:** No fuel storage/delivery logistics
+- **Lower maintenance:** Cleaner burning than diesel
+- **Cost-effective:** Lower fuel and maintenance costs for house power
+- **Independent from critical diesel supply:** Preserves diesel fuel for critical IT loads
+- **Compliance:** Meets emission standards for continuous backup power
 
-Natural gas for non-critical loads is standard practice in data centers. This design preserves critical diesel fuel for IT loads and provides unlimited runtime for comfort/office power during extended outages (ice storms, multi-day events). Natural gas generators offer:
-- **Unlimited runtime:** No fuel storage/delivery logistics (utility gas supply)
-- **Lower maintenance:** Cleaner burning than diesel (~30-40% lower O&M costs)
-- **Cost-effective:** Lower capital cost ($200-300/kW vs $400-500/kW diesel) and fuel costs
-- **Independent fuel source:** Preserves diesel supply for critical IT generators; separate utility infrastructure reduces single-point failure risk
-- **Simplified permitting:** Lower emissions (NOx, PM, CO); easier to permit for extended runtime vs diesel restrictions in some jurisdictions
 ### Portable UPS for IT Systems in Non-Critical Areas
 
 **Purpose:** Provide ride-through battery power for IT equipment in non-critical spaces during transfer to house generators (~10-15 seconds)
@@ -397,12 +479,11 @@ Natural gas for non-critical loads is standard practice in data centers. This de
 **Configuration:**
 - **Type:** Portable rack-mount or tower UPS units
 - **Capacity:** Sized per load (typical: 1-3 kVA per workstation/equipment cluster)
-- **Runtime:** 10-15 minutes for graceful shutdown during extended outages
+- **Runtime:** 10-15 minutes (sufficient for natural gas house generator startup <10 sec + graceful shutdown if needed)
+- **Topology:** Line-interactive or online double-conversion
 - **Quantity:** ~20-30 units distributed throughout facility
 
-**Cost:** ~$50-100K for house generators; ~$30-50K for portable UPS units
-
-**Note:** Portable UPS for non-critical areas is not required for Tier III compliance but provides operational continuity for NOC, security systems, and staff during utility transfer.
+**Cost:** ~$50-100K for house generators + ATS; ~$30-50K for portable UPS units
 
 ---
 
@@ -421,23 +502,23 @@ Natural gas for non-critical loads is standard practice in data centers. This de
 
 | Load | Power (kW) |
 |------|------------|
-| IT (through IT UPS) | ~3,100 |
-| Mechanical (through Mech UPS) | ~1,700 |
-| Building/Lighting | ~400 |
-| **Design Load** | **~5,800** |
+| IT (through IT UPS) | 3,125 |
+| Mechanical (through Mech UPS) | 1,700 |
+| Building/Lighting | 399 |
+| **Design Load** | **5,800** |
 
-**Generator Capacity (N+1):** 3 × 4.0 MW = 12 MW (N+1 operation with margin)
+**Generator Capacity (N+1):** 3 × 4.0 MW = 12 MW (2 running = 8 MW, 38% margin) ✓
 
 ### Phase 2
 
 | Load | Power (kW) |
 |------|------------|
-| IT (through IT UPS) | ~12,500 |
-| Mechanical (through Mech UPS) | ~4,600 |
-| Building/Lighting | ~400 |
-| **Design Load** | **~18,200** |
+| IT (through IT UPS) | 12,500 |
+| Mechanical (through Mech UPS) | 4,576 |
+| Building/Lighting | 399 |
+| **Design Load** | **18,200** |
 
-**Generator Capacity (N+1):** 6 × 4.0 MW = 24 MW (N+1 operation with margin)
+**Generator Capacity (N+1):** 6 × 4.0 MW = 24 MW (5 running = 20 MW, 10% margin) ✓
 
 ---
 
