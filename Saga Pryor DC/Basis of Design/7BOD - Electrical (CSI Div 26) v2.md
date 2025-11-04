@@ -160,13 +160,11 @@ The following diagram shows the self-healing 13.8 kV dual-ring architecture with
 
 ### 3.3 Ring Main Units (RMUs)
 
-| Parameter | Specification |
-|-----------|---------------|
-| **Quantity** | Eight (8) RMUs (4 per ring) |
-| **Type** | SF6 or vacuum circuit breakers |
-| **Rating** | 13.8 kV, 630A continuous, 20 kA short-circuit rating |
-| **Controls** | SCADA-controlled remote switching with automated fault detection |
-| **Location** | Electrical equipment yard adjacent to transformers and generators |
+| Parameter    | Specification                                                                         |
+| ------------ | ------------------------------------------------------------------------------------- |
+| **Quantity** | Eight (8) RMUs (4 per ring)                                                           |
+| **Type**     | SF6 or vacuum circuit breakers                                                        |
+| **Rating**   | 13.8 kV, 630A continuous, 20 kA short-circuit rating                                  |
 | **Function** | Isolate transformers, enable ring reconfiguration, interconnect generators/solar/BESS |
 
 ### 3.4 Advantages of Dual-Ring Topology
@@ -187,14 +185,12 @@ The following diagram shows the self-healing 13.8 kV dual-ring architecture with
 
 ### 4.2 Generator Specifications
 
-| Parameter | Specification |
-|-----------|---------------|
-| **Rating** | 4,000 kW continuous / 4,400 kW standby @ 13.8 kV |
-| **Voltage** | 13,800V ±5%, 3-phase, 60 Hz, 0.8 power factor |
-| **Fuel** | Diesel, EPA Tier 4 Final (NOx < 0.67 g/bhp-hr) |
-| **Fuel Storage** | On-site bulk fuel storage for 24-hour runtime at 30 MW facility load |
-| **Paralleling Controls** | PLC-based paralleling switchgear (Woodward easYgen 3500 or equivalent) to sync all generators onto 13.8 kV common bus |
-| **Enclosure** | Sound-attenuated outdoor enclosure (65 dBA @ 7m), seismic rated per IBC 2018 |
+| Parameter                | Specification                                                                                                         |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------- |
+| **Rating**               | 4,000 kW continuous / 4,400 kW standby @ 13.8 kV                                                                      |
+| **Voltage**              | 13,800V ±5%, 3-phase, 60 Hz, 0.8 power factor                                                                         |
+| **Fuel**                 | Diesel, EPA Tier 4 Final (NOx < 0.67 g/bhp-hr)                                                                        |
+
 
 ### 4.3 Generator Yard Layout
 
@@ -202,7 +198,6 @@ The following diagram shows the self-healing 13.8 kV dual-ring architecture with
 - **Arrangement:** Horizontal layout with 8-10 ft clearances between units for maintenance access
 - **Testing Protocol:** Closed-transition load bank for commissioning; monthly run tests; annual full-load tests
 - **Maintenance Access:** Crane pad for major overhauls and component replacement
-    
 
 ## 5.0 TRANSFORMER SYSTEM (13.8 KV / 480V)
 
