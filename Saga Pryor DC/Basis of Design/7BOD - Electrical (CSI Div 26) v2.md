@@ -15,7 +15,7 @@
 
 This Basis of Design defines the electrical infrastructure for a two-hall, 20,000 SF data center with an ultimate IT load of **24 MW** and a total facility load of approximately **30 MW**. The system is designed to meet Tier III standards, providing N+1 component redundancy and 2N path redundancy for all critical loads.
 
-The electrical backbone is a **self-healing 13.8 kV dual-ring MV distribution** with **8 RMU switchgear** and **SCADA-controlled automated switching**, enabling concurrent maintainability of any transformer or electrical component. The 13.8 kV common bus allows for flexible integration of utility power, backup generators, solar arrays, and battery energy storage systems.
+The electrical backbone is a self-healing 13.8 kV dual-ring MV distribution with 8 RMU switchgear and SCADA-controlled automated switching, enabling concurrent maintainability of any transformer or electrical component. The 13.8 kV common bus allows for flexible integration of utility power, backup generators, solar arrays, and battery energy storage systems.
 
 **Key Infrastructure:**
 - Customer-owned 345 kV substation with 2×35 MVA transformers (N+1 redundancy)
@@ -167,11 +167,6 @@ The following diagram shows the self-healing 13.8 kV dual-ring architecture with
 | **Rating**   | 13.8 kV, 630A continuous, 20 kA short-circuit rating                                  |
 | **Function** | Isolate transformers, enable ring reconfiguration, interconnect generators/solar/BESS |
 
-### 3.4 Advantages of Dual-Ring Topology
-- **Concurrent Maintainability:** Any transformer can be isolated via RMU switching while maintaining full N+1 redundancy on alternate ring segment
-- **Automated Load Transfer:** SCADA system detects faults and automatically reconfigures ring topology without human intervention (self-healing)
-- **Generator/Solar/BESS Flexibility:** Multiple connection points enable paralleling of generators, solar inverters, and BESS inverters onto either ring for maximum operational flexibility
-
 ## 4.0 GENERATOR SYSTEM
 
 ### 4.1 Configuration
@@ -195,9 +190,6 @@ The following diagram shows the self-healing 13.8 kV dual-ring architecture with
 ### 4.3 Generator Yard Layout
 
 - **Location:** South side of building, electrical equipment yard
-- **Arrangement:** Horizontal layout with 8-10 ft clearances between units for maintenance access
-- **Testing Protocol:** Closed-transition load bank for commissioning; monthly run tests; annual full-load tests
-- **Maintenance Access:** Crane pad for major overhauls and component replacement
 
 ## 5.0 TRANSFORMER SYSTEM (13.8 KV / 480V)
 
@@ -212,113 +204,68 @@ The following diagram shows the self-healing 13.8 kV dual-ring architecture with
 
 ### 5.2 Transformer Specifications
 
-| Parameter | Specification |
-|-----------|---------------|
-| **Rating** | 3,500 kVA / 3.15 MW @ 0.9 power factor |
-| **Voltage** | 13,800V delta primary / 480Y/277V secondary |
-| **Type** | Oil-filled, ONAN cooling (Oil Natural, Air Natural) |
-| **Impedance** | 5.75% |
-| **Containment** | Secondary containment per EPA 40 CFR 112 |
-| **Location** | Outdoor electrical yard with transformer pads |
+| Parameter       | Specification                                       |
+| --------------- | --------------------------------------------------- |
+| **Rating**      | 3,500 kVA / 3.15 MW @ 0.9 power factor              |
+| **Voltage**     | 13,800V delta primary / 480Y/277V secondary         |
+| **Type**        | Oil-filled, ONAN cooling (Oil Natural, Air Natural) |
 
-### 5.3 Why 11 Transformers (N+1 Calculation for Phase 4)
-
-**Design Load:** 30,000 kW (30 MW facility load at Phase 4)
-
-**Transformer Capacity:**
-- 11 transformers × 3,500 kVA = 38,500 kVA total
-- At 0.9 power factor = 34,650 kW total capacity
-
-**N+1 Operation:**
-- Running: 10 transformers = 31,500 kW capacity
-- Design load: 30,000 kW
-- **Margin: 5% above design load** ✓
-
-**Rationale:** N+1 redundancy with adequate margin for load growth and peak demand while enabling concurrent maintainability via dual-ring RMU switching
-    
-
-## 6.0 IT UPS SYSTEM (2N ARCHITECTURE)
+## 6.0 IT UPS SYSTEM (N+1 DUAL-PATH ARCHITECTURE)
 
 ### 6.1 Configuration
 
-- **Redundancy:** 2N (fully redundant, dual-path) architecture to meet Tier III concurrent maintainability.
-    
-- **Topology:** The 24 MW IT load will be protected by two (2) independent **12 MW (N+1)** UPS systems (System A and System B).
-    
+- **Redundancy:** N+1 modular UPS architecture with concurrent maintainability enabled by self-healing 13.8 kV dual-ring MV distribution
+- **Path Redundancy:** Provided by MV dual-ring topology (Ring A / Ring B) with SCADA-controlled automated switching
+- **Component Redundancy:** Provided by N+1 UPS modules (can lose one module and continue operation)
+- **Topology:** The 24 MW IT load (Phase 4) will be protected by 25 UPS modules (24+1 for N+1) with power distributed via dual A/B paths to dual-corded IT equipment
+- **Tier III Compliance:** Meets Uptime Institute Tier III concurrent maintainability requirements through combination of N+1 UPS component redundancy and dual-path MV distribution
 
 ### 6.2 System Sizing (Phase 4)
 
-- **System A (12 MW N+1):**
-    
-    - Load: 12 MW
-        
-    - UPS Modules: 13 x 1,250 kVA (or similar) modules (12+1)
-        
-- **System B (12 MW N+1):**
-    
-    - Load: 12 MW
-        
-    - UPS Modules: 13 x 1,250 kVA (or similar) modules (12+1)
-        
-- **Total Modules (Phase 4):** 26
-    
+- **IT Load:** 24 MW (24,000 kW)
+- **UPS Modules:** 25 × 1,250 kVA modules
+  - N = 24 modules (24 × 1 MW = 24 MW capacity)
+  - N+1 = 25 modules total
+  - Operating load: ~83% per module (optimal efficiency range of 80-90%)
+- **N+1 Verification:** 24 running modules = 24 MW capacity = full IT load ✓
 
-### 6.3 Path Redundancy
+### 6.3 Path Redundancy Philosophy
 
-- **Path A:** `MV Ring A -> XFMRs-A -> SWBD-A -> UPS-System-A (12MW N+1) -> Panel-A -> Cabinet PDU-A`
-    
-- **Path B:** `MV Ring B -> XFMRs-B -> SWBD-B -> UPS-System-B (12MW N+1) -> Panel-B -> Cabinet PDU-B`
-    
+**Path diversity is provided by the 13.8 kV self-healing dual-ring MV distribution, not by duplicate UPS systems:**
+
+- **Path A:** `MV Ring A -> XFMRs-A -> SWBD-A -> UPS Modules (distributed) -> Panel-A -> Cabinet PDU-A`
+- **Path B:** `MV Ring B -> XFMRs-B -> SWBD-B -> UPS Modules (distributed) -> Panel-B -> Cabinet PDU-B`
+
+**Key Design Features:**
+- Dual-corded IT equipment receives power from both A and B paths, fed from different MV ring segments
+- Loss of any single MV ring segment, transformer, switchboard, or distribution path does not impact IT operations
+- UPS modules can be distributed across both paths or configured in a common pool with dual output distribution
+- Self-healing MV dual-ring automatically reconfigures power paths without human intervention during faults or maintenance
+
+**Concurrent Maintainability:**
+- Can isolate and maintain any MV ring segment via RMU switching while maintaining full N+1 UPS capacity on alternate path
+- Can remove UPS modules for maintenance (firmware updates, battery service) while maintaining N redundancy
+- Can transfer full facility load to either A-side or B-side independently during planned maintenance
 
 ### 6.4 UPS Module Specifications
 
-| Parameter | Specification |
-|-----------|---------------|
-| **Rating** | 1,250 kVA / 1,000 kW per module |
-| **Topology** | Online double-conversion (VFI per IEC 62040-3) |
-| **Efficiency** | 96% (ECO mode), 94% (double-conversion mode) |
-| **Voltage** | 480V input/output, 3-phase |
-| **Bypass** | Automatic static bypass + manual maintenance bypass |
-| **Monitoring** | SNMP, Modbus TCP, BACnet integration, hot-swap capable |
+| Parameter      | Specification                                          |
+| -------------- | ------------------------------------------------------ |
+| **Rating**     | 1,250 kVA / 1,000 kW per module                        |
+| **Topology**   | Online double-conversion (VFI per IEC 62040-3)         |
+| **Voltage**    | 480V input/output, 3-phase                             |
 
 ### 6.5 Battery System
 
 - **Type:** Lithium-Ion (preferred) or VRLA
-- **Configuration:** External battery cabinets for each UPS system
-- **Runtime:** 5-minute at full 12 MW load per system (A or B)
-- **Purpose:** Sized to allow for MV generator synchronization to 13.8 kV common bus (~30-60 seconds) with margin
-- **Why Lithium-Ion:** Higher energy density, longer lifespan (10-15 years vs 5-7 for VRLA), lower maintenance, better performance at elevated temperatures
+- **Configuration:** External battery cabinets distributed across UPS modules
+- **Runtime:** 5 minutes at full IT load (sized for each phase's IT load capacity)
+- **Purpose:** Sized to allow for MV generator synchronization to 13.8 kV common bus (~30-60 seconds) with margin for two startup attempts if needed
+- **Why Lithium-Ion:** Higher energy density, longer lifespan (10-15 years vs 5-7 for VRLA), lower maintenance, better performance at elevated temperatures, superior performance for high-rate discharge applications
 
 ### 6.6 Recommended UPS Vendors
 
-- **Schneider Electric:** Galaxy VX or Galaxy VL series
-- **Eaton:** 93PM or 93PR series
-- **Vertiv:** Liebert EXL S1 series
-    
-
-### 6.7 Conceptual Diagram (2N UPS)
-
-```
-     MV RING A                         MV RING B
-         │                                 │
-    [XFMRs A]                           [XFMRs B]
-         │                                 │
-     [SWBD-A]                            [SWBD-B]
-         │                                 │
-┌───────────────────┐               ┌───────────────────┐
-│ UPS-SYSTEM-A (N+1)│               │ UPS-SYSTEM-B (N+1)│
-│ [M1] [M2]... [M13]│               │ [M1] [M2]... [M13]│
-└─────────┬─────────┘               └─────────┬─────────┘
-          │                                 │
-    [Dist Panel A]                      [Dist Panel B]
-          │                                 │
-          └───────────┐   ┌─────────────┘
-                      │   │
-                ┌─────┴───┴─────┐
-                │   RACK 1      │
-                │ [PDU-A] [PDU-B] │
-                └───────────────┘
-```
+- Schneider Electric, Eaton, Vertiv
 
 ## 7.0 MECHANICAL UPS SYSTEM
 
@@ -326,7 +273,7 @@ The following diagram shows the self-healing 13.8 kV dual-ring architecture with
 
 The mechanical UPS system protects critical mechanical loads (chiller pumps, CDU pumps, building fans) from brief utility interruptions during generator startup and synchronization to the 13.8 kV common bus (~30-60 seconds).
 
-**Important:** Mechanical UPS is a separate system from IT UPS. IT equipment is protected by the dedicated 2N IT UPS system (Section 6.0).
+**Important:** Mechanical UPS is a separate system from IT UPS. IT equipment is protected by the dedicated N+1 IT UPS system (Section 6.0).
 
 ### 7.2 Configuration
 
@@ -338,20 +285,7 @@ The mechanical UPS system protects critical mechanical loads (chiller pumps, CDU
 - CDU pumps (L2C coolant distribution)
 - Building HVAC fans (data hall pressurization and humidity control)
 
-**Phased Deployment:** UPS modules added in phases to match mechanical load growth
-
-### 7.3 Phase 4 Sizing (N+1 Calculation)
-
-**Module Size:** 250 kW static UPS modules
-
-**Protected Load:** 6,000 kW (mechanical systems at Phase 4)
-
-**Module Count:**
-- N = 24 modules (24 × 250 kW = 6,000 kW)
-- N+1 = 25 modules total
-
-**N+1 Verification:** 24 running modules = 6,000 kW capacity = full mechanical load ✓
-    
+**Phased Deployment:** 250 kW static UPS modules added in phases to match mechanical load growth. Phase 4: 25×250 kW modules (N+1) for 6,000 kW mechanical load.
 
 ## 8.0 LOW VOLTAGE (480V) DISTRIBUTION
 
@@ -367,8 +301,6 @@ The mechanical UPS system protects critical mechanical loads (chiller pumps, CDU
 | **Source** | SWBD-A fed from MV Ring A transformers; SWBD-B fed from MV Ring B transformers |
 | **Configuration** | 2N distribution: All critical loads served by both A and B paths |
 
-**Path Diversity:** Each switchboard is fed from different 13.8 kV ring segment via independent transformer banks, ensuring complete electrical separation for concurrent maintainability.
-
 ### 8.2 Distribution Panels
 
 All critical IT and mechanical loads served by dual (A/B) distribution panels fed from respective (A/B) main switchboards.
@@ -379,37 +311,22 @@ All critical IT and mechanical loads served by dual (A/B) distribution panels fe
 | **Mech Dist 1A / 1B** | 800A | Loops 1+2 chillers, pumps (RDHx cooling) | A / B |
 | **Mech Dist 2A / 2B** | 1,200A | Loop 3 chillers, CDUs (L2C cooling) | A / B |
 | **UPS Dist A / UPS Dist B** | 400A | UPS System A/B output distribution | A / B |
-    
 
 ## 9.0 CABINET POWER DISTRIBUTION
 
 - **PDUs:** Each IT cabinet will be equipped with two (2) rack-mounted Power Distribution Units (PDUs), PDU-A and PDU-B.
-    
 - **Source:** PDU-A shall be fed from the "A" power path, and PDU-B from the "B" power path.
-    
-- **Rating:** PDUs shall be sized based on the cabinet's designed load (e.g., 2N for 25 kW or 2N for 100 kW).
-    
+- **Rating:** PDUs shall be sized based on the cabinet's designed load 
 
 ## 10.0 NON-CRITICAL (HOUSE) POWER
 
 ### 10.1 Philosophy
 
-All non-critical support spaces shall be on an electrical system **completely separate** from the critical data center infrastructure. This separation prevents non-critical load faults from impacting critical IT operations and enables independent maintenance and testing.
+All non-critical support spaces shall be on an electrical system completely separate from the critical data center infrastructure. This separation prevents non-critical load faults from impacting critical IT operations and enables independent maintenance and testing.
 
 ### 10.2 Non-Critical Areas Served
 
-The house power system serves the following spaces:
-
-- **Office Spaces:** Conference rooms, offices, call pods, seating areas, hoteling workstations
-- **NOC (Network Operations Center):** Non-IT building systems only (workstation power on portable UPS)
-- **Security:** Control Room (SCR) at main entrance, Control Booth (SCB) at loading dock
-- **Common Areas:** Bathrooms, showers, break room, lounge, gym/fitness center
-- **Circulation:** Hallways, corridors, loading dock
-- **Building HVAC:** Office RTUs, exhaust fans (non-critical ventilation)
-- **Storm Shelter:** Safe room ventilation and lighting
-- **General Lighting:** Non-emergency building lighting
-- **Elevator:** Non-critical passenger elevator
-- **Staging/Storage:** Warehouse and equipment storage areas
+House power serves office spaces, NOC (non-IT systems), security control rooms, common areas (break rooms, gym, restrooms), circulation spaces, building HVAC, storm shelter, general lighting, elevator, and staging/storage areas.
 
 ### 10.3 Utility Service
 
@@ -419,70 +336,20 @@ The house power system serves the following spaces:
 
 ### 10.4 Natural Gas House Generators
 
-| Parameter | Specification |
-|-----------|---------------|
-| **Quantity** | Two (2) generators (N+1 redundancy) |
-| **Rating** | 250-350 kW each @ 480V, 3-phase, 60 Hz |
-| **Fuel** | Natural gas (piped utility) or on-site propane if NG not available |
-| **Start Time** | <10 seconds from utility loss to generator online |
-| **Enclosure** | Sound-attenuated outdoor enclosure |
-| **ATS** | Automatic Transfer Switches with priority load shedding if required |
-
-**Why Natural Gas:**
-- **Unlimited Runtime:** No refueling required during extended utility outages
-- **Independent Supply:** Preserves diesel fuel supply for critical generator operation
-- **Lower Emissions:** Cleaner burning than diesel, easier EPA compliance
+| Parameter      | Specification                                                       |
+| -------------- | ------------------------------------------------------------------- |
+| **Quantity**   | Two (2) generators (N+1 redundancy)                                 |
+| **Rating**     | 250-350 kW each @ 480V, 3-phase, 60 Hz                              |
+| **Fuel**       | Natural gas (piped utility) or on-site propane if NG not available  |
 
 ### 10.5 Portable UPS for Workstations
 
-**Purpose:** Provide 10-15 minute ride-through during transfer to house generators (~10 seconds)
+Distributed UPS units (1-3 kVA, 10-15 min runtime) for NOC, security, and office workstations. Approximately 20-30 units provide ride-through during transfer to house generators.
 
-**Applications:**
-- NOC workstations and display systems
-- Security control room (SCR) and booth (SCB) workstations and surveillance systems
-- Office IT equipment (workstations, network switches, VoIP phones)
-- BMS/DCIM servers (if not on critical IT UPS)
-
-**Configuration:**
-- Type: Rack-mount or tower UPS units
-- Capacity: 1-3 kVA per workstation/equipment cluster
-- Runtime: 10-15 minutes
-- Quantity: ~20-30 units distributed throughout facility
-    
+<!-- @claude, I thought we agreed on having a dedicated UPS for all this vs. managing 20-30 distributed units! -->
 
 ## 11.0 RENEWABLE ENERGY INTEGRATION
-
-### 11.1 Solar Array Interconnection
-
-**Capacity:** 8+ MW DC solar array (adjacent to data center site)
-
-**Inverter Configuration:**
-- Type: String or central inverters outputting **13.8 kV AC directly**
-- **Key Design Detail:** Inverters output at 13.8 kV - **no step-up transformer required**
-- Connection: Dedicated circuit breaker to 13.8 kV common bus
-- Metering: Bi-directional revenue metering (production + export to grid)
-
-**Location:** Solar array field adjacent to data center, within property boundary
-
-### 11.2 Battery Energy Storage System (BESS) Interconnection
-
-**Capacity:** 4-8 MWh battery energy storage system
-
-**Inverter Configuration:**
-- Type: Bi-directional inverters (charge/discharge) outputting **13.8 kV AC directly**
-- **Key Design Detail:** Inverters output at 13.8 kV - **no step-up transformer required**
-- Connection: Dedicated circuit breaker to 13.8 kV common bus
-- Controls: Grid-forming inverter controls (if required for islanded microgrid operation)
-
-**Functions:**
-- **Peak Shaving:** Reduce utility demand charges during peak periods
-- **Demand Response:** Participate in utility demand response programs
-- **Solar Smoothing:** Buffer solar output variability for stable grid integration
-- **Backup Power:** Supplement generators during utility outages
-
-### 11.3 Advantages of 13.8 kV Integration
-
-The 13.8 kV common bus architecture eliminates the need for step-up transformers typically required for solar and BESS integration. Standard commercial solar inverters and BESS inverters are available with 13.8 kV output, enabling direct connection to the MV distribution system and reducing cost, complexity, and energy losses.
+<!-- @claude Remove this section and renumber -->
 
 
 ## 12.0 PREFABRICATED POWER DELIVERY MODULES (PDMs)
@@ -501,28 +368,20 @@ The 13.8 kV common bus architecture eliminates the need for step-up transformers
 ### 12.2 Benefits
 
 - **Factory Testing:** Complete system factory-tested and commissioned before shipment, reducing field commissioning risk
-
 - **Schedule Acceleration:** 8-12 week schedule acceleration vs. traditional stick-built construction. PDMs can be manufactured in parallel with building construction.
-
 - **Quality Control:** Factory environment provides controlled conditions for assembly, wiring, and testing - higher quality than field construction
-
 - **Simplified Field Installation:** Pre-wired and pre-tested modules require only MV/LV connections and startup - reduces field labor by 30-40%
 
-### 12.3 Location
-
-Outdoor PDMs located adjacent to electrical equipment yard with weather-protected enclosures. Designed for Oklahoma climate (temperature extremes, humidity, wind loads per local codes).
 
 ---
 
 ## 13.0 ELECTRICAL PHASING STRATEGY
 
-The electrical infrastructure is designed for ultimate 30 MW facility load (Phase 4), with capital equipment purchased and commissioned in phases to match IT load growth. All infrastructure (substation, electrical yard, generator pads, PDM pads, conduit rough-in) is designed and built for Phase 4 from day 1.
+Electrical infrastructure designed for 30 MW (Phase 4), with equipment added in phases.
 
 ---
 
 ### 13.1 PHASE 1: 3 MW IT LOAD (30 L2C RACKS)
-
-**Strategy:** Commission DH-W (Data Hall West) for high-density L2C anchor tenant, commission 2N UPS System A+B with minimum module count, build all infrastructure for future expansion.
 
 **Rack Deployment:** 30 racks × L2C @ 100 kW = 3,000 kW IT load
 
@@ -537,20 +396,16 @@ The electrical infrastructure is designed for ultimate 30 MW facility load (Phas
 
 **Electrical Infrastructure:**
 
-| Equipment | Quantity | Sizing Notes |
-|-----------|----------|--------------|
-| **Generators** | 3×4.0 MW | N+1 for 4.2 MW (2 running = 8 MW capacity, 90% margin) |
-| **LV Transformers** | 3×3.5 MVA | N+1 for 4.2 MW (2 running = 6.3 MW capacity, 50% margin) |
-| **IT UPS Modules** | 6 total | 2N: System A=3 modules, System B=3 modules (1.5MW N+1 per system) |
-| **Mechanical UPS** | 8×250 kW | N+1 for 840 kW mechanical load (7 running = 1,750 kW) |
-
-**Data Halls:** DH-W commissioned with L2C cooling (Loop 3), DH-E shell only
+| Equipment           | Quantity  | Sizing Notes                                                      |
+| ------------------- | --------- | ----------------------------------------------------------------- |
+| **Generators**      | 3×4.0 MW  | N+1 for 4.2 MW (2 running = 8 MW capacity, 90% margin)            |
+| **LV Transformers** | 3×3.5 MVA | N+1 for 4.2 MW (2 running = 6.3 MW capacity, 50% margin)          |
+| **IT UPS Modules**  | 4 × 1,250 kVA | N+1 for 3 MW IT load (3+1 modules @ ~80% loading) |
+| **Mechanical UPS**  | 8×250 kW  | N+1 for 840 kW mechanical load (7 running = 1,750 kW)             |
 
 ---
 
 ### 13.2 PHASE 2: 6 MW IT LOAD (150 TOTAL RACKS)
-
-**Strategy:** Commission DH-E (Data Hall East) for medium-density RDHx racks, commission Loops 1+2 for RDHx cooling, expand both UPS systems, add generators and transformers.
 
 **Rack Deployment:**
 - 30 racks × L2C @ 100 kW = 3,000 kW
@@ -568,20 +423,16 @@ The electrical infrastructure is designed for ultimate 30 MW facility load (Phas
 
 **Electrical Infrastructure:**
 
-| Equipment | Phase 2 Total | Add from Phase 1 |
-|-----------|---------------|------------------|
-| **Generators** | 4×4.0 MW | Add 1 unit (N+1 for 8.1 MW) |
-| **LV Transformers** | 4×3.5 MVA | Add 1 unit (N+1 for 8.1 MW) |
-| **IT UPS Modules** | 10 total | Add 4 modules (System A=5, System B=5 for 3MW N+1 per system) |
-| **Mechanical UPS** | 12×250 kW | Add 4 modules (N+1 for 1,350 kW) |
-
-**Data Halls:** Both DH-W and DH-E operational
+| Equipment | Phase 2 Total | Add from Phase 1 | Sizing Notes |
+|-----------|---------------|------------------|--------------|
+| **Generators** | 4×4.0 MW | Add 1 unit | N+1 for 8.1 MW |
+| **LV Transformers** | 4×3.5 MVA | Add 1 unit | N+1 for 8.1 MW |
+| **IT UPS Modules** | 7 × 1,250 kVA | Add 3 modules | N+1 for 6 MW IT load (6+1 modules @ ~86% loading) |
+| **Mechanical UPS** | 12×250 kW | Add 4 modules | N+1 for 1,350 kW |
 
 ---
 
 ### 13.3 PHASE 3: 15 MW IT LOAD (285 TOTAL RACKS)
-
-**Strategy:** Scale both data halls, expand L2C capacity in DH-W and RDHx capacity in DH-E, significant expansion of generators, transformers, and UPS systems.
 
 **Rack Deployment:**
 - 105 racks × L2C @ 100 kW = 10,500 kW
@@ -599,18 +450,16 @@ The electrical infrastructure is designed for ultimate 30 MW facility load (Phas
 
 **Electrical Infrastructure:**
 
-| Equipment | Phase 3 Total | Add from Phase 2 |
-|-----------|---------------|------------------|
-| **Generators** | 6×4.0 MW | Add 2 units (N+1 for 19.5 MW) |
-| **LV Transformers** | 8×3.5 MVA | Add 4 units (N+1 for 19.5 MW) |
-| **IT UPS Modules** | 18 total | Add 8 modules (System A=9, System B=9 for 7.5MW N+1 per system) |
-| **Mechanical UPS** | 16×250 kW | Add 4 modules (N+1 for 3,000 kW) |
+| Equipment | Phase 3 Total | Add from Phase 2 | Sizing Notes |
+|-----------|---------------|------------------|--------------|
+| **Generators** | 6×4.0 MW | Add 2 units | N+1 for 19.5 MW |
+| **LV Transformers** | 8×3.5 MVA | Add 4 units | N+1 for 19.5 MW |
+| **IT UPS Modules** | 16 × 1,250 kVA | Add 9 modules | N+1 for 15 MW IT load (15+1 modules @ ~94% loading) |
+| **Mechanical UPS** | 16×250 kW | Add 4 modules | N+1 for 3,000 kW |
 
 ---
 
 ### 13.4 PHASE 4: 24 MW IT LOAD (468 TOTAL RACKS) - FULL BUILD-OUT
-
-**Strategy:** Maximize both data halls to full capacity, complete all electrical infrastructure to ultimate 30 MW facility design.
 
 **Rack Deployment:**
 - 168 racks × L2C @ 100 kW = 16,800 kW
@@ -628,18 +477,16 @@ The electrical infrastructure is designed for ultimate 30 MW facility load (Phas
 
 **Electrical Infrastructure:**
 
-| Equipment | Phase 4 Total | Add from Phase 3 |
-|-----------|---------------|------------------|
-| **Generators** | 9×4.0 MW | Add 3 units (N+1 for 30 MW: 8 running = 32 MW capacity) |
-| **LV Transformers** | 11×3.5 MVA | Add 3 units (N+1 for 30 MW: 10 running = 31.5 MW capacity) |
-| **IT UPS Modules** | 26 total | Add 8 modules (System A=13, System B=13 for 12MW N+1 per system) |
-| **Mechanical UPS** | 25×250 kW | Add 9 modules (N+1 for 6,000 kW: 24 running = 6,000 kW capacity) |
+| Equipment | Phase 4 Total | Add from Phase 3 | Sizing Notes |
+|-----------|---------------|------------------|--------------|
+| **Generators** | 9×4.0 MW | Add 3 units | N+1 for 30 MW: 8 running = 32 MW capacity |
+| **LV Transformers** | 11×3.5 MVA | Add 3 units | N+1 for 30 MW: 10 running = 31.5 MW capacity |
+| **IT UPS Modules** | 25 × 1,250 kVA | Add 9 modules | N+1 for 24 MW IT load (24+1 modules @ ~83% loading) |
+| **Mechanical UPS** | 25×250 kW | Add 9 modules | N+1 for 6,000 kW: 24 running = 6,000 kW capacity |
 
 ---
 
 ### 13.5 PHASING SUMMARY TABLE
-
-**Note:** UPS Module count is based on a 2N (A/B) 12 MW N+1 system, using 1 MW (1250 kVA) modules.
 
 | **Phase** | **IT MW** | **Racks (L2C/RDHx)** | **PUE** | **Facility MW** | **Generators (4 MW)** | **LV XFMRs (3.5 MVA)** | **IT UPS Modules (1 MW)** |
 |-----------|-----------|----------------------|---------|-----------------|------------------------|-------------------------|---------------------------|
@@ -653,17 +500,11 @@ The electrical infrastructure is designed for ultimate 30 MW facility load (Phas
 ## 14.0 CODES AND STANDARDS
 
 - **NEC 2023** (National Electrical Code), Oklahoma amendments
-    
 - **IEEE 141** (Red Book - Electric Power Distribution)
-    
 - **IEEE 142** (Green Book - Grounding)
-    
 - **IEEE 242** (Buff Book - Protection and Coordination)
-    
 - **NFPA 70E** (Standard for Electrical Safety in the Workplace)
-    
 - **NFPA 110** (Emergency and Standby Power Systems)
-
 - **IEC 62040-3** (UPS Classification)
 
 ---
