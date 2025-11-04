@@ -11,28 +11,29 @@
 
 ## OVERVIEW
 
-Phased mechanical cooling strategy optimized for AI/ML workload growth: **Phase 1 = 3 MW D2C liquid cooling only** (anchor tenant), expanding to 24 MW ultimate capacity across 4 phases with mixed air + D2C cooling. Target PUE 1.35 (Phase 1) improving to 1.20-1.25 (Phase 4) through extended free cooling, efficient equipment, and zero water consumption.
+Phased mechanical cooling strategy optimized for AI/ML workload growth: **Phase 1 = 3 MW L2C liquid cooling only** (anchor tenant), expanding to 24 MW ultimate capacity (16.8 MW L2C + 7.2 MW RDHx) across 4 phases with **separate warm/cold loop architecture**. Target PUE 1.40 (Phase 1) improving to 1.25 (Phase 4) through warm water cooling efficiency, extended free cooling, and zero water consumption.
 
 **Design Philosophy:**
-- **Phase 1 Strategy:** D2C liquid cooling only (no air cooling plant) = lower CAPEX, proves high-density capability
-- **Phased deployment:** Cooling capacity matches customer growth (3 → 6 → 15 → 24 MW)
-- **Separate cooling plants:** Loops 1+2 (air cooling) independent from Loop 3 (D2C cooling)
-  - **Rationale:** D2C loads swing violently (GPU workloads 0-100% in seconds), air loads are stable - separate plants prevent control instability
+- **Phase 1 Strategy:** L2C liquid cooling only (no RDHx cooling plant) = lower CAPEX, proves high-density capability
+- **Phased deployment:** Cooling capacity matches rack deployment (30 → 150 → 285 → 468 racks)
+- **Separate loop architecture:** Loop 3 (warm water, 85°F for L2C) independent from Loops 1+2 (cold water, 60°F for RDHx)
+  - **Rationale:** 85°F warm water maximizes L2C efficiency; 60°F required for RDHx air cooling
+  - **Load separation:** L2C loads swing violently (GPU workloads), RDHx loads are stable - separate plants prevent control instability
 - **N+1 redundancy:** Each cooling plant has N+1 chillers
 - **Zero water consumption:** Air-cooled chillers only, closed-loop glycol
-- **Single fluid loop for D2C:** Same water/glycol mix serves both CDUs and RDHx units
+- **Total racks at Phase 4:** 168 L2C racks + 288 RDHx racks = 468 racks total
 
 ---
 
-## PHASE 1: D2C LIQUID COOLING ONLY (3 MW IT LOAD)
+## PHASE 1: L2C LIQUID COOLING ONLY (3 MW IT LOAD)
 
 ### Strategy
 
 **Anchor Tenant Approach:**
-- Focus on single high-density AI training customer (Customer #2 profile)
+- Focus on single high-density AI training customer
 - Proves liquid cooling capability from day 1
-- Lower Phase 1 CAPEX (skip air cooling plant entirely = ~$2-3M savings)
-- Better chiller efficiency (44% utilization vs. 27% if mixed)
+- Lower Phase 1 CAPEX (skip RDHx cooling plant entirely = ~$2-3M savings)
+- Optimal chiller efficiency (67% utilization in N+1 operation)
 
 ### IT Heat Load
 

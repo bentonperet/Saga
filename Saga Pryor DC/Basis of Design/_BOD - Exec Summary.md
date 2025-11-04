@@ -14,18 +14,18 @@
 
 ### **FACILITY OVERVIEW**
 - **IT Capacity:** 4-phase buildout to 24 MW ultimate capacity
-  - Phase 1: 3 MW (30 racks @ 100 kW, D2C anchor tenant)
-  - Phase 2: 6 MW (100 racks mixed density, add customer diversity)
-  - Phase 3: 15 MW (260 racks total, commission second data hall)
-  - Phase 4: 24 MW (280 racks, full densification)
+  - Phase 1: 3 MW (30 racks @ 100 kW, L2C anchor tenant in DH-W)
+  - Phase 2: 6 MW (150 racks total: 30 L2C + 120 RDHx, open both halls)
+  - Phase 3: 15 MW (285 racks total: 105 L2C + 180 RDHx, scale both halls)
+  - Phase 4: 24 MW (468 racks total: 168 L2C + 288 RDHx, full build-out)
 - **White Space:** 20,000 SF total (two 10,000 SF data halls: DH-W and DH-E)
-  - Phase 1-2: DH-W only (up to 140 racks capacity)
-  - Phase 3+: Both halls operational (280 racks total capacity)
+  - Phase 1: DH-W only (30 racks)
+  - Phase 2+: Both halls operational (468 racks total capacity)
 - **Power Density:** Scales from 300 W/SF (Phase 1) to 1,200 W/SF (Phase 4)
-- **Rack Capacity:** 140 racks per hall maximum (280 total facility)
+- **Rack Capacity:** 234 racks per hall maximum (468 total facility)
 - **Availability:** Tier III (N+1 IT UPS with MV dual-ring path redundancy, N+1 mechanical, concurrent maintainability)
-- **Target PUE:** 1.35 (Phase 1), 1.20-1.25 (Phase 4, optimized at scale)
-- **Target WUE:** <0.5 L/kWh (air-cooled chillers, zero water consumption)
+- **Target PUE:** 1.40 (Phase 1), 1.35 (Phase 2), 1.30 (Phase 3), 1.25 (Phase 4, optimized at scale)
+- **Target WUE:** <0.5 L/kWh (domestic use only: restrooms, showers, break room; zero water for cooling)
 - **Site:** Pryor, Oklahoma (Tornado Alley - FM 1-150 protection)
 - **Strategic Location:** **4 miles from Google's us-central2 data center campus** - enables direct fiber interconnect for AI/ML hybrid cloud workloads and inference.
 - **Key Differentiators:**
@@ -38,20 +38,20 @@
 ### **ELECTRICAL SYSTEMS**
 - **Primary Utility Service:** Customer-owned 345 kV substation
   - **345 kV Transmission:** Direct connection to utility transmission system
-  - **Substation Transformers:** 2 × 25 MVA, 345kV/13.8kV (N+1 redundancy - either can carry full load)
+  - **Substation Transformers:** 2 × 35 MVA, 345kV/13.8kV (N+1 redundancy - either can carry full 30 MW facility load)
 - **13.8 kV Common Bus:** Single voltage platform for utility, solar, BESS, generators, data center (US standard voltage)
 - **MV Distribution:** 13.8 kV dual-ring topology (Ring A + Ring B) via 8 RMUs
 - **Generators:** Scalable N+1 diesel generators @ 13.8 kV, Tier 4 Final
-  - Phase 1: 2 × 4.0 MW (N+1 for 4.5 MW facility load)
-  - Phase 2: 3 × 4.0 MW total (N+1 for 9 MW facility load, add 1 unit)
-  - Phase 3: 5 × 4.0 MW total (N+1 for 15-18 MW facility load, add 2 units)
-  - Phase 4: 7 × 4.0 MW total (N+1 for 24-30 MW facility load, add 2 units)
+  - Phase 1: 3 × 4.0 MW (N+1 for 4.2 MW facility load)
+  - Phase 2: 4 × 4.0 MW total (N+1 for 8.1 MW facility load, add 1 unit)
+  - Phase 3: 6 × 4.0 MW total (N+1 for 19.5 MW facility load, add 2 units)
+  - Phase 4: 9 × 4.0 MW total (N+1 for 30 MW facility load, add 3 units)
   - Fuel: ~2,000 gal belly tanks per unit connected via common manifold to centralized bulk fuel storage (24-hour runtime with redundant fuel contracts)
 - **Transformers:** Scalable 13.8 kV/480V oil-filled transformers, N+1 with concurrent maintainability
-  - Phase 1: 2 × 3,500 kVA (N+1 for 4.5 MW facility load)
-  - Phase 2: 3 × 3,500 kVA total (N+1 for 9 MW facility load, add 1 unit)
-  - Phase 3: 6 × 3,500 kVA total (N+1 for 15-18 MW facility load, add 3 units)
-  - Phase 4: 8 × 3,500 kVA total (N+1 for 24-30 MW facility load, add 2 units)
+  - Phase 1: 3 × 3,500 kVA (N+1 for 4.2 MW facility load)
+  - Phase 2: 4 × 3,500 kVA total (N+1 for 8.1 MW facility load, add 1 unit)
+  - Phase 3: 8 × 3,500 kVA total (N+1 for 19.5 MW facility load, add 4 units)
+  - Phase 4: 11 × 3,500 kVA total (N+1 for 30 MW facility load, add 3 units)
 - **IT UPS:** N+1 modular architecture (path redundancy from self-healing MV dual-ring)
   - Phase 1: 4 × 1,250 kVA modules (N+1 for 3 MW IT load @ 80% loading)
   - Phase 2: 7 × 1,250 kVA modules total (N+1 for 6 MW IT load, add 3 units)
@@ -59,10 +59,10 @@
   - Phase 4: 25 × 1,250 kVA modules total (N+1 for 24 MW IT load, add 9 units)
   - Battery: 5-minute runtime maximum (allows for MV generator sync to bus, even two attempts)
   - **Redundancy Philosophy:** 13.8 kV dual-ring provides path redundancy via self-healing SCADA switching; N+1 UPS provides component redundancy
-- **Mechanical UPS:** Phase 1: 8 × 250 kW; Phase 2: 20 × 250 kW (N+1 for pumps/fans)
+- **Mechanical UPS:** N+1 modular UPS for mechanical loads (chiller pumps, CRAH fans)
 - **LV Distribution:** Dual switchboards (SWBD-A/B) fed from different MV ring segments
 - **Cabinet Power:** Dual PDUs fed from different 480V distribution panels (sized per customer rack density)
-- **Electrical Enclosures:** Prefabricated PDMs with LV switchboards, UPS, MV gear
+- **Electrical Enclosures:** Climate-controlled prefabricated PDMs (Power Delivery Modules) housing LV switchboards, UPS, and MV gear with walk-in concurrent maintainability
 - **MV Distribution:** 8 RMUs (13.8 kV, 630A), dual-ring topology
 - **Non-Critical Building Power (Separate System):**
   - House generators: 2 × 250-350 kW natural gas (N+1 redundancy)
@@ -73,32 +73,27 @@
 ---
 
 ### **MECHANICAL SYSTEMS**
-- **Cooling Strategy:** Phased deployment optimized for AI/ML workload growth
-- **Phase 1 (D2C Liquid Cooling Only - 3 MW):**
-  - IT Load: 3,000 kW (30 racks @ 100 kW each, AI training anchor tenant)
-  - D2C Cooling: 4 × 1,500 kW air-cooled chillers (Loop 3, N+1 redundancy)
-  - CDUs: 30 units (1 per rack, 100+ kW capacity each)
-  - RDHx: 30 rear-door heat exchangers (captures residual heat not cooled by D2C)
-  - Fluid: 25% propylene glycol mix, 55°F supply, single loop serves both CDU + RDHx
-  - Load split: ~80% D2C (2,400 kW), ~20% RDHx (600 kW)
-  - Chiller utilization: 67% per operating chiller in N+1 configuration (optimal efficiency range)
-  - Building HVAC: Separate package units for offices/support spaces
-- **Phase 2 (Add Air Cooling - 6 MW):**
-  - Add customer diversity: AI inference, enterprise, specialty compute
-  - Add air cooling plant: 3 × 1,500 kW chillers (Loops 1+2, N+1 for 1,800 kW load)
-  - D2C expansion: Add 2 chillers to Loop 3 (6 × 1,500 kW total, N+1 for 4,200 kW load)
-  - Total cooling: Two independent plants (air and D2C separated)
-  - Air cooling load: ~1,800 kW; D2C cooling load: ~4,200 kW
-- **Phase 3 (Second Data Hall - 15 MW):**
-  - Commission DH-E with mixed customer types
-  - Air cooling load: ~4,500 kW → Scale to 5 × 1,500 kW chillers total (Loops 1+2, N+1)
-  - D2C cooling load: ~10,500 kW → Scale to 9 × 1,500 kW chillers total (Loop 3, N+1)
-- **Phase 4 (Full Build - 24 MW):**
-  - Air cooling load: ~7,200 kW → Final: 6 × 1,500 kW chillers (Loops 1+2, N+1)
-  - D2C cooling load: ~16,800 kW → Final: 14 × 1,500 kW chillers (Loop 3, N+1)
+- **Cooling Strategy:** Separate loop architecture optimized for efficiency and rack diversity
+- **Loop 3 (Warm Water - L2C Direct-to-Chip):**
+  - Temperature: 85°F supply (29°C) - optimized for warm water cooling efficiency
+  - Serves: 168 L2C racks (16.8 MW at Phase 4)
+  - CDUs: 168 units at full build-out (1 per L2C rack, 100+ kW capacity each)
+  - Phase 1: 4 × 1,500 kW air-cooled chillers (N+1 for 3 MW)
+  - Phase 2: Keep 4 chillers (L2C load unchanged at 3 MW)
+  - Phase 3: 9 × 1,500 kW chillers total (N+1 for 10.5 MW)
+  - Phase 4: 14 × 1,500 kW chillers total (N+1 for 16.8 MW)
+- **Loops 1+2 (Cold Water - RDHx Rear-Door Cooling):**
+  - Temperature: 60°F supply (15.5°C) - required for rear-door air cooling
+  - Serves: 288 RDHx racks (7.2 MW at Phase 4)
+  - RDHx: 288 rear-door heat exchangers at full build-out (1 per RDHx rack)
+  - Phase 1: Not commissioned (no RDHx racks)
+  - Phase 2: 3 × 1,500 kW air-cooled chillers (N+1 for 3 MW)
+  - Phase 3: 4 × 1,500 kW chillers total (N+1 for 4.5 MW)
+  - Phase 4: 6 × 1,500 kW chillers total (N+1 for 7.2 MW)
+- **Separate Loop Rationale:** 85°F warm water for L2C provides superior efficiency vs. traditional 55-60°F; separating loops optimizes each system independently
 - **Free Cooling:** ~3,500-4,000 hours/year (Oklahoma climate)
 - **Zero Water Strategy:** No evaporative cooling, closed-loop glycol only
-- **Cooling Separation Rationale:** D2C loads swing violently (GPU workloads 0-100% in seconds), air loads are stable - separate plants prevent control instability
+- **Building HVAC:** Separate package units for offices/support spaces
 - **Mechanical Code:** IMC 2021, ASHRAE 90.1-2019
 
 ---
@@ -147,16 +142,16 @@
 ---
 
 ### **RENEWABLE ENERGY & UTILITIES**
-- **Solar:** Adjacent ~12 MW solar array (owned separately)
-- **BESS:** Battery Energy Storage System (owned separately, separate from UPS)
-- **Primary Utility Service:** Owner-constructed 345 kV substation with 2 × 25 MVA transformers (345kV/13.8kV, N+1 redundancy)
+- **Solar:** Adjacent ~12 MW solar array (owned separately, behind-the-meter connection to 13.8 kV common bus)
+- **BESS:** Battery Energy Storage System (owned separately, behind-the-meter connection to 13.8 kV common bus)
+- **Primary Utility Service:** Owner-constructed 345 kV substation with 2 × 35 MVA transformers (345kV/13.8kV, N+1 redundancy)
   - Dual redundant 345 kV transmission line feeds
   - All power transformed to 13.8 kV common bus (US standard voltage for data centers and renewables)
 - **Water:** Municipal or well (domestic use only, ~500-1,000 gal/day)
 - **Sewer:** Municipal or septic (domestic wastewater)
 - **Natural Gas:** Utility service for house generators (backup power to non-critical areas)
 - **[TBD] OPTIONAL Micro-Turbine Natural Gas Generators:** For Oklahoma SB 480 qualification (budget in Solar/BESS CAPEX, not Data Center)
-- **Fiber:** Dual diverse entries via underground ductbank {To be Confirmed}
+- **Fiber:** Dual diverse entries via underground ductbank [CRITICAL PRIORITY - Must confirm physically diverse paths and carrier agreements before project proceeds]
 
 ---
 
@@ -175,14 +170,16 @@
 
 4-phase customer-driven buildout optimized for AI/ML workload growth:
 
-| Phase | IT MW | Total Racks | Active Halls | Primary Strategy                   |
-| ----- | ----- | ----------- | ------------ | ---------------------------------- |
-| **1** | 3     | ~30         | DH-W only    | D2C anchor tenant (AI Training)    |
-| **2** | 6     | ~100        | DH-W only    | Add customer diversity (air + D2C) |
-| **3** | 15    | ~260        | DH-W + DH-E  | Commission second data hall        |
-| **4** | 24    | ~280        | DH-W + DH-E  | Full densification                 |
+| Phase | IT MW | Total Racks | L2C Racks | RDHx Racks | Avg kW/rack | Active Halls | Primary Strategy                        |
+| ----- | ----- | ----------- | --------- | ---------- | ----------- | ------------ | --------------------------------------- |
+| **1** | 3     | 30          | 30        | 0          | 100.0       | DH-W only    | L2C anchor tenant (AI Training)         |
+| **2** | 6     | 150         | 30        | 120        | 40.0        | DH-W + DH-E  | Open both halls, add RDHx diversity     |
+| **3** | 15    | 285         | 105       | 180        | 52.6        | DH-W + DH-E  | Scale both L2C and RDHx capacity        |
+| **4** | 24    | 468         | 168       | 288        | 51.3        | DH-W + DH-E  | Full build-out (16.8 MW L2C, 7.2 MW RDHx) |
 
-**Phase 1 Strategy:** D2C liquid cooling only (no air cooling plant) = lower CAPEX, proves high-density capability with AI training anchor tenant.
+**Phase 1 Strategy:** L2C liquid cooling only (no RDHx cooling plant) = lower CAPEX, proves high-density capability with AI training anchor tenant.
+
+**Phase 2 Strategy:** Open both data halls, commission RDHx cooling plant (Loops 1+2) to add customer diversity with medium-density racks.
 
 **Detailed phasing specifications:** See Electrical BOD (Div 26) and Mechanical BOD (Div 23).
 
@@ -239,3 +236,8 @@
 - **Date Updated:** October 29, 2025
 - **Prepared by:** EVS / PGCIS Team
 - **Corrections:** Tilt-up construction, utility voltage options, mechanical yard sizing
+
+
+CAPEX Savings Note:
+- We've kept the sparkle of the high ceilings and raised walking track for customer tours and security... However, for cost savings, an overall reduction in building height to ~20ft would provide ample space for any type of adaptation (hot aisle containment, etc.). It would save in steel and concrete.
+- 
