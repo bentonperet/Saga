@@ -40,55 +40,38 @@ Phased mechanical cooling strategy optimized for AI/ML workload growth: **Phase 
 **30 racks @ 100 kW each = 3,000 kW IT load**
 - Customer: AI cloud provider or enterprise ML team
 - Workload: Large-scale GPU training clusters (H100, GB200 NVL72, etc.)
-- D2C mandatory for this density
+- L2C mandatory for this density
 
-### D2C Cooling Architecture
+### L2C Cooling Architecture
 
-**Critical Understanding: D2C ≠ 100% Heat Capture**
+**L2C (Liquid-to-Chip) cooling uses CDUs to cool 100% of rack heat:**
 
-D2C (Direct-to-Chip) liquid cooling captures 70-90% of rack heat via cold plates mounted directly on:
-- CPUs
-- GPUs
-- High-power memory modules
+L2C captures all rack heat via:
+- **CDUs (Coolant Distribution Units):** Pump chilled warm water (85°F) to chip-level cold plates on CPUs, GPUs, memory
+- **Integrated in-rack cooling:** Each L2C rack is a fully self-contained liquid-cooled unit
 
-**D2C does NOT cool:**
-- Power supplies
-- Network cards (NICs)
-- Storage drives
-- VRMs (voltage regulators)
-- Ambient cabinet heat
+**Phase 1 uses 100% L2C racks** - no RDHx racks, no air cooling plant
 
-**Solution: CDU + RDHx Hybrid**
-
-Each rack requires TWO cooling components:
-1. **CDU (Coolant Distribution Unit):** Pumps chilled water to chip-level cold plates (70-90% of heat)
-2. **RDHx (Rear-Door Heat Exchanger):** Captures residual heat from non-liquid-cooled components (10-30% of heat)
-
-**Both CDU and RDHx connect to the same Loop 3 chiller plant.**
-
-### Heat Load Split (Per 100 kW Rack)
+### Heat Load (Per 100 kW L2C Rack)
 
 | Component | Heat Captured | Method |
 |-----------|---------------|--------|
-| D2C cold plates (CPUs, GPUs) | 70-90 kW | CDU chilled water |
-| Residual (PSU, NIC, storage) | 10-30 kW | RDHx chilled water |
-| **Total** | **100 kW** | Both fed from Loop 3 |
+| L2C cold plates (entire server) | 100 kW | CDU warm water (85°F supply) |
+| **Total** | **100 kW** | All heat via Loop 3 |
 
-**Typical design assumption: 80% D2C, 20% RDHx**
-- Per rack: 80 kW via CDU, 20 kW via RDHx
-- 30 racks total: 2,400 kW via CDUs, 600 kW via RDHx = **3,000 kW total Loop 3 load**
+**Phase 1 load:**
+- 30 L2C racks × 100 kW = **3,000 kW total Loop 3 load**
 
 ### Equipment Per Rack
 
-**Rack Equipment:**
-- 1× CDU (100-150 kW capacity, sized for future densification)
-- 1× RDHx unit (integrated rear door or standalone, 20-30 kW capacity)
-- Chilled water connections: Supply/return to both CDU and RDHx
+**L2C Rack Equipment:**
+- 1× CDU (100-150 kW capacity, sized for potential future densification)
+- Warm water connections: Supply/return from Loop 3 (85°F supply)
 
 **Phase 1 Total:**
 - 30× CDUs
-- 30× RDHx units
-- All connected to single Loop 3 distribution manifold
+- All connected to Loop 3 distribution manifold
+- No RDHx units in Phase 1
 
 ### Building HVAC (Separate System)
 
@@ -101,17 +84,17 @@ Building services (offices, NOC, support spaces) served by:
 
 ---
 
-## LOOP 3: D2C CHILLER PLANT (PHASE 1)
+## LOOP 3: L2C WARM WATER CHILLER PLANT (PHASE 1)
 
 ### Configuration
 
 **4 × 1,500 kW Air-Cooled Chillers (N+1)**
 - **Normal operation:** 3 chillers running (4,500 kW capacity for 3,000 kW load)
-- **Utilization:** 44% per running chiller (3,000 ÷ 4,500 = 67% plant utilization) ✓
+- **Utilization:** 67% per operating chiller in N+1 configuration (3,000 kW ÷ 4,500 kW total) ✓
   - Well above 40% minimum efficiency threshold
   - Optimal operating range for part-load efficiency
 - **N+1 redundancy:** One chiller fails → 3 remain with 4,500 kW capacity ✓
-- **Future-ready:** Can support Phase 2 D2C load increase without adding chillers initially
+- **Future-ready:** Can support Phase 2-3 L2C load increase with moderate chiller additions
 
 ### Chiller Specifications (Each Unit)
 
@@ -119,66 +102,69 @@ Building services (offices, NOC, support spaces) served by:
 |-----------|---------------|
 | **Capacity** | 1,500 kW (430 ton) |
 | **Type** | Air-cooled screw compressor with integrated free cooling |
-| **Supply Temperature** | 12-15°C (54-59°F) for D2C (higher than air cooling) |
-| **Return Temperature** | 18-22°C (64-72°F) |
+| **Supply Temperature** | **29°C (85°F)** - warm water optimized for L2C efficiency |
+| **Return Temperature** | 35-38°C (95-100°F) |
 | **Refrigerant** | R-134a or R-513A (low-GWP) |
-| **COP (Mechanical)** | 3.8-4.2 at design conditions |
-| **COP (Free Cooling)** | 15-25 with waterside economizer |
+| **COP (Mechanical)** | **5.0-6.5** at design conditions (high COP due to warm water) |
+| **COP (Free Cooling)** | 20-35 with waterside economizer |
 | **Integrated Pumps** | VFD-controlled |
-| **Free Cooling Mode** | Waterside economizer, active below 10°C ambient |
+| **Free Cooling Mode** | Waterside economizer, active below 25°C (77°F) ambient |
 | **Controls** | BACnet/IP integration with facility BMS |
 | **Enclosure** | Outdoor-rated, sound-attenuated |
 
+**Key Advantage:** 85°F supply temperature enables significantly higher COP (5.0-6.5 vs. 3.8-4.2 for traditional 55°F systems) and extends free cooling hours.
+
 ### Free Cooling Operation (Oklahoma Climate)
 
-**Oklahoma provides ~3,500-4,000 hours/year of free cooling opportunity**
+**With 85°F warm water supply, Oklahoma provides ~5,000-6,000 hours/year of free cooling opportunity** (significantly more than traditional 55°F systems)
 
-**Mode 1: Full Free Cooling (Ambient < 10°C)**
+**Mode 1: Full Free Cooling (Ambient < 25°C / 77°F)**
 - Compressors off, heat rejected via air-cooled coils only
 - Significantly improved COP vs. mechanical cooling
-- **Season:** Late October through April (extended free cooling season)
+- **Season:** October through May (extended free cooling season vs. 55°F systems)
+- **Hours/year:** ~5,000-6,000 hours (60-70% of the year)
 
-**Mode 2: Partial Free Cooling (Ambient 10-15°C)**
+**Mode 2: Partial Free Cooling (Ambient 25-30°C / 77-86°F)**
 - Compressors run at reduced capacity (part-load)
 - Blended efficiency mode
-- **Season:** Spring/fall transition periods
+- **Season:** Late spring/early fall transition periods
 
-**Mode 3: Full Mechanical Cooling (Ambient > 15°C)**
+**Mode 3: Full Mechanical Cooling (Ambient > 30°C / 86°F)**
 - Compressors run at full capacity
-- Standard mechanical cooling efficiency
-- **Season:** May through September (peak summer)
+- Still higher efficiency than 55°F systems (higher COP at warm water temperatures)
+- **Season:** June through August (peak summer only)
 
 **Annual PUE Impact:**
-- Extended free cooling season reduces annual cooling energy by 35-40%
-- Target Phase 1 PUE: 1.35 (includes all infrastructure losses)
+- Extended free cooling season (5,000+ hours vs. 3,500 for 55°F systems) reduces annual cooling energy by 50-60%
+- Target Phase 1 PUE: 1.40 (includes all infrastructure losses)
+- 85°F supply enables dramatic PUE improvement vs. traditional 55-60°F L2C systems
 
-### Piping Strategy (Single Loop 3 Serving CDU + RDHx)
+### Piping Strategy (Loop 3 Serving L2C CDUs Only)
 
-**Single fluid loop serves both CDU and RDHx equipment:**
+**Loop 3 serves L2C CDUs in Phase 1 (RDHx added in Phase 2):**
 
 ```
-Chiller Plant (4× 1,500 kW chillers in parallel)
+Loop 3 Chiller Plant (4× 1,500 kW chillers in parallel)
     ↓
 Primary pumps (N+1 configuration)
     ↓
-Loop 3 Distribution Header (12-15°C supply)
+Loop 3 Distribution Header (29°C / 85°F warm water supply)
     ↓
-    ├─→ CDU #1 (rack 1, chip cooling) → returns ~18°C
-    ├─→ CDU #2 (rack 2, chip cooling) → returns ~18°C
-    ├─→ RDHx #1 (rack 1, residual heat) → returns ~16°C
-    ├─→ RDHx #2 (rack 2, residual heat) → returns ~16°C
-    └─→ [30 racks total, each with CDU + RDHx]
+    ├─→ CDU #1 (rack 1, L2C chip cooling) → returns ~35°C / 95°F
+    ├─→ CDU #2 (rack 2, L2C chip cooling) → returns ~35°C / 95°F
+    ├─→ CDU #3 (rack 3, L2C chip cooling) → returns ~35°C / 95°F
+    └─→ [30 L2C racks total, each with CDU]
     ↓
-Return header (~18-22°C mixed return)
+Return header (~35-38°C / 95-100°F mixed return)
     ↓
 Back to chillers
 ```
 
-**Why Single Loop Works:**
-- **Temperature compatibility:** Both CDUs and RDHx operate with same supply temperature (12-15°C)
-- **Pressure compatibility:** Both operate at similar pressure ranges (30-60 PSI typical)
-- **Simplified infrastructure:** One chiller plant, one fluid makeup system, one chemical treatment program
-- **Load diversity:** Mixing CDU and RDHx loads improves overall plant efficiency
+**Phase 1 Simplified Infrastructure:**
+- **One chiller plant** (Loop 3 for L2C only)
+- **One fluid makeup system**
+- **One chemical treatment program**
+- **Warm water (85°F)** maximizes efficiency
 
 **Pumping:**
 - **Primary pumps:** Integrated in chiller packages (N+1 configuration, VFD-controlled)
@@ -188,9 +174,9 @@ Back to chillers
 
 **Fluid System:**
 - **Fluid:** 25% propylene glycol / water mixture
-- **Purpose:** Freeze protection, corrosion inhibition, compatible with both CDU and RDHx
-- **Supply temperature:** 12-15°C (54-59°F) - warmer than air cooling, within GPU/CPU thermal limits
-- **Return temperature:** 18-22°C (64-72°F) - mixed return from CDUs and RDHx units
+- **Purpose:** Freeze protection, corrosion inhibition, optimized for L2C warm water cooling
+- **Supply temperature:** 29°C (85°F) - warm water optimized for efficiency
+- **Return temperature:** 35-38°C (95-100°F) - from L2C CDUs
 - **Treatment:** pH 7.5-8.5, biocide dosing, filtration to remove particulates
 - **Makeup system:** Automatic glycol/water dosing to maintain 25% concentration
 
@@ -209,101 +195,155 @@ Back to chillers
 
 ---
 
-## PHASE 2: ADD DIRECT-TO-CHIP COOLING (12 MW TOTAL IT LOAD)
+## PHASE 2: OPEN BOTH HALLS + ADD RDHx COOLING (6 MW TOTAL IT LOAD)
+
+### Strategy
+
+**Commission DH-E + RDHx Cooling Plant:**
+- Open second data hall (DH-E) for medium-density racks
+- Commission Loops 1+2 (cold water, 60°F) for RDHx cooling
+- L2C load unchanged at 3 MW (30 racks in DH-W)
+- Add 3 MW of RDHx capacity (120 racks in DH-E)
 
 ### IT Heat Load Breakdown
 
-**30 cabinets @ 400 kW each = 12,000 kW IT load**
-- **Air cooling portion:** 100 kW per cabinet × 30 = 3,000 kW (unchanged from Phase 1)
-- **D2C cooling portion:** 300 kW per cabinet × 30 = 9,000 kW (new)
+**150 racks total = 6,000 kW IT load**
+- **L2C cooling (Loop 3):** 30 racks × 100 kW = 3,000 kW (unchanged from Phase 1)
+- **RDHx cooling (Loops 1+2):** 120 racks × 25 kW = 3,000 kW (new)
 
-### Air Cooling (Loops 1+2) - No Change
+### Loop 3 (L2C) - No Change
 
-**Same 4 × 1,500 kW chillers from Phase 1:**
-- Load remains 3,000 kW (air portion unchanged)
-- Chillers now operate at higher utilization (3,000 kW load vs. 4,500 kW capacity = 67%)
-- **No additional air cooling equipment required**
+**Keep existing 4 × 1,500 kW chillers from Phase 1:**
+- L2C load unchanged: 3,000 kW (30 racks)
+- No additional L2C equipment in Phase 2
 
----
+### Loops 1+2 (RDHx) - NEW Commission
 
-## LOOP 3: DIRECT-TO-CHIP COOLING PLANT (INDEPENDENT)
+**3 × 1,500 kW Air-Cooled Chillers (N+1 for 3 MW RDHx load)**
+- **Normal operation:** 2 chillers running (3,000 kW capacity for 3,000 kW load)
+- **Utilization:** 100% per operating chiller in N+1 configuration
+- **N+1 redundancy:** One chiller fails → 2 remain with 3,000 kW capacity ✓
+- **Temperature:** 60°F supply (15.5°C) - required for rear-door air cooling
+- **Return temperature:** 68-72°F (20-22°C)
 
-### Configuration
+### RDHx Equipment
 
-**8 × 1,500 kW Air-Cooled Chillers (N+1 with Margin)**
-- **Normal operation:** 6 chillers running (9,000 kW capacity for 9,000 kW load)
-- **Utilization:** 100% at peak (design point)
-- **N+1 redundancy:** One chiller fails → 7 remain with 10,500 kW capacity (17% margin) ✓
-- **Alternative operation:** Run 7 chillers normally (10,500 kW capacity, 17% margin)
-
-### Why Independent Loop 3 (Not Shared with Loops 1+2)
-
-**Air Cooling (Loops 1+2) Load Profile:**
-- Predictable, stable loads
-- Diurnal patterns (±10% variation day-to-night)
-- Traditional HVAC control strategies work well
-- Load changes: minutes to hours
-
-**D2C Cooling (Loop 3) Load Profile:**
-- **Violent load swings:** 0-100% in seconds as GPU jobs launch
-- **Unpredictable:** AI/ML batch jobs start/stop without warning
-- **Requires aggressive control tuning:** Fast-acting VFDs, buffer tanks
-
-**Problems if Mixed on Shared Plant:**
-- **Control hunting:** Rapid D2C swings cause chiller staging instability
-- **Reduced efficiency:** Frequent load cycling reduces COP
-- **Accelerated wear:** Compressors and valves cycle excessively
-- **Complicated troubleshooting:** Which loop caused the upset? Air or D2C?
-
-**Benefits of Separation:**
-- **Optimized controls:** Tune Loop 3 for fast response, Loops 1+2 for stability
-- **Clear contractor boundaries:** Traditional HVAC contractor (Loops 1+2) vs. liquid cooling specialist (Loop 3)
-- **Independent maintenance:** Service Loop 3 without impacting air cooling
-- **Fault isolation:** Loop 3 failure doesn't cascade to air cooling (and vice versa)
-
-### Loop 3 Chiller Specifications
-
-**Same 1,500 kW air-cooled chillers, but optimized for D2C:**
-- **Supply temperature:** 25°C (77°F) - warmer than air cooling for efficiency
-- **Return temperature:** 30-35°C (86-95°F)
-- **ΔT:** 5-10°C (enables higher COP)
-- **COP:** 5.0-5.5 (better than air cooling due to elevated supply temp)
-- **Power consumption:** ~273 kW at full load (vs. 395 kW for colder air cooling)
-
-**Why warmer supply temp:**
-- D2C cold plates can accept warmer coolant (GPUs tolerate higher temps than air-cooled servers)
-- Higher chiller leaving water temp enables improved efficiency
-- **Phase 2 PUE improvement:** Loop 3 efficiency gain contributes to target PUE 1.25
+**120 × RDHx Units (Rear-Door Heat Exchangers)**
+- Each RDHx: 25 kW capacity
+- Total RDHx capacity: 120 × 25 kW = 3,000 kW
+- Rear-door mounted on standard racks
+- Cold water from Loops 1+2 cools air exiting rack
 
 ---
 
-## CDU DISTRIBUTION (COOLANT DISTRIBUTION UNITS)
+## PHASE 3: SCALE BOTH COOLING PLANTS (15 MW TOTAL IT LOAD)
 
-### Configuration
+### Strategy
 
-**60 × CDU Units (2 per cabinet, A/B redundancy)**
-- Each CDU: 300 kW capacity
-- Total CDU capacity: 60 × 300 = 18,000 kW (2× redundancy for 9,000 kW D2C load) ✓
-- CDU power: 15 kW each (pumps + controls) × 60 = 900 kW total
+**Major Expansion of Both L2C and RDHx:**
+- Scale L2C (Loop 3) to 10.5 MW (105 racks total)
+- Scale RDHx (Loops 1+2) to 4.5 MW (180 racks total)
+- Both data halls active with mixed rack types
+
+### IT Heat Load Breakdown
+
+**285 racks total = 15,000 kW IT load**
+- **L2C cooling (Loop 3):** 105 racks × 100 kW = 10,500 kW
+- **RDHx cooling (Loops 1+2):** 180 racks × 25 kW = 4,500 kW
+
+### Loop 3 (L2C) Expansion
+
+**Add 5 chillers (9 × 1,500 kW total, N+1 for 10.5 MW)**
+- **Normal operation:** 7 chillers running (10,500 kW capacity for 10,500 kW load)
+- **Utilization:** 100% per operating chiller in N+1 configuration
+- **CDUs:** 105 total units (1 per L2C rack)
+
+### Loops 1+2 (RDHx) Expansion
+
+**Add 1 chiller (4 × 1,500 kW total, N+1 for 4.5 MW)**
+- **Normal operation:** 3 chillers running (4,500 kW capacity for 4,500 kW load)
+- **Utilization:** 100% per operating chiller in N+1 configuration
+- **RDHx units:** 180 total units (1 per RDHx rack)
+
+---
+
+## PHASE 4: FULL BUILD-OUT (24 MW TOTAL IT LOAD)
+
+### Strategy
+
+**Complete Build-Out to 468 Racks:**
+- L2C at maximum: 16.8 MW (168 racks)
+- RDHx at maximum: 7.2 MW (288 racks)
+- Both halls at 234-rack capacity each
+
+### IT Heat Load Breakdown
+
+**468 racks total = 24,000 kW IT load**
+- **L2C cooling (Loop 3):** 168 racks × 100 kW = 16,800 kW
+- **RDHx cooling (Loops 1+2):** 288 racks × 25 kW = 7,200 kW
+
+### Loop 3 (L2C) Final Build
+
+**Add 5 chillers (14 × 1,500 kW total, N+1 for 16.8 MW)**
+- **Normal operation:** 12 chillers running (18,000 kW capacity for 16,800 kW load)
+- **Utilization:** 93% per operating chiller in N+1 configuration
+- **CDUs:** 168 total units (1 per L2C rack)
+- **Temperature:** 85°F supply (29°C) - warm water optimized
+
+### Loops 1+2 (RDHx) Final Build
+
+**Add 2 chillers (6 × 1,500 kW total, N+1 for 7.2 MW)**
+- **Normal operation:** 5 chillers running (7,500 kW capacity for 7,200 kW load)
+- **Utilization:** 96% per operating chiller in N+1 configuration
+- **RDHx units:** 288 total units (1 per RDHx rack)
+- **Temperature:** 60°F supply (15.5°C) - cold water for air cooling
+
+---
+
+## COOLING LOOP SEPARATION RATIONALE
+
+**Why Separate Warm/Cold Loops:**
+- **Loop 3 (85°F warm water):** Optimized for L2C direct liquid cooling - provides 30-50% better COP than cold water systems
+- **Loops 1+2 (60°F cold water):** Required temperature for RDHx rear-door air heat exchangers
+- **Efficiency advantage:** 85°F supply enables 5,000-6,000 hours/year of free cooling vs. 3,500-4,000 hours with traditional cold water
+- **Load isolation:** Separates stable L2C loads from more volatile RDHx loads for better control stability
+
+---
+
+## CDU DISTRIBUTION (L2C COOLING)
+
+### Phased CDU Deployment
+
+**Ultimate Capacity: 336 CDUs (2 per L2C cabinet, A/B redundancy)**
+- Phase 1: 60 CDUs (30 L2C racks in DH-W)
+- Phase 2: 60 CDUs (no change to L2C rack count)
+- Phase 3: 210 CDUs total (105 L2C racks)
+- Phase 4: 336 CDUs total (168 L2C racks)
+
+**CDU Specifications:**
+- Each CDU: 300 kW heat rejection capacity
+- Primary side: Warm chilled water from Loop 3 (85°F supply)
+- Secondary side: Dielectric fluid to CPU/GPU cold plates
+- Power: 15 kW each (pumps + controls)
 
 **CDU Location:**
 - **Mechanical Gallery (Pipe Gallery)** on north end of building envelope
 - NOT located inside data halls
 - CDUs housed in dedicated mechanical gallery flanking both data halls
-- Secondary fluid distribution from CDUs to cabinets via overhead manifolds
+- Secondary dielectric fluid distribution from CDUs to cabinets via overhead manifolds
 
 ### CDU Specifications (Each Unit)
 
 | Parameter | Specification |
 |-----------|---------------|
 | **Capacity** | 300 kW heat rejection |
-| **Primary Side** | Chilled water from Loop 3 (supply/return per design) |
+| **Primary Side** | Warm chilled water from Loop 3 (85°F / 29°C supply) |
 | **Secondary Side** | Dielectric fluid to cold plates |
 | **Redundancy** | Dual CDUs per cabinet (A-side + B-side) |
 | **Controls** | Modbus TCP, BACnet integration |
 | **Leak Detection** | Integrated sensors at all connections |
 
-### Cabinet D2C Manifolds
+### Cabinet L2C Manifolds
 
 **Distribution from Mechanical Gallery to Data Halls:**
 - CDUs located in mechanical gallery (north pipe gallery)
@@ -314,9 +354,10 @@ Back to chillers
 - **Overhead distribution:** Dielectric fluid manifolds from pipe gallery to cabinet rows
 
 **Deployment Strategy:**
-- Phase 1: Install pipe gallery infrastructure and CDU rough-in (capped)
-- Phase 2: Install CDUs in mechanical gallery, commission D2C cooling cabinet-by-cabinet
-- **Zero downtime:** Air cooling continues during D2C commissioning
+- Phase 1: Install pipe gallery infrastructure and 60 CDUs for anchor tenant
+- Phase 2: L2C rack count unchanged (60 CDUs remain)
+- Phase 3: Add 150 CDUs (210 total for 105 L2C racks)
+- Phase 4: Add 126 CDUs (336 total for 168 L2C racks)
 
 ---
 
@@ -325,14 +366,32 @@ Back to chillers
 ### Layout
 
 **Location:** North side of building (opposite electrical yard)
-**Area:** ~50,000 SF (sized for all 12 chillers)
+**Area:** ~60,000 SF (sized for ultimate 20 chillers)
 
-**Equipment Arrangement:**
-- **Loops 1+2 Zone:** 4 × 1,500 kW chillers (Phase 1)
-- **Loop 3 Zone:** 8 × 1,500 kW chillers (Phase 2)
+**Equipment Arrangement by Phase:**
+
+**Phase 1 (3 MW IT Load):**
+- Loop 3: 4 × 1,500 kW chillers (N+1 for L2C)
+- Loops 1+2: Not commissioned
+
+**Phase 2 (6 MW IT Load):**
+- Loop 3: 4 × 1,500 kW chillers (no change)
+- Loops 1+2: 3 × 1,500 kW chillers (N+1 for RDHx)
+
+**Phase 3 (15 MW IT Load):**
+- Loop 3: 9 × 1,500 kW chillers total (add 5 units)
+- Loops 1+2: 4 × 1,500 kW chillers total (add 1 unit)
+
+**Phase 4 (24 MW IT Load):**
+- Loop 3: 14 × 1,500 kW chillers total (add 5 units)
+- Loops 1+2: 6 × 1,500 kW chillers total (add 2 units)
+- **Total chillers at Phase 4:** 20 units
+
+**Infrastructure:**
 - **Elevated Platforms:** All chillers on 1.5-meter (5 ft) structural steel platforms
 - **Buffer Tanks:** Integrated with chiller platforms for thermal mass
 - **Clearances:** 8-10 ft between chillers for airflow and maintenance access
+- **Future expansion:** Yard sized for additional chiller capacity if needed
 
 **No Pump Rooms Required:**
 - All pumps integrated within packaged chiller systems
@@ -430,16 +489,32 @@ Back to chillers
 
 ### PUE (Power Usage Effectiveness)
 
-**Phase 1 Target: 1.35 (Air Cooling)**
+**Phase 1 Target: 1.40**
 - IT load: 3,000 kW
-- Infrastructure loads: cooling, power distribution losses, building/lighting
-- Target PUE: 1.35
+- Facility load: ~4,200 kW (includes cooling, power distribution losses, building systems)
+- Target PUE: 1.40
+- Conservative target for initial operations
 
-**Phase 2 Target: 1.25 (Air + D2C Cooling)**
-- IT load: 12,000 kW
-- Infrastructure loads: all cooling loops, power distribution, building systems
-- Target PUE: 1.25
-- Improved efficiency from Loop 3 warmer supply temperature and free cooling
+**Phase 2 Target: 1.35**
+- IT load: 6,000 kW
+- Facility load: ~8,100 kW
+- Target PUE: 1.35
+- Both cooling loops operational
+
+**Phase 3 Target: 1.30**
+- IT load: 15,000 kW
+- Facility load: ~19,500 kW
+- Target PUE: 1.30
+- Efficiency improvements from scale and optimization
+
+**Phase 4 Target: 1.25**
+- IT load: 24,000 kW
+- Facility load: ~30,000 kW
+- Target PUE: 1.25 (optimized at scale)
+- Improved efficiency from:
+  - Loop 3 warm water (85°F) providing 30-50% better COP
+  - Extended free cooling hours (5,000-6,000 hours/year)
+  - Optimized chiller staging and load balancing
 
 ### WUE (Water Usage Effectiveness)
 
@@ -457,16 +532,26 @@ Back to chillers
 
 ## EQUIPMENT SUMMARY
 
-| Equipment | Phase 1 | Phase 2 Add | Total | Unit Size | Purpose |
-|-----------|---------|-------------|-------|-----------|---------|
-| **Chillers (Loops 1+2)** | 4 | 0 | 4 | 1,500 kW | Air cooling |
-| **Chillers (Loop 3)** | 0 | 8 | 8 | 1,500 kW | D2C cooling |
-| **Cabinet FCUs** | 30 | 0 | 30 | 100 kW | In-cabinet air cooling |
-| **CDUs** | 0 | 60 | 60 | 300 kW | D2C coolant distribution |
-| **Primary Pumps (Loops 1+2)** | 4 | 0 | 4 | 22 kW | Chiller loop circulation |
-| **Secondary Pumps (Loops 1+2)** | 4 | 0 | 4 | 22 kW | Cabinet distribution |
-| **Primary Pumps (Loop 3)** | 0 | 4 | 4 | 56 kW | Loop 3 circulation |
-| **Building RTUs** | 3-4 | 0 | 3-4 | Varies | Office/NOC HVAC |
+### Cooling Plant Equipment by Phase
+
+| Equipment | Phase 1 | Phase 2 | Phase 3 | Phase 4 | Unit Size | Purpose |
+|-----------|---------|---------|---------|---------|-----------|---------|
+| **Chillers (Loop 3 - L2C)** | 4 | 4 | 9 | 14 | 1,500 kW | Warm water (85°F) for L2C cooling |
+| **Chillers (Loops 1+2 - RDHx)** | 0 | 3 | 4 | 6 | 1,500 kW | Cold water (60°F) for RDHx cooling |
+| **CDUs (L2C)** | 60 | 60 | 210 | 336 | 300 kW | L2C coolant distribution |
+| **RDHx Units** | 0 | 120 | 180 | 288 | 25 kW | Rear-door heat exchangers |
+| **Primary Pumps (Loop 3)** | 4 | 4 | 6 | 8 | Varies | Loop 3 circulation (N+1) |
+| **Primary Pumps (Loops 1+2)** | 0 | 4 | 4 | 4 | Varies | Loops 1+2 circulation (N+1) |
+| **Building RTUs** | 3-4 | 3-4 | 3-4 | 3-4 | Varies | Office/NOC HVAC |
+
+### IT Load Summary by Phase
+
+| Phase | IT MW | Racks | L2C Racks | RDHx Racks | L2C MW | RDHx MW | Facility MW | PUE |
+|-------|-------|-------|-----------|------------|--------|---------|-------------|-----|
+| **1** | 3 | 30 | 30 | 0 | 3.0 | 0 | 4.2 | 1.40 |
+| **2** | 6 | 150 | 30 | 120 | 3.0 | 3.0 | 8.1 | 1.35 |
+| **3** | 15 | 285 | 105 | 180 | 10.5 | 4.5 | 19.5 | 1.30 |
+| **4** | 24 | 468 | 168 | 288 | 16.8 | 7.2 | 30.0 | 1.25 |
 
 
 ---

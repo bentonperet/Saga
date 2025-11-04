@@ -38,8 +38,8 @@ Electrical systems provide Tier III-compliant power distribution with N+1 IT UPS
    │                                  │
    │  [345 kV Switchyard]             │
    │        │                         │
-   │  [XFMR-A: 345kV/13.8kV, 25MVA]  │
-   │  [XFMR-B: 345kV/13.8kV, 25MVA]  │ (2N redundancy)
+   │  [XFMR-A: 345kV/13.8kV, 35MVA]  │
+   │  [XFMR-B: 345kV/13.8kV, 35MVA]  │ (2N redundancy)
    │        │                         │
    └────────┼─────────────────────────┘
             │
@@ -48,8 +48,8 @@ Electrical systems provide Tier III-compliant power distribution with N+1 IT UPS
    │    13.8 kV COMMON BUS            │
    │  (Dual Ring Topology)            │
    ├─────────────────────────────────┤
-   │ • Solar Inverters (8+ MW)        │
-   │ • BESS Inverters (4-8 MWh)       │
+   │ • Solar Inverters (~12 MW)       │
+   │ • BESS Inverters                 │
    │ • Generators (6 × 4 MW)          │
    │ • Data Center Load (12-24MW)     │
    └─────────────────────────────────┘
@@ -75,14 +75,13 @@ Electrical systems provide Tier III-compliant power distribution with N+1 IT UPS
 - **Impedance:** ~8-10%
 - **Location:** Outdoor substation yard on data center site
 
-**Cost:** ~$7-12M for complete customer-owned substation (345 kV requires larger equipment and clearances than lower voltages)
+**Cost:** ~$7-12M for complete customer-owned substation (345 kV requires larger equipment and clearances than lower voltages) <!-- @claude Need to confirm cost -->
 
 **Benefits:**
 - **Single 13.8 kV infrastructure** for utility, solar, BESS, generators, data center
 - **US data center standard voltage** - better equipment availability and contractor familiarity
 - **Microgrid capability** - island at 13.8 kV during utility outages
 - **Future expansion** - no utility upgrades required for 24 MW build-out
-- **Export capability** - sell excess solar to grid (if permitted)
 - **Superior power quality** - 345 kV transmission-level connection (extremely stiff grid)
 - **Renewable compatibility** - matches standard solar/BESS inverter voltages (13.8 kV)
 
@@ -92,7 +91,7 @@ Electrical systems provide Tier III-compliant power distribution with N+1 IT UPS
 
 ### System Configuration
 
-**Dual-Ring MV Topology:**
+**Dual-Ring MV Topology:** <!-- @claude Need to confirm this, we have 8 RMU now -->
 ```
 345kV UTILITY ──[XFMR-A: 25MVA]──[RMU-1]──[RMU-2]──[RMU-3]── RING A
                                      │        │        │
@@ -111,7 +110,7 @@ BESS INVERTERS (4-8 MWh) ─────────► Connect to 13.8 kV commo
 
 ### Ring Main Units (RMUs)
 
-**Equipment:** 6 × RMUs (13.8 kV, 630A rated)
+**Equipment:** 6 × RMUs (13.8 kV, 630A rated) <!-- @claude Need to confirm this is 8, no? -->
 - **Configuration:** 3 RMUs per ring (Ring A and Ring B)
 - **Type:** SF6 or vacuum circuit breakers
 - **Rating:** 13.8 kV, 630A continuous, 20 kA short-circuit
@@ -135,7 +134,7 @@ BESS INVERTERS (4-8 MWh) ─────────► Connect to 13.8 kV commo
 - **Phase 1:** 3 generators (positions 1-3)
 - **Phase 2:** +3 generators (positions 4-6)
 - **N+1 Operation:** 5 generators carry full Phase 2 load (18.2 MW), 1 standby
-
+<!-- @claude Need to confirm this, is this correct based on _BOD? -->
 ### Generator Specifications (Each Unit)
 
 | Parameter | Specification |
@@ -154,22 +153,11 @@ BESS INVERTERS (4-8 MWh) ─────────► Connect to 13.8 kV commo
 | **Seismic** | IBC 2018 certified for SDC B |
 | **Emissions** | NOx < 0.67 g/bhp-hr (Tier 4 Final) |
 
-### Why 13.8 kV Generators (Not 480V)
-
-**Technical Advantages:**
-- **Cable sizing:** 13.8 kV reduces current by 29× vs. 480V
-  - 4 MW @ 480V = 8,333 A → requires 6 × 500 kcmil per phase
-  - 4 MW @ 13.8 kV = 290 A → requires 1 × 1/0 per phase (even smaller than 11 kV!)
-- **I²R losses:** Lower current = dramatically reduced cable losses
-- **Paralleling:** Easier to parallel MV generators than massive LV generators
-- **US standard voltage:** 13.8 kV is the dominant voltage for US data center generators (better availability, shorter lead times)
-- **Common voltage:** Matches utility substation, solar inverters, BESS inverters (13.8 kV is standard US renewable voltage)
-
 ### Generator Yard Layout
 
 - **Location:** Outdoor electrical equipment yard (south side)
 - **Arrangement:** Horizontal layout with 8-10 ft clearances
-- **Fuel:** ~2,000 gal belly tanks per generator connected via common fuel manifold to centralized bulk fuel storage tank farm (24 hours runtime) with redundant supply contracts
+- **Fuel:** ~2,000 gal belly tanks per generator connected via common fuel manifold to centralized bulk fuel storage tank farm with redundant supply contracts
 - **Testing:** Closed-transition load bank, monthly run tests, annual full-load tests
 - **Maintenance Access:** Crane pad for major overhauls
 
@@ -234,16 +222,6 @@ BESS INVERTERS (4-8 MWh) ─────────► Connect to 13.8 kV commo
 - **Connection:** Direct to 13.8 kV common bus via dedicated circuit breaker
 - **Function:** Peak shaving, demand response, solar smoothing, backup power
 
-### Microgrid Operation
-
-**Normal Mode (Grid-Connected):**
-- Utility + Solar + BESS → Data Center Load
-- Export excess solar to grid (if permitted)
-
-**Island Mode (Utility Outage):**
-- Solar + BESS + Generators → Data Center Load
-- 13.8 kV bus disconnects from utility, operates as microgrid
-- Black start capability via BESS or generators
 
 ---
 
@@ -285,7 +263,7 @@ BESS INVERTERS (4-8 MWh) ─────────► Connect to 13.8 kV commo
            └──► Cabinet PDUs ◄──┘
                (Dual PDUs per cabinet)
 ```
-
+<!-- @claude Need to confirm this picture is accurate -->
 ### Phase 1: 5-6 × 1,250 kVA IT UPS Modules
 
 **Modular Configuration:**
@@ -657,30 +635,6 @@ The electrical infrastructure is designed for phased deployment aligned with cus
 
 ---
 
-### Three Power Paths (Unique Design Feature)
-
-**Path 1: Tier III Critical (IT UPS)**
-- Serves: AI Training, AI Inference, Industrial Enterprise customers
-- Route: 345 kV utility → 13.8 kV dual-ring → transformers → IT UPS → 480V distribution
-- Redundancy: N+1 UPS + dual-ring path redundancy
-
-**Path 2: House Power (Non-Critical)**
-- Serves: Building services (offices, HVAC, lighting, NOC)
-- Route: 345 kV utility → 13.8 kV → natural gas house generators backup
-- Redundancy: N+1 house generators
-
-**Path 3: Interruptible (Non-UPS) - NEW**
-- Serves: Specialty Compute customers (Customer #4 - crypto, rendering, batch jobs)
-- Route: 345 kV utility → 13.8 kV dual-ring → dedicated transformers → **direct 480V** (bypass UPS)
-- Features:
-  - Automatic load-shedding during grid emergencies
-  - 30-40% lower power pricing
-  - Can tolerate outages (no UPS ride-through needed)
-- Phase 1: Rough-in distribution panels and transformer pads
-- Phase 2: Commission when demand materializes
-
----
-
 ## CODES AND STANDARDS
 
 - **NEC 2023** (National Electrical Code), Oklahoma amendments
@@ -692,14 +646,10 @@ The electrical infrastructure is designed for phased deployment aligned with cus
 
 ---
 
-**Tags:** #pryor-dc #electrical #345kv-substation #13.8kv-distribution #microgrid #tier-iii
+**Tags:** #pryor-dc #electrical
 
 **Next Steps:**
-1. Utility interconnection study for 345 kV transmission connection
-2. Substation engineering design (345kV/13.8kV transformers, switchyard, increased clearances)
-3. Solar and BESS inverter specifications (13.8 kV output - US standard voltage)
-4. Generator paralleling and microgrid control strategy
-5. Protection coordination study (345 kV through 480V)
+1. ...
 
 ---
 

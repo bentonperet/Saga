@@ -31,7 +31,7 @@
 - **Key Differentiators:**
   - Google Cloud proximity (sub-millisecond latency, eliminate data egress costs)
   - Customer-owned 345 kV substation with 13.8 kV distribution
-  - D2C liquid cooling ready from day 1
+  - L2C liquid cooling ready from day 1
 
 ---
 
@@ -91,7 +91,7 @@
   - Phase 3: 4 × 1,500 kW chillers total (N+1 for 4.5 MW)
   - Phase 4: 6 × 1,500 kW chillers total (N+1 for 7.2 MW)
 - **Separate Loop Rationale:** 85°F warm water for L2C provides superior efficiency vs. traditional 55-60°F; separating loops optimizes each system independently
-- **Free Cooling:** ~3,500-4,000 hours/year (Oklahoma climate)
+- **Free Cooling:** ~5,000-6,000 hours/year (Oklahoma climate with 85°F warm water - significantly more than 55°F systems)
 - **Zero Water Strategy:** No evaporative cooling, closed-loop glycol only
 - **Building HVAC:** Separate package units for offices/support spaces
 - **Mechanical Code:** IMC 2021, ASHRAE 90.1-2019
@@ -213,14 +213,19 @@
 - **Cost premium:** ~$500-800K justified by 30-40% lower annual insurance premiums
 - **Long-term resilience:** Protects critical infrastructure investment
 
-### **Why D2C Liquid Cooling with RDHx (Not Air Cooling Alone)**
-- **D2C cold plates capture 70-90% of heat** directly from CPUs and GPUs
-- **RDHx captures residual 10-30%** from power supplies, NICs, storage, and VRMs
-- **Single fluid loop serves both:** Simplified infrastructure (25% propylene glycol, 12-15°C supply)
-- **Required for high density:** Enables 100+ kW/rack densities that air cooling cannot achieve
-- **Phase 1 enabler:** Proves liquid cooling capability to attract AI training anchor tenant
-- **Better efficiency:** D2C achieves higher COP than traditional air cooling at high densities
+### **Why Separate Warm/Cold Loop Architecture (85°F vs 60°F)**
+- **Loop 3 (Warm Water - 85°F for L2C):** Optimized for liquid-to-chip direct cooling, provides 30-50% better COP than traditional cold water systems
+- **Loops 1+2 (Cold Water - 60°F for RDHx):** Required temperature for rear-door air heat exchangers
+- **Efficiency advantage:** 85°F warm water enables 5,000-6,000 hours/year of free cooling (vs. 3,500 hours with cold water)
+- **Independent control:** L2C loads swing violently with GPU workloads; RDHx loads are stable - separating prevents control instability
+- **Required for high density:** L2C enables 100+ kW/rack densities that air cooling cannot achieve
+- **Phase 1 enabler:** Proves warm water liquid cooling capability to attract AI training anchor tenant
 
+### **Why Zoned-Hall Design (L2C vs. RDHx)**
+- **Customer-Driven CapEx:** Aligns capital spending directly with customer demand. We can build either the 16.8 MW L2C plant (for DH-W) **or** the 7.2 MW RDHx plant (for DH-E) first, depending on which anchor tenant signs. This prevents building millions in a stranded, unused cooling plant.
+- **Maximized Rack Count:** Optimizes the 20,000 SF footprint. The L2C hall requires wide 6-ft service aisles (fitting ~170 racks), while the RDHx hall uses a standard 4-ft layout (fitting ~290 racks), maximizing the facility's total inventory to 468 racks.
+- **Simplified Infrastructure:** Each hall has its own dedicated cooling loop at optimized temperature. This **prevents high-risk "spaghetti" piping** from mixing warm/cold systems, simplifies construction, and lowers long-term operational risk.
+- **Dual Market Strategy:** Creates two distinct, marketable products: a **High-Density Zone** (100 kW L2C for AI training) and a **Medium-Density Zone** (25 kW RDHx for AI inference/enterprise), providing maximum flexibility to serve the entire AI market.
 
 ---
 
