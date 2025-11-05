@@ -13,18 +13,18 @@
 ## EXECUTIVE SUMMARY
 
 ### **FACILITY OVERVIEW**
-- **IT Capacity:** 4-phase buildout to 24 MW ultimate capacity
+- **IT Capacity:** 4-phase buildout to 22 MW ultimate capacity
   - Phase 1: 3 MW (30 racks @ 100 kW, L2C anchor tenant in DH-W)
   - Phase 2: 6 MW (150 racks total: 30 L2C + 120 RDHx, open both halls)
   - Phase 3: 15 MW (285 racks total: 105 L2C + 180 RDHx, scale both halls)
-  - Phase 4: 24 MW (468 racks total: 168 L2C + 288 RDHx, full build-out)
+  - Phase 4: 22 MW (394 racks total: 162 L2C + 232 RDHx, full build-out)
 - **White Space:** 20,000 SF total (two 10,000 SF data halls: DH-W and DH-E)
   - Phase 1: DH-W only (30 racks)
-  - Phase 2+: Both halls operational (468 racks total capacity)
-- **Power Density:** Scales from 300 W/SF (Phase 1) to 1,200 W/SF (Phase 4)
-- **Rack Capacity:** 234 racks per hall maximum (468 total facility)
+  - Phase 2+: Both halls operational (394 racks total capacity)
+- **Power Density:** Scales from 300 W/SF (Phase 1) to 1,100 W/SF (Phase 4)
+- **Rack Capacity:** DH-W: 162 racks (L2C), DH-E: 232 racks (RDHx)
 - **Availability:** Tier III (N+1 IT UPS with MV dual-ring path redundancy, N+1 mechanical, concurrent maintainability)
-- **Target PUE:** 1.40 (Phase 1), 1.35 (Phase 2), 1.30 (Phase 3), 1.25 (Phase 4, optimized at scale)
+- **Target PUE:** 1.40 (Phase 1), 1.35 (Phase 2), 1.30 (Phase 3), 1.27 (Phase 4, optimized at scale)
 - **Target WUE:** <0.5 L/kWh (domestic use only: restrooms, showers, break room; zero water for cooling)
 - **Site:** Pryor, Oklahoma (Tornado Alley - FM 1-150 protection)
 - **Strategic Location:** **4 miles from Google's us-central2 data center campus** - enables direct fiber interconnect for AI/ML hybrid cloud workloads and inference.
@@ -38,25 +38,25 @@
 ### **ELECTRICAL SYSTEMS**
 - **Primary Utility Service:** Customer-owned 345 kV substation
   - **345 kV Transmission:** Direct connection to utility transmission system
-  - **Substation Transformers:** 2 × 35 MVA, 345kV/13.8kV (N+1 redundancy - either can carry full 30 MW facility load)
+  - **Substation Transformers:** 2 × 35 MVA, 345kV/13.8kV (N+1 redundancy - either can carry full 28 MW facility load)
 - **13.8 kV Common Bus:** Single voltage platform for utility, solar, BESS, generators, data center (US standard voltage)
 - **MV Distribution:** 13.8 kV dual-ring topology (Ring A + Ring B) via 8 RMUs
 - **Generators:** Scalable N+1 diesel generators @ 13.8 kV, Tier 4 Final
   - Phase 1: 3 × 4.0 MW (N+1 for 4.2 MW facility load)
   - Phase 2: 4 × 4.0 MW total (N+1 for 8.1 MW facility load, add 1 unit)
   - Phase 3: 6 × 4.0 MW total (N+1 for 19.5 MW facility load, add 2 units)
-  - Phase 4: 9 × 4.0 MW total (N+1 for 30 MW facility load, add 3 units)
+  - Phase 4: 9 × 4.0 MW total (N+1 for 28 MW facility load, add 3 units)
   - Fuel: ~2,000 gal belly tanks per unit connected via common manifold to centralized bulk fuel storage (24-hour runtime with redundant fuel contracts)
 - **Transformers:** Scalable 13.8 kV/480V oil-filled transformers, N+1 with concurrent maintainability
   - Phase 1: 3 × 3,500 kVA (N+1 for 4.2 MW facility load)
   - Phase 2: 4 × 3,500 kVA total (N+1 for 8.1 MW facility load, add 1 unit)
   - Phase 3: 8 × 3,500 kVA total (N+1 for 19.5 MW facility load, add 4 units)
-  - Phase 4: 11 × 3,500 kVA total (N+1 for 30 MW facility load, add 3 units)
+  - Phase 4: 11 × 3,500 kVA total (N+1 for 28 MW facility load, add 3 units)
 - **IT UPS:** N+1 modular architecture (path redundancy from self-healing MV dual-ring)
   - Phase 1: 4 × 1,250 kVA modules (N+1 for 3 MW IT load @ 80% loading)
   - Phase 2: 7 × 1,250 kVA modules total (N+1 for 6 MW IT load, add 3 units)
   - Phase 3: 16 × 1,250 kVA modules total (N+1 for 15 MW IT load, add 9 units)
-  - Phase 4: 25 × 1,250 kVA modules total (N+1 for 24 MW IT load, add 9 units)
+  - Phase 4: 23 × 1,250 kVA modules total (N+1 for 22 MW IT load, add 7 units)
   - Battery: 5-minute runtime maximum (allows for MV generator sync to bus, even two attempts)
   - **Redundancy Philosophy:** 13.8 kV dual-ring provides path redundancy via self-healing SCADA switching; N+1 UPS provides component redundancy
 - **Mechanical UPS:** N+1 modular UPS for mechanical loads (chiller pumps, CRAH fans)
@@ -76,20 +76,20 @@
 - **Cooling Strategy:** Separate loop architecture optimized for efficiency and rack diversity
 - **Loop 3 (Warm Water - L2C Direct-to-Chip):**
   - Temperature: 85°F supply (29°C) - optimized for warm water cooling efficiency
-  - Serves: 168 L2C racks (16.8 MW at Phase 4)
-  - CDUs: 168 units at full build-out (1 per L2C rack, 100+ kW capacity each)
+  - Serves: 162 L2C racks (16.2 MW at Phase 4)
+  - CDUs: 162 units at full build-out (1 per L2C rack, 100+ kW capacity each)
   - Phase 1: 4 × 1,500 kW air-cooled chillers (N+1 for 3 MW)
   - Phase 2: Keep 4 chillers (L2C load unchanged at 3 MW)
   - Phase 3: 9 × 1,500 kW chillers total (N+1 for 10.5 MW)
-  - Phase 4: 14 × 1,500 kW chillers total (N+1 for 16.8 MW)
+  - Phase 4: 12 × 1,500 kW chillers total (N+1 for 16.2 MW)
 - **Loops 1+2 (Cold Water - RDHx Rear-Door Cooling):**
   - Temperature: 60°F supply (15.5°C) - required for rear-door air cooling
-  - Serves: 288 RDHx racks (7.2 MW at Phase 4)
-  - RDHx: 288 rear-door heat exchangers at full build-out (1 per RDHx rack)
+  - Serves: 232 RDHx racks (5.8 MW at Phase 4)
+  - RDHx: 232 rear-door heat exchangers at full build-out (1 per RDHx rack)
   - Phase 1: Not commissioned (no RDHx racks)
   - Phase 2: 3 × 1,500 kW air-cooled chillers (N+1 for 3 MW)
   - Phase 3: 4 × 1,500 kW chillers total (N+1 for 4.5 MW)
-  - Phase 4: 6 × 1,500 kW chillers total (N+1 for 7.2 MW)
+  - Phase 4: 5 × 1,500 kW chillers total (N+1 for 5.8 MW)
 - **Separate Loop Rationale:** 85°F warm water for L2C provides superior efficiency vs. traditional 55-60°F; separating loops optimizes each system independently
 - **Free Cooling:** ~5,000-6,000 hours/year (Oklahoma climate with 85°F warm water - significantly more than 55°F systems)
 - **Zero Water Strategy:** No evaporative cooling, closed-loop glycol only
@@ -175,7 +175,7 @@
 | **1** | 3     | 30          | 30        | 0          | 100.0       | DH-W only    | L2C anchor tenant (AI Training)         |
 | **2** | 6     | 150         | 30        | 120        | 40.0        | DH-W + DH-E  | Open both halls, add RDHx diversity     |
 | **3** | 15    | 285         | 105       | 180        | 52.6        | DH-W + DH-E  | Scale both L2C and RDHx capacity        |
-| **4** | 24    | 468         | 168       | 288        | 51.3        | DH-W + DH-E  | Full build-out (16.8 MW L2C, 7.2 MW RDHx) |
+| **4** | 22    | 394         | 162       | 232        | 55.8        | DH-W + DH-E  | Full build-out (16.2 MW L2C, 5.8 MW RDHx) |
 
 **Phase 1 Strategy:** L2C liquid cooling only (no RDHx cooling plant) = lower CAPEX, proves high-density capability with AI training anchor tenant.
 
@@ -222,8 +222,8 @@
 - **Phase 1 enabler:** Proves warm water liquid cooling capability to attract AI training anchor tenant
 
 ### **Why Zoned-Hall Design (L2C vs. RDHx)**
-- **Customer-Driven CapEx:** Aligns capital spending directly with customer demand. We can build either the 16.8 MW L2C plant (for DH-W) **or** the 7.2 MW RDHx plant (for DH-E) first, depending on which anchor tenant signs. This prevents building millions in a stranded, unused cooling plant.
-- **Maximized Rack Count:** Optimizes the 20,000 SF footprint. The L2C hall requires wide 6-ft service aisles (fitting ~170 racks), while the RDHx hall uses a standard 4-ft layout (fitting ~290 racks), maximizing the facility's total inventory to 468 racks.
+- **Customer-Driven CapEx:** Aligns capital spending directly with customer demand. We can build either the 16.2 MW L2C plant (for DH-W) **or** the 5.8 MW RDHx plant (for DH-E) first, depending on which anchor tenant signs. This prevents building millions in a stranded, unused cooling plant.
+- **Maximized Rack Count:** Optimizes the 20,000 SF footprint. The L2C hall requires wide 6-ft service aisles (fitting ~162 racks), while the RDHx hall uses a standard 4-ft layout (fitting ~232 racks), maximizing the facility's total inventory to 394 racks.
 - **Simplified Infrastructure:** Each hall has its own dedicated cooling loop at optimized temperature. This **prevents high-risk "spaghetti" piping** from mixing warm/cold systems, simplifies construction, and lowers long-term operational risk.
 - **Dual Market Strategy:** Creates two distinct, marketable products: a **High-Density Zone** (100 kW L2C for AI training) and a **Medium-Density Zone** (25 kW RDHx for AI inference/enterprise), providing maximum flexibility to serve the entire AI market.
 

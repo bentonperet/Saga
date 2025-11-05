@@ -464,30 +464,30 @@ Electrical infrastructure designed for 30 MW (Phase 4), with equipment added in 
 
 ---
 
-### 13.4 PHASE 4: 24 MW IT LOAD (468 TOTAL RACKS) - FULL BUILD-OUT
+### 13.4 PHASE 4: 22 MW IT LOAD (394 TOTAL RACKS) - FULL BUILD-OUT
 
 **Rack Deployment:**
-- 168 racks × L2C @ 100 kW = 16,800 kW
-- 288 racks × RDHx @ 25 kW = 7,200 kW
-- **Total: 468 racks = 24,000 kW IT load**
+- 162 racks × L2C @ 100 kW = 16,200 kW
+- 232 racks × RDHx @ 25 kW = 5,800 kW
+- **Total: 394 racks = 22,000 kW IT load**
 
 **Load Summary:**
 
 | Load Type | Power (kW) | Description |
 |-----------|------------|-------------|
-| **IT Load** | 24,000 | 16.8 MW L2C + 7.2 MW RDHx |
-| **Mechanical** | 4,500 | All loops at capacity (Phase 4 chiller deployment complete) |
+| **IT Load** | 22,000 | 16.2 MW L2C + 5.8 MW RDHx |
+| **Mechanical** | 4,900 | All loops at capacity (Phase 4 chiller deployment complete) |
 | **Building** | 500 | Building systems at full capacity |
-| **Total Facility Load** | **~30,000 kW** | **PUE 1.25 (optimized at scale)** |
+| **Total Facility Load** | **~28,000 kW** | **PUE 1.27 (optimized at scale)** |
 
 **Electrical Infrastructure:**
 
 | Equipment | Phase 4 Total | Add from Phase 3 | Sizing Notes |
 |-----------|---------------|------------------|--------------|
-| **Generators** | 9×4.0 MW | Add 3 units | N+1 for 30 MW: 8 running = 32 MW capacity |
-| **LV Transformers** | 11×3.5 MVA | Add 3 units | N+1 for 30 MW: 10 running = 31.5 MW capacity |
-| **IT UPS Modules** | 25 × 1,250 kVA | Add 9 modules | N+1 for 24 MW IT load (24+1 modules @ ~83% loading) |
-| **Mechanical UPS** | 25×250 kW | Add 9 modules | N+1 for 6,000 kW: 24 running = 6,000 kW capacity |
+| **Generators** | 9×4.0 MW | Add 3 units | N+1 for 28 MW: 8 running = 32 MW capacity |
+| **LV Transformers** | 11×3.5 MVA | Add 3 units | N+1 for 28 MW: 10 running = 35 MVA capacity |
+| **IT UPS Modules** | 23 × 1,250 kVA | Add 7 modules | N+1 for 22 MW IT load (22+1 modules @ ~81% loading) |
+| **Mechanical UPS** | 21×250 kW | Add 5 modules | N+1 for 4,900 kW: 20 running = 5,000 kW capacity |
 
 ---
 
@@ -500,7 +500,7 @@ Electrical infrastructure designed for 30 MW (Phase 4), with equipment added in 
 | **1** | 3 | 30 (30/0) | 1.40 | ~4.2 | 3 (N+1) | 3 (N+1) | 4 (3+1, N+1) |
 | **2** | 6 | 150 (30/120) | 1.35 | ~8.1 | 4 (N+1) | 4 (N+1) | 7 (6+1, N+1) |
 | **3** | 15 | 285 (105/180) | 1.30 | ~19.5 | 6 (N+1) | 8 (N+1) | 16 (15+1, N+1) |
-| **4** | 24 | 468 (168/288) | 1.25 | ~30.0 | 9 (N+1) | 11 (N+1) | 25 (24+1, N+1) |
+| **4** | 22 | 394 (162/232) | 1.27 | ~28.0 | 9 (N+1) | 11 (N+1) | 23 (22+1, N+1) |
 
 ---
 
@@ -515,7 +515,7 @@ Electrical infrastructure designed for 30 MW (Phase 4), with equipment added in 
 | **Phase 1** | 4 × 1,250 kVA | 4 MW (3+1, N+1) | $3.0-3.5M | $3.0-3.5M |
 | **Phase 2** | 7 × 1,250 kVA | 7 MW (6+1, N+1) | $5.3-6.0M | $2.3-2.5M |
 | **Phase 3** | 16 × 1,250 kVA | 16 MW (15+1, N+1) | $12.0-13.5M | $6.7-7.5M |
-| **Phase 4** | 25 × 1,250 kVA | 25 MW (24+1, N+1) | $18.8-21.0M | $6.8-7.5M |
+| **Phase 4** | 23 × 1,250 kVA | 23 MW (22+1, N+1) | $17.3-19.6M | $5.3-6.1M |
 
 **Pricing Assumptions:**
 - $750K-$850K per UPS module (1,250 kVA, including batteries)
@@ -531,7 +531,7 @@ Electrical infrastructure designed for 30 MW (Phase 4), with equipment added in 
 | **Phase 1** | 4 | 6 | 2 modules (33%) | $1.5-1.7M |
 | **Phase 2** | 7 | 10 | 3 modules (30%) | $2.3-2.5M |
 | **Phase 3** | 16 | 18 | 2 modules (11%) | $1.5-1.7M |
-| **Phase 4** | 25 | 26 | 1 module (4%) | $0.8-0.9M |
+| **Phase 4** | 23 | 24 | 1 module (4%) | $0.8-0.9M |
 | **Total Savings** | - | - | **8 modules** | **$6.1-6.8M** |
 
 **Additional Lifecycle Savings:**
@@ -547,15 +547,15 @@ Electrical infrastructure designed for 30 MW (Phase 4), with equipment added in 
 
 | System Component | Phase 1 | Ultimate (Phase 4) | Notes |
 |------------------|---------|-------------------|-------|
-| **UPS Systems** | $3.0-3.5M | $18.8-21.0M | N+1 modular architecture |
+| **UPS Systems** | $3.0-3.5M | $17.3-19.6M | N+1 modular architecture |
 | **Generators** | $3.0-3.5M | $9.0-10.5M | 9 × 4 MW diesel @ 13.8 kV |
 | **LV Transformers** | $1.5-1.8M | $5.5-6.5M | 11 × 3,500 kVA oil-filled |
 | **Substation** | $8.0-10.0M | $8.0-10.0M | 345 kV/13.8 kV, 2×35 MVA (built Phase 1) |
 | **MV Distribution** | $2.0-2.5M | $2.0-2.5M | 8 RMUs, dual-ring (built Phase 1) |
 | **LV Distribution** | $2.5-3.0M | $6.0-7.0M | Switchboards, panels, busway |
 | **PDMs (Prefab Modules)** | $2.0-2.5M | $5.0-6.0M | Climate-controlled enclosures |
-| **Mechanical UPS** | $0.6-0.8M | $1.9-2.2M | N+1 for critical mechanical loads |
-| **Total Electrical CAPEX** | **$22.6-27.6M** | **$56.2-65.7M** | Phased deployment |
+| **Mechanical UPS** | $0.6-0.8M | $1.6-1.8M | N+1 for critical mechanical loads |
+| **Total Electrical CAPEX** | **$22.6-27.6M** | **$53.4-61.9M** | Phased deployment |
 
 **Key Design Advantages:**
 - ✅ N+1 UPS saves $7-8M vs 2N architecture
@@ -580,11 +580,11 @@ Electrical infrastructure designed for 30 MW (Phase 4), with equipment added in 
 
 **Document Control:**
 - **Version:** v2
-- **Date Updated:** 2025-11-04
+- **Date Updated:** 2025-11-05
 - **Prepared by:** PGCIS Team
 - **Key Updates:**
-  - Updated for 468-rack deployment (168 L2C + 288 RDHx)
-  - Detailed 4-phase buildout to 30 MW facility load
+  - Updated for 394-rack deployment (162 L2C + 232 RDHx)
+  - Detailed 4-phase buildout to 28 MW facility load (22 MW IT)
   - All equipment properly sized for facility load (IT × PUE)
   - Added comprehensive phasing narratives with load tables
   - Enhanced solar/BESS integration details

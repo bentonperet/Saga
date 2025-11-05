@@ -11,21 +11,21 @@
 
 ## OVERVIEW
 
-This document defines the phased mechanical cooling strategy for a 24 MW IT (30 MW facility) data center. The design is optimized for AI/ML workloads, starting with a 3 MW L2C (Liquid-to-Chip) anchor tenant (Phase 1) and expanding to a 24 MW ultimate capacity.
+This document defines the phased mechanical cooling strategy for a 22 MW IT (28 MW facility) data center. The design is optimized for AI/ML workloads, starting with a 3 MW L2C (Liquid-to-Chip) anchor tenant (Phase 1) and expanding to a 22 MW ultimate capacity.
 
-The design is built on a zoned-hall (DH-W vs. DH-E) concept with two independent, physically separate cooling plants (a 16.8 MW warm-water L2C plant and a 7.2 MW cold-water RDHx plant).
+The design is built on a zoned-hall (DH-W vs. DH-E) concept with two independent, physically separate cooling plants (a 16.2 MW warm-water L2C plant and a 5.8 MW cold-water RDHx plant).
 
 **Design Philosophy:**
-- **Phased Deployment:** Cooling plant CapEx is deployed in phases to match IT load and rack growth (30 → 150 → 285 → 468 racks).
+- **Phased Deployment:** Cooling plant CapEx is deployed in phases to match IT load and rack growth (30 → 150 → 285 → 394 racks).
 - **Zoned-Hall Strategy:**
   - **Data Hall West:** Served by Loop 3 (L2C)
   - **Data Hall East:** Served by Loops 1+2 (RDHx)
 - **Separate Loop Architecture:**
-  - **Loop 3 (L2C):** 16.8 MW plant with an **85°F (29°C)** "warm water" supply. This temperature is specified to maximize chiller efficiency and free cooling hours.
-  - **Loops 1+2 (RDHx):** 7.2 MW plant with a **60°F (15.5°C)** "cold water" supply. This temperature is required for effective rear-door air cooling.
+  - **Loop 3 (L2C):** 16.2 MW plant with an **85°F (29°C)** "warm water" supply. This temperature is specified to maximize chiller efficiency and free cooling hours.
+  - **Loops 1+2 (RDHx):** 5.8 MW plant with a **60°F (15.5°C)** "cold water" supply. This temperature is required for effective rear-door air cooling.
 - **Redundancy:** N+1 for all chillers, pumps, and cooling distribution units.
 - **Zero Water Consumption:** Design uses all air-cooled chillers, closed-loop glycol/fluid systems, and zero evaporative cooling.
-- **Target PUE:** 1.40 (Phase 1) improving to **1.25** (Phase 4) at scale, driven by warm-water cooling efficiencies.
+- **Target PUE:** 1.40 (Phase 1) improving to **1.27** (Phase 4) at scale, driven by warm-water cooling efficiencies.
 
 ---
 
@@ -38,7 +38,7 @@ The design is built on a zoned-hall (DH-W vs. DH-E) concept with two independent
 | **1** | 3 MW | 30 | 30 | 0 | 3.0 MW | 0 MW |
 | **2** | 6 MW | 150 | 30 | 120 | 3.0 MW | 3.0 MW |
 | **3** | 15 MW | 285 | 105 | 180 | 10.5 MW | 4.5 MW |
-| **4** | 24 MW | 468 | 168 | 288 | **16.8 MW** | **7.2 MW** |
+| **4** | 22 MW | 394 | 162 | 232 | **16.2 MW** | **5.8 MW** |
 
 ### Mechanical Plant Phasing
 
@@ -47,17 +47,17 @@ The design is built on a zoned-hall (DH-W vs. DH-E) concept with two independent
 | **1** | 3.0 MW | Phased to 3 MW | 0 MW | Not Commissioned | A/B for 30 Racks |
 | **2** | 3.0 MW | Phased to 3 MW | 3.0 MW | Phased to 3 MW | A/B for 30 Racks |
 | **3** | 10.5 MW | Phased to 10.5 MW | 4.5 MW | Phased to 4.5 MW | A/B for 105 Racks |
-| **4** | 16.8 MW | Phased to 16.8 MW | 7.2 MW | Phased to 7.2 MW | A/B for 168 Racks |
+| **4** | 16.2 MW | Phased to 16.2 MW | 5.8 MW | Phased to 5.8 MW | A/B for 162 Racks |
 
 ---
 
-## LOOP 3: WARM WATER L2C PLANT (16.8 MW)
+## LOOP 3: WARM WATER L2C PLANT (16.2 MW)
 
-This plant serves the 168 high-density (100 kW) L2C racks in Data Hall West.
+This plant serves the 162 high-density (100 kW) L2C racks in Data Hall West.
 
 ### L2C Chiller Plant
 
-- **Capacity (Phase 4):** Shall be an N+1 air-cooled chiller plant, phased to meet the ultimate **16.8 MW** L2C load.
+- **Capacity (Phase 4):** Shall be an N+1 air-cooled chiller plant, phased to meet the ultimate **16.2 MW** L2C load.
 - **Fluid:** 25% Propylene Glycol / Water Mixture
 - **Supply Temperature:** **85°F (29°C)**
 - **Efficiency:** The 85°F supply temperature is specified to maximize mechanical COP and free-cooling opportunities.
@@ -87,13 +87,13 @@ This plant serves the 168 high-density (100 kW) L2C racks in Data Hall West.
 - **Commissioning:** L2C commissioning is a specialized effort requiring coordination with commissioning professionals. Pachyderm Global has experience with liquid cooling commissioning.
 - **Maintenance & Monitoring:** Routine testing schedules, filter replacement protocols, and water quality monitoring shall be specified in the next phase.
 
-## LOOPS 1+2: COLD WATER RDHx PLANT (7.2 MW)
+## LOOPS 1+2: COLD WATER RDHx PLANT (5.8 MW)
 
-This plant serves the 288 medium-density (25 kW) RDHx racks in Data Hall East.
+This plant serves the 232 medium-density (25 kW) RDHx racks in Data Hall East.
 
 ### RDHx Chiller Plant
 
-- **Capacity (Phase 4):** Shall be an N+1 air-cooled chiller plant, phased to meet the ultimate **7.2 MW** RDHx load.
+- **Capacity (Phase 4):** Shall be an N+1 air-cooled chiller plant, phased to meet the ultimate **5.8 MW** RDHx load.
 - **Fluid:** 25% Propylene Glycol / Water Mixture
 - **Supply Temperature:** **60°F (15.5°C)**
 - **Rationale:** This colder temperature is required for the RDHx units to effectively cool air.
@@ -101,7 +101,7 @@ This plant serves the 288 medium-density (25 kW) RDHx racks in Data Hall East.
 
 ### RDHx Distribution
 
-- **RDHx Units:** One (1) Rear-Door Heat Exchanger shall be mounted on each of the 288 racks.
+- **RDHx Units:** One (1) Rear-Door Heat Exchanger shall be mounted on each of the 232 racks.
 - **Capacity (Each RDHx):** Sized to support the 25 kW rack load.
 - **Distribution:** 60°F cold water shall be piped via overhead manifolds to quick-disconnects at each RDHx unit.
 
@@ -162,10 +162,10 @@ The L2C and RDHx systems handle 100% of the IT heat load. A separate HVAC system
 
 | Equipment | Phase 1 | Phase 2 | Phase 3 | Phase 4 | Purpose |
 |-----------|---------|---------|---------|---------|---------|
-| **L2C Plant Capacity (N+1)** | 3 MW | 3 MW | 10.5 MW | 16.8 MW | Warm water (85°F) for L2C cooling |
-| **RDHx Plant Capacity (N+1)** | - | 3 MW | 4.5 MW | 7.2 MW | Cold water (60°F) for RDHx cooling |
-| **CDUs (A/B Redundant)** | 30 racks | 30 racks | 105 racks | 168 racks | L2C coolant distribution |
-| **RDHx Units** | 0 | 120 | 180 | 288 | Rear-door heat exchangers |
+| **L2C Plant Capacity (N+1)** | 3 MW | 3 MW | 10.5 MW | 16.2 MW | Warm water (85°F) for L2C cooling |
+| **RDHx Plant Capacity (N+1)** | - | 3 MW | 4.5 MW | 5.8 MW | Cold water (60°F) for RDHx cooling |
+| **CDUs (A/B Redundant)** | 30 racks | 30 racks | 105 racks | 162 racks | L2C coolant distribution |
+| **RDHx Units** | 0 | 120 | 180 | 232 | Rear-door heat exchangers |
 
 ### IT Load Summary by Phase
 
@@ -174,7 +174,7 @@ The L2C and RDHx systems handle 100% of the IT heat load. A separate HVAC system
 | **1** | 3 | 30 | 30 | 0 | 3.0 | 0 | 4.2 | 1.40 |
 | **2** | 6 | 150 | 30 | 120 | 3.0 | 3.0 | 8.1 | 1.35 |
 | **3** | 15 | 285 | 105 | 180 | 10.5 | 4.5 | 19.5 | 1.30 |
-| **4** | 24 | 468 | 168 | 288 | 16.8 | 7.2 | 30.0 | 1.25 |
+| **4** | 22 | 394 | 162 | 232 | 16.2 | 5.8 | 28.0 | 1.27 |
 
 
 ---
@@ -185,7 +185,7 @@ This section details key "de-risking" changes made to this Basis of Design. The 
 
 - **Chiller & CDU Sizing (Sections 2.2, 3.1, 4.1):**
   - **Removed:** Specific counts of chillers (e.g., "13 chillers") and specific CDU sizes (e.g., "300 kW").
-  - **Why:** This document now defines the _total N+1 capacity_ required at each phase (e.g., "Phased to 16.8 MW N+1"). This gives the engineering team the flexibility to select the most cost-effective solution (e.g., 10 larger chillers vs. 13 smaller ones) that still meets the N+1 performance goal.
+  - **Why:** This document now defines the _total N+1 capacity_ required at each phase (e.g., "Phased to 16.2 MW N+1"). This gives the engineering team the flexibility to select the most cost-effective solution (e.g., 10 larger chillers vs. 13 smaller ones) that still meets the N+1 performance goal.
 
 - **Refrigerant (Section 5.1):**
   - **Removed:** Specific chemical names (e.g., "R-134a").
