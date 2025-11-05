@@ -332,18 +332,17 @@ TBD
 ## COST SUMMARY
 
 
-| System | Cost Estimate |
-|--------|---------------|
-| **Data Hall Preaction (10,000 SF)** | $300-500K |
-| **Data Hall Clean Agent (Alternative)** | +$500-800K |
-| **PDM Integrated Suppression (2 units)** | Included in PDM cost |
-| **Wet Pipe (Support Spaces)** | $150-250K |
-| **VESDA Detection (Data Halls)** | $100-200K |
-| **Fire Alarm System (Addressable)** | $150-250K |
-| **Fire Pump + Storage (If Needed)** | $750K-1.5M |
-| **Portable Extinguishers** | $15-25K |
-| **Total (Preaction Option)** | **$1.5-2.7M** |
-| **Total (Clean Agent Option)** | **$2.0-3.5M** |
+| System                                    | Cost Estimate        |
+| ----------------------------------------- | -------------------- |
+| **Data Hall Preaction (20,000 SF)**       | $300-500K            |
+| **PDM Integrated Suppression (2 units?)** | Included in PDM cost |
+| **Wet Pipe (Support Spaces)**             | $150-250K            |
+| **VESDA Detection (Data Halls)**          | $100-200K            |
+| **Fire Alarm System (Addressable)**       | $150-250K            |
+| **Fire Pump + Storage (If Needed)**       | $750K-1.5M           |
+| **Portable Extinguishers**                | $15-25K              |
+| **Total (Preaction Option)**              | **$1.5-2.7M**        |
+
 
 ---
 

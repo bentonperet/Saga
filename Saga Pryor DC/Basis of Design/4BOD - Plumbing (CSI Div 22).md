@@ -11,13 +11,14 @@
 
 ## OVERVIEW
 
-Plumbing systems provide domestic water service, fire protection water supply, sanitary/storm drainage, and chilled water makeup for closed-loop glycol systems. Zero water consumption for cooling operations (air-cooled chillers eliminate evaporative losses).
+Plumbing systems provide domestic water service, fire protection water supply, and sanitary/storm drainage. Zero water consumption for cooling operations (air-cooled chillers eliminate evaporative losses).
 
 **Design Philosophy:**
 - **Zero cooling water:** Air-cooled chillers, closed-loop glycol (WUE <0.5 L/kWh)
 - **Minimal domestic use:** Staff amenities only (~10-20 occupants)
-- **Leak detection:** Comprehensive system protecting IT equipment
 - **Sustainable design:** Stormwater management, low-flow fixtures
+
+**Scope Note:** All chilled water piping, glycol systems, and cooling loop equipment are scoped under **Division 23 (HVAC)**. Division 22 provides domestic water service only, including stub connections for makeup water to HVAC glycol systems.
 
 ---
 
@@ -33,14 +34,8 @@ Plumbing systems provide domestic water service, fire protection water supply, s
 
 **One-Time Fill Requirements:**
 - Fire sprinkler system: 8,000-15,000 gallons (wet pipe areas)
-- Chilled water loops: 15,000-25,000 gallons total
-  - Loops 1+2: ~5,000 gallons (Phase 1)
-  - Loop 3: ~15,000 gallons (Phase 2)
-- **Total initial fill:** ~25,000-40,000 gallons
-
-**Annual Makeup (Closed-Loop Systems):**
-- Chilled water makeup: <1% volume/year (leak replacement only)
-- Glycol concentration maintenance: Minimal (~100-200 gallons/year)
+- HVAC glycol system makeup water: Provided via domestic water stub connections (HVAC contractor to connect and fill)
+- **Total initial fill (Plumbing scope):** ~8,000-15,000 gallons (fire sprinkler only)
 
 ### Service Specifications
 
@@ -132,143 +127,6 @@ Plumbing systems provide domestic water service, fire protection water supply, s
 
 ---
 
-## CHILLED WATER MAKEUP & TREATMENT
-
-### Glycol System Fill (Closed-Loop)
-
-**System Volumes:**
-- **Loops 1+2 (Phase 1):** ~5,000 gallons total (includes glycol mixture)
-- **Loop 3 (Phase 2):** ~15,000 gallons total (includes glycol mixture)
-- **Total (Phase 2):** ~20,000 gallons total
-- **Glycol concentration:** 25-30% for freeze protection
-
-**Initial Fill Procedure:**
-- Deionized or softened water only (no raw municipal water)
-- Pre-mix glycol per design concentration
-- Pump into system via fill stations (one per loop)
-- Purge air via high-point vents, circulation
-- Test concentration with refractometer
-
-### Makeup Water System
-
-**Equipment:**
-- Glycol mix tanks (sized per system volumes, one per loop)
-- Circulation pumps for mixing
-- Fill connections at each chiller plant
-- Totalizing flow meters (track makeup volume)
-
-**Annual Makeup Requirements:**
-- Target: <1% of system volume per year
-- Typical: 100-200 gallons/year (leak replacement, expansion tank overflow)
-- Alarm if makeup exceeds threshold (indicates leak)
-
-### Water Treatment
-
-**Chemical Treatment Program:**
-- **Corrosion inhibitors:** Protect steel, copper, aluminum components
-- **Biological inhibitors:** Prevent algae/bacteria growth
-- **pH buffers:** Maintain pH 7.5-8.5
-- **Supplier:** [TBD - e.g., Nalco, ChemTreat, Kurita]
-
-**Monitoring:**
-- Quarterly testing: pH, conductivity, inhibitor concentration, glycol %
-- Annual full analysis: Metals, biological activity, fluid degradation
-- BMS integration: Conductivity sensors provide continuous monitoring
-
-**Chemical Dosing:**
-- Manual dosing via chemical dosing pots (CDPs)
-- Sized per loop volume and chemical treatment program
-- Replenish per testing schedule
-
-### Filtration
-
-**Side-Stream Filtration:**
-- Dirt and air separators (DAS) per loop
-- Removes particulates, deaerates fluid
-- Replaceable cartridge filters
-
----
-
-## GLYCOL STORAGE & HANDLING
-
-### Bulk Glycol Storage
-
-**Phase 1 Initial Fill:**
-- 1,500 gallons propylene glycol (30% of 5,000 gal system)
-- Delivered in 55-gallon drums or 275-gallon totes
-- Storage: Outdoor chemical storage shed with secondary containment
-
-**Phase 2 Additional:**
-- 4,500 gallons propylene glycol (Loop 3)
-- Bulk delivery via tanker truck (if available)
-- Temporary storage in totes during fill operation
-
-**Safety:**
-- Propylene glycol: Non-toxic, food-grade (safe for data center environment)
-- SDS (Safety Data Sheets) on-site
-- Spill kit and containment equipment
-
-### Fill Stations
-
-**One Fill Station per Loop (3 Total):**
-- Location: Near each chiller plant
-- Equipment: Hose connection, isolation valves, drain
-- Pump: Portable transfer pump (200-300 GPM)
-- Venting: High-point manual air vents during fill
-
----
-
-## WATER LEAK DETECTION SYSTEM
-
-Critical for protecting IT equipment from water damage.
-
-### Detection Zones
-
-**Data Hall Coverage:**
-- Under all overhead chilled water piping
-- At all cabinet D2C manifold connections (Phase 2)
-- Under CDU units (Phase 2)
-- At mechanical room penetrations
-
-**Mechanical Room Coverage:**
-- Under pumps, valves, heat exchangers
-- At chiller connections
-- Near expansion tanks, fill stations
-
-### Detection Technology
-
-**Sensing Cable:**
-- Conductive fluid detection cable (continuous sensing)
-- Detects water, glycol, or other conductive fluids
-- Length: [ROM] 1,000-2,000 ft per data hall
-
-**Spot Detectors:**
-- Discrete leak detectors at high-risk points
-- Under each CDU (60 detectors in Phase 2)
-- At quick-disconnect fittings
-- Response time: <1 second
-
-**Control Panels:**
-- 2 × leak detection control panels (redundant)
-- BACnet/IP integration to BMS
-- Audible/visual local alarms
-
-### Alarm Response
-
-**Automatic Actions:**
-1. BMS alarm (visual + audible in NOC)
-2. Email/SMS to on-call engineer
-3. DCIM integration (log event, track location)
-4. Optional: Close isolation valves if leak zone can be isolated
-
-**Manual Response:**
-1. Maintenance team dispatched within 15 minutes
-2. Locate leak via sensing cable zone indication
-3. Isolate affected loop/cabinet if possible
-4. Repair and refill system
-
----
-
 ## PLUMBING FIXTURES & EQUIPMENT
 
 ### Restrooms
@@ -346,6 +204,63 @@ Critical for protecting IT equipment from water damage.
 
 ---
 
+## SCOPE CLARIFICATION - DIVISION 22 vs DIVISION 23
+
+**Critical Note:** To prevent scope gaps and bid-day confusion, this section clarifies the boundary between Division 22 (Plumbing) and Division 23 (HVAC) scopes.
+
+### Division 22 (Plumbing) SHALL INCLUDE:
+
+**Domestic Water Systems:**
+- Municipal water service connection (3-4" service lateral, meter, backflow preventer)
+- If municipal unavailable: On-site well system with pressure tanks and booster pumps
+- Domestic water distribution piping to all plumbing fixtures
+- Water softening/filtration equipment (if required)
+- Makeup water stub connections (3/4" isolation valve + union) at HVAC glycol system locations (3 locations)
+
+**Sanitary Waste Systems:**
+- Sanitary sewer lateral connection (6" to municipal system or on-site septic)
+- All sanitary waste piping from fixtures to building lateral
+- Vent piping for drainage system
+- Cleanouts and access points
+
+**Storm Drainage Systems:**
+- Roof drains (8-12 primary drains)
+- Overflow scuppers
+- Interior storm leaders
+- Connection to site storm system (coordinate with civil)
+
+**Plumbing Fixtures & DHW:**
+- All plumbing fixtures (toilets, urinals, lavatories, sinks, showers)
+- Domestic hot water system (2 × 80-gal electric water heaters, recirculation pumps, distribution)
+- Emergency eyewash/safety shower stations (even if located in mechanical rooms)
+
+**Piping & Insulation:**
+- All domestic water piping (hot and cold)
+- All sanitary waste and vent piping
+- All storm drainage piping
+- Insulation for domestic water piping per energy code
+
+### Division 22 (Plumbing) SHALL NOT INCLUDE:
+
+**Chilled Water & Glycol Systems (Division 23 Scope):**
+- ❌ All chilled water piping (Loops 1, 2, and 3)
+- ❌ Overhead chilled water manifolds in data halls
+- ❌ Quick-disconnect fittings for CDU or RDHx connections
+- ❌ Glycol storage tanks (3 × 500-gal tanks)
+- ❌ Glycol fill pumps and fill stations
+- ❌ Chemical treatment systems (dosing pots, inhibitors)
+- ❌ Expansion tanks, air separators, dirt separators for chilled water loops
+- ❌ Water quality testing/treatment for HVAC systems
+- ❌ Leak detection systems for chilled water piping or equipment
+- ❌ Piping insulation for chilled water systems
+
+**Coordination Point:**
+- Division 22 shall provide 3/4" domestic water stub connections (with isolation valve + union) at locations indicated by HVAC contractor
+- HVAC contractor shall connect makeup water from these stubs to their glycol mix tanks
+- HVAC contractor is responsible for all glycol system fill operations, testing, and commissioning
+
+---
+
 ## CODES AND STANDARDS
 
 - **IPC 2021** (International Plumbing Code), Oklahoma amendments
@@ -387,15 +302,111 @@ Critical for protecting IT equipment from water damage.
 |--------|-----------|----------|-------|
 | **Domestic Water** | 3-4" service connection | 1 | Municipal or well |
 | **Backflow Prevention** | RPZ backflow preventer | 1 | Required by code |
+| **Makeup Water Connections** | 3/4" stub connections | 3 | To HVAC glycol systems (HVAC to connect) |
 | **Sanitary Sewer** | 6" lateral connection | 1 | Municipal or septic |
-| **Glycol Mix Tanks** | 500-gallon tanks | 3 | One per loop (1, 2, 3) |
-| **Fill Pumps** | Transfer pumps | 3 | 200-300 GPM portable |
 | **Water Heaters** | 80-gallon electric | 2 | N+1 redundancy |
-| **Leak Detection Cable** | Conductive sensing cable | 2,000-3,000 ft | Data halls + mech rooms |
-| **Leak Spot Detectors** | Discrete detectors | 100+ | CDUs, valves, pumps |
 | **Emergency Fixtures** | Eyewash/shower stations | 2-3 | Chemical storage, mech rooms |
+| **Plumbing Fixtures** | Toilets, sinks, urinals | ~15-20 | Low-flow fixtures |
+| **Storm Drains** | Roof drains + leaders | 8-12 | 6" interior drains |
 
-<!-- @claude add a cost summary table here -->
+### Cost Summary (Rough Order of Magnitude)
+
+**Pricing Methodology:** Hybrid approach combining systems-based parametric pricing for distribution piping and bottom-up equipment pricing for discrete items. Costs are ROM estimates suitable for BOD-level budgeting (±25-30% accuracy).
+
+**General Conditions:** Material and labor costs based on Oklahoma pricing. Assumes contractor access, normal working hours, and coordinated installation with other trades.
+
+| System/Component | Description | Unit | Qty | Unit Cost | Extended Cost | Notes |
+|------------------|-------------|------|-----|-----------|---------------|-------|
+| **DOMESTIC WATER SERVICE** | | | | | | |
+| Water Service Connection | 3-4" service lateral to building | LS | 1 | $18,000 | $18,000 | Assumes municipal connection within 100 ft |
+| Water Meter & Vault | 3" compound meter with vault | EA | 1 | $8,500 | $8,500 | Remote reading capability |
+| RPZ Backflow Preventer | 3" reduced pressure zone device | EA | 1 | $4,500 | $4,500 | Required by code |
+| Well System (Allowance) | If municipal unavailable | LS | 1 | $75,000 | $0 | Contingency - only if needed |
+| Water Filtration System | 5-micron cartridge filters | EA | 1 | $3,500 | $3,500 | Building entry point |
+| **Subtotal - Domestic Water Service** | | | | | **$34,500** | |
+| | | | | | | |
+| **DOMESTIC WATER DISTRIBUTION** | | | | | | |
+| Cold Water Piping | 1" - 3" copper Type L piping | LF | 800 | $45 | $36,000 | To fixtures, mechanical rooms |
+| Makeup Water Stubs | 3/4" stub to HVAC glycol systems | EA | 3 | $850 | $2,550 | Isolation valve + union at 3 locations |
+| Pressure Reducing Valves | PRV stations | EA | 2 | $2,200 | $4,400 | If pressure >80 psi |
+| Piping Insulation | Insulation for cold water piping | LF | 800 | $8 | $6,400 | Energy code compliance |
+| **Subtotal - Domestic Water Distribution** | | | | | **$49,350** | |
+| | | | | | | |
+| **SANITARY SEWER & VENTING** | | | | | | |
+| Sanitary Sewer Lateral | 6" lateral to municipal connection | LF | 150 | $85 | $12,750 | Assumes connection within 150 ft |
+| Sanitary Waste Piping | 2" - 6" PVC/ABS waste piping | LF | 600 | $35 | $21,000 | From fixtures to lateral |
+| Vent Piping | 1.5" - 4" PVC vent piping | LF | 400 | $28 | $11,200 | Through roof |
+| Cleanouts & Access | CO's at direction changes | EA | 8 | $450 | $3,600 | Every 100 ft + changes |
+| Septic System (Allowance) | If municipal unavailable | LS | 1 | $65,000 | $0 | Contingency - 2,000 gpd capacity |
+| **Subtotal - Sanitary Sewer** | | | | | **$48,550** | |
+| | | | | | | |
+| **STORM DRAINAGE** | | | | | | |
+| Roof Drains | 6" interior roof drains | EA | 10 | $1,850 | $18,500 | Primary drains, cast iron |
+| Overflow Scuppers | 6" roof edge scuppers | EA | 8 | $650 | $5,200 | Secondary overflow |
+| Storm Leaders | 6" interior storm piping | LF | 400 | $55 | $22,000 | Insulated in conditioned space |
+| Site Storm Connection | Connection to detention system | LS | 1 | $8,500 | $8,500 | Coordinate with civil |
+| **Subtotal - Storm Drainage** | | | | | **$54,200** | |
+| | | | | | | |
+| **PLUMBING FIXTURES** | | | | | | |
+| Water Closets | Low-flow (1.28 GPF), ADA | EA | 8 | $1,200 | $9,600 | Wall-hung or floor-mount |
+| Urinals | 0.5 GPF or waterless | EA | 3 | $950 | $2,850 | Men's restrooms |
+| Lavatories | 0.5 GPM sensor faucets | EA | 10 | $850 | $8,500 | ADA-compliant |
+| Break Room Sinks | Stainless steel sinks | EA | 3 | $650 | $1,950 | Break rooms |
+| Janitor Sinks | Utility/service sinks | EA | 2 | $800 | $1,600 | Cleaning areas |
+| Shower Stalls | Low-flow (2.0 GPM) showers | EA | 4 | $2,800 | $11,200 | Private stalls with ADA access |
+| Shower Accessories | Benches, grab bars, hooks | LS | 1 | $4,500 | $4,500 | Locker room finishes |
+| Dishwasher Connection | Break room dishwasher | EA | 1 | $450 | $450 | Rough-in only |
+| Ice Maker Connection | Break room ice maker | EA | 1 | $350 | $350 | Cold water + drain |
+| **Subtotal - Plumbing Fixtures** | | | | | **$41,000** | |
+| | | | | | | |
+| **DOMESTIC HOT WATER** | | | | | | |
+| Electric Water Heaters | 80-gal, 240V electric | EA | 2 | $3,200 | $6,400 | N+1 redundancy |
+| Recirculation Pumps | With VFD controls | EA | 2 | $2,400 | $4,800 | Bronze/SS, small 3-phase |
+| Expansion Tanks | DHW expansion tank | EA | 1 | $650 | $650 | ASME rated |
+| Hot Water Piping | 3/4" - 1.5" copper Type L | LF | 500 | $38 | $19,000 | Supply + recirculation loop |
+| Hot Water Insulation | 1" fiberglass insulation | LF | 500 | $9 | $4,500 | Energy code compliance |
+| Tempering Valves | Thermostatic mixing valves | EA | 3 | $850 | $2,550 | Temper to 110°F at fixtures |
+| **Subtotal - Domestic Hot Water** | | | | | **$37,900** | |
+| | | | | | | |
+| **EMERGENCY SAFETY FIXTURES** | | | | | | |
+| Eyewash/Safety Showers | ANSI Z358.1 compliant stations | EA | 3 | $4,200 | $12,600 | Chemical storage + mech rooms |
+| Freeze Protection | Heat trace for outdoor fixtures | LS | 1 | $2,500 | $2,500 | If exposed to freezing |
+| **Subtotal - Emergency Fixtures** | | | | | **$15,100** | |
+| | | | | | | |
+| **TESTING & COMMISSIONING** | | | | | | |
+| Pressure Testing | Hydrostatic testing of all systems | LS | 1 | $5,500 | $5,500 | Domestic water, DHW, gas |
+| Water Quality Testing | Initial water analysis | LS | 1 | $1,200 | $1,200 | Hardness, pH, contaminants |
+| Backflow Certification | RPZ annual testing/certification | EA | 1 | $350 | $350 | Initial certification |
+| Disinfection & Flushing | Chlorination and flushing per ASHRAE 188 | LS | 1 | $3,500 | $3,500 | Legionella prevention |
+| As-Built Documentation | Record drawings and O&M manuals | LS | 1 | $4,500 | $4,500 | Final documentation |
+| **Subtotal - Testing & Commissioning** | | | | | **$15,050** | |
+| | | | | | | |
+| **PROJECT MANAGEMENT & MISC** | | | | | | |
+| General Conditions | Bonds, insurance, mobilization | % | 8% | - | $23,500 | 8% of subtotal |
+| Contractor Overhead & Profit | Markup on direct costs | % | 15% | - | $47,900 | 15% of subtotal + GC |
+| **Subtotal - PM & Markup** | | | | | **$71,400** | |
+| | | | | | | |
+| **TOTAL - DIVISION 22 (PLUMBING)** | | | | | **$367,050** | **ROM ±25-30%** |
+
+**Cost Breakdown by Category:**
+- Domestic Water: $83,850 (23%)
+- Sanitary/Storm: $102,750 (28%)
+- Fixtures & DHW: $78,900 (21%)
+- Testing & PM: $86,450 (24%)
+- Contingency items: $140,000 (well + septic, if needed)
+
+**Excluded from This Estimate:**
+- Site civil work (grading, paving, utilities beyond building connection points)
+- Stormwater detention pond (civil scope)
+- HVAC chilled water systems (Division 23 scope - see HVAC BOD)
+- Fire protection piping (Division 21 scope)
+- Electrical work for pumps, water heaters (Division 26 scope)
+
+**Cost Escalation Notes:**
+- Costs based on 2025 pricing
+- Oklahoma labor rates (~$65-85/hr skilled labor)
+- If construction delayed >6 months, apply 3-4% annual escalation
+- Material costs for copper piping subject to commodity price fluctuations
 
 ---
 

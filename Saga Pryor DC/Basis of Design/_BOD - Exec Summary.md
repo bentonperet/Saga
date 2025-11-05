@@ -79,7 +79,7 @@
 - **Loop 3 (Warm Water - L2C Direct-to-Chip):**
   - Temperature: 85°F supply (29°C) - optimized for warm water cooling efficiency
   - Serves: 162 L2C racks (16.2 MW at Phase 4)
-  - CDUs: 162 units at full build-out (1 per L2C rack, 100+ kW capacity each)
+  - CDUs: 162 rack pairs (324 physical units with A/B redundancy, 100+ kW capacity each)
   - Phase 1: 4 × 1,500 kW air-cooled chillers (N+1 for 3 MW)
   - Phase 2: Keep 4 chillers (L2C load unchanged at 3 MW)
   - Phase 3: 9 × 1,500 kW chillers total (N+1 for 10.5 MW)
@@ -90,10 +90,10 @@
   - RDHx: 232 rear-door heat exchangers at full build-out (1 per RDHx rack)
   - Phase 1: Not commissioned (no RDHx racks)
   - Phase 2: 3 × 1,500 kW air-cooled chillers (N+1 for 3 MW)
-  - Phase 3: 4 × 1,500 kW chillers total (N+1 for 4.5 MW)
-  - Phase 4: 5 × 1,500 kW chillers total (N+1 for 5.8 MW)
+  - Phase 3: 5 × 1,500 kW chillers total (N+1 for 4.5 MW)
+  - Phase 4: 6 × 1,500 kW chillers total (N+1 for 5.8 MW)
 - **Separate Loop Rationale:** 85°F warm water for L2C provides superior efficiency vs. traditional 55-60°F; separating loops optimizes each system independently
-- **Free Cooling:** ~5,000-6,000 hours/year (Oklahoma climate with 85°F warm water - significantly more than 55°F systems)
+- **Free Cooling:** ~3,500-4,000 hours/year (Oklahoma climate with 85°F warm water - significantly more than 55°F systems)
 - **Zero Water Strategy:** No evaporative cooling, closed-loop glycol only
 - **Building HVAC:** Separate package units for offices/support spaces
 - **Mechanical Code:** IMC 2021, ASHRAE 90.1-2019

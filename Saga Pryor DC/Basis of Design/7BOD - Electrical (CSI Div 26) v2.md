@@ -12,7 +12,7 @@
 
 ### 1.1 Project Summary
 
-This Basis of Design defines the electrical infrastructure for a two-hall, 20,000 SF data center with an ultimate IT load of **24 MW** and a total facility load of approximately **30 MW**. The system is designed to meet Tier III standards, providing N+1 component redundancy and dual-path redundancy for all critical loads.
+This Basis of Design defines the electrical infrastructure for a two-hall, 20,000 SF data center with an ultimate IT load of **22 MW** and a total facility load of approximately **30 MW**. The system is designed to meet Tier III standards, providing N+1 component redundancy and dual-path redundancy for all critical loads.
 
 The electrical backbone is a self-healing 13.8 kV dual-ring MV distribution with 8 RMU switchgear and SCADA-controlled automated switching, enabling concurrent maintainability of any transformer or electrical component. The 13.8 kV common bus allows for flexible integration of utility power, backup generators, solar arrays, and battery energy storage systems.
 
@@ -21,7 +21,7 @@ The electrical backbone is a self-healing 13.8 kV dual-ring MV distribution with
 - Self-healing 13.8 kV dual-ring distribution (8 RMUs, SCADA-controlled) providing path redundancy
 - 9×4.0 MW diesel generators @ 13.8 kV (N+1 for 30 MW facility load)
 - 11×3,500 kVA LV transformers, 13.8kV/480V (N+1 redundancy with concurrent maintainability)
-- N+1 UPS architecture: 25 modular UPS units (1,250 kVA each) at Phase 4, with path redundancy from MV dual-ring
+- N+1 UPS architecture: 23 modular UPS units (1,250 kVA each) at Phase 4, with path redundancy from MV dual-ring
 - Prefabricated Power Delivery Modules (PDMs) for accelerated schedule
 
 ### 1.2 Design Philosophy
@@ -78,8 +78,8 @@ The following diagram illustrates the overall electrical system architecture, sh
         └────────────┬────────────────────┘
                      │
               [UPS Modules]
-             25×1,250 kVA (N+1)
-             24 MW IT capacity
+             23×1,250 kVA (N+1)
+             22 MW IT capacity
                      │
         ┌────────────┴────────────────┐
         │                             │
@@ -222,17 +222,17 @@ The following diagram shows the self-healing 13.8 kV dual-ring architecture with
 - **Redundancy:** N+1 modular UPS architecture with concurrent maintainability enabled by self-healing 13.8 kV dual-ring MV distribution
 - **Path Redundancy:** Provided by MV dual-ring topology (Ring A / Ring B) with SCADA-controlled automated switching
 - **Component Redundancy:** Provided by N+1 UPS modules (can lose one module and continue operation)
-- **Topology:** The 24 MW IT load (Phase 4) will be protected by 25 UPS modules (24+1 for N+1) with power distributed via dual A/B paths to dual-corded IT equipment
+- **Topology:** The 22 MW IT load (Phase 4) will be protected by 23 UPS modules (22+1 for N+1) with power distributed via dual A/B paths to dual-corded IT equipment
 - **Tier III Compliance:** Meets Uptime Institute Tier III concurrent maintainability requirements through combination of N+1 UPS component redundancy and dual-path MV distribution
 
 ### 6.2 System Sizing (Phase 4)
 
-- **IT Load:** 24 MW (24,000 kW)
-- **UPS Modules:** 25 × 1,250 kVA modules
-  - N = 24 modules (24 × 1 MW = 24 MW capacity)
-  - N+1 = 25 modules total
-  - Operating load: ~83% per module (optimal efficiency range of 80-90%)
-- **N+1 Verification:** 24 running modules = 24 MW capacity = full IT load ✓
+- **IT Load:** 22 MW (22,000 kW)
+- **UPS Modules:** 23 × 1,250 kVA modules
+  - N = 22 modules (22 × 1 MW = 22 MW capacity)
+  - N+1 = 23 modules total
+  - Operating load: ~89% per module (optimal efficiency range of 80-90%)
+- **N+1 Verification:** 22 running modules = 22 MW capacity = full IT load ✓
 
 ### 6.3 Path Redundancy Philosophy
 
@@ -504,65 +504,9 @@ Electrical infrastructure designed for 30 MW (Phase 4), with equipment added in 
 
 ---
 
-## 14.0 COST IMPACTS & CAPEX SAVINGS
+## 14.0 EQUIPMENT AND COST SUMMARY
 
-### 14.1 UPS System Costs (N+1 Architecture)
-
-**Estimated UPS CAPEX by Phase:**
-
-| Phase | UPS Modules | Total UPS Capacity | Estimated Cost | Incremental Cost |
-|-------|-------------|-------------------|----------------|------------------|
-| **Phase 1** | 4 × 1,250 kVA | 4 MW (3+1, N+1) | $3.0-3.5M | $3.0-3.5M |
-| **Phase 2** | 7 × 1,250 kVA | 7 MW (6+1, N+1) | $5.3-6.0M | $2.3-2.5M |
-| **Phase 3** | 16 × 1,250 kVA | 16 MW (15+1, N+1) | $12.0-13.5M | $6.7-7.5M |
-| **Phase 4** | 23 × 1,250 kVA | 23 MW (22+1, N+1) | $17.3-19.6M | $5.3-6.1M |
-
-**Pricing Assumptions:**
-- $750K-$850K per UPS module (1,250 kVA, including batteries)
-- Lithium-ion batteries (10-15 year life, 5-minute runtime)
-- Factory integration and commissioning included
-
-### 14.2 CAPEX Savings vs 2N UPS Architecture
-
-**Comparison: N+1 vs 2N UPS Systems**
-
-| Phase | N+1 Modules | 2N Modules | Module Reduction | Cost Savings |
-|-------|-------------|------------|------------------|--------------|
-| **Phase 1** | 4 | 6 | 2 modules (33%) | $1.5-1.7M |
-| **Phase 2** | 7 | 10 | 3 modules (30%) | $2.3-2.5M |
-| **Phase 3** | 16 | 18 | 2 modules (11%) | $1.5-1.7M |
-| **Phase 4** | 23 | 24 | 1 module (4%) | $0.8-0.9M |
-| **Total Savings** | - | - | **8 modules** | **$6.1-6.8M** |
-
-**Additional Lifecycle Savings:**
-- Battery replacement cycles (15-year facility life):
-  - VRLA batteries: 2 replacement cycles = additional savings of ~$1.6-1.8M
-  - Li-ion batteries: 1 replacement cycle = additional savings of ~$0.8-0.9M
-- Reduced footprint: ~15-20% less PDM space required
-- Lower maintenance labor: Fewer modules to service
-
-**Total NPV Savings (N+1 vs 2N):** $7-8M over facility lifecycle
-
-### 14.3 Total Electrical System Costs
-
-| System Component | Phase 1 | Ultimate (Phase 4) | Notes |
-|------------------|---------|-------------------|-------|
-| **UPS Systems** | $3.0-3.5M | $17.3-19.6M | N+1 modular architecture |
-| **Generators** | $3.0-3.5M | $9.0-10.5M | 9 × 4 MW diesel @ 13.8 kV |
-| **LV Transformers** | $1.5-1.8M | $5.5-6.5M | 11 × 3,500 kVA oil-filled |
-| **Substation** | $8.0-10.0M | $8.0-10.0M | 345 kV/13.8 kV, 2×35 MVA (built Phase 1) |
-| **MV Distribution** | $2.0-2.5M | $2.0-2.5M | 8 RMUs, dual-ring (built Phase 1) |
-| **LV Distribution** | $2.5-3.0M | $6.0-7.0M | Switchboards, panels, busway |
-| **PDMs (Prefab Modules)** | $2.0-2.5M | $5.0-6.0M | Climate-controlled enclosures |
-| **Mechanical UPS** | $0.6-0.8M | $1.7-1.9M | N+1 for critical mechanical loads |
-| **Total Electrical CAPEX** | **$22.6-27.6M** | **$53.5-62.0M** | Phased deployment |
-
-**Key Design Advantages:**
-- ✅ N+1 UPS saves $7-8M vs 2N architecture
-- ✅ Tier III compliance maintained (dual MV ring provides path redundancy)
-- ✅ Higher module utilization (80-90%) improves efficiency vs 2N (40-50%)
-- ✅ Bankable design - industry-standard N+1 topology with dual-path MV distribution
-- ✅ Phased deployment optimizes cash flow and IRR
+<!-- @claude, please generate this section -->
 
 ---
 
