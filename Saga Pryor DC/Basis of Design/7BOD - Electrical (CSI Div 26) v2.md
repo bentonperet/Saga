@@ -2,7 +2,6 @@
 **Project:** Saga Pryor Data Center - PACHYDERM GLOBAL
 **Owner:** Saga
 **Parent Document:** [[_BOD - Exec Summary]]
-**Tags:** #pryor-dc #electrical #csi-div-26 #bod #tier-iii #n+1-architecture
 
 # BASIS OF DESIGN - ELECTRICAL (CSI DIVISION 26)
 ## Pryor Data Center - PACHYDERM GLOBAL
@@ -582,12 +581,10 @@ Electrical infrastructure designed for 30 MW (Phase 4), with equipment added in 
 **Document Control:**
 - **Version:** v2
 - **Date Updated:** 2025-11-04
-- **Prepared by:** EVS / PGCIS Team
+- **Prepared by:** PGCIS Team
 - **Key Updates:**
-  - Implemented 2N UPS architecture (fully redundant dual-path)
   - Updated for 468-rack deployment (168 L2C + 288 RDHx)
   - Detailed 4-phase buildout to 30 MW facility load
   - All equipment properly sized for facility load (IT × PUE)
   - Added comprehensive phasing narratives with load tables
   - Enhanced solar/BESS integration details
-  - Added PDM section for accelerated construction schedule

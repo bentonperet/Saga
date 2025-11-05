@@ -361,7 +361,7 @@ Requires third power distribution path:
 
 **Related BOD Sections:**
 - [[_BOD - Exec Summary|Executive Summary]] - High-level overview
-- [[Saga Pryor DC/Basis of Design/7BOD - Electrical (CSI Div 26)|Electrical BOD]] - Interruptible power path details
+- [[7BOD - Electrical (CSI Div 26) vOLD|Electrical BOD]] - Interruptible power path details
 - [[Saga Pryor DC/Basis of Design/5BOD - HVAC (CSI Div 23)|Mechanical BOD]] - D2C cooling for AI workloads
 - [[Saga Pryor DC/_Project Management/Design Notes/Phasing_Strategy_Discussion_Context|Phasing Strategy]] - Customer-driven buildout approach
 

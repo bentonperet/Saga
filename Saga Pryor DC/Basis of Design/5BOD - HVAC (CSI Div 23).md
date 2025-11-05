@@ -65,12 +65,27 @@ This plant serves the 168 high-density (100 kW) L2C racks in Data Hall West.
 
 ### L2C Coolant Distribution
 
-- **CDUs (Coolant Distribution Units):** The L2C load will be served by high-capacity CDUs located in the adjacent mechanical galleries, not in the data hall.
+**Loop Architecture:**
+- **Primary Loop (Loop 3):** Facility water (25% glycol) from chillers to CDU heat exchanger
+- **Secondary Loop:** Dielectric fluid (or facility-safe coolant) from CDU to rack cold plates
+- **Tertiary Loop:** Cold plate internal micro-channels
+- **Separation:** Primary and secondary loops isolated via plate heat exchanger in CDU (no cross-contamination)
+
+**CDU Configuration:**
+- **Location:** High-capacity CDUs located in the adjacent mechanical galleries, not in the data hall.
 - **Redundancy:** Each 100 kW L2C rack shall be fed by an **A/B redundant CDU solution.**
 - **Capacity (Each CDU):** The A/B CDU solution shall be sized to support the full 100 kW rack load.
+- **Components:** Plate heat exchanger, secondary pumps (N+1), expansion tank, filtration system, control system with PLC, leak detection sensors.
 - **Primary Side:** 85°F warm water from Loop 3.
 - **Secondary Side:** Dielectric fluid (or facility-safe fluid) piped via overhead manifolds to quick-disconnects at each rack's cold plates.
 - **Controls:** Integrated leak detection at all connections, reporting to BMS.
+
+**Design Requirements (Next Phase):**
+- **Water Quality:** Water quality requirements for primary and secondary loops shall be specified in detailed design.
+- **Cold Plate Specifications:** Cold plate performance requirements, thermal interface materials, and component coverage shall be specified by system engineers.
+- **Piping Specifications:** Manifold materials, pressure ratings, isolation valves, and quick-disconnect specifications shall be determined in detailed design.
+- **Commissioning:** L2C commissioning is a specialized effort requiring coordination with commissioning professionals. Pachyderm Global has experience with liquid cooling commissioning.
+- **Maintenance & Monitoring:** Routine testing schedules, filter replacement protocols, and water quality monitoring shall be specified in the next phase.
 
 ## LOOPS 1+2: COLD WATER RDHx PLANT (7.2 MW)
 

@@ -133,7 +133,7 @@
 - **Delivery driver restroom:** Accessible only from outside at NW corner (within view of security)
 - **PDMs:** Power Delivery Modules located outside in electrical equipment yard
 
-**Multi-Level Central Spine (4 Levels):**
+**Multi-Level Central Spine (3 Levels):** <!-- @claude: User confirms it's 3 levels in central spine, 1 level everywhere else. Review this section. -->
 - **Level 1:** Prefabricated storm shelter/safe room (20 person), elevator/stairwell, redundant restrooms, men's/women's showers, break room, lounge, gaming area (TBD)
 - **Level 2 (Secure NOC):** NOC (~2,060 SF), private NOC area
 - **Level 3 (Fitness/Tour Route):** Gym/fitness center, secure tour route with internal windows into critical areas, weather-protected balconies (north/south) for equipment yard views, accessible to security and technical operations staff for routine site walks
@@ -239,10 +239,9 @@
 **Document Control:**
 - **Source:** Pryor_Bod_EVS_Rev01.md
 - **Date Updated:** October 29, 2025
-- **Prepared by:** EVS / PGCIS Team
+- **Prepared by:** PGCIS Team
 - **Corrections:** Tilt-up construction, utility voltage options, mechanical yard sizing
 
 
-CAPEX Savings Note:
-- We've kept the sparkle of the high ceilings and raised walking track for customer tours and security... However, for cost savings, an overall reduction in building height to ~20ft would provide ample space for any type of adaptation (hot aisle containment, etc.). It would save in steel and concrete.
-- 
+**CAPEX Savings Note:**
+- We've kept the sparkle of the high ceilings and raised walking track for customer tours and security... However, for cost savings, an overall reduction in building height to ~20ft would provide ample space for any type of adaptation (hot aisle containment, etc.). It would save on steel and concrete, if required.

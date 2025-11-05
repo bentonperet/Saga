@@ -1,6 +1,6 @@
 **Created:** 2025-11-03
 **Tags:** #pryor-dc #sld #electrical #phase-1 #3mw
-**Related:** [[7BOD - Electrical (CSI Div 26)]], [[_BOD - Exec Summary]]
+**Related:** [[7BOD - Electrical (CSI Div 26) vOLD]], [[_BOD - Exec Summary]]
 
 # SINGLE-LINE DIAGRAM - PHASE 1 (3 MW)
 ## Pryor Data Center - PACHYDERM GLOBAL

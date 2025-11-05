@@ -201,11 +201,15 @@ See [[Appendix A - Asset Naming and Tagging Standard]] for complete rubric, equi
 
 ---
 
+**Tags:** n/a
+
+**Next Steps:**
+1. Complete required sections
 
 ---
 
 **Document Control:**
-- **Source:** Pryor_Bod_EVS_Rev01.md, Erik_BOD references
-- **Date Updated:** October 29, 2025
+- **Source:** PGCIS Team
+- **Date Updated:** November 5, 2025
 - **Prepared by:** EVS / PGCIS Team
-- **Key Updates:** Standardized equipment list, commissioning scope, training
+- **Key Updates:** n/a

@@ -11,13 +11,13 @@
 
 ## OVERVIEW
 
-50,000 GSF single-story precast concrete tilt-up building with FM 1-150 tornado-resistant roof, housing 20,000 SF of white space (two 10,000 SF data halls), 30,000 SF support spaces, and multi-level central spine.
+38,000 SF single-story precast concrete tilt-up building with FM 1-150 tornado-resistant roof, housing 20,000 SF of white space (two 10,000 SF data halls: DH-W and DH-E), 18,000 SF support spaces, and multi-level central spine.
 
 **Key Features:**
 - **Construction:** Precast concrete tilt-up walls (tornado resistance)
 - **Roof:** FM 1-150 rating (150 mph 3-second gust, hail resistance)
 - **Floor:** Slab-on-grade (raised floor: Not Applicable), sealed concrete
-- **Ceiling height:** 28-30 ft data halls (overhead MEP distribution)
+- **Ceiling height:** 30 ft clear in data halls (overhead MEP distribution)
 - **Containment:** Not Applicable (DDC cabinets provide integrated cooling)
 - **Storm shelter:** FEMA 361 compliant (EF5 protection)
 
@@ -36,43 +36,9 @@
 
 ### Foundation System
 - **Type:** Spread footings below frost line (18-24")
-- **Bearing:** [TBD per geotech report]
+- **Bearing:** TBD per geotech report
 - **Data hall slab:** 6-8" reinforced concrete, 4,000 PSI, FF 50 / FL 40 flatness, densifier/sealer finish
 - **AI rack floor load:** 750 PSF sustained (supports 3,500 lb racks like NVIDIA GB200 NVL72)
-
-### Under-Building Electrical Duct Banks
-
-**Purpose:** Provide protected, optimal electrical pathways between north and south equipment yards
-
-**Configuration:**
-- **Quantity:** Minimum 8 large duct banks installed beneath building prior to foundation pour
-- **Routing:** North-south pathway providing shortest route between equipment yards
-- **Entry points:** Minimum 2 entry points per duct bank at north and south ends of each data hall area
-  - Data Hall 1 (East): 4 entry points (2 north, 2 south)
-  - Data Hall 2 (West): 4 entry points (2 north, 2 south)
-- **Capacity:** Sized to accommodate conduits and cables for 24 MW total power capacity
-  - 12 MW per side (East and West)
-  - Future expansion capability to full 24 MW master plan
-
-**Design Specifications:**
-- **Duct bank construction:** PVC-coated steel or HDPE conduit encased in concrete per NEC 300.5 and 300.50
-- **Conduit sizing:** Multiple conduits per duct bank for redundancy and capacity
-- **Pull boxes:** Located at strategic points for cable installation and maintenance
-- **Entry risers:** Sealed penetrations through foundation with fire-stop and waterproofing
-
-**Coordination:**
-- Install duct banks prior to foundation/slab pour
-- Coordinate with structural engineer for foundation loads and reinforcement
-- Coordinate with electrical engineer for conduit sizing and quantity
-- Survey and document duct bank locations for as-built drawings
-
-**Rationale:**
-- **Protection:** Concrete-encased duct banks protect cables from environmental damage and mechanical impact
-- **Shortest path:** Direct north-south routing minimizes voltage drop and cable costs
-- **Future-proof:** Sized for full 24 MW capacity supports master plan expansion
-- **Reliability:** Multiple duct banks provide redundancy and diverse pathways
-
-**Cost:** ~$300-500K (duct banks, concrete encasement, excavation, coordination)
 
 ### Equipment Pad Foundations
 - **Chillers, generators:** Individual isolated pads; vibration isolation if required
@@ -91,12 +57,6 @@ Not applicable (precast tilt-up construction, no CMU)
 - **System:** Clear-span steel joists and beams; 28-30 ft clear height
 - **Loading:** MEP equipment (cable tray, HVAC duct, lighting) + FM 1-150 wind/hail
 - **Seismic:** IBC Seismic Design Category B (Oklahoma)
-- **Columns:** Minimize in data halls; 50-60 ft grid typical
-
-### Cable Tray and Support Steel
-- **Overhead:** Unistrut or equivalent trapeze hangers; seismic bracing
-- **Capacity:** Sized for power + fiber cable fills + 25% spare
-- **Height:** 12-14 ft above finished floor (AFF) typical
 
 ---
 
@@ -111,20 +71,20 @@ Minimal scope (office millwork, shelving)
 
 **Why Precast Tilt-Up (Not PEMB):**
 - **Tornado resistance:** EF3+ wind speeds (precast withstands impacts better than metal)
-- **Insurance:** 20-30% premium reduction vs. PEMB in tornado-prone regions
+- **Insurance:** 20-30% premium reduction vs. PEMB in tornado-prone regions {TBC}
 - **Durability:** 50+ year lifespan, low maintenance
 - **Fire resistance:** Non-combustible, 4-hour fire rating (if required)
 
 **Panel Specifications:**
-- **Thickness:** 8-10" precast concrete panels
+- **Thickness:** 8-10" precast concrete panels {TBC}
 - **Insulation:** Rigid foam insulation sandwich (R-19 min)
 - **Finish:** Architectural texture or smooth finish (exterior); painted drywall (interior)
 - **Connections:** Steel embeds, welded/bolted to foundation and roof
 
 **Cost Premium:**
-- Precast tilt-up ~$25-40/SF more than PEMB
-- Total building envelope premium: ~$1.3-2.0M for 50,000 GSF
-- Offset by insurance savings (~$200-300K/year → 5-7 year payback)
+- Precast tilt-up ~$25-40/SF more than PEMB {TBC}
+- Total building envelope premium: ~$1.3-2.0M for 50,000 GSF {TBC}
+- Offset by insurance savings (~$200-300K/year → 5-7 year payback) {TBC}
 
 ### Roof System (FM 1-150 Rating)
 
@@ -146,16 +106,8 @@ Minimal scope (office millwork, shelving)
 - **Code:** OSHA 1910.23 (guardrails/fall protection), IBC roof access requirements
 
 **Roof-Mounted Equipment Protection:**
-- **Perimeter protection:** Storm-rated debris screen around roof perimeter
-  - **Purpose:** Absorb, deflect, or shred flying debris during storm events
-  - **Standards:** FEMA P-361 (missile impact resistance), ICC 500
-  - **Design:** Engineered per FM 1-150 wind and impact requirements
-- **Equipment protection:** Each roof-mounted unit (HVAC, exhaust fans, vent shafts) protected with:
-  - Impact-resistant enclosures or screens
-  - Hail guards for intake/exhaust openings
-  - Secure mounting per ASCE 7 wind loads and FM 1-150
-  - Equipment rated for Class 4 hail impact
-- **Rationale:** Minimize damage from hail, falling debris, and windborne projectiles during tornado/severe storm events
+- Storm-rated stainless steel debris screen around perimeter
+- Impact-resistant enclosures for all roof equipment (HVAC, exhaust fans, vent shafts)
 
 **Roof Drainage:**
 - Interior roof drains (6" diameter) at low points
@@ -163,21 +115,21 @@ Minimal scope (office millwork, shelving)
 - Design for 100-year storm event per IBC
 
 **Cost:**
-- FM 1-150 premium: ~$8-12/SF vs. standard roof
-- Debris screen and equipment protection: ~$100-200K
-- Total roof premium: ~$500-800K for 50,000 GSF
+- FM 1-150 premium: ~$8-12/SF vs. standard roof {TBC}
+- Debris screen and equipment protection: ~$100-200K {TBC}
+- Total roof premium: ~$500-800K for 50,000 GSF {TBC}
 
 ### Air and Vapor Barriers
 - **Air barrier:** Self-adhered membrane at precast joints, penetrations
-- **Vapor barrier:** Under slab (6 mil poly); at wall insulation per climate
-- **Target:** <0.25 CFM/SF @ 0.3" w.g. (tight envelope for PUE)
+- **Vapor barrier:** Under slab; at wall insulation per climate
+- **Target:** TBD but we want a tight envelope for PUE
 
 ---
 
 ## DIVISION 08 – OPENINGS
 
 ### Exterior Doors
-- **Main entry:** Glazed aluminum storefront, double doors (6 ft clear)
+- **Main entry:** Glazed aluminum storefront, double doors (6 ft clear) {TBC}
 - **Loading dock:** Overhead sectional door (12 ft W × 14 ft H, insulated)
 - **Emergency exits:** Steel doors with panic hardware (minimum 2 per data hall)
 - **Fire rating:** 2-hour where required by IBC
@@ -186,30 +138,13 @@ Minimal scope (office millwork, shelving)
 
 **Location:** Main entrance to building
 
-**Configuration:** Full control glass security mantrap with double-door airlock
-
-**Operation - Single Person Entry Rule:**
-- Only one authorized person permitted within mantrap vestibule at any time
-- Inner door remains locked until outer door fully closed and credentials verified
+**Configuration:** Double-door airlock mantrap with single-person occupancy enforcement
 
 **Access Control:**
-- **Outer door:** Card reader (all authorized personnel, visitors with escort)
-- **Inner door:** Card reader + biometric MFA (Level 2+ clearance required)
-- **Interlock:** Outer must close before inner opens
-- **Surveillance:** CCTV cameras with facial recognition capability
-- **Fire override:** Both doors unlock on fire alarm
-- **Delayed egress system:** Local alarm for tailgating deterrence
-
-**Mantrap Requirements:**
-- Single-person occupancy enforcement (sensors + visual verification)
-- Video recording of all authentication events
-- Integration with Security Control Room (SCR) for alarm response
-- Intercom for SCR communication on authentication failures
-
-**Facilities Access:**
-- Main visitor waiting area (Blue Zone)
-- Restrooms and locker connection
-- Reception desk for visitor check-in
+- Outer door: Card reader (all authorized personnel)
+- Inner door: Card reader + biometric MFA (Level 2+ clearance) {TBC}
+- Interlocked operation (outer closes before inner opens)
+- CCTV with facial recognition, fire override, integration with SCR
 
 ### Data Hall Doors
 - **Large equipment doors:** At least two double doors per data hall with 10 ft H × 8 ft W minimum clear opening for large equipment moves (UPS modules, chillers, transformers)
@@ -227,11 +162,6 @@ Minimal scope (office millwork, shelving)
 - **Forced entry resistance (HR sites):** 15-minute rating for exterior doors
 - **Emergency egress:** Panic hardware on interior side (life safety)
 
-### Windows
-- **Office areas (Yellow Zone):** Glazed aluminum windows, low-E glass
-- **Data halls (Orange Zone):** No windows (security, environmental control)
-- **SCR (Red Zone):** Ballistic-rated or no windows (per risk assessment)
-
 ---
 
 ## DIVISION 09 – FINISHES
@@ -241,12 +171,6 @@ Minimal scope (office millwork, shelving)
 - **Walls:** Painted gypsum board over precast (interior side) or exposed precast
 - **Ceiling:** Exposed structure and MEP (no suspended ceiling)
 - **Paint:** Low-VOC, white or light colors (reflectivity)
-
-### Support Spaces
-- **Offices/NOC:** VCT flooring, painted gypsum walls, ACT ceilings
-- **Restrooms:** Ceramic tile floors, FRP wall panels
-- **Mechanical rooms:** Sealed concrete floors, painted walls
-- **Corridors:** VCT or polished concrete; gypsum walls with corner guards
 
 ---
 
@@ -283,9 +207,8 @@ Not in base building scope (owner-furnished)
 - **Ventilation:** Integrated HVAC/ventilation system with battery backup, HEPA filtration
 - **Utilities:** Emergency lighting, communication equipment
 - **Security during emergencies:** Auto-unlock on tornado warning or fire alarm
-- **Normal access:** Card reader (Level 1-2 clearance)
 
-**Cost:** ~$75-150K (prefabricated module + installation)
+**Cost:** ~$75-150K (prefabricated module + installation){TBC}
 
 **Compliance:**
 - FEMA P-361 (Safe Rooms for Tornadoes and Hurricanes)
@@ -293,7 +216,7 @@ Not in base building scope (owner-furnished)
 
 **Benefits:**
 - Life safety (primary)
-- Insurance premium reduction
+- Insurance premium reduction {TBC}
 - Faster installation vs. site-built
 - Factory-tested and certified
 
@@ -301,127 +224,49 @@ Not in base building scope (owner-furnished)
 
 ### Security Control Room (SCR) (Red Zone - CP 5)
 
-**Purpose:** Primary central monitoring station for all electronic security systems, providing 24/7 continuous security oversight.
-
-**Dimensions:**
-- Minimum 12 ft × 24 ft (3.65 m × 7.3 m)
-- Sized for 3-4 operator workstations plus equipment racks
+**Purpose:** 24/7 central monitoring for all security systems (Red Zone - CP 5)
 
 **Physical Security:**
-- **Walls:** Forced-entry or ballistic resistance per risk level
-  - **HR sites (Pryor DC):** 15-minute forced entry resistance minimum
-  - Optional: Ballistic-rated construction
-- **Door:** Reinforced steel door with card + biometric (MFA)
-  - Access: Level 4 (Secure Operations) or Level 5 only
-- **Transaction Window:**
-  - **HR sites:** Solid with transaction drawer (not open 4×6 in. opening)
-  - Ballistic-rated glass (optional)
-- **Interior:** Duress button installed for emergency escalation
+- Forced-entry resistant construction (15-minute rating minimum)
+- Reinforced steel door with card + biometric MFA (Level 4/5 access only)
+- Duress button for emergency escalation
 
-**Workstation Security:**
-- Clear screen policy enforcement
-- Automatic screen lock after maximum 15 minutes of inactivity
-- Dual monitors per workstation (minimum)
-- Video wall for CCTV grid display
+**Systems:**
+- Redundant security servers with automatic failover (99.982% availability)
+- Dual power feeds (A/B paths) with UPS and generator backup
+- Video wall for CCTV monitoring
+- 90-day minimum data retention (camera footage, access logs)
 
-**System Redundancy and High Availability (99.982% Target):**
-- **Redundant Security Servers:**
-  - Surveillance servers/recorders in active-active or active-passive configuration
-  - Storage Area Networks (SAN) with data integrity during failover
-- **Redundant Network Infrastructure:**
-  - Dual switches and diverse paths for dedicated security systems network
-  - Network components in separate cabinets with diverse power feeds
-- **Redundant Access Control Servers:** Automatic failover capabilities
-- **Diverse Power Sources:** All redundant components powered from different PDUs
-- **Continuous Monitoring:** System health monitoring with automated alerts
-
-**Power:**
-- All security equipment (panels, racks, workstations) on emergency power
-- UPS battery bridge (minimum 15 minutes full load)
-- Generator backup for extended outages
-- Dual power feeds from separate PDUs (A/B paths)
-
-**Data Integrity and Retention:**
-- Historical security data (camera footage, access logs, IDS events) stored minimum 90 days
-- Redundant storage architecture ensures data integrity during failover events
-- Secure backup to off-site location or cloud (encrypted)
-
-**HVAC:**
-- Dedicated HVAC system with N+1 redundancy
-- Temperature: 68-75°F (20-24°C)
-- Humidity: 40-60% RH
-- Independent control from building HVAC
+**Environment:**
+- Dedicated HVAC (68-75°F, 40-60% RH)
+- Sized for 3-4 operator workstations plus equipment racks
 
 **Staffing:**
-- 24/7/365 continuous operation
-- Minimum 1 operator on duty at all times
-- 2 operators during peak hours (recommended)
-- Level 4 or Level 5 security clearance required
-
-**Cost:** ~$400-700K (room construction, redundant systems, furniture, video wall)
+- 24/7/365 operation with Level 4/5 clearance required
 
 ---
 
 ### Clean In/Clean Out (CICO) Checkpoint (Orange Zone - CP 4 Entry)
 
-**Purpose:** Ensure no unauthorized equipment, materials, or data are brought into or removed from data halls (Orange Zone).
-
-**Location:**
-- Dedicated checkpoint at main data hall entrance
-- Single main entrance for normal Orange Zone ingress/egress
-- Adjacent to Blue Zone or Yellow Zone transition
-
-**Space Requirements:**
-- Minimum 300-500 SF
-- Adequate space for:
-  - Security officer station
-  - Item inspection tables (minimum 2 tables, 6 ft × 3 ft each)
-  - Full-height magnetometer walkthrough
-  - Handheld screening device storage
-  - Queuing area for personnel
+**Purpose:** Screen all equipment and materials entering/exiting data halls (Orange Zone - CP 4 Entry)
 
 **Infrastructure:**
-- **Tailgate Prevention:** Optical sensors or weight-based technology at entrance
-- **Inspection Tables:** Dedicated examination surfaces for tools and equipment
-- **Magnetometer:** Full-height walk-through metal detector
-  - UPS-backed power supply
-  - Sensitivity adjustable for different screening levels
-- **Handheld Scanners:** Storage and charging station for handheld metal detectors/wands
-- **CCTV Coverage:**
-  - Facial recognition capability at screening points
-  - Coverage of all inspection tables
-  - Coverage of personnel screening point
-  - Integration with SCR for live monitoring
-- **Power:** All screening equipment on UPS-backed power (minimum 30-minute runtime)
+- Dedicated checkpoint with tailgate prevention
+- Walk-through magnetometer with UPS backup
+- Inspection tables for tool/equipment examination
+- CCTV with facial recognition integrated to SCR
 
 **Prohibited Items:**
-- Personal mobile phones (must be secured in Blue Zone lockers)
-- Cameras (personal or professional)
-- Unapproved wireless devices
+- Personal mobile phones, cameras, unapproved wireless devices
 - Unauthorized storage media (USB drives, external HDDs)
-- Defined list maintained and displayed at checkpoint
 
-**Asset & Tool Control Procedure:**
-1. **Pre-Authorization:** All tools/equipment/removable media pre-authorized via ticketed work order
-2. **Entry Inspection:** Items presented to security, verified against work order
-3. **Entry Logging:** Each item logged (description, serial#, individual, work order#, time)
-4. **Visual Inspection:** Security inspects all tools, equipment, containers
-5. **Exit Inspection:** Mandatory presentation of all items upon exit
-6. **Exit Logging:** Exit log updated (time, clearance confirmation)
-7. **Audit Trail:** Complete entry/exit records retained minimum 90 days
+**Asset & Tool Control:**
+- Pre-authorization via work order required
+- Entry/exit inspection and logging
+- 90-day audit trail retention
 
 **Staffing:**
-- Manned by dedicated security personnel during all data hall operational hours
-- Level 4 (Secure Operations) clearance required
-- Training on screening procedures, prohibited items, work order verification
-
-**Integration:**
-- Access control system: Level 4+ clearance required for CICO passage
-- BMS: Environmental monitoring (temperature, humidity)
-- DCIM: Work order verification and asset tracking integration
-- SCR: Direct video feed and alarm escalation
-
-**Cost:** ~$150-300K (construction, equipment, screening technology, CCTV)
+- Level 4 clearance security personnel during operational hours
 
 ---
 
@@ -439,83 +284,55 @@ Not in base building scope (owner-furnished)
 
 ---
 
-## BUILDING LAYOUT (50,000 GSF)
+## BUILDING LAYOUT (38,000 SF)
 
 ### Data Halls (20,000 SF - Orange Zone CP 4)
-- **Data Hall 1 (East):** 9,980 SF (Phase 1 operational) - Orange Zone CP 4
-- **Data Hall 2 (West):** 9,980 SF (powered shell, future fit-out) - Orange Zone CP 4
-- **Ceiling height:** 28-30 ft clear
+- **Data Hall West (DH-W):** 10,000 SF (Phase 1 operational) - Orange Zone CP 4
+- **Data Hall East (DH-E):** 10,000 SF (powered shell, future fit-out) - Orange Zone CP 4
+- **Ceiling height:** 30 ft clear
 - **Layout:** Overhead power/cooling distribution (containment: Not Applicable - DDC cabinets)
 - **Access:** 4 secure doors per hall accessible from perimeter corridor (card + biometric MFA required)
 
 ### East End Entry Zone (Ground Level)
 **Main Entrance (Blue Zone - CP 2):**
-- Entrance lobby with luggage room
-- Restroom (public)
-- Security Control Room (SCR - Red Zone CP 5) for tenant/staff/visitor check-in
+- Lobby with luggage room, public restroom, Security Control Room (SCR - Red Zone)
 
 **Secure Office Zone (Yellow Zone - CP 3, Post-Mantrap):**
-- Mantrap entry (control point)
-- Group conference room
-- 2 × restrooms
-- Small shared hoteling office area
-- 2 × soundproof focus/call pods
-- Small seating area
-- Fire riser room
-- **MPOE (Red Zone - CP 5):** Fiber entrance room (critical telecommunications infrastructure)
-- **MMR (Red Zone - CP 5):** Meet-me-room for cross-connects (carrier-neutral infrastructure)
+- Conference room, restrooms, hoteling office area, soundproof call pods
+- MPOE and MMR (Red Zone - fiber entrance and meet-me-room)
 
 **Perimeter Corridor (Yellow Zone - CP 3):**
-- Secure perimeter corridor providing access to secure data hall access points and secure indoor mechanical gallery maintenance areas
-- 4 secure access doors per data hall (Orange Zone - CP 4 entry)
-- Access to multi-level central spine
+- Secure corridor with 4 access doors per data hall (Orange Zone entry)
+- Access to indoor mechanical galleries and multi-level central spine
 
 ### West End Loading Zone (Ground Level)
 **Loading Dock (Yellow Zone - CP 3):**
-- 2-bay loading dock (weather-protected, outdoor and covered)
-- Security Control Booth (SCB - Red Zone - CP 5)
-- Secure staging area
-- Secure storage
-- Janitor closet
-- Fire riser room
-- **MPOE (Red Zone - CP 5):** Fiber entrance room, second/redundant
-- **MMR (Red Zone - CP 5):** Meet-me-room, second/redundant
-- Restroom (internal)
-- Dedicated delivery driver restroom (accessible only from outside at NW corner, within view of security booth - Blue Zone)
+- 2-bay weather-protected loading area with Security Control Booth (SCB - Red Zone)
+- Secure staging, storage, fire riser, internal restroom
+- Second MPOE and MMR (redundant fiber entrance and meet-me-room - Red Zone)
+- Delivery driver restroom (exterior access, view of security)
 
-### Multi-Level Central Spine (3 Levels)
+### Multi-Level Central Spine (3 Levels in Spine, 1 Level Elsewhere)
 
-**Level 1 (Ground - Yellow Zone CP 3):**
-- Prefabricated storm shelter/safe room (20 person capacity - Blue Zone during emergency)
-- Elevator and adjacent stairwell
-- Redundant restrooms
-- Redundant showers (men's and women's)
-- Break room with eating area
-- Lounge area
-- Gaming area/room (TBD)
+**Level 1 (Ground - Yellow Zone):**
+- Prefabricated storm shelter (20 person, FEMA 361 compliant)
+- Elevator/stairwell, restrooms, showers, break room, lounge
 
-**Level 2 (Secure NOC - Red Zone CP 5):**
-- Network Operations Center (NOC, ~2,060 SF) - 24/7 operations
-- Private NOC area
-- NOC landing area with restroom/janitor
+**Level 2 (Secure NOC - Red Zone):**
+- Network Operations Center (~2,060 SF) with 24/7 operations
 
-**Level 3 (Fitness Area/Tour Route - Yellow Zone CP 3 with Orange/Red viewing):**
-- Gym/fitness center (Yellow Zone)
-- **Secure tour route (Yellow Zone CP 3)** with internal windows into critical areas (Orange/Red viewing only)
-- Weather-protected balconies (north and south) for bird's eye view of equipment yards (Violet Zone viewing)
-- Tour route accessible to Level 3+ clearance personnel for routine site walks
+**Level 3 (Fitness/Tour Route - Yellow Zone):**
+- Gym/fitness center, secure tour route with internal windows into critical areas
+- Weather-protected balconies (north/south) for equipment yard viewing
 
 **Roof Level:**
-- Roof access via elevator and adjacent stairwell
-- Weather-protected access door with overhang
-- Storm-rated stainless steel debris screen around perimeter
-- Protected roof-mounted equipment (HVAC, AHU, DAHU, exhaust fans, vent shafts)
+- Elevator/stairwell access with weather-protected door
+- Storm-rated SS debris screen, protected roof equipment
 
 ### Support Spaces
-- **Mechanical pipe galleries (Red Zone - CP 5):** North and south sides indoor maintenance areas
-- **Power Delivery Modules (PDMs - Red Zone - CP 5):** Located outside in electrical equipment yard (Violet Zone perimeter)
-- **IT storage and spare parts (Yellow Zone - CP 3)**
-- **Secure perimeter corridor (Yellow Zone - CP 3)** for data hall and mechanical gallery access
+- North/south mechanical pipe galleries (Red Zone - indoor maintenance)
+- Power Delivery Modules (PDMs - Red Zone - outdoor electrical yard)
+- IT storage and spare parts (Yellow Zone)
 
 ---
 
@@ -540,20 +357,19 @@ Not in base building scope (owner-furnished)
 
 ## COST SUMMARY (ROM)
 
-|| System | Cost Estimate |
-||--------|---------------|
-|| **Foundation & Slab** | $1.5-2.5M |
-|| **Under-Building Electrical Duct Banks** | $0.3-0.5M |
-| **Precast Tilt-Up Walls** | $2.5-4.0M |
-| **Structural Steel Roof Frame** | $1.5-2.5M |
-|| **FM 1-150 Roof + Debris Protection** | $1.6-2.7M |
-|| **Elevator (4-stop with roof access)** | $0.175-0.225M |
-| **Doors, Windows, Glazing** | $0.5-1.0M |
-| **Interior Finishes** | $1.5-2.5M |
-|| **FEMA 361 Storm Shelter/Safe Room** | $0.075-0.15M |
-|| **Total Building Construction (shell + core)** | **$9.7-16.3M** |
+| System | Cost Estimate |
+|--------|---------------|
+| **Foundation & Slab** | $1.2-2.0M |
+| **Precast Tilt-Up Walls** | $1.9-3.0M |
+| **Structural Steel Roof Frame** | $1.2-1.9M |
+| **FM 1-150 Roof + Debris Protection** | $1.2-2.0M |
+| **Elevator (4-stop with roof access)** | $0.175-0.225M |
+| **Doors, Windows, Glazing** | $0.4-0.8M |
+| **Interior Finishes** | $1.1-1.9M |
+| **FEMA 361 Storm Shelter/Safe Room** | $0.075-0.15M |
+| **Total Building Construction (shell + core)** | **$7.3-12.0M** |
 
-**Cost per SF:** ~$194-326/SF (higher than typical DC due to tornado hardening and infrastructure)
+**Cost per SF:** ~$192-316/SF (38,000 SF building, higher than typical DC due to tornado hardening)
 
 ---
 
@@ -571,20 +387,21 @@ Not in base building scope (owner-furnished)
 
 ---
 
-**Tags:** #facility #construction #precast-tilt-up #fm-1-150 #tornado #storm-shelter #csi-02-14
+**Tags:** #facility #construction #precast-tilt-up #fm-1-150 #tornado #storm-shelter 
 
 **Next Steps:**
-1. Geotechnical report (bearing capacity, slab design, duct bank burial depth)
-2. Electrical engineering (duct bank sizing, conduit quantity for 24 MW capacity)
-3. Structural engineering (precast panel design, roof framing, duct bank coordination)
-4. FM Global loss prevention review (roof/wall ratings)
-5. Storm shelter/safe room design (FEMA 361 compliance)
-6. Architectural drawings (floor plans, elevations, details, duct bank locations)
+1. Coordinate with Insurance to confirm savings on walls, roof and safe room
+2. Geotechnical report (bearing capacity, slab design, duct bank burial depth)
+3. Electrical engineering (duct bank sizing, conduit quantity for 24 MW capacity)
+4. Structural engineering (precast panel design, roof framing, duct bank coordination)
+5. FM Global loss prevention review (roof/wall ratings)
+6. Storm shelter/safe room design (FEMA 361 compliance)
+7. Architectural drawings (floor plans, elevations, details, duct bank locations)
 
 ---
 
 **Document Control:**
 - **Source:** Pryor_Bod_EVS_Rev01.md, Erik_BOD references
 - **Date Updated:** October 29, 2025
-- **Prepared by:** EVS / PGCIS Team
-- **Key Updates:** Precast tilt-up rationale, FM 1-150 roof, FEMA 361 shelter/safe room, 50,000 GSF layout
+- **Prepared by:** PGCIS Team
+- **Key Updates:** Precast tilt-up rationale, FM 1-150 roof, FEMA 361 shelter/safe room
