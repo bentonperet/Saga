@@ -31,13 +31,13 @@ After analyzing supply chain constraints, equipment costs, redundancy configurat
 
 ### Typical Size Ranges with Free Cooling
 
-| Size Class | Capacity (kW) | Capacity (Tons) | Market Availability | Applications |
-|------------|---------------|-----------------|---------------------|--------------|
-| **Small Commercial** | 150-400 kW | 40-115 ton | Excellent | Office buildings, retail |
-| **Large Commercial** | 500-900 kW | 140-260 ton | Excellent | Hospitals, universities |
-| **Small Industrial** | 1,000-1,500 kW | 285-430 ton | **Excellent** | **Data centers, manufacturing** |
-| **Large Industrial** | 1,600-2,500 kW | 455-710 ton | Good | Large industrial facilities |
-| **Mega-Scale** | 3,000+ kW | 850+ ton | Limited | Hyperscale data centers (custom) |
+| Size Class           | Capacity (kW)  | Capacity (Tons) | Market Availability | Applications                     |
+| -------------------- | -------------- | --------------- | ------------------- | -------------------------------- |
+| **Small Commercial** | 150-400 kW     | 40-115 ton      | Excellent           | Office buildings, retail         |
+| **Large Commercial** | 500-900 kW     | 140-260 ton     | Excellent           | Hospitals, universities          |
+| **Small Industrial** | 1,000-1,500 kW | 285-430 ton     | **Excellent**       | **Data centers, manufacturing**  |
+| **Large Industrial** | 1,600-2,500 kW | 455-710 ton     | Good                | Large industrial facilities      |
+| **Mega-Scale**       | 3,000+ kW      | 850+ ton        | Limited             | Hyperscale data centers (custom) |
 
 **Key Observation:** **1,000-1,500 kW range is the "sweet spot"** for data center applications—maximum vendor competition, shortest lead times, lowest cost per kW.
 

@@ -504,6 +504,23 @@ Electrical infrastructure designed for 30 MW (Phase 4), with equipment added in 
 
 ---
 
+### 13.6 PHASE 4 DATA HALL BREAKDOWN
+
+**Total IT Capacity:** 22 MW across 394 racks in two 10,000 SF data halls
+
+| **Data Hall**   | **Cooling Type**                | **Rack Count** | **Rack Density**  | **IT Load per Hall** | **Cooling Plant**           | **Strategy**                             |
+| --------------- | ------------------------------- | -------------- | ----------------- | -------------------- | --------------------------- | ---------------------------------------- |
+| **DH-W (West)** | L2C (Liquid-to-Chip)            | 162 racks      | 100 kW/rack       | 16.2 MW              | Loop 3 (85°F warm water)    | High-density AI training workloads       |
+| **DH-E (East)** | RDHx (Rear-Door Heat Exchanger) | 232 racks      | 25 kW/rack        | 5.8 MW               | Loops 1+2 (60°F cold water) | Medium-density AI inference / enterprise |
+| **TOTAL**       | -                               | **394 racks**  | Avg: 55.8 kW/rack | **22.0 MW**          | 3 independent loops         | Dual market strategy                     |
+
+**Key Observations:**
+- DH-W (162 racks) represents 73.6% of IT load despite having only 41% of total rack count - demonstrates high-density advantage
+- DH-E (232 racks) provides 59% of total rack inventory for customer flexibility at lower densities
+- Power density: DH-W = 1,620 W/SF, DH-E = 580 W/SF
+
+---
+
 ## 14.0 EQUIPMENT AND COST SUMMARY
 
 <!-- @claude, please generate this section -->

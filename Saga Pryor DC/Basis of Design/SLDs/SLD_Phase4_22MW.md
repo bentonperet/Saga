@@ -574,38 +574,9 @@ Each cabinet has **dual PDUs** fed from different distribution panels (A and B),
 ## RENEWABLE ENERGY & SUSTAINABILITY
 
 ### Solar Array Integration
-
-**Capacity:** 8+ MW DC (nominal), with inverters outputting 13.8 kV AC
-
-**Connection:** Dedicated connection to Ring A via RMU
-
-**Purpose:**
-- Reduce grid power consumption during daylight hours
-- Lower operational costs ($/kWh)
-- Improve sustainability metrics (PUE, carbon intensity)
-- Meet customer renewable energy requirements
-
-**Performance:**
-- Expected capacity factor: ~18-22% (Oklahoma climate)
-- Annual generation: ~15-18 GWh/year
-- Offset: ~5-7% of total facility energy consumption
-
+TBD
 ### Battery Energy Storage System (BESS)
-
-**Capacity:** 4-8 MWh (scalable based on economics)
-
-**Connection:** Dedicated connection to Ring B via RMU
-
-**Purpose:**
-- Peak demand shaving (reduce utility demand charges)
-- Energy arbitrage (charge during off-peak, discharge during peak pricing)
-- Grid services (frequency regulation, ancillary services revenue)
-- Emergency backup (supplement generators during extended outages)
-
-**Performance:**
-- Charge/discharge rate: 2-4 MW (C-rate of 0.5-1.0)
-- Round-trip efficiency: ~85-90%
-- Lifespan: 10-15 years (Li-ion chemistry)
+TBD
 
 ---
 
@@ -637,34 +608,17 @@ All infrastructure built from Phase 1 to accommodate Phase 4 expansion:
 ## NEXT STEPS
 
 **Design Phase:**
-1. ✅ Single-line diagram complete (this document)
-2. ⏳ Protection coordination study (generators, transformers, switchboards)
-3. ⏳ Fault current analysis (short-circuit study at all voltage levels)
-4. ⏳ Arc flash study (NFPA 70E compliance, PPE labeling)
-5. ⏳ Detailed panel schedules (SWBD-A/B, all distribution panels)
-6. ⏳ Load flow analysis (verify voltage drop <3% at full load)
+1. Single-line diagram complete (this document)
+2. Protection coordination study (generators, transformers, switchboards)
+3. Fault current analysis (short-circuit study at all voltage levels)
+4. Arc flash study (NFPA 70E compliance, PPE labeling)
+5. Detailed panel schedules (SWBD-A/B, all distribution panels)
+6. Load flow analysis (verify voltage drop <3% at full load)
 
-**Procurement Phase:**
-1. Generator RFQ (9 × 4 MW diesel, 13.8 kV, EPA Tier 4 Final)
-2. Substation transformer RFQ (2 × 35 MVA, 345kV/13.8kV)
-3. MV/LV transformer RFQ (11 × 3,500 kVA, 13.8kV/480V, oil-filled ONAN)
-4. IT UPS RFQ (25 × 1,250 kVA modular, Li-ion battery, 5-min runtime)
-5. Mechanical UPS RFQ (25 × 250 kW modular, 30-60 sec runtime)
-6. RMU & MV switchgear RFQ (8 RMUs, 630A, SCADA-integrated, self-healing topology)
-7. Prefabricated Power Delivery Modules (PDMs) RFQ
-
-**Construction Phase:**
-1. Site prep and electrical yard grading
-2. Generator foundations and fuel system (central fuel distribution)
-3. Substation construction (345 kV service, utility coordination)
-4. MV/LV distribution installation (dual-ring 13.8 kV, RMUs, transformers)
-5. PDM installation (SWBD-A/B, UPS systems, battery cabinets)
-6. Solar array and BESS installation (integration with 13.8 kV common bus)
-7. Testing and commissioning (factory acceptance testing + site acceptance testing)
 
 ---
 
-**Prepared by:** PGCIS Engineering Team
+**Prepared by:** PGCIS  Team
 **Document Control:** SLD_Phase4_22MW_Rev01
 **Next Review:** After protection coordination study and fault current analysis
 **Related Documents:**
