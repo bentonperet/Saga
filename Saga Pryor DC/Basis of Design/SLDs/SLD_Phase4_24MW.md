@@ -1,6 +1,6 @@
 **Created:** 2025-11-05
 **Tags:** #pryor-dc #sld #electrical #phase-4 #24mw #full-buildout
-**Related:** [[7BOD - Electrical (CSI Div 26) v2]], [[_BOD - Exec Summary and TOC]]
+**Related:** [[7BOD - Electrical (CSI Div 26) v2]], [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/_BOD - Exec Summary and TOC]]
 
 # SINGLE-LINE DIAGRAM - PHASE 4 (24 MW FULL BUILD-OUT)
 ## Pryor Data Center - PACHYDERM GLOBAL
