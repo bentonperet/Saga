@@ -18,9 +18,9 @@
 - **IT Capacity:** 22,000 kW (394 cabinets: 162 L2C @ 100 kW + 232 RDHx @ 25 kW)
 - **Data Halls:** DH-E and DH-W fully operational (10,000 SF each)
 - **Topology:** Dual-ring 13.8 kV MV distribution with N+1 redundancy
-- **Target PUE:** 1.27 (optimized at scale)
+- **Target PUE:** 1.35
 - **Redundancy:** Tier III - N+1 component redundancy with dual-path distribution
-- **Total Facility Load:** ~28 MW
+- **Total Facility Load:** ~29.7 MW
 
 ---
 
@@ -105,12 +105,12 @@ graph TB
     HOUSE_GEN1["House Gen-1<br/>300 kW<br/>Natural Gas<br/>N+1"] --> HOUSE_SWBD
     HOUSE_GEN2["House Gen-2<br/>300 kW<br/>Natural Gas<br/>N+1"] --> HOUSE_SWBD
 
-    %% IT UPS System (N+1 modular, 25 modules)
-    SWBD_A --> UPS_SYSTEM["IT UPS SYSTEM<br/>25 × 1,250 kVA Modules<br/>N+1 Configuration<br/>Total: 25 MW (24+1)<br/>Li-ion Battery<br/>5-min Runtime"]
+    %% IT UPS System (N+1 modular, 23 modules)
+    SWBD_A --> UPS_SYSTEM["IT UPS SYSTEM<br/>23 × 1,250 kVA Modules<br/>N+1 Configuration<br/>Total: 23 MW (22+1)<br/>Li-ion Battery<br/>5-min Runtime"]
     SWBD_B --> UPS_SYSTEM
 
     %% Mechanical UPS (N+1 for critical mechanical loads)
-    SWBD_A --> MECH_UPS["Mechanical UPS<br/>25 × 250 kW<br/>N+1 Config<br/>6 MW Capacity<br/>30-60 sec Runtime"]
+    SWBD_A --> MECH_UPS["Mechanical UPS<br/>22 × 250 kW<br/>N+1 Config<br/>5.5 MW Capacity<br/>30-60 sec Runtime"]
     SWBD_B --> MECH_UPS
 
     %% IT Distribution Panels
@@ -213,8 +213,8 @@ graph TB
 
 | System | Modules | Module Rating | Total Capacity | Battery | Runtime | Function |
 |--------|---------|---------------|----------------|---------|---------|----------|
-| **IT UPS** | 25 | 1,250 kVA | 31.25 MVA (25 MW) | Li-ion | 5 min | IT loads (N+1: 24+1) |
-| **Mechanical UPS** | 25 | 250 kW | 6.25 MW | Li-ion/VRLA | 30-60 sec | HVAC loads (N+1: 24+1) |
+| **IT UPS** | 23 | 1,250 kVA | 28.75 MVA (23 MW) | Li-ion | 5 min | IT loads (N+1: 22+1) |
+| **Mechanical UPS** | 22 | 250 kW | 5.5 MW | Li-ion/VRLA | 30-60 sec | HVAC loads (N+1: 21+1) |
 
 ### Distribution & Loads
 
@@ -272,13 +272,12 @@ Total Building Load:                  500 kW
 ### Total Facility Load (Phase 4)
 ```
 IT Load Path:                      24,400 kW
-Mechanical Load:                    4,911 kW
+Mechanical Load:                    4,800 kW
 Building Load (on house power):       500 kW
                                   ─────────
-Design Load (Phase 4):             29,811 kW
+Design Load (Phase 4):             29,700 kW (29.7 MW)
 
-Rounded for design:                28,000 kW
-PUE Calculation: 28,000 / 22,000 = 1.27
+PUE Calculation: 29,700 / 22,000 = 1.35
 ```
 
 ---
@@ -294,15 +293,15 @@ PUE Calculation: 28,000 / 22,000 = 1.27
 - 8 × 4.0 MW = **32.0 MW available**
 
 **Design Load:**
-- Phase 4 facility load = **28.0 MW**
+- Phase 4 facility load = **29.7 MW**
 
 **Margin Check:**
 ```
-Utilization: 28.0 MW / 32.0 MW = 88%
-Margin:      32.0 MW / 28.0 MW = 1.14× (114%)
+Utilization: 29.7 MW / 32.0 MW = 93%
+Margin:      32.0 MW / 29.7 MW = 1.08× (108%)
 ```
 
-✅ **PASS** - Generator N+1 capacity exceeds design load with 14% margin
+✅ **PASS** - Generator N+1 capacity exceeds design load with 8% margin
 
 ---
 
@@ -315,57 +314,57 @@ Margin:      32.0 MW / 28.0 MW = 1.14× (114%)
 - 10 × 3,500 kVA = **35.0 MVA available**
 
 **Design Load:**
-- Phase 4 facility load = 28.0 MW / 0.9 PF = **31.1 MVA**
+- Phase 4 facility load = 29.7 MW / 0.9 PF = **33.0 MVA**
 
 **Margin Check:**
 ```
-Utilization: 31.1 MVA / 35.0 MVA = 89%
-Margin:      35.0 MVA / 31.1 MVA = 1.13× (113%)
+Utilization: 33.0 MVA / 35.0 MVA = 94%
+Margin:      35.0 MVA / 33.0 MVA = 1.06× (106%)
 ```
 
-✅ **PASS** - Transformer N+1 capacity exceeds design load with 13% margin
+✅ **PASS** - Transformer N+1 capacity exceeds design load with 6% margin
 
 ---
 
 ### IT UPS Capacity Check (N+1)
 
 **Installed Capacity:**
-- 25 × 1,250 kVA = **31.25 MVA total** (25,000 kW @ 0.8 PF)
+- 23 × 1,250 kVA = **28.75 MVA total** (23,000 kW @ 0.8 PF)
 
-**N+1 Capacity (24 modules running):**
-- 24 × 1,250 kVA = **30.0 MVA available** (24,000 kW)
+**N+1 Capacity (22 modules running):**
+- 22 × 1,250 kVA = **27.5 MVA available** (22,000 kW)
 
 **IT Load:**
 - 22,000 kW / 0.9 PF = **24,444 kVA**
 
 **Margin Check:**
 ```
-Utilization: 24,444 kVA / 30,000 kVA = 81%
-Margin:      30,000 kVA / 24,444 kVA = 1.23× (123%)
+Utilization: 24,444 kVA / 27,500 kVA = 89%
+Margin:      27,500 kVA / 24,444 kVA = 1.13× (113%)
 ```
 
-✅ **PASS** - IT UPS N+1 capacity exceeds IT load with 23% margin
+✅ **PASS** - IT UPS N+1 capacity exceeds IT load with 13% margin
 
 ---
 
 ### Mechanical UPS Capacity Check (N+1)
 
 **Installed Capacity:**
-- 25 × 250 kW = **6,250 kW total**
+- 22 × 250 kW = **5,500 kW total**
 
-**N+1 Capacity (24 units running):**
-- 24 × 250 kW = **6,000 kW available**
+**N+1 Capacity (21 units running):**
+- 21 × 250 kW = **5,250 kW available**
 
 **Mechanical Load:**
 - Chillers, pumps, fans = **4,911 kW peak**
 
 **Margin Check:**
 ```
-Utilization: 4,911 kW / 6,000 kW = 82%
-Margin:      6,000 kW / 4,911 kW = 1.22× (122%)
+Utilization: 4,911 kW / 5,250 kW = 94%
+Margin:      5,250 kW / 4,911 kW = 1.07× (107%)
 ```
 
-✅ **PASS** - Mechanical UPS N+1 capacity exceeds mechanical load with 22% margin
+✅ **PASS** - Mechanical UPS N+1 capacity exceeds mechanical load with 7% margin
 
 ---
 
@@ -399,7 +398,7 @@ Each cabinet has **dual PDUs** fed from different distribution panels (A and B),
 **Response:**
 - Remaining 8 generators online
 - Combined capacity: 8 × 4 MW = 32 MW
-- Facility load: 28 MW
+- Facility load: 29.7 MW
 - **Result:** ✅ No impact to IT operations (N+1 redundancy maintained)
 
 ---
@@ -454,7 +453,7 @@ Each cabinet has **dual PDUs** fed from different distribution panels (A and B),
 1. Verify remaining 8 generators online and healthy
 2. Isolate GEN-5 via breaker at Ring B
 3. Perform maintenance (oil change, filter replacement, inspection)
-4. Remaining capacity: 8 × 4 MW = 32 MW (exceeds 28 MW load) ✅
+4. Remaining capacity: 8 × 4 MW = 32 MW (exceeds 29.8 MW load) ✅
 5. **IT Impact:** None
 
 ---
@@ -499,7 +498,7 @@ Each cabinet has **dual PDUs** fed from different distribution panels (A and B),
 1. **Utility Level:**
    - Dual 345 kV feeds from Kamo Power Electric
    - 2× 35 MVA substation transformers (N+1)
-   - Either transformer can carry full 28 MW facility load
+   - Either transformer can carry full 30 MW facility load
 
 2. **MV Distribution:**
    - Dual 13.8 kV rings (Ring A/B) with self-healing topology

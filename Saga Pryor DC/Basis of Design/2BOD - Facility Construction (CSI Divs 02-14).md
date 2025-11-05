@@ -356,6 +356,7 @@ Not in base building scope (owner-furnished)
 ---
 
 ## COST SUMMARY (ROM)
+<!-- @claude, please go line by line and reconfirm the line items (and that they match our design) and the numbers/counts/square footage, and the dollar amounts on this table and also provide a % certainty. -->
 
 | System | Cost Estimate |
 |--------|---------------|

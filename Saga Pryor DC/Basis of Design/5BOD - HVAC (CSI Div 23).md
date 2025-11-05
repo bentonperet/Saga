@@ -25,7 +25,7 @@ The design is built on a zoned-hall (DH-W vs. DH-E) concept with two independent
   - **Loops 1+2 (RDHx):** 5.8 MW plant with a **60°F (15.5°C)** "cold water" supply. This temperature is required for effective rear-door air cooling.
 - **Redundancy:** N+1 for all chillers, pumps, and cooling distribution units.
 - **Zero Water Consumption:** Design uses all air-cooled chillers, closed-loop glycol/fluid systems, and zero evaporative cooling.
-- **Target PUE:** 1.40 (Phase 1) improving to **1.27** (Phase 4) at scale, driven by warm-water cooling efficiencies.
+- **Target PUE:** 1.45 (Phase 1) to 1.35 (Phase 4) at scale, driven by warm-water cooling efficiencies.
 
 ---
 
@@ -156,7 +156,7 @@ The L2C and RDHx systems handle 100% of the IT heat load. A separate HVAC system
 
 ---
 
-## EQUIPMENT SUMMARY
+## EQUIPMENT AND COST SUMMARY
 
 ### Cooling Plant Equipment by Phase
 
@@ -171,11 +171,12 @@ The L2C and RDHx systems handle 100% of the IT heat load. A separate HVAC system
 
 | Phase | IT MW | Racks | L2C Racks | RDHx Racks | L2C MW | RDHx MW | Facility MW | PUE |
 |-------|-------|-------|-----------|------------|--------|---------|-------------|-----|
-| **1** | 3 | 30 | 30 | 0 | 3.0 | 0 | 4.2 | 1.40 |
-| **2** | 6 | 150 | 30 | 120 | 3.0 | 3.0 | 8.1 | 1.35 |
-| **3** | 15 | 285 | 105 | 180 | 10.5 | 4.5 | 19.5 | 1.30 |
-| **4** | 22 | 394 | 162 | 232 | 16.2 | 5.8 | 28.0 | 1.27 |
+| **1** | 3 | 30 | 30 | 0 | 3.0 | 0 | 4.35 | 1.45 |
+| **2** | 6 | 150 | 30 | 120 | 3.0 | 3.0 | 8.7 | 1.45 |
+| **3** | 15 | 285 | 105 | 180 | 10.5 | 4.5 | 20.25 | 1.35 |
+| **4** | 22 | 394 | 162 | 232 | 16.2 | 5.8 | 29.7 | 1.35 |
 
+<!-- @claude add cost summary table here -->
 
 ---
 

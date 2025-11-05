@@ -381,7 +381,7 @@ Critical for protecting IT equipment from water damage.
 
 ---
 
-## EQUIPMENT SUMMARY
+## EQUIPMENT AND COST SUMMARY
 
 | System | Equipment | Quantity | Notes |
 |--------|-----------|----------|-------|
@@ -394,6 +394,8 @@ Critical for protecting IT equipment from water damage.
 | **Leak Detection Cable** | Conductive sensing cable | 2,000-3,000 ft | Data halls + mech rooms |
 | **Leak Spot Detectors** | Discrete detectors | 100+ | CDUs, valves, pumps |
 | **Emergency Fixtures** | Eyewash/shower stations | 2-3 | Chemical storage, mech rooms |
+
+<!-- @claude add a cost summary table here -->
 
 ---
 

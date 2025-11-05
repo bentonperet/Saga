@@ -24,7 +24,7 @@
 - **Power Density:** Scales from 300 W/SF (Phase 1) to 1,100 W/SF (Phase 4)
 - **Rack Capacity:** DH-W: 162 racks (L2C), DH-E: 232 racks (RDHx)
 - **Availability:** Tier III (N+1 IT UPS with MV dual-ring path redundancy, N+1 mechanical, concurrent maintainability)
-- **Target PUE:** 1.40 (Phase 1), 1.35 (Phase 2), 1.30 (Phase 3), 1.27 (Phase 4, optimized at scale)
+- **Target PUE:** 1.45 (Phase 1), 1.45 (Phase 2), 1.35 (Phase 3), 1.35 (Phase 4)
 - **Target WUE:** <0.5 L/kWh (domestic use only: restrooms, showers, break room; zero water for cooling)
 - **Site:** Pryor, Oklahoma (Tornado Alley - FM 1-150 protection)
 - **Strategic Location:** **4 miles from Google's us-central2 data center campus** - enables direct fiber interconnect for AI/ML hybrid cloud workloads and inference.
@@ -33,25 +33,27 @@
   - Customer-owned 345 kV substation with 13.8 kV distribution
   - L2C liquid cooling ready from day 1
 
+<!-- @claude, please create a table here that has the following columns. Phase, IT Load, PUE, Facility Load -->
+
 ---
 
 ### **ELECTRICAL SYSTEMS**
 - **Primary Utility Service:** Customer-owned 345 kV substation
   - **345 kV Transmission:** Direct connection to utility transmission system
-  - **Substation Transformers:** 2 × 35 MVA, 345kV/13.8kV (N+1 redundancy - either can carry full 28 MW facility load)
+  - **Substation Transformers:** 2 × 35 MVA, 345kV/13.8kV (N+1 redundancy - either can carry full 30 MW facility load)
 - **13.8 kV Common Bus:** Single voltage platform for utility, solar, BESS, generators, data center (US standard voltage)
 - **MV Distribution:** 13.8 kV dual-ring topology (Ring A + Ring B) via 8 RMUs
 - **Generators:** Scalable N+1 diesel generators @ 13.8 kV, Tier 4 Final
-  - Phase 1: 3 × 4.0 MW (N+1 for 4.2 MW facility load)
-  - Phase 2: 4 × 4.0 MW total (N+1 for 8.1 MW facility load, add 1 unit)
-  - Phase 3: 6 × 4.0 MW total (N+1 for 19.5 MW facility load, add 2 units)
-  - Phase 4: 9 × 4.0 MW total (N+1 for 28 MW facility load, add 3 units)
+  - Phase 1: 3 × 4.0 MW (N+1 for 4.35 MW facility load)
+  - Phase 2: 4 × 4.0 MW total (N+1 for 8.7 MW facility load, add 1 unit)
+  - Phase 3: 7 × 4.0 MW total (N+1 for 20.25 MW facility load, add 3 units)
+  - Phase 4: 9 × 4.0 MW total (N+1 for 29.7 MW facility load, add 2 units)
   - Fuel: ~2,000 gal belly tanks per unit connected via common manifold to centralized bulk fuel storage (24-hour runtime with redundant fuel contracts)
 - **Transformers:** Scalable 13.8 kV/480V oil-filled transformers, N+1 with concurrent maintainability
-  - Phase 1: 3 × 3,500 kVA (N+1 for 4.2 MW facility load)
-  - Phase 2: 4 × 3,500 kVA total (N+1 for 8.1 MW facility load, add 1 unit)
-  - Phase 3: 8 × 3,500 kVA total (N+1 for 19.5 MW facility load, add 4 units)
-  - Phase 4: 11 × 3,500 kVA total (N+1 for 28 MW facility load, add 3 units)
+  - Phase 1: 3 × 3,500 kVA (N+1 for 4.35 MW facility load)
+  - Phase 2: 4 × 3,500 kVA total (N+1 for 8.7 MW facility load, add 1 unit)
+  - Phase 3: 8 × 3,500 kVA total (N+1 for 20.25 MW facility load, add 4 units)
+  - Phase 4: 11 × 3,500 kVA total (N+1 for 29.7 MW facility load, add 3 units)
 - **IT UPS:** N+1 modular architecture (path redundancy from self-healing MV dual-ring)
   - Phase 1: 4 × 1,250 kVA modules (N+1 for 3 MW IT load @ 80% loading)
   - Phase 2: 7 × 1,250 kVA modules total (N+1 for 6 MW IT load, add 3 units)

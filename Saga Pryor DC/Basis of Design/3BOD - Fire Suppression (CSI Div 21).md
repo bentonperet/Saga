@@ -331,6 +331,7 @@ TBD
 
 ## COST SUMMARY
 
+
 | System | Cost Estimate |
 |--------|---------------|
 | **Data Hall Preaction (10,000 SF)** | $300-500K |
