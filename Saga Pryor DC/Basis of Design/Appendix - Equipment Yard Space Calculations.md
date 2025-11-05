@@ -12,7 +12,7 @@
 |-----------|-----------------|----------------|-------------------|-----------------|
 | **Electrical Yard** | 6 gens + 8 xfmrs + RMUs + switchgear | 45,000 | 40,000 | **~85,000** |
 | **Mechanical Yard** | 12 chillers (Phase 2 max) | 30,000 | 20,000 | **~50,000** |
-| **345 kV Substation** | 2 × 25 MVA transformers + switchyard | 35,000-50,000 | Included | **~42,500** |
+| **161 kV Substation** | 2 × 25 MVA transformers + switchyard | 35,000-50,000 | Included | **~42,500** |
 | **Bulk Fuel Storage** | Central tank farm + manifolds | 2,000-3,000 | Included | **~2,500** |
 | **Total Secured Yards** | | | | **~180,000 SF** |
 
@@ -268,13 +268,13 @@
 
 ---
 
-## 345 kV SUBSTATION YARD
+## 161 kV SUBSTATION YARD
 
 ### Substation Equipment
 
 **Equipment:**
-- 2 × 25 MVA transformers (345kV/13.8kV)
-- 345 kV switchyard (breakers, disconnect switches, bus structures)
+- 2 × 25 MVA transformers (161kV/13.8kV)
+- 161 kV switchyard (breakers, disconnect switches, bus structures)
 - Protection & control house
 
 **138 kV Switchyard:**
@@ -283,7 +283,7 @@
 - Approach clearances: 25 ft minimum per NESC
 - Total switchyard footprint: (30 + 50) × (80 + 50) = 80 ft × 130 ft = **10,400 SF**
 
-**345kV/13.8kV Transformers:**
+**161kV/13.8kV Transformers:**
 - Individual transformer pad: 18 ft W × 24 ft L = **432 SF**
 - Oil containment: 30 ft W × 40 ft L = **1,200 SF**
 - Service clearance: 15 ft perimeter (high voltage)
@@ -371,7 +371,7 @@
 |-----------|-----------|--------------|-------|
 | **Electrical Yard** | 85,000 | 1.95 | Generators, transformers, MV gear, PDMs, fuel |
 | **Mechanical Yard** | 50,000 | 1.15 | Chillers, pumps, pipe racks |
-| **345 kV Substation** | 42,500 | 0.98 | Customer-owned substation |
+| **161 kV Substation** | 42,500 | 0.98 | Customer-owned substation |
 | **BESS (optional)** | 13,000 | 0.30 | Battery energy storage |
 | **Subtotal (Core Yards)** | **190,500** | **4.37** | Critical infrastructure |
 | **Perimeter Roads & Buffer** | 20,000 | 0.46 | Security perimeter, landscaping buffer |

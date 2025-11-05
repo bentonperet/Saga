@@ -3,7 +3,7 @@
 ## Pryor Data Center - PACHYDERM GLOBAL
 ### Pryor, Oklahoma
 
-**Document Status:** REVISION 02 - 345 kV Substation + 13.8 kV Distribution (US Standard Voltage)
+**Document Status:** REVISION 02 - 161 kV Substation + 13.8 kV Distribution (US Standard Voltage)
 **Prepared by:** PGCIS Team
 **Date:** October 30, 2025 
 **Purpose:** Comprehensive Basis of Design for Pryor Data Center organized by CSI Master Format
@@ -30,7 +30,7 @@
 - **Strategic Location:** **4 miles from Google's us-central2 data center campus** - enables direct fiber interconnect for AI/ML hybrid cloud workloads and inference.
 - **Key Differentiators:**
   - Google Cloud proximity (sub-millisecond latency, eliminate data egress costs)
-  - Customer-owned 345 kV substation with 13.8 kV distribution
+  - Customer-owned 161 kV substation with 13.8 kV distribution
   - L2C liquid cooling ready from day 1
 
 <!-- @claude, please create a table here that has the following columns. Phase, IT Load, PUE, Facility Load -->
@@ -38,9 +38,9 @@
 ---
 
 ### **ELECTRICAL SYSTEMS**
-- **Primary Utility Service:** Customer-owned 345 kV substation
-  - **345 kV Transmission:** Direct connection to utility transmission system
-  - **Substation Transformers:** 2 × 35 MVA, 345kV/13.8kV (N+1 redundancy - either can carry full 30 MW facility load)
+- **Primary Utility Service:** Customer-owned 161 kV substation
+  - **161 kV Transmission:** Direct connection to utility transmission system
+  - **Substation Transformers:** 2 × 35 MVA, 161kV/13.8kV (N+1 redundancy - either can carry full 30 MW facility load)
 - **13.8 kV Common Bus:** Single voltage platform for utility, solar, BESS, generators, data center (US standard voltage)
 - **MV Distribution:** 13.8 kV dual-ring topology (Ring A + Ring B) via 8 RMUs
 - **Generators:** Scalable N+1 diesel generators @ 13.8 kV, Tier 4 Final
@@ -49,11 +49,18 @@
   - Phase 3: 7 × 4.0 MW total (N+1 for 20.25 MW facility load, add 3 units)
   - Phase 4: 9 × 4.0 MW total (N+1 for 29.7 MW facility load, add 2 units)
   - Fuel: ~2,000 gal belly tanks per unit connected via common manifold to centralized bulk fuel storage (24-hour runtime with redundant fuel contracts)
-- **Transformers:** Scalable 13.8 kV/480V oil-filled transformers, N+1 with concurrent maintainability
+- **LV Transformers:** 11 × 3.5 MVA oil-filled transformers (13.8kV/480V) on outdoor pads, N+1 with concurrent maintainability
   - Phase 1: 3 × 3,500 kVA (N+1 for 4.35 MW facility load)
   - Phase 2: 4 × 3,500 kVA total (N+1 for 8.7 MW facility load, add 1 unit)
   - Phase 3: 8 × 3,500 kVA total (N+1 for 20.25 MW facility load, add 4 units)
   - Phase 4: 11 × 3,500 kVA total (N+1 for 29.7 MW facility load, add 3 units)
+  - Location: Outdoor concrete pads with oil containment adjacent to E-Houses
+- **E-Houses (Electrical Houses):** 2 climate-controlled prefabricated E-Houses (14' × 260' each, 3,640 SF per unit)
+  - Configuration: One E-House per 13.8 kV ring (E-House A for Ring A, E-House B for Ring B)
+  - Contents: MV switchgear (RMUs), LV switchboards, IT UPS, Mechanical UPS, battery cabinets, distribution panels
+  - Enclosure: NEMA 3R weatherproof steel with redundant HVAC, clean agent fire suppression, BMS integration
+  - Phasing: Both E-Houses delivered complete at Phase 1; equipment added to reserved space in Phases 2-4
+  - Concurrent maintainability: Walk-in access, NEC clearances, A/B path isolation via underground duct banks
 - **IT UPS:** N+1 modular architecture (path redundancy from self-healing MV dual-ring)
   - Phase 1: 4 × 1,250 kVA modules (N+1 for 3 MW IT load @ 80% loading)
   - Phase 2: 7 × 1,250 kVA modules total (N+1 for 6 MW IT load, add 3 units)
@@ -64,7 +71,6 @@
 - **Mechanical UPS:** N+1 modular UPS for mechanical loads (chiller pumps, CRAH fans)
 - **LV Distribution:** Dual switchboards (SWBD-A/B) fed from different MV ring segments
 - **Cabinet Power:** Dual PDUs fed from different 480V distribution panels (sized per customer rack density)
-- **Electrical Enclosures:** Climate-controlled prefabricated PDMs (Power Delivery Modules) housing LV switchboards, UPS, and MV gear with walk-in concurrent maintainability
 - **MV Distribution:** 8 RMUs (13.8 kV, 630A), dual-ring topology
 - **Non-Critical Building Power (Separate System):**
   - House generators: 2 × 250-350 kW natural gas (N+1 redundancy)
@@ -133,7 +139,7 @@
 - **Support areas:** Secure staging, secure storage, janitor closet, internal restroom
 - **Telecommunications:** Second MPOE (redundant fiber entrance), second MMR (redundant meet-me-room), fire riser
 - **Delivery driver restroom:** Accessible only from outside at NW corner (within view of security)
-- **PDMs:** Power Delivery Modules located outside in electrical equipment yard
+- **E-Houses:** 2 Electrical Houses (14' × 260' each) located in south electrical equipment yard, plus 11 LV transformers on outdoor pads
 
 **Multi-Level Central Spine (3 Levels):** <!-- @claude: User confirms it's 3 levels in central spine, 1 level everywhere else. Review this section. -->
 - **Level 1:** Prefabricated storm shelter/safe room (20 person), elevator/stairwell, redundant restrooms, men's/women's showers, break room, lounge, gaming area (TBD)
@@ -146,8 +152,8 @@
 ### **RENEWABLE ENERGY & UTILITIES**
 - **Solar:** Adjacent ~12 MW solar array (owned separately, behind-the-meter connection to 13.8 kV common bus)
 - **BESS:** Battery Energy Storage System (owned separately, behind-the-meter connection to 13.8 kV common bus)
-- **Primary Utility Service:** Owner-constructed 345 kV substation with 2 × 35 MVA transformers (345kV/13.8kV, N+1 redundancy)
-  - Dual redundant 345 kV transmission line feeds
+- **Primary Utility Service:** Owner-constructed 161 kV substation with 2 × 35 MVA transformers (161kV/13.8kV, N+1 redundancy)
+  - Dual redundant 161 kV transmission line feeds
   - All power transformed to 13.8 kV common bus (US standard voltage for data centers and renewables)
 - **Water:** Municipal or well (domestic use only, ~500-1,000 gal/day)
 - **Sewer:** Municipal or septic (domestic wastewater)
@@ -160,7 +166,8 @@
 ### **FIRE PROTECTION & LIFE SAFETY**
 - **Data Halls:** Zoned preaction sprinkler system with VESDA early warning detection
 - **Cabinet Suppression:** Integrated fire suppression in DDC cabinets
-- **Prefabricated PDMs:** Clean agent or other suppression per NFPA standards in PDM enclosures housing UPS, switchboards, MV gear
+- **E-Houses:** Clean agent suppression (Novec 1230 or FM-200) in both E-Houses (sized for 3,640 SF @ 14' height per enclosure)
+- **LV Transformer Yard:** Portable fire extinguishers (Class C electrical) at outdoor transformer pads
 - **Detection:** VESDA (Very Early Smoke Detection Apparatus) in data halls
 - **Egress:** 2 minimum exits per data hall, 36" doors (44" preferred)
 - **Emergency Lighting:** 90-minute battery backup

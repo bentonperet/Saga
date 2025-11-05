@@ -29,11 +29,11 @@
 ```mermaid
 graph TB
     %% Utility Service
-    UTIL[345 kV Utility Grid<br/>Kamo Power Electric<br/>Dual Feed]
+    UTIL[161 kV Utility Grid<br/>Kamo Power Electric<br/>Dual Feed]
 
     %% Substation Transformers (N+1)
-    UTIL --> XFMR_SUB_A["XFMR-SUB-A<br/>35 MVA<br/>345kV/13.8kV<br/>N+1"]
-    UTIL --> XFMR_SUB_B["XFMR-SUB-B<br/>35 MVA<br/>345kV/13.8kV<br/>N+1"]
+    UTIL --> XFMR_SUB_A["XFMR-SUB-A<br/>35 MVA<br/>161kV/13.8kV<br/>N+1"]
+    UTIL --> XFMR_SUB_B["XFMR-SUB-B<br/>35 MVA<br/>161kV/13.8kV<br/>N+1"]
 
     %% 13.8 kV Dual Ring Distribution
     XFMR_SUB_A --> RING_A["13.8 kV RING A<br/>═══════════════<br/>Self-Healing Topology"]
@@ -175,8 +175,8 @@ graph TB
 
 | Equipment | Quantity | Rating | Voltage | Redundancy | Notes |
 |-----------|----------|--------|---------|------------|-------|
-| **Utility Connection** | 1 | - | 345 kV | Dual-feed | Kamo Power Electric Co-op |
-| **Substation Transformers** | 2 | 35 MVA | 345kV/13.8kV | N+1 | Customer-owned, either can carry full load |
+| **Utility Connection** | 1 | - | 161 kV | Dual-feed | Kamo Power Electric Co-op |
+| **Substation Transformers** | 2 | 35 MVA | 161kV/13.8kV | N+1 | Customer-owned, either can carry full load |
 
 ### Medium Voltage Distribution (13.8 kV)
 
@@ -374,14 +374,14 @@ Margin:      5,250 kW / 4,911 kW = 1.07× (107%)
 
 **Path A (Ring A → SWBD-A):**
 ```
-345 kV Utility → XFMR-SUB-A → 13.8 kV Ring A → RMUs (1A-4A) →
+161 kV Utility → XFMR-SUB-A → 13.8 kV Ring A → RMUs (1A-4A) →
 Transformers TX-A1 through TX-A6 → SWBD-A → IT UPS System →
 IT Dist Panel A → Cabinet PDU-A
 ```
 
 **Path B (Ring B → SWBD-B):**
 ```
-345 kV Utility → XFMR-SUB-B → 13.8 kV Ring B → RMUs (1B-4B) →
+161 kV Utility → XFMR-SUB-B → 13.8 kV Ring B → RMUs (1B-4B) →
 Transformers TX-B1 through TX-B5 → SWBD-B → IT UPS System →
 IT Dist Panel B → Cabinet PDU-B
 ```

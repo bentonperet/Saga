@@ -165,7 +165,7 @@ Oklahoma SB 480 redefines Oklahoma's energy framework to allow private entities 
 ### Current Design Status
 
 **Existing Infrastructure:**
-- 345 kV owner-constructed substation (2 × 25 MVA transformers, 345kV/13.8kV)
+- 161 kV owner-constructed substation (2 × 25 MVA transformers, 161kV/13.8kV)
 - 13.8 kV common bus architecture
 - 6 × 4.0 MW diesel generators @ 13.8 kV (N+1 redundancy)
 - 8+ MW solar array (adjacent, behind-the-meter)

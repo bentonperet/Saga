@@ -17,7 +17,7 @@ This Basis of Design defines the electrical infrastructure for a two-hall, 20,00
 The electrical backbone is a self-healing 13.8 kV dual-ring MV distribution with 8 RMU switchgear and SCADA-controlled automated switching, enabling concurrent maintainability of any transformer or electrical component. The 13.8 kV common bus allows for flexible integration of utility power, backup generators, solar arrays, and battery energy storage systems.
 
 **Key Infrastructure:**
-- Customer-owned 345 kV substation with 2×35 MVA transformers (N+1 redundancy)
+- Customer-owned 161 kV substation with 2×35 MVA transformers (N+1 redundancy)
 - Self-healing 13.8 kV dual-ring distribution (8 RMUs, SCADA-controlled) providing path redundancy
 - 9×4.0 MW diesel generators @ 13.8 kV (N+1 for 30 MW facility load)
 - 11×3,500 kVA LV transformers, 13.8kV/480V (N+1 redundancy with concurrent maintainability)
@@ -44,13 +44,13 @@ The following diagram illustrates the overall electrical system architecture, sh
                      UTILITY GRID (Kamo Power Electric Co-op)
                               │
         ┌─────────────────────┴─────────────────────┐
-        │  345 kV TRANSMISSION (or 161 kV option)   │
+        │          161 kV TRANSMISSION              │
         │       Revenue Metering @ HV Side          │
         └───────────┬───────────────────┬───────────┘
                     │                   │
               [XFMR-SUB-A]        [XFMR-SUB-B]
               35 MVA              35 MVA
-              345kV/13.8kV        345kV/13.8kV
+              161kV/13.8kV        161kV/13.8kV
                     │                   │
         ┌───────────┴───────────────────┴───────────┐
         │      13.8 kV COMMON BUS (Dual-Ring)       │
@@ -102,7 +102,7 @@ The following diagram illustrates the overall electrical system architecture, sh
 - **Dry Gulch Substation (N):** 161 kV, 2 lines
 
 **Primary Service:**
-- **Voltage:** 345 kV (preferred) or 161 kV, based on final utility interconnection study, capacity analysis, and cost comparison
+- **Voltage:** 161 kV (confirmed by client)
 - **Configuration:** Customer-owned and maintained substation constructed on-site
 - **Metering:** Utility revenue-grade metering at transmission voltage point of interconnection
 - **Capacity:** 35 MVA minimum service capacity
@@ -115,7 +115,7 @@ The following diagram illustrates the overall electrical system architecture, sh
 | Parameter    | Specification                                |
 | ------------ | -------------------------------------------- |
 | **Quantity** | Two (2) transformers                         |
-| **Rating**   | 35 MVA each @ 345kV/13.8kV (or 161kV/13.8kV) |
+| **Rating**   | 35 MVA each @ 161kV/13.8kV |
 
 ## 3.0 MEDIUM VOLTAGE (13.8 KV) DISTRIBUTION
 
@@ -357,25 +357,161 @@ Distributed UPS units (1-3 kVA, 10-15 min runtime) for NOC, security, and office
 <!-- @claude Remove this section and renumber -->
 
 
-## 12.0 PREFABRICATED POWER DELIVERY MODULES (PDMs)
+## 12.0 PREFABRICATED E-HOUSES (ELECTRICAL HOUSES)
 
 ### 12.1 Configuration
 
-**Quantity:** Two (2) outdoor PDMs for Phase 1, expandable in subsequent phases
+**Quantity:** Two (2) outdoor, walk-in E-Houses for Phase 1-4 (one per 13.8 kV ring)
 
-**Contents:**
-- LV Main Switchboards (SWBD-A and SWBD-B)
-- IT UPS Systems (System A and System B with modular UPS modules)
-- Battery Cabinets (Lithium-Ion battery arrays for UPS systems)
-- Distribution Panels (IT Dist, Mech Dist, UPS Dist - A and B sides)
-- Integrated fire suppression, HVAC, and monitoring systems
+**Dimensions:** Each E-House: **14' W × 260' L (3,640 SF)**
 
-### 12.2 Benefits
+**Function:** Each E-House contains one complete 13.8 kV distribution ring (Ring A or Ring B) plus all associated 480V power distribution equipment. The two E-Houses work together to provide dual-path (A/B) redundancy for all critical data center loads.
 
-- **Factory Testing:** Complete system factory-tested and commissioned before shipment, reducing field commissioning risk
-- **Schedule Acceleration:** 8-12 week schedule acceleration vs. traditional stick-built construction. PDMs can be manufactured in parallel with building construction.
-- **Quality Control:** Factory environment provides controlled conditions for assembly, wiring, and testing - higher quality than field construction
-- **Simplified Field Installation:** Pre-wired and pre-tested modules require only MV/LV connections and startup - reduces field labor by 30-40%
+**Location:** South side of building in electrical equipment yard, installed on concrete pads with underground duct banks for MV/LV connections to data halls and outdoor transformer pads.
+
+### 12.2 E-House Enclosure Specifications
+
+The E-House shall be a self-contained, walk-in steel enclosure meeting the following minimum requirements:
+
+| Parameter | Specification |
+|-----------|---------------|
+| **Structure** | Heavy-duty, NEMA 3R (or higher) weatherproof steel construction with insulated walls and roof |
+| **Width** | 14 ft (maximum highway shipping width - no oversized load permits required) |
+| **Length** | 260 ft (constructed from 6-7 connected modules, each 40-50 ft long) |
+| **Floor Area** | 3,640 SF per E-House |
+| **Height (Interior)** | 14 ft clear height minimum for equipment and cable tray overhead routing |
+| **Ceiling** | Insulated metal deck with integrated cable tray support structure |
+| **Climate Control** | Integrated redundant HVAC systems (heating and cooling) to maintain stable internal operating temperature (68-77°F) and humidity (40-60% RH) for all electrical equipment |
+| **Safety & Access** | Integrated clean agent fire suppression (Novec 1230 or FM-200), interior/exterior LED lighting, emergency exits, personnel access doors (36" min) meeting all applicable codes, ADA-compliant ramps |
+| **Monitoring** | Integrated Building Management System (BMS) connection for HVAC status, temperature/humidity alarms, fire alarm, door access, and environmental monitoring |
+| **Finish** | Exterior: Field-applied industrial coating in facility standard color; Interior: White epoxy-coated walls and sealed concrete floor |
+| **Grounding** | Integrated grounding grid bonded to facility ground grid per IEEE 142 |
+
+### 12.3 E-House A (Ring A) - Integrated Electrical Equipment
+
+E-House A shall be factory-built and tested with the following equipment pre-installed, wired, and integrated:
+
+**13.8 kV Medium Voltage Gear:**
+- 4 × RMUs (Ring Main Units): RMU-1A, RMU-2A, RMU-3A, RMU-4A (13.8 kV, 630A, SF6 or vacuum breakers)
+- MV cable terminations for Ring A connections to transformers, generators, substation
+- Integrated SCADA controls for self-healing ring operation
+
+**480V Low Voltage Gear:**
+- 1 × Main Switchboard A (SWBD-A): 4,000A, 480V, 3-phase, 4-wire, 65 kA SCCR
+- 4 × Distribution Panels: IT Dist A, Mech Dist 1A, Mech Dist 2A, UPS Dist A
+
+**IT UPS System A:**
+- Phase 1: 2 × 1,250 kVA modular UPS units + 2 battery cabinets
+- Phase 4 (ultimate): 12 × 1,250 kVA modular UPS units + 12 battery cabinets (Li-Ion)
+- Reserved space and pre-installed conduit stubs for Phases 2-4 equipment additions
+
+**Mechanical UPS System A:**
+- Phase 1: 4 × 250 kW modular static UPS units
+- Phase 4 (ultimate): 11 × 250 kW modular static UPS units
+- Reserved space for Phases 2-4 equipment additions
+
+**Support Systems:**
+- Clean agent fire suppression (Novec 1230 or FM-200) sized for 3,640 SF @ 14' height (~51,000 cubic feet)
+- Redundant HVAC systems (roof-mounted, factory-installed)
+- BMS/SCADA control panels and monitoring equipment
+- Interior/exterior LED lighting with emergency backup
+- All associated system controls, monitoring, and safety interlocks
+
+### 12.4 E-House B (Ring B) - Integrated Electrical Equipment
+
+E-House B shall be factory-built and tested with the following equipment pre-installed, wired, and integrated:
+
+**13.8 kV Medium Voltage Gear:**
+- 4 × RMUs (Ring Main Units): RMU-1B, RMU-2B, RMU-3B, RMU-4B (13.8 kV, 630A, SF6 or vacuum breakers)
+- MV cable terminations for Ring B connections to transformers, generators, substation
+- Integrated SCADA controls for self-healing ring operation
+
+**480V Low Voltage Gear:**
+- 1 × Main Switchboard B (SWBD-B): 4,000A, 480V, 3-phase, 4-wire, 65 kA SCCR
+- 4 × Distribution Panels: IT Dist B, Mech Dist 1B, Mech Dist 2B, UPS Dist B
+
+**IT UPS System B:**
+- Phase 1: 2 × 1,250 kVA modular UPS units + 2 battery cabinets
+- Phase 4 (ultimate): 11 × 1,250 kVA modular UPS units + 11 battery cabinets (Li-Ion)
+- Reserved space and pre-installed conduit stubs for Phases 2-4 equipment additions
+
+**Mechanical UPS System B:**
+- Phase 1: 4 × 250 kW modular static UPS units
+- Phase 4 (ultimate): 11 × 250 kW modular static UPS units
+- Reserved space for Phases 2-4 equipment additions
+
+**Support Systems:**
+- Clean agent fire suppression (Novec 1230 or FM-200) sized for 3,640 SF @ 14' height (~51,000 cubic feet)
+- Redundant HVAC systems (roof-mounted, factory-installed)
+- BMS/SCADA control panels and monitoring equipment
+- Interior/exterior LED lighting with emergency backup
+- All associated system controls, monitoring, and safety interlocks
+
+### 12.5 LV Transformer Yard (Separate from E-Houses)
+
+**Configuration:** 11 × 3.5 MVA LV transformers (13.8kV/480V) located on outdoor concrete pads adjacent to E-Houses
+
+**Transformer Allocation:**
+- Ring A Transformers: 6 units on pads adjacent to E-House A
+- Ring B Transformers: 5 units on pads adjacent to E-House B
+
+**Transformer Specifications:**
+- Rating: 3,500 kVA / 3.15 MW @ 0.9 power factor
+- Voltage: 13,800V delta primary / 480Y/277V secondary
+- Type: Oil-filled, ONAN cooling (Oil Natural, Air Natural)
+- Outdoor-rated enclosure with weatherproof construction
+
+**Transformer Pads:**
+- Reinforced concrete pads sized for transformer + oil containment
+- Oil containment per EPA SPCC requirements (110% of transformer oil volume)
+- Gravel-filled containment with oil-water separator
+- MV/LV conduit stubs to E-Houses via underground duct banks
+
+**Fire Protection:**
+- Portable fire extinguishers (Class C electrical) at transformer yard
+- No fixed fire suppression required for outdoor transformers
+
+### 12.6 Phasing Strategy
+
+**Phase 1 Delivery:**
+- Both E-House A and E-House B delivered complete (full 14' × 260' structures)
+- E-Houses arrive factory-tested with Phase 1 equipment pre-installed
+- Reserved space and conduit stubs for future equipment pre-configured
+- Installation: Set on prepared pads, connect to duct banks, startup/commission
+
+**Phases 2-4 Expansion:**
+- Equipment added to reserved spaces within existing E-Houses
+- No additional E-House modules or building envelope modifications required
+- UPS modules, battery cabinets, and mechanical UPS added incrementally
+- Electrical connections made to pre-installed conduit stubs and bus bars
+
+**Advantages of Full E-House Delivery at Phase 1:**
+- No future crane mobilizations or E-House building additions
+- Clean equipment expansion without weather exposure
+- Cost certainty: Fixed E-House cost at Phase 1, variable equipment cost in later phases
+- Simplified commissioning: Factory-tested building envelope
+
+### 12.7 Benefits
+
+**Factory Testing & Quality:**
+- Complete E-House system factory-tested and commissioned before shipment, reducing field commissioning risk
+- Factory acceptance testing (FAT) includes: Hi-pot testing, insulation resistance, protective relay settings, control system functional testing, fire suppression pre-action test
+- Factory environment provides controlled conditions for assembly, wiring, and testing - higher quality than field construction
+
+**Schedule Acceleration:**
+- 8-12 week schedule acceleration vs. traditional stick-built electrical buildings
+- E-Houses manufactured in parallel with site civil/foundation work
+- Delivery and installation: 2-3 weeks (vs. 6-9 months for stick-built)
+
+**Cost Certainty:**
+- Fixed, predictable cost from single vendor
+- Minimizes risk of on-site labor or weather-related cost overruns
+- Eliminates multi-trade coordination (electrical, HVAC, fire suppression all integrated)
+
+**Simplified Field Installation:**
+- Pre-wired and pre-tested E-Houses require only MV/LV connections and startup
+- Reduces field labor by 30-40% vs. traditional construction
+- Underground duct banks installed before E-House delivery with alignment to floor penetrations
 
 
 ---

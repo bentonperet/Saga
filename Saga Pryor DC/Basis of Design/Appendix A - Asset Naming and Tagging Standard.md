@@ -72,7 +72,7 @@
 | **DH#** | Data Hall | `DH1`, `DH2` |
 | **EYN** | Equipment Yard - North | Mechanical yard |
 | **EYS** | Equipment Yard - South | Electrical yard |
-| **SUB** | Substation | 345 kV substation |
+| **SUB** | Substation | 161 kV substation |
 | **NOC** | Network Operations Center | - |
 | **MDA** | Main Distribution Area | Telecom backbone |
 | **MMR#** | Meet-Me Room | `MMR1` (east), `MMR2` (west) |
@@ -113,7 +113,7 @@
 
 | Code | Description | Example | Notes |
 |------|-------------|---------|-------|
-| **XFMSU** | Substation Transformer (345kV/13.8kV) | `TUL-01-F1-SUB-XFMSU-001` | 2N redundancy: -001, -002 |
+| **XFMSU** | Substation Transformer (161kV/13.8kV) | `TUL-01-F1-SUB-XFMSU-001` | 2N redundancy: -001, -002 |
 | **XFMR** | Power Transformer (13.8kV/480V) | `TUL-01-F1-EYS-XFMR-001` | Sequential 001-008 |
 | **GEN** | Generator | `TUL-01-F1-EYS-GEN-001` through `GEN-006` | N+1 redundancy |
 | **RMU** | Ring Main Unit (13.8 kV switchgear) | `TUL-01-F1-EYS-RMU-001` | Ring A: 001-003, Ring B: 004-006 |
@@ -381,8 +381,8 @@ All dual-fed equipment includes path suffix:
 
 | Asset ID | Description | Location | Path/Ring |
 |----------|-------------|----------|-----------|
-| `TUL-01-F1-SUB-XFMSU-001` | 345kV/13.8kV Transformer A | Substation | 2N-A |
-| `TUL-01-F1-SUB-XFMSU-002` | 345kV/13.8kV Transformer B | Substation | 2N-B |
+| `TUL-01-F1-SUB-XFMSU-001` | 161kV/13.8kV Transformer A | Substation | 2N-A |
+| `TUL-01-F1-SUB-XFMSU-002` | 161kV/13.8kV Transformer B | Substation | 2N-B |
 | `TUL-01-F1-EYS-GEN-001` | Generator 1, 4.0 MW | Electrical Yard South | Ring A |
 | `TUL-01-F1-EYS-GEN-002` | Generator 2, 4.0 MW | Electrical Yard South | Ring A |
 | `TUL-01-F1-EYS-GEN-003` | Generator 3, 4.0 MW | Electrical Yard South | Ring B |

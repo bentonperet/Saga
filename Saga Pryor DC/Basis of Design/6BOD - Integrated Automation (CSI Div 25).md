@@ -11,7 +11,7 @@
 
 ## OVERVIEW
 
-Integrated monitoring and control systems provide real-time visibility, automated optimization, and rapid fault response across electrical, mechanical, fire, and security systems. Microgrid controller coordinates 345kV utility, solar, BESS, and generators on common 13.8kV bus.
+Integrated monitoring and control systems provide real-time visibility, automated optimization, and rapid fault response across electrical, mechanical, fire, and security systems. Microgrid controller coordinates 161kV utility, solar, BESS, and generators on common 13.8kV bus.
 
 **System Integration Architecture:**
 - **BMS (Building Management System):** HVAC, lighting, environmental control
@@ -125,7 +125,7 @@ Integrated monitoring and control systems provide real-time visibility, automate
 ### System Scope
 
 **Medium Voltage Monitoring (13.8kV):**
-- 345kV/13.8kV substation transformers (2 × 25 MVA)
+- 161kV/13.8kV substation transformers (2 × 25 MVA)
 - 13.8kV dual ring bus (Ring A + Ring B)
 - Ring main units (6 × RMUs, switching status)
 - 13.8kV/480V transformers (8 × 3,500 kVA)
@@ -152,7 +152,7 @@ Integrated monitoring and control systems provide real-time visibility, automate
 - Status, load, battery runtime
 
 **Revenue Metering:**
-- Utility import/export at 345kV (utility-owned)
+- Utility import/export at 161kV (utility-owned)
 - Solar production (13.8kV inverter output)
 - BESS charge/discharge (if BESS deployed)
 
@@ -166,7 +166,7 @@ Integrated monitoring and control systems provide real-time visibility, automate
 **Architecture:**
 - **SCADA server:** 2 × redundant servers (A/B)
 - **Power meters:** IEC 61850-compliant meters at all major points
-  - 345kV substation: Utility-grade meters
+  - 161kV substation: Utility-grade meters
   - 13.8kV ring bus: SEL or ABB relays with metering
   - 480V switchboards: Schneider PM8000 or equivalent
 - **Network:** Fiber (redundant ring topology)
@@ -175,7 +175,7 @@ Integrated monitoring and control systems provide real-time visibility, automate
 ### Monitoring Functions
 
 **Real-Time Power Flow:**
-- Single-line diagram (SLD) showing power flow from 345kV → 13.8kV → 480V → IT load
+- Single-line diagram (SLD) showing power flow from 161kV → 13.8kV → 480V → IT load
 - kW values at every major point (updated every 1-2 seconds)
 
 **Load Trending:**
@@ -193,85 +193,6 @@ Integrated monitoring and control systems provide real-time visibility, automate
 - Runtime hours (maintenance scheduling)
 - Load sharing accuracy (verify equal load distribution)
 
----
-
-## MICROGRID CONTROLLER (345kV/13.8kV SYSTEM)
-
-### Purpose
-
-Coordinates utility, solar, BESS, and generators on common 13.8kV bus infrastructure. Manages islanding (utility outage), load shedding, and seamless transitions between grid-connected and island modes.
-
-### System Configuration
-
-**Power Sources on 13.8kV Bus:**
-- 345kV utility (2 × 25 MVA transformers, 2N)
-- Solar array (8+ MW AC via 13.8kV inverters)
-- BESS (4-8 MWh via 13.8kV bi-directional inverters)
-- Generators (6 × 4.0 MW @ 13.8kV)
-
-**Loads on 13.8kV Bus:**
-- Data center (8 × 13.8kV/480V transformers → IT + mechanical loads)
-- Auxiliary loads (minimal)
-
-### Control Modes
-
-**Mode 1: Grid-Connected (Normal Operation)**
-- Utility + Solar → Data Center Load
-- BESS: Charge from solar (if excess), discharge for peak shaving/demand response
-- Generators: Standby (periodic testing only)
-- Export: If permitted, sell excess solar to grid
-
-**Mode 2: Island Mode (Utility Outage)**
-- Disconnect from utility at 345kV (automatic transfer switch or breaker)
-- Generators + Solar + BESS → Data Center Load
-- Generator black start (if needed) or BESS provides voltage reference
-- Solar output curtailed if load < generation (no export in island mode)
-- Duration: Unlimited (diesel fuel + solar during daylight)
-
-**Mode 3: Transition Back to Grid (Utility Restored)**
-- Synchronize 13.8kV bus with utility (match voltage, frequency, phase)
-- Close utility breaker (seamless transfer)
-- Unload generators (ramp down over 5-10 minutes)
-- Resume normal grid-connected operation
-
-### Microgrid Controller Specifications
-
-**Standards Compliance:**
-- **IEEE 2030.7:** Microgrid Controller Standard
-- **IEEE 2030.8:** Testing Standard for Microgrid Controllers
-- **IEEE 1547:** Interconnection of Distributed Energy Resources
-
-**Functions:**
-- **Islanding detection:** Detect utility loss, command disconnect
-- **Load shedding:** Drop non-critical loads if generation < load in island mode
-- **Generator dispatch:** Start/stop generators based on load/solar availability
-- **BESS control:** Charge/discharge commands based on grid status, solar output, load
-- **Solar curtailment:** Reduce solar output if overgeneration in island mode
-- **Synchronization:** Re-sync with utility when restored
-
-**Recommended Vendors:**
-- GE Grid Solutions (Reason M60 or equivalent)
-- Schweitzer Engineering Labs (SEL microgrid controller)
-- ABB Ability OPTIMAX
-- Siemens SICAM (if SCADA-based microgrid control sufficient)
-
-**Cost:** [ROM] $1.0-1.5M (IEEE 2030.7/2030.8 compliant controller + engineering)
-
-### Benefits of Customer-Owned 345kV Substation + Microgrid
-
-**Resiliency:**
-- True microgrid capability (island at 13.8kV during utility outage)
-- Solar + BESS + generators operate indefinitely without utility
-
-**Flexibility:**
-- Export excess solar to grid (if permitted by utility)
-- Demand response participation (discharge BESS during grid peak events)
-- Future load growth (24 MW master plan) without utility upgrades
-
-**Cost Savings:**
-- Avoid utility demand charges via peak shaving (BESS discharge during peaks)
-- Avoid utility interconnection fees for each new load addition
-- Single 13.8kV infrastructure for all power sources and loads
 
 ---
 
@@ -429,61 +350,19 @@ Coordinates utility, solar, BESS, and generators on common 13.8kV bus infrastruc
 - Regular security updates for BMS/EPMS/DCIM servers
 - Tested in non-production environment before deployment
 
----
-
-## COMMISSIONING & INTEGRATED SYSTEMS TESTING
-
-### Functional Testing
-
-**BMS Commissioning:**
-- Verify all points (sensors, control outputs)
-- Test control sequences (chiller staging, pump VFD, free cooling)
-- Alarm testing (trigger alarms, verify notification)
-
-**EPMS Commissioning:**
-- Verify power meter accuracy (compare to portable meter)
-- Test generator auto-start on simulated utility loss
-- Verify load sharing between parallel generators
-
-**Microgrid Controller Testing:**
-- **Islanding test:** Disconnect utility, verify seamless transition to generators + solar + BESS
-- **Load shedding test:** Reduce generation in island mode, verify non-critical loads drop
-- **Resynchronization test:** Restore utility, verify seamless transfer back to grid
-
-**DCIM Commissioning:**
-- Verify rack PDU metering accuracy
-- Test environmental sensor calibration
-- Validate capacity planning models
-
-### Integrated Systems Testing (IST)
-
-**Scenario 1: Chiller Failure**
-- Simulate chiller failure (disable one unit)
-- Verify: Remaining chillers pick up load, no temperature excursion in data hall, alarm notification
-
-**Scenario 2: Utility Loss**
-- Disconnect utility at 345kV
-- Verify: Generators auto-start, 13.8kV bus islands, IT load uninterrupted (IT UPS provides bridging)
-- Duration: Run for 4 hours to verify stability
-
-**Scenario 3: Fire Alarm Activation**
-- Trigger fire alarm in data hall
-- Verify: HVAC shutdown, doors unlock, notification to fire department, no false suppression discharge
 
 ---
 
 ## COST SUMMARY
 
-| System | Cost Estimate |
-|--------|---------------|
-| **BMS (HVAC, Lighting, Environmental)** | $600-900K |
-| **EPMS (Power Monitoring, SCADA)** | $400-600K |
-| **Microgrid Controller (IEEE 2030.7/2030.8)** | $1.0-1.5M |
-| **DCIM (Rack-Level Monitoring)** | $300-500K |
-| **NOC Fit-Out (Workstations, Video Wall)** | $200-400K |
-| **Integration & Engineering** | $300-500K |
-| **Commissioning & IST** | $200-400K |
-| **Total Integrated Automation** | **$3.0-4.8M** |
+| System                                        | Cost Estimate |
+| --------------------------------------------- | ------------- |
+| **BMS (HVAC, Lighting, Environmental)**       | $600-900K     |
+| **EPMS (Power Monitoring, SCADA)**            | $400-600K     |
+| **DCIM (Rack-Level Monitoring)**              | $300-500K     |
+| **NOC Fit-Out (Workstations, Video Wall)**    | $200-400K     |
+| **Integration & Engineering**                 | $300-500K     |
+| **Total Integrated Automation**               | **$3.0-4.8M** |
 
 ---
 
@@ -491,10 +370,9 @@ Coordinates utility, solar, BESS, and generators on common 13.8kV bus infrastruc
 
 **Next Steps:**
 1. Select BMS/EPMS/DCIM platforms (coordinate with equipment vendors)
-2. Develop microgrid control strategy (islanding logic, load shedding priorities)
-3. Design facility network architecture (fiber routing, switch locations)
-4. Cybersecurity assessment and hardening plan
-5. Commissioning plan with IST scenarios
+2. Design facility network architecture (fiber routing, switch locations)
+3. Cybersecurity assessment and hardening plan
+4. Commissioning plan with IST scenarios
 
 ---
 
@@ -502,4 +380,4 @@ Coordinates utility, solar, BESS, and generators on common 13.8kV bus infrastruc
 - **Source:** Pryor_Bod_EVS_Rev01.md and Erik_BOD reference
 - **Date Updated:** October 29, 2025
 - **Prepared by:** EVS / PGCIS Team
-- **Key Updates:** Microgrid controller integration, 345kV/13.8kV coordination, IEEE 2030.7 compliance
+- **Key Updates:** Microgrid controller integration, 161kV/13.8kV coordination, IEEE 2030.7 compliance

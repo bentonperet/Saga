@@ -50,21 +50,49 @@ Fire protection systems protect personnel, IT equipment, and facility infrastruc
 - Same system type as Data Hall 1
 - Installed with shell or deferred to tenant fit-out
 
-### Prefabricated Power Delivery Modules (PDMs)
+### E-Houses (Electrical Houses)
 
-**2 × Outdoor PDMs (Phase 1)**
+**2 × Outdoor E-Houses (Phase 1-4, one per 13.8 kV ring)**
 
-**System Type:** Clean agent or other suppression per NFPA standards
+**E-House Specifications:**
+- **Dimensions:** Each 14' W × 260' L (3,640 SF)
+- **Contents:** MV switchgear (RMUs), LV switchboards, IT UPS, Mechanical UPS, battery cabinets, distribution panels
+- **Configuration:** E-House A (Ring A) and E-House B (Ring B)
+
+**System Type:** Clean agent suppression per NFPA 2001
 
 **Configuration:**
-- Factory-installed clean agent (FM-200, Novec 1230) or water mist per NFPA 2001/NFPA 750
-- Cylinder bank sized for PDM enclosure volume
-- Automatic discharge on smoke detection
-- Manual abort button (30-second delay)
-- **Rationale:** Protects UPS, switchboards, batteries without water damage
+- Factory-installed clean agent (Novec 1230 or FM-200)
+- Cylinder bank sized for 3,640 SF @ 14' ceiling height (~51,000 cubic feet per E-House)
+- Zone coverage: Full E-House interior with uniform agent distribution
+- Automatic discharge on smoke detection (cross-zoned with two independent detection circuits)
+- Manual abort button (30-second delay before discharge)
+- Pre-discharge alarms: Audible/visual with 30-second evacuation warning
+- **Rationale:** Protects MV/LV electrical gear, UPS, switchboards, batteries without water damage or conductive residue
 - **Red Zone - CP 5** security classification
 
-**Cost:** Integrated in PDM package (~$50-100K per PDM) {TBC}
+**Detection:**
+- Cross-zoned smoke detection (two independent detector zones required for discharge)
+- Addressable smoke detectors throughout E-House
+- Integration with facility fire alarm panel
+
+**Cost:** Integrated in E-House package (~$80-120K per E-House, larger than typical due to 3,640 SF enclosure size)
+
+### LV Transformer Yard
+
+**11 × 3.5 MVA Outdoor Transformers (Phase 1-4)**
+
+**Location:** Outdoor concrete pads with oil containment adjacent to E-Houses
+
+**System Type:** Portable fire extinguishers
+
+**Configuration:**
+- Portable Class C electrical fire extinguishers at transformer yard (2 units minimum)
+- No fixed fire suppression required for outdoor oil-filled transformers
+- Oil containment per EPA SPCC requirements (110% of transformer oil volume)
+- Spill response equipment and absorbent materials on-site
+
+**Rationale:** Outdoor transformers have natural ventilation and heat dissipation; fixed suppression not required per NFPA 850
 
 ### Generator Enclosures
 TBD

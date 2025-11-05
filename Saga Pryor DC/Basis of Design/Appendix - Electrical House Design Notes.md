@@ -82,12 +82,38 @@ This involves building a traditional cinder block or metal-skinned building on t
 
 This section addresses the physical logistics of the selected "Shared Redundant" architecture using "Prefabricated E-Houses."
 
-- **Placement:** The two E-House systems (A and B) will be placed as two long, parallel rows of modules in the equipment yard. As the site grows, new modules will be added to the ends of these rows, extending their length.
+### E-House Specifications
+
+**Configuration:** 2 E-Houses (E-House A for Ring A, E-House B for Ring B)
+
+**Dimensions:** Each E-House is 14' W × 260' L (3,640 SF)
+
+**Construction:** Each E-House is constructed from 6-7 connected prefabricated modules (each 40-50 ft long)
+
+**Phase 1 Delivery:** Both E-Houses delivered complete with full 260' length. Equipment for Phase 1 is pre-installed; reserved space and conduit stubs provided for Phases 2-4 equipment.
+
+**Phasing Strategy:** Equipment added to reserved spaces within existing E-Houses in Phases 2-4. No additional E-House modules or building envelope modifications required after Phase 1 delivery.
+
+### LV Transformer Yard
+
+**Configuration:** 11 × 3.5 MVA oil-filled transformers (13.8kV/480V) on outdoor concrete pads with oil containment
+
+**Location:** Adjacent to E-Houses in electrical equipment yard
+
+**Allocation:** 6 transformers on pads near E-House A (Ring A), 5 transformers on pads near E-House B (Ring B)
+
+**Separation:** Transformers are separate from E-Houses to simplify E-House design (no oil containment inside climate-controlled enclosures)
+
+### Physical Layout
+
+- **Placement:** The two E-House systems (A and B) are placed as two long, parallel rows in the south electrical equipment yard. LV transformers on outdoor pads are positioned adjacent to their respective E-Houses.
+
 - **Interconnection:** All power and data cabling from the E-Houses to the data halls will be routed via **underground duct banks**.
     - These duct banks (concrete-encased conduits) are installed _before_ the E-House pads are poured.
     - The E-Houses are built with pre-cut openings in the floor, which align with the conduit "stub-ups" from the duct bank.
-    - This design ensures that cabling for the _furthest_ E-House modules simply runs **underneath** the concrete pads of the closer modules.
-- **Redundancy:** At no point do cables from the "A" E-House pass _through_ the "B" E-House (or vice versa). The duct banks maintain 100% physical separation of the A/B power paths, which is critical for a Tier III, concurrently maintainable design. This is a standard and robust industry practice.
+    - Transformer pads have conduit stubs connecting to adjacent E-House MV/LV gear.
+
+- **Redundancy:** At no point do cables from the "A" E-House or Ring A transformers pass _through_ the "B" E-House (or vice versa). The duct banks maintain 100% physical separation of the A/B power paths, which is critical for a Tier III, concurrently maintainable design. This is a standard and robust industry practice.
 
 ---
 

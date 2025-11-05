@@ -25,7 +25,7 @@
 
 ### Site Grading and Pads
 - **Building pad:** 50,000 GSF building (precast tilt-up) + aprons
-- **Electrical yard:** ~100,000 SF (345 kV substation, MV gear, generator yard)
+- **Electrical yard:** ~100,000 SF (161 kV substation, MV gear, generator yard)
 - **Mechanical yard:** ~50,000 SF (air-cooled chillers, pumps, headers)
 - **Solar array area:** Allocate 10–20 acres adjacent (phased build)
 - **BESS yard:** Allow 6–10 container positions (future-ready)
@@ -39,9 +39,9 @@
 
 ## DIVISION 32 – EXTERIOR IMPROVEMENTS
 
-### 345 kV Substation Yard (Customer-Owned)
+### 161 kV Substation Yard (Customer-Owned)
 - **Footprint:** ~35,000–50,000 SF fenced yard
-- **Equipment:** 345 kV switchyard, 2 × 25 MVA 345kV/13.8kV transformers (2N), protection & control house
+- **Equipment:** 161 kV switchyard, 2 × 25 MVA 161kV/13.8kV transformers (2N), protection & control house
 - **Grounding:** Copper grid per IEEE 80; step/touch potential analysis
 - **Oil containment:** Transformer spill containment per EPA SPCC
 - **Security:** 8–10 ft fence + barbed wire, cameras, access control
@@ -169,4 +169,4 @@
 - **Source:** Pryor_Bod_EVS_Rev01.md, Electrical Div 26, Erik_BOD references
 - **Date Updated:** October 29, 2025
 - **Prepared by:** EVS / PGCIS Team
-- **Key Updates:** 345 kV substation yard, MV rings, BESS/solar yards, 50,000 SF mech yard
+- **Key Updates:** 161 kV substation yard, MV rings, BESS/solar yards, 50,000 SF mech yard
