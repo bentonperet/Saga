@@ -608,7 +608,7 @@ All infrastructure built from Phase 1 to accommodate Phase 4 expansion:
 ## NEXT STEPS
 
 **Design Phase:**
-1. Single-line diagram complete (this document)
+1. Single-line diagram (conventional design version)
 2. Protection coordination study (generators, transformers, switchboards)
 3. Fault current analysis (short-circuit study at all voltage levels)
 4. Arc flash study (NFPA 70E compliance, PPE labeling)
