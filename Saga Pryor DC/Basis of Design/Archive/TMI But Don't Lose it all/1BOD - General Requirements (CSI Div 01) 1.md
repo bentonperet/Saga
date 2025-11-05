@@ -11,31 +11,48 @@
 
 ## 01 10 00 – SUMMARY
 
+- Scope includes design, procurement, construction, commissioning, and turnover of a 50,000 GSF Tier III data center with 3 MW Phase 1 IT and 12 MW Phase 2.
+- All critical systems shall be concurrently maintainable: N+1 IT UPS with 13.8 kV dual-ring MV path redundancy, N+1 mechanical, N+1 generators and transformers.
 
 ---
 
 ## 01 14 00 – WORK RESTRICTIONS
 
+- Normal work hours: M–F, 7:00–17:00; after-hours for outages or noisy work.
+- Security badging required; background checks for all personnel.
+- No photography without Owner approval; NDA required.
 
 ---
 
 ## 01 30 00 – ADMINISTRATIVE REQUIREMENTS
 
+- Kickoff meeting; weekly OAC meetings; monthly risk reviews.
+- RFI process via Procore (or Owner’s platform); 3 business-day response goal.
+- Document control: Use drawing/revision indices; cloud-based repository.
 
 ---
 
 ## 01 33 00 – SUBMITTALS
 
+- Product data, shop drawings, samples, calculations, test reports.
+- Critical submittals: Generators, MV gear, transformers, UPS, chillers, RMUs, fire alarm, DOAS, CDUs, BESS (if included), solar inverters.
+- Provide factory witness test plans for generators, UPS, switchgear, chillers.
 
 ---
 
 ## 01 35 00 – SPECIAL PROCEDURES
 
+- Hot work permits; lockout/tagout (LOTO); confined space.
+- Outage coordination: 10 business days’ notice; method of procedure (MOP) required.
+- Vibration/noise controls for nearby stakeholders.
 
 ---
 
 ## 01 40 00 – QUALITY REQUIREMENTS
 
+- Manufacturers: Tier-1 with 10+ year support and parts availability.
+- Factory testing: FAT for UPS, switchgear, generators, BMS head-end.
+- Field testing: Acceptance testing per NETA ATS (electrical), TAB (mechanical).
 
 ---
 
@@ -153,37 +170,51 @@ Examples:
 - DCIM database populated and verified
 
 **Detailed Naming Standard:**
-See [[Appendix A - Asset Naming and Tagging Standard]] for complete rubric, equipment type codes, and examples.
+See [[Saga Pryor DC/Basis of Design/Appendix A - Asset Naming and Tagging Standard]] for complete rubric, equipment type codes, and examples.
 
 ---
 
 ## 01 43 00 – CODE COMPLIANCE
 
+- Comply with NEC 2023, IBC/IFC 2021, NFPA, IEEE, ASHRAE, TIA-942.
+- Local AHJ approvals; utility interconnect agreements.
 
 ---
 
 ## 01 50 00 – TEMPORARY FACILITIES
 
+- Temporary power, lighting, water, sanitary per OSHA.
+- Temporary security fence/gates; badging trailer if needed.
+- Temporary network for coordination (separate from customer IT).
 
 ---
 
 ## 01 60 00 – PRODUCT REQUIREMENTS
 
+- Standardize on: 13.8 kV MV equipment, 3,500 kVA transformers, 4.0 MW MV gens, 1,500 kW chillers, 1,250 kVA IT UPS modules (N+1), 250 kW mech UPS.
+- Spares: Filters, UPS modules (one spare module per 5 deployed), sensors, controller cards.
 
 ---
 
 ## 01 70 00 – EXECUTION AND CLOSEOUT
 
+- Closeout submittals: O&M manuals, as-builts (PDF + CAD/BIM), warranty certificates.
+- Training: 40 hours per discipline (electrical, mechanical, BMS, security).
+- Warranties: 1 year minimum; extended warranties for UPS batteries (5–10 years), generators (5 years), roof (20 years).
 
 ---
 
 ## 01 78 00 – CLOSEOUT SUBMITTALS
 
+- Turnover: Asset registry, maintenance schedules, vendor contacts.
+- As-builts: Redline drawings transferred to CAD/BIM; point lists for BMS/EPMS/DCIM.
 
 ---
 
 ## 01 79 00 – DEMONSTRATION AND TRAINING
 
+- Vendor-led training sessions with recordings; quick-reference guides.
+- Emergency drills: Generator failover, fire alarm, security breach.
 
 ---
 
@@ -192,15 +223,23 @@ See [[Appendix A - Asset Naming and Tagging Standard]] for complete rubric, equi
 - Commissioning Agent (CxA): Independent 3rd party.
 - Levels 1–5: Factory tests, delivery inspection, start-up, functional testing, IST.
 - IST scenarios: Utility loss, chiller failure, UPS module failure, RMU switching, fire alarm.
-- Performance targets: PUE TBD
+- Performance targets: PUE ≤1.35 (Phase 1), ≤1.25 (Phase 2).
 
 ---
 
 ## 01 91 00 – MONITORING & REPORTING
 
+- Monthly reports: PUE, WUE, uptime, incident summaries, maintenance performed.
+- Quarterly reviews: Energy optimization, capacity planning, reliability improvements.
 
 ---
 
+**Tags:** #general-requirements #commissioning #submittals #quality #codes #cx
+
+**Next Steps:**
+1. Approve standardized equipment list and preferred vendors
+2. Appoint CxA and finalize commissioning plan
+3. Establish Procore (or equivalent) for RFI/submittal workflows
 
 ---
 

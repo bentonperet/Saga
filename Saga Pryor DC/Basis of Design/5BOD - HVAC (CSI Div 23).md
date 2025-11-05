@@ -11,9 +11,9 @@
 
 ## OVERVIEW
 
-This document defines the phased mechanical cooling strategy for a 24 MW IT (30 MW facility) data center. The design is optimized for AI/ML workloads, starting with a **3 MW L2C (Liquid-to-Chip) anchor tenant (Phase 1)** and expanding to a 24 MW ultimate capacity.
+This document defines the phased mechanical cooling strategy for a 24 MW IT (30 MW facility) data center. The design is optimized for AI/ML workloads, starting with a 3 MW L2C (Liquid-to-Chip) anchor tenant (Phase 1) and expanding to a 24 MW ultimate capacity.
 
-The design is built on a **zoned-hall** (DH-W vs. DH-E) concept with **two independent, physically separate cooling plants** (a 16.8 MW warm-water L2C plant and a 7.2 MW cold-water RDHx plant).
+The design is built on a zoned-hall (DH-W vs. DH-E) concept with two independent, physically separate cooling plants (a 16.8 MW warm-water L2C plant and a 7.2 MW cold-water RDHx plant).
 
 **Design Philosophy:**
 - **Phased Deployment:** Cooling plant CapEx is deployed in phases to match IT load and rack growth (30 → 150 → 285 → 468 racks).
