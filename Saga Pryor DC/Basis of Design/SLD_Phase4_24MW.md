@@ -187,11 +187,11 @@ graph TB
 
 ### Generators (Phase 4)
 
-| Equipment | Quantity | Rating | Fuel | Runtime | Notes |
-|-----------|----------|--------|------|---------|-------|
-| **Diesel Generators** | 9 | 4.0 MW @ 13.8 kV | Diesel (Tier 4 Final) | 24+ hours | N+1: 8 units carry 30 MW load |
-| **N+1 Capacity** | - | 32.0 MW | - | - | 8 running generators |
-| **House Generators** | 2 | 300 kW @ 480V | Natural Gas | 72+ hours | N+1 for non-critical loads |
+| Equipment             | Quantity | Rating           | Fuel                  | Runtime   | Notes                         |
+| --------------------- | -------- | ---------------- | --------------------- | --------- | ----------------------------- |
+| **Diesel Generators** | 9        | 4.0 MW @ 13.8 kV | Diesel (Tier 4 Final) | 24+ hours | N+1: 8 units carry 30 MW load |
+| **N+1 Capacity**      | -        | 32.0 MW          | -                     | -         | 8 running generators          |
+| **House Generators**  | 2        | 300 kW @ 480V    | Natural Gas           | 72+ hours | N+1 for non-critical loads    |
 
 ### Renewable Energy Integration
 
