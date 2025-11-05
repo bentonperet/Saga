@@ -1,6 +1,6 @@
 **Created:** 2025-11-05
 **Project:** Saga Pryor Data Center - PACHYDERM GLOBAL
-**Parent Document:** [[7BOD - Electrical (CSI Div 26) v2]]
+**Parent Document:** [[Saga Pryor DC/Basis of Design/7BOD - Electrical (CSI Div 26)]]
 
 # APPENDIX - ELECTRICAL HOUSE DESIGN NOTES
 ## Supplemental Analysis: Key Design Decisions
@@ -124,5 +124,5 @@ This section addresses the physical logistics of the selected "Shared Redundant"
 **Document Control:**
 - **Created:** 2025-11-05
 - **Updated:** 2025-11-05
-- **Related:** [[7BOD - Electrical (CSI Div 26) v2]], [[_BOD - Exec Summary]]
+- **Related:** [[Saga Pryor DC/Basis of Design/7BOD - Electrical (CSI Div 26)]], [[_BOD - Exec Summary]]
 - **Purpose:** Supplemental analysis documenting key architectural decisions for electrical power distribution and E-House construction methodology

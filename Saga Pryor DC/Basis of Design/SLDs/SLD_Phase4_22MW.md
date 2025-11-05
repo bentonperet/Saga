@@ -1,6 +1,6 @@
 **Created:** 2025-11-05
 **Tags:** #pryor-dc #sld #electrical #phase-4 #22mw #full-buildout
-**Related:** [[7BOD - Electrical (CSI Div 26) v2]], [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/_BOD - Exec Summary and TOC]]
+**Related:** [[Saga Pryor DC/Basis of Design/7BOD - Electrical (CSI Div 26)]], [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/_BOD - Exec Summary and TOC]]
 
 # SINGLE-LINE DIAGRAM - PHASE 4 (22 MW FULL BUILD-OUT)
 ## Pryor Data Center - PACHYDERM GLOBAL
@@ -622,5 +622,5 @@ All infrastructure built from Phase 1 to accommodate Phase 4 expansion:
 **Document Control:** SLD_Phase4_22MW_Rev01
 **Next Review:** After protection coordination study and fault current analysis
 **Related Documents:**
-- [[7BOD - Electrical (CSI Div 26) v2]]
+- [[Saga Pryor DC/Basis of Design/7BOD - Electrical (CSI Div 26)]]
 - [[SLD_Phase1_3MW]] (Phase 1 configuration for comparison)

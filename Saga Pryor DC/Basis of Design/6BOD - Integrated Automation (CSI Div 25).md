@@ -353,16 +353,46 @@ Integrated monitoring and control systems provide real-time visibility, automate
 
 ---
 
-## COST SUMMARY
+## COST SUMMARY - PHASE 4 (22 MW, 394 RACKS)
 
-| System                                        | Cost Estimate |
-| --------------------------------------------- | ------------- |
-| **BMS (HVAC, Lighting, Environmental)**       | $600-900K     |
-| **EPMS (Power Monitoring, SCADA)**            | $400-600K     |
-| **DCIM (Rack-Level Monitoring)**              | $300-500K     |
-| **NOC Fit-Out (Workstations, Video Wall)**    | $200-400K     |
-| **Integration & Engineering**                 | $300-500K     |
-| **Total Integrated Automation**               | **$3.0-4.8M** |
+**Pricing Methodology:** System-level parametric estimates based on equipment count, complexity, and industry benchmarks. Costs represent complete installed systems including hardware, software, commissioning, and training.
+
+| System | Description | Cost Estimate | Certainty | Methodology |
+|--------|-------------|---------------|-----------|-------------|
+| **BMS (HVAC, Lighting, Environmental)** | 18 chillers (L2C + RDHx), 324 CDUs, 232 RDHx units, 4 DOAS, 13 field controllers, 2 redundant servers, environmental sensors | $750,000 | 60% | Based on ~40-50 control points per chiller plant + CDU monitoring via vendor integration + environmental sensors. Estimated at $35K-50K per major control zone. |
+| **EPMS (Power Monitoring, SCADA)** | 161kV substation metering, 8 RMUs (13.8kV), 9 generators, 23 IT UPS modules, 11 LV transformers, power meters at all major points, 2 redundant SCADA servers | $550,000 | 70% | Based on meter count (~40-50 IEC 61850/Modbus devices) + SCADA platform licensing. Industry standard: $8K-15K per monitored point for MV/LV systems. |
+| **Microgrid Controller** | IEEE 2030.7 microgrid controller coordinating 161kV utility, 9 generators, solar array, BESS on 13.8kV common bus | $250,000 | 55% | Specialized microgrid controller with utility-grade SCADA integration. Based on $150K-350K range for medium-complexity microgrids per GE/Schneider pricing. |
+| **DCIM (Rack-Level Monitoring)** | 394 racks with dual PDUs (788 intelligent PDUs), rack environmental sensors, thermal mapping, capacity planning software, customer portal | $400,000 | 60% | Based on $800-1,200 per rack for intelligent PDU + monitoring software. Mid-range DCIM platform with customer portal adds ~$100K base + per-rack licensing. |
+| **NOC Fit-Out (Workstations, Video Wall)** | 3 operator workstations (dual monitors), 3×3 video wall (55" panels), printers, NOC furniture, UPS for workstations | $250,000 | 75% | Video wall: $80K-120K (9 commercial displays + mounting + controller). Workstations: $15K-20K each. AV integration and commissioning: $50K. |
+| **Integration & Engineering** | System integration (BMS↔EPMS↔DCIM↔Fire↔Security), protocol gateways, network infrastructure (fiber backbone, switches), engineering/commissioning | $500,000 | 55% | Estimated at 15-20% of total controls hardware cost. Includes protocol conversions, custom dashboards, IST scenarios, operator training. High variability based on vendor compatibility. |
+| **TOTAL - DIVISION 25 (INTEGRATED AUTOMATION)** | | **$2,700,000** | **~63%** | ROM estimate for Phase 4 full build-out (22 MW IT load, 394 racks, dual data halls, full microgrid) |
+
+**Cost Breakdown by Category:**
+- Monitoring & Control Systems: $1,950,000 (72%)
+- NOC Infrastructure: $250,000 (9%)
+- Integration & Engineering: $500,000 (19%)
+
+**Excluded from This Estimate:**
+- Network cabling infrastructure (Division 27 - Communications)
+- Fire alarm system hardware (Division 21 - Fire Protection) - integration only
+- Access control system hardware (Division 28 - Security) - integration only
+- CCTV cameras and NVR (Division 28) - monitoring interface only
+- Electrical power to control panels, servers, NOC equipment (Division 26)
+
+**Cost Validation:**
+- **$/MW basis:** $2.7M ÷ 22 MW IT = **$123K per MW** (industry benchmark: $100K-150K per MW for Tier III automation)
+- **% of Total DC Cost:** Automation typically represents 0.5-1.0% of total data center construction cost
+- **Phase 4 Total DC (estimated):** ~$350-400M → Automation at $2.7M = **0.7%** (within range ✓)
+
+**Phased Deployment Notes:**
+- Phase 1 costs (3 MW, 30 racks): ~$1.2-1.5M (base infrastructure + servers + NOC)
+- Phases 2-4: Incremental costs for additional field devices, PDUs, software licensing as equipment scales
+- Microgrid controller deployed in Phase 1 (sized for ultimate 30 MW capacity)
+
+**Recommendations:**
+- Early vendor selection for BMS/EPMS/DCIM to ensure compatibility and avoid costly gateway/integration fixes
+- Consider design-build for controls integration to transfer coordination risk
+- Budget 10-15% contingency for protocol incompatibilities discovered during commissioning
 
 ---
 

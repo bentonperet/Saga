@@ -521,27 +521,27 @@ Critical system for protecting IT equipment from water/glycol damage. All chille
 
 **COST SUMMARY BY CATEGORY**
 
-| Category                               | Cost            | Certainty | Notes                                               |
-| -------------------------------------- | --------------- | --------- | --------------------------------------------------- |
-| **Chillers (L2C + RDHx)**              | $6,300,000      | 60%       | 18 total units @ 1,500 kW each (12 L2C + 6 RDHx)    |
-| **Glycol Systems**                     | $151,500        | 73%       | Bulk glycol, mix tanks, fill stations, dosing       |
-| **Piping & Distribution**              | $1,872,200      | 61%       | Primary/secondary piping, valves, tanks, separators |
-| **Leak Detection**                     | $245,000        | 73%       | Sensing cable, spot detectors, control panels       |
-| **Data Hall Environmental**            | $388,000        | 61%       | DOAS units + humidification                         |
-| **Support Space HVAC**                 | $300,000        | 68%       | RTUs + mechanical room cooling                      |
-|                                        |                 |           |                                                     |
-| **SUBTOTAL - EQUIPMENT & MATERIALS**   | **$39,580,700** | **~58%**  | Total equipment + materials                         |
-| **Installation Labor**                 | $15,831,280     | 50%       | 40% of equipment cost (industry standard)           |
-| **Engineering & Commissioning**        | $5,541,200      | 55%       | 10% of installed cost (design, startup, TAB)        |
-| **Contingency**                        | $9,142,080      | N/A       | 15% contingency (BOD phase uncertainty)             |
-|                                        |                 |           |                                                     |
-| **TOTAL MECHANICAL SYSTEMS (PHASE 4)** | **$70,095,260** | **~55%**  | ROM estimate - budget quality only                  |
+| Category                               | Cost            | Certainty | Notes                                                               |
+| -------------------------------------- | --------------- | --------- | ------------------------------------------------------------------- |
+| **Chillers (L2C + RDHx)**              | $6,300,000      | 60%       | 18 total units @ 1,500 kW each (12 L2C + 6 RDHx)                    |
+| **Glycol Systems**                     | $151,500        | 73%       | Bulk glycol, mix tanks, fill stations, dosing                       |
+| **Piping & Distribution**              | $1,872,200      | 61%       | Primary/secondary piping, valves, tanks, separators                 |
+| **Leak Detection**                     | $245,000        | 73%       | Sensing cable, spot detectors, control panels                       |
+| **Data Hall Environmental**            | $388,000        | 61%       | DOAS units + humidification                                         |
+| **Support Space HVAC**                 | $300,000        | 68%       | RTUs + mechanical room cooling                                      |
+|                                        |                 |           |                                                                     |
+| **SUBTOTAL - EQUIPMENT & MATERIALS**   | **$9,256,700**  |           | Total equipment + materials (excluding liquid cooling distribution) |
+| **Installation Labor**                 | $3,702,680      | 60%       | 40% of equipment cost (industry standard)                           |
+| **Engineering & Commissioning**        | $925,670        | 65%       | 10% of installed cost (design, startup, TAB)                        |
+| **Contingency**                        | $1,388,505      | N/A       | 15% contingency (BOD phase uncertainty)                             |
+|                                        |                 |           |                                                                     |
+| **TOTAL MECHANICAL SYSTEMS (PHASE 4)** | **$15,273,555** | **~65%**  | ROM estimate - excludes liquid cooling distribution                 |
 
 **COST NOTES:**
 
-| Category                        | Cost        | Notes                                                                                                                                                                                      |
-| ------------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Liquid Cooling Distribution** | $30,000,000 | CDUs (324 units) + RDHx units (232 units)<br><br>We've stripped these out of the total as the expenses will be incurred based on client-specific requirements at the time of their signup. |
+| Category                        | Cost  | Notes                                                                                                                                                                                      |
+| ------------------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Liquid Cooling Distribution** | ~$30M | CDUs (324 units) + RDHx units (232 units)<br><br>We've stripped these out of the total as the expenses will be incurred based on client-specific requirements at the time of their signup. |
 
 
 
@@ -554,4 +554,4 @@ Critical system for protecting IT equipment from water/glycol damage. All chille
 **Document Control:**
 - **Created:** 2025-10-29
 - **Updated:** 2025-11-04
-- **Related:** [[7BOD - Electrical (CSI Div 26) v2]]
+- **Related:** [[Saga Pryor DC/Basis of Design/7BOD - Electrical (CSI Div 26)]]

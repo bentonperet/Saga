@@ -1,6 +1,6 @@
 **Created:** 2025-11-05
 **Tags:** #liquid-cooling #l2c #direct-to-chip #best-practices #reference #cooling-design
-**Related:** [[5BOD - HVAC (CSI Div 23)]], [[7BOD - Electrical (CSI Div 26) v2]]
+**Related:** [[5BOD - HVAC (CSI Div 23)]], [[Saga Pryor DC/Basis of Design/7BOD - Electrical (CSI Div 26)]]
 
 # L2C BEST PRACTICES: DIRECT-TO-CHIP LIQUID COOLING DESIGN GUIDE
 

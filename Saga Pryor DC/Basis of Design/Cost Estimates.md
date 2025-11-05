@@ -6,20 +6,20 @@
 
 **Project Scope:** 50,000 GSF, 3 MW Phase 1 IT load, Tier III
 
-| Cost Category | Estimated Cost | $/SF | % of Total |
-|---------------|----------------|------|------------|
-| **Site Work (Div 31-32)** | $2,500,000 | $50 | 8% |
-| **Building Shell (Div 02-14)** | $7,500,000 | $150 | 23% |
-| **Electrical (Div 26)** | $12,000,000 | $240 | 37% |
-| **Mechanical (Div 23)** | $8,000,000 | $160 | 25% |
-| **Fire Protection (Div 21)** | $500,000 | $10 | 2% |
-| **Controls & Security (Div 25, 28)** | $1,000,000 | $20 | 3% |
-| **Commissioning** | $500,000 | $10 | 2% |
-| **Subtotal (Construction)** | $32,000,000 | $640 | 100% |
-| **Design fees (8%)** | $2,560,000 | $51 | — |
-| **Permitting & fees (1%)** | $320,000 | $6 | — |
-| **Owner contingency (10%)** | $3,200,000 | $64 | — |
-| **TOTAL PROJECT COST** | **$38,080,000** | **$762** | — |
+| Cost Category                        | Estimated Cost  | $/SF     | % of Total |
+| ------------------------------------ | --------------- | -------- | ---------- |
+| **Site Work (Div 31-32)**            | $2,500,000      | $50      | 8%         |
+| **Building Shell (Div 02-14)**       | $7,500,000      | $150     | 23%        |
+| **Electrical (Div 26)**              | $12,000,000     | $240     | 37%        |
+| **Mechanical (Div 23)**              | $8,000,000      | $160     | 25%        |
+| **Fire Protection (Div 21)**         | $500,000        | $10      | 2%         |
+| **Controls & Security (Div 25, 28)** | $1,000,000      | $20      | 3%         |
+| **Commissioning**                    | $500,000        | $10      | 2%         |
+| **Subtotal (Construction)**          | $32,000,000     | $640     | 100%       |
+| **Design fees (8%)**                 | $2,560,000      | $51      | —          |
+| **Permitting & fees (1%)**           | $320,000        | $6       | —          |
+| **Owner contingency (10%)**          | $3,200,000      | $64      | —          |
+| **TOTAL PROJECT COST**               | **$38,080,000** | **$762** | —          |
 
 **Cost per MW (IT load):** ~$12.7M per MW
 
