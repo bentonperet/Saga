@@ -35,10 +35,10 @@ Fire protection systems protect personnel, IT equipment, and facility infrastruc
   2. Second detection zone confirms → alarm
   3. Heat activation (sprinkler fusible link) → water release to specific zone only
 - **Benefit:** Dry pipe until both smoke + heat detected; zoned activation limits water discharge area
-- **Sprinkler heads:** ESFR (Early Suppression Fast Response), K-25.2
-- **Coverage:** Per NFPA 13 (130-200 SF per head for data center)
-- **Water demand:** [ROM] 1,500-2,000 GPM @ 70 psi (full system)
-- **Zoned demand:** Lower flow rate per zone activation (typical 500-800 GPM per zone)
+- **Sprinkler heads:** ESFR (Early Suppression Fast Response) per NFPA 13
+- **Coverage:** Per NFPA 13 for data center occupancy
+- **Water demand:** Per hydraulic calculations and NFPA 13
+- **Zoned demand:** Per zone hydraulic calculations
 
 **DDC Cabinet Integrated Suppression:**
 - DDC cabinets include factory-integrated fire suppression
@@ -64,22 +64,10 @@ Fire protection systems protect personnel, IT equipment, and facility infrastruc
 - **Rationale:** Protects UPS, switchboards, batteries without water damage
 - **Red Zone - CP 5** security classification
 
-**Cost:** Integrated in PDM package (~$50-100K per PDM)
+**Cost:** Integrated in PDM package (~$50-100K per PDM) {TBC}
 
 ### Generator Enclosures
-
-**6 × Outdoor Generator Sets**
-
-**System Type:** Portable fire extinguishers only
-
-**Rationale:**
-- Open-air enclosures with natural ventilation
-- Diesel fuel fire risk (Class B)
-- Fixed suppression not typically required for outdoor gen sets
-- Portable extinguishers: 2 × 20 lb ABC per generator
-
-**Optional:** Pre-engineered suppression system if required by AHJ or insurance
-- Cost: +$25-50K per generator
+TBD
 
 ---
 
@@ -91,17 +79,15 @@ Fire protection systems protect personnel, IT equipment, and facility infrastruc
 
 **Configuration:**
 - Standard NFPA 13 coverage
-- Sprinkler heads: 130-200 SF per head
 - Avoid heads directly above electrical panels (sidewall heads if needed)
 
-### Outdoor Chiller Yard (~50,000 SF)
+### Outdoor Chiller Yard
 
 **System Type:** Portable fire extinguishers
 
 **Rationale:**
 - Open-air equipment (natural smoke/heat dissipation)
 - Fixed suppression not required for outdoor chillers
-- Extinguishers: 2 × 20 lb ABC per chiller plant zone
 
 ---
 
@@ -112,14 +98,12 @@ Fire protection systems protect personnel, IT equipment, and facility infrastruc
 **Coverage:**
 - Standard commercial spacing per NFPA 13
 - Light hazard occupancy (offices)
-- Sprinkler heads: ~130 SF per head
 
 **Special Areas:**
 
 **Network Operations Center (NOC - Red Zone CP 5):**
 - Consider preaction or clean agent if NOC contains critical equipment
 - Standard wet pipe acceptable for office areas
-- Raised floor: Not Applicable (slab-on-grade)
 
 **MPOE/MMR (Fiber Entrance Rooms - Red Zone CP 5):**
 - Preaction dry pipe or clean agent (protects carrier equipment)
@@ -140,14 +124,7 @@ Fire protection systems protect personnel, IT equipment, and facility infrastruc
 **Data Halls (Critical Detection):**
 - **Type:** VESDA (Very Early Smoke Detection Apparatus) or equivalent ASD
 - **Sampling points:** Air sampling pipes at ceiling level
-  - Holes every 10-15 ft along pipe
-  - 4-6 sampling pipes per data hall
-- **Sensitivity levels:**
-  - Alert: 0.005% obscuration/ft (investigate, no evacuation)
-  - Action: 0.015% obscuration/ft (pre-alarm, prepare suppression)
-  - Fire 1: 0.03% obscuration/ft (alarm, evacuate, suppress)
-  - Fire 2: 0.05% obscuration/ft (full alarm)
-- **Response time:** <60 seconds from smoke event to alert
+- **Sensitivity levels:** Multi-stage alarming (alert, action, fire alarm levels)
 - **Integration:** BMS, DCIM, fire alarm panel
 
 **PDMs (Electrical Rooms):**
@@ -214,26 +191,24 @@ Fire protection systems protect personnel, IT equipment, and facility infrastruc
 
 **Demand Calculation:**
 - Design basis: ESFR sprinklers in data hall (most demanding)
-- Estimated demand: 1,500-2,000 GPM @ 70 psi for 2 hours
-- Duration: ~180,000-240,000 gallons
+- Demand and duration per NFPA 13 hydraulic calculations
 
 ### Fire Pump & Storage (If Municipal Service Inadequate)
 
 **Fire Pump:**
 - **Type:** Electric or diesel-driven (diesel preferred for reliability)
-- **Capacity:** Sized to meet demand (1,500-2,000 GPM @ 70 psi)
+- **Capacity:** Sized per NFPA 13 hydraulic demand calculations
 - **Rating:** UL-listed per NFPA 20
 - **Location:** Separate fire pump room (non-freezing)
 - **Controller:** Automatic start on pressure drop
 
 **Storage Tank:**
-- **Capacity:** 250,000-300,000 gallons (includes hose stream allowance)
+- **Capacity:** Per NFPA 13 demand calculations (includes hose stream allowance)
 - **Type:** Bolted steel or welded steel, API 650
 - **Location:** Outdoor, adjacent to fire pump room
 - **Makeup:** Municipal water or periodic water delivery (if no utility)
 - **Heating:** Tank heater if subject to freezing
 
-**Cost:** ~$750K-1.5M (pump + tank + installation)
 
 ---
 
@@ -261,12 +236,11 @@ Fire protection systems protect personnel, IT equipment, and facility infrastruc
 **Travel Distance:**
 - Maximum 200 ft to nearest exit (unsprinklered areas)
 - Maximum 300 ft (sprinklered areas) per IBC Table 1017.2
-- Data hall travel distance: [ROM] <150 ft (compliant)
+- Data hall travel distance: TBD
 
 **Doors:**
 - Panic hardware on exit doors (no keys required for egress)
 - Magnetic hold-open with fire alarm release
-- Self-closing on alarm
 
 ### Containment
 

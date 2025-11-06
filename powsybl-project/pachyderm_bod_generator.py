@@ -27,6 +27,7 @@ try:
     DIAGRAM_AVAILABLE = True
 except ImportError:
     DIAGRAM_AVAILABLE = False
+    print("Note: pypowsybl-diagram not available. Diagram generation will be skipped.")
 
 
 def parse_bod_description(text, include_z_matrix=True):

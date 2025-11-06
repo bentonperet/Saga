@@ -2,7 +2,7 @@
 ## Supply Chain, Cost, and Availability Assessment
 ### Tbilisi Data Center - PACHYDERM GLOBAL
 
-**Parent Document:** [[_BOD - Exec Summary and TOC]]  
+**Parent Document:** [[GGE/GGE BoD Template/_BOD - Exec Summary and TOC]]  
 **Created:** 2025-10-30  
 **Purpose:** Evaluate optimal air-cooled chiller capacity sizing for cost, equipment availability, redundancy flexibility, and supply chain resilience
 

@@ -38,8 +38,8 @@ Electrical systems provide Tier III-compliant power distribution with N+1 IT UPS
    │                                  │
    │  [345 kV Switchyard]             │
    │        │                         │
-   │  [XFMR-A: 345kV/13.8kV, 25MVA]  │
-   │  [XFMR-B: 345kV/13.8kV, 25MVA]  │ (2N redundancy)
+   │  [XFMR-A: 345kV/13.8kV, 35MVA]  │
+   │  [XFMR-B: 345kV/13.8kV, 35MVA]  │ (2N redundancy)
    │        │                         │
    └────────┼─────────────────────────┘
             │
@@ -48,8 +48,8 @@ Electrical systems provide Tier III-compliant power distribution with N+1 IT UPS
    │    13.8 kV COMMON BUS            │
    │  (Dual Ring Topology)            │
    ├─────────────────────────────────┤
-   │ • Solar Inverters (8+ MW)        │
-   │ • BESS Inverters (4-8 MWh)       │
+   │ • Solar Inverters (~12 MW)       │
+   │ • BESS Inverters                 │
    │ • Generators (6 × 4 MW)          │
    │ • Data Center Load (12-24MW)     │
    └─────────────────────────────────┘
@@ -63,26 +63,25 @@ Electrical systems provide Tier III-compliant power distribution with N+1 IT UPS
   - **Sportsman Substation (SW):** 345 kV service, 3 lines
   - **Dry Gulch Substation (N):** 161 kV service, 2 lines
 - **Note:** Final voltage selection (345 kV vs 161 kV) depends on utility interconnection study, available capacity, and comparative economics. May change to 161 kV service with 161kV/13.8kV transformers if substation cost savings justify it.
-- **Capacity:** 25-30 MVA (sized for 24 MW master plan + solar/BESS)
+- **Capacity:** 35 MVA minimum (sized for 30 MW Phase 4 facility load + margin)
 - **Metering:** Revenue-grade metering at transmission voltage (utility-owned)
 - **Protection:** Distance relay, differential, overcurrent per utility standards
 
 **345kV/13.8kV Substation Transformers:**
-- **Quantity:** 2 transformers (N+1 redundancy - either can carry full load)
-- **Rating:** 25 MVA each @ 345kV/13.8kV
+- **Quantity:** 2 transformers (N+1 redundancy - either can carry full 30 MW facility load)
+- **Rating:** 35 MVA each @ 345kV/13.8kV (minimum - sized for Phase 4 load)
 - **Type:** Oil-filled, ONAN cooling
 - **Configuration:** Delta-wye with neutral solidly grounded
 - **Impedance:** ~8-10%
 - **Location:** Outdoor substation yard on data center site
 
-**Cost:** ~$7-12M for complete customer-owned substation (345 kV requires larger equipment and clearances than lower voltages)
+**Cost:** ~$7-12M for complete customer-owned substation (345 kV requires larger equipment and clearances than lower voltages) <!-- @claude Need to confirm cost -->
 
 **Benefits:**
 - **Single 13.8 kV infrastructure** for utility, solar, BESS, generators, data center
 - **US data center standard voltage** - better equipment availability and contractor familiarity
 - **Microgrid capability** - island at 13.8 kV during utility outages
 - **Future expansion** - no utility upgrades required for 24 MW build-out
-- **Export capability** - sell excess solar to grid (if permitted)
 - **Superior power quality** - 345 kV transmission-level connection (extremely stiff grid)
 - **Renewable compatibility** - matches standard solar/BESS inverter voltages (13.8 kV)
 
@@ -92,7 +91,7 @@ Electrical systems provide Tier III-compliant power distribution with N+1 IT UPS
 
 ### System Configuration
 
-**Dual-Ring MV Topology:**
+**Dual-Ring MV Topology:** <!-- @claude Need to confirm this, we have 8 RMU now -->
 ```
 345kV UTILITY ──[XFMR-A: 25MVA]──[RMU-1]──[RMU-2]──[RMU-3]── RING A
                                      │        │        │
@@ -111,7 +110,7 @@ BESS INVERTERS (4-8 MWh) ─────────► Connect to 13.8 kV commo
 
 ### Ring Main Units (RMUs)
 
-**Equipment:** 6 × RMUs (13.8 kV, 630A rated)
+**Equipment:** 6 × RMUs (13.8 kV, 630A rated) <!-- @claude Need to confirm this is 8, no? -->
 - **Configuration:** 3 RMUs per ring (Ring A and Ring B)
 - **Type:** SF6 or vacuum circuit breakers
 - **Rating:** 13.8 kV, 630A continuous, 20 kA short-circuit
@@ -135,7 +134,7 @@ BESS INVERTERS (4-8 MWh) ─────────► Connect to 13.8 kV commo
 - **Phase 1:** 3 generators (positions 1-3)
 - **Phase 2:** +3 generators (positions 4-6)
 - **N+1 Operation:** 5 generators carry full Phase 2 load (18.2 MW), 1 standby
-
+<!-- @claude Need to confirm this, is this correct based on _BOD? -->
 ### Generator Specifications (Each Unit)
 
 | Parameter | Specification |
@@ -154,22 +153,11 @@ BESS INVERTERS (4-8 MWh) ─────────► Connect to 13.8 kV commo
 | **Seismic** | IBC 2018 certified for SDC B |
 | **Emissions** | NOx < 0.67 g/bhp-hr (Tier 4 Final) |
 
-### Why 13.8 kV Generators (Not 480V)
-
-**Technical Advantages:**
-- **Cable sizing:** 13.8 kV reduces current by 29× vs. 480V
-  - 4 MW @ 480V = 8,333 A → requires 6 × 500 kcmil per phase
-  - 4 MW @ 13.8 kV = 290 A → requires 1 × 1/0 per phase (even smaller than 11 kV!)
-- **I²R losses:** Lower current = dramatically reduced cable losses
-- **Paralleling:** Easier to parallel MV generators than massive LV generators
-- **US standard voltage:** 13.8 kV is the dominant voltage for US data center generators (better availability, shorter lead times)
-- **Common voltage:** Matches utility substation, solar inverters, BESS inverters (13.8 kV is standard US renewable voltage)
-
 ### Generator Yard Layout
 
 - **Location:** Outdoor electrical equipment yard (south side)
 - **Arrangement:** Horizontal layout with 8-10 ft clearances
-- **Fuel:** ~2,000 gal belly tanks per generator connected via common fuel manifold to centralized bulk fuel storage tank farm (24 hours runtime) with redundant supply contracts
+- **Fuel:** ~2,000 gal belly tanks per generator connected via common fuel manifold to centralized bulk fuel storage tank farm with redundant supply contracts
 - **Testing:** Closed-transition load bank, monthly run tests, annual full-load tests
 - **Maintenance Access:** Crane pad for major overhauls
 
@@ -234,16 +222,6 @@ BESS INVERTERS (4-8 MWh) ─────────► Connect to 13.8 kV commo
 - **Connection:** Direct to 13.8 kV common bus via dedicated circuit breaker
 - **Function:** Peak shaving, demand response, solar smoothing, backup power
 
-### Microgrid Operation
-
-**Normal Mode (Grid-Connected):**
-- Utility + Solar + BESS → Data Center Load
-- Export excess solar to grid (if permitted)
-
-**Island Mode (Utility Outage):**
-- Solar + BESS + Generators → Data Center Load
-- 13.8 kV bus disconnects from utility, operates as microgrid
-- Black start capability via BESS or generators
 
 ---
 
@@ -285,7 +263,7 @@ BESS INVERTERS (4-8 MWh) ─────────► Connect to 13.8 kV commo
            └──► Cabinet PDUs ◄──┘
                (Dual PDUs per cabinet)
 ```
-
+<!-- @claude Need to confirm this picture is accurate -->
 ### Phase 1: 5-6 × 1,250 kVA IT UPS Modules
 
 **Modular Configuration:**
@@ -496,29 +474,164 @@ Protect critical mechanical loads (pumps, fans, CDUs) from brief utility interru
 
 ---
 
-## ELECTRICAL LOAD SUMMARY
+## ELECTRICAL PHASING STRATEGY
 
-### Phase 1
+### Overview: 4-Phase Buildout (3 / 6 / 15 / 24 MW)
 
-| Load | Power (kW) |
-|------|------------|
-| IT (through IT UPS) | 3,125 |
-| Mechanical (through Mech UPS) | 1,700 |
-| Building/Lighting | 399 |
-| **Design Load** | **5,800** |
+The electrical infrastructure is designed for phased deployment aligned with customer growth, starting with a high-density D2C anchor tenant and progressively adding customer diversity.
 
-**Generator Capacity (N+1):** 3 × 4.0 MW = 12 MW (2 running = 8 MW, 38% margin) ✓
+**Key Design Features:**
+- **Phase 1:** D2C liquid cooling only (no air cooling plant = lower CAPEX)
+- **Phase 2:** Add air cooling plant + customer diversity
+- **Phase 3:** Commission second data hall (DH-E)
+- **Phase 4:** Full 24 MW densification
+- **Interruptible Power:** Rough-in Phase 1, commission Phase 2 (third power path for Specialty Compute customers)
 
-### Phase 2
+---
 
-| Load | Power (kW) |
-|------|------------|
-| IT (through IT UPS) | 12,500 |
-| Mechanical (through Mech UPS) | 4,576 |
-| Building/Lighting | 399 |
-| **Design Load** | **18,200** |
+### Phase 1: L2C Anchor (3 MW IT Load)
 
-**Generator Capacity (N+1):** 6 × 4.0 MW = 24 MW (5 running = 20 MW, 10% margin) ✓
+**Strategy:** Prove high-density liquid cooling capability with AI training anchor tenant
+
+**Rack Deployment:** 30 racks total (30 L2C @ 100 kW, 0 RDHx)
+
+**Load Summary:**
+
+| Load | Power (kW) | Notes |
+|------|------------|-------|
+| IT (through IT UPS) | 3,000 | 30 L2C racks @ 100 kW each |
+| Mechanical (through Mech UPS) | 900 | L2C chillers, pumps (Loop 3 only), PUE 1.40 |
+| Building/Lighting | 300 | Offices, NOC, package HVAC units |
+| **Total Facility Load** | **~4,200** | IT load × PUE 1.40 |
+
+**Electrical Infrastructure:**
+- **Generators:** 3 × 4.0 MW @ 13.8 kV diesel (N+1 for 4.2 MW load)
+  - Running capacity: 2 × 4.0 MW = 8.0 MW
+  - Margin: 90% over 4.2 MW load ✓
+- **Transformers:** 3 × 3,500 kVA (13.8 kV/480V) (N+1 for 4.2 MW load)
+  - Each transformer: 3.15 MW @ 0.9 PF
+  - Running capacity: 2 × 3.15 MW = 6.3 MW
+  - Margin: 50% over 4.2 MW load ✓
+- **IT UPS:** 4 × 1,250 kVA modules (N+1 for 3 MW IT load @ 80% loading)
+- **Mechanical UPS:** N+1 modular units for chiller pumps and fans
+- **Interruptible Power:** Distribution panels roughed-in, not commissioned
+
+**Data Halls:** DH-W commissioned (30 L2C racks), DH-E shell built
+
+---
+
+### Phase 2: Open Both Halls + Add RDHx Diversity (6 MW IT Load)
+
+**Strategy:** Commission DH-E, add RDHx cooling plant (Loops 1+2) for medium-density customer diversity
+
+**Rack Deployment:** 150 racks total (30 L2C + 120 RDHx)
+
+**Load Summary:**
+
+| Load | Power (kW) | Notes |
+|------|------------|-------|
+| IT (through IT UPS) | 6,000 | 30 L2C @ 100 kW + 120 RDHx @ 25 kW |
+| Mechanical (through Mech UPS) | 1,800 | Add RDHx cooling (Loops 1+2) + continue Loop 3, PUE 1.35 |
+| Building/Lighting | 300 | No change |
+| Interruptible (non-UPS) | ~0 | Not yet commissioned |
+| **Total Facility Load** | **~8,100** | IT load × PUE 1.35 |
+
+**Electrical Infrastructure Additions:**
+- **Generators:** Add 1 unit (4 total for N+1 at 8.1 MW load)
+  - Running capacity: 3 × 4.0 MW = 12.0 MW
+  - Margin: 48% over 8.1 MW load ✓
+- **Transformers:** Add 1 unit (4 total for N+1 at 8.1 MW load)
+  - Running capacity: 3 × 3.15 MW = 9.45 MW
+  - Margin: 17% over 8.1 MW load ✓
+- **IT UPS:** Add 3 modules (7 total for N+1 at 6 MW IT load)
+- **Mechanical UPS:** Add units as needed for pumps/fans
+- **Interruptible Power:** Optional commission if specialty compute demand exists
+  - 1× transformer (13.8 kV → 480V, bypass UPS)
+  - Distribution panels for interruptible racks
+  - Automatic load-shedding capability
+
+**Data Halls:** Both DH-W and DH-E operational (30 L2C + 120 RDHx = 150 racks total)
+
+---
+
+### Phase 3: Scale Both Cooling Plants (15 MW IT Load)
+
+**Strategy:** Major expansion of both L2C and RDHx capacity across both halls
+
+**Rack Deployment:** 285 racks total (105 L2C + 180 RDHx)
+
+**Load Summary:**
+
+| Load | Power (kW) | Notes |
+|------|------------|-------|
+| IT (through IT UPS) | 15,000 | 105 L2C @ 100 kW + 180 RDHx @ 25 kW |
+| Mechanical (through Mech UPS) | 4,200 | Scale both RDHx (Loops 1+2) and L2C (Loop 3) cooling plants, PUE 1.30 |
+| Building/Lighting | 300 | No change |
+| Interruptible (non-UPS) | ~0 | Optional if demand exists |
+| **Total Facility Load** | **~19,500** | IT load × PUE 1.30 |
+
+**Electrical Infrastructure Additions:**
+- **Generators:** Add 2 units (6 total for N+1 at 19.5 MW load)
+  - Running capacity: 5 × 4.0 MW = 20.0 MW
+  - Margin: 3% over 19.5 MW load ✓
+- **Transformers:** Add 4 units (8 total for N+1 at 19.5 MW load)
+  - Running capacity: 7 × 3.15 MW = 22.05 MW
+  - Margin: 13% over 19.5 MW load ✓
+- **IT UPS:** Add 9 modules (16 total for N+1 at 15 MW IT load)
+- **Mechanical UPS:** Add units as needed for expanded cooling
+- **Interruptible Power:** Optional expansion if specialty compute demand exists
+
+**Data Halls:** Both DH-W and DH-E operational (285 racks total: 105 L2C + 180 RDHx)
+
+---
+
+### Phase 4: Full Build-Out (24 MW IT Load)
+
+**Strategy:** Complete build-out to 468 racks (16.8 MW L2C + 7.2 MW RDHx)
+
+**Rack Deployment:** 468 racks total (168 L2C + 288 RDHx) - 234 racks per hall
+
+**Load Summary:**
+
+| Load | Power (kW) | Notes |
+|------|------------|-------|
+| IT (through IT UPS) | 24,000 | 168 L2C @ 100 kW + 288 RDHx @ 25 kW |
+| Mechanical (through Mech UPS) | 5,700 | Final cooling plant capacity, PUE 1.25 |
+| Building/Lighting | 300 | No change |
+| Interruptible (non-UPS) | ~0 | Optional specialty compute |
+| **Total Facility Load** | **~30,000** | IT load × PUE 1.25 |
+
+**Electrical Infrastructure Final Build:**
+- **Generators:** 9 × 4.0 MW @ 13.8 kV (N+1 for 30 MW load)
+  - Running capacity: 8 × 4.0 MW = 32 MW
+  - Margin: 7% over 30 MW load ✓
+- **Transformers:** 11 × 3,500 kVA (13.8 kV/480V) (N+1 for 30 MW load)
+  - Running capacity: 10 × 3.15 MW = 31.5 MW
+  - Margin: 5% over 30 MW load ✓
+- **IT UPS:** 25 × 1,250 kVA modules (N+1 for 24 MW IT load)
+- **Mechanical UPS:** N+1 units scaled for final cooling plant
+- **Interruptible Power:** Optional third power path if specialty compute demand exists
+
+**Data Halls:** Both halls at 234-rack capacity (468 total: 168 L2C + 288 RDHx)
+
+---
+
+### Phasing Summary Table
+
+| Phase | IT MW | Racks (L2C/RDHx) | PUE | Facility MW | Generators | LV Transformers | IT UPS Modules |
+|-------|-------|------------------|-----|-------------|------------|-----------------|----------------|
+| **1** | 3 | 30 (30/0) | 1.40 | ~4.2 | 3 | 3 | 4 |
+| **2** | 6 | 150 (30/120) | 1.35 | ~8.1 | 4 | 4 | 7 |
+| **3** | 15 | 285 (105/180) | 1.30 | ~19.5 | 6 | 8 | 16 |
+| **4** | 24 | 468 (168/288) | 1.25 | ~30.0 | 9 | 11 | 25 |
+
+**Key Equipment Notes:**
+- **Substation Transformers:** 2 × 35 MVA (345kV/13.8kV) from Day 1 - sized for Phase 4
+- **Generators:** 4.0 MW @ 13.8 kV each, N+1 redundancy at each phase
+- **LV Transformers:** 3,500 kVA (13.8kV/480V) each = 3.15 MW @ 0.9 PF, N+1 redundancy
+- **IT UPS:** 1,250 kVA modules, N+1 redundancy for IT load only
+- **Mechanical UPS:** N+1 modular units for chiller pumps and CRAH fans
+- **Interruptible Power:** Optional third power path, commission if specialty compute demand exists
 
 ---
 
@@ -533,14 +646,10 @@ Protect critical mechanical loads (pumps, fans, CDUs) from brief utility interru
 
 ---
 
-**Tags:** #pryor-dc #electrical #345kv-substation #13.8kv-distribution #microgrid #tier-iii
+**Tags:** #pryor-dc #electrical
 
 **Next Steps:**
-1. Utility interconnection study for 345 kV transmission connection
-2. Substation engineering design (345kV/13.8kV transformers, switchyard, increased clearances)
-3. Solar and BESS inverter specifications (13.8 kV output - US standard voltage)
-4. Generator paralleling and microgrid control strategy
-5. Protection coordination study (345 kV through 480V)
+1. ...
 
 ---
 

@@ -1,17 +1,19 @@
 **Created:** 2025-10-29
-**Updated from:** Tbilisi_Bod_Rev01.md + Erik_BOD references
+**Updated from:** Pryor_Bod_EVS_Rev01.md + Erik_BOD references
 
 # BASIS OF DESIGN - PROCUREMENT & CONTRACTING
 ## CSI Division 00
-### Tbilisi Data Center - PACHYDERM GLOBAL
+### Pryor Data Center - PACHYDERM GLOBAL
 
-**Parent Document:** [[GGE/GGE BoD Template/_BOD - Exec Summary and TOC]]
+**Parent Document:** [[Saga Pryor DC/Basis of Design/Erik_BOD_Updated/_BOD - Exec Summary and TOC]]
 
 ---
 
+*Note: We generated this full doc quickly, but haven't fully validated this section as it wasn't in scope. We've left it as part of the template, but you'll need to delete or rework all of this! Assume that all specific information, numbers, costs, and lead times are wrong until otherwise proven.*
+
 ## OVERVIEW
 
-CSI Division 00 establishes the contract strategy, procurement approach, and delivery methods for the Tbilisi Data Center project. This division defines how the project will be organized, procured, and executed to meet schedule, budget, and performance requirements while minimizing risk.
+CSI Division 00 establishes the contract strategy, procurement approach, and delivery methods for the Pryor Data Center project. This division defines how the project will be organized, procured, and executed to meet schedule, budget, and performance requirements while minimizing risk.
 
 **Key Objectives:**
 - **Delivery method:** Select optimal project delivery approach (Design-Build, CMAR, etc.)
@@ -33,19 +35,10 @@ CSI Division 00 establishes the contract strategy, procurement approach, and del
 - **Performance guarantees:** PUE, uptime, capacity targets contractually enforceable
 - **Cost certainty:** Guaranteed Maximum Price (GMP) locked after design development
 
-**Alternative Delivery Methods Considered:**
-
-| Method | Pros | Cons | Recommendation |
-|--------|------|------|----------------|
-| **Design-Bid-Build (DBB)** | Competitive bidding; clear design-construction separation | Sequential (slower); design-construction conflicts; no early input from trades | ❌ Not recommended (schedule risk) |
-| **Construction Manager at Risk (CMAR)** | Early GC involvement; pre-construction services; GMP option | Two contracts (architect + CMAR); coordination burden on owner | ⚠️ Acceptable alternative if owner prefers more control |
-| **Integrated Project Delivery (IPD)** | Shared risk/reward; high collaboration | Complex legal structure; limited availability of IPD-experienced teams | ❌ Not practical for this project |
-| **Design-Build (DB)** | Single contract; fast-track; performance guarantees; proven for data centers | Less owner control over design details; requires strong RFP and oversight | ✅ **Recommended** |
-
 ### Design-Build Team Structure
 
 ```
-Owner (GGE-Bilik'i)
+Owner (SAGA)
         |
   Design-Builder (Prime Contractor)
         |
@@ -84,24 +77,9 @@ Architect  MEP Eng  Struct Eng  Commissioning  Construction Mgr
 
 **Phase 1: Design-Builder Selection (RFP Process)**
 - **RFQ (Request for Qualifications):** Pre-qualify 3-5 design-build teams based on:
-  - Data center experience (Tier III or higher)
-  - Project portfolio (5+ data centers >5 MW in last 5 years)
-  - Financial capacity (bonding, insurance)
-  - Key personnel (project manager, MEP lead, commissioning experience)
-  
 - **RFP (Request for Proposal):** Issue to pre-qualified teams
-  - Scope: Conceptual design, cost estimate, schedule, risk plan
-  - Evaluation criteria (weighted):
-    - **40%** - Price (GMP proposal)
-    - **30%** - Technical approach (design, systems, redundancy)
-    - **20%** - Schedule and risk mitigation
-    - **10%** - Team qualifications and references
-  
-- **Selection:** Best-value award (not lowest price)
-  - Negotiate GMP after design development (65% design)
-  - Contract structure: Cost-plus-fee with GMP, or lump-sum turnkey
 
-**Phase 2: Long-Lead Equipment Procurement**
+**Phase 2: Long-Lead Equipment Procurement** {lead times are wrong}
 - **Critical path items** (order during design development, 4-6 months into project):
   - Medium-voltage switchgear (20-32 weeks lead time)
   - UPS systems (16-24 weeks)
@@ -216,7 +194,7 @@ To minimize risk and ensure long-term supportability, all critical systems must 
 **Step 1: Technical Compliance**
 - Review submittals against performance specifications
 - Verify redundancy, efficiency, and integration requirements
-- Confirm seismic and environmental ratings (Georgia wind/tornado loads)
+- Confirm seismic and environmental ratings (Oklahoma wind/tornado loads)
 
 **Step 2: Reference Checks**
 - Contact 3 references for similar Tier III projects
@@ -334,91 +312,6 @@ To minimize risk and ensure long-term supportability, all critical systems must 
 
 ---
 
-## 0.08 BUDGET & COST MANAGEMENT
-
-### Preliminary Cost Estimate (Order of Magnitude)
-
-**Project Scope:** 50,000 GSF, 3 MW Phase 1 IT load, Tier III
-
-| Cost Category | Estimated Cost | $/SF | % of Total |
-|---------------|----------------|------|------------|
-| **Site Work (Div 31-32)** | $2,500,000 | $50 | 8% |
-| **Building Shell (Div 02-14)** | $7,500,000 | $150 | 23% |
-| **Electrical (Div 26)** | $12,000,000 | $240 | 37% |
-| **Mechanical (Div 23)** | $8,000,000 | $160 | 25% |
-| **Fire Protection (Div 21)** | $500,000 | $10 | 2% |
-| **Controls & Security (Div 25, 28)** | $1,000,000 | $20 | 3% |
-| **Commissioning** | $500,000 | $10 | 2% |
-| **Subtotal (Construction)** | $32,000,000 | $640 | 100% |
-| **Design fees (8%)** | $2,560,000 | $51 | — |
-| **Permitting & fees (1%)** | $320,000 | $6 | — |
-| **Owner contingency (10%)** | $3,200,000 | $64 | — |
-| **TOTAL PROJECT COST** | **$38,080,000** | **$762** | — |
-
-**Cost per MW (IT load):** ~$12.7M per MW
-
-**Notes:**
-- Costs assume greenfield site (no demolition or remediation)
-- Medium-voltage electrical service (345 kV transmission with customer-owned substation → 13.8 kV distribution)
-- Precast tilt-up construction (not PEMB)
-- FM 1-150 tornado-rated roof
-- N+1 mechanical, 2N electrical architecture
-
-### Cost Control Measures
-
-**Value Engineering (VE) Opportunities:**
-- **Building shell:** PEMB vs. precast (savings: $1-2M; trade-off: insurance costs, tornado risk)
-- **Electrical topology:** 2N vs. N+1 with STS (savings: ~$1M; trade-off: uptime)
-- **Cooling efficiency:** Standard vs. high-efficiency chillers (higher capex, lower opex; payback analysis)
-- **Roof:** FM 1-150 vs. FM 1-90 (savings: $400K; trade-off: insurance, wind rating)
-
-**Change Order Management:**
-- **Change order log:** Track all changes with cost/schedule impact
-- **Owner approval thresholds:**
-  - <$10K and <5 days: Design-builder approval
-  - $10K-$50K or 5-15 days: Owner project manager approval
-  - >$50K or >15 days: Owner executive approval
-- **Contingency drawdown:** Track against 10% owner contingency; report monthly
-
----
-
-## 0.09 QUALITY ASSURANCE & VENDOR QUALIFICATION
-
-### Pre-Qualification Requirements
-
-**Design-Builder Pre-Qualification:**
-- Minimum 5 data centers >5 MW completed in last 5 years
-- At least 2 Tier III or higher facilities (Uptime Institute certified)
-- Financial capacity: Bonding for $50M+ projects
-- Safety record: EMR (Experience Modification Rate) <1.0
-
-**Subcontractor Pre-Qualification:**
-- **Electrical:** NETA-accredited for testing; prior MV switchgear experience
-- **Mechanical:** AABC or NEBB certified for test & balance
-- **Precast:** Minimum 10 tilt-up projects; crane capacity for 40-ft panels
-- **Roofing:** FM-approved contractor for FM 1-150 systems
-
-**Equipment Vendor Pre-Qualification:**
-- Tier 1 vendor status (see Section 0.04)
-- Reference projects with similar capacity and redundancy
-- Factory acceptance test (FAT) capability
-- Service network with <4 hour response time in Georgia
-
-### Quality Control Plan
-
-**Design-Builder QC/QC Responsibilities:**
-- **Weekly inspections:** Document progress, deficiencies, and corrective actions
-- **Material testing:** Engage independent testing agency (ITA) for concrete, soil, fireproofing
-- **Equipment testing:** Factory tests (FAT) and field tests (commissioning)
-- **Documentation:** Daily reports, test reports, RFI log, submittal register
-
-**Owner Quality Assurance:**
-- **Independent commissioning authority (CxA):** 3rd-party verification of systems performance
-- **Design reviews:** 30%, 65%, 95%, 100% milestone reviews
-- **Site visits:** Monthly during construction; weekly during commissioning
-
----
-
 ## 0.10 SPECIAL CONTRACT PROVISIONS
 
 ### Performance Guarantees
@@ -485,11 +378,11 @@ To minimize risk and ensure long-term supportability, all critical systems must 
 **Level 4: Arbitration (60-90 days)**
 - Binding arbitration per AIA A141
 - Single arbitrator for disputes <$500K; panel of 3 for >$500K
-- Arbitration conducted in Tulsa, Georgia
+- Arbitration conducted in Tulsa, Oklahoma
 
 **Level 5: Litigation (>90 days)**
 - Only if arbitration fails or is declined
-- Jurisdiction: Rogers County, Georgia
+- Jurisdiction: Rogers County, Oklahoma
 - Costs: Prevailing party recovers attorney fees
 
 ---
@@ -522,86 +415,3 @@ To minimize risk and ensure long-term supportability, all critical systems must 
 - Treasury-listed surety company
 
 ---
-
-## 0.13 CLOSEOUT & WARRANTY
-
-### Substantial Completion Requirements
-
-**Criteria for Substantial Completion:**
-- Certificate of Occupancy (CO) issued by AHJ
-- All systems commissioned and passing Integrated Systems Test (IST)
-- Punchlist <50 items (no life-safety or critical MEP items)
-- As-built drawings and O&M manuals (draft) submitted
-- Training completed (40 hours per discipline)
-
-**Substantial Completion Deliverables:**
-- Commissioning Final Report (CxA)
-- Test & Balance (TAB) Report
-- NETA electrical acceptance test report
-- Fire suppression acceptance test certificate
-- As-built drawings (red-line mark-ups)
-- O&M manuals (draft, 3 copies)
-- Warranty register (all equipment warranties with start dates)
-
-### Final Completion Requirements
-
-**Criteria for Final Completion:**
-- Punchlist 100% complete
-- As-built drawings finalized (CAD/BIM + PDF)
-- O&M manuals finalized (3 hard copy sets + digital)
-- Final payment application submitted
-- Lien waivers from all subcontractors and suppliers
-
-**Final Completion Deliverables:**
-- Final as-built drawings (AutoCAD DWG, IFC BIM, PDF)
-- Final O&M manuals (searchable PDFs + 3-ring binders)
-- Spare parts (filters, UPS batteries, sensors, control boards)
-- Training videos and quick-reference guides
-- DCIM database populated (all assets registered)
-- Warranty certificates (original documents)
-
-### Warranty Period
-
-**Standard Warranty:** 1 year from Substantial Completion
-- Covers all labor and materials
-- Design-builder responsible for defect repair
-
-**Extended Warranties (Negotiated with Vendors):**
-- UPS batteries: 5-10 years (pro-rated)
-- Generator engines: 5 years or 5,000 hours
-- Chiller compressors: 10 years
-- Roof membrane: 20 years (manufacturer NDL warranty)
-
-**Warranty Call Process:**
-1. Owner reports defect to design-builder
-2. Design-builder responds within 24 hours (emergency) or 5 days (non-emergency)
-3. Design-builder repairs at no cost to owner
-4. If design-builder fails to respond, owner may self-perform and back-charge
-
----
-
-## SUMMARY
-
-CSI Division 00 establishes the procurement and contracting framework for the Tbilisi Data Center project. Key elements include:
-
-✅ **Delivery Method:** Design-Build (DB) with Guaranteed Maximum Price (GMP) for fast-track schedule, single-point responsibility, and performance guarantees  
-✅ **Procurement Strategy:** Phased approach with early engagement of long-lead vendors (switchgear, UPS, generators, chillers); competitive bidding for subcontractors  
-✅ **Vendor Selection:** Tier 1 vendors only for critical systems; pre-qualification based on experience, financial stability, and service network  
-✅ **Risk Allocation:** Design-builder assumes design and construction risk; owner retains site conditions and utility coordination risk; shared responsibility for permitting  
-✅ **Performance Guarantees:** PUE ≤ 1.4 at 50% load, Tier III uptime, 3 MW capacity; liquidated damages and early completion incentives  
-✅ **Quality Assurance:** Independent CxA, factory acceptance tests, third-party material testing, and rigorous commissioning  
-
-**Next Steps:**
-- Issue RFQ to pre-qualify design-build teams (3-5 firms)
-- Issue RFP to shortlisted teams with Owner's Project Requirements (OPR) and Basis of Design
-- Evaluate proposals and award contract (best-value, not lowest price)
-- Negotiate GMP after 65% design development
-- Begin long-lead equipment procurement immediately after contract award
-
----
-
-**Related Documents:**
--  (project administration, commissioning)
--  (building shell and core)
--  (site work, utilities)
--  (master TOC)
