@@ -65,13 +65,13 @@ Telecommunications infrastructure provides carrier-neutral, diverse, and redunda
 
 **MPOE-1 (Primary):**
 - **Location:** East side, ground floor
-- **Size:** 250-300 SF
+- **Size:** 250-300 SF <!-- @benton -->
 - **Fiber entry:** From east property line conduits
 - **Purpose:** Primary carrier demarcation and cross-connect
 
 **MPOE-2 (Secondary/Diverse):**
 - **Location:** West side, ground floor
-- **Size:** 250-300 SF
+- **Size:** 250-300 SF <!-- @benton -->
 - **Fiber entry:** From west property line conduits
 - **Purpose:** Diverse carrier route termination
 
@@ -83,50 +83,21 @@ Telecommunications infrastructure provides carrier-neutral, diverse, and redunda
 ### MPOE/MMR Specifications
 
 **Each MPOE/MMR Includes:**
-
-**Rack Space:**
-- 10-15 × 42U four-post racks (carrier equipment)
-- Capacity: ~10-15 carriers per MMR (adequate for 12 MW facility)
-
 **Power:**
 - Dual-feed power (A-side + B-side from SWBD-A and SWBD-B)
 - 200-400A panel per MMR
 - Redundant UPS-backed circuits for carrier equipment
-
-**Cooling:**
-- Dedicated split system or precision cooling unit
-- Capacity: [ROM] 30-50 kW per MMR (carrier equipment heat load)
-- Redundancy: N+1 or dual units
-
 **Fire Suppression:**
 - Preaction dry pipe or clean agent (coordinate with data hall system)
 - VESDA smoke detection
-
 **Grounding:**
 - Telecommunications main grounding busbar (TMGB) per TIA-607-C
 - Bonded to building grounding system
-
 **Security:**
 - Card reader + biometric (two-factor authentication)
 - CCTV coverage (entry monitoring)
 - Access restricted to facility staff and authorized carriers
 
-### Cross-Connect Infrastructure
-
-**Fiber Cross-Connect Panels:**
-- LC duplex or MTP/MPO high-density panels
-- Capacity: Adequate for 12 MW facility with expansion capability
-- Labeling: Customer ID, circuit ID, carrier name
-
-**Cable Management:**
-- Overhead ladder rack or wire basket tray
-- Vertical cable managers on racks
-- Minimum bend radius: 1.5" for single-mode fiber
-
-**Patch Cords:**
-- Single-mode fiber (OS2) for long-distance/carrier circuits
-- Multi-mode fiber (OM4) for short in-building connections
-- Quality: Low insertion loss (<0.5 dB), tested and certified
 
 ---
 
@@ -140,24 +111,16 @@ Central location for facility network equipment (not customer equipment). Houses
 
 **Location:** Adjacent to data halls (central position)
 
-**Size:** 300-400 SF
-
+**Size:** 300-400 SF <!-- @benton -->
 **Rack Space:**
 - 4-6 × 42U four-post racks
 - Equipment: Core switches, firewalls, BMS/DCIM servers, NOC workstation switches
-
 **Power:**
 - Dual-feed UPS-backed circuits (A-side + B-side)
 - 100-200A panel
-
 **Cooling:**
 - Shared with data hall HVAC or dedicated mini-split
-- Capacity: [ROM] 20-30 kW
 
-**Structured Cabling:**
-- Fiber backbone from MDA to each data hall zone
-- Fiber: 24-48 strands single-mode + 24-48 strands multi-mode
-- Copper: Cat6A for management network (if needed)
 
 ---
 
@@ -171,13 +134,11 @@ Central location for facility network equipment (not customer equipment). Houses
 - Customer servers, applications, internet gateway
 - Isolated from facility networks (firewall, VLAN segmentation)
 - No direct connection to facility BMS/DCIM
-
 **2. Facility Network (BMS/DCIM):**
 - Building management system (HVAC, lighting)
 - EPMS (electrical power monitoring)
 - DCIM (rack power/cooling monitoring)
 - Access control, CCTV
-
 **3. Management Network (NOC/Admin):**
 - NOC workstations
 - Remote access (VPN gateway)
@@ -288,45 +249,22 @@ Central location for facility network equipment (not customer equipment). Houses
 - TIA-607-C (Telecommunications Bonding and Grounding)
 - J-STD-607-B (Commercial Building Grounding/Bonding)
 
----
-
-## CARRIER ONBOARDING PROCESS
-
-### New Carrier Installation
-
-**Step 1: Carrier Requests Space**
-- Carrier submits application (equipment list, power requirements, fiber route)
-- Facility approves based on MMR capacity
-
-**Step 2: Carrier Installation**
-- Carrier pulls fiber from property line vault to assigned MMR
-- Carrier installs equipment in assigned rack space
-- Carrier terminates fiber on designated cross-connect panel
-
-**Step 3: Cross-Connect Activation**
-- Customer orders cross-connect from carrier panel to customer cabinet
-- Facility staff install fiber patch cord (MMR → customer cabinet)
-- Circuit tested and activated
-
-**Step 4: Ongoing Maintenance**
-- Carrier responsible for their equipment maintenance
-- Facility provides rack space, power, cooling, security
 
 ---
 
 ## COST SUMMARY
 
-| System | Cost Estimate |
-|--------|---------------|
-| **Fiber Conduit Infrastructure (Dual Entry)** | $200-400K |
-| **MPOE-1 Fit-Out (Racks, Power, Cooling)** | $150-300K |
-| **MPOE-2 Fit-Out (Racks, Power, Cooling)** | $150-300K |
-| **MDA Fit-Out (Core Switches, Racks)** | $100-200K |
-| **Fiber Backbone (MDA to Data Halls, MPOEs)** | $100-200K |
-| **Structured Cabling (Overhead, Cabinets)** | $200-400K |
-| **Grounding & Bonding (TMGB, TBB)** | $50-100K |
-| **Cross-Connect Infrastructure** | $50-100K |
-| **Total Communications Infrastructure** | **$1.0-2.0M** |
+| System | Cost Estimate | Confidence | Range |
+|--------|---------------|------------|-------|
+| **Fiber Conduit Infrastructure (Dual Entry)** | $300,000 | ±33% | $200-400K |
+| **MPOE-1 Fit-Out (Racks, Power, Cooling)** | $225,000 | ±33% | $150-300K |
+| **MPOE-2 Fit-Out (Racks, Power, Cooling)** | $225,000 | ±33% | $150-300K |
+| **MDA Fit-Out (Core Switches, Racks)** | $150,000 | ±33% | $100-200K |
+| **Fiber Backbone (MDA to Data Halls, MPOEs)** | $150,000 | ±33% | $100-200K |
+| **Structured Cabling (Overhead, Cabinets)** | $300,000 | ±33% | $200-400K |
+| **Grounding & Bonding (TMGB, TBB)** | $75,000 | ±33% | $50-100K |
+| **Cross-Connect Infrastructure** | $75,000 | ±33% | $50-100K |
+| **Total Communications Infrastructure** | **$1,500,000** | **±33%** | **$1.0-2.0M** |
 
 **Recurring Costs (OPEX):**
 - Carrier circuits: Varies by customer (customer-paid)

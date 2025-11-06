@@ -171,11 +171,11 @@ Oklahoma SB 480 redefines Oklahoma's energy framework to allow private entities 
 - Battery Energy Storage System (BESS) integration planned
 
 **SB 480 Compliance Gap:**
-- ❌ Current design does not include natural gas component
-- ❌ Diesel generators do not satisfy SB 480 natural gas requirement
-- ❌ Solar + BESS alone insufficient for SB 480 exemption
+- Current design does not include natural gas component
+- Diesel generators do not satisfy SB 480 natural gas requirement
+- **Solar + BESS alone insufficient for SB 480 exemption**
 
-### Recommended Compliance Approach
+### Compliance Approach (If the numbers work)
 
 **Option 1: Add Natural Gas Turbine Generators**
 
@@ -281,153 +281,6 @@ Oklahoma SB 480 redefines Oklahoma's energy framework to allow private entities 
 - Medium distance (1-5 miles): $1-3M
 - Long distance (>5 miles): $3-10M+
 
-### Recommended Action Plan
-
-**Phase 1: Feasibility Assessment (Months 1-3)**
-1. Engage natural gas utility (ONG or other supplier) to verify pipeline proximity and capacity
-2. Obtain preliminary gas supply pricing and terms
-3. Evaluate Option 1 (new gas turbines) vs. Option 2 (dual-fuel retrofit) vs. Option 3 (microturbines)
-4. Perform economic analysis: capital cost vs. operational savings vs. SB 480 incentive value
-5. Legal review to confirm SB 480 compliance strategy
-
-**Phase 2: Design & Permitting (Months 4-9)**
-1. Select preferred natural gas generation technology
-2. Design natural gas infrastructure (pipeline tap, metering, fuel treatment)
-3. Obtain air quality permits (Oklahoma DEQ) for natural gas combustion
-4. Obtain pipeline tap approval from utility and Oklahoma Corporation Commission
-5. Update electrical single-line diagram for 11 kV bus integration
-
-**Phase 3: Procurement & Construction (Months 10-24)**
-1. Procure natural gas generators or dual-fuel retrofit kits (long-lead: 12-16 months)
-2. Construct natural gas pipeline extension and metering station (6-9 months)
-3. Install generators and integrate with 13.8 kV common bus
-4. Commission natural gas generation system
-5. Document SB 480 compliance (natural gas component operational)
-
-**Total Timeline:** 24-27 months from feasibility to operational
-
----
-
-## 6. FINANCIAL ANALYSIS
-
-### SB 480 Incentive Value
-
-**Potential Benefits:**
-- **Regulatory exemption:** Avoid Oklahoma Corporation Commission utility classification
-- **Energy cost savings:** Natural gas typically $3-6/MMBtu vs. diesel $15-25/MMBtu (on BTU-equivalent basis)
-- **Tax incentives:** Potential Oklahoma tax credits for distributed generation (if applicable under separate statutes)
-- **Grid independence:** Avoid utility demand charges and capacity reservations
-- **Resiliency value:** Ability to operate independently from grid during outages
-
-**Estimated Annual Operational Savings:**
-- Natural gas fuel cost savings vs. diesel: $500K-1.5M/year (assuming 30-50% runtime on gas)
-- Utility demand charge avoidance: $200K-500K/year (if peak-shaving with gas generation)
-- **Total estimated savings:** $700K-2M/year
-
-**Simple Payback Analysis:**
-- Capital cost (Option 3 - Microturbines): $4-10M
-- Annual savings: $700K-2M/year
-- **Simple payback: 2-14 years** (highly dependent on gas vs. diesel fuel price delta and runtime assumptions)
-
-### Risk Considerations
-
-**Fuel Price Risk:**
-- Natural gas prices volatile (historically $2-15/MMBtu)
-- Diesel prices also volatile but more predictable delivery cost
-- Hedging strategies available (natural gas futures, fixed-price supply contracts)
-
-**Regulatory Risk:**
-- SB 480 could be amended or repealed (monitor Oklahoma legislative sessions)
-- Misclassification as utility could result in retroactive regulation
-- Environmental regulations (federal or state) could increase compliance costs
-
-**Technology Risk:**
-- Gas turbine/microturbine reliability vs. proven diesel generator track record
-- Maintenance cost and overhaul intervals for gas equipment
-- Availability of qualified service providers in Pryor, Oklahoma area
-
----
-
-## 7. STRATEGIC RELEVANCE FOR PACHYDERM GLOBAL
-
-### Opportunity Alignment
-
-SB 480 opens significant design-build-commissioning opportunities for private on-site generation facilities. PACHYDERM can position as a critical infrastructure execution partner for industrial and hyperscale clients seeking energy independence.
-
-**Market Positioning:**
-- **Behind-the-meter energy solutions:** Design, build, commission private power systems compliant with SB 480
-- **Hybrid energy systems:** Engineering expertise in gas + renewable + BESS integration
-- **Regulatory navigation:** Consulting services to ensure "non-utility" compliance and exemption qualification
-
-### Service Leverage Points
-
-**Engineering Advisory:**
-- Compliant hybrid energy systems (natural gas + renewable)
-- Interconnection and islanding design
-- Fuel supply strategy (pipeline vs. CNG/LNG)
-
-**Construction Management:**
-- Natural gas generation system installation
-- Pipeline infrastructure coordination
-- Integration with existing 11 kV substation architecture
-
-**Commissioning Services:**
-- Natural gas generator startup and testing
-- Integrated systems testing (IST) with grid-parallel and island modes
-- SB 480 compliance documentation and reporting
-
-**Ongoing Operations Support:**
-- Fuel procurement strategy and hedging
-- Maintenance and overhaul planning for gas turbines
-- Compliance monitoring and documentation for exemption maintenance
-
-### Market Impact Forecast (2025-2030)
-
-**Oklahoma Distributed Energy Investment:**
-- Estimated **>$3 billion** in new distributed-energy infrastructure investment statewide
-- Major attraction potential for data centers and manufacturing clusters in northeast and central Oklahoma
-
-**Pryor Industrial Park & MidAmerica Industrial Park:**
-- Strategic location for behind-the-meter generation projects
-- Proximity to natural gas pipelines (interstate and intrastate)
-- Established industrial base with high energy demand
-- Existing utility infrastructure (PSO, OG&E) for interconnection
-
-**Competitive Advantage:**
-- Early adoption of SB 480 compliance positions Pryor DC as "shovel-ready" for clients requiring energy independence
-- Demonstrated behind-the-meter generation capability differentiates from competitors relying solely on utility power
-- Future phases (12-24 MW expansion) can leverage SB 480 framework for incremental capacity additions
-
----
-
-## 8. RECOMMENDED NEXT STEPS
-
-1. **Engage Oklahoma Natural Gas (ONG) or pipeline supplier** to verify natural gas pipeline proximity, capacity, and preliminary pricing (Month 1)
-
-2. **Perform economic feasibility study** comparing:
-   - Option 1: New natural gas turbine generators
-   - Option 2: Dual-fuel retrofit of existing diesel generators
-   - Option 3: Natural gas microturbines for base load + SB 480 qualification
-
-3. **Legal review** with Oklahoma energy counsel to confirm:
-   - SB 480 exemption strategy (own-use generation)
-   - Documentation requirements for compliance
-   - Risk of utility reclassification
-
-4. **Update Basis of Design** to incorporate preferred natural gas generation option:
-   - Electrical single-line diagram (11 kV bus integration)
-   - Natural gas infrastructure requirements (pipeline, metering, fuel treatment)
-   - Cost estimate and phasing plan
-
-5. **Initiate permitting** for natural gas infrastructure:
-   - Oklahoma DEQ air quality permit (natural gas combustion)
-   - Oklahoma Corporation Commission pipeline tap approval
-   - Rogers County building permits
-
-6. **Engage equipment vendors** for long-lead procurement:
-   - Natural gas turbine generators or dual-fuel retrofit kits
-   - Pipeline construction contractor
-   - Fuel gas treatment system supplier
 
 ---
 
@@ -441,10 +294,7 @@ SB 480 opens significant design-build-commissioning opportunities for private on
 
 ---
 
-**Tags:** #sb480 #behind-the-meter #natural-gas #distributed-generation #oklahoma-legislation #compliance
-
 **Document Control:**
 - **Source:** Oklahoma SB 480 legislative summary and PACHYDERM strategic analysis
 - **Date Created:** October 29, 2025
-- **Prepared by:** EVS / PGCIS Team
 - **Status:** Planning / Feasibility Phase

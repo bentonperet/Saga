@@ -329,12 +329,7 @@ Please see the separate doc for electrical pricing and equipment.
 ---
 
 **Document Control:**
-- **Version:** v2
+- **Version:** v4
 - **Date Updated:** 2025-11-05
 - **Prepared by:** PGCIS Team
 - **Key Updates:**
-  - Updated for 394-rack deployment (162 L2C + 232 RDHx)
-  - Detailed 4-phase buildout to 28 MW facility load (22 MW IT)
-  - All equipment properly sized for facility load (IT × PUE)
-  - Added comprehensive phasing narratives with load tables
-  - Enhanced solar/BESS integration details

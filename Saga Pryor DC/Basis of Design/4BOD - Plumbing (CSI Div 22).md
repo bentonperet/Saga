@@ -15,8 +15,7 @@ Plumbing systems provide domestic water service, fire protection water supply, a
 
 **Design Philosophy:**
 - **Zero cooling water:** Air-cooled chillers, closed-loop glycol (WUE <0.5 L/kWh)
-- **Minimal domestic use:** Staff amenities only (~10-20 occupants)
-- **Sustainable design:** Stormwater management, low-flow fixtures
+- **Minimal domestic use:** Staff amenities only (~20 occupants)
 
 **Scope Note:** All chilled water piping, glycol systems, and cooling loop equipment are scoped under **Division 23 (HVAC)**. Division 22 provides domestic water service only, including stub connections for makeup water to HVAC glycol systems.
 
@@ -192,23 +191,11 @@ Plumbing systems provide domestic water service, fire protection water supply, a
 
 ---
 
-## NATURAL GAS (IF AVAILABLE)
-
-**Potential Uses:**
-- Emergency generator fuel (if dual-fuel capability desired)
-- Space heating (if needed for office areas)
-
-**Service:**
-- Coordinate with local gas utility for availability
-- If unavailable: All-electric building design
-
----
-
 ## SCOPE CLARIFICATION - DIVISION 22 vs DIVISION 23
 
 **Critical Note:** To prevent scope gaps and bid-day confusion, this section clarifies the boundary between Division 22 (Plumbing) and Division 23 (HVAC) scopes.
 
-### Division 22 (Plumbing) SHALL INCLUDE:
+### Division 22 (Plumbing) INCLUDES:
 
 **Domestic Water Systems:**
 - Municipal water service connection (3-4" service lateral, meter, backflow preventer)
@@ -240,7 +227,7 @@ Plumbing systems provide domestic water service, fire protection water supply, a
 - All storm drainage piping
 - Insulation for domestic water piping per energy code
 
-### Division 22 (Plumbing) SHALL NOT INCLUDE:
+### Division 22 (Plumbing) DOES NOT INCLUDE:
 
 **Chilled Water & Glycol Systems (Division 23 Scope):**
 - All chilled water piping (Loops 1, 2, and 3)
@@ -279,15 +266,13 @@ Plumbing systems provide domestic water service, fire protection water supply, a
 
 **Pricing Methodology:** Hybrid approach combining systems-based parametric pricing for distribution piping and bottom-up equipment pricing for discrete items. ROM estimates suitable for BOD-level budgeting (±25-30% accuracy).
 
-<!-- @claude please round all numbers below to the nearest thousand and retotal -->
-
-| Category | Description | Cost |
-|----------|-------------|------|
-| **Domestic Water Systems** | Service connection, meter, RPZ, filtration, distribution piping, makeup water stubs | $83,850 |
-| **Sanitary & Storm** | Sewer lateral, waste/vent piping, roof drains, storm leaders, site connections | $102,750 |
-| **Fixtures & DHW** | Toilets, sinks, showers, accessories, water heaters, recirculation system | $78,900 |
-| **Testing & PM** | Commissioning, water quality testing, general conditions, contractor markup | $86,450 |
-| **TOTAL - DIVISION 22 (PLUMBING)** | | **$367,050** |
+| Category                           | Description                                                                         | Cost         |
+| ---------------------------------- | ----------------------------------------------------------------------------------- | ------------ |
+| **Domestic Water Systems**         | Service connection, meter, RPZ, filtration, distribution piping, makeup water stubs | $85,000      |
+| **Sanitary & Storm**               | Sewer lateral, waste/vent piping, roof drains, storm leaders, site connections      | $100,000     |
+| **Fixtures & DHW**                 | Toilets, sinks, showers, accessories, water heaters, recirculation system           | $80,000      |
+| **Testing & PM**                   | Commissioning, water quality testing, general conditions, contractor markup         | $85,000      |
+| **TOTAL - DIVISION 22 (PLUMBING)** |                                                                                     | **$350,000** |
 
 **Contingency Items (if needed):**
 - Well system: $75,000 (if municipal water unavailable)
@@ -301,8 +286,6 @@ Plumbing systems provide domestic water service, fire protection water supply, a
 
 ---
 
-**Tags:** #pryor-dc #plumbing #domestic-water #glycol-systems #leak-detection #wue
-
 **Next Steps:**
 1. Confirm municipal water/sewer availability via utility coordination
 2. Design glycol mix stations and bulk storage
@@ -315,4 +298,4 @@ Plumbing systems provide domestic water service, fire protection water supply, a
 **Document Control:**
 - **Source:** Erik_BOD reference
 - **Date Updated:** October 29, 2025
-- **Key Updates:** Glycol system details, leak detection expansion for D2C
+- **Key Updates:**

@@ -6,7 +6,7 @@
 **Version:** 2.0
 **Project Phase:** Phase 4 - Full Build-Out (22 MW IT Load)
 **Total Facility Load:** 29.7 MW
-**Related:** [[7BOD - Electrical (CSI Div 26)]]
+**Related:** [[GGE/GGE BoD Template/7BOD - Electrical (CSI Div 26)]]
 
 ---
 
@@ -367,8 +367,8 @@ This document provides a comprehensive equipment list and cost analysis for the 
 
 ### 17.1 Electrical Engineering Services
 
-| Item                            | Specification                                 | Qty | Unit Cost  | Extended Cost | +/- % | Certainty | Notes                                                                                                                                                           |
-| ------------------------------- | --------------------------------------------- | --- | ---------- | ------------- | ----- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Item                            | Specification                                 | Qty | Unit Cost  | Extended Cost | +/- % | Certainty | Notes                                                                                                                                                        |
+| ------------------------------- | --------------------------------------------- | --- | ---------- | ------------- | ----- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Electrical Design (EE Firm)** | Detailed design, specifications, calculations | 1   | $1,500,000 | $1,500,000    | ±20%  | 75%       | Full design package: MV/LV distribution, one-lines, panel schedules, lighting, grounding, arc flash, coordination studies. Includes permitting coordination. |
 
 **Subtotal - Engineering:** $1,500,000

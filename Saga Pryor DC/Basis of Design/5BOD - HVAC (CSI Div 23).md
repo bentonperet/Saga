@@ -372,7 +372,7 @@ Critical system for protecting IT equipment from water/glycol damage. All chille
 
 **Critical Note:** To prevent scope gaps and bid-day confusion, this section clarifies the boundary between Division 23 (HVAC) and Division 22 (Plumbing) scopes.
 
-### Division 23 (HVAC) SHALL INCLUDE:
+### Division 23 (HVAC) INCLUDES:
 
 **Cooling Equipment:**
 - All air-cooled chillers (L2C and RDHx plants)
@@ -417,25 +417,6 @@ Critical system for protecting IT equipment from water/glycol damage. All chille
 - Flow meters and monitoring devices
 - Chiller sequencing and optimization controls
 
-### Division 23 (HVAC) SHALL NOT INCLUDE:
-
-**Domestic Systems (Division 22 Scope):**
-- Domestic water service (municipal connection, meter, backflow preventer)
-- Domestic water distribution to plumbing fixtures
-- Plumbing fixtures (toilets, sinks, showers, etc.)
-- Domestic hot water system (water heaters, recirculation)
-- Sanitary sewer and vent piping
-- Storm drainage (roof drains, leaders, site connections)
-- Emergency eyewash/safety shower stations (even if in mechanical rooms - these are safety fixtures)
-- Natural gas piping (if applicable)
-
-**Coordination Point - Makeup Water:**
-- Division 22 shall provide 3/4" domestic water stub connections (with isolation valve + union) at three locations specified by Division 23
-- Division 23 shall connect these stubs to glycol mix tanks and is responsible for all makeup water metering, treatment, and system filling
-
-**Electrical Power (Division 26 Scope):**
-- Electrical power to chillers, pumps, CDUs, leak detection panels
-- Conduit and wire to field devices (coordinate locations only)
 
 ---
 

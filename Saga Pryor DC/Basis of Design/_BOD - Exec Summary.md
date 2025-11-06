@@ -197,12 +197,6 @@
 
 ## KEY DESIGN DECISIONS
 
-### **Why N+1 IT UPS with MV Dual-Ring (Not Traditional 2N UPS)**
-- **Path redundancy** provided by 13.8 kV self-healing dual-ring MV distribution
-- **Component redundancy** provided by N+1 modular UPS architecture
-- IT equipment retains dual PDUs fed from different 480V panels (SWBD-A/B on different MV ring segments)
-- **Advantages:** Lower capital cost (~40-50% fewer UPS modules), higher efficiency, simplified maintenance
-- **Equivalent reliability:** MV dual-ring switching provides path diversity; N+1 UPS provides component failure tolerance
 
 ### **Why Tilt-Up Concrete (Not PEMB)**
 - **Tornado resistance:** Pre-cast concrete withstands EF3-EF5 events better than steel framing
@@ -239,7 +233,6 @@
 
 ---
 
-**Tags:** #pryor-data-center #basis-of-design #csi-masterformat #tier-iii #tilt-up-construction
 
 **Next Steps:**
 1. TBD
@@ -247,10 +240,9 @@
 ---
 
 **Document Control:**
-- **Source:** Pryor_Bod_EVS_Rev01.md
+- **Source:** PGCIS Team
 - **Date Updated:** October 29, 2025
-- **Prepared by:** PGCIS Team
-- **Corrections:** Tilt-up construction, utility voltage options, mechanical yard sizing
+- **Corrections:**
 
 
 **CAPEX Savings Note:**

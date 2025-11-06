@@ -84,21 +84,6 @@
 
 **Total MV switchgear area: ~6,500 SF**
 
----
-
-### Prefabricated Power Delivery Modules (PDMs)
-
-**Equipment:** 2 × PDM containers (LV switchboards, UPS, distribution)
-
-**Individual PDM Footprint:**
-- PDM container: 10 ft W × 40 ft L = **400 SF**
-- Service clearance: 8 ft perimeter (electrical code)
-- Total per PDM: (10 + 16) × (40 + 16) = 26 ft × 56 ft = **1,456 SF**
-
-**PDM Array:**
-- 2 PDMs × 1,456 SF = **2,912 SF**
-- Access between PDMs: included in clearances
-- **Total PDM area: ~3,000 SF**
 
 ---
 

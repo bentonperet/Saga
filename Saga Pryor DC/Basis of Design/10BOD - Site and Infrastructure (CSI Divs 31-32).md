@@ -22,7 +22,7 @@
 - Phase I ESA; wetlands/waters delineation if applicable
 - Utility locates and capacity confirmations (water, sewer, gas, fiber)
 
-### Site Grading and Pads
+### Site Grading and Pads <!-- Benton -->
 - **Building pad:** 50,000 GSF building (precast tilt-up) + aprons
 - **Electrical yard:** ~100,000 SF (161 kV substation, MV gear, generator yard)
 - **Mechanical yard:** ~50,000 SF (air-cooled chillers, pumps, headers)
@@ -39,9 +39,8 @@
 ## DIVISION 32 – EXTERIOR IMPROVEMENTS
 
 ### 161 kV Substation Yard (Customer-Owned)
-- **Footprint:** ~35,000–50,000 SF fenced yard
-- **Equipment:** 161 kV switchyard, 2 × 25 MVA 161kV/13.8kV transformers (2N), protection & control house
-- **Grounding:** Copper grid per IEEE 80; step/touch potential analysis
+- **Footprint:** TBD
+- **Equipment:** 161 kV switchyard, 2 × 35 MVA 161kV/13.8kV transformers (2N), protection & control house
 - **Oil containment:** Transformer spill containment per EPA SPCC
 - **Security:** 8–10 ft fence + barbed wire, cameras, access control
 
@@ -51,20 +50,10 @@
 - Pull boxes/manholes at 300–500 ft intervals; spare conduits for expansion
 
 ### Generator Yard (MV Generators)
-- **Capacity:** 6 × 4.0 MW @ 13.8 kV diesel gens (N+1 at 12 MW design)
-- **Pads:** Individual concrete pads with anchorage; crane access aisle
-- **Fuel:** Belly tanks per unit connected via common fuel manifold to centralized bulk fuel storage tank farm (24 hours runtime); spill containment per SPCC
-- **Bulk Fuel Storage:** Above-ground or underground tank farm (sized for 24-hour runtime Phase 2) with redundant fuel service contracts
-- **Noise:** Enclosures per local noise ordinance compliance
-- **Security:** Fenced, CCTV, vehicle barriers at perimeter
-- **Access:** East-west emergency/maintenance access points for equipment delivery and temporary rental equipment
+Details and costs covered in Electrical, HVAC and Security
 
 ### Mechanical Yard (Air-Cooled)
-- **Phase 1:** 4 × 1,500 kW chillers; **Phase 2:** +8 (total 12)
-- **Layout:** Two rows with 15 ft service corridors; overhead pipe racks to building
-- **Drainage:** Sloped slabs; trench drains to oil/water separator where needed
-- **Access:** East-west emergency/maintenance access points for equipment delivery
-- **Temporary Equipment Support:** Connection provisions for rental chillers and load banks via quick-connects and cable pass-through doors
+Details and costs covered in Electrical, HVAC and Security
 
 ### Building Envelope Equipment Yard Interface
 
@@ -80,9 +69,7 @@
 - Location: Marked on as-built drawings with clear access paths from equipment yards
 
 ### Solar and BESS Areas
-- **Solar:** Inverter stations at 13.8 kV tie to common bus (separate fenced area)
-- **BESS:** 4–8 MWh containers; 13.8 kV bi-directional inverters; space for growth
-- **Fire lanes:** 20 ft access; signage; clearances per NFPA 855 for energy storage
+TBD
 
 ### Stormwater Management
 - **Detention/Retention:** Southeast "horseshoe/moat" basin; sized for local criteria
@@ -139,33 +126,33 @@
 
 ---
 
-## COST SUMMARY (ROM)
-| Scope | ROM Cost |
-|-------|---------|
-| Earthwork, grading, pads | $0.7–1.2M |
-| MV ductbanks, manholes | $0.6–1.0M |
-| Substation yard civil (excl. electrical) | $0.4–0.8M |
-| Generator/Chiller yards civil | $0.4–0.8M |
-| Paving, parking, dock | $0.4–0.7M |
-| Fencing, lighting, landscaping | $0.3–0.6M |
-| Stormwater basin & LID | $0.3–0.6M |
-| Total Div 31–32 (civil scope) | $3.1–5.7M |
+## COST SUMMARY (ROM - PHASE 4 FULL BUILD-OUT)
+
+| Scope                                        | ROM Cost       | Confidence | Notes                                               |
+| -------------------------------------------- | -------------- | ---------- | --------------------------------------------------- |
+| **Earthwork, grading, pads**                 | $950,000       | ±25%       | ~200,000 CY cut/fill @ $4-6/CY; balanced site       |
+| **MV ductbanks, manholes**                   | $800,000       | ±25%       | ~3,500 LF dual-ring @ $230/LF installed             |
+| **Substation yard civil (excl. electrical)** | $600,000       | ±33%       | Grading, oil containment, gravel, fence foundation  |
+| **Paving, parking, dock**                    | $550,000       | ±25%       | Roads, 40 parking stalls, dock apron, sidewalks     |
+| **Fencing, lighting, landscaping**           | $450,000       | ±33%       | Perimeter fence in Security BOD; landscape/lighting |
+| **Stormwater basin & LID**                   | $450,000       | ±33%       | SE detention basin, bioswales, outlet structure     |
+| **Subtotal (Direct Costs)**                  | **$3,800,000** | **±30%**   |                                                     |
+| **Design/Engineering (10%)**                 | $380,000       | ±25%       | Civil engineer, geotech, surveyor                   |
+| **Contingency (20%)**                        | $836,000       | ±35%       | ROM stage, pre-geotech report                       |
+| **TOTAL SITE & INFRASTRUCTURE**              | **$5,016,000** | **±30%**   | **Excludes substation electrical equipment**        |
 
 ---
 
-**Tags:** #site #infrastructure #substation #yards #stormwater #ductbank #csi-31-32
-
 **Next Steps:**
-1. Complete topo and geotechnical; finalize grading and pad elevations
-2. Lay out MV ductbank/ring routes and manholes
-3. Substation civil/grounding design (IEEE 80 study)
-4. Finalize stormwater basin hydraulics/hydrology
-5. Site plan approval and permits (grading, stormwater)
+1. Lay out MV ductbank/ring routes and manholes
+2. Substation civil/grounding design (IEEE 80 study)
+3. Finalize stormwater basin hydraulics/hydrology
+4. Site plan approval and permits (grading, stormwater)
 
 ---
 
 **Document Control:**
-- **Source:** Pryor_Bod_EVS_Rev01.md, Electrical Div 26, Erik_BOD references
+- **Source:** Erik_BOD references
 - **Date Updated:** October 29, 2025
-- **Prepared by:** EVS / PGCIS Team
-- **Key Updates:** 161 kV substation yard, MV rings, BESS/solar yards, 50,000 SF mech yard
+- **Prepared by:** PGCIS Team
+- **Key Updates:** 161 kV substation yard, MV rings
