@@ -128,18 +128,34 @@ TBD
 
 ## COST SUMMARY (ROM - PHASE 4 FULL BUILD-OUT)
 
+### Direct Construction Costs
+
+| Scope                                        | ROM Cost       | Confidence | Notes                                                                    |
+| -------------------------------------------- | -------------- | ---------- | ------------------------------------------------------------------------ |
+| **Master Plan Earthwork & Grading**          | $5,000,000     | ±30%       | Full 120-acre site development; 500,000 CY cut/fill @ $10/CY           |
+| **Building & Equipment Yard Pads**           | $1,200,000     | ±25%       | Building pad, electrical yard, mechanical yard, precise grading          |
+| **MV Ductbanks & Manholes**                  | $800,000       | ±25%       | ~3,500 LF dual-ring @ $230/LF installed                                  |
+| **Substation Yard Civil**                    | $600,000       | ±30%       | Grading, oil containment, gravel, fence foundation (excl. electrical)    |
+| **Internal Road Construction**               | $2,000,000     | ±30%       | Heavy-duty access roads, fire access perimeter, truck routes             |
+| **Parking, Dock & Hardscape**                | $550,000       | ±25%       | 40 parking stalls, dock apron, sidewalks, ADA routes                     |
+| **Utility Extensions to Site**               | $3,000,000     | ±35%       | Water main, sanitary sewer, natural gas service, fiber route to property |
+| **Perimeter Fencing (Full Site)**            | $1,200,000     | ±30%       | 120-acre perimeter, 8 ft chain-link + barbed wire, gates                 |
+| **Site Lighting**                            | $800,000       | ±30%       | Perimeter and yard LED lighting, photocell + BMS control                 |
+| **Landscaping & Buffering**                  | $450,000       | ±33%       | Native drought-tolerant planting, clear CCTV sightlines                  |
+| **Stormwater Management (Full Buildout)**    | $2,000,000     | ±35%       | Master plan detention/retention, water quality treatment, erosion control |
+| **Equipment Yard Hardstanding**              | $1,500,000     | ±30%       | Generator yard, transformer yard, chiller yard reinforced surfaces        |
+| **Subtotal (Direct Costs)**                  | **$19,100,000** | **±30%**   |                                                                          |
+
+### Professional Services & Contingency
+
 | Scope                                        | ROM Cost       | Confidence | Notes                                               |
 | -------------------------------------------- | -------------- | ---------- | --------------------------------------------------- |
-| **Earthwork, grading, pads**                 | $950,000       | ±25%       | ~200,000 CY cut/fill @ $4-6/CY; balanced site       |
-| **MV ductbanks, manholes**                   | $800,000       | ±25%       | ~3,500 LF dual-ring @ $230/LF installed             |
-| **Substation yard civil (excl. electrical)** | $600,000       | ±33%       | Grading, oil containment, gravel, fence foundation  |
-| **Paving, parking, dock**                    | $550,000       | ±25%       | Roads, 40 parking stalls, dock apron, sidewalks     |
-| **Fencing, lighting, landscaping**           | $450,000       | ±33%       | Perimeter fence in Security BOD; landscape/lighting |
-| **Stormwater basin & LID**                   | $450,000       | ±33%       | SE detention basin, bioswales, outlet structure     |
-| **Subtotal (Direct Costs)**                  | **$3,800,000** | **±30%**   |                                                     |
-| **Design/Engineering (10%)**                 | $380,000       | ±25%       | Civil engineer, geotech, surveyor                   |
-| **Contingency (20%)**                        | $836,000       | ±35%       | ROM stage, pre-geotech report                       |
-| **TOTAL SITE & INFRASTRUCTURE**              | **$5,016,000** | **±30%**   | **Excludes substation electrical equipment**        |
+| **Design/Engineering (7%)**                  | $1,337,000     | ±25%       | Civil engineer, geotech, surveyor, stormwater PE    |
+| **Subtotal**                                 | **$20,437,000** | **±30%**   |                                                     |
+| **TOTAL SITE & INFRASTRUCTURE**              | **$20,437,000** | **±30%**   | **Excludes substation electrical equipment**        |
+
+**Cost per kW (IT Load):** $929/kW (22 MW)
+**Industry Benchmark:** $800-$1,200/kW
 
 ---
 

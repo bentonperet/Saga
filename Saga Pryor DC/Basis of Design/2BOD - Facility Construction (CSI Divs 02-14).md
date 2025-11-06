@@ -356,22 +356,37 @@ Not in base building scope (owner-furnished)
 
 ## COST SUMMARY (PHASE 4 FULL BUILD-OUT)
 
+### Direct Construction Costs
+
 | System | Cost Estimate | Confidence | Notes |
 |--------|---------------|------------|-------|
-| **Foundation & Slab** | $1,600,000 | ±25% | 38,000 SF @ $42/SF avg; FF 50/FL 40, 750 PSF capacity |
-| **Precast Tilt-Up Walls** | $2,450,000 | ±27% | ~50,000 SF @ $49/SF avg; 8-10" insulated panels |
-| **Structural Steel Roof Frame** | $1,550,000 | ±23% | Clear-span joists/beams, 30 ft clear height |
-| **FM 1-150 Roof + Debris Protection** | $1,600,000 | ±25% | 50,000 SF @ $32/SF; TPO membrane, debris screen |
-| **Elevator (4-stop with roof access)** | $200,000 | ±12% | Hydraulic/traction, 3,000 lb capacity, 4 stops |
-| **Doors, Windows, Glazing** | $600,000 | ±33% | Security mantrap, data hall doors, glazing |
-| **Interior Finishes** | $1,500,000 | ±27% | Sealed concrete, drywall, paint, ceilings |
-| **FEMA 361 Storm Shelter** | $112,500 | ±25% | Prefab module, 20-person, EF5-rated |
-| **Subtotal (Direct Costs)** | **$9,612,500** | **±26%** | |
-| **Design/Engineering (8%)** | $769,000 | ±20% | Architect, structural, civil coordination |
-| **Contingency (15%)** | $1,557,000 | ±30% | BOD stage, pre-final structural design |
-| **TOTAL BUILDING CONSTRUCTION** | **$11,939,000** | **±25%** | **Shell + core only (excludes MEP/IT systems)** |
+| **Foundation & Slab** | $2,280,000 | ±25% | 38,000 SF @ $60/SF; upgraded for 750 PSF AI rack loads, FF 50/FL 40 |
+| **Precast Tilt-Up Walls** | $4,200,000 | ±25% | ~50,000 SF @ $84/SF; 8-10" insulated panels, tornado-rated construction |
+| **Structural Steel Roof Frame** | $2,660,000 | ±23% | Enhanced clear-span joists/beams for 30 ft clear + FM 1-150 loads |
+| **FM 1-150 Roof + Debris Protection** | $2,400,000 | ±25% | 50,000 SF @ $48/SF; TPO membrane, insulation, debris screen, enhanced fastening |
+| **Multi-Level Central Spine Structure** | $3,500,000 | ±27% | 3-level structure (NOC level 2, fitness level 3, roof access), stairs, steel framing |
+| **Elevator (4-stop with roof access)** | $600,000 | ±20% | Heavy-duty traction, 3,500 lb capacity, 4 stops including roof, weather protection |
+| **Doors, Windows, Glazing** | $1,200,000 | ±30% | Security mantrap, 4 large equipment doors per hall (10'H × 8'W), standard doors, glazing |
+| **Interior Finishes (Enhanced)** | $3,000,000 | ±27% | Data halls, offices, NOC, fitness area, break rooms, restrooms, sealed concrete, drywall, paint, acoustic ceilings |
+| **Building HVAC (Office/Support)** | $1,500,000 | ±30% | Rooftop units for offices, NOC, support spaces (separate from data hall HVAC in Div 23) |
+| **Plumbing (Domestic/Sanitary)** | $650,000 | ±27% | Restrooms, break rooms, showers, domestic water, sanitary drainage (data hall cooling in Div 23) |
+| **FEMA 361 Storm Shelter** | $150,000 | ±25% | Prefab module, 20-person capacity, EF5-rated, HVAC, emergency lighting |
+| **Subtotal (Direct Costs)** | **$22,140,000** | **±27%** | |
 
-**Cost per SF:** ~$314/SF (38,000 SF building) — Premium vs. standard DC due to tornado hardening (precast + FM 1-150 roof)
+### Professional Services
+
+| Item | Cost Estimate | Confidence | Notes |
+|------|---------------|------------|-------|
+| **Architectural & Engineering (7%)** | $1,550,000 | ±20% | Architect, structural, envelope consultant, specifications |
+| **Subtotal** | **$23,690,000** | **±27%** | |
+| **TOTAL BUILDING CONSTRUCTION** | **$23,690,000** | **±27%** | **Shell + core + interior fit-out (excludes MEP data hall systems in other divisions)** |
+
+**Cost per SF:** $623/SF (38,000 SF building)
+**Cost per kW (IT Load):** $1,077/kW (22 MW)
+**Industry Benchmark:** $900-$1,400/kW for AI-ready, tornado-hardened facilities
+
+**Note on Cost Increase:**
+Previous estimate of $314/SF was significantly below market for tornado-hardened construction with multi-level spine and comprehensive interior fit-out. Industry standards for comparable facilities range $550-$700/SF in non-coastal markets.
 
 ---
 

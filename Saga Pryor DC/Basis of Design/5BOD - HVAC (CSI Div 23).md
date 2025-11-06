@@ -501,27 +501,47 @@ Critical system for protecting IT equipment from water/glycol damage. All chille
 
 **COST SUMMARY BY CATEGORY**
 
+### Air-Side Cooling Systems
+
 | Category                               | Cost            | Certainty | Notes                                                               |
 | -------------------------------------- | --------------- | --------- | ------------------------------------------------------------------- |
 | **Chillers (L2C + RDHx)**              | $6,300,000      | 60%       | 18 total units @ 1,500 kW each (12 L2C + 6 RDHx)                    |
 | **Glycol Systems**                     | $151,500        | 73%       | Bulk glycol, mix tanks, fill stations, dosing                       |
-| **Piping & Distribution**              | $1,872,200      | 61%       | Primary/secondary piping, valves, tanks, separators                 |
+| **Piping & Distribution (Primary)**    | $1,872,200      | 61%       | Primary/secondary piping, valves, tanks, separators                 |
 | **Leak Detection**                     | $245,000        | 73%       | Sensing cable, spot detectors, control panels                       |
 | **Data Hall Environmental**            | $388,000        | 61%       | DOAS units + humidification                                         |
-| **Support Space HVAC**                 | $300,000        | 68%       | RTUs + mechanical room cooling                                      |
+| **Support Space HVAC**                 | $300,000        | 68%       | RTUs + mechanical room cooling (included in Div 02-14)              |
 |                                        |                 |           |                                                                     |
-| **SUBTOTAL - EQUIPMENT & MATERIALS**   | **$9,256,700**  |           | Total equipment + materials (excluding liquid cooling distribution) |
-| **Installation Labor**                 | $3,702,680      | 60%       | 40% of equipment cost (industry standard)                           |
-| **Engineering & Commissioning**        | $925,670        | 65%       | 10% of installed cost (design, startup, TAB)                        |
-| **Contingency**                        | $1,388,505      | N/A       | 15% contingency (BOD phase uncertainty)                             |
-|                                        |                 |           |                                                                     |
-| **TOTAL MECHANICAL SYSTEMS (PHASE 4)** | **$15,273,555** | **~65%**  | ROM estimate - excludes liquid cooling distribution                 |
+| **Subtotal - Air-Side Systems**        | **$9,256,700**  |           | Chilled water plant, primary distribution, data hall environment    |
 
-**COST NOTES:**
+### Liquid Cooling Distribution (NOW INCLUDED)
 
-| Category                        | Cost  | Notes                                                                                                                                                                                      |
-| ------------------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Liquid Cooling Distribution** | ~$30M | CDUs (324 units) + RDHx units (232 units)<br><br>We've stripped these out of the total as the expenses will be incurred based on client-specific requirements at the time of their signup. |
+| Category                                    | Cost            | Certainty | Notes                                                                     |
+| ------------------------------------------- | --------------- | --------- | ------------------------------------------------------------------------- |
+| **CDU Units (L2C Racks)**                   | $16,200,000     | 65%       | 324 units (A/B redundancy) @ $50K each for 162 L2C racks                  |
+| **RDHx Units (Rear-Door Heat Exchangers)**  | $6,960,000      | 65%       | 232 units @ $30K each for 232 RDHx racks                                  |
+| **Secondary Loop Piping & Manifolds**       | $4,500,000      | 60%       | Overhead manifolds, quick-disconnects, stainless piping, dielectric fluid |
+| **CDU Pumps & Controls**                    | $1,620,000      | 65%       | Secondary pumps, expansion tanks, PLCs, leak detection integration        |
+| **Cold Plates & Rack Integration**          | $720,000        | 55%       | Cold plates for high-density GPU servers (162 L2C racks)                  |
+|                                             |                 |           |                                                                           |
+| **Subtotal - Liquid Cooling Distribution**  | **$30,000,000** |           | Full liquid cooling infrastructure for 394 racks                          |
+
+### Project Totals
+
+| Category                                | Cost            | Certainty | Notes                                                  |
+| --------------------------------------- | --------------- | --------- | ------------------------------------------------------ |
+| **Subtotal - Equipment & Materials**    | **$39,256,700** |           | Air-side + liquid cooling equipment                    |
+| **Installation Labor**                  | $15,702,680     | 60%       | 40% of equipment cost (industry standard)              |
+| **Engineering & Commissioning**         | $5,495,938      | 65%       | 10% of installed cost (design, startup, TAB, Cx)       |
+| **Contingency**                         | $6,046,532      | N/A       | 15% contingency (BOD phase uncertainty)                |
+|                                         |                 |           |                                                        |
+| **TOTAL MECHANICAL SYSTEMS (PHASE 4)**  | **$66,501,850** | **~65%**  | ROM estimate - **INCLUDES liquid cooling distribution** |
+
+**Cost per kW (IT Load):** $3,023/kW (22 MW)
+**Industry Benchmark:** $1,000-$2,000/kW for air-cooled DCs; $2,000-$4,000/kW with comprehensive liquid cooling
+
+**DECISION:**
+Liquid cooling distribution (CDUs/RDHx) is **NOW INCLUDED** in base CAPEX. This reflects the AI-optimized design with 162 high-density L2C racks (100 kW each) and 232 medium-density RDHx racks (25 kW each). These systems are essential infrastructure required before any customer deployment.
 
 
 

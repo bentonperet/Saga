@@ -325,14 +325,19 @@ This document provides a comprehensive equipment list and cost analysis for the 
 
 | Item | Specification | Qty | Unit Cost | Extended Cost | +/- % | Certainty | Notes |
 |------|--------------|-----|-----------|---------------|-------|-----------|-------|
-| **Testing, Commissioning & Startup** | Comprehensive commissioning services including FAT, SAT, IST, and Tier III certification | 1 LS | $1,500,000 | $1,500,000 | ±20% | 70% | Placeholder for detailed commissioning plan. See commissioning planning notes below. |
+| **Independent Commissioning Agent (CxA)** | Full facility electrical systems commissioning from design through completion | 1 LS | $2,000,000 | $2,000,000 | ±20% | 75% | CxA services: design review, FAT witness, SAT oversight, IST coordination, final report. Typically 2.5-3% of electrical cost. |
+| **Factory Acceptance Testing (FAT)** | Witness testing at manufacturer facilities for major equipment | 1 LS | $300,000 | $300,000 | ±25% | 70% | Travel/testing for generators, UPS, transformers, switchgear |
+| **Site Acceptance Testing (SAT)** | On-site testing after installation | 1 LS | $400,000 | $400,000 | ±20% | 75% | Functional testing of all systems as installed |
+| **Integrated Systems Testing (IST)** | Full facility load testing and validation | 1 LS | $250,000 | $250,000 | ±25% | 70% | Load bank testing, generator paralleling, UPS transfer, failover scenarios |
+| **Uptime Institute Tier III Certification** | Third-party certification process | 1 LS | $350,000 | $350,000 | ±20% | 80% | Design review, construction oversight, final certification |
 
 **Commissioning Planning:**
-- Hire independent commissioning agent (CxA) at design phase
-- Plan for Uptime Institute Tier III certification process (adds $200K-$400K to commissioning costs)
-- Total commissioning investment includes FAT, SAT, IST, and Tier III certification
+- Independent CxA hired during design phase for continuous oversight
+- Comprehensive testing at factory, site installation, and integrated systems levels
+- Tier III certification validates concurrent maintainability and redundancy
+- Total commissioning investment: ~4% of electrical infrastructure cost (industry standard: 2-5%)
 
-**Subtotal - Testing & Commissioning:** $1,500,000
+**Subtotal - Testing & Commissioning:** $3,300,000
 
 ---
 
@@ -342,9 +347,12 @@ This document provides a comprehensive equipment list and cost analysis for the 
 
 | Item                            | Specification                                 | Qty | Unit Cost  | Extended Cost | +/- % | Certainty | Notes                                                                                                                                                        |
 | ------------------------------- | --------------------------------------------- | --- | ---------- | ------------- | ----- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Electrical Design (EE Firm)** | Detailed design, specifications, calculations | 1   | $1,500,000 | $1,500,000    | ±20%  | 75%       | Full design package: MV/LV distribution, one-lines, panel schedules, lighting, grounding, arc flash, coordination studies. Includes permitting coordination. |
+| **Electrical Design (EE Firm)** | Detailed design, specifications, calculations | 1   | $2,100,000 | $2,100,000    | ±20%  | 75%       | Full design package: MV/LV distribution, one-lines, panel schedules, lighting, grounding, arc flash, coordination studies. Includes permitting coordination. Self-healing MV ring adds design complexity. |
+| **Specialty Consultants** | Substation, SCADA, utility coordination | 1   | $750,000 | $750,000    | ±25%  | 70%       | 161 kV substation design, SCADA programming, utility interconnection engineering, relay coordination |
+| **Value Engineering** | Design optimization and cost reduction studies | 1   | $250,000 | $250,000    | ±25%  | 75%       | Post-30% and post-60% design reviews to optimize costs |
+| **Owner's Electrical Consultant** | Independent design review and oversight | 1   | $300,000 | $300,000    | ±20%  | 80%       | Third-party design review, constructability review, QA/QC |
 
-**Subtotal - Engineering:** $1,500,000
+**Subtotal - Engineering:** $3,400,000
 
 ---
 
@@ -402,21 +410,21 @@ This document provides a comprehensive equipment list and cost analysis for the 
 | **13.0 Lighting**                     | $216,375        | 0.3%       |
 | **14.0 BMS Integration**              | $208,750        | 0.3%       |
 | **15.0 Telecom (Electrical)**         | $123,000        | 0.2%       |
-| **16.0 Testing & Commissioning**      | $1,500,000      | 2.0%       |
-| **17.0 Engineering & Design**         | $1,500,000      | 2.0%       |
-| **18.0 Labor & Installation**         | $17,825,000     | 23.6%      |
-| **Subtotal (Before Contingency)**     | **$67,086,385** | **88.9%**  |
-| **19.0 Contingency (12.5% combined)** | $8,385,798      | 11.1%      |
-| **TOTAL ESTIMATED COST**              | **$75,472,183** | **100%**   |
+| **16.0 Testing & Commissioning**      | $3,300,000      | 4.0%       |
+| **17.0 Engineering & Design**         | $3,400,000      | 4.1%       |
+| **18.0 Labor & Installation**         | $17,825,000     | 21.4%      |
+| **Subtotal (Before Contingency)**     | **$70,786,385** | **85.0%**  |
+| **19.0 Contingency (12.5% combined)** | $12,513,815     | 15.0%      |
+| **TOTAL ESTIMATED COST**              | **$83,300,200** | **100%**   |
 
 ### 20.2 Cost Per MW Analysis
 
 | Metric | Value | Notes |
 |--------|-------|-------|
-| **Cost per MW (IT Load)** | $3,430,554 / MW | Based on 22 MW IT load |
-| **Cost per MW (Facility Load)** | $2,541,556 / MW | Based on 29.7 MW total facility load |
-| **Cost per kW (IT Load)** | $3,431 / kW | Industry benchmark: $3,500-$6,000/kW for electrical |
-| **Cost per Rack** | $191,553 / rack | Based on 394 racks total (162 L2C + 232 RDHx) |
+| **Cost per MW (IT Load)** | $3,786,373 / MW | Based on 22 MW IT load |
+| **Cost per MW (Facility Load)** | $2,804,719 / MW | Based on 29.7 MW total facility load |
+| **Cost per kW (IT Load)** | $3,786 / kW | Industry benchmark: $3,500-$5,000/kW for electrical |
+| **Cost per Rack** | $211,421 / rack | Based on 394 racks total (162 L2C + 232 RDHx) |
 
 ### 20.3 Industry Benchmark Validation
 

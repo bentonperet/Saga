@@ -361,21 +361,24 @@ TBD
 
 ### Executive Summary
 
-| System                              | Subtotal       | Confidence | Notes                                                |
-| ----------------------------------- | -------------- | ---------- | ---------------------------------------------------- |
-| **Data Hall Preaction Sprinkler**   | $485,000       | ±20%       | 20,000 SF, ESFR heads, 6 zones                       |
-| **VESDA Detection System**          | $165,000       | ±15%       | Both data halls, 20 sampling points                  |
-| **Fire Alarm System**               | $195,000       | ±20%       | Addressable, 38,000 SF facility                      |
-| **Wet Pipe Sprinkler (Support)**    | $185,000       | ±20%       | 18,000 SF office/mechanical spaces                   |
-| **E-House Suppression**             | Included       | N/A        | Factory-integrated in E-house package                |
-| **Fire Water Service**              | $145,000       | ±15%       | Municipal connection, hydrants, backflow             |
-| **Portable Extinguishers**          | $22,000        | ±10%       | 32 units, various types mounting, sinage, inspection |
-| **Emergency Lighting & Exit Signs** | $85,000        | ±20%       | 38,000 SF facility coverage                          |
-| **Testing & Commissioning**         | $95,000        | ±15%       | System acceptance, training                          |
-| **Subtotal (Direct Costs)**         | **$1,377,000** |            |                                                      |
-| **Design/Engineering (10%)**        | $138,000       |            | FP engineering, shop drawings                        |
-| **Contingency (15%)**               | $227,000       |            | Phase 4 design stage allowance                       |
-| **TOTAL PROJECT COST**              | **$1,742,000** |            | **Range: $1.43M - $2.06M**                           |
+| System                               | Subtotal       | Confidence | Notes                                                |
+| ------------------------------------ | -------------- | ---------- | ---------------------------------------------------- |
+| **Data Hall Preaction Sprinkler**    | $1,200,000     | ±20%       | 20,000 SF @ $60/SF, ESFR heads, 6 zones, enhanced coverage |
+| **VESDA Detection System**           | $480,000       | ±15%       | Both data halls + support spaces, 40 sampling points, redundant panels |
+| **Fire Alarm System (Comprehensive)** | $1,200,000    | ±20%       | Dual redundant panels, 350 detectors, 150 notification devices, 38,000 SF, full integration |
+| **Wet Pipe Sprinkler (Support)**     | $680,000       | ±20%       | 18,000 SF office/mechanical spaces @ $38/SF          |
+| **E-House Clean Agent Suppression**  | $240,000       | ±20%       | 2 × E-Houses (3,640 SF each), Novec 1230, cross-zoned detection |
+| **Fire Water Service & Distribution** | $450,000      | ±15%       | Municipal connection, fire pump, hydrants, backflow, underground distribution |
+| **Portable Extinguishers & Cabinets** | $55,000       | ±10%       | 75 units, various types, recessed cabinets, signage, annual inspection |
+| **Emergency Lighting & Egress**      | $550,000       | ±20%       | 38,000 SF facility, generator-backed, LED fixtures, photoluminescent signage |
+| **Testing & Commissioning**          | $350,000       | ±15%       | Full system acceptance, integrated testing, NFPA compliance, training |
+| **Subtotal (Direct Costs)**          | **$5,205,000** |            |                                                      |
+| **Design/Engineering (10%)**         | $520,500       |            | Fire protection engineering, hydraulic calcs, NFPA review, shop drawings |
+| **Contingency (15%)**                | $858,825       |            | Phase 4 design stage allowance                       |
+| **TOTAL PROJECT COST**               | **$6,584,325** |            | **Range: $5.6M - $7.6M**                             |
+
+**Cost per kW (IT Load):** $299/kW (22 MW)
+**Industry Benchmark:** $150-$300/kW for Tier III fire protection
 
 
 ---

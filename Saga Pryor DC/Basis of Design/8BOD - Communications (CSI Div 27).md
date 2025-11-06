@@ -254,21 +254,49 @@ Central location for facility network equipment (not customer equipment). Houses
 
 ## COST SUMMARY
 
+### Telecommunications Infrastructure
+
 | System | Cost Estimate | Confidence | Range |
 |--------|---------------|------------|-------|
-| **Fiber Conduit Infrastructure (Dual Entry)** | $300,000 | ±33% | $200-400K |
-| **MPOE-1 Fit-Out (Racks, Power, Cooling)** | $225,000 | ±33% | $150-300K |
-| **MPOE-2 Fit-Out (Racks, Power, Cooling)** | $225,000 | ±33% | $150-300K |
-| **MDA Fit-Out (Core Switches, Racks)** | $150,000 | ±33% | $100-200K |
-| **Fiber Backbone (MDA to Data Halls, MPOEs)** | $150,000 | ±33% | $100-200K |
-| **Structured Cabling (Overhead, Cabinets)** | $300,000 | ±33% | $200-400K |
-| **Grounding & Bonding (TMGB, TBB)** | $75,000 | ±33% | $50-100K |
-| **Cross-Connect Infrastructure** | $75,000 | ±33% | $50-100K |
-| **Total Communications Infrastructure** | **$1,500,000** | **±33%** | **$1.0-2.0M** |
+| **Fiber Conduit Infrastructure (Dual Entry)** | $300,000 | ±30% | $210-390K |
+| **MPOE-1 Fit-Out (Racks, Power, Cooling)** | $400,000 | ±30% | $280-520K |
+| **MPOE-2 Fit-Out (Racks, Power, Cooling)** | $400,000 | ±30% | $280-520K |
+| **MDA Fit-Out (Core Switches, Firewall, Racks)** | $600,000 | ±30% | $420-780K |
+| **Fiber Backbone (Dual Ring, Redundant)** | $450,000 | ±30% | $315-585K |
+| **Structured Cabling (394 Racks × 2 Fiber Pairs)** | $1,200,000 | ±30% | $840K-1.56M |
+| **Grounding & Bonding (TMGB, TBB)** | $150,000 | ±25% | $112-188K |
+| **Cross-Connect Infrastructure** | $200,000 | ±30% | $140-260K |
+| **Subtotal - Telecom Infrastructure** | **$3,700,000** |  |  |
+
+### IT Infrastructure & Monitoring
+
+| System | Cost Estimate | Confidence | Range |
+|--------|---------------|------------|-------|
+| **DCIM Software Platform** | $2,000,000 | ±30% | $1.4-2.6M |
+| **Environmental Monitoring Sensors** | $350,000 | ±25% | $262-438K |
+| **Power Monitoring Integration** | $450,000 | ±25% | $338-562K |
+| **Asset Tracking Systems** | $300,000 | ±30% | $210-390K |
+| **Security Monitoring Network** | $1,500,000 | ±25% | $1.12-1.88M |
+| **BMS Network Infrastructure** | $800,000 | ±25% | $600K-1.0M |
+| **Facility Operations Network** | $1,200,000 | ±30% | $840K-1.56M |
+| **Subtotal - IT Infrastructure** | **$6,600,000** |  |  |
+
+### Project Totals
+
+| Category | Cost Estimate | Confidence | Notes |
+|----------|---------------|------------|-------|
+| **Subtotal (Equipment & Materials)** | $10,300,000 | ±30% | Telecom + IT infrastructure |
+| **Engineering & Commissioning (8%)** | $824,000 | ±25% | Design, integration, testing |
+| **Contingency (15%)** | $1,686,000 | ±30% | BOD phase uncertainty |
+| **TOTAL COMMUNICATIONS & IT** | **$12,810,000** | **±30%** | **Range: $9.0-16.6M** |
+
+**Cost per kW (IT Load):** $582/kW (22 MW)
+**Industry Benchmark:** $400-$600/kW for comprehensive DC IT infrastructure
 
 **Recurring Costs (OPEX):**
 - Carrier circuits: Varies by customer (customer-paid)
 - Cloud on-ramps: $500-5,000/month per connection (customer-paid)
+- DCIM software licenses: $100-200K/year (maintenance & support)
 
 ---
 
