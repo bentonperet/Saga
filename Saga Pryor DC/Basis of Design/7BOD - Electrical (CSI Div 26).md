@@ -32,66 +32,11 @@ The electrical backbone is a self-healing 13.8 kV dual-ring MV distribution with
 - **UPS Architecture:** N+1 modular UPS provides component redundancy (can lose one module), while the self-healing MV dual-ring provides path redundancy. This approach delivers Tier III concurrent maintainability with significantly lower CAPEX than traditional 2N UPS systems (~50% reduction in UPS module count).
 - **Concurrent Maintainability:** Self-healing dual-ring topology enables isolation of any transformer or ring segment for maintenance while maintaining full N+1 redundancy on alternate path. 8 RMU switchgear with automated SCADA controls ensure continuous operation during maintenance activities.
 - **Phasing Strategy:** All infrastructure (substation, generator pads, PDM pads, electrical yard, conduit rough-in) shall be designed and built for the 30 MW full build-out from day 1. Capital equipment (generators, transformers, UPS modules, mechanical UPS) will be purchased and commissioned in phases to match IT load growth.
-- **Prefabricated Construction:** Prefabricated Power Delivery Modules (PDMs) containing LV switchboards, UPS systems, battery cabinets, and distribution panels provide 8-12 week schedule acceleration and factory-tested quality.
 
 ## 2.0 UTILITY SERVICE & SUBSTATION
 
 ### 2.1 System Topology
-
-The following diagram illustrates the overall electrical system architecture, showing the dual-path (A/B) power distribution from utility service through the 13.8 kV dual-ring to the data center loads:
-
-```
-                     UTILITY GRID (Kamo Power Electric Co-op)
-                              │
-        ┌─────────────────────┴─────────────────────┐
-        │          161 kV TRANSMISSION              │
-        │       Revenue Metering @ HV Side          │
-        └───────────┬───────────────────┬───────────┘
-                    │                   │
-              [XFMR-SUB-A]        [XFMR-SUB-B]
-              35 MVA              35 MVA
-              161kV/13.8kV        161kV/13.8kV
-                    │                   │
-        ┌───────────┴───────────────────┴───────────┐
-        │      13.8 kV COMMON BUS (Dual-Ring)       │
-        │    ┌──────────────────────────────┐       │
-        │    │  RING A  │  │  RING B        │       │
-        │    │ (RMU-1A  │  │ RMU-1B)        │       │
-        │    │  RMU-2A  │  │ RMU-2B         │       │
-        │    │  RMU-3A  │  │ RMU-3B         │       │
-        │    │  RMU-4A  │  │ RMU-4B)        │       │
-        │    └──────────────────────────────┘       │
-        │                                            │
-        ├─── Generators: 9×4.0 MW @ 13.8 kV        │
-        ├─── Solar: 8+ MW DC (inverters @13.8kV)   │
-        ├─── BESS: 4-8 MWh (inverters @13.8kV)     │
-        └────────────────┬──────────────────────────┘
-                         │
-        ┌────────────────┴────────────────┐
-        │                                 │
-   [XFMR Bank A]                    [XFMR Bank B]
-   13.8kV/480V                      13.8kV/480V
-   (N+1 transformers)               (N+1 transformers)
-        │                                 │
-    [SWBD-A]                          [SWBD-B]
-        │                                 │
-        └────────────┬────────────────────┘
-                     │
-              [UPS Modules]
-             23×1,250 kVA (N+1)
-             22 MW IT capacity
-                     │
-        ┌────────────┴────────────────┐
-        │                             │
-   [Panel-A]                      [Panel-B]
-        │                             │
-        └────────────┬────────────────┘
-                     │
-              ┌──────┴──────┐
-              │   RACK      │
-              │ [PDU-A] [PDU-B] │
-              └─────────────┘
-```
+See the SLD Document for more details.
 
 ### 2.2 Utility Interconnection
 
@@ -106,7 +51,6 @@ The following diagram illustrates the overall electrical system architecture, sh
 - **Configuration:** Customer-owned and maintained substation constructed on-site
 - **Metering:** Utility revenue-grade metering at transmission voltage point of interconnection
 - **Capacity:** 35 MVA minimum service capacity
-- **Protection:** Distance relay, differential protection, overcurrent per utility interconnection standards
 
 ### 2.3 Substation Transformers
 
@@ -130,33 +74,8 @@ A 13.8 kV "common bus" infrastructure serves as the single voltage platform for 
 
 ### 3.2 MV Dual-Ring Topology
 
-The following diagram shows the self-healing 13.8 kV dual-ring architecture with 8 RMU switchgear and A/B transformer bank connections:
-
-```
-    SUBSTATION XFMR-A (35 MVA)    SUBSTATION XFMR-B (35 MVA)
-              │                              │
-    ┌─────────┴────────┐         ┌──────────┴─────────┐
-    │                  │         │                    │
-┌───┴───┐          ┌───┴───┐ ┌───┴───┐          ┌───┴───┐
-│RMU-1A │══════════│RMU-2A │ │RMU-1B │══════════│RMU-2B │
-└───┬───┘  RING A  └───┬───┘ └───┬───┘  RING B  └───┬───┘
-    │                  │         │                    │
-  [XFMR-A1]        [XFMR-A2]  [XFMR-B1]          [XFMR-B2]
-  13.8kV/480V      13.8kV/480V 13.8kV/480V       13.8kV/480V
-    │                  │         │                    │
-┌───┴───┐          ┌───┴───┐ ┌───┴───┐          ┌───┴───┐
-│RMU-3A │══════════│RMU-4A │ │RMU-3B │══════════│RMU-4B │
-└───┬───┘          └───┬───┘ └───┬───┘          └───┬───┘
-    │                  │         │                    │
-  [XFMR-A3]        [XFMR-A4]  [XFMR-B3]          [XFMR-B4]
-    │                  │         │                    │
-    └──────────────────┴─────────┴────────────────────┘
-                       │
-            ┌──────────┴──────────┐
-            │                     │
-        Generators (9×4MW)    Solar + BESS
-        @ 13.8 kV             @ 13.8 kV
-```
+The electrical flowchart diagram shows the self-healing 13.8 kV dual-ring architecture with 8 RMU switchgear and A/B transformer bank connections:
+[insert link]
 
 **Configuration:**
 - Two (2) independent 13.8 kV distribution rings (Ring A and Ring B)
@@ -191,7 +110,6 @@ The following diagram shows the self-healing 13.8 kV dual-ring architecture with
 | **Voltage**              | 13,800V ±5%, 3-phase, 60 Hz, 0.8 power factor                                                                         |
 | **Fuel**                 | Diesel, EPA Tier 4 Final (NOx < 0.67 g/bhp-hr)                                                                        |
 
-
 ### 4.3 Generator Yard Layout
 
 - **Location:** South side of building, electrical equipment yard
@@ -223,7 +141,6 @@ The following diagram shows the self-healing 13.8 kV dual-ring architecture with
 - **Path Redundancy:** Provided by MV dual-ring topology (Ring A / Ring B) with SCADA-controlled automated switching
 - **Component Redundancy:** Provided by N+1 UPS modules (can lose one module and continue operation)
 - **Topology:** The 22 MW IT load (Phase 4) will be protected by 23 UPS modules (22+1 for N+1) with power distributed via dual A/B paths to dual-corded IT equipment
-- **Tier III Compliance:** Meets Uptime Institute Tier III concurrent maintainability requirements through combination of N+1 UPS component redundancy and dual-path MV distribution
 
 ### 6.2 System Sizing (Phase 4)
 
@@ -237,15 +154,6 @@ The following diagram shows the self-healing 13.8 kV dual-ring architecture with
 ### 6.3 Path Redundancy Philosophy
 
 **Path diversity is provided by the 13.8 kV self-healing dual-ring MV distribution, not by duplicate UPS systems:**
-
-- **Path A:** `MV Ring A -> XFMRs-A -> SWBD-A -> UPS Modules (distributed) -> Panel-A -> Cabinet PDU-A`
-- **Path B:** `MV Ring B -> XFMRs-B -> SWBD-B -> UPS Modules (distributed) -> Panel-B -> Cabinet PDU-B`
-
-**Key Design Features:**
-- Dual-corded IT equipment receives power from both A and B paths, fed from different MV ring segments
-- Loss of any single MV ring segment, transformer, switchboard, or distribution path does not impact IT operations
-- UPS modules can be distributed across both paths or configured in a common pool with dual output distribution
-- Self-healing MV dual-ring automatically reconfigures power paths without human intervention during faults or maintenance
 
 **Concurrent Maintainability:**
 - Can isolate and maintain any MV ring segment via RMU switching while maintaining full N+1 UPS capacity on alternate path
@@ -298,13 +206,13 @@ The mechanical UPS system protects critical mechanical loads (chiller pumps, CDU
 
 **Configuration:** Dual switchboards for dual-path (A/B) distribution
 
-| Parameter | Specification |
-|-----------|---------------|
-| **Quantity** | Two (2): SWBD-A and SWBD-B |
-| **Rating** | 4,000A copper busbar, 480V, 3-phase, 4-wire |
-| **Short-Circuit** | 65 kA SCCR (Short-Circuit Current Rating) |
-| **Source** | SWBD-A fed from MV Ring A transformers; SWBD-B fed from MV Ring B transformers |
-| **Configuration** | Dual-path distribution: All critical loads served by both A and B paths |
+| Parameter         | Specification                                                                  |
+| ----------------- | ------------------------------------------------------------------------------ |
+| **Quantity**      | Two (2): SWBD-A and SWBD-B                                                     |
+| **Rating**        | 4,000A copper busbar, 480V, 3-phase, 4-wire                                    |
+| **Short-Circuit** | 65 kA SCCR (Short-Circuit Current Rating)                                      |
+| **Source**        | SWBD-A fed from MV Ring A transformers; SWBD-B fed from MV Ring B transformers |
+
 
 ### 8.2 Distribution Panels
 
@@ -357,162 +265,6 @@ Distributed UPS units (1-3 kVA, 10-15 min runtime) for NOC, security, and office
 <!-- @claude Remove this section and renumber -->
 
 
-## 12.0 PREFABRICATED E-HOUSES (ELECTRICAL HOUSES)
-
-### 12.1 Configuration
-
-**Quantity:** Two (2) outdoor, walk-in E-Houses for Phase 1-4 (one per 13.8 kV ring)
-
-**Dimensions:** Each E-House: **14' W × 260' L (3,640 SF)**
-
-**Function:** Each E-House contains one complete 13.8 kV distribution ring (Ring A or Ring B) plus all associated 480V power distribution equipment. The two E-Houses work together to provide dual-path (A/B) redundancy for all critical data center loads.
-
-**Location:** South side of building in electrical equipment yard, installed on concrete pads with underground duct banks for MV/LV connections to data halls and outdoor transformer pads.
-
-### 12.2 E-House Enclosure Specifications
-
-The E-House shall be a self-contained, walk-in steel enclosure meeting the following minimum requirements:
-
-| Parameter | Specification |
-|-----------|---------------|
-| **Structure** | Heavy-duty, NEMA 3R (or higher) weatherproof steel construction with insulated walls and roof |
-| **Width** | 14 ft (maximum highway shipping width - no oversized load permits required) |
-| **Length** | 260 ft (constructed from 6-7 connected modules, each 40-50 ft long) |
-| **Floor Area** | 3,640 SF per E-House |
-| **Height (Interior)** | 14 ft clear height minimum for equipment and cable tray overhead routing |
-| **Ceiling** | Insulated metal deck with integrated cable tray support structure |
-| **Climate Control** | Integrated redundant HVAC systems (heating and cooling) to maintain stable internal operating temperature (68-77°F) and humidity (40-60% RH) for all electrical equipment |
-| **Safety & Access** | Integrated clean agent fire suppression (Novec 1230 or FM-200), interior/exterior LED lighting, emergency exits, personnel access doors (36" min) meeting all applicable codes, ADA-compliant ramps |
-| **Monitoring** | Integrated Building Management System (BMS) connection for HVAC status, temperature/humidity alarms, fire alarm, door access, and environmental monitoring |
-| **Finish** | Exterior: Field-applied industrial coating in facility standard color; Interior: White epoxy-coated walls and sealed concrete floor |
-| **Grounding** | Integrated grounding grid bonded to facility ground grid per IEEE 142 |
-
-### 12.3 E-House A (Ring A) - Integrated Electrical Equipment
-
-E-House A shall be factory-built and tested with the following equipment pre-installed, wired, and integrated:
-
-**13.8 kV Medium Voltage Gear:**
-- 4 × RMUs (Ring Main Units): RMU-1A, RMU-2A, RMU-3A, RMU-4A (13.8 kV, 630A, SF6 or vacuum breakers)
-- MV cable terminations for Ring A connections to transformers, generators, substation
-- Integrated SCADA controls for self-healing ring operation
-
-**480V Low Voltage Gear:**
-- 1 × Main Switchboard A (SWBD-A): 4,000A, 480V, 3-phase, 4-wire, 65 kA SCCR
-- 4 × Distribution Panels: IT Dist A, Mech Dist 1A, Mech Dist 2A, UPS Dist A
-
-**IT UPS System A:**
-- Phase 1: 2 × 1,250 kVA modular UPS units + 2 battery cabinets
-- Phase 4 (ultimate): 12 × 1,250 kVA modular UPS units + 12 battery cabinets (Li-Ion)
-- Reserved space and pre-installed conduit stubs for Phases 2-4 equipment additions
-
-**Mechanical UPS System A:**
-- Phase 1: 4 × 250 kW modular static UPS units
-- Phase 4 (ultimate): 11 × 250 kW modular static UPS units
-- Reserved space for Phases 2-4 equipment additions
-
-**Support Systems:**
-- Clean agent fire suppression (Novec 1230 or FM-200) sized for 3,640 SF @ 14' height (~51,000 cubic feet)
-- Redundant HVAC systems (roof-mounted, factory-installed)
-- BMS/SCADA control panels and monitoring equipment
-- Interior/exterior LED lighting with emergency backup
-- All associated system controls, monitoring, and safety interlocks
-
-### 12.4 E-House B (Ring B) - Integrated Electrical Equipment
-
-E-House B shall be factory-built and tested with the following equipment pre-installed, wired, and integrated:
-
-**13.8 kV Medium Voltage Gear:**
-- 4 × RMUs (Ring Main Units): RMU-1B, RMU-2B, RMU-3B, RMU-4B (13.8 kV, 630A, SF6 or vacuum breakers)
-- MV cable terminations for Ring B connections to transformers, generators, substation
-- Integrated SCADA controls for self-healing ring operation
-
-**480V Low Voltage Gear:**
-- 1 × Main Switchboard B (SWBD-B): 4,000A, 480V, 3-phase, 4-wire, 65 kA SCCR
-- 4 × Distribution Panels: IT Dist B, Mech Dist 1B, Mech Dist 2B, UPS Dist B
-
-**IT UPS System B:**
-- Phase 1: 2 × 1,250 kVA modular UPS units + 2 battery cabinets
-- Phase 4 (ultimate): 11 × 1,250 kVA modular UPS units + 11 battery cabinets (Li-Ion)
-- Reserved space and pre-installed conduit stubs for Phases 2-4 equipment additions
-
-**Mechanical UPS System B:**
-- Phase 1: 4 × 250 kW modular static UPS units
-- Phase 4 (ultimate): 11 × 250 kW modular static UPS units
-- Reserved space for Phases 2-4 equipment additions
-
-**Support Systems:**
-- Clean agent fire suppression (Novec 1230 or FM-200) sized for 3,640 SF @ 14' height (~51,000 cubic feet)
-- Redundant HVAC systems (roof-mounted, factory-installed)
-- BMS/SCADA control panels and monitoring equipment
-- Interior/exterior LED lighting with emergency backup
-- All associated system controls, monitoring, and safety interlocks
-
-### 12.5 LV Transformer Yard (Separate from E-Houses)
-
-**Configuration:** 11 × 3.5 MVA LV transformers (13.8kV/480V) located on outdoor concrete pads adjacent to E-Houses
-
-**Transformer Allocation:**
-- Ring A Transformers: 6 units on pads adjacent to E-House A
-- Ring B Transformers: 5 units on pads adjacent to E-House B
-
-**Transformer Specifications:**
-- Rating: 3,500 kVA / 3.15 MW @ 0.9 power factor
-- Voltage: 13,800V delta primary / 480Y/277V secondary
-- Type: Oil-filled, ONAN cooling (Oil Natural, Air Natural)
-- Outdoor-rated enclosure with weatherproof construction
-
-**Transformer Pads:**
-- Reinforced concrete pads sized for transformer + oil containment
-- Oil containment per EPA SPCC requirements (110% of transformer oil volume)
-- Gravel-filled containment with oil-water separator
-- MV/LV conduit stubs to E-Houses via underground duct banks
-
-**Fire Protection:**
-- Portable fire extinguishers (Class C electrical) at transformer yard
-- No fixed fire suppression required for outdoor transformers
-
-### 12.6 Phasing Strategy
-
-**Phase 1 Delivery:**
-- Both E-House A and E-House B delivered complete (full 14' × 260' structures)
-- E-Houses arrive factory-tested with Phase 1 equipment pre-installed
-- Reserved space and conduit stubs for future equipment pre-configured
-- Installation: Set on prepared pads, connect to duct banks, startup/commission
-
-**Phases 2-4 Expansion:**
-- Equipment added to reserved spaces within existing E-Houses
-- No additional E-House modules or building envelope modifications required
-- UPS modules, battery cabinets, and mechanical UPS added incrementally
-- Electrical connections made to pre-installed conduit stubs and bus bars
-
-**Advantages of Full E-House Delivery at Phase 1:**
-- No future crane mobilizations or E-House building additions
-- Clean equipment expansion without weather exposure
-- Cost certainty: Fixed E-House cost at Phase 1, variable equipment cost in later phases
-- Simplified commissioning: Factory-tested building envelope
-
-### 12.7 Benefits
-
-**Factory Testing & Quality:**
-- Complete E-House system factory-tested and commissioned before shipment, reducing field commissioning risk
-- Factory acceptance testing (FAT) includes: Hi-pot testing, insulation resistance, protective relay settings, control system functional testing, fire suppression pre-action test
-- Factory environment provides controlled conditions for assembly, wiring, and testing - higher quality than field construction
-
-**Schedule Acceleration:**
-- 8-12 week schedule acceleration vs. traditional stick-built electrical buildings
-- E-Houses manufactured in parallel with site civil/foundation work
-- Delivery and installation: 2-3 weeks (vs. 6-9 months for stick-built)
-
-**Cost Certainty:**
-- Fixed, predictable cost from single vendor
-- Minimizes risk of on-site labor or weather-related cost overruns
-- Eliminates multi-trade coordination (electrical, HVAC, fire suppression all integrated)
-
-**Simplified Field Installation:**
-- Pre-wired and pre-tested E-Houses require only MV/LV connections and startup
-- Reduces field labor by 30-40% vs. traditional construction
-- Underground duct banks installed before E-House delivery with alignment to floor penetrations
-
 
 ---
 
@@ -522,112 +274,7 @@ Electrical infrastructure designed for 30 MW (Phase 4), with equipment added in 
 
 ---
 
-### 13.1 PHASE 1: 3 MW IT LOAD (30 L2C RACKS)
-
-**Rack Deployment:** 30 racks × L2C @ 100 kW = 3,000 kW IT load
-
-**Load Summary:**
-
-| Load Type | Power (kW) | Description |
-|-----------|------------|-------------|
-| **IT Load** | 3,000 | 30×L2C racks @ 100 kW each |
-| **Mechanical** | 840 | Loop 3 chillers, pumps, CDUs (L2C cooling only) |
-| **Building** | 360 | HVAC, lighting, NOC, security, house loads |
-| **Total Facility Load** | **~4,350 kW** | **PUE 1.45** |
-
-**Electrical Infrastructure:**
-
-| Equipment           | Quantity  | Sizing Notes                                                      |
-| ------------------- | --------- | ----------------------------------------------------------------- |
-| **Generators**      | 3×4.0 MW  | N+1 for 4.35 MW (2 running = 8 MW capacity, 84% margin)           |
-| **LV Transformers** | 3×3.5 MVA | N+1 for 4.35 MW (2 running = 7 MVA capacity, 45% margin)          |
-| **IT UPS Modules**  | 4 × 1,250 kVA | N+1 for 3 MW IT load (3+1 modules @ ~80% loading) |
-| **Mechanical UPS**  | 8×250 kW  | N+1 for 840 kW mechanical load (7 running = 1,750 kW)             |
-
----
-
-### 13.2 PHASE 2: 6 MW IT LOAD (150 TOTAL RACKS)
-
-**Rack Deployment:**
-- 30 racks × L2C @ 100 kW = 3,000 kW
-- 120 racks × RDHx @ 25 kW = 3,000 kW
-- **Total: 150 racks = 6,000 kW IT load**
-
-**Load Summary:**
-
-| Load Type | Power (kW) | Description |
-|-----------|------------|-------------|
-| **IT Load** | 6,000 | 3 MW L2C + 3 MW RDHx |
-| **Mechanical** | 1,350 | All 3 cooling loops operational |
-| **Building** | 360 | Building systems unchanged |
-| **Total Facility Load** | **~8,700 kW** | **PUE 1.45** |
-
-**Electrical Infrastructure:**
-
-| Equipment | Phase 2 Total | Add from Phase 1 | Sizing Notes |
-|-----------|---------------|------------------|--------------|
-| **Generators** | 4×4.0 MW | Add 1 unit | N+1 for 8.7 MW (3 running = 12 MW capacity, 38% margin) |
-| **LV Transformers** | 4×3.5 MVA | Add 1 unit | N+1 for 8.7 MW (3 running = 10.5 MVA capacity, 9% margin) |
-| **IT UPS Modules** | 7 × 1,250 kVA | Add 3 modules | N+1 for 6 MW IT load (6+1 modules @ ~86% loading) |
-| **Mechanical UPS** | 12×250 kW | Add 4 modules | N+1 for 1,350 kW |
-
----
-
-### 13.3 PHASE 3: 15 MW IT LOAD (285 TOTAL RACKS)
-
-**Rack Deployment:**
-- 105 racks × L2C @ 100 kW = 10,500 kW
-- 180 racks × RDHx @ 25 kW = 4,500 kW
-- **Total: 285 racks = 15,000 kW IT load**
-
-**Load Summary:**
-
-| Load Type | Power (kW) | Description |
-|-----------|------------|-------------|
-| **IT Load** | 15,000 | 10.5 MW L2C + 4.5 MW RDHx |
-| **Mechanical** | 3,000 | All loops scaled for higher capacity |
-| **Building** | 450 | Building systems at operational capacity |
-| **Total Facility Load** | **~20,250 kW** | **PUE 1.35** |
-
-**Electrical Infrastructure:**
-
-| Equipment | Phase 3 Total | Add from Phase 2 | Sizing Notes |
-|-----------|---------------|------------------|--------------|
-| **Generators** | 7×4.0 MW | Add 3 units | N+1 for 20.25 MW (6 running = 24 MW capacity, 19% margin) |
-| **LV Transformers** | 8×3.5 MVA | Add 4 units | N+1 for 20.25 MW (7 running = 24.5 MVA capacity, 9% margin) |
-| **IT UPS Modules** | 16 × 1,250 kVA | Add 9 modules | N+1 for 15 MW IT load (15+1 modules @ ~94% loading) |
-| **Mechanical UPS** | 16×250 kW | Add 4 modules | N+1 for 3,000 kW |
-
----
-
-### 13.4 PHASE 4: 22 MW IT LOAD (394 TOTAL RACKS) - FULL BUILD-OUT
-
-**Rack Deployment:**
-- 162 racks × L2C @ 100 kW = 16,200 kW
-- 232 racks × RDHx @ 25 kW = 5,800 kW
-- **Total: 394 racks = 22,000 kW IT load**
-
-**Load Summary:**
-
-| Load Type | Power (kW) | Description |
-|-----------|------------|-------------|
-| **IT Load** | 22,000 | 16.2 MW L2C + 5.8 MW RDHx |
-| **Mechanical** | 4,900 | All loops at capacity (Phase 4 chiller deployment complete) |
-| **Building** | 500 | Building systems at full capacity |
-| **Total Facility Load** | **~29,700 kW** | **PUE 1.35** |
-
-**Electrical Infrastructure:**
-
-| Equipment | Phase 4 Total | Add from Phase 3 | Sizing Notes |
-|-----------|---------------|------------------|--------------|
-| **Generators** | 9×4.0 MW | Add 2 units | N+1 for 29.7 MW (8 running = 32 MW capacity, 8% margin) |
-| **LV Transformers** | 11×3.5 MVA | Add 3 units | N+1 for 29.7 MW (10 running = 35 MVA capacity, 6% margin) |
-| **IT UPS Modules** | 23 × 1,250 kVA | Add 7 modules | N+1 for 22 MW IT load (22+1 modules @ ~89% loading) |
-| **Mechanical UPS** | 22×250 kW | Add 6 modules | N+1 for 4,900 kW: 21 running = 5,250 kW capacity |
-
----
-
-### 13.5 PHASING SUMMARY TABLE
+### 13.1 PHASING SUMMARY TABLE
 
 **Note:** UPS module counts reflect N+1 architecture (N modules to serve IT load + 1 redundant). Path redundancy provided by 13.8 kV self-healing dual-ring MV distribution.
 
@@ -640,7 +287,7 @@ Electrical infrastructure designed for 30 MW (Phase 4), with equipment added in 
 
 ---
 
-### 13.6 PHASE 4 DATA HALL BREAKDOWN
+### 13.2 PHASE 4 DATA HALL BREAKDOWN
 
 **Total IT Capacity:** 22 MW across 394 racks in two 10,000 SF data halls
 
@@ -659,7 +306,7 @@ Electrical infrastructure designed for 30 MW (Phase 4), with equipment added in 
 
 ## 14.0 EQUIPMENT AND COST SUMMARY
 
-<!-- @claude, please generate this section -->
+Please see the separate doc for electrical pricing and equipment.
 
 ---
 

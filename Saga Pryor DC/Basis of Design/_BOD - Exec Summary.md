@@ -12,6 +12,7 @@
 
 ## EXECUTIVE SUMMARY
 
+
 ### **FACILITY OVERVIEW**
 - **IT Capacity:** 4-phase buildout to 22 MW ultimate capacity
   - Phase 1: 3 MW (30 racks @ 100 kW, L2C anchor tenant in DH-W)
