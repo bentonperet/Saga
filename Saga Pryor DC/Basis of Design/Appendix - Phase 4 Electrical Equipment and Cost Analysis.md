@@ -1,11 +1,6 @@
 # PHASE 4 ELECTRICAL EQUIPMENT LIST AND COST ANALYSIS v2.1
 **Saga Pryor Data Center - PACHYDERM GLOBAL**
 
-**Version:** 2.0
-**Project Phase:** Phase 4 - Full Build-Out (22 MW IT Load)
-**Total Facility Load:** 29.7 MW
-**Related:** [[GGE/GGE BoD Template/7BOD - Electrical (CSI Div 26)]]. 
-
 ---
 
 ## EXECUTIVE SUMMARY

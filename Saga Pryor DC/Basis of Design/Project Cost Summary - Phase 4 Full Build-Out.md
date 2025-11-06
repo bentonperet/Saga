@@ -24,19 +24,19 @@ This document consolidates capital expenditure (CAPEX) estimates for the Pryor D
 
 ### HARD COSTS
 
-| CSI Division | System Description                   | Subtotal         | % of Total | Key Scope Items                                                                                    |
-| ------------ | ------------------------------------ | ---------------- | ---------- | -------------------------------------------------------------------------------------------------- |
-| **Land**     | Land Acquisition                     | $848,000         | 0.3%       | 120 acres, title insurance, survey, Phase I ESA, geotechnical, closing costs |
-| **31-32**    | Site & Infrastructure                | $20,437,000      | 7.7%       | Master plan grading, utility extensions, roads, stormwater, perimeter fencing, lighting |
-| **02-14**    | Facility Construction                | $23,690,000      | 8.9%       | Precast tilt-up, FM 1-150 roof, multi-level spine, elevator, FEMA 361 shelter, interior fit-out |
-| **21**       | Fire Suppression & Life Safety       | $6,584,325       | 2.5%       | Preaction sprinklers, VESDA, fire alarm (dual panels), E-House suppression, emergency egress |
-| **22**       | Plumbing                             | $650,000         | 0.2%       | Domestic water, sanitary drainage, restrooms (included in Div 02-14) |
-| **23**       | HVAC (with Liquid Cooling)           | $66,501,850      | 25.0%      | Chillers (18 units), CDUs (324 units), RDHx (232 units), glycol systems, DOAS units |
-| **26**       | Electrical Systems                   | $83,300,200      | 31.3%      | Substation (2×35 MVA), generators (9×4 MW), transformers (11×3.5 MVA), UPS (23 modules), E-Houses |
-| **27**       | Communications & IT Infrastructure   | $12,810,000      | 4.8%       | Dual MPOE/MMR, DCIM software, fiber backbone, structured cabling, monitoring systems |
-| **28**       | Electronic Safety & Security         | $4,213,000       | 1.6%       | Perimeter fence/sally port, access control, CCTV (125 cameras), SCR, CICO checkpoint |
-|              |                                      |                  |            |                                                                                                    |
-|              | **SUBTOTAL HARD COSTS**              | **$219,034,375** | **82.3%**  | All physical infrastructure and systems                                                           |
+| CSI Division | System Description                 | Subtotal         | % of Total | Key Scope Items                                                                                   |
+| ------------ | ---------------------------------- | ---------------- | ---------- | ------------------------------------------------------------------------------------------------- |
+| **Land**     | Land Acquisition                   | $848,000         | 0.3%       | 120 acres, title insurance, survey, Phase I ESA, geotechnical, closing costs                      |
+| **31-32**    | Site & Infrastructure              | $20,437,000      | 7.7%       | Master plan grading, utility extensions, roads, stormwater, perimeter fencing, lighting           |
+| **02-14**    | Facility Construction              | $23,690,000      | 8.9%       | Precast tilt-up, FM 1-150 roof, multi-level spine, elevator, FEMA 361 shelter, interior fit-out   |
+| **21**       | Fire Suppression & Life Safety     | $6,584,325       | 2.5%       | Preaction sprinklers, VESDA, fire alarm (dual panels), E-House suppression, emergency egress      |
+| **22**       | Plumbing                           | $650,000         | 0.2%       | Domestic water, sanitary drainage, restrooms (included in Div 02-14)                              |
+| **23**       | HVAC (with Liquid Cooling)         | $66,501,850      | 25.0%      | Chillers (18 units), CDUs (324 units), RDHx (232 units), glycol systems, DOAS units               |
+| **26**       | Electrical Systems                 | $83,300,200      | 31.3%      | Substation (2×35 MVA), generators (9×4 MW), transformers (11×3.5 MVA), UPS (23 modules), E-Houses |
+| **27**       | Communications & IT Infrastructure | $12,810,000      | 4.8%       | Dual MPOE/MMR, DCIM software, fiber backbone, structured cabling, monitoring systems              |
+| **28**       | Electronic Safety & Security       | $4,213,000       | 1.6%       | Perimeter fence/sally port, access control, CCTV (125 cameras), SCR, CICO checkpoint              |
+|              |                                    |                  |            |                                                                                                   |
+|              | **SUBTOTAL HARD COSTS**            | **$219,034,375** | **82.3%**  | All physical infrastructure and systems                                                           |
 
 ### SOFT COSTS
 
@@ -74,13 +74,13 @@ This document consolidates capital expenditure (CAPEX) estimates for the Pryor D
 
 ## PROJECT METRICS (PHASE 4)
 
-| Metric                         | Value             | Calculation Basis                                 | Industry Benchmark |
-| ------------------------------ | ----------------- | ------------------------------------------------- | ------------------ |
-| **Cost per MW (IT Load)**      | **$12.08M/MW**    | $265.8M ÷ 22 MW IT capacity                       | $9-14M/MW (AI DC) |
-| **Cost per kW (IT Load)**      | **$12,080/kW**    | Total project cost per kW of IT load              | $9,000-14,000/kW |
-| **Cost per SF (White Space)**  | **$13,288/SF**    | $265.8M ÷ 20,000 SF white space                   | $10,000-15,000/SF (AI DC) |
-| **Cost per SF (Building GSF)** | **$6,994/SF**     | $265.8M ÷ 38,000 SF gross building area           | $5,000-8,000/SF |
-| **Cost per Rack (394 total)**  | **$674,530/rack** | $265.8M ÷ 394 racks (162 L2C + 232 RDHx)          | $500K-800K/rack (AI-ready) |
+| Metric                         | Value             | Calculation Basis                        | Industry Benchmark         |
+| ------------------------------ | ----------------- | ---------------------------------------- | -------------------------- |
+| **Cost per MW (IT Load)**      | **$12.08M/MW**    | $265.8M ÷ 22 MW IT capacity              | $9-14M/MW (AI DC)          |
+| **Cost per kW (IT Load)**      | **$12,080/kW**    | Total project cost per kW of IT load     | $9,000-14,000/kW           |
+| **Cost per SF (White Space)**  | **$13,288/SF**    | $265.8M ÷ 20,000 SF white space          | $10,000-15,000/SF (AI DC)  |
+| **Cost per SF (Building GSF)** | **$6,994/SF**     | $265.8M ÷ 38,000 SF gross building area  | $5,000-8,000/SF            |
+| **Cost per Rack (394 total)**  | **$674,530/rack** | $265.8M ÷ 394 racks (162 L2C + 232 RDHx) | $500K-800K/rack (AI-ready) |
 
 **Note:** All costs INCLUDE liquid cooling distribution (CDUs/RDHx) as base infrastructure required for AI workloads.
 
