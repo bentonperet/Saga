@@ -255,26 +255,33 @@ House power serves office spaces, NOC (non-IT systems), security control rooms, 
 | **Rating**     | 250-350 kW each @ 480V, 3-phase, 60 Hz                              |
 | **Fuel**       | Natural gas (piped utility) or on-site propane if NG not available  |
 
-### 10.5 Portable UPS for Workstations
+### 10.5 Centralized UPS for Non-Critical Loads
 
-Distributed UPS units (1-3 kVA, 10-15 min runtime) for NOC, security, and office workstations. Approximately 20-30 units provide ride-through during transfer to house generators.
+**Configuration:** Dual UPS units (N+1 redundancy) serving NOC, security control rooms, and critical office workstations
 
-<!-- @claude, I thought we agreed on having a dedicated UPS for all this vs. managing 20-30 distributed units! -->
+| Parameter      | Specification                                          |
+| -------------- | ------------------------------------------------------ |
+| **Quantity**   | Two (2) UPS units (N+1 redundancy)                     |
+| **Rating**     | 50-100 kVA each @ 480V, 3-phase                        |
+| **Topology**   | Online double-conversion (VFI per IEC 62040-3)         |
+| **Runtime**    | 10-15 minutes at full load                             |
+| **Purpose**    | Provide ride-through during transfer to house generators (~30-60 seconds) with margin for extended outages |
 
-## 11.0 RENEWABLE ENERGY INTEGRATION
-<!-- @claude Remove this section and renumber -->
-
-
+**Protected Loads:**
+- NOC workstations and displays
+- Security control room systems
+- Critical office infrastructure (servers, network equipment)
+- Building management system (BMS) workstations
 
 ---
 
-## 13.0 ELECTRICAL PHASING STRATEGY
+## 11.0 ELECTRICAL PHASING STRATEGY
 
 Electrical infrastructure designed for 30 MW (Phase 4), with equipment added in phases.
 
 ---
 
-### 13.1 PHASING SUMMARY TABLE
+### 11.1 PHASING SUMMARY TABLE
 
 **Note:** UPS module counts reflect N+1 architecture (N modules to serve IT load + 1 redundant). Path redundancy provided by 13.8 kV self-healing dual-ring MV distribution.
 
@@ -287,7 +294,7 @@ Electrical infrastructure designed for 30 MW (Phase 4), with equipment added in 
 
 ---
 
-### 13.2 PHASE 4 DATA HALL BREAKDOWN
+### 11.2 PHASE 4 DATA HALL BREAKDOWN
 
 **Total IT Capacity:** 22 MW across 394 racks in two 10,000 SF data halls
 
@@ -304,13 +311,13 @@ Electrical infrastructure designed for 30 MW (Phase 4), with equipment added in 
 
 ---
 
-## 14.0 EQUIPMENT AND COST SUMMARY
+## 12.0 EQUIPMENT AND COST SUMMARY
 
 Please see the separate doc for electrical pricing and equipment.
 
 ---
 
-## 15.0 CODES AND STANDARDS
+## 13.0 CODES AND STANDARDS
 
 - **NEC 2023** (National Electrical Code), Oklahoma amendments
 - **IEEE 141** (Red Book - Electric Power Distribution)

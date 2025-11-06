@@ -1,5 +1,3 @@
-**Created:** 2025-10-29
-**Updated from:** Pryor_Bod_EVS_Rev01.md + Erik_BOD references
 
 # BASIS OF DESIGN - GENERAL REQUIREMENTS
 ## CSI Division 01

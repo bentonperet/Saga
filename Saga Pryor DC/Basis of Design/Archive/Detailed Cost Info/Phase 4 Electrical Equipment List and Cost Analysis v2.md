@@ -32,9 +32,9 @@ This document provides a comprehensive equipment list and cost analysis for the 
 
 ### 1.1 Primary Substation Transformers
 
-| Item | Specification | Qty | Unit Cost | Extended Cost | +/- % | Certainty | Notes |
-|------|--------------|-----|-----------|---------------|-------|-----------|-------|
-| **Substation Transformers** | 35 MVA, 161kV/13.8kV, ONAN, N+1 redundancy | 2 | $575,000 | $1,150,000 | ±13% | 75% | Large HV transformers; pricing varies by manufacturer (ABB, Siemens, GE). Lead time: 40-52 weeks. |
+| Item                        | Specification                              | Qty | Unit Cost | Extended Cost | +/- % | Certainty | Notes                                                                                             |
+| --------------------------- | ------------------------------------------ | --- | --------- | ------------- | ----- | --------- | ------------------------------------------------------------------------------------------------- |
+| **Substation Transformers** | 35 MVA, 161kV/13.8kV, ONAN, N+1 redundancy | 2   | $575,000  | $1,150,000    | ±15%  | 75%       | Large HV transformers; pricing varies by manufacturer (ABB, Siemens, GE). Lead time: 40-52 weeks. |
 
 ### 1.2 161 kV Switchgear & Protection
 
