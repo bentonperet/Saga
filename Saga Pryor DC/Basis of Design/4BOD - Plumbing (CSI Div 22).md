@@ -279,6 +279,8 @@ Plumbing systems provide domestic water service, fire protection water supply, a
 
 **Pricing Methodology:** Hybrid approach combining systems-based parametric pricing for distribution piping and bottom-up equipment pricing for discrete items. ROM estimates suitable for BOD-level budgeting (±25-30% accuracy).
 
+<!-- @claude please round all numbers below to the nearest thousand and retotal -->
+
 | Category | Description | Cost |
 |----------|-------------|------|
 | **Domestic Water Systems** | Service connection, meter, RPZ, filtration, distribution piping, makeup water stubs | $83,850 |
@@ -311,7 +313,6 @@ Plumbing systems provide domestic water service, fire protection water supply, a
 ---
 
 **Document Control:**
-- **Source:** Pryor_Bod_EVS_Rev01.md and Erik_BOD reference
+- **Source:** Erik_BOD reference
 - **Date Updated:** October 29, 2025
-- **Prepared by:** EVS / PGCIS Team
 - **Key Updates:** Glycol system details, leak detection expansion for D2C

@@ -1,6 +1,4 @@
-**Created:** 2025-11-03
-**Tags:** #market-positioning #google-proximity #customer-profiles #value-proposition
-**Status:** Reference Document (Appendix to BOD)
+
 
 # APPENDIX: MARKET POSITIONING & VALUE PROPOSITION
 ## Pryor Data Center - PACHYDERM GLOBAL
@@ -31,7 +29,7 @@ The Pryor DC is located **4 miles from Google's us-central2 data center campus**
 
 ## TARGET CUSTOMER PROFILES
 
-### Customer #1: AI Training Cluster (Phase 1 Anchor Target)
+### Customer #1: AI Training Cluster (Primary Target)
 
 **Who They Are:**
 - AI cloud providers (CoreWeave, Lambda Labs, Crusoe Energy style)
@@ -126,7 +124,7 @@ Pryor DC Training Cluster (Phase 1: 30 racks, 240 GPUs)
 
 ---
 
-### Customer #2: AI Inference Hub (Phase 2+ Growth)
+### Customer #2: AI Inference (Primary Target)
 
 **Who They Are:**
 - SaaS companies using Google Cloud for production workloads

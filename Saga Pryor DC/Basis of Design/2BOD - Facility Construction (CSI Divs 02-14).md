@@ -401,7 +401,7 @@ Not in base building scope (owner-furnished)
 ---
 
 **Document Control:**
-- **Source:** Pryor_Bod_EVS_Rev01.md, Erik_BOD references
+- **Source:** PGCIS Team
 - **Date Updated:** October 29, 2025
 - **Prepared by:** PGCIS Team
 - **Key Updates:** Precast tilt-up rationale, FM 1-150 roof, FEMA 361 shelter/safe room

@@ -1,5 +1,4 @@
-**Created:** 2025-10-29
-**Updated from:** Pryor_Bod_EVS_Rev01.md
+
 
 # BASIS OF DESIGN - INTEGRATED AUTOMATION
 ## CSI Division 25
@@ -353,7 +352,7 @@ Integrated monitoring and control systems provide real-time visibility, automate
 
 ---
 
-## COST SUMMARY - PHASE 4 (22 MW, 394 RACKS)
+## COST SUMMARY - PHASE 4
 
 **Pricing Methodology:** System-level parametric estimates based on equipment count, complexity, and industry benchmarks. Costs represent complete installed systems including hardware, software, commissioning, and training.
 
@@ -374,7 +373,6 @@ Integrated monitoring and control systems provide real-time visibility, automate
 
 **Excluded from This Estimate:**
 - Network cabling infrastructure (Division 27 - Communications)
-- Fire alarm system hardware (Division 21 - Fire Protection) - integration only
 - Access control system hardware (Division 28 - Security) - integration only
 - CCTV cameras and NVR (Division 28) - monitoring interface only
 - Electrical power to control panels, servers, NOC equipment (Division 26)
@@ -382,17 +380,12 @@ Integrated monitoring and control systems provide real-time visibility, automate
 **Cost Validation:**
 - **$/MW basis:** $2.7M ÷ 22 MW IT = **$123K per MW** (industry benchmark: $100K-150K per MW for Tier III automation)
 - **% of Total DC Cost:** Automation typically represents 0.5-1.0% of total data center construction cost
-- **Phase 4 Total DC (estimated):** ~$350-400M → Automation at $2.7M = **0.7%** (within range ✓)
+- **Phase 4 Total DC (estimated):** ~$350-400M → Automation at $2.7M = **0.7%** (within range)
 
 **Phased Deployment Notes:**
 - Phase 1 costs (3 MW, 30 racks): ~$1.2-1.5M (base infrastructure + servers + NOC)
 - Phases 2-4: Incremental costs for additional field devices, PDUs, software licensing as equipment scales
-- Microgrid controller deployed in Phase 1 (sized for ultimate 30 MW capacity)
-
-**Recommendations:**
-- Early vendor selection for BMS/EPMS/DCIM to ensure compatibility and avoid costly gateway/integration fixes
-- Consider design-build for controls integration to transfer coordination risk
-- Budget 10-15% contingency for protocol incompatibilities discovered during commissioning
+- Microgrid controller deployed in Phase 1 (sized for ultimate ~30 MW capacity)
 
 ---
 
@@ -407,7 +400,6 @@ Integrated monitoring and control systems provide real-time visibility, automate
 ---
 
 **Document Control:**
-- **Source:** Pryor_Bod_EVS_Rev01.md and Erik_BOD reference
+- **Source:** PGCIS Team
 - **Date Updated:** October 29, 2025
-- **Prepared by:** EVS / PGCIS Team
 - **Key Updates:** Microgrid controller integration, 161kV/13.8kV coordination, IEEE 2030.7 compliance

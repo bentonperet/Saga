@@ -1,7 +1,4 @@
-**Created:** 2025-11-04
-**Project:** Saga Pryor Data Center - PACHYDERM GLOBAL
-**Owner:** Saga
-**Parent Document:** [[_BOD - Exec Summary]]
+
 
 # BASIS OF DESIGN - ELECTRICAL (CSI DIVISION 26)
 ## Pryor Data Center - PACHYDERM GLOBAL
@@ -198,7 +195,7 @@ The mechanical UPS system protects critical mechanical loads (chiller pumps, CDU
 - CDU pumps (L2C coolant distribution)
 - Building HVAC fans (data hall pressurization and humidity control)
 
-**Phased Deployment:** 250 kW static UPS modules added in phases to match mechanical load growth. Phase 4: 25×250 kW modules (N+1) for 6,000 kW mechanical load.
+**Phased Deployment:** 250 kW static UPS modules added in phases to match mechanical load growth. Phase 4: 22×250 kW modules (N+1) for 6,000 kW mechanical load.
 
 ## 8.0 LOW VOLTAGE (480V) DISTRIBUTION
 
@@ -255,14 +252,14 @@ House power serves office spaces, NOC (non-IT systems), security control rooms, 
 | **Rating**     | 250-350 kW each @ 480V, 3-phase, 60 Hz                              |
 | **Fuel**       | Natural gas (piped utility) or on-site propane if NG not available  |
 
-### 10.5 Centralized UPS for Non-Critical Loads
+### 10.5 Centralized UPS for Non-Critical Loads (N+1)
 
 **Configuration:** Dual UPS units (N+1 redundancy) serving NOC, security control rooms, and critical office workstations
 
 | Parameter      | Specification                                          |
 | -------------- | ------------------------------------------------------ |
 | **Quantity**   | Two (2) UPS units (N+1 redundancy)                     |
-| **Rating**     | 50-100 kVA each @ 480V, 3-phase                        |
+| **Rating**     | 30 kVA each @ 480V, 3-phase                            |
 | **Topology**   | Online double-conversion (VFI per IEC 62040-3)         |
 | **Runtime**    | 10-15 minutes at full load                             |
 | **Purpose**    | Provide ride-through during transfer to house generators (~30-60 seconds) with margin for extended outages |
@@ -272,6 +269,8 @@ House power serves office spaces, NOC (non-IT systems), security control rooms, 
 - Security control room systems
 - Critical office infrastructure (servers, network equipment)
 - Building management system (BMS) workstations
+
+**Sizing Basis:** System sized for ~22.7 kVA actual load (NOC, security, offices, BMS) with 30% growth margin. Each 30 kVA unit can support full house load independently.
 
 ---
 

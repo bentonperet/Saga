@@ -151,7 +151,7 @@ Examples:
 - DCIM database populated and verified
 
 **Detailed Naming Standard:**
-See [[Appendix A - Asset Naming and Tagging Standard]] for complete rubric, equipment type codes, and examples.
+See [[Appendix - Asset Naming and Tagging Standard]] for complete rubric, equipment type codes, and examples.
 
 ---
 
@@ -209,5 +209,4 @@ See [[Appendix A - Asset Naming and Tagging Standard]] for complete rubric, equi
 **Document Control:**
 - **Source:** PGCIS Team
 - **Date Updated:** November 5, 2025
-- **Prepared by:** EVS / PGCIS Team
 - **Key Updates:** n/a

@@ -1,5 +1,4 @@
-**Created:** 2025-10-29
-**Effective Date:** July 1, 2025
+
 
 # APPENDIX - OKLAHOMA SB 480
 ## Private Power Generation & Natural Gas Integration

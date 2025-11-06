@@ -1,5 +1,4 @@
-**Created:** 2025-10-29
-**Updated from:** Pryor_Bod_EVS_Rev01.md
+
 
 # BASIS OF DESIGN - ELECTRONIC SAFETY AND SECURITY
 ## CSI Division 28

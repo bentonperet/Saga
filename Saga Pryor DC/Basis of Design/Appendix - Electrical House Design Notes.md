@@ -1,6 +1,4 @@
-**Created:** 2025-11-05
-**Project:** Saga Pryor Data Center - PACHYDERM GLOBAL
-**Parent Document:** [[Saga Pryor DC/Basis of Design/7BOD - Electrical (CSI Div 26)]]
+
 
 # APPENDIX - ELECTRICAL HOUSE DESIGN NOTES
 ## Supplemental Analysis: Key Design Decisions

@@ -1,5 +1,4 @@
-**Created:** 2025-10-29
-**Updated from:** Pryor_Bod_EVS_Rev01.md
+
 
 # BASIS OF DESIGN - HVAC
 ## CSI Division 23
@@ -544,10 +543,6 @@ Critical system for protecting IT equipment from water/glycol damage. All chille
 | **Liquid Cooling Distribution** | ~$30M | CDUs (324 units) + RDHx units (232 units)<br><br>We've stripped these out of the total as the expenses will be incurred based on client-specific requirements at the time of their signup. |
 
 
-
----
-
-**Tags:** #pryor-dc #hvac #csi-div-23 #air-cooling #direct-to-chip #free-cooling #zero-water
 
 ---
 
