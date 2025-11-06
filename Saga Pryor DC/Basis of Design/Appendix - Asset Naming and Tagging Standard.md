@@ -3,7 +3,7 @@
 # APPENDIX A - ASSET NAMING AND TAGGING STANDARD
 ## SAGA DATA CENTERS GLOBAL NAMING CONVENTION
 
-**Purpose:** Establish consistent, scalable naming standard for all SAGA data center facilities worldwide
+**Purpose:** Establish consistent, scalable naming standard for all SAGA data center facilities worldwide 
 
 **Scope:** Applies to all campuses, buildings, zones, equipment, cables, and customer spaces
 

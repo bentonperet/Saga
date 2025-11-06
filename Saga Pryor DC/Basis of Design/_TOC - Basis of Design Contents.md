@@ -20,7 +20,7 @@ See: <!-- @claude link this properly -->
 
 **Division 01 – General Requirements**
 
-See: <!-- @claude link this properly -->
+See: <!-- @claude link this properly --> 
 
 - *General project requirements, submittals, quality control*
 - Commissioning requirements (FAT, SAT, integrated systems testing)

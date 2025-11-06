@@ -4,7 +4,7 @@
 ## CSI Divisions 02-14
 ### Pryor Data Center - PACHYDERM GLOBAL
 
-**Parent Document:** [[Saga Pryor DC/Basis of Design/Erik_BOD_Updated/_BOD - Exec Summary and TOC]]
+**Parent Document:** [[Saga Pryor DC/Basis of Design/Erik_BOD_Updated/_BOD - Exec Summary and TOC]]  
 
 ---
 
@@ -354,22 +354,24 @@ Not in base building scope (owner-furnished)
 
 ---
 
-## COST SUMMARY (ROM)
-<!-- @claude, please go line by line and reconfirm the line items (and that they match our design) and the numbers/counts/square footage, and the dollar amounts on this table and also provide a % certainty. -->
+## COST SUMMARY (PHASE 4 FULL BUILD-OUT)
 
-| System | Cost Estimate |
-|--------|---------------|
-| **Foundation & Slab** | $1.2-2.0M |
-| **Precast Tilt-Up Walls** | $1.9-3.0M |
-| **Structural Steel Roof Frame** | $1.2-1.9M |
-| **FM 1-150 Roof + Debris Protection** | $1.2-2.0M |
-| **Elevator (4-stop with roof access)** | $0.175-0.225M |
-| **Doors, Windows, Glazing** | $0.4-0.8M |
-| **Interior Finishes** | $1.1-1.9M |
-| **FEMA 361 Storm Shelter/Safe Room** | $0.075-0.15M |
-| **Total Building Construction (shell + core)** | **$7.3-12.0M** |
+| System | Cost Estimate | Confidence | Notes |
+|--------|---------------|------------|-------|
+| **Foundation & Slab** | $1,600,000 | ±25% | 38,000 SF @ $42/SF avg; FF 50/FL 40, 750 PSF capacity |
+| **Precast Tilt-Up Walls** | $2,450,000 | ±27% | ~50,000 SF @ $49/SF avg; 8-10" insulated panels |
+| **Structural Steel Roof Frame** | $1,550,000 | ±23% | Clear-span joists/beams, 30 ft clear height |
+| **FM 1-150 Roof + Debris Protection** | $1,600,000 | ±25% | 50,000 SF @ $32/SF; TPO membrane, debris screen |
+| **Elevator (4-stop with roof access)** | $200,000 | ±12% | Hydraulic/traction, 3,000 lb capacity, 4 stops |
+| **Doors, Windows, Glazing** | $600,000 | ±33% | Security mantrap, data hall doors, glazing |
+| **Interior Finishes** | $1,500,000 | ±27% | Sealed concrete, drywall, paint, ceilings |
+| **FEMA 361 Storm Shelter** | $112,500 | ±25% | Prefab module, 20-person, EF5-rated |
+| **Subtotal (Direct Costs)** | **$9,612,500** | **±26%** | |
+| **Design/Engineering (8%)** | $769,000 | ±20% | Architect, structural, civil coordination |
+| **Contingency (15%)** | $1,557,000 | ±30% | BOD stage, pre-final structural design |
+| **TOTAL BUILDING CONSTRUCTION** | **$11,939,000** | **±25%** | **Shell + core only (excludes MEP/IT systems)** |
 
-**Cost per SF:** ~$192-316/SF (38,000 SF building, higher than typical DC due to tornado hardening)
+**Cost per SF:** ~$314/SF (38,000 SF building) — Premium vs. standard DC due to tornado hardening (precast + FM 1-150 roof)
 
 ---
 

@@ -1,12 +1,10 @@
 # PHASE 4 ELECTRICAL EQUIPMENT LIST AND COST ANALYSIS v2.1
 **Saga Pryor Data Center - PACHYDERM GLOBAL**
 
-**Created:** 2025-11-03
-**Updated:** 2025-11-06
 **Version:** 2.0
 **Project Phase:** Phase 4 - Full Build-Out (22 MW IT Load)
 **Total Facility Load:** 29.7 MW
-**Related:** [[GGE/GGE BoD Template/7BOD - Electrical (CSI Div 26)]]
+**Related:** [[GGE/GGE BoD Template/7BOD - Electrical (CSI Div 26)]]. 
 
 ---
 
@@ -264,20 +262,10 @@ This document provides a comprehensive equipment list and cost analysis for the 
 
 ## 11.0 GROUNDING & LIGHTNING PROTECTION
 
-### 11.1 Facility Grounding System
-
-| Item                                      | Specification                              | Qty | Unit Cost | Extended Cost | +/- % | Certainty | Notes                                               |
-| ----------------------------------------- | ------------------------------------------ | --- | --------- | ------------- | ----- | --------- | --------------------------------------------------- |
-| **Ground Grid (Site-Wide)**               | 4/0 bare copper, grid pattern, 10' spacing | 1   | $162,500  | $162,500      | ±25%  | 75%       | Per IEEE 142. Interconnects all electrical systems. |
-| **Ground Rods**                           | 10' copper-clad steel, driven rods         | 150 | $200      | $30,000       | ±25%  | 80%       | Throughout facility                                 |
-| **Ground Connections & Exothermic Welds** | Cadweld or equivalent connections          | 1   | $45,000   | $45,000       | ±20%  | 75%       | All bonding connections                             |
-
-### 11.2 Lightning Protection
-
-| Item                                | Specification                           | Qty | Unit Cost | Extended Cost | +/- % | Certainty | Notes                                    |
-| ----------------------------------- | --------------------------------------- | --- | --------- | ------------- | ----- | --------- | ---------------------------------------- |
-| **Lightning Protection System**     | Air terminals, down conductors, bonding | 1   | $100,000  | $100,000      | ±25%  | 70%       | UL 96A, NFPA 780. Building and E-Houses. |
-| **Surge Protection Devices (SPDs)** | Type 1 & 2 SPDs at service entrances    | 25  | $3,000    | $75,000       | ±30%  | 80%       | 161kV, 13.8kV, 480V levels               |
+| Item | Specification | Qty | Unit Cost | Extended Cost | +/- % | Certainty | Notes |
+|------|--------------|-----|-----------|---------------|-------|-----------|-------|
+| **Facility Grounding System** | Site-wide ground grid (4/0 bare copper, 10' spacing), ground rods (150 × 10' copper-clad steel), exothermic welds (Cadweld connections) | 1 LS | $237,500 | $237,500 | ±23% | 77% | Per IEEE 142. Interconnects all electrical systems throughout facility. |
+| **Lightning Protection System** | Air terminals, down conductors, bonding per UL 96A/NFPA 780 for building and E-Houses. Type 1 & 2 SPDs at service entrances (25 units) for 161kV, 13.8kV, 480V levels. | 1 LS | $175,000 | $175,000 | ±27% | 75% | Complete lightning protection and surge suppression system. |
 
 **Subtotal - Grounding & Lightning:** $412,500
 
@@ -287,13 +275,9 @@ This document provides a comprehensive equipment list and cost analysis for the 
 
 ### 12.1 Fire Alarm System
 
-| Item                            | Specification                               | Qty | Unit Cost | Extended Cost | +/- % | Certainty | Notes                            |
-| ------------------------------- | ------------------------------------------- | --- | --------- | ------------- | ----- | --------- | -------------------------------- |
-| **Fire Alarm Control Panel**    | Addressable, networked, redundant           | 2   | $32,500   | $65,000       | ±25%  | 80%       | FACP-A and FACP-B for redundancy |
-| **Smoke/Heat Detectors**        | Addressable, VESDA aspirating in data halls | 350 | $375      | $131,250      | ±30%  | 75%       | Early warning detection          |
-| **Manual Pull Stations**        | Addressable, weatherproof where needed      | 30  | $225      | $6,750        | ±30%  | 85%       | Throughout facility              |
-| **Notification Devices**        | Strobes, horns, speakers                    | 150 | $150      | $22,500       | ±30%  | 85%       | ADA compliant                    |
-| **Fire Alarm Wiring & Devices** | Conduit, wire, junction boxes               | 1   | $162,500  | $162,500      | ±20%  | 70%       | Site-wide distribution           |
+| Item | Specification | Qty | Unit Cost | Extended Cost | +/- % | Certainty | Notes |
+|------|--------------|-----|-----------|---------------|-------|-----------|-------|
+| **Fire Alarm System (Complete)** | Addressable FACP (2 redundant panels), VESDA in data halls, smoke/heat detectors (350), manual pull stations (30), notification devices (150), wiring/conduit, site-wide distribution | 1 LS | $388,000 | $388,000 | ±25% | 75% | Complete fire alarm and life safety system per NFPA 72. Includes redundant FACPs, early warning detection, ADA-compliant notification. |
 
 **Subtotal - Fire Alarm:** $388,000
 
@@ -301,21 +285,11 @@ This document provides a comprehensive equipment list and cost analysis for the 
 
 ## 13.0 LIGHTING SYSTEMS
 
-### 13.1 Interior Lighting
-
-| Item                                 | Specification                            | Qty | Unit Cost | Extended Cost | +/- % | Certainty | Notes                                                    |
-| ------------------------------------ | ---------------------------------------- | --- | --------- | ------------- | ----- | --------- | -------------------------------------------------------- |
-| **Data Hall LED High-Bay Fixtures**  | 150W LED, 0-10V dimming, 20,000 lm       | 250 | $325      | $81,250       | ±25%  | 85%       | 20,000 SF data halls (DH-W, DH-E)                        |
-| **Office/Support Area LED Fixtures** | 2x2, 2x4 LED troffers, occupancy sensors | 300 | $162.50   | $48,750       | ±25%  | 85%       | Offices, NOC, corridors, break rooms                     |
-| **Emergency Lighting & Exit Signs**  | LED, battery backup, exit signs          | 75  | $225      | $16,875       | ±30%  | 85%       | Life safety code compliance                              |
-| **Exterior LED Lighting**            | Wall packs, pole-mounted, area lighting  | 50  | $450      | $22,500       | ±30%  | 80%       | Building perimeter, parking, generator/transformer yards |
-
-### 13.2 Lighting Control System
+### 13.1 Complete Lighting System
 
 | Item | Specification | Qty | Unit Cost | Extended Cost | +/- % | Certainty | Notes |
 |------|--------------|-----|-----------|---------------|-------|-----------|-------|
-| **Lighting Control Panels** | Networked, programmable, BMS integration | 8 | $4,000 | $32,000 | ±25% | 80% | Zone control for energy management |
-| **Occupancy/Daylight Sensors** | Integrated with lighting controls | 75 | $200 | $15,000 | ±25% | 85% | Energy savings |
+| **Lighting System (Complete)** | LED fixtures: data hall high-bay (250), office/support troffers (300), emergency/exit signs (75), exterior wall packs/pole-mounted (50). Controls: networked panels (8), occupancy/daylight sensors (75), BMS integration. | 1 LS | $216,375 | $216,375 | ±25% | 83% | Complete interior/exterior lighting with automated controls for energy management. 38,000 SF facility + exterior perimeter. |
 
 **Subtotal - Lighting:** $216,375
 
@@ -355,7 +329,6 @@ This document provides a comprehensive equipment list and cost analysis for the 
 
 **Commissioning Planning:**
 - Hire independent commissioning agent (CxA) at design phase
-- Budget adequate time for integrated systems testing (IST): 60-90 days
 - Plan for Uptime Institute Tier III certification process (adds $200K-$400K to commissioning costs)
 - Total commissioning investment includes FAT, SAT, IST, and Tier III certification
 
@@ -379,9 +352,9 @@ This document provides a comprehensive equipment list and cost analysis for the 
 
 ### 18.1 Electrical Installation Labor
 
-| Item | Specification | Qty | Unit Cost | Extended Cost | +/- % | Certainty | Notes |
-|------|--------------|-----|-----------|---------------|-------|-----------|-------|
-| **Electrical Contractor (EC) Labor** | Site installation, terminations, testing | 1 LS | $15,000,000 | $15,000,000 | ±20% | 65% | Estimated at 25-30% of equipment cost. Includes: MV/LV installations, cable pulling, terminations, panel installations, lighting, grounding, testing support. Union labor rates in Oklahoma. |
+| Item                                 | Specification                            | Qty  | Unit Cost   | Extended Cost | +/- % | Certainty | Notes                                                                                                                                                                                        |
+| ------------------------------------ | ---------------------------------------- | ---- | ----------- | ------------- | ----- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Electrical Contractor (EC) Labor** | Site installation, terminations, testing | 1 LS | $15,000,000 | $15,000,000   | ±20%  | 65%       | Estimated at 25-30% of equipment cost. Includes: MV/LV installations, cable pulling, terminations, panel installations, lighting, grounding, testing support. Union labor rates in Oklahoma. |
 
 ### 18.2 EC Indirect Costs
 
@@ -458,16 +431,6 @@ This document provides a comprehensive equipment list and cost analysis for the 
 - Industry range for 22 MW: **$176M - $264M**
 - **Result:** Our estimate of $75.3M for electrical (42.5% of ~$177M) aligns with industry benchmarks ✓
 
-### 20.4 Major Cost Drivers (Top 5)
-
-| Cost Category | Amount | % of Total | Key Items |
-|---------------|--------|------------|-----------|
-| **Generator System** | $19,052,500 | 25.3% | 9× 4 MW diesel generators @ 13.8kV with fuel systems |
-| **Labor & Installation** | $17,825,000 | 23.7% | EC labor, overhead, temporary facilities |
-| **Contingency** | $8,363,997 | 11.1% | Design (5%) + construction (7.5%) contingency |
-| **IT UPS System** | $7,262,500 | 9.7% | 23× 1,250 kVA UPS modules + Li-Ion batteries |
-| **E-Houses (Enclosures)** | $4,400,000 | 5.8% | 2× prefab electrical buildings (3,640 SF each) |
-| **Top 5 Subtotal** | **$56,903,997** | **75.6%** | Three-quarters of total cost |
 
 ---
 
@@ -499,16 +462,10 @@ This document provides a comprehensive equipment list and cost analysis for the 
 
 The following items are **NOT INCLUDED** in this electrical estimate:
 
-1. **Solar PV System** - 16.8+ MW DC solar array with inverters
-2. **Battery Energy Storage System (BESS)** - BESS with inverters
-3. **Site Civil & Earthwork** - Grading, storm drainage, utilities (separate civil estimate)
-4. **Data Hall Mechanical Systems** - Chillers, pumps, CDUs, piping, cooling towers (separate HVAC estimate)
-5. **IT Equipment** - Servers, networking, storage (customer-provided)
-6. **Building Envelope** - Structure, roof, walls, windows (separate estimate)
-7. **Owner's Costs** - Permits, insurance, legal, project management, land acquisition
-8. **Financing Costs** - Interest, loan fees, financing during construction
-9. **Utility Interconnection Fees** - One-time utility connection charges (paid to Kamo Power, typically $500K-$2M)
-10. **Sales Tax** - Oklahoma sales tax on equipment (if applicable - typically 4.5% state + local)
+1. **Owner's Costs** - Permits, insurance, legal, project management, land acquisition
+2. **Financing Costs** - Interest, loan fees, financing during construction
+3. **Utility Interconnection Fees** - One-time utility connection charges (paid to Kamo Power, typically $500K-$2M)
+4. **Sales Tax** - Oklahoma sales tax on equipment (if applicable - typically 4.5% state + local)
 
 
 ---

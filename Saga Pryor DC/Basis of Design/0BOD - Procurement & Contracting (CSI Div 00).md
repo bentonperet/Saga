@@ -10,7 +10,7 @@
 
 ## OVERVIEW
 
-CSI Division 00 establishes the contract strategy, procurement approach, and delivery methods for the Pryor Data Center project. This division defines how the project will be organized, procured, and executed to meet schedule, budget, and performance requirements while minimizing risk.
+CSI Division 00 establishes the contract strategy, procurement approach, and delivery methods for the Pryor Data Center project. This division defines how the project will be organized, procured, and executed to meet schedule, budget, and performance requirements while minimizing risk. 
 
 **Key Objectives:**
 - **Delivery method:** Select optimal project delivery approach (Design-Build, CMAR, etc.)

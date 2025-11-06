@@ -3,7 +3,7 @@
 # APPENDIX: MARKET POSITIONING & VALUE PROPOSITION
 ## Pryor Data Center - PACHYDERM GLOBAL
 
-**Parent Document:** [[_BOD - Exec Summary]]
+**Parent Document:** [[_BOD - Exec Summary]]  
 
 ---
 

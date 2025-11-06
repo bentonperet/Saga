@@ -1,7 +1,7 @@
 
 
 # BASIS OF DESIGN - ELECTRICAL (CSI DIVISION 26)
-## Pryor Data Center - PACHYDERM GLOBAL
+## Pryor Data Center - PACHYDERM GLOBAL 
 
 ---
 

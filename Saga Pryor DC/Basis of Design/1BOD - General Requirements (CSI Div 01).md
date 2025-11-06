@@ -5,6 +5,7 @@
 
 **Parent Document:** [[Saga Pryor DC/Basis of Design/Erik_BOD_Updated/_BOD - Exec Summary and TOC]]
 
+
 ---
 
 ## 01 10 00 – SUMMARY
@@ -137,7 +138,7 @@ Examples:
 - BMS/EPMS point address
 - Maintenance schedule links
 
-**Database Population:**
+**Database Population:** 
 - All assets registered in DCIM before commissioning
 - QR codes link directly to DCIM asset record
 - Changes tracked with revision history
