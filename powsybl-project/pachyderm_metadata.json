@@ -1,0 +1,1085 @@
+{
+  "buses": [
+    {
+      "id": "RING_BUS_1",
+      "voltage": 13.8
+    },
+    {
+      "id": "RING_BUS_2",
+      "voltage": 13.8
+    },
+    {
+      "id": "RING_BUS_3",
+      "voltage": 13.8
+    },
+    {
+      "id": "RING_BUS_4",
+      "voltage": 13.8
+    },
+    {
+      "id": "RING_BUS_5",
+      "voltage": 13.8
+    },
+    {
+      "id": "RING_BUS_6",
+      "voltage": 13.8
+    },
+    {
+      "id": "SYNC_BUS",
+      "voltage": 13.8
+    },
+    {
+      "id": "RMU_1_BUS",
+      "voltage": 13.8
+    },
+    {
+      "id": "RMU_2_BUS",
+      "voltage": 13.8
+    },
+    {
+      "id": "RMU_3_BUS",
+      "voltage": 13.8
+    },
+    {
+      "id": "RMU_4_BUS",
+      "voltage": 13.8
+    },
+    {
+      "id": "RMU_5_BUS",
+      "voltage": 13.8
+    },
+    {
+      "id": "RMU_6_BUS",
+      "voltage": 13.8
+    },
+    {
+      "id": "LV_BUS_1",
+      "voltage": 0.48
+    },
+    {
+      "id": "LV_BUS_2",
+      "voltage": 0.48
+    },
+    {
+      "id": "LV_BUS_3",
+      "voltage": 0.48
+    },
+    {
+      "id": "LV_BUS_4",
+      "voltage": 0.48
+    },
+    {
+      "id": "LV_BUS_5",
+      "voltage": 0.48
+    },
+    {
+      "id": "LV_BUS_6",
+      "voltage": 0.48
+    },
+    {
+      "id": "LV_BUS_7",
+      "voltage": 0.48
+    },
+    {
+      "id": "LV_BUS_8",
+      "voltage": 0.48
+    }
+  ],
+  "generators": [
+    {
+      "id": "GEN_1",
+      "bus": "RING_BUS_1",
+      "type": "RECIP",
+      "fuel": "DIESEL",
+      "kw": 4000,
+      "kva": 5000
+    },
+    {
+      "id": "GEN_2",
+      "bus": "RING_BUS_2",
+      "type": "RECIP",
+      "fuel": "DIESEL",
+      "kw": 4000,
+      "kva": 5000
+    },
+    {
+      "id": "GEN_3",
+      "bus": "RING_BUS_3",
+      "type": "RECIP",
+      "fuel": "DIESEL",
+      "kw": 4000,
+      "kva": 5000
+    },
+    {
+      "id": "GEN_4",
+      "bus": "RING_BUS_4",
+      "type": "RECIP",
+      "fuel": "DIESEL",
+      "kw": 4000,
+      "kva": 5000
+    },
+    {
+      "id": "GEN_5",
+      "bus": "RING_BUS_5",
+      "type": "RECIP",
+      "fuel": "DIESEL",
+      "kw": 4000,
+      "kva": 5000
+    },
+    {
+      "id": "GEN_6",
+      "bus": "RING_BUS_6",
+      "type": "RECIP",
+      "fuel": "DIESEL",
+      "kw": 4000,
+      "kva": 5000
+    }
+  ],
+  "transformers": [
+    {
+      "id": "TX_1",
+      "hv_bus": "RMU_1_BUS",
+      "lv_bus": "LV_BUS_1",
+      "hv_voltage": 13.8,
+      "lv_voltage": 0.48,
+      "rated_s": 3500
+    },
+    {
+      "id": "TX_2",
+      "hv_bus": "RMU_2_BUS",
+      "lv_bus": "LV_BUS_2",
+      "hv_voltage": 13.8,
+      "lv_voltage": 0.48,
+      "rated_s": 3500
+    },
+    {
+      "id": "TX_3",
+      "hv_bus": "RMU_3_BUS",
+      "lv_bus": "LV_BUS_3",
+      "hv_voltage": 13.8,
+      "lv_voltage": 0.48,
+      "rated_s": 3500
+    },
+    {
+      "id": "TX_4",
+      "hv_bus": "RMU_4_BUS",
+      "lv_bus": "LV_BUS_4",
+      "hv_voltage": 13.8,
+      "lv_voltage": 0.48,
+      "rated_s": 3500
+    },
+    {
+      "id": "TX_5",
+      "hv_bus": "RMU_5_BUS",
+      "lv_bus": "LV_BUS_5",
+      "hv_voltage": 13.8,
+      "lv_voltage": 0.48,
+      "rated_s": 3500
+    },
+    {
+      "id": "TX_6",
+      "hv_bus": "RMU_6_BUS",
+      "lv_bus": "LV_BUS_6",
+      "hv_voltage": 13.8,
+      "lv_voltage": 0.48,
+      "rated_s": 3500
+    },
+    {
+      "id": "TX_7",
+      "hv_bus": "MAIN_SWGR",
+      "lv_bus": "LV_BUS_7",
+      "hv_voltage": 13.8,
+      "lv_voltage": 0.48,
+      "rated_s": 3500
+    },
+    {
+      "id": "TX_8",
+      "hv_bus": "MAIN_SWGR",
+      "lv_bus": "LV_BUS_8",
+      "hv_voltage": 13.8,
+      "lv_voltage": 0.48,
+      "rated_s": 3500
+    }
+  ],
+  "ups": [
+    {
+      "id": "IT_UPS_1",
+      "bus": "LV_BUS_1",
+      "type": "STATIC",
+      "battery": "LI-ION",
+      "function": "IT",
+      "kw": 1000,
+      "kva": 1250
+    },
+    {
+      "id": "IT_UPS_2",
+      "bus": "LV_BUS_2",
+      "type": "STATIC",
+      "battery": "LI-ION",
+      "function": "IT",
+      "kw": 1000,
+      "kva": 1250
+    },
+    {
+      "id": "IT_UPS_3",
+      "bus": "LV_BUS_3",
+      "type": "STATIC",
+      "battery": "LI-ION",
+      "function": "IT",
+      "kw": 1000,
+      "kva": 1250
+    },
+    {
+      "id": "IT_UPS_4",
+      "bus": "LV_BUS_4",
+      "type": "STATIC",
+      "battery": "LI-ION",
+      "function": "IT",
+      "kw": 1000,
+      "kva": 1250
+    },
+    {
+      "id": "IT_UPS_5",
+      "bus": "LV_BUS_5",
+      "type": "STATIC",
+      "battery": "LI-ION",
+      "function": "IT",
+      "kw": 1000,
+      "kva": 1250
+    },
+    {
+      "id": "MECH_UPS_1",
+      "bus": "LV_BUS_1",
+      "type": "STATIC",
+      "battery": "LI-ION",
+      "function": "MECHANICAL",
+      "kw": 250,
+      "kva": 277
+    },
+    {
+      "id": "MECH_UPS_2",
+      "bus": "LV_BUS_2",
+      "type": "STATIC",
+      "battery": "LI-ION",
+      "function": "MECHANICAL",
+      "kw": 250,
+      "kva": 277
+    },
+    {
+      "id": "MECH_UPS_3",
+      "bus": "LV_BUS_3",
+      "type": "STATIC",
+      "battery": "LI-ION",
+      "function": "MECHANICAL",
+      "kw": 250,
+      "kva": 277
+    },
+    {
+      "id": "MECH_UPS_4",
+      "bus": "LV_BUS_4",
+      "type": "STATIC",
+      "battery": "LI-ION",
+      "function": "MECHANICAL",
+      "kw": 250,
+      "kva": 277
+    },
+    {
+      "id": "MECH_UPS_5",
+      "bus": "LV_BUS_5",
+      "type": "STATIC",
+      "battery": "LI-ION",
+      "function": "MECHANICAL",
+      "kw": 250,
+      "kva": 277
+    },
+    {
+      "id": "MECH_UPS_6",
+      "bus": "LV_BUS_6",
+      "type": "STATIC",
+      "battery": "LI-ION",
+      "function": "MECHANICAL",
+      "kw": 250,
+      "kva": 277
+    },
+    {
+      "id": "MECH_UPS_7",
+      "bus": "LV_BUS_7",
+      "type": "STATIC",
+      "battery": "LI-ION",
+      "function": "MECHANICAL",
+      "kw": 250,
+      "kva": 277
+    },
+    {
+      "id": "MECH_UPS_8",
+      "bus": "LV_BUS_8",
+      "type": "STATIC",
+      "battery": "LI-ION",
+      "function": "MECHANICAL",
+      "kw": 250,
+      "kva": 277
+    }
+  ],
+  "pdus": [
+    {
+      "id": "PDU_1"
+    },
+    {
+      "id": "PDU_2"
+    },
+    {
+      "id": "PDU_3"
+    },
+    {
+      "id": "PDU_4"
+    },
+    {
+      "id": "PDU_5"
+    },
+    {
+      "id": "PDU_6"
+    },
+    {
+      "id": "PDU_7"
+    },
+    {
+      "id": "PDU_8"
+    },
+    {
+      "id": "PDU_9"
+    },
+    {
+      "id": "PDU_10"
+    },
+    {
+      "id": "PDU_11"
+    },
+    {
+      "id": "PDU_12"
+    },
+    {
+      "id": "PDU_13"
+    },
+    {
+      "id": "PDU_14"
+    },
+    {
+      "id": "PDU_15"
+    },
+    {
+      "id": "PDU_16"
+    },
+    {
+      "id": "PDU_17"
+    },
+    {
+      "id": "PDU_18"
+    },
+    {
+      "id": "PDU_19"
+    },
+    {
+      "id": "PDU_20"
+    },
+    {
+      "id": "PDU_21"
+    },
+    {
+      "id": "PDU_22"
+    },
+    {
+      "id": "PDU_23"
+    },
+    {
+      "id": "PDU_24"
+    },
+    {
+      "id": "PDU_25"
+    },
+    {
+      "id": "PDU_26"
+    },
+    {
+      "id": "PDU_27"
+    },
+    {
+      "id": "PDU_28"
+    },
+    {
+      "id": "PDU_29"
+    },
+    {
+      "id": "PDU_30"
+    },
+    {
+      "id": "PDU_31"
+    },
+    {
+      "id": "PDU_32"
+    },
+    {
+      "id": "PDU_33"
+    },
+    {
+      "id": "PDU_34"
+    },
+    {
+      "id": "PDU_35"
+    },
+    {
+      "id": "PDU_36"
+    },
+    {
+      "id": "PDU_37"
+    },
+    {
+      "id": "PDU_38"
+    },
+    {
+      "id": "PDU_39"
+    },
+    {
+      "id": "PDU_40"
+    },
+    {
+      "id": "PDU_41"
+    },
+    {
+      "id": "PDU_42"
+    },
+    {
+      "id": "PDU_43"
+    },
+    {
+      "id": "PDU_44"
+    },
+    {
+      "id": "PDU_45"
+    },
+    {
+      "id": "PDU_46"
+    },
+    {
+      "id": "PDU_47"
+    },
+    {
+      "id": "PDU_48"
+    },
+    {
+      "id": "PDU_49"
+    },
+    {
+      "id": "PDU_50"
+    },
+    {
+      "id": "PDU_51"
+    },
+    {
+      "id": "PDU_52"
+    },
+    {
+      "id": "PDU_53"
+    },
+    {
+      "id": "PDU_54"
+    },
+    {
+      "id": "PDU_55"
+    },
+    {
+      "id": "PDU_56"
+    },
+    {
+      "id": "PDU_57"
+    },
+    {
+      "id": "PDU_58"
+    },
+    {
+      "id": "PDU_59"
+    },
+    {
+      "id": "PDU_60"
+    }
+  ],
+  "switches": [
+    {
+      "id": "GEN_1_SYNC",
+      "bus1": "RING_BUS_1",
+      "bus2": "SYNC_BUS",
+      "kind": "BREAKER",
+      "open": false
+    },
+    {
+      "id": "GEN_2_SYNC",
+      "bus1": "RING_BUS_2",
+      "bus2": "SYNC_BUS",
+      "kind": "BREAKER",
+      "open": false
+    },
+    {
+      "id": "GEN_3_SYNC",
+      "bus1": "RING_BUS_3",
+      "bus2": "SYNC_BUS",
+      "kind": "BREAKER",
+      "open": false
+    },
+    {
+      "id": "GEN_4_SYNC",
+      "bus1": "RING_BUS_4",
+      "bus2": "SYNC_BUS",
+      "kind": "BREAKER",
+      "open": false
+    },
+    {
+      "id": "GEN_5_SYNC",
+      "bus1": "RING_BUS_5",
+      "bus2": "SYNC_BUS",
+      "kind": "BREAKER",
+      "open": false
+    },
+    {
+      "id": "GEN_6_SYNC",
+      "bus1": "RING_BUS_6",
+      "bus2": "SYNC_BUS",
+      "kind": "BREAKER",
+      "open": false
+    },
+    {
+      "id": "RMU_1_IN",
+      "bus1": "RING_BUS_1",
+      "bus2": "RMU_1_BUS",
+      "kind": "DISCONNECTOR",
+      "open": false
+    },
+    {
+      "id": "RMU_1_OUT",
+      "bus1": "RMU_1_BUS",
+      "bus2": "RING_BUS_2",
+      "kind": "DISCONNECTOR",
+      "open": false
+    },
+    {
+      "id": "RMU_2_IN",
+      "bus1": "RING_BUS_2",
+      "bus2": "RMU_2_BUS",
+      "kind": "DISCONNECTOR",
+      "open": false
+    },
+    {
+      "id": "RMU_2_OUT",
+      "bus1": "RMU_2_BUS",
+      "bus2": "RING_BUS_3",
+      "kind": "DISCONNECTOR",
+      "open": false
+    },
+    {
+      "id": "RMU_3_IN",
+      "bus1": "RING_BUS_3",
+      "bus2": "RMU_3_BUS",
+      "kind": "DISCONNECTOR",
+      "open": false
+    },
+    {
+      "id": "RMU_3_OUT",
+      "bus1": "RMU_3_BUS",
+      "bus2": "RING_BUS_4",
+      "kind": "DISCONNECTOR",
+      "open": false
+    },
+    {
+      "id": "RMU_4_IN",
+      "bus1": "RING_BUS_4",
+      "bus2": "RMU_4_BUS",
+      "kind": "DISCONNECTOR",
+      "open": false
+    },
+    {
+      "id": "RMU_4_OUT",
+      "bus1": "RMU_4_BUS",
+      "bus2": "RING_BUS_5",
+      "kind": "DISCONNECTOR",
+      "open": false
+    },
+    {
+      "id": "RMU_5_IN",
+      "bus1": "RING_BUS_5",
+      "bus2": "RMU_5_BUS",
+      "kind": "DISCONNECTOR",
+      "open": false
+    },
+    {
+      "id": "RMU_5_OUT",
+      "bus1": "RMU_5_BUS",
+      "bus2": "RING_BUS_6",
+      "kind": "DISCONNECTOR",
+      "open": false
+    },
+    {
+      "id": "RMU_6_IN",
+      "bus1": "RING_BUS_6",
+      "bus2": "RMU_6_BUS",
+      "kind": "DISCONNECTOR",
+      "open": false
+    },
+    {
+      "id": "RMU_6_OUT",
+      "bus1": "RMU_6_BUS",
+      "bus2": "RING_BUS_1",
+      "kind": "DISCONNECTOR",
+      "open": false
+    }
+  ],
+  "sts": [
+    {
+      "id": "STS_1",
+      "source_a": "IT_UPS_1",
+      "source_b": "IT_UPS_2",
+      "load": "PDU_1"
+    },
+    {
+      "id": "STS_2",
+      "source_a": "IT_UPS_2",
+      "source_b": "IT_UPS_3",
+      "load": "PDU_2"
+    },
+    {
+      "id": "STS_3",
+      "source_a": "IT_UPS_3",
+      "source_b": "IT_UPS_4",
+      "load": "PDU_3"
+    },
+    {
+      "id": "STS_4",
+      "source_a": "IT_UPS_4",
+      "source_b": "IT_UPS_5",
+      "load": "PDU_4"
+    },
+    {
+      "id": "STS_5",
+      "source_a": "IT_UPS_5",
+      "source_b": "MECH_UPS_1",
+      "load": "PDU_5"
+    },
+    {
+      "id": "STS_6",
+      "source_a": "MECH_UPS_1",
+      "source_b": "MECH_UPS_2",
+      "load": "PDU_6"
+    },
+    {
+      "id": "STS_7",
+      "source_a": "MECH_UPS_2",
+      "source_b": "MECH_UPS_3",
+      "load": "PDU_7"
+    },
+    {
+      "id": "STS_8",
+      "source_a": "MECH_UPS_3",
+      "source_b": "MECH_UPS_4",
+      "load": "PDU_8"
+    },
+    {
+      "id": "STS_9",
+      "source_a": "MECH_UPS_4",
+      "source_b": "MECH_UPS_5",
+      "load": "PDU_9"
+    },
+    {
+      "id": "STS_10",
+      "source_a": "MECH_UPS_5",
+      "source_b": "MECH_UPS_6",
+      "load": "PDU_10"
+    },
+    {
+      "id": "STS_11",
+      "source_a": "MECH_UPS_6",
+      "source_b": "MECH_UPS_7",
+      "load": "PDU_11"
+    },
+    {
+      "id": "STS_12",
+      "source_a": "MECH_UPS_7",
+      "source_b": "MECH_UPS_8",
+      "load": "PDU_12"
+    },
+    {
+      "id": "STS_13",
+      "source_a": "MECH_UPS_8",
+      "source_b": "IT_UPS_1",
+      "load": "PDU_13"
+    },
+    {
+      "id": "STS_14",
+      "source_a": "IT_UPS_1",
+      "source_b": "IT_UPS_2",
+      "load": "PDU_14"
+    },
+    {
+      "id": "STS_15",
+      "source_a": "IT_UPS_2",
+      "source_b": "IT_UPS_3",
+      "load": "PDU_15"
+    },
+    {
+      "id": "STS_16",
+      "source_a": "IT_UPS_3",
+      "source_b": "IT_UPS_4",
+      "load": "PDU_16"
+    },
+    {
+      "id": "STS_17",
+      "source_a": "IT_UPS_4",
+      "source_b": "IT_UPS_5",
+      "load": "PDU_17"
+    },
+    {
+      "id": "STS_18",
+      "source_a": "IT_UPS_5",
+      "source_b": "MECH_UPS_1",
+      "load": "PDU_18"
+    },
+    {
+      "id": "STS_19",
+      "source_a": "MECH_UPS_1",
+      "source_b": "MECH_UPS_2",
+      "load": "PDU_19"
+    },
+    {
+      "id": "STS_20",
+      "source_a": "MECH_UPS_2",
+      "source_b": "MECH_UPS_3",
+      "load": "PDU_20"
+    },
+    {
+      "id": "STS_21",
+      "source_a": "MECH_UPS_3",
+      "source_b": "MECH_UPS_4",
+      "load": "PDU_21"
+    },
+    {
+      "id": "STS_22",
+      "source_a": "MECH_UPS_4",
+      "source_b": "MECH_UPS_5",
+      "load": "PDU_22"
+    },
+    {
+      "id": "STS_23",
+      "source_a": "MECH_UPS_5",
+      "source_b": "MECH_UPS_6",
+      "load": "PDU_23"
+    },
+    {
+      "id": "STS_24",
+      "source_a": "MECH_UPS_6",
+      "source_b": "MECH_UPS_7",
+      "load": "PDU_24"
+    },
+    {
+      "id": "STS_25",
+      "source_a": "MECH_UPS_7",
+      "source_b": "MECH_UPS_8",
+      "load": "PDU_25"
+    },
+    {
+      "id": "STS_26",
+      "source_a": "MECH_UPS_8",
+      "source_b": "IT_UPS_1",
+      "load": "PDU_26"
+    },
+    {
+      "id": "STS_27",
+      "source_a": "IT_UPS_1",
+      "source_b": "IT_UPS_2",
+      "load": "PDU_27"
+    },
+    {
+      "id": "STS_28",
+      "source_a": "IT_UPS_2",
+      "source_b": "IT_UPS_3",
+      "load": "PDU_28"
+    },
+    {
+      "id": "STS_29",
+      "source_a": "IT_UPS_3",
+      "source_b": "IT_UPS_4",
+      "load": "PDU_29"
+    },
+    {
+      "id": "STS_30",
+      "source_a": "IT_UPS_4",
+      "source_b": "IT_UPS_5",
+      "load": "PDU_30"
+    },
+    {
+      "id": "STS_31",
+      "source_a": "IT_UPS_5",
+      "source_b": "MECH_UPS_1",
+      "load": "PDU_31"
+    },
+    {
+      "id": "STS_32",
+      "source_a": "MECH_UPS_1",
+      "source_b": "MECH_UPS_2",
+      "load": "PDU_32"
+    },
+    {
+      "id": "STS_33",
+      "source_a": "MECH_UPS_2",
+      "source_b": "MECH_UPS_3",
+      "load": "PDU_33"
+    },
+    {
+      "id": "STS_34",
+      "source_a": "MECH_UPS_3",
+      "source_b": "MECH_UPS_4",
+      "load": "PDU_34"
+    },
+    {
+      "id": "STS_35",
+      "source_a": "MECH_UPS_4",
+      "source_b": "MECH_UPS_5",
+      "load": "PDU_35"
+    },
+    {
+      "id": "STS_36",
+      "source_a": "MECH_UPS_5",
+      "source_b": "MECH_UPS_6",
+      "load": "PDU_36"
+    },
+    {
+      "id": "STS_37",
+      "source_a": "MECH_UPS_6",
+      "source_b": "MECH_UPS_7",
+      "load": "PDU_37"
+    },
+    {
+      "id": "STS_38",
+      "source_a": "MECH_UPS_7",
+      "source_b": "MECH_UPS_8",
+      "load": "PDU_38"
+    },
+    {
+      "id": "STS_39",
+      "source_a": "MECH_UPS_8",
+      "source_b": "IT_UPS_1",
+      "load": "PDU_39"
+    },
+    {
+      "id": "STS_40",
+      "source_a": "IT_UPS_1",
+      "source_b": "IT_UPS_2",
+      "load": "PDU_40"
+    },
+    {
+      "id": "STS_41",
+      "source_a": "IT_UPS_2",
+      "source_b": "IT_UPS_3",
+      "load": "PDU_41"
+    },
+    {
+      "id": "STS_42",
+      "source_a": "IT_UPS_3",
+      "source_b": "IT_UPS_4",
+      "load": "PDU_42"
+    },
+    {
+      "id": "STS_43",
+      "source_a": "IT_UPS_4",
+      "source_b": "IT_UPS_5",
+      "load": "PDU_43"
+    },
+    {
+      "id": "STS_44",
+      "source_a": "IT_UPS_5",
+      "source_b": "MECH_UPS_1",
+      "load": "PDU_44"
+    },
+    {
+      "id": "STS_45",
+      "source_a": "MECH_UPS_1",
+      "source_b": "MECH_UPS_2",
+      "load": "PDU_45"
+    },
+    {
+      "id": "STS_46",
+      "source_a": "MECH_UPS_2",
+      "source_b": "MECH_UPS_3",
+      "load": "PDU_46"
+    },
+    {
+      "id": "STS_47",
+      "source_a": "MECH_UPS_3",
+      "source_b": "MECH_UPS_4",
+      "load": "PDU_47"
+    },
+    {
+      "id": "STS_48",
+      "source_a": "MECH_UPS_4",
+      "source_b": "MECH_UPS_5",
+      "load": "PDU_48"
+    },
+    {
+      "id": "STS_49",
+      "source_a": "MECH_UPS_5",
+      "source_b": "MECH_UPS_6",
+      "load": "PDU_49"
+    },
+    {
+      "id": "STS_50",
+      "source_a": "MECH_UPS_6",
+      "source_b": "MECH_UPS_7",
+      "load": "PDU_50"
+    },
+    {
+      "id": "STS_51",
+      "source_a": "MECH_UPS_7",
+      "source_b": "MECH_UPS_8",
+      "load": "PDU_51"
+    },
+    {
+      "id": "STS_52",
+      "source_a": "MECH_UPS_8",
+      "source_b": "IT_UPS_1",
+      "load": "PDU_52"
+    },
+    {
+      "id": "STS_53",
+      "source_a": "IT_UPS_1",
+      "source_b": "IT_UPS_2",
+      "load": "PDU_53"
+    },
+    {
+      "id": "STS_54",
+      "source_a": "IT_UPS_2",
+      "source_b": "IT_UPS_3",
+      "load": "PDU_54"
+    },
+    {
+      "id": "STS_55",
+      "source_a": "IT_UPS_3",
+      "source_b": "IT_UPS_4",
+      "load": "PDU_55"
+    },
+    {
+      "id": "STS_56",
+      "source_a": "IT_UPS_4",
+      "source_b": "IT_UPS_5",
+      "load": "PDU_56"
+    },
+    {
+      "id": "STS_57",
+      "source_a": "IT_UPS_5",
+      "source_b": "MECH_UPS_1",
+      "load": "PDU_57"
+    },
+    {
+      "id": "STS_58",
+      "source_a": "MECH_UPS_1",
+      "source_b": "MECH_UPS_2",
+      "load": "PDU_58"
+    },
+    {
+      "id": "STS_59",
+      "source_a": "MECH_UPS_2",
+      "source_b": "MECH_UPS_3",
+      "load": "PDU_59"
+    },
+    {
+      "id": "STS_60",
+      "source_a": "MECH_UPS_3",
+      "source_b": "MECH_UPS_4",
+      "load": "PDU_60"
+    }
+  ],
+  "rmu": [
+    "RMU_1",
+    "RMU_2",
+    "RMU_3",
+    "RMU_4",
+    "RMU_5",
+    "RMU_6"
+  ],
+  "mv_swbd": [
+    {
+      "id": "MV_SWBD_A",
+      "voltage": 13.8,
+      "rating_a": 4000,
+      "interrupt_rating_ka": 65,
+      "redundancy": "N+1",
+      "feeds": []
+    }
+  ],
+  "lv_swbd": [
+    {
+      "id": "LV_SWBD_1",
+      "voltage": 0.48,
+      "rating_a": 3200,
+      "interrupt_rating_ka": 65,
+      "redundancy": "A/B",
+      "feeds": []
+    },
+    {
+      "id": "LV_SWBD_2",
+      "voltage": 0.48,
+      "rating_a": 3200,
+      "interrupt_rating_ka": 65,
+      "redundancy": "A/B",
+      "feeds": []
+    },
+    {
+      "id": "LV_SWBD_3",
+      "voltage": 0.48,
+      "rating_a": 3200,
+      "interrupt_rating_ka": 65,
+      "redundancy": "A/B",
+      "feeds": []
+    },
+    {
+      "id": "LV_SWBD_4",
+      "voltage": 0.48,
+      "rating_a": 3200,
+      "interrupt_rating_ka": 65,
+      "redundancy": "A/B",
+      "feeds": []
+    },
+    {
+      "id": "LV_SWBD_5",
+      "voltage": 0.48,
+      "rating_a": 3200,
+      "interrupt_rating_ka": 65,
+      "redundancy": "A/B",
+      "feeds": []
+    },
+    {
+      "id": "LV_SWBD_6",
+      "voltage": 0.48,
+      "rating_a": 3200,
+      "interrupt_rating_ka": 65,
+      "redundancy": "A/B",
+      "feeds": []
+    },
+    {
+      "id": "LV_SWBD_7",
+      "voltage": 0.48,
+      "rating_a": 3200,
+      "interrupt_rating_ka": 65,
+      "redundancy": "A/B",
+      "feeds": []
+    },
+    {
+      "id": "LV_SWBD_8",
+      "voltage": 0.48,
+      "rating_a": 3200,
+      "interrupt_rating_ka": 65,
+      "redundancy": "A/B",
+      "feeds": []
+    }
+  ],
+  "earthing_tx": [],
+  "parallel_groups": [
+    "SYNC_BUS"
+  ],
+  "topology": "ring",
+  "include_z_matrix": true
+}

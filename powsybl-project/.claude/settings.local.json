@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell -Command \"Start-Process ''C:\\Users\\eriks\\Documents\\Obsidian\\powsybl-project\\saga_pryor_sld_v1_1_CORRECTED.svg''\")",
+      "Bash(python:*)",
+      "SlashCommand(/sld-generate)",
+      "Bash(powershell -Command \"Start-Process ''C:\\Users\\eriks\\Documents\\Obsidian\\powsybl-project\\gge_10kv_sld.svg''\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

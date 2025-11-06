@@ -1,0 +1,677 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="2800" height="2100" xmlns="http://www.w3.org/2000/svg">
+<defs>
+
+        <g id="breaker-closed">
+            <rect x="-8" y="-12" width="16" height="24" fill="white" stroke="black" stroke-width="1.5"/>
+            <line x1="-6" y1="-8" x2="6" y2="8" stroke="black" stroke-width="2"/>
+            <line x1="-6" y1="8" x2="6" y2="-8" stroke="black" stroke-width="2"/>
+        </g>
+    
+
+        <g id="breaker-open">
+            <rect x="-8" y="-12" width="16" height="24" fill="white" stroke="black" stroke-width="1.5"/>
+            <line x1="0" y1="-8" x2="0" y2="-2" stroke="black" stroke-width="2"/>
+            <line x1="0" y1="2" x2="0" y2="8" stroke="black" stroke-width="2"/>
+            <circle cx="0" cy="0" r="2.5" fill="white" stroke="black" stroke-width="1.5"/>
+        </g>
+    
+
+        <g id="transformer">
+            <circle cx="-8" cy="0" r="10" fill="white" stroke="black" stroke-width="1.5"/>
+            <circle cx="8" cy="0" r="10" fill="white" stroke="black" stroke-width="1.5"/>
+            <line x1="-8" y1="-10" x2="-8" y2="-20" stroke="black" stroke-width="2"/>
+            <line x1="8" y1="10" x2="8" y2="20" stroke="black" stroke-width="2"/>
+        </g>
+    
+
+        <g id="generator">
+            <circle cx="0" cy="0" r="30" fill="white" stroke="black" stroke-width="2"/>
+            <text x="0" y="8" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="black">G</text>
+        </g>
+    
+
+        <g id="connection-point">
+            <circle cx="0" cy="0" r="3" fill="black"/>
+        </g>
+    
+
+        <g id="fuse">
+            <rect x="-6" y="-10" width="12" height="20" fill="white" stroke="black" stroke-width="1.5"/>
+            <line x1="0" y1="-6" x2="0" y2="6" stroke="black" stroke-width="2"/>
+            <circle cx="0" cy="0" r="3" fill="white" stroke="black" stroke-width="1.5"/>
+        </g>
+    
+
+        <g id="disconnect-closed">
+            <line x1="0" y1="-12" x2="0" y2="12" stroke="black" stroke-width="2"/>
+            <circle cx="0" cy="-12" r="2" fill="black"/>
+            <circle cx="0" cy="12" r="2" fill="black"/>
+        </g>
+    
+
+        <g id="disconnect-open">
+            <line x1="0" y1="-12" x2="4" y2="0" stroke="black" stroke-width="2"/>
+            <circle cx="0" cy="-12" r="2" fill="black"/>
+            <circle cx="0" cy="12" r="2" fill="black"/>
+        </g>
+    
+</defs>
+
+
+    <style>
+        .title { font: bold 18px Arial; fill: #000; }
+        .subtitle { font: bold 14px Arial; fill: #000; }
+        .equipment-label { font: bold 13px Arial; fill: #000; }
+        .rating { font: 10px Arial; fill: #333; }
+        .annotation { font: 9px Arial; fill: #000; }
+        .note { font: italic 9px Arial; fill: #000; }
+        
+        .power-line { stroke: #000; stroke-width: 2; fill: none; }
+        .bus { stroke: #000; stroke-width: 6; fill: none; }
+        .control-line { stroke: #000; stroke-width: 1; stroke-dasharray: 5,5; fill: none; }
+        
+        .switchgear-box { fill: #F5F5F5; stroke: black; stroke-width: 2; }
+        .transformer-box { fill: #FAFAFA; stroke: black; stroke-width: 2; }
+        .rmu-box { fill: #F8F8F8; stroke: black; stroke-width: 2; }
+        .ups-box { fill: #FCFCFC; stroke: black; stroke-width: 2; }
+    </style>
+    
+
+<!-- Title Block -->
+<rect x="50" y="20" width="2700" height="80" fill="white" stroke="black" stroke-width="2"/>
+<text x="1400" y="50" class="title" text-anchor="middle">SAGA PRYOR DATA CENTER - 13.8kV Dual Ring Bus Distribution</text>
+<text x="1400" y="75" class="subtitle" text-anchor="middle">Redundant Path Diagram | Generators → MV-SWBD A/B → Dual Ring → RMUs → Transformers → LV-SWBD</text>
+
+<!-- Date block -->
+<text x="2650" y="50" class="label" text-anchor="end">Date: 11/02/2025</text>
+<text x="2650" y="70" class="label" text-anchor="end">Rev: 0</text>
+
+<!-- Generator 1 - 4MW -->
+<g id="gen-1">
+    <circle cx="950" cy="180" r="40" fill="white" stroke="black" stroke-width="2"/>
+    <text x="950" y="175" class="bus-label" text-anchor="middle">G</text>
+    <text x="950" y="190" class="small-label" text-anchor="middle">GEN-1</text>
+    <text x="950" y="205" class="rating" text-anchor="middle" font-size="9">4MW</text>
+</g>
+<!-- Gen 1 to Sync Bus -->
+<line x1="950" y1="220" x2="950" y2="280" class="power-line"/>
+<use href="#breaker-closed" x="950" y="250"/>
+<line x1="950" y1="280" x2="950" y2="310" class="power-line"/>
+
+<!-- Generator 2 - 4MW -->
+<g id="gen-2">
+    <circle cx="1150" cy="180" r="40" fill="white" stroke="black" stroke-width="2"/>
+    <text x="1150" y="175" class="bus-label" text-anchor="middle">G</text>
+    <text x="1150" y="190" class="small-label" text-anchor="middle">GEN-2</text>
+    <text x="1150" y="205" class="rating" text-anchor="middle" font-size="9">4MW</text>
+</g>
+<!-- Gen 2 to Sync Bus -->
+<line x1="1150" y1="220" x2="1150" y2="280" class="power-line"/>
+<use href="#breaker-closed" x="1150" y="250"/>
+<line x1="1150" y1="280" x2="1150" y2="310" class="power-line"/>
+
+<!-- Generator 3 - 4MW -->
+<g id="gen-3">
+    <circle cx="1350" cy="180" r="40" fill="white" stroke="black" stroke-width="2"/>
+    <text x="1350" y="175" class="bus-label" text-anchor="middle">G</text>
+    <text x="1350" y="190" class="small-label" text-anchor="middle">GEN-3</text>
+    <text x="1350" y="205" class="rating" text-anchor="middle" font-size="9">4MW</text>
+</g>
+<!-- Gen 3 to Sync Bus -->
+<line x1="1350" y1="220" x2="1350" y2="280" class="power-line"/>
+<use href="#breaker-closed" x="1350" y="250"/>
+<line x1="1350" y1="280" x2="1350" y2="310" class="power-line"/>
+
+<!-- Sync Bus -->
+<g id="sync-bus">
+    <rect x="850" y="310" width="600" height="80" class="switchgear-box"/>
+    <text x="1150" y="340" class="equipment-label" text-anchor="middle">GENERATOR SYNC BUS</text>
+    <text x="1150" y="360" class="rating" text-anchor="middle">13.8 kV | Woodward Paralleling Controls</text>
+    <text x="1150" y="378" class="rating" text-anchor="middle">3 × 4MW (N+1) | Auto Load Share</text>
+</g>
+
+<!-- Sync Bus to MV-MSB A -->
+<line x1="950" y1="390" x2="950" y2="440" class="power-line"/>
+<use href="#breaker-closed" x="950" y="420"/>
+<line x1="950" y1="440" x2="950" y2="470" class="power-line"/>
+<line x1="950" y1="470" x2="280" y2="470" class="power-line"/>
+<line x1="280" y1="470" x2="280" y2="360" class="power-line"/>
+<use href="#breaker-closed" x="280" y="410"/>
+
+<!-- Sync Bus to MV-MSB B -->
+<line x1="1350" y1="390" x2="1350" y2="440" class="power-line"/>
+<use href="#breaker-closed" x="1350" y="420"/>
+<line x1="1350" y1="440" x2="1350" y2="470" class="power-line"/>
+<line x1="1350" y1="470" x2="2520" y2="470" class="power-line"/>
+<line x1="2520" y1="470" x2="2520" y2="360" class="power-line"/>
+<use href="#breaker-closed" x="2520" y="410"/>
+
+<!-- MV-MSB A (left side - PRIMARY) -->
+<g id="mv-msb-a">
+    <rect x="140" y="360" width="280" height="120" class="switchgear-box"/>
+    <text x="280" y="395" class="equipment-label" text-anchor="middle">MV-MSB A</text>
+    <text x="280" y="415" class="annotation" text-anchor="middle">PRIMARY</text>
+    <text x="280" y="435" class="annotation" text-anchor="middle">13.8 kV</text>
+    <text x="280" y="455" class="rating" text-anchor="middle">4000A | 65kAIC</text>
+</g>
+
+<!-- MV-MSB B (right side - RESERVE) -->
+<g id="mv-msb-b">
+    <rect x="2380" y="360" width="280" height="120" class="switchgear-box"/>
+    <text x="2520" y="395" class="equipment-label" text-anchor="middle">MV-MSB B</text>
+    <text x="2520" y="415" class="annotation" text-anchor="middle">RESERVE</text>
+    <text x="2520" y="435" class="annotation" text-anchor="middle">13.8 kV</text>
+    <text x="2520" y="455" class="rating" text-anchor="middle">4000A | 65kAIC</text>
+</g>
+
+<!-- MV-MSB A Bus - connection points at bottom for each path -->
+<!-- No single bus line - each path connects separately from bottom of MV-MSB A -->
+
+<!-- MV-MSB B Bus - collection points at bottom for each path -->
+<!-- No single bus line - each path connects separately to bottom of MV-MSB B -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- Wire Path 1: MV-MSB A → RMU-1 → MV-MSB B -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+
+<!-- PRIMARY Path 1: Separate connection from BOTTOM of MV-MSB A -->
+<!-- Vertical drop from bottom of MV-MSB A at separate position -->
+<line x1="200" y1="480" x2="200" y2="540" class="power-line"/>
+<use href="#connection-point" x="200" y="480"/>
+
+<!-- Breaker BKR-A1 30px from MV-MSB A bottom -->
+<use href="#breaker-closed" x="200" y="510"/>
+
+<!-- Continue vertical to horizontal transition level -->
+<line x1="200" y1="540" x2="200" y2="600" class="power-line"/>
+
+<!-- Horizontal run to RMU position -->
+<line x1="200" y1="600" x2="450.0" y2="600" class="power-line"/>
+
+<!-- Vertical drop directly to RMU top (breaker inline, no reversal) -->
+<line x1="450.0" y1="600" x2="450.0" y2="920" class="power-line"/>
+
+<!-- Breaker RMU-IN 30px before entering RMU from top -->
+<use href="#breaker-closed" x="450.0" y="920"/>
+
+<!-- Continue to RMU top after breaker -->
+<line x1="450.0" y1="920" x2="450.0" y2="950" class="power-line"/>
+
+<!-- RMU-1 Box - moved down for separation -->
+<g id="rmu-1">
+    <rect x="340.0" y="950" width="220" height="110" class="rmu-box"/>
+    <text x="450.0" y="980" class="equipment-label" text-anchor="middle">RMU-1</text>
+    <text x="450.0" y="1000" class="rating" text-anchor="middle">630A Ring Main Unit</text>
+    <text x="450.0" y="1018" class="rating" text-anchor="middle">Dual Feed | 20kA SCCR</text>
+</g>
+
+<!-- RESERVE Path 1: TOP of RMU-1 (other side) to BOTTOM of MV-MSB B -->
+<!-- Vertical rise from top of RMU -->
+<line x1="500.0" y1="950" x2="500.0" y2="920" class="power-line"/>
+
+<!-- Breaker RMU-OUT 30px after leaving top of RMU -->
+<use href="#breaker-closed" x="500.0" y="920"/>
+
+<!-- Continue vertical to reserve horizontal level (no reversal) -->
+<line x1="500.0" y1="920" x2="500.0" y2="640" class="power-line"/>
+
+<!-- Horizontal run directly to MV-MSB B connection point -->
+<line x1="500.0" y1="640" x2="2420" y2="640" class="power-line"/>
+
+<!-- Vertical drop to bottom of MV-MSB B (breaker inline, no reversal) -->
+<line x1="2420" y1="640" x2="2420" y2="510" class="power-line"/>
+
+<!-- Breaker BKR-B 30px before entering bottom of MV-MSB B -->
+<use href="#breaker-closed" x="2420" y="510"/>
+
+<!-- Final connection to bottom of MV-MSB B after breaker -->
+<line x1="2420" y1="510" x2="2420" y2="480" class="power-line"/>
+<use href="#connection-point" x="2420" y="480"/>
+
+<!-- Drop from RMU to Transformer -->
+<line x1="450.0" y1="1060" x2="450.0" y2="1170" class="power-line"/>
+
+<!-- Breaker TX-IN 30px after RMU bottom -->
+<use href="#breaker-closed" x="450.0" y="1090"/>
+
+<!-- Transformer TX-1 -->
+<g id="tx-1">
+    <rect x="380.0" y="1170" width="140" height="100" class="transformer-box"/>
+    <use href="#transformer" x="450.0" y="1220"/>
+    <text x="450.0" y="1185" class="equipment-label" text-anchor="middle">TX-1</text>
+    <text x="450.0" y="1250" class="rating" text-anchor="middle">200 kVA</text>
+    <text x="450.0" y="1265" class="rating" text-anchor="middle">13.8kV Δ / 480Y/277V</text>
+</g>
+
+<!-- Drop from Transformer to LV-SWBD -->
+<line x1="450.0" y1="1270" x2="450.0" y2="1390" class="power-line"/>
+
+<!-- Main breaker MAIN 30px after TX bottom -->
+<use href="#breaker-closed" x="450.0" y="1300"/>
+
+<!-- LV-SWBD-1 -->
+<g id="lv-swbd-1">
+    <rect x="330.0" y="1390" width="240" height="120" class="switchgear-box"/>
+    <text x="450.0" y="1425" class="equipment-label" text-anchor="middle">LV-SWBD 1</text>
+    <text x="450.0" y="1445" class="annotation" text-anchor="middle">480V/277V</text>
+    <text x="450.0" y="1465" class="rating" text-anchor="middle">3200A Switchboard</text>
+    <text x="450.0" y="1485" class="rating" text-anchor="middle">Feeds: UPS, Mechanical,</text>
+    <text x="450.0" y="1500" class="rating" text-anchor="middle">Lighting, General Loads</text>
+</g>
+
+<!-- UPS feed line -->
+<line x1="450.0" y1="1510" x2="450.0" y2="1610" class="power-line"/>
+
+<!-- Breaker UPS-IN 30px after LV-SWBD bottom -->
+<use href="#breaker-closed" x="450.0" y="1540"/>
+
+<!-- UPS-1 -->
+<g id="ups-1">
+    <rect x="390.0" y="1610" width="120" height="80" class="ups-box"/>
+    <text x="450.0" y="1635" class="equipment-label" text-anchor="middle">UPS-1</text>
+    <text x="450.0" y="1655" class="rating" text-anchor="middle">1 MW Modular UPS</text>
+    <text x="450.0" y="1675" class="rating" text-anchor="middle">Li-ion Battery</text>
+</g>
+
+<!-- Critical load line -->
+<line x1="450.0" y1="1690" x2="450.0" y2="1740" class="power-line"/>
+<rect x="400.0" y="1740" width="100" height="40" fill="white" stroke="black" stroke-width="1.5"/>
+<text x="450.0" y="1765" class="rating" text-anchor="middle">Critical Loads</text>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- Wire Path 2: MV-MSB A → RMU-2 → MV-MSB B -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+
+<!-- PRIMARY Path 2: Separate connection from BOTTOM of MV-MSB A -->
+<!-- Vertical drop from bottom of MV-MSB A at separate position -->
+<line x1="260" y1="480" x2="260" y2="540" class="power-line"/>
+<use href="#connection-point" x="260" y="480"/>
+
+<!-- Breaker BKR-A2 30px from MV-MSB A bottom -->
+<use href="#breaker-closed" x="260" y="510"/>
+
+<!-- Continue vertical to horizontal transition level -->
+<line x1="260" y1="540" x2="260" y2="680" class="power-line"/>
+
+<!-- Horizontal run to RMU position -->
+<line x1="260" y1="680" x2="1116.6666666666665" y2="680" class="power-line"/>
+
+<!-- Vertical drop directly to RMU top (breaker inline, no reversal) -->
+<line x1="1116.6666666666665" y1="680" x2="1116.6666666666665" y2="920" class="power-line"/>
+
+<!-- Breaker RMU-IN 30px before entering RMU from top -->
+<use href="#breaker-closed" x="1116.6666666666665" y="920"/>
+
+<!-- Continue to RMU top after breaker -->
+<line x1="1116.6666666666665" y1="920" x2="1116.6666666666665" y2="950" class="power-line"/>
+
+<!-- RMU-2 Box - moved down for separation -->
+<g id="rmu-2">
+    <rect x="1006.6666666666665" y="950" width="220" height="110" class="rmu-box"/>
+    <text x="1116.6666666666665" y="980" class="equipment-label" text-anchor="middle">RMU-2</text>
+    <text x="1116.6666666666665" y="1000" class="rating" text-anchor="middle">630A Ring Main Unit</text>
+    <text x="1116.6666666666665" y="1018" class="rating" text-anchor="middle">Dual Feed | 20kA SCCR</text>
+</g>
+
+<!-- RESERVE Path 2: TOP of RMU-2 (other side) to BOTTOM of MV-MSB B -->
+<!-- Vertical rise from top of RMU -->
+<line x1="1166.6666666666665" y1="950" x2="1166.6666666666665" y2="920" class="power-line"/>
+
+<!-- Breaker RMU-OUT 30px after leaving top of RMU -->
+<use href="#breaker-closed" x="1166.6666666666665" y="920"/>
+
+<!-- Continue vertical to reserve horizontal level (no reversal) -->
+<line x1="1166.6666666666665" y1="920" x2="1166.6666666666665" y2="720" class="power-line"/>
+
+<!-- Horizontal run directly to MV-MSB B connection point -->
+<line x1="1166.6666666666665" y1="720" x2="2480" y2="720" class="power-line"/>
+
+<!-- Vertical drop to bottom of MV-MSB B (breaker inline, no reversal) -->
+<line x1="2480" y1="720" x2="2480" y2="510" class="power-line"/>
+
+<!-- Breaker BKR-B 30px before entering bottom of MV-MSB B -->
+<use href="#breaker-closed" x="2480" y="510"/>
+
+<!-- Final connection to bottom of MV-MSB B after breaker -->
+<line x1="2480" y1="510" x2="2480" y2="480" class="power-line"/>
+<use href="#connection-point" x="2480" y="480"/>
+
+<!-- Drop from RMU to Transformer -->
+<line x1="1116.6666666666665" y1="1060" x2="1116.6666666666665" y2="1170" class="power-line"/>
+
+<!-- Breaker TX-IN 30px after RMU bottom -->
+<use href="#breaker-closed" x="1116.6666666666665" y="1090"/>
+
+<!-- Transformer TX-2 -->
+<g id="tx-2">
+    <rect x="1046.6666666666665" y="1170" width="140" height="100" class="transformer-box"/>
+    <use href="#transformer" x="1116.6666666666665" y="1220"/>
+    <text x="1116.6666666666665" y="1185" class="equipment-label" text-anchor="middle">TX-2</text>
+    <text x="1116.6666666666665" y="1250" class="rating" text-anchor="middle">200 kVA</text>
+    <text x="1116.6666666666665" y="1265" class="rating" text-anchor="middle">13.8kV Δ / 480Y/277V</text>
+</g>
+
+<!-- Drop from Transformer to LV-SWBD -->
+<line x1="1116.6666666666665" y1="1270" x2="1116.6666666666665" y2="1390" class="power-line"/>
+
+<!-- Main breaker MAIN 30px after TX bottom -->
+<use href="#breaker-closed" x="1116.6666666666665" y="1300"/>
+
+<!-- LV-SWBD-2 -->
+<g id="lv-swbd-2">
+    <rect x="996.6666666666665" y="1390" width="240" height="120" class="switchgear-box"/>
+    <text x="1116.6666666666665" y="1425" class="equipment-label" text-anchor="middle">LV-SWBD 2</text>
+    <text x="1116.6666666666665" y="1445" class="annotation" text-anchor="middle">480V/277V</text>
+    <text x="1116.6666666666665" y="1465" class="rating" text-anchor="middle">3200A Switchboard</text>
+    <text x="1116.6666666666665" y="1485" class="rating" text-anchor="middle">Feeds: UPS, Mechanical,</text>
+    <text x="1116.6666666666665" y="1500" class="rating" text-anchor="middle">Lighting, General Loads</text>
+</g>
+
+<!-- UPS feed line -->
+<line x1="1116.6666666666665" y1="1510" x2="1116.6666666666665" y2="1610" class="power-line"/>
+
+<!-- Breaker UPS-IN 30px after LV-SWBD bottom -->
+<use href="#breaker-closed" x="1116.6666666666665" y="1540"/>
+
+<!-- UPS-2 -->
+<g id="ups-2">
+    <rect x="1056.6666666666665" y="1610" width="120" height="80" class="ups-box"/>
+    <text x="1116.6666666666665" y="1635" class="equipment-label" text-anchor="middle">UPS-2</text>
+    <text x="1116.6666666666665" y="1655" class="rating" text-anchor="middle">1 MW Modular UPS</text>
+    <text x="1116.6666666666665" y="1675" class="rating" text-anchor="middle">Li-ion Battery</text>
+</g>
+
+<!-- Critical load line -->
+<line x1="1116.6666666666665" y1="1690" x2="1116.6666666666665" y2="1740" class="power-line"/>
+<rect x="1066.6666666666665" y="1740" width="100" height="40" fill="white" stroke="black" stroke-width="1.5"/>
+<text x="1116.6666666666665" y="1765" class="rating" text-anchor="middle">Critical Loads</text>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- Wire Path 3: MV-MSB A → RMU-3 → MV-MSB B -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+
+<!-- PRIMARY Path 3: Separate connection from BOTTOM of MV-MSB A -->
+<!-- Vertical drop from bottom of MV-MSB A at separate position -->
+<line x1="320" y1="480" x2="320" y2="540" class="power-line"/>
+<use href="#connection-point" x="320" y="480"/>
+
+<!-- Breaker BKR-A3 30px from MV-MSB A bottom -->
+<use href="#breaker-closed" x="320" y="510"/>
+
+<!-- Continue vertical to horizontal transition level -->
+<line x1="320" y1="540" x2="320" y2="760" class="power-line"/>
+
+<!-- Horizontal run to RMU position -->
+<line x1="320" y1="760" x2="1783.3333333333333" y2="760" class="power-line"/>
+
+<!-- Vertical drop directly to RMU top (breaker inline, no reversal) -->
+<line x1="1783.3333333333333" y1="760" x2="1783.3333333333333" y2="920" class="power-line"/>
+
+<!-- Breaker RMU-IN 30px before entering RMU from top -->
+<use href="#breaker-closed" x="1783.3333333333333" y="920"/>
+
+<!-- Continue to RMU top after breaker -->
+<line x1="1783.3333333333333" y1="920" x2="1783.3333333333333" y2="950" class="power-line"/>
+
+<!-- RMU-3 Box - moved down for separation -->
+<g id="rmu-3">
+    <rect x="1673.3333333333333" y="950" width="220" height="110" class="rmu-box"/>
+    <text x="1783.3333333333333" y="980" class="equipment-label" text-anchor="middle">RMU-3</text>
+    <text x="1783.3333333333333" y="1000" class="rating" text-anchor="middle">630A Ring Main Unit</text>
+    <text x="1783.3333333333333" y="1018" class="rating" text-anchor="middle">Dual Feed | 20kA SCCR</text>
+</g>
+
+<!-- RESERVE Path 3: TOP of RMU-3 (other side) to BOTTOM of MV-MSB B -->
+<!-- Vertical rise from top of RMU -->
+<line x1="1833.3333333333333" y1="950" x2="1833.3333333333333" y2="920" class="power-line"/>
+
+<!-- Breaker RMU-OUT 30px after leaving top of RMU -->
+<use href="#breaker-closed" x="1833.3333333333333" y="920"/>
+
+<!-- Continue vertical to reserve horizontal level (no reversal) -->
+<line x1="1833.3333333333333" y1="920" x2="1833.3333333333333" y2="800" class="power-line"/>
+
+<!-- Horizontal run directly to MV-MSB B connection point -->
+<line x1="1833.3333333333333" y1="800" x2="2540" y2="800" class="power-line"/>
+
+<!-- Vertical drop to bottom of MV-MSB B (breaker inline, no reversal) -->
+<line x1="2540" y1="800" x2="2540" y2="510" class="power-line"/>
+
+<!-- Breaker BKR-B 30px before entering bottom of MV-MSB B -->
+<use href="#breaker-closed" x="2540" y="510"/>
+
+<!-- Final connection to bottom of MV-MSB B after breaker -->
+<line x1="2540" y1="510" x2="2540" y2="480" class="power-line"/>
+<use href="#connection-point" x="2540" y="480"/>
+
+<!-- Drop from RMU to Transformer -->
+<line x1="1783.3333333333333" y1="1060" x2="1783.3333333333333" y2="1170" class="power-line"/>
+
+<!-- Breaker TX-IN 30px after RMU bottom -->
+<use href="#breaker-closed" x="1783.3333333333333" y="1090"/>
+
+<!-- Transformer TX-3 -->
+<g id="tx-3">
+    <rect x="1713.3333333333333" y="1170" width="140" height="100" class="transformer-box"/>
+    <use href="#transformer" x="1783.3333333333333" y="1220"/>
+    <text x="1783.3333333333333" y="1185" class="equipment-label" text-anchor="middle">TX-3</text>
+    <text x="1783.3333333333333" y="1250" class="rating" text-anchor="middle">200 kVA</text>
+    <text x="1783.3333333333333" y="1265" class="rating" text-anchor="middle">13.8kV Δ / 480Y/277V</text>
+</g>
+
+<!-- Drop from Transformer to LV-SWBD -->
+<line x1="1783.3333333333333" y1="1270" x2="1783.3333333333333" y2="1390" class="power-line"/>
+
+<!-- Main breaker MAIN 30px after TX bottom -->
+<use href="#breaker-closed" x="1783.3333333333333" y="1300"/>
+
+<!-- LV-SWBD-3 -->
+<g id="lv-swbd-3">
+    <rect x="1663.3333333333333" y="1390" width="240" height="120" class="switchgear-box"/>
+    <text x="1783.3333333333333" y="1425" class="equipment-label" text-anchor="middle">LV-SWBD 3</text>
+    <text x="1783.3333333333333" y="1445" class="annotation" text-anchor="middle">480V/277V</text>
+    <text x="1783.3333333333333" y="1465" class="rating" text-anchor="middle">3200A Switchboard</text>
+    <text x="1783.3333333333333" y="1485" class="rating" text-anchor="middle">Feeds: UPS, Mechanical,</text>
+    <text x="1783.3333333333333" y="1500" class="rating" text-anchor="middle">Lighting, General Loads</text>
+</g>
+
+<!-- UPS feed line -->
+<line x1="1783.3333333333333" y1="1510" x2="1783.3333333333333" y2="1610" class="power-line"/>
+
+<!-- Breaker UPS-IN 30px after LV-SWBD bottom -->
+<use href="#breaker-closed" x="1783.3333333333333" y="1540"/>
+
+<!-- UPS-3 -->
+<g id="ups-3">
+    <rect x="1723.3333333333333" y="1610" width="120" height="80" class="ups-box"/>
+    <text x="1783.3333333333333" y="1635" class="equipment-label" text-anchor="middle">UPS-3</text>
+    <text x="1783.3333333333333" y="1655" class="rating" text-anchor="middle">1 MW Modular UPS</text>
+    <text x="1783.3333333333333" y="1675" class="rating" text-anchor="middle">Li-ion Battery</text>
+</g>
+
+<!-- Critical load line -->
+<line x1="1783.3333333333333" y1="1690" x2="1783.3333333333333" y2="1740" class="power-line"/>
+<rect x="1733.3333333333333" y="1740" width="100" height="40" fill="white" stroke="black" stroke-width="1.5"/>
+<text x="1783.3333333333333" y="1765" class="rating" text-anchor="middle">Critical Loads</text>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- Wire Path 4: MV-MSB A → RMU-4 → MV-MSB B -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+
+<!-- PRIMARY Path 4: Separate connection from BOTTOM of MV-MSB A -->
+<!-- Vertical drop from bottom of MV-MSB A at separate position -->
+<line x1="380" y1="480" x2="380" y2="540" class="power-line"/>
+<use href="#connection-point" x="380" y="480"/>
+
+<!-- Breaker BKR-A4 30px from MV-MSB A bottom -->
+<use href="#breaker-closed" x="380" y="510"/>
+
+<!-- Continue vertical to horizontal transition level -->
+<line x1="380" y1="540" x2="380" y2="840" class="power-line"/>
+
+<!-- Horizontal run to RMU position -->
+<line x1="380" y1="840" x2="2450.0" y2="840" class="power-line"/>
+
+<!-- Vertical drop directly to RMU top (breaker inline, no reversal) -->
+<line x1="2450.0" y1="840" x2="2450.0" y2="920" class="power-line"/>
+
+<!-- Breaker RMU-IN 30px before entering RMU from top -->
+<use href="#breaker-closed" x="2450.0" y="920"/>
+
+<!-- Continue to RMU top after breaker -->
+<line x1="2450.0" y1="920" x2="2450.0" y2="950" class="power-line"/>
+
+<!-- RMU-4 Box - moved down for separation -->
+<g id="rmu-4">
+    <rect x="2340.0" y="950" width="220" height="110" class="rmu-box"/>
+    <text x="2450.0" y="980" class="equipment-label" text-anchor="middle">RMU-4</text>
+    <text x="2450.0" y="1000" class="rating" text-anchor="middle">630A Ring Main Unit</text>
+    <text x="2450.0" y="1018" class="rating" text-anchor="middle">Dual Feed | 20kA SCCR</text>
+</g>
+
+<!-- RESERVE Path 4: TOP of RMU-4 (other side) to BOTTOM of MV-MSB B -->
+<!-- Vertical rise from top of RMU -->
+<line x1="2500.0" y1="950" x2="2500.0" y2="920" class="power-line"/>
+
+<!-- Breaker RMU-OUT 30px after leaving top of RMU -->
+<use href="#breaker-closed" x="2500.0" y="920"/>
+
+<!-- Continue vertical to reserve horizontal level (no reversal) -->
+<line x1="2500.0" y1="920" x2="2500.0" y2="880" class="power-line"/>
+
+<!-- Horizontal run directly to MV-MSB B connection point -->
+<line x1="2500.0" y1="880" x2="2600" y2="880" class="power-line"/>
+
+<!-- Vertical drop to bottom of MV-MSB B (breaker inline, no reversal) -->
+<line x1="2600" y1="880" x2="2600" y2="510" class="power-line"/>
+
+<!-- Breaker BKR-B 30px before entering bottom of MV-MSB B -->
+<use href="#breaker-closed" x="2600" y="510"/>
+
+<!-- Final connection to bottom of MV-MSB B after breaker -->
+<line x1="2600" y1="510" x2="2600" y2="480" class="power-line"/>
+<use href="#connection-point" x="2600" y="480"/>
+
+<!-- Drop from RMU to Transformer -->
+<line x1="2450.0" y1="1060" x2="2450.0" y2="1170" class="power-line"/>
+
+<!-- Breaker TX-IN 30px after RMU bottom -->
+<use href="#breaker-closed" x="2450.0" y="1090"/>
+
+<!-- Transformer TX-4 -->
+<g id="tx-4">
+    <rect x="2380.0" y="1170" width="140" height="100" class="transformer-box"/>
+    <use href="#transformer" x="2450.0" y="1220"/>
+    <text x="2450.0" y="1185" class="equipment-label" text-anchor="middle">TX-4</text>
+    <text x="2450.0" y="1250" class="rating" text-anchor="middle">200 kVA</text>
+    <text x="2450.0" y="1265" class="rating" text-anchor="middle">13.8kV Δ / 480Y/277V</text>
+</g>
+
+<!-- Drop from Transformer to LV-SWBD -->
+<line x1="2450.0" y1="1270" x2="2450.0" y2="1390" class="power-line"/>
+
+<!-- Main breaker MAIN 30px after TX bottom -->
+<use href="#breaker-closed" x="2450.0" y="1300"/>
+
+<!-- LV-SWBD-4 -->
+<g id="lv-swbd-4">
+    <rect x="2330.0" y="1390" width="240" height="120" class="switchgear-box"/>
+    <text x="2450.0" y="1425" class="equipment-label" text-anchor="middle">LV-SWBD 4</text>
+    <text x="2450.0" y="1445" class="annotation" text-anchor="middle">480V/277V</text>
+    <text x="2450.0" y="1465" class="rating" text-anchor="middle">3200A Switchboard</text>
+    <text x="2450.0" y="1485" class="rating" text-anchor="middle">Feeds: UPS, Mechanical,</text>
+    <text x="2450.0" y="1500" class="rating" text-anchor="middle">Lighting, General Loads</text>
+</g>
+
+<!-- UPS feed line -->
+<line x1="2450.0" y1="1510" x2="2450.0" y2="1610" class="power-line"/>
+
+<!-- Breaker UPS-IN 30px after LV-SWBD bottom -->
+<use href="#breaker-closed" x="2450.0" y="1540"/>
+
+<!-- UPS-4 -->
+<g id="ups-4">
+    <rect x="2390.0" y="1610" width="120" height="80" class="ups-box"/>
+    <text x="2450.0" y="1635" class="equipment-label" text-anchor="middle">UPS-4</text>
+    <text x="2450.0" y="1655" class="rating" text-anchor="middle">1 MW Modular UPS</text>
+    <text x="2450.0" y="1675" class="rating" text-anchor="middle">Li-ion Battery</text>
+</g>
+
+<!-- Critical load line -->
+<line x1="2450.0" y1="1690" x2="2450.0" y2="1740" class="power-line"/>
+<rect x="2400.0" y="1740" width="100" height="40" fill="white" stroke="black" stroke-width="1.5"/>
+<text x="2450.0" y="1765" class="rating" text-anchor="middle">Critical Loads</text>
+
+
+<!-- IEEE Standards Note -->
+<text x="1400" y="120" class="note" text-anchor="middle">Symbols and conventions per IEEE Std 315-1975 / IEC 60617</text>
+
+<!-- Legend -->
+<g id="legend">
+    <rect x="100" y="1680" width="500" height="260" fill="white" stroke="black" stroke-width="2"/>
+    <text x="115" y="1710" class="subtitle">LEGEND (IEEE Std 315):</text>
+    
+    <line x1="115" y1="1735" x2="175" y2="1735" class="power-line"/>
+    <text x="185" y="1740" class="annotation">Power Line (2px)</text>
+    
+    <line x1="115" y1="1760" x2="175" y2="1760" class="bus"/>
+    <text x="185" y="1765" class="annotation">Bus (6px)</text>
+    
+    <use href="#breaker-closed" x="145" y="1795"/>
+    <text x="185" y="1800" class="annotation">Circuit Breaker (Closed)</text>
+    
+    <use href="#breaker-open" x="145" y="1830"/>
+    <text x="185" y="1835" class="annotation">Circuit Breaker (Open)</text>
+    
+    <use href="#transformer" x="145" y="1870"/>
+    <text x="185" y="1875" class="annotation">Transformer (Dual Winding)</text>
+    
+    <use href="#connection-point" x="145" y="1900"/>
+    <text x="185" y="1905" class="annotation">Connection Point</text>
+    
+    <text x="115" y="1930" class="note">All symbols per IEEE Std 315-1975 and IEC 60617</text>
+</g>
+
+<!-- Notes -->
+<g id="notes">
+    <rect x="650" y="1680" width="1050" height="260" fill="white" stroke="black" stroke-width="2"/>
+    <text x="665" y="1710" class="subtitle">DUAL RING REDUNDANCY:</text>
+    <text x="665" y="1740" class="rating">1. MV-MSB A Feeds: 4 separate connections from bottom</text>
+    <text x="665" y="1760" class="rating">2. MV-MSB B Feeds: 4 separate connections to bottom</text>
+    <text x="665" y="1780" class="rating">3. Primary Path: MV-MSB A → BKR-A → RMU-IN → RMU (left connection)</text>
+    <text x="665" y="1800" class="rating">4. Reserve Path: RMU (right connection) → RMU-OUT → BKR-B → MV-MSB B</text>
+    <text x="665" y="1820" class="rating">5. Both paths enter/exit RMU from top with spatial separation</text>
+    <text x="665" y="1840" class="rating">6. Downstream: RMU → TX-IN → Transformer → MAIN → LV-SWBD → UPS-IN → UPS</text>
+    <text x="665" y="1860" class="rating">7. Complete protection: 7 breakers per path for full isolation capability</text>
+    <text x="665" y="1880" class="rating">8. Breaker states shown represent normal operating configuration</text>
+    <text x="665" y="1900" class="rating">9. All breakers SCADA-controlled with local manual override</text>
+    <text x="665" y="1920" class="rating">10. Design permits concurrent maintenance without service interruption</text>
+</g>
+
+<!-- System Information -->
+<g id="sources">
+    <rect x="1750" y="1680" width="950" height="260" fill="white" stroke="black" stroke-width="2"/>
+    <text x="1765" y="1710" class="subtitle">SYSTEM CONFIGURATION:</text>
+    <text x="1765" y="1740" class="rating">• Utility: 2x Feeds 345kV to 13.8kV (25MVA each) to MV-MSB A &amp; B</text>
+    <text x="1765" y="1760" class="rating">• Generation: 3x 4MW @ 13.8kV (N+1 redundancy, Woodward paralleling)</text>
+    <text x="1765" y="1780" class="rating">• Medium Voltage: 13.8kV dual switchboards (4000A, 65kAIC)</text>
+    <text x="1765" y="1800" class="rating">• Distribution: Dual ring bus topology with 4 RMUs (630A, 20kA SCCR)</text>
+    <text x="1765" y="1820" class="rating">• Transformers: 4x 200kVA, 13.8kV Delta / 480Y/277V</text>
+    <text x="1765" y="1840" class="rating">• Low Voltage: 4x 480V switchboards (3200A)</text>
+    <text x="1765" y="1860" class="rating">• UPS: 4x 1MW modular units with Li-ion battery</text>
+    <text x="1765" y="1880" class="rating">• Classification: Tier III (N+1 redundancy, concurrent maintainability)</text>
+    <text x="1765" y="1900" class="rating">• Protection: Ground fault detection, arc flash mitigation, SCADA monitoring</text>
+    <text x="1765" y="1920" class="rating">• Standards: IEEE Std 315-1975, IEC 60617, ANSI Y14.1</text>
+</g>
+
+<!-- System status indicator -->
+<rect x="100" y="2000" width="2600" height="60" fill="#E8F4F8" stroke="black" stroke-width="2"/>
+<text x="1400" y="2025" class="annotation" text-anchor="middle">SAGA PRYOR DATA CENTER | Dual Ring Bus | 3 Generators, 2 MV-SWBDs, 4 RMUs, 4 Transformers, 4 LV-SWBDs, 4 UPS</text>
+<text x="1400" y="2050" class="rating" text-anchor="middle">7 Breakers per path (28 total) | All cable routes visible without overlap | Generated: 11/02/2025 16:13</text>
+
+</svg>

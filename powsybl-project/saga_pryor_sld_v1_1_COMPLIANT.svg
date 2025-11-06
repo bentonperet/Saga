@@ -1,0 +1,1311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="4800" height="3600" viewBox="0 0 4800 3600" xmlns="http://www.w3.org/2000/svg">
+<defs>
+
+        <g id="breaker-closed">
+            <rect x="-8" y="-12" width="16" height="24" fill="white" stroke="black" stroke-width="1.5"/>
+            <line x1="-6" y1="-8" x2="6" y2="8" stroke="black" stroke-width="2"/>
+            <line x1="-6" y1="8" x2="6" y2="-8" stroke="black" stroke-width="2"/>
+        </g>
+    
+
+        <g id="breaker-open">
+            <rect x="-8" y="-12" width="16" height="24" fill="white" stroke="black" stroke-width="1.5"/>
+            <line x1="0" y1="-8" x2="0" y2="-2" stroke="black" stroke-width="2"/>
+            <line x1="0" y1="2" x2="0" y2="8" stroke="black" stroke-width="2"/>
+            <circle cx="0" cy="0" r="2.5" fill="white" stroke="black" stroke-width="1.5"/>
+        </g>
+    
+
+        <g id="transformer">
+            <circle cx="-8" cy="0" r="10" fill="white" stroke="black" stroke-width="1.5"/>
+            <circle cx="8" cy="0" r="10" fill="white" stroke="black" stroke-width="1.5"/>
+            <line x1="-8" y1="-10" x2="-8" y2="-20" stroke="black" stroke-width="2"/>
+            <line x1="8" y1="10" x2="8" y2="20" stroke="black" stroke-width="2"/>
+        </g>
+    
+
+        <g id="generator">
+            <circle cx="0" cy="0" r="30" fill="white" stroke="black" stroke-width="2"/>
+            <text x="0" y="8" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="black">G</text>
+        </g>
+    
+
+        <g id="connection-point">
+            <circle cx="0" cy="0" r="3" fill="black"/>
+        </g>
+    
+
+        <g id="fuse">
+            <rect x="-6" y="-10" width="12" height="20" fill="white" stroke="black" stroke-width="1.5"/>
+            <line x1="0" y1="-6" x2="0" y2="6" stroke="black" stroke-width="2"/>
+            <circle cx="0" cy="0" r="3" fill="white" stroke="black" stroke-width="1.5"/>
+        </g>
+    
+
+        <g id="disconnect-closed">
+            <line x1="0" y1="-12" x2="0" y2="12" stroke="black" stroke-width="2"/>
+            <circle cx="0" cy="-12" r="2" fill="black"/>
+            <circle cx="0" cy="12" r="2" fill="black"/>
+        </g>
+    
+
+        <g id="disconnect-open">
+            <line x1="0" y1="-12" x2="4" y2="0" stroke="black" stroke-width="2"/>
+            <circle cx="0" cy="-12" r="2" fill="black"/>
+            <circle cx="0" cy="12" r="2" fill="black"/>
+        </g>
+    
+</defs>
+
+
+    <style>
+        /* Text Styles - SLD Standards v1.0 */
+        .title { font: bold 18px Arial; fill: #000; }
+        .subtitle { font: bold 14px Arial; fill: #000; }
+        .equipment-label { font: bold 13px Arial; fill: #000; }
+        .bus-label { font: bold 12px Arial; fill: #000; }
+        .small-label { font: 10px Arial; fill: #000; }
+        .rating { font: 10px Arial; fill: #333; }
+        .annotation { font: 9px Arial; fill: #000; }
+        .feeder-label { font: 8px Arial; fill: #666; }
+        .note { font: italic 9px Arial; fill: #000; }
+
+        /* Line Styles */
+        .power-line { stroke: #000; stroke-width: 2; fill: none; }
+        .bus { stroke: #000; stroke-width: 6; fill: none; }
+        .control-line { stroke: #000; stroke-width: 1; stroke-dasharray: 5,5; fill: none; }
+
+        /* Equipment Boxes - LIGHT BACKGROUNDS for readability */
+        .mv-switchboard { fill: #E3F2FD; stroke: #000; stroke-width: 2; }
+        .lv-switchboard { fill: #E8F5E9; stroke: #000; stroke-width: 2; }
+        .generator-box { fill: #FFF3E0; stroke: #000; stroke-width: 2; }
+        .transformer-box { fill: #FFFFFF; stroke: #000; stroke-width: 2; }
+        .rmu-box { fill: #FFF9C4; stroke: #000; stroke-width: 2; }
+        .ups-module { fill: #F3E5F5; stroke: #000; stroke-width: 1.5; }
+        .dist-panel { fill: #E0F2F1; stroke: #000; stroke-width: 1; }
+
+        /* Legacy aliases for backwards compatibility */
+        .switchgear-box { fill: #E3F2FD; stroke: black; stroke-width: 2; }
+        .ups-box { fill: #F3E5F5; stroke: black; stroke-width: 2; }
+
+        /* Ring Bus Colors */
+        .ring-bus-a { stroke: #E74C3C; stroke-width: 4; fill: none; }
+        .ring-bus-b { stroke: #3498DB; stroke-width: 4; fill: none; }
+    </style>
+    
+
+<!-- Title Block -->
+<rect x="20" y="10" width="4760" height="90" fill="white" stroke="black" stroke-width="2"/>
+<text x="2400" y="40" class="title" text-anchor="middle">SAGA PRYOR DATA CENTER - ELECTRICAL SINGLE LINE DIAGRAM</text>
+<text x="2400" y="60" class="subtitle" text-anchor="middle">13.8kV Dual-Feed MV Distribution | SLD Standards v1.1 Compliant</text>
+<text x="2400" y="80" class="annotation" text-anchor="middle">Dual-Feed RMUs | 5-Position LV-SWBDs | Symmetrical Layout</text>
+<text x="4770" y="85" class="annotation" text-anchor="end">Rev B - 2025-11-02</text>
+
+
+<!-- Generator 1 -->
+<circle cx="900" cy="150" r="35" fill="white" stroke="black" stroke-width="2"/>
+<text x="900" y="145" class="bus-label" text-anchor="middle">G</text>
+<text x="900" y="160" class="annotation" text-anchor="middle" font-size="10">GEN-1</text>
+<line x1="900" y1="185" x2="900" y2="220" class="power-line"/>
+<use href="#breaker-closed" x="900" y="202"/>
+<!-- Breaker label offset 20px right per v1.1 Section 2.3 -->
+<text x="920" y="207" class="feeder-label">CB-G1</text>
+<line x1="900" y1="220" x2="900" y2="250" class="power-line"/>
+<text x="900" y="400" class="rating" text-anchor="middle" font-size="9">4.0MW</text>
+
+<!-- Generator 2 -->
+<circle cx="1500" cy="150" r="35" fill="white" stroke="black" stroke-width="2"/>
+<text x="1500" y="145" class="bus-label" text-anchor="middle">G</text>
+<text x="1500" y="160" class="annotation" text-anchor="middle" font-size="10">GEN-2</text>
+<line x1="1500" y1="185" x2="1500" y2="220" class="power-line"/>
+<use href="#breaker-closed" x="1500" y="202"/>
+<!-- Breaker label offset 20px right per v1.1 Section 2.3 -->
+<text x="1520" y="207" class="feeder-label">CB-G2</text>
+<line x1="1500" y1="220" x2="1500" y2="250" class="power-line"/>
+<text x="1500" y="400" class="rating" text-anchor="middle" font-size="9">4.0MW</text>
+
+<!-- Generator 3 -->
+<circle cx="2100" cy="150" r="35" fill="white" stroke="black" stroke-width="2"/>
+<text x="2100" y="145" class="bus-label" text-anchor="middle">G</text>
+<text x="2100" y="160" class="annotation" text-anchor="middle" font-size="10">GEN-3</text>
+<line x1="2100" y1="185" x2="2100" y2="220" class="power-line"/>
+<use href="#breaker-closed" x="2100" y="202"/>
+<!-- Breaker label offset 20px right per v1.1 Section 2.3 -->
+<text x="2120" y="207" class="feeder-label">CB-G3</text>
+<line x1="2100" y1="220" x2="2100" y2="250" class="power-line"/>
+<text x="2100" y="400" class="rating" text-anchor="middle" font-size="9">4.0MW</text>
+
+<!-- Generator 4 -->
+<circle cx="2700" cy="150" r="35" fill="white" stroke="black" stroke-width="2"/>
+<text x="2700" y="145" class="bus-label" text-anchor="middle">G</text>
+<text x="2700" y="160" class="annotation" text-anchor="middle" font-size="10">GEN-4</text>
+<line x1="2700" y1="185" x2="2700" y2="220" class="power-line"/>
+<use href="#breaker-closed" x="2700" y="202"/>
+<!-- Breaker label offset 20px right per v1.1 Section 2.3 -->
+<text x="2720" y="207" class="feeder-label">CB-G4</text>
+<line x1="2700" y1="220" x2="2700" y2="250" class="power-line"/>
+<text x="2700" y="400" class="rating" text-anchor="middle" font-size="9">4.0MW</text>
+
+<!-- Generator 5 -->
+<circle cx="3300" cy="150" r="35" fill="white" stroke="black" stroke-width="2"/>
+<text x="3300" y="145" class="bus-label" text-anchor="middle">G</text>
+<text x="3300" y="160" class="annotation" text-anchor="middle" font-size="10">GEN-5</text>
+<line x1="3300" y1="185" x2="3300" y2="220" class="power-line"/>
+<use href="#breaker-closed" x="3300" y="202"/>
+<!-- Breaker label offset 20px right per v1.1 Section 2.3 -->
+<text x="3320" y="207" class="feeder-label">CB-G5</text>
+<line x1="3300" y1="220" x2="3300" y2="250" class="power-line"/>
+<text x="3300" y="400" class="rating" text-anchor="middle" font-size="9">4.0MW</text>
+
+<!-- Generator 6 -->
+<circle cx="3900" cy="150" r="35" fill="white" stroke="black" stroke-width="2"/>
+<text x="3900" y="145" class="bus-label" text-anchor="middle">G</text>
+<text x="3900" y="160" class="annotation" text-anchor="middle" font-size="10">GEN-6</text>
+<line x1="3900" y1="185" x2="3900" y2="220" class="power-line"/>
+<use href="#breaker-closed" x="3900" y="202"/>
+<!-- Breaker label offset 20px right per v1.1 Section 2.3 -->
+<text x="3920" y="207" class="feeder-label">CB-G6</text>
+<line x1="3900" y1="220" x2="3900" y2="250" class="power-line"/>
+<text x="3900" y="400" class="rating" text-anchor="middle" font-size="9">4.0MW</text>
+
+<!-- Generator Sync Bus -->
+<rect x="800" y="250" width="3200" height="70" class="generator-box"/>
+<line x1="820" y1="270" x2="3980" y2="270" class="bus"/>
+<text x="2400" y="295" class="equipment-label" text-anchor="middle">GENERATOR SYNC BUS - 13.8 kV</text>
+<text x="2400" y="310" class="annotation" text-anchor="middle">Woodward Paralleling | 6 x 4.0MW (N+1)</text>
+
+<!-- PRIMARY MV-SWBD -->
+<line x1="1500" y1="320" x2="1500" y2="370" class="power-line"/>
+<line x1="1500" y1="370" x2="1200.0" y2="370" class="power-line"/>
+<line x1="1200.0" y1="370" x2="1200.0" y2="410" class="power-line"/>
+<use href="#breaker-closed" x="1200.0" y="390"/>
+<text x="1220.0" y="395" class="feeder-label">CB-PRI</text>
+
+<rect x="1080.0" y="430" width="240" height="100" class="mv-switchboard"/>
+<line x1="1100.0" y1="450" x2="1300.0" y2="450" class="bus"/>
+<text x="1200.0" y="480" class="equipment-label" text-anchor="middle">MV-SWBD PRIMARY</text>
+<text x="1200.0" y="500" class="annotation" text-anchor="middle">13.8kV | 4000A</text>
+<text x="1200.0" y="515" class="rating" text-anchor="middle">Feeds Primary Incomers</text>
+
+<!-- RESERVE MV-SWBD -->
+<line x1="3300" y1="320" x2="3300" y2="370" class="power-line"/>
+<line x1="3300" y1="370" x2="3600.0" y2="370" class="power-line"/>
+<line x1="3600.0" y1="370" x2="3600.0" y2="410" class="power-line"/>
+<use href="#breaker-closed" x="3600.0" y="390"/>
+<text x="3620.0" y="395" class="feeder-label">CB-RES</text>
+
+<rect x="3480.0" y="430" width="240" height="100" class="mv-switchboard"/>
+<line x1="3500.0" y1="450" x2="3700.0" y2="450" class="bus"/>
+<text x="3600.0" y="480" class="equipment-label" text-anchor="middle">MV-SWBD RESERVE</text>
+<text x="3600.0" y="500" class="annotation" text-anchor="middle">13.8kV | 4000A</text>
+<text x="3600.0" y="515" class="rating" text-anchor="middle">Feeds Reserve Incomers</text>
+
+<!-- RMU-1 with Dual Incomers (v1.1 Section 3.2) -->
+<rect x="725.7142857142857" y="680" width="120" height="160" class="rmu-box"/>
+
+<!-- Primary incomer from PRIMARY MV-SWBD (left side of RMU) -->
+<!-- Vertical drop from bus with horizontal offset for path separation -->
+<line x1="1110.0" y1="450" x2="1110.0" y2="530" class="power-line"/>
+<line x1="1110.0" y1="530" x2="1110.0" y2="600" class="power-line"/>
+<text x="1120.0" y="580" class="annotation" font-size="8">PRI-1</text>
+<!-- Horizontal run to RMU left incomer -->
+<line x1="1110.0" y1="600" x2="755.7142857142857" y2="600" class="power-line"/>
+<line x1="755.7142857142857" y1="600" x2="755.7142857142857" y2="690" class="power-line"/>
+<use href="#breaker-closed" x="755.7142857142857" y="660"/>
+<text x="735.7142857142857" y="665" class="feeder-label">IN1</text>
+
+<!-- Reserve incomer from RESERVE MV-SWBD (right side of RMU) -->
+<!-- Vertical drop from bus with horizontal offset for path separation -->
+<line x1="3510.0" y1="450" x2="3510.0" y2="530" class="power-line"/>
+<line x1="3510.0" y1="530" x2="3510.0" y2="620" class="power-line"/>
+<text x="3500.0" y="580" class="annotation" font-size="8">RES-1</text>
+<!-- Horizontal run to RMU right incomer -->
+<line x1="3510.0" y1="620" x2="815.7142857142857" y2="620" class="power-line"/>
+<line x1="815.7142857142857" y1="620" x2="815.7142857142857" y2="690" class="power-line"/>
+<use href="#breaker-closed" x="815.7142857142857" y="660"/>
+<text x="835.7142857142857" y="665" class="feeder-label">IN2</text>
+
+<!-- Internal bus section -->
+<line x1="755.7142857142857" y1="690" x2="815.7142857142857" y2="690" class="bus"/>
+<circle cx="785.7142857142857" cy="690" r="4" fill="black"/>
+
+<!-- Transformer outgoer (from bottom per v1.1 Section 3.2) -->
+<line x1="785.7142857142857" y1="690" x2="785.7142857142857" y2="740" class="power-line"/>
+<use href="#breaker-closed" x="785.7142857142857" y="715"/>
+<text x="805.7142857142857" y="720" class="feeder-label">TX</text>
+<line x1="785.7142857142857" y1="740" x2="785.7142857142857" y2="840" class="power-line"/>
+
+<!-- RMU Labels (10px clearance from edges per v1.1 Section 2.3) -->
+<text x="785.7142857142857" y="770" class="equipment-label" text-anchor="middle">RMU-1</text>
+<text x="785.7142857142857" y="790" class="annotation" text-anchor="middle">630A SF6</text>
+<text x="785.7142857142857" y="810" class="annotation" text-anchor="middle" font-size="8">Dual Incomer</text>
+
+<!-- RMU-2 with Dual Incomers (v1.1 Section 3.2) -->
+<rect x="1371.4285714285713" y="680" width="120" height="160" class="rmu-box"/>
+
+<!-- Primary incomer from PRIMARY MV-SWBD (left side of RMU) -->
+<!-- Vertical drop from bus with horizontal offset for path separation -->
+<line x1="1140.0" y1="450" x2="1140.0" y2="530" class="power-line"/>
+<line x1="1140.0" y1="530" x2="1140.0" y2="600" class="power-line"/>
+<text x="1150.0" y="580" class="annotation" font-size="8">PRI-2</text>
+<!-- Horizontal run to RMU left incomer -->
+<line x1="1140.0" y1="600" x2="1401.4285714285713" y2="600" class="power-line"/>
+<line x1="1401.4285714285713" y1="600" x2="1401.4285714285713" y2="690" class="power-line"/>
+<use href="#breaker-closed" x="1401.4285714285713" y="660"/>
+<text x="1381.4285714285713" y="665" class="feeder-label">IN1</text>
+
+<!-- Reserve incomer from RESERVE MV-SWBD (right side of RMU) -->
+<!-- Vertical drop from bus with horizontal offset for path separation -->
+<line x1="3540.0" y1="450" x2="3540.0" y2="530" class="power-line"/>
+<line x1="3540.0" y1="530" x2="3540.0" y2="620" class="power-line"/>
+<text x="3530.0" y="580" class="annotation" font-size="8">RES-2</text>
+<!-- Horizontal run to RMU right incomer -->
+<line x1="3540.0" y1="620" x2="1461.4285714285713" y2="620" class="power-line"/>
+<line x1="1461.4285714285713" y1="620" x2="1461.4285714285713" y2="690" class="power-line"/>
+<use href="#breaker-closed" x="1461.4285714285713" y="660"/>
+<text x="1481.4285714285713" y="665" class="feeder-label">IN2</text>
+
+<!-- Internal bus section -->
+<line x1="1401.4285714285713" y1="690" x2="1461.4285714285713" y2="690" class="bus"/>
+<circle cx="1431.4285714285713" cy="690" r="4" fill="black"/>
+
+<!-- Transformer outgoer (from bottom per v1.1 Section 3.2) -->
+<line x1="1431.4285714285713" y1="690" x2="1431.4285714285713" y2="740" class="power-line"/>
+<use href="#breaker-closed" x="1431.4285714285713" y="715"/>
+<text x="1451.4285714285713" y="720" class="feeder-label">TX</text>
+<line x1="1431.4285714285713" y1="740" x2="1431.4285714285713" y2="840" class="power-line"/>
+
+<!-- RMU Labels (10px clearance from edges per v1.1 Section 2.3) -->
+<text x="1431.4285714285713" y="770" class="equipment-label" text-anchor="middle">RMU-2</text>
+<text x="1431.4285714285713" y="790" class="annotation" text-anchor="middle">630A SF6</text>
+<text x="1431.4285714285713" y="810" class="annotation" text-anchor="middle" font-size="8">Dual Incomer</text>
+
+<!-- RMU-3 with Dual Incomers (v1.1 Section 3.2) -->
+<rect x="2017.1428571428569" y="680" width="120" height="160" class="rmu-box"/>
+
+<!-- Primary incomer from PRIMARY MV-SWBD (left side of RMU) -->
+<!-- Vertical drop from bus with horizontal offset for path separation -->
+<line x1="1170.0" y1="450" x2="1170.0" y2="530" class="power-line"/>
+<line x1="1170.0" y1="530" x2="1170.0" y2="600" class="power-line"/>
+<text x="1180.0" y="580" class="annotation" font-size="8">PRI-3</text>
+<!-- Horizontal run to RMU left incomer -->
+<line x1="1170.0" y1="600" x2="2047.1428571428569" y2="600" class="power-line"/>
+<line x1="2047.1428571428569" y1="600" x2="2047.1428571428569" y2="690" class="power-line"/>
+<use href="#breaker-closed" x="2047.1428571428569" y="660"/>
+<text x="2027.1428571428569" y="665" class="feeder-label">IN1</text>
+
+<!-- Reserve incomer from RESERVE MV-SWBD (right side of RMU) -->
+<!-- Vertical drop from bus with horizontal offset for path separation -->
+<line x1="3570.0" y1="450" x2="3570.0" y2="530" class="power-line"/>
+<line x1="3570.0" y1="530" x2="3570.0" y2="620" class="power-line"/>
+<text x="3560.0" y="580" class="annotation" font-size="8">RES-3</text>
+<!-- Horizontal run to RMU right incomer -->
+<line x1="3570.0" y1="620" x2="2107.142857142857" y2="620" class="power-line"/>
+<line x1="2107.142857142857" y1="620" x2="2107.142857142857" y2="690" class="power-line"/>
+<use href="#breaker-closed" x="2107.142857142857" y="660"/>
+<text x="2127.142857142857" y="665" class="feeder-label">IN2</text>
+
+<!-- Internal bus section -->
+<line x1="2047.1428571428569" y1="690" x2="2107.142857142857" y2="690" class="bus"/>
+<circle cx="2077.142857142857" cy="690" r="4" fill="black"/>
+
+<!-- Transformer outgoer (from bottom per v1.1 Section 3.2) -->
+<line x1="2077.142857142857" y1="690" x2="2077.142857142857" y2="740" class="power-line"/>
+<use href="#breaker-closed" x="2077.142857142857" y="715"/>
+<text x="2097.142857142857" y="720" class="feeder-label">TX</text>
+<line x1="2077.142857142857" y1="740" x2="2077.142857142857" y2="840" class="power-line"/>
+
+<!-- RMU Labels (10px clearance from edges per v1.1 Section 2.3) -->
+<text x="2077.142857142857" y="770" class="equipment-label" text-anchor="middle">RMU-3</text>
+<text x="2077.142857142857" y="790" class="annotation" text-anchor="middle">630A SF6</text>
+<text x="2077.142857142857" y="810" class="annotation" text-anchor="middle" font-size="8">Dual Incomer</text>
+
+<!-- RMU-4 with Dual Incomers (v1.1 Section 3.2) -->
+<rect x="2662.8571428571427" y="680" width="120" height="160" class="rmu-box"/>
+
+<!-- Primary incomer from PRIMARY MV-SWBD (left side of RMU) -->
+<!-- Vertical drop from bus with horizontal offset for path separation -->
+<line x1="1200.0" y1="450" x2="1200.0" y2="530" class="power-line"/>
+<line x1="1200.0" y1="530" x2="1200.0" y2="600" class="power-line"/>
+<text x="1210.0" y="580" class="annotation" font-size="8">PRI-4</text>
+<!-- Horizontal run to RMU left incomer -->
+<line x1="1200.0" y1="600" x2="2692.8571428571427" y2="600" class="power-line"/>
+<line x1="2692.8571428571427" y1="600" x2="2692.8571428571427" y2="690" class="power-line"/>
+<use href="#breaker-closed" x="2692.8571428571427" y="660"/>
+<text x="2672.8571428571427" y="665" class="feeder-label">IN1</text>
+
+<!-- Reserve incomer from RESERVE MV-SWBD (right side of RMU) -->
+<!-- Vertical drop from bus with horizontal offset for path separation -->
+<line x1="3600.0" y1="450" x2="3600.0" y2="530" class="power-line"/>
+<line x1="3600.0" y1="530" x2="3600.0" y2="620" class="power-line"/>
+<text x="3590.0" y="580" class="annotation" font-size="8">RES-4</text>
+<!-- Horizontal run to RMU right incomer -->
+<line x1="3600.0" y1="620" x2="2752.8571428571427" y2="620" class="power-line"/>
+<line x1="2752.8571428571427" y1="620" x2="2752.8571428571427" y2="690" class="power-line"/>
+<use href="#breaker-closed" x="2752.8571428571427" y="660"/>
+<text x="2772.8571428571427" y="665" class="feeder-label">IN2</text>
+
+<!-- Internal bus section -->
+<line x1="2692.8571428571427" y1="690" x2="2752.8571428571427" y2="690" class="bus"/>
+<circle cx="2722.8571428571427" cy="690" r="4" fill="black"/>
+
+<!-- Transformer outgoer (from bottom per v1.1 Section 3.2) -->
+<line x1="2722.8571428571427" y1="690" x2="2722.8571428571427" y2="740" class="power-line"/>
+<use href="#breaker-closed" x="2722.8571428571427" y="715"/>
+<text x="2742.8571428571427" y="720" class="feeder-label">TX</text>
+<line x1="2722.8571428571427" y1="740" x2="2722.8571428571427" y2="840" class="power-line"/>
+
+<!-- RMU Labels (10px clearance from edges per v1.1 Section 2.3) -->
+<text x="2722.8571428571427" y="770" class="equipment-label" text-anchor="middle">RMU-4</text>
+<text x="2722.8571428571427" y="790" class="annotation" text-anchor="middle">630A SF6</text>
+<text x="2722.8571428571427" y="810" class="annotation" text-anchor="middle" font-size="8">Dual Incomer</text>
+
+<!-- RMU-5 with Dual Incomers (v1.1 Section 3.2) -->
+<rect x="3308.5714285714284" y="680" width="120" height="160" class="rmu-box"/>
+
+<!-- Primary incomer from PRIMARY MV-SWBD (left side of RMU) -->
+<!-- Vertical drop from bus with horizontal offset for path separation -->
+<line x1="1230.0" y1="450" x2="1230.0" y2="530" class="power-line"/>
+<line x1="1230.0" y1="530" x2="1230.0" y2="600" class="power-line"/>
+<text x="1240.0" y="580" class="annotation" font-size="8">PRI-5</text>
+<!-- Horizontal run to RMU left incomer -->
+<line x1="1230.0" y1="600" x2="3338.5714285714284" y2="600" class="power-line"/>
+<line x1="3338.5714285714284" y1="600" x2="3338.5714285714284" y2="690" class="power-line"/>
+<use href="#breaker-closed" x="3338.5714285714284" y="660"/>
+<text x="3318.5714285714284" y="665" class="feeder-label">IN1</text>
+
+<!-- Reserve incomer from RESERVE MV-SWBD (right side of RMU) -->
+<!-- Vertical drop from bus with horizontal offset for path separation -->
+<line x1="3630.0" y1="450" x2="3630.0" y2="530" class="power-line"/>
+<line x1="3630.0" y1="530" x2="3630.0" y2="620" class="power-line"/>
+<text x="3620.0" y="580" class="annotation" font-size="8">RES-5</text>
+<!-- Horizontal run to RMU right incomer -->
+<line x1="3630.0" y1="620" x2="3398.5714285714284" y2="620" class="power-line"/>
+<line x1="3398.5714285714284" y1="620" x2="3398.5714285714284" y2="690" class="power-line"/>
+<use href="#breaker-closed" x="3398.5714285714284" y="660"/>
+<text x="3418.5714285714284" y="665" class="feeder-label">IN2</text>
+
+<!-- Internal bus section -->
+<line x1="3338.5714285714284" y1="690" x2="3398.5714285714284" y2="690" class="bus"/>
+<circle cx="3368.5714285714284" cy="690" r="4" fill="black"/>
+
+<!-- Transformer outgoer (from bottom per v1.1 Section 3.2) -->
+<line x1="3368.5714285714284" y1="690" x2="3368.5714285714284" y2="740" class="power-line"/>
+<use href="#breaker-closed" x="3368.5714285714284" y="715"/>
+<text x="3388.5714285714284" y="720" class="feeder-label">TX</text>
+<line x1="3368.5714285714284" y1="740" x2="3368.5714285714284" y2="840" class="power-line"/>
+
+<!-- RMU Labels (10px clearance from edges per v1.1 Section 2.3) -->
+<text x="3368.5714285714284" y="770" class="equipment-label" text-anchor="middle">RMU-5</text>
+<text x="3368.5714285714284" y="790" class="annotation" text-anchor="middle">630A SF6</text>
+<text x="3368.5714285714284" y="810" class="annotation" text-anchor="middle" font-size="8">Dual Incomer</text>
+
+<!-- RMU-6 with Dual Incomers (v1.1 Section 3.2) -->
+<rect x="3954.2857142857138" y="680" width="120" height="160" class="rmu-box"/>
+
+<!-- Primary incomer from PRIMARY MV-SWBD (left side of RMU) -->
+<!-- Vertical drop from bus with horizontal offset for path separation -->
+<line x1="1260.0" y1="450" x2="1260.0" y2="530" class="power-line"/>
+<line x1="1260.0" y1="530" x2="1260.0" y2="600" class="power-line"/>
+<text x="1270.0" y="580" class="annotation" font-size="8">PRI-6</text>
+<!-- Horizontal run to RMU left incomer -->
+<line x1="1260.0" y1="600" x2="3984.2857142857138" y2="600" class="power-line"/>
+<line x1="3984.2857142857138" y1="600" x2="3984.2857142857138" y2="690" class="power-line"/>
+<use href="#breaker-closed" x="3984.2857142857138" y="660"/>
+<text x="3964.2857142857138" y="665" class="feeder-label">IN1</text>
+
+<!-- Reserve incomer from RESERVE MV-SWBD (right side of RMU) -->
+<!-- Vertical drop from bus with horizontal offset for path separation -->
+<line x1="3660.0" y1="450" x2="3660.0" y2="530" class="power-line"/>
+<line x1="3660.0" y1="530" x2="3660.0" y2="620" class="power-line"/>
+<text x="3650.0" y="580" class="annotation" font-size="8">RES-6</text>
+<!-- Horizontal run to RMU right incomer -->
+<line x1="3660.0" y1="620" x2="4044.2857142857138" y2="620" class="power-line"/>
+<line x1="4044.2857142857138" y1="620" x2="4044.2857142857138" y2="690" class="power-line"/>
+<use href="#breaker-closed" x="4044.2857142857138" y="660"/>
+<text x="4064.2857142857138" y="665" class="feeder-label">IN2</text>
+
+<!-- Internal bus section -->
+<line x1="3984.2857142857138" y1="690" x2="4044.2857142857138" y2="690" class="bus"/>
+<circle cx="4014.2857142857138" cy="690" r="4" fill="black"/>
+
+<!-- Transformer outgoer (from bottom per v1.1 Section 3.2) -->
+<line x1="4014.2857142857138" y1="690" x2="4014.2857142857138" y2="740" class="power-line"/>
+<use href="#breaker-closed" x="4014.2857142857138" y="715"/>
+<text x="4034.2857142857138" y="720" class="feeder-label">TX</text>
+<line x1="4014.2857142857138" y1="740" x2="4014.2857142857138" y2="840" class="power-line"/>
+
+<!-- RMU Labels (10px clearance from edges per v1.1 Section 2.3) -->
+<text x="4014.2857142857138" y="770" class="equipment-label" text-anchor="middle">RMU-6</text>
+<text x="4014.2857142857138" y="790" class="annotation" text-anchor="middle">630A SF6</text>
+<text x="4014.2857142857138" y="810" class="annotation" text-anchor="middle" font-size="8">Dual Incomer</text>
+
+<!-- Transformer TX-1 (v1.1 Section 3.3 - incomer from top, outgoer to bottom) -->
+
+<!-- Incomer from RMU (from top) -->
+<line x1="785.7142857142857" y1="840" x2="785.7142857142857" y2="800" class="power-line"/>
+<line x1="785.7142857142857" y1="800" x2="661.6666666666667" y2="800" class="power-line"/>
+<line x1="661.6666666666667" y1="800" x2="661.6666666666667" y2="850" class="power-line"/>
+<use href="#breaker-closed" x="661.6666666666667" y="825"/>
+<!-- Breaker label offset 20px per v1.1 Section 2.3 -->
+<text x="681.6666666666667" y="830" class="feeder-label">CB-H1</text>
+<line x1="661.6666666666667" y1="850" x2="661.6666666666667" y2="865" class="power-line"/>
+
+<!-- Transformer symbol -->
+<circle cx="661.6666666666667" cy="900" r="35" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="661.6666666666667" cy="900" r="28" fill="none" stroke="black" stroke-width="1"/>
+<text x="661.6666666666667" y="895" class="annotation" text-anchor="middle">TX-1</text>
+<text x="661.6666666666667" y="908" class="rating" text-anchor="middle" font-size="9">3500kVA</text>
+
+<!-- Rating label 15px below per v1.1 Section 2.3 -->
+<text x="661.6666666666667" y="955" class="annotation" text-anchor="middle">13.8kV/0.48kV</text>
+
+<!-- Outgoer to LV-SWBD (from bottom) -->
+<line x="661.6666666666667" y1="935" x2="661.6666666666667" y2="975" class="power-line"/>
+<use href="#breaker-closed" x="661.6666666666667" y="990"/>
+<text x="681.6666666666667" y="995" class="feeder-label">CB-L1</text>
+<line x1="661.6666666666667" y1="1005" x2="661.6666666666667" y2="1050" class="power-line"/>
+
+<!-- Transformer TX-2 (v1.1 Section 3.3 - incomer from top, outgoer to bottom) -->
+
+<!-- Incomer from RMU (from top) -->
+<line x1="1431.4285714285713" y1="840" x2="1431.4285714285713" y2="800" class="power-line"/>
+<line x1="1431.4285714285713" y1="800" x2="1158.3333333333335" y2="800" class="power-line"/>
+<line x1="1158.3333333333335" y1="800" x2="1158.3333333333335" y2="850" class="power-line"/>
+<use href="#breaker-closed" x="1158.3333333333335" y="825"/>
+<!-- Breaker label offset 20px per v1.1 Section 2.3 -->
+<text x="1178.3333333333335" y="830" class="feeder-label">CB-H2</text>
+<line x1="1158.3333333333335" y1="850" x2="1158.3333333333335" y2="865" class="power-line"/>
+
+<!-- Transformer symbol -->
+<circle cx="1158.3333333333335" cy="900" r="35" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="1158.3333333333335" cy="900" r="28" fill="none" stroke="black" stroke-width="1"/>
+<text x="1158.3333333333335" y="895" class="annotation" text-anchor="middle">TX-2</text>
+<text x="1158.3333333333335" y="908" class="rating" text-anchor="middle" font-size="9">3500kVA</text>
+
+<!-- Rating label 15px below per v1.1 Section 2.3 -->
+<text x="1158.3333333333335" y="955" class="annotation" text-anchor="middle">13.8kV/0.48kV</text>
+
+<!-- Outgoer to LV-SWBD (from bottom) -->
+<line x="1158.3333333333335" y1="935" x2="1158.3333333333335" y2="975" class="power-line"/>
+<use href="#breaker-closed" x="1158.3333333333335" y="990"/>
+<text x="1178.3333333333335" y="995" class="feeder-label">CB-L2</text>
+<line x1="1158.3333333333335" y1="1005" x2="1158.3333333333335" y2="1050" class="power-line"/>
+
+<!-- Transformer TX-3 (v1.1 Section 3.3 - incomer from top, outgoer to bottom) -->
+
+<!-- Incomer from RMU (from top) -->
+<line x1="1431.4285714285713" y1="840" x2="1431.4285714285713" y2="800" class="power-line"/>
+<line x1="1431.4285714285713" y1="800" x2="1655.0" y2="800" class="power-line"/>
+<line x1="1655.0" y1="800" x2="1655.0" y2="850" class="power-line"/>
+<use href="#breaker-closed" x="1655.0" y="825"/>
+<!-- Breaker label offset 20px per v1.1 Section 2.3 -->
+<text x="1675.0" y="830" class="feeder-label">CB-H3</text>
+<line x1="1655.0" y1="850" x2="1655.0" y2="865" class="power-line"/>
+
+<!-- Transformer symbol -->
+<circle cx="1655.0" cy="900" r="35" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="1655.0" cy="900" r="28" fill="none" stroke="black" stroke-width="1"/>
+<text x="1655.0" y="895" class="annotation" text-anchor="middle">TX-3</text>
+<text x="1655.0" y="908" class="rating" text-anchor="middle" font-size="9">3500kVA</text>
+
+<!-- Rating label 15px below per v1.1 Section 2.3 -->
+<text x="1655.0" y="955" class="annotation" text-anchor="middle">13.8kV/0.48kV</text>
+
+<!-- Outgoer to LV-SWBD (from bottom) -->
+<line x="1655.0" y1="935" x2="1655.0" y2="975" class="power-line"/>
+<use href="#breaker-closed" x="1655.0" y="990"/>
+<text x="1675.0" y="995" class="feeder-label">CB-L3</text>
+<line x1="1655.0" y1="1005" x2="1655.0" y2="1050" class="power-line"/>
+
+<!-- Transformer TX-4 (v1.1 Section 3.3 - incomer from top, outgoer to bottom) -->
+
+<!-- Incomer from RMU (from top) -->
+<line x1="2077.142857142857" y1="840" x2="2077.142857142857" y2="800" class="power-line"/>
+<line x1="2077.142857142857" y1="800" x2="2151.666666666667" y2="800" class="power-line"/>
+<line x1="2151.666666666667" y1="800" x2="2151.666666666667" y2="850" class="power-line"/>
+<use href="#breaker-closed" x="2151.666666666667" y="825"/>
+<!-- Breaker label offset 20px per v1.1 Section 2.3 -->
+<text x="2171.666666666667" y="830" class="feeder-label">CB-H4</text>
+<line x1="2151.666666666667" y1="850" x2="2151.666666666667" y2="865" class="power-line"/>
+
+<!-- Transformer symbol -->
+<circle cx="2151.666666666667" cy="900" r="35" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="2151.666666666667" cy="900" r="28" fill="none" stroke="black" stroke-width="1"/>
+<text x="2151.666666666667" y="895" class="annotation" text-anchor="middle">TX-4</text>
+<text x="2151.666666666667" y="908" class="rating" text-anchor="middle" font-size="9">3500kVA</text>
+
+<!-- Rating label 15px below per v1.1 Section 2.3 -->
+<text x="2151.666666666667" y="955" class="annotation" text-anchor="middle">13.8kV/0.48kV</text>
+
+<!-- Outgoer to LV-SWBD (from bottom) -->
+<line x="2151.666666666667" y1="935" x2="2151.666666666667" y2="975" class="power-line"/>
+<use href="#breaker-closed" x="2151.666666666667" y="990"/>
+<text x="2171.666666666667" y="995" class="feeder-label">CB-L4</text>
+<line x1="2151.666666666667" y1="1005" x2="2151.666666666667" y2="1050" class="power-line"/>
+
+<!-- Transformer TX-5 (v1.1 Section 3.3 - incomer from top, outgoer to bottom) -->
+
+<!-- Incomer from RMU (from top) -->
+<line x1="2722.8571428571427" y1="840" x2="2722.8571428571427" y2="800" class="power-line"/>
+<line x1="2722.8571428571427" y1="800" x2="2648.3333333333335" y2="800" class="power-line"/>
+<line x1="2648.3333333333335" y1="800" x2="2648.3333333333335" y2="850" class="power-line"/>
+<use href="#breaker-closed" x="2648.3333333333335" y="825"/>
+<!-- Breaker label offset 20px per v1.1 Section 2.3 -->
+<text x="2668.3333333333335" y="830" class="feeder-label">CB-H5</text>
+<line x1="2648.3333333333335" y1="850" x2="2648.3333333333335" y2="865" class="power-line"/>
+
+<!-- Transformer symbol -->
+<circle cx="2648.3333333333335" cy="900" r="35" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="2648.3333333333335" cy="900" r="28" fill="none" stroke="black" stroke-width="1"/>
+<text x="2648.3333333333335" y="895" class="annotation" text-anchor="middle">TX-5</text>
+<text x="2648.3333333333335" y="908" class="rating" text-anchor="middle" font-size="9">3500kVA</text>
+
+<!-- Rating label 15px below per v1.1 Section 2.3 -->
+<text x="2648.3333333333335" y="955" class="annotation" text-anchor="middle">13.8kV/0.48kV</text>
+
+<!-- Outgoer to LV-SWBD (from bottom) -->
+<line x="2648.3333333333335" y1="935" x2="2648.3333333333335" y2="975" class="power-line"/>
+<use href="#breaker-closed" x="2648.3333333333335" y="990"/>
+<text x="2668.3333333333335" y="995" class="feeder-label">CB-L5</text>
+<line x1="2648.3333333333335" y1="1005" x2="2648.3333333333335" y2="1050" class="power-line"/>
+
+<!-- Transformer TX-6 (v1.1 Section 3.3 - incomer from top, outgoer to bottom) -->
+
+<!-- Incomer from RMU (from top) -->
+<line x1="3368.5714285714284" y1="840" x2="3368.5714285714284" y2="800" class="power-line"/>
+<line x1="3368.5714285714284" y1="800" x2="3145.0" y2="800" class="power-line"/>
+<line x1="3145.0" y1="800" x2="3145.0" y2="850" class="power-line"/>
+<use href="#breaker-closed" x="3145.0" y="825"/>
+<!-- Breaker label offset 20px per v1.1 Section 2.3 -->
+<text x="3165.0" y="830" class="feeder-label">CB-H6</text>
+<line x1="3145.0" y1="850" x2="3145.0" y2="865" class="power-line"/>
+
+<!-- Transformer symbol -->
+<circle cx="3145.0" cy="900" r="35" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="3145.0" cy="900" r="28" fill="none" stroke="black" stroke-width="1"/>
+<text x="3145.0" y="895" class="annotation" text-anchor="middle">TX-6</text>
+<text x="3145.0" y="908" class="rating" text-anchor="middle" font-size="9">3500kVA</text>
+
+<!-- Rating label 15px below per v1.1 Section 2.3 -->
+<text x="3145.0" y="955" class="annotation" text-anchor="middle">13.8kV/0.48kV</text>
+
+<!-- Outgoer to LV-SWBD (from bottom) -->
+<line x="3145.0" y1="935" x2="3145.0" y2="975" class="power-line"/>
+<use href="#breaker-closed" x="3145.0" y="990"/>
+<text x="3165.0" y="995" class="feeder-label">CB-L6</text>
+<line x1="3145.0" y1="1005" x2="3145.0" y2="1050" class="power-line"/>
+
+<!-- Transformer TX-7 (v1.1 Section 3.3 - incomer from top, outgoer to bottom) -->
+
+<!-- Incomer from RMU (from top) -->
+<line x1="3368.5714285714284" y1="840" x2="3368.5714285714284" y2="800" class="power-line"/>
+<line x1="3368.5714285714284" y1="800" x2="3641.666666666667" y2="800" class="power-line"/>
+<line x1="3641.666666666667" y1="800" x2="3641.666666666667" y2="850" class="power-line"/>
+<use href="#breaker-closed" x="3641.666666666667" y="825"/>
+<!-- Breaker label offset 20px per v1.1 Section 2.3 -->
+<text x="3661.666666666667" y="830" class="feeder-label">CB-H7</text>
+<line x1="3641.666666666667" y1="850" x2="3641.666666666667" y2="865" class="power-line"/>
+
+<!-- Transformer symbol -->
+<circle cx="3641.666666666667" cy="900" r="35" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="3641.666666666667" cy="900" r="28" fill="none" stroke="black" stroke-width="1"/>
+<text x="3641.666666666667" y="895" class="annotation" text-anchor="middle">TX-7</text>
+<text x="3641.666666666667" y="908" class="rating" text-anchor="middle" font-size="9">3500kVA</text>
+
+<!-- Rating label 15px below per v1.1 Section 2.3 -->
+<text x="3641.666666666667" y="955" class="annotation" text-anchor="middle">13.8kV/0.48kV</text>
+
+<!-- Outgoer to LV-SWBD (from bottom) -->
+<line x="3641.666666666667" y1="935" x2="3641.666666666667" y2="975" class="power-line"/>
+<use href="#breaker-closed" x="3641.666666666667" y="990"/>
+<text x="3661.666666666667" y="995" class="feeder-label">CB-L7</text>
+<line x1="3641.666666666667" y1="1005" x2="3641.666666666667" y2="1050" class="power-line"/>
+
+<!-- Transformer TX-8 (v1.1 Section 3.3 - incomer from top, outgoer to bottom) -->
+
+<!-- Incomer from RMU (from top) -->
+<line x1="4014.2857142857138" y1="840" x2="4014.2857142857138" y2="800" class="power-line"/>
+<line x1="4014.2857142857138" y1="800" x2="4138.333333333334" y2="800" class="power-line"/>
+<line x1="4138.333333333334" y1="800" x2="4138.333333333334" y2="850" class="power-line"/>
+<use href="#breaker-closed" x="4138.333333333334" y="825"/>
+<!-- Breaker label offset 20px per v1.1 Section 2.3 -->
+<text x="4158.333333333334" y="830" class="feeder-label">CB-H8</text>
+<line x1="4138.333333333334" y1="850" x2="4138.333333333334" y2="865" class="power-line"/>
+
+<!-- Transformer symbol -->
+<circle cx="4138.333333333334" cy="900" r="35" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="4138.333333333334" cy="900" r="28" fill="none" stroke="black" stroke-width="1"/>
+<text x="4138.333333333334" y="895" class="annotation" text-anchor="middle">TX-8</text>
+<text x="4138.333333333334" y="908" class="rating" text-anchor="middle" font-size="9">3500kVA</text>
+
+<!-- Rating label 15px below per v1.1 Section 2.3 -->
+<text x="4138.333333333334" y="955" class="annotation" text-anchor="middle">13.8kV/0.48kV</text>
+
+<!-- Outgoer to LV-SWBD (from bottom) -->
+<line x="4138.333333333334" y1="935" x2="4138.333333333334" y2="975" class="power-line"/>
+<use href="#breaker-closed" x="4138.333333333334" y="990"/>
+<text x="4158.333333333334" y="995" class="feeder-label">CB-L8</text>
+<line x1="4138.333333333334" y1="1005" x2="4138.333333333334" y2="1050" class="power-line"/>
+
+<!-- LV-SWBD-1 with 5 Breaker Positions (v1.1 Section 3.1) -->
+
+<!-- Incomer from transformer (from top) -->
+<line x1="661.6666666666667" y1="1050" x2="661.6666666666667" y2="1070" class="power-line"/>
+
+<!-- Switchboard box - 200px wide (40px per position x 5) -->
+<rect x="561.6666666666667" y="1070" width="200" height="100" class="lv-switchboard"/>
+
+<!-- Main bus inside (15px from top edge) -->
+<line x1="571.6666666666667" y1="1085" x2="751.6666666666667" y2="1085" class="bus"/>
+
+<!-- Labels (10px clearance from edges) -->
+<text x="661.6666666666667" y="1115" class="equipment-label" text-anchor="middle">LV-SWBD-1</text>
+<text x="661.6666666666667" y="1135" class="annotation" text-anchor="middle">480V/277V</text>
+<text x="661.6666666666667" y="1155" class="rating" text-anchor="middle" font-size="8">2000A | 5 Pos</text>
+
+<!-- Breaker Position 1 -->
+<line x1="581.6666666666667" y1="1085" x2="581.6666666666667" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="581.6666666666667" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="581.6666666666667" y1="1205" x2="581.6666666666667" y2="1250" class="power-line"/>
+<text x="581.6666666666667" y="1180" class="feeder-label" text-anchor="middle" font-size="7">1</text>
+
+<!-- Distribution panel/load -->
+<rect x="561.6666666666667" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="581.6666666666667" y="1280" class="annotation" text-anchor="middle" font-size="7">IT-UPS</text>
+
+<!-- Breaker Position 2 -->
+<line x1="621.6666666666667" y1="1085" x2="621.6666666666667" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="621.6666666666667" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="621.6666666666667" y1="1205" x2="621.6666666666667" y2="1250" class="power-line"/>
+<text x="621.6666666666667" y="1180" class="feeder-label" text-anchor="middle" font-size="7">2</text>
+
+<!-- Distribution panel/load -->
+<rect x="601.6666666666667" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="621.6666666666667" y="1280" class="annotation" text-anchor="middle" font-size="7">M-UPS</text>
+
+<!-- Breaker Position 3 -->
+<line x1="661.6666666666667" y1="1085" x2="661.6666666666667" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="661.6666666666667" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="661.6666666666667" y1="1205" x2="661.6666666666667" y2="1250" class="power-line"/>
+<text x="661.6666666666667" y="1180" class="feeder-label" text-anchor="middle" font-size="7">3</text>
+
+<!-- Distribution panel/load -->
+<rect x="641.6666666666667" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="661.6666666666667" y="1280" class="annotation" text-anchor="middle" font-size="7">Lights</text>
+
+<!-- Breaker Position 4 -->
+<line x1="701.6666666666667" y1="1085" x2="701.6666666666667" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="701.6666666666667" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="701.6666666666667" y1="1205" x2="701.6666666666667" y2="1250" class="power-line"/>
+<text x="701.6666666666667" y="1180" class="feeder-label" text-anchor="middle" font-size="7">4</text>
+
+<!-- Distribution panel/load -->
+<rect x="681.6666666666667" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="701.6666666666667" y="1280" class="annotation" text-anchor="middle" font-size="7">HVAC</text>
+
+<!-- Breaker Position 5 -->
+<line x1="741.6666666666667" y1="1085" x2="741.6666666666667" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="741.6666666666667" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="741.6666666666667" y1="1205" x2="741.6666666666667" y2="1250" class="power-line"/>
+<text x="741.6666666666667" y="1180" class="feeder-label" text-anchor="middle" font-size="7">5</text>
+
+<!-- Distribution panel/load -->
+<rect x="721.6666666666667" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="741.6666666666667" y="1280" class="annotation" text-anchor="middle" font-size="7">Spare</text>
+
+<!-- LV-SWBD-2 with 5 Breaker Positions (v1.1 Section 3.1) -->
+
+<!-- Incomer from transformer (from top) -->
+<line x1="1158.3333333333335" y1="1050" x2="1158.3333333333335" y2="1070" class="power-line"/>
+
+<!-- Switchboard box - 200px wide (40px per position x 5) -->
+<rect x="1058.3333333333335" y="1070" width="200" height="100" class="lv-switchboard"/>
+
+<!-- Main bus inside (15px from top edge) -->
+<line x1="1068.3333333333335" y1="1085" x2="1248.3333333333335" y2="1085" class="bus"/>
+
+<!-- Labels (10px clearance from edges) -->
+<text x="1158.3333333333335" y="1115" class="equipment-label" text-anchor="middle">LV-SWBD-2</text>
+<text x="1158.3333333333335" y="1135" class="annotation" text-anchor="middle">480V/277V</text>
+<text x="1158.3333333333335" y="1155" class="rating" text-anchor="middle" font-size="8">2000A | 5 Pos</text>
+
+<!-- Breaker Position 1 -->
+<line x1="1078.3333333333335" y1="1085" x2="1078.3333333333335" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="1078.3333333333335" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="1078.3333333333335" y1="1205" x2="1078.3333333333335" y2="1250" class="power-line"/>
+<text x="1078.3333333333335" y="1180" class="feeder-label" text-anchor="middle" font-size="7">1</text>
+
+<!-- Distribution panel/load -->
+<rect x="1058.3333333333335" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="1078.3333333333335" y="1280" class="annotation" text-anchor="middle" font-size="7">IT-UPS</text>
+
+<!-- Breaker Position 2 -->
+<line x1="1118.3333333333335" y1="1085" x2="1118.3333333333335" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="1118.3333333333335" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="1118.3333333333335" y1="1205" x2="1118.3333333333335" y2="1250" class="power-line"/>
+<text x="1118.3333333333335" y="1180" class="feeder-label" text-anchor="middle" font-size="7">2</text>
+
+<!-- Distribution panel/load -->
+<rect x="1098.3333333333335" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="1118.3333333333335" y="1280" class="annotation" text-anchor="middle" font-size="7">M-UPS</text>
+
+<!-- Breaker Position 3 -->
+<line x1="1158.3333333333335" y1="1085" x2="1158.3333333333335" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="1158.3333333333335" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="1158.3333333333335" y1="1205" x2="1158.3333333333335" y2="1250" class="power-line"/>
+<text x="1158.3333333333335" y="1180" class="feeder-label" text-anchor="middle" font-size="7">3</text>
+
+<!-- Distribution panel/load -->
+<rect x="1138.3333333333335" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="1158.3333333333335" y="1280" class="annotation" text-anchor="middle" font-size="7">Lights</text>
+
+<!-- Breaker Position 4 -->
+<line x1="1198.3333333333335" y1="1085" x2="1198.3333333333335" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="1198.3333333333335" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="1198.3333333333335" y1="1205" x2="1198.3333333333335" y2="1250" class="power-line"/>
+<text x="1198.3333333333335" y="1180" class="feeder-label" text-anchor="middle" font-size="7">4</text>
+
+<!-- Distribution panel/load -->
+<rect x="1178.3333333333335" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="1198.3333333333335" y="1280" class="annotation" text-anchor="middle" font-size="7">HVAC</text>
+
+<!-- Breaker Position 5 -->
+<line x1="1238.3333333333335" y1="1085" x2="1238.3333333333335" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="1238.3333333333335" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="1238.3333333333335" y1="1205" x2="1238.3333333333335" y2="1250" class="power-line"/>
+<text x="1238.3333333333335" y="1180" class="feeder-label" text-anchor="middle" font-size="7">5</text>
+
+<!-- Distribution panel/load -->
+<rect x="1218.3333333333335" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="1238.3333333333335" y="1280" class="annotation" text-anchor="middle" font-size="7">Spare</text>
+
+<!-- LV-SWBD-3 with 5 Breaker Positions (v1.1 Section 3.1) -->
+
+<!-- Incomer from transformer (from top) -->
+<line x1="1655.0" y1="1050" x2="1655.0" y2="1070" class="power-line"/>
+
+<!-- Switchboard box - 200px wide (40px per position x 5) -->
+<rect x="1555.0" y="1070" width="200" height="100" class="lv-switchboard"/>
+
+<!-- Main bus inside (15px from top edge) -->
+<line x1="1565.0" y1="1085" x2="1745.0" y2="1085" class="bus"/>
+
+<!-- Labels (10px clearance from edges) -->
+<text x="1655.0" y="1115" class="equipment-label" text-anchor="middle">LV-SWBD-3</text>
+<text x="1655.0" y="1135" class="annotation" text-anchor="middle">480V/277V</text>
+<text x="1655.0" y="1155" class="rating" text-anchor="middle" font-size="8">2000A | 5 Pos</text>
+
+<!-- Breaker Position 1 -->
+<line x1="1575.0" y1="1085" x2="1575.0" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="1575.0" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="1575.0" y1="1205" x2="1575.0" y2="1250" class="power-line"/>
+<text x="1575.0" y="1180" class="feeder-label" text-anchor="middle" font-size="7">1</text>
+
+<!-- Distribution panel/load -->
+<rect x="1555.0" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="1575.0" y="1280" class="annotation" text-anchor="middle" font-size="7">IT-UPS</text>
+
+<!-- Breaker Position 2 -->
+<line x1="1615.0" y1="1085" x2="1615.0" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="1615.0" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="1615.0" y1="1205" x2="1615.0" y2="1250" class="power-line"/>
+<text x="1615.0" y="1180" class="feeder-label" text-anchor="middle" font-size="7">2</text>
+
+<!-- Distribution panel/load -->
+<rect x="1595.0" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="1615.0" y="1280" class="annotation" text-anchor="middle" font-size="7">M-UPS</text>
+
+<!-- Breaker Position 3 -->
+<line x1="1655.0" y1="1085" x2="1655.0" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="1655.0" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="1655.0" y1="1205" x2="1655.0" y2="1250" class="power-line"/>
+<text x="1655.0" y="1180" class="feeder-label" text-anchor="middle" font-size="7">3</text>
+
+<!-- Distribution panel/load -->
+<rect x="1635.0" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="1655.0" y="1280" class="annotation" text-anchor="middle" font-size="7">Lights</text>
+
+<!-- Breaker Position 4 -->
+<line x1="1695.0" y1="1085" x2="1695.0" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="1695.0" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="1695.0" y1="1205" x2="1695.0" y2="1250" class="power-line"/>
+<text x="1695.0" y="1180" class="feeder-label" text-anchor="middle" font-size="7">4</text>
+
+<!-- Distribution panel/load -->
+<rect x="1675.0" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="1695.0" y="1280" class="annotation" text-anchor="middle" font-size="7">HVAC</text>
+
+<!-- Breaker Position 5 -->
+<line x1="1735.0" y1="1085" x2="1735.0" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="1735.0" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="1735.0" y1="1205" x2="1735.0" y2="1250" class="power-line"/>
+<text x="1735.0" y="1180" class="feeder-label" text-anchor="middle" font-size="7">5</text>
+
+<!-- Distribution panel/load -->
+<rect x="1715.0" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="1735.0" y="1280" class="annotation" text-anchor="middle" font-size="7">Spare</text>
+
+<!-- LV-SWBD-4 with 5 Breaker Positions (v1.1 Section 3.1) -->
+
+<!-- Incomer from transformer (from top) -->
+<line x1="2151.666666666667" y1="1050" x2="2151.666666666667" y2="1070" class="power-line"/>
+
+<!-- Switchboard box - 200px wide (40px per position x 5) -->
+<rect x="2051.666666666667" y="1070" width="200" height="100" class="lv-switchboard"/>
+
+<!-- Main bus inside (15px from top edge) -->
+<line x1="2061.666666666667" y1="1085" x2="2241.666666666667" y2="1085" class="bus"/>
+
+<!-- Labels (10px clearance from edges) -->
+<text x="2151.666666666667" y="1115" class="equipment-label" text-anchor="middle">LV-SWBD-4</text>
+<text x="2151.666666666667" y="1135" class="annotation" text-anchor="middle">480V/277V</text>
+<text x="2151.666666666667" y="1155" class="rating" text-anchor="middle" font-size="8">2000A | 5 Pos</text>
+
+<!-- Breaker Position 1 -->
+<line x1="2071.666666666667" y1="1085" x2="2071.666666666667" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="2071.666666666667" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="2071.666666666667" y1="1205" x2="2071.666666666667" y2="1250" class="power-line"/>
+<text x="2071.666666666667" y="1180" class="feeder-label" text-anchor="middle" font-size="7">1</text>
+
+<!-- Distribution panel/load -->
+<rect x="2051.666666666667" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="2071.666666666667" y="1280" class="annotation" text-anchor="middle" font-size="7">IT-UPS</text>
+
+<!-- Breaker Position 2 -->
+<line x1="2111.666666666667" y1="1085" x2="2111.666666666667" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="2111.666666666667" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="2111.666666666667" y1="1205" x2="2111.666666666667" y2="1250" class="power-line"/>
+<text x="2111.666666666667" y="1180" class="feeder-label" text-anchor="middle" font-size="7">2</text>
+
+<!-- Distribution panel/load -->
+<rect x="2091.666666666667" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="2111.666666666667" y="1280" class="annotation" text-anchor="middle" font-size="7">M-UPS</text>
+
+<!-- Breaker Position 3 -->
+<line x1="2151.666666666667" y1="1085" x2="2151.666666666667" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="2151.666666666667" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="2151.666666666667" y1="1205" x2="2151.666666666667" y2="1250" class="power-line"/>
+<text x="2151.666666666667" y="1180" class="feeder-label" text-anchor="middle" font-size="7">3</text>
+
+<!-- Distribution panel/load -->
+<rect x="2131.666666666667" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="2151.666666666667" y="1280" class="annotation" text-anchor="middle" font-size="7">Lights</text>
+
+<!-- Breaker Position 4 -->
+<line x1="2191.666666666667" y1="1085" x2="2191.666666666667" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="2191.666666666667" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="2191.666666666667" y1="1205" x2="2191.666666666667" y2="1250" class="power-line"/>
+<text x="2191.666666666667" y="1180" class="feeder-label" text-anchor="middle" font-size="7">4</text>
+
+<!-- Distribution panel/load -->
+<rect x="2171.666666666667" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="2191.666666666667" y="1280" class="annotation" text-anchor="middle" font-size="7">HVAC</text>
+
+<!-- Breaker Position 5 -->
+<line x1="2231.666666666667" y1="1085" x2="2231.666666666667" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="2231.666666666667" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="2231.666666666667" y1="1205" x2="2231.666666666667" y2="1250" class="power-line"/>
+<text x="2231.666666666667" y="1180" class="feeder-label" text-anchor="middle" font-size="7">5</text>
+
+<!-- Distribution panel/load -->
+<rect x="2211.666666666667" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="2231.666666666667" y="1280" class="annotation" text-anchor="middle" font-size="7">Spare</text>
+
+<!-- LV-SWBD-5 with 5 Breaker Positions (v1.1 Section 3.1) -->
+
+<!-- Incomer from transformer (from top) -->
+<line x1="2648.3333333333335" y1="1050" x2="2648.3333333333335" y2="1070" class="power-line"/>
+
+<!-- Switchboard box - 200px wide (40px per position x 5) -->
+<rect x="2548.3333333333335" y="1070" width="200" height="100" class="lv-switchboard"/>
+
+<!-- Main bus inside (15px from top edge) -->
+<line x1="2558.3333333333335" y1="1085" x2="2738.3333333333335" y2="1085" class="bus"/>
+
+<!-- Labels (10px clearance from edges) -->
+<text x="2648.3333333333335" y="1115" class="equipment-label" text-anchor="middle">LV-SWBD-5</text>
+<text x="2648.3333333333335" y="1135" class="annotation" text-anchor="middle">480V/277V</text>
+<text x="2648.3333333333335" y="1155" class="rating" text-anchor="middle" font-size="8">2000A | 5 Pos</text>
+
+<!-- Breaker Position 1 -->
+<line x1="2568.3333333333335" y1="1085" x2="2568.3333333333335" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="2568.3333333333335" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="2568.3333333333335" y1="1205" x2="2568.3333333333335" y2="1250" class="power-line"/>
+<text x="2568.3333333333335" y="1180" class="feeder-label" text-anchor="middle" font-size="7">1</text>
+
+<!-- Distribution panel/load -->
+<rect x="2548.3333333333335" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="2568.3333333333335" y="1280" class="annotation" text-anchor="middle" font-size="7">IT-UPS</text>
+
+<!-- Breaker Position 2 -->
+<line x1="2608.3333333333335" y1="1085" x2="2608.3333333333335" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="2608.3333333333335" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="2608.3333333333335" y1="1205" x2="2608.3333333333335" y2="1250" class="power-line"/>
+<text x="2608.3333333333335" y="1180" class="feeder-label" text-anchor="middle" font-size="7">2</text>
+
+<!-- Distribution panel/load -->
+<rect x="2588.3333333333335" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="2608.3333333333335" y="1280" class="annotation" text-anchor="middle" font-size="7">M-UPS</text>
+
+<!-- Breaker Position 3 -->
+<line x1="2648.3333333333335" y1="1085" x2="2648.3333333333335" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="2648.3333333333335" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="2648.3333333333335" y1="1205" x2="2648.3333333333335" y2="1250" class="power-line"/>
+<text x="2648.3333333333335" y="1180" class="feeder-label" text-anchor="middle" font-size="7">3</text>
+
+<!-- Distribution panel/load -->
+<rect x="2628.3333333333335" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="2648.3333333333335" y="1280" class="annotation" text-anchor="middle" font-size="7">Lights</text>
+
+<!-- Breaker Position 4 -->
+<line x1="2688.3333333333335" y1="1085" x2="2688.3333333333335" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="2688.3333333333335" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="2688.3333333333335" y1="1205" x2="2688.3333333333335" y2="1250" class="power-line"/>
+<text x="2688.3333333333335" y="1180" class="feeder-label" text-anchor="middle" font-size="7">4</text>
+
+<!-- Distribution panel/load -->
+<rect x="2668.3333333333335" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="2688.3333333333335" y="1280" class="annotation" text-anchor="middle" font-size="7">HVAC</text>
+
+<!-- Breaker Position 5 -->
+<line x1="2728.3333333333335" y1="1085" x2="2728.3333333333335" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="2728.3333333333335" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="2728.3333333333335" y1="1205" x2="2728.3333333333335" y2="1250" class="power-line"/>
+<text x="2728.3333333333335" y="1180" class="feeder-label" text-anchor="middle" font-size="7">5</text>
+
+<!-- Distribution panel/load -->
+<rect x="2708.3333333333335" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="2728.3333333333335" y="1280" class="annotation" text-anchor="middle" font-size="7">Spare</text>
+
+<!-- LV-SWBD-6 with 5 Breaker Positions (v1.1 Section 3.1) -->
+
+<!-- Incomer from transformer (from top) -->
+<line x1="3145.0" y1="1050" x2="3145.0" y2="1070" class="power-line"/>
+
+<!-- Switchboard box - 200px wide (40px per position x 5) -->
+<rect x="3045.0" y="1070" width="200" height="100" class="lv-switchboard"/>
+
+<!-- Main bus inside (15px from top edge) -->
+<line x1="3055.0" y1="1085" x2="3235.0" y2="1085" class="bus"/>
+
+<!-- Labels (10px clearance from edges) -->
+<text x="3145.0" y="1115" class="equipment-label" text-anchor="middle">LV-SWBD-6</text>
+<text x="3145.0" y="1135" class="annotation" text-anchor="middle">480V/277V</text>
+<text x="3145.0" y="1155" class="rating" text-anchor="middle" font-size="8">2000A | 5 Pos</text>
+
+<!-- Breaker Position 1 -->
+<line x1="3065.0" y1="1085" x2="3065.0" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="3065.0" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="3065.0" y1="1205" x2="3065.0" y2="1250" class="power-line"/>
+<text x="3065.0" y="1180" class="feeder-label" text-anchor="middle" font-size="7">1</text>
+
+<!-- Distribution panel/load -->
+<rect x="3045.0" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="3065.0" y="1280" class="annotation" text-anchor="middle" font-size="7">IT-UPS</text>
+
+<!-- Breaker Position 2 -->
+<line x1="3105.0" y1="1085" x2="3105.0" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="3105.0" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="3105.0" y1="1205" x2="3105.0" y2="1250" class="power-line"/>
+<text x="3105.0" y="1180" class="feeder-label" text-anchor="middle" font-size="7">2</text>
+
+<!-- Distribution panel/load -->
+<rect x="3085.0" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="3105.0" y="1280" class="annotation" text-anchor="middle" font-size="7">M-UPS</text>
+
+<!-- Breaker Position 3 -->
+<line x1="3145.0" y1="1085" x2="3145.0" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="3145.0" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="3145.0" y1="1205" x2="3145.0" y2="1250" class="power-line"/>
+<text x="3145.0" y="1180" class="feeder-label" text-anchor="middle" font-size="7">3</text>
+
+<!-- Distribution panel/load -->
+<rect x="3125.0" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="3145.0" y="1280" class="annotation" text-anchor="middle" font-size="7">Lights</text>
+
+<!-- Breaker Position 4 -->
+<line x1="3185.0" y1="1085" x2="3185.0" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="3185.0" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="3185.0" y1="1205" x2="3185.0" y2="1250" class="power-line"/>
+<text x="3185.0" y="1180" class="feeder-label" text-anchor="middle" font-size="7">4</text>
+
+<!-- Distribution panel/load -->
+<rect x="3165.0" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="3185.0" y="1280" class="annotation" text-anchor="middle" font-size="7">HVAC</text>
+
+<!-- Breaker Position 5 -->
+<line x1="3225.0" y1="1085" x2="3225.0" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="3225.0" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="3225.0" y1="1205" x2="3225.0" y2="1250" class="power-line"/>
+<text x="3225.0" y="1180" class="feeder-label" text-anchor="middle" font-size="7">5</text>
+
+<!-- Distribution panel/load -->
+<rect x="3205.0" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="3225.0" y="1280" class="annotation" text-anchor="middle" font-size="7">Spare</text>
+
+<!-- LV-SWBD-7 with 5 Breaker Positions (v1.1 Section 3.1) -->
+
+<!-- Incomer from transformer (from top) -->
+<line x1="3641.666666666667" y1="1050" x2="3641.666666666667" y2="1070" class="power-line"/>
+
+<!-- Switchboard box - 200px wide (40px per position x 5) -->
+<rect x="3541.666666666667" y="1070" width="200" height="100" class="lv-switchboard"/>
+
+<!-- Main bus inside (15px from top edge) -->
+<line x1="3551.666666666667" y1="1085" x2="3731.666666666667" y2="1085" class="bus"/>
+
+<!-- Labels (10px clearance from edges) -->
+<text x="3641.666666666667" y="1115" class="equipment-label" text-anchor="middle">LV-SWBD-7</text>
+<text x="3641.666666666667" y="1135" class="annotation" text-anchor="middle">480V/277V</text>
+<text x="3641.666666666667" y="1155" class="rating" text-anchor="middle" font-size="8">2000A | 5 Pos</text>
+
+<!-- Breaker Position 1 -->
+<line x1="3561.666666666667" y1="1085" x2="3561.666666666667" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="3561.666666666667" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="3561.666666666667" y1="1205" x2="3561.666666666667" y2="1250" class="power-line"/>
+<text x="3561.666666666667" y="1180" class="feeder-label" text-anchor="middle" font-size="7">1</text>
+
+<!-- Distribution panel/load -->
+<rect x="3541.666666666667" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="3561.666666666667" y="1280" class="annotation" text-anchor="middle" font-size="7">IT-UPS</text>
+
+<!-- Breaker Position 2 -->
+<line x1="3601.666666666667" y1="1085" x2="3601.666666666667" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="3601.666666666667" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="3601.666666666667" y1="1205" x2="3601.666666666667" y2="1250" class="power-line"/>
+<text x="3601.666666666667" y="1180" class="feeder-label" text-anchor="middle" font-size="7">2</text>
+
+<!-- Distribution panel/load -->
+<rect x="3581.666666666667" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="3601.666666666667" y="1280" class="annotation" text-anchor="middle" font-size="7">M-UPS</text>
+
+<!-- Breaker Position 3 -->
+<line x1="3641.666666666667" y1="1085" x2="3641.666666666667" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="3641.666666666667" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="3641.666666666667" y1="1205" x2="3641.666666666667" y2="1250" class="power-line"/>
+<text x="3641.666666666667" y="1180" class="feeder-label" text-anchor="middle" font-size="7">3</text>
+
+<!-- Distribution panel/load -->
+<rect x="3621.666666666667" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="3641.666666666667" y="1280" class="annotation" text-anchor="middle" font-size="7">Lights</text>
+
+<!-- Breaker Position 4 -->
+<line x1="3681.666666666667" y1="1085" x2="3681.666666666667" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="3681.666666666667" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="3681.666666666667" y1="1205" x2="3681.666666666667" y2="1250" class="power-line"/>
+<text x="3681.666666666667" y="1180" class="feeder-label" text-anchor="middle" font-size="7">4</text>
+
+<!-- Distribution panel/load -->
+<rect x="3661.666666666667" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="3681.666666666667" y="1280" class="annotation" text-anchor="middle" font-size="7">HVAC</text>
+
+<!-- Breaker Position 5 -->
+<line x1="3721.666666666667" y1="1085" x2="3721.666666666667" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="3721.666666666667" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="3721.666666666667" y1="1205" x2="3721.666666666667" y2="1250" class="power-line"/>
+<text x="3721.666666666667" y="1180" class="feeder-label" text-anchor="middle" font-size="7">5</text>
+
+<!-- Distribution panel/load -->
+<rect x="3701.666666666667" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="3721.666666666667" y="1280" class="annotation" text-anchor="middle" font-size="7">Spare</text>
+
+<!-- LV-SWBD-8 with 5 Breaker Positions (v1.1 Section 3.1) -->
+
+<!-- Incomer from transformer (from top) -->
+<line x1="4138.333333333334" y1="1050" x2="4138.333333333334" y2="1070" class="power-line"/>
+
+<!-- Switchboard box - 200px wide (40px per position x 5) -->
+<rect x="4038.333333333334" y="1070" width="200" height="100" class="lv-switchboard"/>
+
+<!-- Main bus inside (15px from top edge) -->
+<line x1="4048.333333333334" y1="1085" x2="4228.333333333334" y2="1085" class="bus"/>
+
+<!-- Labels (10px clearance from edges) -->
+<text x="4138.333333333334" y="1115" class="equipment-label" text-anchor="middle">LV-SWBD-8</text>
+<text x="4138.333333333334" y="1135" class="annotation" text-anchor="middle">480V/277V</text>
+<text x="4138.333333333334" y="1155" class="rating" text-anchor="middle" font-size="8">2000A | 5 Pos</text>
+
+<!-- Breaker Position 1 -->
+<line x1="4058.333333333334" y1="1085" x2="4058.333333333334" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="4058.333333333334" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="4058.333333333334" y1="1205" x2="4058.333333333334" y2="1250" class="power-line"/>
+<text x="4058.333333333334" y="1180" class="feeder-label" text-anchor="middle" font-size="7">1</text>
+
+<!-- Distribution panel/load -->
+<rect x="4038.333333333334" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="4058.333333333334" y="1280" class="annotation" text-anchor="middle" font-size="7">IT-UPS</text>
+
+<!-- Breaker Position 2 -->
+<line x1="4098.333333333334" y1="1085" x2="4098.333333333334" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="4098.333333333334" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="4098.333333333334" y1="1205" x2="4098.333333333334" y2="1250" class="power-line"/>
+<text x="4098.333333333334" y="1180" class="feeder-label" text-anchor="middle" font-size="7">2</text>
+
+<!-- Distribution panel/load -->
+<rect x="4078.333333333334" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="4098.333333333334" y="1280" class="annotation" text-anchor="middle" font-size="7">M-UPS</text>
+
+<!-- Breaker Position 3 -->
+<line x1="4138.333333333334" y1="1085" x2="4138.333333333334" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="4138.333333333334" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="4138.333333333334" y1="1205" x2="4138.333333333334" y2="1250" class="power-line"/>
+<text x="4138.333333333334" y="1180" class="feeder-label" text-anchor="middle" font-size="7">3</text>
+
+<!-- Distribution panel/load -->
+<rect x="4118.333333333334" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="4138.333333333334" y="1280" class="annotation" text-anchor="middle" font-size="7">Lights</text>
+
+<!-- Breaker Position 4 -->
+<line x1="4178.333333333334" y1="1085" x2="4178.333333333334" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="4178.333333333334" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="4178.333333333334" y1="1205" x2="4178.333333333334" y2="1250" class="power-line"/>
+<text x="4178.333333333334" y="1180" class="feeder-label" text-anchor="middle" font-size="7">4</text>
+
+<!-- Distribution panel/load -->
+<rect x="4158.333333333334" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="4178.333333333334" y="1280" class="annotation" text-anchor="middle" font-size="7">HVAC</text>
+
+<!-- Breaker Position 5 -->
+<line x1="4218.333333333334" y1="1085" x2="4218.333333333334" y2="1170" class="power-line"/>
+<use href="#breaker-closed" x="4218.333333333334" y="1190"/>
+<!-- All downstream connections from BOTTOM per v1.1 Section 3.1 -->
+<line x1="4218.333333333334" y1="1205" x2="4218.333333333334" y2="1250" class="power-line"/>
+<text x="4218.333333333334" y="1180" class="feeder-label" text-anchor="middle" font-size="7">5</text>
+
+<!-- Distribution panel/load -->
+<rect x="4198.333333333334" y="1260" width="40" height="40" class="dist-panel"/>
+<text x="4218.333333333334" y="1280" class="annotation" text-anchor="middle" font-size="7">Spare</text>
+
+<text x="300" y="1340" class="equipment-label">IT UPS (N+1):</text>
+
+<rect x="300" y="1350" width="60" height="70" class="ups-module"/>
+<text x="330" y="1370" class="annotation" text-anchor="middle" font-size="8">IT-UPS-1</text>
+<text x="330" y="1385" class="rating" text-anchor="middle" font-size="8">1250kVA</text>
+<text x="330" y="1400" class="annotation" text-anchor="middle" font-size="7">Li-Ion</text>
+<text x="330" y="1412" class="annotation" text-anchor="middle" font-size="7">5-min</text>
+
+<rect x="375" y="1350" width="60" height="70" class="ups-module"/>
+<text x="405" y="1370" class="annotation" text-anchor="middle" font-size="8">IT-UPS-2</text>
+<text x="405" y="1385" class="rating" text-anchor="middle" font-size="8">1250kVA</text>
+<text x="405" y="1400" class="annotation" text-anchor="middle" font-size="7">Li-Ion</text>
+<text x="405" y="1412" class="annotation" text-anchor="middle" font-size="7">5-min</text>
+
+<rect x="450" y="1350" width="60" height="70" class="ups-module"/>
+<text x="480" y="1370" class="annotation" text-anchor="middle" font-size="8">IT-UPS-3</text>
+<text x="480" y="1385" class="rating" text-anchor="middle" font-size="8">1250kVA</text>
+<text x="480" y="1400" class="annotation" text-anchor="middle" font-size="7">Li-Ion</text>
+<text x="480" y="1412" class="annotation" text-anchor="middle" font-size="7">5-min</text>
+
+<rect x="525" y="1350" width="60" height="70" class="ups-module"/>
+<text x="555" y="1370" class="annotation" text-anchor="middle" font-size="8">IT-UPS-4</text>
+<text x="555" y="1385" class="rating" text-anchor="middle" font-size="8">1250kVA</text>
+<text x="555" y="1400" class="annotation" text-anchor="middle" font-size="7">Li-Ion</text>
+<text x="555" y="1412" class="annotation" text-anchor="middle" font-size="7">5-min</text>
+
+<rect x="600" y="1350" width="60" height="70" class="ups-module"/>
+<text x="630" y="1370" class="annotation" text-anchor="middle" font-size="8">IT-UPS-5</text>
+<text x="630" y="1385" class="rating" text-anchor="middle" font-size="8">1250kVA</text>
+<text x="630" y="1400" class="annotation" text-anchor="middle" font-size="7">Li-Ion</text>
+<text x="630" y="1412" class="annotation" text-anchor="middle" font-size="7">5-min</text>
+
+<text x="755" y="1340" class="equipment-label">MECH UPS (N+1):</text>
+
+<rect x="755" y="1350" width="60" height="70" class="ups-module"/>
+<text x="785" y="1370" class="annotation" text-anchor="middle" font-size="8">M-UPS-1</text>
+<text x="785" y="1385" class="rating" text-anchor="middle" font-size="8">250kW</text>
+<text x="785" y="1400" class="annotation" text-anchor="middle" font-size="7">Static</text>
+<text x="785" y="1412" class="annotation" text-anchor="middle" font-size="7">Mech</text>
+
+<rect x="830" y="1350" width="60" height="70" class="ups-module"/>
+<text x="860" y="1370" class="annotation" text-anchor="middle" font-size="8">M-UPS-2</text>
+<text x="860" y="1385" class="rating" text-anchor="middle" font-size="8">250kW</text>
+<text x="860" y="1400" class="annotation" text-anchor="middle" font-size="7">Static</text>
+<text x="860" y="1412" class="annotation" text-anchor="middle" font-size="7">Mech</text>
+
+<rect x="905" y="1350" width="60" height="70" class="ups-module"/>
+<text x="935" y="1370" class="annotation" text-anchor="middle" font-size="8">M-UPS-3</text>
+<text x="935" y="1385" class="rating" text-anchor="middle" font-size="8">250kW</text>
+<text x="935" y="1400" class="annotation" text-anchor="middle" font-size="7">Static</text>
+<text x="935" y="1412" class="annotation" text-anchor="middle" font-size="7">Mech</text>
+
+<rect x="980" y="1350" width="60" height="70" class="ups-module"/>
+<text x="1010" y="1370" class="annotation" text-anchor="middle" font-size="8">M-UPS-4</text>
+<text x="1010" y="1385" class="rating" text-anchor="middle" font-size="8">250kW</text>
+<text x="1010" y="1400" class="annotation" text-anchor="middle" font-size="7">Static</text>
+<text x="1010" y="1412" class="annotation" text-anchor="middle" font-size="7">Mech</text>
+
+<rect x="1055" y="1350" width="60" height="70" class="ups-module"/>
+<text x="1085" y="1370" class="annotation" text-anchor="middle" font-size="8">M-UPS-5</text>
+<text x="1085" y="1385" class="rating" text-anchor="middle" font-size="8">250kW</text>
+<text x="1085" y="1400" class="annotation" text-anchor="middle" font-size="7">Static</text>
+<text x="1085" y="1412" class="annotation" text-anchor="middle" font-size="7">Mech</text>
+
+<rect x="1130" y="1350" width="60" height="70" class="ups-module"/>
+<text x="1160" y="1370" class="annotation" text-anchor="middle" font-size="8">M-UPS-6</text>
+<text x="1160" y="1385" class="rating" text-anchor="middle" font-size="8">250kW</text>
+<text x="1160" y="1400" class="annotation" text-anchor="middle" font-size="7">Static</text>
+<text x="1160" y="1412" class="annotation" text-anchor="middle" font-size="7">Mech</text>
+
+<rect x="1205" y="1350" width="60" height="70" class="ups-module"/>
+<text x="1235" y="1370" class="annotation" text-anchor="middle" font-size="8">M-UPS-7</text>
+<text x="1235" y="1385" class="rating" text-anchor="middle" font-size="8">250kW</text>
+<text x="1235" y="1400" class="annotation" text-anchor="middle" font-size="7">Static</text>
+<text x="1235" y="1412" class="annotation" text-anchor="middle" font-size="7">Mech</text>
+
+<rect x="1280" y="1350" width="60" height="70" class="ups-module"/>
+<text x="1310" y="1370" class="annotation" text-anchor="middle" font-size="8">M-UPS-8</text>
+<text x="1310" y="1385" class="rating" text-anchor="middle" font-size="8">250kW</text>
+<text x="1310" y="1400" class="annotation" text-anchor="middle" font-size="7">Static</text>
+<text x="1310" y="1412" class="annotation" text-anchor="middle" font-size="7">Mech</text>
+
+<!-- Notes -->
+<text x="50" y="3400" class="equipment-label">NOTES - SLD Standards v1.1 Compliant:</text>
+<text x="50" y="3420" class="annotation">1. RMU dual-feed topology: 2 incomers (Primary + Reserve) with separated pathways, 1 outgoer per TX</text>
+<text x="50" y="3440" class="annotation">2. Transformers: 8 transformers, each feeding dedicated LV-SWBD (1:1 relationship per BOD)</text>
+<text x="50" y="3460" class="annotation">3. LV-SWBDs: 200px wide with 5 breaker positions, all downstream connections from bottom</text>
+<text x="50" y="3480" class="annotation">4. Ring bus pathways: 30px minimum separation for clear path delineation</text>
+<text x="50" y="3500" class="annotation">5. Symmetrical spacing: All equipment positions calculated for equal distribution (v1.1 Section 2.2)</text>
+<text x="50" y="3520" class="annotation">6. IEEE Std 315 / IEC 60617 compliant symbols | Total IT: 6.2MVA | Mech: 2.0MW</text>
+
+</svg>
