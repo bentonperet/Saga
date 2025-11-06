@@ -42,13 +42,13 @@ This document consolidates capital expenditure (CAPEX) estimates for the Pryor D
 
 ## PROJECT METRICS (PHASE 4)
 
-| Metric | Value | Calculation Basis |
-|--------|-------|-------------------|
-| **Cost per MW (IT Load)** | **$5.25M/MW** | $115.5M ÷ 22 MW IT capacity |
-| **Cost per kW (IT Load)** | **$5,250/kW** | Industry benchmark: $8-12M/MW for AI data centers |
-| **Cost per SF (White Space)** | **$5,775/SF** | $115.5M ÷ 20,000 SF white space |
-| **Cost per SF (Building GSF)** | **$3,040/SF** | $115.5M ÷ 38,000 SF gross building area |
-| **Cost per Rack (394 total)** | **$293,162/rack** | $115.5M ÷ 394 racks (162 L2C + 232 RDHx) |
+| Metric                         | Value             | Calculation Basis                                 |
+| ------------------------------ | ----------------- | ------------------------------------------------- |
+| **Cost per MW (IT Load)**      | **$5.25M/MW**     | $115.5M ÷ 22 MW IT capacity                       |
+| **Cost per kW (IT Load)**      | **$5,250/kW**     | Industry benchmark: $8-12M/MW for AI data centers |
+| **Cost per SF (White Space)**  | **$5,775/SF**     | $115.5M ÷ 20,000 SF white space                   |
+| **Cost per SF (Building GSF)** | **$3,040/SF**     | $115.5M ÷ 38,000 SF gross building area           |
+| **Cost per Rack (394 total)**  | **$293,162/rack** | $115.5M ÷ 394 racks (162 L2C + 232 RDHx)          |
 
 **Note:** Excludes ~$30M liquid cooling distribution (CDUs/RDHx). Add $76,142/rack if liquid cooling deployed for all racks.
 
