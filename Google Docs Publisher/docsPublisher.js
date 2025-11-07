@@ -643,6 +643,9 @@ class DocsPublisher {
       case 'paragraph':
         this.insertParagraph(block);
         break;
+      // case 'blank':  // COMMENTED OUT - user preference: blank lines don't look good
+      //   this.insertBlankLine();
+      //   break;
       case 'list':
         this.insertList(block);
         break;
@@ -804,6 +807,38 @@ class DocsPublisher {
 
     this.cursorIndex = endIndex;
   }
+
+  // COMMENTED OUT - user preference: blank lines don't look good in Google Docs
+  // /**
+  //  * Insert a blank line (paragraph with just a newline, no padding)
+  //  */
+  // insertBlankLine() {
+  //   const startIndex = this.cursorIndex;
+  //   const endIndex = startIndex + 1;
+  //
+  //   // Insert the newline
+  //   this.requests.push({
+  //     insertText: {
+  //       location: { index: startIndex },
+  //       text: '\n'
+  //     }
+  //   });
+  //
+  //   // Remove all spacing above and below to make it a minimal blank line
+  //   this.requests.push({
+  //     updateParagraphStyle: {
+  //       range: { startIndex, endIndex },
+  //       paragraphStyle: {
+  //         spaceAbove: this.makeDimension(0),
+  //         spaceBelow: this.makeDimension(0),
+  //         lineSpacing: 100
+  //       },
+  //       fields: 'spaceAbove,spaceBelow,lineSpacing'
+  //     }
+  //   });
+  //
+  //   this.cursorIndex = endIndex;
+  // }
 
   /**
    * Insert a bulleted or numbered list with support for nested lists

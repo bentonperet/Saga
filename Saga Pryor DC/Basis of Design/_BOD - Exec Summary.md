@@ -14,11 +14,7 @@
 
 
 ### **FACILITY OVERVIEW**
-- **IT Capacity:** 4-phase buildout to 22 MW ultimate capacity
-  - Phase 1: 3 MW (30 racks @ 100 kW, L2C anchor tenant in DH-W)
-  - Phase 2: 6 MW (150 racks total: 30 L2C + 120 RDHx, open both halls)
-  - Phase 3: 15 MW (285 racks total: 105 L2C + 180 RDHx, scale both halls)
-  - Phase 4: 22 MW (394 racks total: 162 L2C + 232 RDHx, full build-out)
+- **IT Capacity:** 4-phase buildout to 22 MW ultimate capacity (see sample phasing table below)
 - **Total Compound:** 140,000 SF (Two 10,000 SF data halls + 18,000 SF support spaces)
   - **Covered Building:** 38,000 SF
   - **Equipment Yard:** 102,000 SF
@@ -43,6 +39,7 @@
 | **2** | 6 MW    | 1.45 | 8.7 MW        | 150         | 30        | 120        | DH-W + DH-E  |
 | **3** | 15 MW   | 1.35 | 20.25 MW      | 285         | 105       | 180        | DH-W + DH-E  |
 | **4** | 22 MW   | 1.35 | 29.7 MW       | 394         | 162       | 232        | DH-W + DH-E  |
+This is a purely hypothetical phasing 
 
 ---
 

@@ -16,13 +16,33 @@ function parseMarkdownToBlocks(markdownText) {
     .parse(markdownText);
 
   const blocks = [];
+  // let previousEndLine = 0;
 
   // Process top-level children
   tree.children.forEach(node => {
+    // BLANK LINE DETECTION - COMMENTED OUT (user preference: blank lines don't look good)
+    // // Check if there are blank lines before this node
+    // if (node.position && previousEndLine > 0) {
+    //   const currentStartLine = node.position.start.line;
+    //   const blankLinesBetween = currentStartLine - previousEndLine - 1;
+    //
+    //   // Insert blank paragraph blocks for each blank line
+    //   for (let i = 0; i < blankLinesBetween; i++) {
+    //     blocks.push({
+    //       type: 'blank'
+    //     });
+    //   }
+    // }
+
     const block = processNode(node);
     if (block) {
       blocks.push(block);
     }
+
+    // // Track the end position of this node
+    // if (node.position) {
+    //   previousEndLine = node.position.end.line;
+    // }
   });
 
   return blocks;
