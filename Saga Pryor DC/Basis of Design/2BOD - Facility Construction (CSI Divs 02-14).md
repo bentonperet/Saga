@@ -85,6 +85,8 @@ Minimal scope (office millwork, shelving)
 - Total building envelope premium: ~$1.3-2.0M for 50,000 GSF {TBC}
 - Offset by insurance savings (~$200-300K/year → 5-7 year payback) {TBC}
 
+**CAPEX Savings Note:**
+- We've kept the sparkle of the high ceilings and raised walking track for customer tours and security... However, for cost savings during value engineering, an overall reduction in building height to ~20ft would provide ample space for any type of adaptation (hot aisle containment, etc.). It would save on steel and concrete, if required.
 ### Roof System (FM 1-150 Rating)
 
 **FM 1-150 Compliance:**

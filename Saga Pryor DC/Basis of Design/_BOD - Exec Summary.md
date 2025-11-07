@@ -19,7 +19,9 @@
   - Phase 2: 6 MW (150 racks total: 30 L2C + 120 RDHx, open both halls)
   - Phase 3: 15 MW (285 racks total: 105 L2C + 180 RDHx, scale both halls)
   - Phase 4: 22 MW (394 racks total: 162 L2C + 232 RDHx, full build-out)
-- **White Space:** 20,000 SF total (two 10,000 SF data halls: DH-W and DH-E)
+- **Total Compound:** 140,000 SF (Two 10,000 SF data halls + 18,000 SF support spaces)
+  - **Covered Building:** 38,000 SF
+  - **Equipment Yard:** 102,000 SF
   - Phase 1: DH-W only (30 racks)
   - Phase 2+: Both halls operational (394 racks total capacity)
 - **Power Density:** Scales from 300 W/SF (Phase 1) to 1,100 W/SF (Phase 4)
@@ -28,13 +30,12 @@
 - **Target PUE:** 1.45 (Phase 1), 1.45 (Phase 2), 1.35 (Phase 3), 1.35 (Phase 4)
 - **Target WUE:** <0.5 L/kWh (domestic use only: restrooms, showers, break room; zero water for cooling)
 - **Site:** Pryor, Oklahoma (Tornado Alley - FM 1-150 protection)
-- **Strategic Location:** **4 miles from Google's us-central2 data center campus** - enables direct fiber interconnect for AI/ML hybrid cloud workloads and inference.
 - **Key Differentiators:**
   - Google Cloud proximity (sub-millisecond latency, eliminate data egress costs)
   - Customer-owned 161 kV substation with 13.8 kV distribution
   - L2C liquid cooling ready from day 1
 
-<!-- @claude, please create a table here that has the following columns. Phase, IT Load, PUE, Facility Load -->
+<!-- @claude, please create a table here that has the following columns. Phase, IT Load, PUE, Facility Load, count per rack type -->
 
 ---
 
@@ -78,6 +79,8 @@
   - Serves: offices, bathrooms, hallways, SCR, SCB, loading dock, NOC, gym, storm shelter
   - Portable UPS: ~20-30 units for IT equipment ride-through in non-critical areas
 - **Electrical Code:** NEC 2023, Oklahoma amendments
+
+<!-- @claude, please create a table here that has the electrical phasing details -->
 
 ---
 
