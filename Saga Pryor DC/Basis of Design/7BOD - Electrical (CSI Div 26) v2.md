@@ -1,4 +1,4 @@
-**Created:** 2025-11-04
+t**Created:** 2025-11-04
 **Project:** Saga Pryor Data Center - PACHYDERM GLOBAL
 **Owner:** Saga
 **Parent Document:** [[_BOD - Exec Summary]]
