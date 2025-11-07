@@ -705,51 +705,7 @@ class DocsPublisher {
       }
     });
 
-    // 2. Apply inline formatting to each run
-    let offset = 0;
-    runs.forEach(run => {
-      const runStart = startIndex + offset;
-      const runEnd = runStart + run.text.length;
-
-      const textStyle = {};
-
-      // Inline formatting
-      if (run.bold) textStyle.bold = true;
-      if (run.italic) textStyle.italic = true;
-      if (run.strikethrough) textStyle.strikethrough = true;
-
-      // Code styling
-      if (run.code) {
-        // textStyle.fontFamily = BRAND.CODE.fontFamily; // TODO: Fix API field
-        textStyle.fontSize = { magnitude: BRAND.CODE.fontSizePt, unit: 'PT' };
-        textStyle.backgroundColor = {
-          color: { rgbColor: hexToRgb(BRAND.CODE.backgroundColor) }
-        };
-      }
-
-      // Links
-      if (run.link) {
-        textStyle.link = { url: run.link };
-        textStyle.underline = true;
-        textStyle.foregroundColor = {
-          color: { rgbColor: hexToRgb('#0066CC') }
-        };
-      }
-
-      if (Object.keys(textStyle).length > 0) {
-        this.requests.push({
-          updateTextStyle: {
-            range: { startIndex: runStart, endIndex: runEnd },
-            textStyle,
-            fields: Object.keys(textStyle).join(',')
-          }
-        });
-      }
-
-      offset += run.text.length;
-    });
-
-    // 3. Apply paragraph-level brand styling
+    // 2. Apply paragraph-level named style FIRST (before any text styling)
     this.requests.push({
       updateParagraphStyle: {
         range: { startIndex, endIndex },
@@ -763,19 +719,87 @@ class DocsPublisher {
       }
     });
 
-    // 4. Apply brand font, size, color
-    this.requests.push({
-      updateTextStyle: {
-        range: { startIndex, endIndex: endIndex - 1 }, // Exclude newline
-        textStyle: {
-          bold: brandStyle.bold,
-          fontSize: this.makeDimension(brandStyle.fontSizePt),
-          foregroundColor: {
-            color: { rgbColor: hexToRgb(brandStyle.color) }
-          }
-        },
-        fields: 'bold,fontSize,foregroundColor'
+    // 3. Apply brand styling (fontSize, color) to all runs
+    let offset = 0;
+    runs.forEach(run => {
+      const runStart = startIndex + offset;
+      const runEnd = runStart + run.text.length;
+
+      // Apply brand font size and color
+      this.requests.push({
+        updateTextStyle: {
+          range: { startIndex: runStart, endIndex: runEnd },
+          textStyle: {
+            fontSize: this.makeDimension(brandStyle.fontSizePt),
+            foregroundColor: {
+              color: { rgbColor: hexToRgb(brandStyle.color) }
+            }
+          },
+          fields: 'fontSize,foregroundColor'
+        }
+      });
+
+      offset += run.text.length;
+    });
+
+    // 3. Apply inline formatting to each run (bold, italic, etc.) AFTER brand styling
+    offset = 0;
+    runs.forEach(run => {
+      const runStart = startIndex + offset;
+      const runEnd = runStart + run.text.length;
+
+      const textStyle = {};
+      const fields = [];
+
+      // Inline formatting
+      if (run.bold) {
+        textStyle.bold = true;
+        fields.push('bold');
+      } else if (brandStyle.bold) {
+        textStyle.bold = true;
+        fields.push('bold');
       }
+
+      if (run.italic) {
+        textStyle.italic = true;
+        fields.push('italic');
+      }
+
+      if (run.strikethrough) {
+        textStyle.strikethrough = true;
+        fields.push('strikethrough');
+      }
+
+      // Code styling
+      if (run.code) {
+        textStyle.fontSize = { magnitude: BRAND.CODE.fontSizePt, unit: 'PT' };
+        textStyle.backgroundColor = {
+          color: { rgbColor: hexToRgb(BRAND.CODE.backgroundColor) }
+        };
+        fields.push('fontSize', 'backgroundColor');
+      }
+
+      // Links
+      if (run.link) {
+        textStyle.link = { url: run.link };
+        textStyle.underline = true;
+        textStyle.foregroundColor = {
+          color: { rgbColor: hexToRgb('#0066CC') }
+        };
+        fields.push('link', 'underline', 'foregroundColor');
+      }
+
+      if (fields.length > 0) {
+        this.requests.push({
+          updateTextStyle: {
+            range: { startIndex: runStart, endIndex: runEnd },
+            textStyle,
+            fields: fields.join(',')
+          }
+        });
+      }
+
+      offset += run.text.length;
     });
 
     this.cursorIndex = endIndex;
@@ -865,9 +889,31 @@ class DocsPublisher {
       }
     });
 
-    // Apply bullet/numbering to all items at this level
+    // Apply formatting to all items at this level
+    // CRITICAL ORDER: spacing → bullets → indentation (if nested)
     listItems.forEach(item => {
-      // Apply bullet/numbering
+      // Step 1: Apply spacing FIRST
+      // For top-level list items, add space above the first item to separate from previous content
+      // For nested items, keep tight spacing
+      const spaceAbove = (effectiveNestingLevel === 0 && listItems.indexOf(item) === 0) ? 4 : 0;
+      const spaceBelow = (effectiveNestingLevel === 0) ? 4 : 3;
+
+      this.requests.push({
+        updateParagraphStyle: {
+          range: {
+            startIndex: item.startIndex,
+            endIndex: item.endIndex
+          },
+          paragraphStyle: {
+            spaceAbove: this.makeDimension(spaceAbove),
+            spaceBelow: this.makeDimension(spaceBelow),
+            lineSpacing: 100
+          },
+          fields: 'spaceAbove,spaceBelow,lineSpacing'
+        }
+      });
+
+      // Step 2: Create bullets (API sets default indentation)
       this.requests.push({
         createParagraphBullets: {
           range: {
@@ -878,10 +924,9 @@ class DocsPublisher {
         }
       });
 
-      // Only apply custom indentation for nested lists (level > 0)
+      // Step 3: For nested levels (level > 0), add extra indentation
+      // 36pt per level is standard tab stop in Google Docs
       if (effectiveNestingLevel > 0) {
-        const indentAmount = effectiveNestingLevel * 36; // 36pt per level (0.5 inch)
-
         this.requests.push({
           updateParagraphStyle: {
             range: {
@@ -889,28 +934,9 @@ class DocsPublisher {
               endIndex: item.endIndex
             },
             paragraphStyle: {
-              spaceAbove: this.makeDimension(0),
-              spaceBelow: this.makeDimension(3),
-              lineSpacing: 100,
-              indentStart: this.makeDimension(indentAmount)
+              indentStart: this.makeDimension(effectiveNestingLevel * 36)
             },
-            fields: 'spaceAbove,spaceBelow,lineSpacing,indentStart'
-          }
-        });
-      } else {
-        // Top-level bullets: just apply spacing (let createParagraphBullets handle indentation)
-        this.requests.push({
-          updateParagraphStyle: {
-            range: {
-              startIndex: item.startIndex,
-              endIndex: item.endIndex
-            },
-            paragraphStyle: {
-              spaceAbove: this.makeDimension(0),
-              spaceBelow: this.makeDimension(3),
-              lineSpacing: 100
-            },
-            fields: 'spaceAbove,spaceBelow,lineSpacing'
+            fields: 'indentStart'
           }
         });
       }
