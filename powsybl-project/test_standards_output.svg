@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1600" height="2000" xmlns="http://www.w3.org/2000/svg">
+
+<defs>
+
+        <g id="breaker-closed">
+            <rect x="-8" y="-12" width="16" height="24" fill="white" stroke="black" stroke-width="1.5"/>
+            <line x1="-6" y1="-8" x2="6" y2="8" stroke="black" stroke-width="2"/>
+            <line x1="-6" y1="8" x2="6" y2="-8" stroke="black" stroke-width="2"/>
+        </g>
+    
+
+        <g id="breaker-open">
+            <rect x="-8" y="-12" width="16" height="24" fill="white" stroke="black" stroke-width="1.5"/>
+            <line x1="0" y1="-8" x2="0" y2="-2" stroke="black" stroke-width="2"/>
+            <line x1="0" y1="2" x2="0" y2="8" stroke="black" stroke-width="2"/>
+            <circle cx="0" cy="0" r="2.5" fill="white" stroke="black" stroke-width="1.5"/>
+        </g>
+    
+
+        <g id="transformer">
+            <circle cx="-8" cy="0" r="10" fill="white" stroke="black" stroke-width="1.5"/>
+            <circle cx="8" cy="0" r="10" fill="white" stroke="black" stroke-width="1.5"/>
+            <line x1="-8" y1="-10" x2="-8" y2="-20" stroke="black" stroke-width="2"/>
+            <line x1="8" y1="10" x2="8" y2="20" stroke="black" stroke-width="2"/>
+        </g>
+    
+
+        <g id="generator">
+            <circle cx="0" cy="0" r="30" fill="white" stroke="black" stroke-width="2"/>
+            <text x="0" y="8" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="black">G</text>
+        </g>
+    
+
+        <g id="connection-point">
+            <circle cx="0" cy="0" r="3" fill="black"/>
+        </g>
+    
+
+        <g id="fuse">
+            <rect x="-6" y="-10" width="12" height="20" fill="white" stroke="black" stroke-width="1.5"/>
+            <line x1="0" y1="-6" x2="0" y2="6" stroke="black" stroke-width="2"/>
+            <circle cx="0" cy="0" r="3" fill="white" stroke="black" stroke-width="1.5"/>
+        </g>
+    
+
+        <g id="disconnect-closed">
+            <line x1="0" y1="-12" x2="0" y2="12" stroke="black" stroke-width="2"/>
+            <circle cx="0" cy="-12" r="2" fill="black"/>
+            <circle cx="0" cy="12" r="2" fill="black"/>
+        </g>
+    
+
+        <g id="disconnect-open">
+            <line x1="0" y1="-12" x2="4" y2="0" stroke="black" stroke-width="2"/>
+            <circle cx="0" cy="-12" r="2" fill="black"/>
+            <circle cx="0" cy="12" r="2" fill="black"/>
+        </g>
+    
+</defs>
+
+
+    <style>
+        /* Text Styles - SLD Standards v1.1 - Open Sans Font Hierarchy */
+        .title { font: bold 24px "Open Sans", Arial; fill: #000; }
+        .subtitle { font: bold 14px "Open Sans", Arial; fill: #000; }
+        .equipment-label { font: bold 14px "Open Sans", Arial; fill: #000; }
+        .bus-label { font: bold 12px "Open Sans", Arial; fill: #000; }
+        .small-label { font: 11px "Open Sans", Arial; fill: #000; }
+        .rating { font: 11px "Open Sans", Arial; fill: #333; }
+        .annotation { font: 11px "Open Sans", Arial; fill: #000; }
+        .feeder-label { font: 10px "Open Sans", Arial; fill: #666; }
+        .note { font: italic 11px "Open Sans", Arial; fill: #000; }
+
+        /* Line Styles */
+        .power-line { stroke: #000; stroke-width: 2; fill: none; }
+        .bus { stroke: #000; stroke-width: 6; fill: none; }
+        .control-line { stroke: #000; stroke-width: 1; stroke-dasharray: 5,5; fill: none; }
+
+        /* Equipment Boxes - LIGHT BACKGROUNDS for readability */
+        .mv-switchboard { fill: #E3F2FD; stroke: #000; stroke-width: 2; }
+        .lv-switchboard { fill: #E8F5E9; stroke: #000; stroke-width: 2; }
+        .generator-box { fill: #FFF3E0; stroke: #000; stroke-width: 2; }
+        .transformer-box { fill: #FFFFFF; stroke: #000; stroke-width: 2; }
+        .rmu-box { fill: #FFF9C4; stroke: #000; stroke-width: 2; }
+        .ups-module { fill: #F3E5F5; stroke: #000; stroke-width: 1.5; }
+        .dist-panel { fill: #E0F2F1; stroke: #000; stroke-width: 1; }
+
+        /* Legacy aliases for backwards compatibility */
+        .switchgear-box { fill: #E3F2FD; stroke: black; stroke-width: 2; }
+        .ups-box { fill: #F3E5F5; stroke: black; stroke-width: 2; }
+
+        /* Ring Bus Colors */
+        .ring-bus-a { stroke: #E74C3C; stroke-width: 4; fill: none; }
+        .ring-bus-b { stroke: #3498DB; stroke-width: 4; fill: none; }
+    </style>
+    
+
+<!-- ===================================================================== -->
+<!--                              TITLE BLOCK                              -->
+<!-- ===================================================================== -->
+<rect x="50" y="30" width="1350" height="80" fill="white" stroke="black" stroke-width="2"/>
+<text x="800.0" y="65" class="title" text-anchor="middle">SLD Standards Test - Complete Mini Topology</text>
+<text x="800.0" y="90" class="rating" text-anchor="middle">Dual-Feed Architecture | N+1 | IEEE Std 315 / IEC 60617</text>
+
+<rect x="1410" y="30" width="140" height="80" fill="white" stroke="black" stroke-width="2"/>
+<text x="1420" y="55" class="rating">Date: 2025-11-05</text>
+<text x="1420" y="75" class="rating">Doc: TEST-SLD-001</text>
+<text x="1420" y="95" class="rating">Rev: A</text>
+
+<!-- ===================================================================== -->
+<!--                          UTILITY SOURCES                              -->
+<!-- ===================================================================== -->
+
+<!-- Utility Feed 1 -->
+<rect x="483.33333333333326" y="160" width="150" height="80" fill="#87CEEB" stroke="black" stroke-width="2"/>
+<text x="558.3333333333333" y="195" class="equipment-label" text-anchor="middle">UTILITY-1</text>
+<text x="558.3333333333333" y="215" class="rating" text-anchor="middle">10 kV | 3 MW</text>
+
+<line x1="558.3333333333333" y1="240" x2="558.3333333333333" y2="300" class="power-line"/>
+<use href="#breaker-closed" x="558.3333333333333" y="270"/>
+<text x="583.3333333333333" y="275" class="rating">CB-U1 (N.C.)</text>
+
+<!-- Utility Feed 2 -->
+<rect x="966.6666666666665" y="160" width="150" height="80" fill="#87CEEB" stroke="black" stroke-width="2"/>
+<text x="1041.6666666666665" y="195" class="equipment-label" text-anchor="middle">UTILITY-2</text>
+<text x="1041.6666666666665" y="215" class="rating" text-anchor="middle">10 kV | 3 MW</text>
+
+<line x1="1041.6666666666665" y1="240" x2="1041.6666666666665" y2="300" class="power-line"/>
+<use href="#breaker-closed" x="1041.6666666666665" y="270"/>
+<text x="1066.6666666666665" y="275" class="rating">CB-U2 (N.C.)</text>
+
+<!-- ===================================================================== -->
+<!--                    MV SWITCHBOARDS (10 kV)                            -->
+<!-- ===================================================================== -->
+
+<!-- MV-SWBD-A -->
+<line x1="558.3333333333333" y1="300" x2="558.3333333333333" y2="350" class="power-line"/>
+<line x1="558.3333333333333" y1="350" x2="543.3333333333333" y2="350" class="power-line"/>
+<line x1="543.3333333333333" y1="350" x2="543.3333333333333" y2="400" class="power-line"/>
+<use href="#breaker-closed" x="543.3333333333333" y="375"/>
+<text x="568.3333333333333" y="380" class="rating">VCB-1 (N.C.)</text>
+
+<rect x="423.33333333333326" y="400" width="240" height="120" class="mv-switchboard"/>
+<line x1="438.33333333333326" y1="415" x2="648.3333333333333" y2="415" class="bus"/>
+
+<text x="543.3333333333333" y="450" class="equipment-label" text-anchor="middle">MV-SWBD-A</text>
+<text x="543.3333333333333" y="470" class="rating" text-anchor="middle">10 kV | 3-Phase | 50 Hz</text>
+<text x="543.3333333333333" y="490" class="rating" text-anchor="middle">630A | 40 kA</text>
+
+<!-- MV-SWBD-B -->
+<line x1="1041.6666666666665" y1="300" x2="1041.6666666666665" y2="350" class="power-line"/>
+<line x1="1041.6666666666665" y1="350" x2="1056.6666666666665" y2="350" class="power-line"/>
+<line x1="1056.6666666666665" y1="350" x2="1056.6666666666665" y2="400" class="power-line"/>
+<use href="#breaker-closed" x="1056.6666666666665" y="375"/>
+<text x="1081.6666666666665" y="380" class="rating">VCB-2 (N.C.)</text>
+
+<rect x="936.6666666666665" y="400" width="240" height="120" class="mv-switchboard"/>
+<line x1="951.6666666666665" y1="415" x2="1161.6666666666665" y2="415" class="bus"/>
+
+<text x="1056.6666666666665" y="450" class="equipment-label" text-anchor="middle">MV-SWBD-B</text>
+<text x="1056.6666666666665" y="470" class="rating" text-anchor="middle">10 kV | 3-Phase | 50 Hz</text>
+<text x="1056.6666666666665" y="490" class="rating" text-anchor="middle">630A | 40 kA</text>
+
+<!-- Tie Breaker -->
+<line x1="663.3333333333333" y1="460" x2="760.0" y2="460" class="power-line"/>
+<line x1="840.0" y1="460" x2="936.6666666666665" y2="460" class="power-line"/>
+<use href="#breaker-open" x="800.0" y="460"/>
+<text x="800.0" y="440" class="rating" text-anchor="middle">TIE (N.O.)</text>
+
+<!-- ===================================================================== -->
+<!--              STEP-DOWN TRANSFORMERS (10 kV → 400V)                   -->
+<!-- ===================================================================== -->
+
+<!-- TX-1 from MV-A -->
+<line x1="543.3333333333333" y1="520" x2="543.3333333333333" y2="580" class="power-line"/>
+<line x1="543.3333333333333" y1="580" x2="570.0" y2="580" class="power-line"/>
+<line x1="570.0" y1="580" x2="570.0" y2="663" class="power-line"/>
+<use href="#breaker-closed" x="570.0" y="620"/>
+<text x="595.0" y="625" class="rating">VCB-T1 (N.C.)</text>
+
+<use href="#transformer" x="570.0" y="690"/>
+<rect x="530.0" y="650" width="80" height="90" class="transformer-box"/>
+<text x="570.0" y="750" class="equipment-label" text-anchor="middle">TX-1</text>
+<text x="570.0" y="770" class="rating" text-anchor="middle">2,500 kVA</text>
+<text x="570.0" y="785" class="rating" text-anchor="middle">10kV/400V</text>
+
+<line x1="570.0" y1="717" x2="570.0" y2="800" class="power-line"/>
+<use href="#breaker-closed" x="570.0" y="760"/>
+<text x="595.0" y="765" class="rating">CB-T1 (N.C.)</text>
+
+<!-- TX-2 from MV-B -->
+<line x1="1056.6666666666665" y1="520" x2="1056.6666666666665" y2="580" class="power-line"/>
+<line x1="1056.6666666666665" y1="580" x2="1030.0" y2="580" class="power-line"/>
+<line x1="1030.0" y1="580" x2="1030.0" y2="663" class="power-line"/>
+<use href="#breaker-closed" x="1030.0" y="620"/>
+<text x="1055.0" y="625" class="rating">VCB-T2 (N.C.)</text>
+
+<use href="#transformer" x="1030.0" y="690"/>
+<rect x="990.0" y="650" width="80" height="90" class="transformer-box"/>
+<text x="1030.0" y="750" class="equipment-label" text-anchor="middle">TX-2</text>
+<text x="1030.0" y="770" class="rating" text-anchor="middle">2,500 kVA</text>
+<text x="1030.0" y="785" class="rating" text-anchor="middle">10kV/400V</text>
+
+<line x1="1030.0" y1="717" x2="1030.0" y2="800" class="power-line"/>
+<use href="#breaker-closed" x="1030.0" y="760"/>
+<text x="1055.0" y="765" class="rating">CB-T2 (N.C.)</text>
+
+<!-- ===================================================================== -->
+<!--                    LV SWITCHBOARDS (400V)                             -->
+<!-- ===================================================================== -->
+
+<!-- LV-SWBD-A -->
+<line x1="570.0" y1="800" x2="570.0" y2="850" class="power-line"/>
+<line x1="570.0" y1="850" x2="550.0" y2="850" class="power-line"/>
+<line x1="550.0" y1="850" x2="550.0" y2="900" class="power-line"/>
+<use href="#breaker-closed" x="550.0" y="875"/>
+<text x="575.0" y="880" class="rating">CB-L1 (N.C.)</text>
+
+<rect x="450.0" y="900" width="200" height="100" class="lv-switchboard"/>
+<line x1="465.0" y1="915" x2="635.0" y2="915" class="bus"/>
+
+<text x="550.0" y="945" class="equipment-label" text-anchor="middle">LV-SWBD-A</text>
+<text x="550.0" y="965" class="rating" text-anchor="middle">400V | 3-Phase | 50 Hz</text>
+<text x="550.0" y="980" class="rating" text-anchor="middle">2,000A | 5 Positions</text>
+
+<!-- LV-SWBD-B -->
+<line x1="1030.0" y1="800" x2="1030.0" y2="850" class="power-line"/>
+<line x1="1030.0" y1="850" x2="1050.0" y2="850" class="power-line"/>
+<line x1="1050.0" y1="850" x2="1050.0" y2="900" class="power-line"/>
+<use href="#breaker-closed" x="1050.0" y="875"/>
+<text x="1075.0" y="880" class="rating">CB-L2 (N.C.)</text>
+
+<rect x="950.0" y="900" width="200" height="100" class="lv-switchboard"/>
+<line x1="965.0" y1="915" x2="1135.0" y2="915" class="bus"/>
+
+<text x="1050.0" y="945" class="equipment-label" text-anchor="middle">LV-SWBD-B</text>
+<text x="1050.0" y="965" class="rating" text-anchor="middle">400V | 3-Phase | 50 Hz</text>
+<text x="1050.0" y="980" class="rating" text-anchor="middle">2,000A | 5 Positions</text>
+
+<!-- ===================================================================== -->
+<!--                    DOWNSTREAM DISTRIBUTION                            -->
+<!-- ===================================================================== -->
+
+<!-- Distribution from LV-A -->
+<line x1="500.0" y1="1000" x2="500.0" y2="1060" class="power-line"/>
+<use href="#breaker-closed" x="500.0" y="1030"/>
+<text x="525.0" y="1035" class="rating">CB-DP1 (N.C.)</text>
+
+<rect x="455.0" y="1060" width="90" height="60" class="dist-panel"/>
+<text x="500.0" y="1085" class="equipment-label" text-anchor="middle">DP-A-IT</text>
+<text x="500.0" y="1105" class="rating" text-anchor="middle">IT Loads</text>
+
+<line x1="600.0" y1="1000" x2="600.0" y2="1060" class="power-line"/>
+<use href="#breaker-closed" x="600.0" y="1030"/>
+<text x="625.0" y="1035" class="rating">CB-DP2 (N.C.)</text>
+
+<rect x="555.0" y="1060" width="90" height="60" class="dist-panel"/>
+<text x="600.0" y="1085" class="equipment-label" text-anchor="middle">DP-A-MEP</text>
+<text x="600.0" y="1105" class="rating" text-anchor="middle">MEP Loads</text>
+
+<!-- Distribution from LV-B -->
+<line x1="1000.0" y1="1000" x2="1000.0" y2="1060" class="power-line"/>
+<use href="#breaker-closed" x="1000.0" y="1030"/>
+<text x="1025.0" y="1035" class="rating">CB-DP3 (N.C.)</text>
+
+<rect x="955.0" y="1060" width="90" height="60" class="dist-panel"/>
+<text x="1000.0" y="1085" class="equipment-label" text-anchor="middle">DP-B-IT</text>
+<text x="1000.0" y="1105" class="rating" text-anchor="middle">IT Loads</text>
+
+<line x1="1100.0" y1="1000" x2="1100.0" y2="1060" class="power-line"/>
+<use href="#breaker-closed" x="1100.0" y="1030"/>
+<text x="1125.0" y="1035" class="rating">CB-DP4 (N.C.)</text>
+
+<rect x="1055.0" y="1060" width="90" height="60" class="dist-panel"/>
+<text x="1100.0" y="1085" class="equipment-label" text-anchor="middle">DP-B-MEP</text>
+<text x="1100.0" y="1105" class="rating" text-anchor="middle">MEP Loads</text>
+
+<!-- IT Equipment Box -->
+<rect x="550.0" y="1180" width="500" height="80" fill="#F5F5F5" stroke="black" stroke-width="2"/>
+<text x="800.0" y="1215" class="equipment-label" text-anchor="middle">IT EQUIPMENT</text>
+<text x="800.0" y="1235" class="rating" text-anchor="middle">Dual-Corded Servers | 5.0 MW Critical Load</text>
+
+<!-- Connections to IT Equipment -->
+<line x1="500.0" y1="1120" x2="500.0" y2="1160" class="power-line"/>
+<line x1="500.0" y1="1160" x2="700.0" y2="1160" class="power-line"/>
+<line x1="700.0" y1="1160" x2="700.0" y2="1180" class="power-line"/>
+
+<line x1="1000.0" y1="1120" x2="1000.0" y2="1160" class="power-line"/>
+<line x1="1000.0" y1="1160" x2="900.0" y2="1160" class="power-line"/>
+<line x1="900.0" y1="1160" x2="900.0" y2="1180" class="power-line"/>
+
+<!-- Notes Section -->
+<rect x="50" y="1350" width="700" height="200" fill="#FFFEF0" stroke="black" stroke-width="1"/>
+<text x="60" y="1375" class="subtitle">NOTES:</text>
+<text x="60" y="1395" class="annotation">1. Dual-feed topology with N+1 transformer redundancy</text>
+<text x="60" y="1413" class="annotation">2. All breakers shown in normal operating position</text>
+<text x="60" y="1431" class="annotation">3. MV tie breaker normally open (N.O.) for selective operation</text>
+<text x="60" y="1449" class="annotation">4. Power flow: TOP to BOTTOM per IEEE conventions</text>
+<text x="60" y="1467" class="annotation">5. Symmetrical equipment spacing calculated per SLD Standards v1.1</text>
+<text x="60" y="1485" class="annotation">6. Open Sans font hierarchy: 24px (titles) / 14px (equipment) / 11px (specs)</text>
+<text x="60" y="1503" class="annotation">7. Text clearance: 15px from lines, 10px from equipment boundaries</text>
+<text x="60" y="1521" class="annotation">8. IEEE Std 315 / IEC 60617 compliant symbols</text>
+
+<!-- Equipment Summary -->
+<rect x="800" y="1350" width="750" height="200" fill="#FFFEF0" stroke="black" stroke-width="1"/>
+<text x="810" y="1375" class="subtitle">EQUIPMENT SUMMARY:</text>
+<text x="810" y="1395" class="annotation">Utility Sources:      2 × 3 MW @ 10 kV (dual feeds)</text>
+<text x="810" y="1413" class="annotation">MV Switchboards:      2 × 630A @ 10 kV (40 kA SCCR)</text>
+<text x="810" y="1431" class="annotation">Transformers:         2 × 2,500 kVA (10kV/400V) - N+1 redundancy</text>
+<text x="810" y="1449" class="annotation">LV Switchboards:      2 × 2,000A @ 400V (5 positions each)</text>
+<text x="810" y="1467" class="annotation">Distribution Panels:  4 panels (2 IT, 2 MEP)</text>
+<text x="810" y="1485" class="annotation">IT Load:              5.0 MW (dual-corded)</text>
+<text x="810" y="1503" class="annotation">Redundancy:           N+1 at all levels</text>
+<text x="810" y="1521" class="annotation">Standards:            SLD Standards v1.1.1 compliant</text>
+
+<!-- Footer -->
+<text x="800.0" y="1970" class="rating" text-anchor="middle">SLD STANDARDS TEST | IEEE 315 / IEC 60617 | Open Sans Typography | Generated 2025-11-05 22:08</text>
+
+</svg>

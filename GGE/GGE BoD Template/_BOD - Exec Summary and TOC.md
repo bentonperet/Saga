@@ -1,246 +1,479 @@
-**Created:** 2025-10-29
-**Updated from:** Tbilisi_Bod_Rev01.md
+**Created:** 2025-11-04
+**Updated from:** GGE Design Calculations with MTU Kinetic PowerPack
 
 # BASIS OF DESIGN - CSI MASTERFORMAT
-## Tbilisi Data Center - PACHYDERM GLOBAL
+## GGE Data Center - Phase 1
 ### Tbilisi, Georgia
 
-**Document Status:** REVISION 02 - 345 kV Substation + 13.8 kV Distribution (US Standard Voltage)
-**Prepared by:** EVS / PGCIS Team
-**Date:** October 30, 2025 
-**Purpose:** Comprehensive Basis of Design for Tbilisi Data Center organized by CSI Master Format
+**Document Status:** REVISION 04 - MV Voltage Updated to 10kV (was 11kV)
+**Prepared by:** EVS / GGE Engineering Team
+**Date:** November 6, 2025
+**Purpose:** Comprehensive Basis of Design for GGE Data Center Phase 1 organized by CSI Master Format
+**Key Update:** Medium voltage distribution changed from 11kV to 10kV throughout
 
 ---
 
 ## EXECUTIVE SUMMARY
 
 ### **FACILITY OVERVIEW**
-- **IT Capacity:** 3 MW Phase 1 (30 cabinets @ 100 kW); 12 MW Phase 2 (30 cabinets @ 400 kW);  [TBD] - Follow-on Phases up to 12 MW
-- **White Space:** 20,000 SF total all Phases (two 10,000 SF data halls); Phase 1 & 2 inside first 10,000 SF Data Hall (DH-E - East End of the Building)
-- **Power Density:** Phase 1: 300 W/SF; Phase 2: 1,200 W/SF; up to 1,200 W/SF in Data Hall W (DH-W)
-- **Cabinet Configuration:** Master Planned 30 × DDC S-Series cabinets (52U, 36" wide)
-- **Availability:** Tier III (2N IT power, N+1 mechanical, concurrent maintainability)
-- **Target PUE:** 1.35 (Phase 1), 1.25 (Phase 2)
-- **Target WUE:** <0.5 L/kWh (air-cooled, zero water consumption)
-- **Site:** Tbilisi, Georgia (Tornado Alley - FM 1-150 protection)
-- **Key Differentiator:** Customer-owned 345 kV substation with 13.8 kV distribution and true microgrid capability
+- **IT Capacity:** 1.47 MW Phase 1 (expandable via independent follow-on phases)
+- **Generator Capacity:** 2 × 2,200 kW (4,400 kW installed, 2N redundancy)
+- **White Space:** [TBD] SF data hall
+- **Power Density:** [TBD] W/SF
+- **Availability:** Tier III (2N generators, N+1 mechanical, concurrent maintainability)
+- **Target PUE:** 1.50 design maximum, 1.30 annual average (with river free cooling)
+- **Target WUE:** 0 L/kWh (zero evaporative water consumption, river cooling via closed loop)
+- **Site:** Tbilisi, Georgia - 100 meters from Kura River
+- **Key Differentiator:** MTU Kinetic PowerPack (integrated diesel + flywheel UPS), direct Kura River economization via indirect heat exchangers
 
 ---
 
-### **ELECTRICAL SYSTEMS**
-- **Primary Utility Service:** Customer-owned 345 kV substation
-  - **345 kV Transmission:** Direct connection to utility transmission system
-  - **Substation Transformers:** 2 × 25 MVA, 345kV/13.8kV (2N redundancy)
-  - **Capacity:** Supports 24 MW master plan without utility upgrades
-  - **Cost:** ~$7-12M (higher than lower voltages due to larger equipment and clearances)
-- **13.8 kV Common Bus:** Single voltage platform for utility, solar, BESS, generators, data center (US standard voltage)
-- **MV Distribution:** 13.8 kV dual-ring topology (Ring A + Ring B) via 6 RMUs
-- **Generators:** 6 × 4.0 MW @ 13.8 kV, diesel, Tier 4 Final (N+1)
-  - Phase 1: 3 units; Phase 2: +3 units
-  - Fuel: ~2,000 gal belly tanks per unit connected via common manifold to centralized bulk fuel storage (24-hour runtime with redundant fuel contracts)
-- **Transformers:** 8 × 3,500 kVA (13.8 kV/480V) oil-filled, N+1 with concurrent maintainability
-  - Phase 1: 3 units; Phase 2: +5 units
-- **IT UPS:** N+1 modular architecture (path redundancy from self-healing MV dual-ring)
-  - Phase 1: 5-6 × 1,250 kVA modules (4-5 running, 1 standby)
-  - Phase 2: 13-15 × 1,250 kVA modules (12-13 running, 1-2 standby)
-  - Battery: 5-minute runtime maximum (allows for MV generator sync to bus, even two attempts)
-  - **Redundancy Philosophy:** 13.8 kV dual-ring provides path redundancy via self-healing SCADA switching; N+1 UPS provides component redundancy
-- **Mechanical UPS:** Phase 1: 8 × 250 kW; Phase 2: 20 × 250 kW (N+1 for pumps/fans)
-- **LV Distribution:** Dual switchboards (SWBD-A/B) fed from different MV ring segments
-- **Cabinet Power:** Dual PDUs fed from different 480V distribution panels - Phase 1: 2 × 50 kW; Phase 2: 2 × 200 kW
-- **Electrical Enclosures:** Prefabricated PDMs with LV switchboards, UPS, MV gear
-- **MV Distribution:** 6 RMUs (13.8 kV, 630A), dual-ring topology
-- **Non-Critical Building Power (Separate System):**
-  - House generators: 2 × 250-350 kW natural gas (N+1 redundancy)
-  - Serves: offices, bathrooms, hallways, SCR, SCB, loading dock, NOC, gym, storm shelter
-  - Portable UPS: ~20-30 units for IT equipment ride-through in non-critical areas
-- **Electrical Code:** NEC 2023, Georgia amendments
+---
+
+### **MECHANICAL SYSTEMS - COOLING**
+
+#### IT Heat Rejection
+- **IT Load:** 1,467 kW (100% becomes heat)
+- **Chiller electrical load:** 267 kW (included in PUE)
+- **Pump electrical load:** 210 kW (all three loops, included in PUE)
+- **Total condenser heat:** 1,734 kW (rejected to Kura River)
+
+#### Water-Cooled Chiller Plant
+- **Configuration:** 3 × 800 kW water-cooled chillers (N+1 redundancy)
+- **Total capacity:** 2,400 kW installed
+- **Running capacity:** 1,600 kW (2 units running, 1 standby)
+- **Design margin:** 1,600 / 1,467 = 109% ✓
+- **Chiller COP:** 5.5 (water-cooled, design condition)
+- **Refrigerant:** R-134a or R-513A (low-GWP alternatives)
+- **Compressor type:** Screw or centrifugal
+- **Evaporator:** Produces chilled water (CHW) at 12°C supply, 18°C return (ΔT = 6°C)
+- **Condenser:** Cooled by closed condenser water loop (CW) at 20-30°C supply, 30-40°C return (ΔT = 10°C)
+- **Brands:** Carrier, Trane, York, Daikin (available via Turkey/Georgia distribution)
+- **Location:** Indoor mechanical room (protected from weather)
+- **Concurrent maintenance:** Any chiller can be isolated via isolation valves without IT impact
+
+#### Chilled Water Distribution (Loop 1 - CHW)
+- **Purpose:** Deliver cooling to data hall
+- **Supply temperature:** 12°C
+- **Return temperature:** 18°C
+- **ΔT:** 6°C
+- **Flow rate:** 3,680 L/min (972 GPM)
+- **Piping:** Insulated steel or HDPE, overhead or underground distribution
+- **Pumps:** 3 × CHW pumps (2 duty + 1 standby, N+1)
+  - Flow: 1,840 L/min each (50% capacity)
+  - Head: 35m (115 ft)
+  - Power: 30 kW each
+  - Drive: VFD (variable frequency drive) for variable flow
+  - Total power: 60 kW running
+  - **On critical power:** Fed from 400V MTU Kinetic PowerPack
+- **Control:** Variable flow based on data hall return temperature
+
+#### Condenser Water System (Loop 2 - CW - Closed Primary)
+- **Purpose:** Reject heat from chillers to river heat exchangers
+- **Configuration:** Closed loop (treated water, minimal makeup)
+- **Supply temperature:** 20°C (winter with free cooling) to 30°C (summer)
+- **Return temperature:** 30°C (winter) to 40°C (summer)
+- **ΔT:** 10°C
+- **Flow rate:** 4,950 L/min (1,307 GPM)
+- **Piping:** DN200 (8") HDPE, insulated, buried 1.5m depth
+- **Route:** Data center mechanical room → 100m → River-edge enclosure → 100m → Return
+- **Total piping:** 200m (supply + return)
+- **Pumps:** 3 × CW pumps (2 duty + 1 standby, N+1)
+  - Flow: 2,475 L/min each (50% capacity)
+  - Head: 40m (131 ft) - includes piping loss + heat exchanger pressure drop
+  - Power: 45 kW each
+  - Drive: VFD for variable flow
+  - Total power: 90 kW running
+  - **On critical power:** Fed from 400V MTU Kinetic PowerPack
+  - **Location:** Data center mechanical room
+- **Water treatment:** Corrosion inhibitor, biocide (annual), side-stream filtration (50 micron)
+- **Bypass capability:** 3-way valves allow bypass of river heat exchangers (maintenance or summer heat rejection to atmosphere if needed)
+
+#### River Water System (Loop 3 - RW - Open Secondary)
+- **Purpose:** Cool condenser water via plate heat exchangers
+- **Source:** Kura River (100m from data center)
+- **Configuration:** Open loop (river water intake → filter → heat exchanger → river discharge)
+- **Flow rate:** 5,500 L/min (1,453 GPM)
+- **Temperature range:** 6°C (winter) to 27°C (summer)
+- **Piping:** DN200 (8") HDPE, buried 1.5m depth
+- **Route:** River intake → 20m → Enclosure → 20m → River discharge
+- **Pumps:** 3 × River water pumps (2 duty + 1 standby, N+1)
+  - Flow: 2,750 L/min each (50% capacity)
+  - Head: 25m (82 ft) - includes intake lift + piping + HX pressure drop
+  - Power: 30 kW each
+  - Drive: VFD for variable flow
+  - Total power: 60 kW running
+  - **On critical power:** Fed from 400V via 100m underground cable to river enclosure
+  - **Location:** River-edge enclosure (100m from data center)
+
+#### River-Edge Enclosure & Heat Exchangers
+- **Location:** 100m from data center, at Kura River bank
+- **Structure:** Precast concrete vault, 8m × 5m × 3m (L × W × H interior)
+- **Footprint:** 40 m² interior
+- **Foundation:** Reinforced concrete, elevated 1m above 100-year flood level
+- **Access:** Paved service road, lockable steel door, card reader, CCTV
+- **Environmental control:** Ventilation, heating (freeze protection), drainage
+
+**Plate Heat Exchangers (Inside Enclosure):**
+- **Quantity:** 2 × 1,000 kW capacity (N+1 redundancy)
+- **Total capacity:** 2,000 kW (> 1,734 kW required) ✓
+- **Type:** Brazed plate, stainless steel
+- **Primary side (CW - closed loop):** Condenser water from chillers
+- **Secondary side (RW - river water):** Kura River water
+- **Approach temperature:** 3°C (typical for plate HX)
+- **Isolation:** Each HX has isolation valves for independent maintenance
+- **Brands:** Alfa Laval, SWEP, Danfoss (available via Turkey/Georgia)
+- **Dimensions (each):** ~1.5m × 0.8m × 1.2m (H × W × D)
+- **Weight:** ~800 kg empty
+- **Connections:** DN150 (6") flanged
+
+**Filtration & Treatment:**
+- **Coarse screen (at intake):** 50mm bar spacing (trash rack), removes large debris
+- **Fine screen (at enclosure):** 5-10mm traveling screen, removes fish/leaves, automatic backwash
+- **Automatic strainers:** 2 × 100% duty, 100-200 micron, self-cleaning backflush
+- **Chemical treatment:** Minimal low-dose chlorination (~0.5 ppm intermittent) for biofouling control
+- **Monitoring:** Flow, temperature, pressure differential, conductivity, pH
+
+**Bypass & Isolation:**
+- **Bypass valves:** 2 × motorized 3-way valves (DN200) on CW loop
+- **Purpose:** Allow CW to bypass HX during maintenance or when river temp too high
+- **Isolation valves:** 8 × butterfly valves (DN200) to isolate individual heat exchangers
+- **Control:** BMS-integrated PLC logic, automatic mode switching
+
+#### Free Cooling Optimization (Kura River Economization)
+- **River temperature range:** 6°C (winter) to 27°C (summer)
+- **CHW supply target:** 12°C
+
+**Cooling Modes:**
+1. **100% Free Cooling (River < 10°C):** ~5,500 hours/year (November-April)
+   - Chillers OFF
+   - River water cools CW to 9-13°C
+   - CW produces CHW at 12°C via additional heat exchanger (or direct if compatible)
+   - Energy: Pumps only (210 kW vs. 477 kW with chillers) = **56% savings**
+
+2. **Partial Free Cooling (River 10-23°C):** ~2,000 hours/year (May, October)
+   - Chillers ON at reduced load (30-70%)
+   - River pre-cools condenser water
+   - Energy savings: 30-50% vs. full mechanical
+
+3. **Full Mechanical (River > 23°C):** ~1,260 hours/year (June-September)
+   - Chillers ON at full load
+   - River water still provides condenser cooling (more efficient than air-cooled)
+   - COP: 5.5 (vs. 3.5 for air-cooled)
+
+**Annual PUE Performance:**
+- **Design maximum PUE:** 1.50 (full mechanical cooling)
+- **Free cooling PUE:** 1.18 (chillers off, pumps only)
+- **Annual weighted average PUE:** 1.30 (20% improvement over design)
+- **Annual cooling energy savings:** $51,000/year vs. no free cooling
+
+#### Data Hall Cooling Distribution
+- **Configuration:** In-row cooling units with CHW coils
+- **Quantity:** 12 × 150 kW units (N+1 distributed redundancy)
+- **Total capacity:** 1,800 kW installed, 1,650 kW running
+- **Supply air temp:** 18-20°C
+- **Airflow:** [TBD] CFM per unit
+- **Fan power:** ~50 kW total (included in PUE)
+- **Brands:** Stulz, Schneider (APC), Vertiv (available in Tbilisi/Turkey)
+- **Control:** BMS-integrated, modulating control based on room temperature
+- **Redundancy:** Any unit can fail without IT impact
+
+#### Building HVAC (Non-Critical Spaces)
+- **Offices, NOC, support spaces:** [TBD] - Separate RTUs or split systems
+- **Not on critical power**
+
+#### Mechanical Code Compliance
+- **Standards:** IMC 2021 (International Mechanical Code), ASHRAE 90.1-2019
+- **Refrigerant:** F-gas regulations (EU 517/2014 as adopted in Georgia)
 
 ---
 
-### **MECHANICAL SYSTEMS**
-- **Cooling Strategy:** Phased deployment aligned with IT load growth
-- **Phase 1 (Air Cooling Only):**
-  - IT Load: 3,000 kW (30 cabinets @ 100 kW each)
-  - Cabinet FCUs: 100 kW capacity each (dual coils: 50 kW Loop 1 + 50 kW Loop 2)
-  - Chillers: 4 × 1,500 kW air-cooled (Loops 1+2 shared plant, N+1)
-  - Supply temp: 7-10°C; COP: 3.8-4.2 (mechanical), 15-25 (free cooling)
-- **Phase 2 (Air + D2C Cooling):**
-  - IT Load: 12,000 kW (30 cabinets @ 400 kW: 100 kW air + 300 kW D2C)
-  - Air cooling: Same 4 chillers (Loops 1+2, 3,000 kW load unchanged)
-  - D2C cooling: 8 × 1,500 kW air-cooled chillers (Loop 3 independent, N+1)
-  - CDUs: 60 × 300 kW units (2 per cabinet, A/B redundancy)
-  - Supply temp: 25°C; COP: 5.0-5.5 (higher efficiency than air cooling)
-- **Free Cooling:** ~3,500-4,000 hours/year (Georgia climate)
-- **Zero Water Strategy:** No evaporative cooling, closed-loop glycol
-- **Building HVAC:** RTUs for offices, NOC, support spaces
-- **Mechanical Code:** IMC 2021, ASHRAE 90.1-2019
+### **POWER BUDGET - PHASE 1**
+
+| Load Category | Power (kW) | % of Total |
+|---------------|------------|------------|
+| **IT Load** | 1,467 | 66.7% |
+| **Cooling - Chillers** | 267 | 12.1% |
+| **Cooling - CHW Pumps** | 60 | 2.7% |
+| **Cooling - CW Pumps** | 90 | 4.1% |
+| **Cooling - River Water Pumps** | 60 | 2.7% |
+| **Cooling - In-row unit fans** | 50 | 2.3% |
+| **Electrical Losses (Xfmrs, distribution)** | 110 | 5.0% |
+| **Lighting, BMS, controls** | 30 | 1.4% |
+| **Building HVAC, offices** | 60 | 2.7% |
+| **Contingency/Future** | 6 | 0.3% |
+| **TOTAL FACILITY LOAD** | **2,200 kW** | **100%** |
+
+**PUE Calculation:**
+```
+PUE = Total Facility Power / IT Power
+PUE = 2,200 kW / 1,467 kW = 1.50 (design maximum)
+```
+
+**Infrastructure Power:**
+```
+Infrastructure = Total - IT = 2,200 - 1,467 = 733 kW (33.3% overhead)
+```
+
+---
+
+### **KURA RIVER ENVIRONMENTAL IMPACT**
+
+#### River Water Usage
+- **Intake flow:** 5,500 L/min = 330,000 L/hr = 7,920,000 L/day = 7,920 m³/day
+- **Annual usage:** 2,890,800 m³/year (365 days × 7,920 m³/day)
+- **Note:** 100% of intake water is returned to river (closed loop, zero consumption)
+
+#### Thermal Discharge
+- **Heat rejected:** 1,734 kW = 1,734,000 W
+- **Temperature rise (ΔT):** 10°C average
+- **Discharge temperature:** River temp + 10°C
+  - Winter: 6°C + 10°C = 16°C discharge
+  - Summer: 27°C + 10°C = 37°C discharge
+
+#### River Mixing Analysis (See detailed calculations in Section 4 below)
+- **Kura River flow rate:** [TBD] m³/s (minimum low flow)
+- **Discharge proportion:** [TBD]% of river flow
+- **Temperature rise at 100m downstream:** [TBD]°C (complete mixing)
+- **Compliance:** Georgian environmental discharge standards [TBD]
 
 ---
 
 ### **FACILITY CONSTRUCTION**
-- **Structure:** Pre-cast concrete tilt-up construction (tornado-resistant)
-- **Total Building:** 50,000 GSF
-- **Configuration:** Two 10,000 SF data halls + 30,000 SF support spaces
-- **Roofing:** FM 1-150 tornado-rated (150 mph winds, Class 4 hail); storm-rated stainless steel debris screen; protected roof equipment
-- **Walls:** Tilt-up concrete panels (8-12" thick, reinforced for high wind loads)
-- **Floor:** Slab-on-grade (raised floor: Not Applicable), sealed concrete with optional epoxy
-- **Ceiling Height:** 28-30 ft clear in data halls
-- **Containment:** Not Applicable (DDC cabinets provide integrated cooling)
-- **Storm Shelter/Safe Room:** FEMA 361 compliant prefabricated module (EF5 protection), 20 person capacity, located on Level 1 adjacent to elevator
-- **Security:** 
-  - K-rated perimeter fence (8 ft height, 100 ft building standoff)
-  - **Two property entrances:**
-    - **Main entrance (NE corner):** Sally port vehicle trap with permanent manned visitor center
-    - **Secondary entrance (NW side):** Emergency/construction access (normally unmanned, visible from loading dock SCB)
-  - Mantrap entry, full MFA (card + biometric), CCTV with 90-day retention
-- **Rationale for Tilt-Up:** Superior tornado resistance vs. PEMB, better thermal mass, lower insurance premiums
+
+[TBD - To be determined based on site requirements]
+
+**Structure:** [TBD] - Tilt-up concrete, PEMB, or other
+**Total Building:** [TBD] GSF
+**Data Hall:** [TBD] SF
+**Ceiling Height:** [TBD] ft
+**Floor:** [TBD] - Raised floor or slab-on-grade
+**Support Spaces:** [TBD] - Offices, NOC, electrical room, mechanical room
 
 ---
 
-### **SUPPORT SPACES**
+### **TIER III COMPLIANCE SUMMARY**
 
-**East End Entry Zone:**
-- **Main entrance (Blue Zone):** Lobby with luggage room, public restroom, Security Control Room (SCR)
-- **Secure office zone (Yellow Zone):** Post-mantrap access to conference room, 2 restrooms, hoteling office area, 2 soundproof call pods, seating area
-- **Telecommunications:** MPOE (fiber entrance), MMR (meet-me-room), fire riser
-- **Perimeter corridor:** Secure perimeter corridor providing access to secure data hall access points and secure indoor mechanical gallery maintenance areas
+| System | Requirement | GGE Design | Compliant |
+|--------|-------------|------------|-----------|
+| **Generators** | N+1 minimum | 2N (2 × 100%) | ✓ Exceeds |
+| **Transformers** | N+1 minimum | 2N (2 × 100%) | ✓ Exceeds |
+| **Chillers** | N+1 | 3 × 800 kW (N+1) | ✓ Yes |
+| **Pumps (all loops)** | N+1 | 3 each (N+1) | ✓ Yes |
+| **Concurrent Maintenance** | Any component removable | Isolation valves throughout | ✓ Yes |
+| **Dual Distribution** | A/B power paths | SWBD-A + SWBD-B | ✓ Yes |
+| **IT Equipment** | Dual-corded | Dual PDUs (A/B) | ✓ Yes |
 
-**West End Loading Zone:**
-- **Loading dock:** 2-bay weather-protected loading area with Security Control Booth (SCB)
-- **Support areas:** Secure staging, secure storage, janitor closet, internal restroom
-- **Telecommunications:** Second MPOE (redundant fiber entrance), second MMR (redundant meet-me-room), fire riser
-- **Delivery driver restroom:** Accessible only from outside at NW corner (within view of security)
-- **PDMs:** Power Delivery Modules located outside in electrical equipment yard
-
-**Multi-Level Central Spine (4 Levels):**
-- **Level 1:** Prefabricated storm shelter/safe room (20 person), elevator/stairwell, redundant restrooms, men's/women's showers, break room, lounge, gaming area (TBD)
-- **Level 2 (Secure NOC):** NOC (~2,060 SF), private NOC area
-- **Level 3 (Fitness/Tour Route):** Gym/fitness center, secure tour route with internal windows into critical areas, weather-protected balconies (north/south) for equipment yard views, accessible to security and technical operations staff for routine site walks
-- **Roof Level:** Weather-protected access via elevator/stairwell; storm-rated SS debris screen; protected roof-mounted equipment
-
-**Equipment Yards:**
-- Electrical: ~100,000 SF (sized for 24 MW master plan)
-- Mechanical: ~50,000 SF (sized for 12 chillers total)
+**Tier III Certification:** Designed for Uptime Institute Tier III certification (concurrent maintainability, no single points of failure in distribution)
 
 ---
 
-### **RENEWABLE ENERGY & UTILITIES**
-- **Solar:** Adjacent 8+ MW solar array (owned separately, behind-the-meter)
-- **BESS:** Battery Energy Storage System (separate from UPS)
-- **Primary Utility Service:** Owner-constructed 345 kV substation with 2 × 25 MVA transformers (345kV/13.8kV, 2N redundancy)
-  - Dual redundant 345 kV transmission line feeds
-  - All power transformed to 13.8 kV common bus (US standard voltage for data centers and renewables)
-- **Water:** Municipal or well (domestic use only, ~500-1,000 gal/day)
-- **Sewer:** Municipal or septic (domestic wastewater)
-- **Natural Gas:** Utility service for house generators (backup power to non-critical areas)
-- **[TBD] OPTIONAL Micro-Turbine Natural Gas Generators:** For Georgia Renewable Energy Incentives qualification (budget in Solar/BESS CAPEX, not Data Center)
-- **Fiber:** Dual diverse entries via underground ductbank
+### **EQUIPMENT SUMMARY - PHASE 1**
+
+| Equipment | Qty | Unit Size | Total Capacity | Redundancy | Critical Power |
+|-----------|-----|-----------|----------------|------------|----------------|
+| **ELECTRICAL - PRIMARY SOURCES** |
+| HPP Utility Source | 1 | 3.7 MW @ 400V | 3.7 MW | Dual source | Upstream |
+| Grid Utility Source | 1 | 4.0 MW @ 10 kV | 4.0 MW | Dual source | Upstream |
+| HPP Step-Up Transformer | 1 | 3,500 kVA, 400V/10kV | 3.5 MVA | - | HPP path |
+| MV Switchboard A (10 kV) | 1 | 630A bus | - | Redundant | HPP path |
+| MV Switchboard B (10 kV) | 1 | 630A bus | - | Redundant | Grid path |
+| Step-Down Transformers (10kV/400V) | 2 | 3,500 kVA | 7,000 kVA | 2N | Downstream |
+| **ELECTRICAL - MTM DISTRIBUTION** |
+| 400V Main Breakers (ACB-M1, M2) | 2 | 6,300A frame | - | Main | Drawout |
+| 400V Tie Breaker (52-TIE) | 1 | 6,300A frame | - | N.O. | Drawout |
+| 400V Main Switchboards (A, B) | 2 | 2,500A bus | - | MTM | MTU-fed |
+| **ELECTRICAL - BACKUP POWER** |
+| MTU KP7 Kinetic PowerPack | 2 | 2,200 kW | 4,400 kW | 2N | Self-powered |
+| MTU Breakers (ACB-MTU1, MTU2) | 2 | 5,000A frame | - | - | w/ ATS |
+| **ELECTRICAL - DISTRIBUTION PANELS** |
+| IT Distribution Panels (A, B) | 2 | 2,500A MCCB | - | A/B | MTU-fed |
+| Cooling Panels (A-COOL, B-COOL) | 2 | 3,200A MCCB | - | A/B | MTU-fed |
+| **ELECTRICAL - OFFICE / SOLAR** |
+| Solar Inverters | 1 set | 700 kW AC | 700 kW | - | Solar array |
+| Office Transformer (11kV/400V) | 1 | 250 kVA | 250 kVA | - | Grid utility |
+| Office ATS | 1 | 630A | - | - | Solar priority |
+| Office Switchboard | 1 | 630A bus | - | - | Non-critical |
+| **COOLING - DATA CENTER** |
+| Water-Cooled Chillers | 3 | 800 kW | 2,400 kW | N+1 | Yes (400V) |
+| CHW Pumps | 3 | 30 kW | 90 kW | N+1 | Yes (400V) |
+| CW Pumps | 3 | 45 kW | 135 kW | N+1 | Yes (400V) |
+| In-Row Cooling Units | 12 | 150 kW | 1,800 kW | N+1 | Yes (400V) |
+| **COOLING - RIVER ENCLOSURE** |
+| Plate Heat Exchangers | 2 | 1,000 kW | 2,000 kW | N+1 | N/A |
+| River Water Pumps | 3 | 30 kW | 90 kW | N+1 | Yes (400V) |
+| Automatic Strainers | 2 | 100% duty | - | 2N | No |
+| 3-Way Bypass Valves | 2 | DN200 | - | - | No |
+| Isolation Valves | 8 | DN200 | - | - | No |
+| **PIPING** |
+| CW Piping (DC to River) | 200m | DN200 | - | - | N/A |
+| River Intake/Discharge | 40m | DN200 | - | - | N/A |
 
 ---
 
-### **FIRE PROTECTION & LIFE SAFETY**
-- **Data Halls:** Zoned preaction sprinkler system with VESDA early warning detection
-- **Cabinet Suppression:** Integrated fire suppression in DDC cabinets
-- **Prefabricated PDMs:** Clean agent or other suppression per NFPA standards in PDM enclosures housing UPS, switchboards, MV gear
-- **Detection:** VESDA (Very Early Smoke Detection Apparatus) in data halls
-- **Egress:** 2 minimum exits per data hall, 36" doors (44" preferred)
-- **Emergency Lighting:** 90-minute battery backup
-- **NFPA Compliance:** NFPA 72, 75, 76, 2001, 101; IBC 2021
+### **COST SUMMARY - PHASE 1**
+
+| System | Cost Estimate |
+|--------|---------------|
+| **Electrical Systems - Critical Power** |
+| 2 × MTU KP7 Kinetic PowerPack | $4,000,000 |
+| HPP Step-Up Transformer (400V/10kV, 3,500 kVA) | $100,000 |
+| 2 × MV Switchboards (10 kV, 630A bus, VCB lineup) | $200,000 |
+| 2 × Step-Down Transformers (10kV/400V, 3,500 kVA) | $200,000 |
+| 400V Main Breakers (2 × 6,300A ACB drawout) | $120,000 |
+| 400V Tie Breaker (1 × 6,300A ACB drawout) | $60,000 |
+| 400V Switchboards A & B (2 × 2,500A bus) | $200,000 |
+| Distribution Panels (IT + Cooling, 4 total) | $160,000 |
+| MTM Controller & Protection Relays | $40,000 |
+| **Electrical Systems - Office / Solar** |
+| Solar Array (700 kW AC, inverters + panels) | $700,000 |
+| Office Transformer (250 kVA, 10kV/400V) | $25,000 |
+| Office ATS (630A with solar priority) | $15,000 |
+| Office Switchboard (630A bus) | $20,000 |
+| **Electrical - Installation & Commissioning** |
+| Installation, testing, commissioning | $385,000 |
+| **Subtotal Electrical** | **$6,175,000** |
+| **Cooling Systems - Data Center** |
+| 3 × 800 kW Water-Cooled Chillers | $450,000 |
+| CHW + CW Pumps (6 total) | $90,000 |
+| 12 × In-Row Cooling Units | $360,000 |
+| Piping, valves, insulation (CHW distribution) | $150,000 |
+| **Subtotal Cooling (DC)** | **$1,050,000** |
+| **Cooling Systems - River Infrastructure** |
+| River-edge enclosure (concrete vault) | $120,000 |
+| 2 × Plate heat exchangers (1,000 kW) | $100,000 |
+| 3 × River water pumps + VFD | $45,000 |
+| Filtration (screens + strainers) | $60,000 |
+| CW piping (200m DN200 insulated) | $60,000 |
+| River piping (40m DN200) | $8,000 |
+| Valves, controls, instrumentation | $65,000 |
+| Intake/discharge structures | $45,000 |
+| 400V power feed to enclosure (100m) | $15,000 |
+| Installation & commissioning | $120,000 |
+| **Subtotal River Cooling** | **$638,000** |
+| **Building & Site** | [TBD] |
+| **BMS, Controls, Monitoring** | $200,000 |
+| **Fire Protection, Security** | [TBD] |
+| **TOTAL PHASE 1 (MEP SYSTEMS)** | **$8,063,000 + [TBD]** |
+
+**Cost per MW (IT):**
+- $8,063,000 / 1.47 MW = **$5.5M per MW** (MEP systems only, excludes building shell)
+- Note: Includes 700 kW solar array for office loads (~$700K of total cost)
+- Note: Includes HPP step-up transformer and redundant MV switchboards (~$300K)
 
 ---
 
-### **COST SUMMARY**
+### **KEY DESIGN DECISIONS**
 
-| Phase | IT Capacity | Electrical Cost | Total Project Cost* |
-|-------|-------------|-----------------|---------------------|
-| Phase 1 | 3 MW | $14.3M | $34-41M |
-| Phase 2 | +9 MW (12 MW total) | $22.3M | $27-34M |
-| **Total** | **12 MW** | **$36.6M** | **$61-75M** |
+#### Why HPP at 400V with Step-Up (vs. 10 kV Direct)?
+1. ✅ **HPP source characteristic:** Local hydroelectric plant generates at low voltage (400V generator output)
+2. ✅ **Step-up required:** 400V → 10 kV transformation needed to match MV distribution voltage
+3. ✅ **Common voltage platform:** Both sources normalized to 10 kV at MV switchboards for uniform distribution
+4. ✅ **Redundant MV switchboards:** Separate MV-SWBD-A (HPP) and MV-SWBD-B (Grid) for isolation and protection
+5. ✅ **Flexible architecture:** Can accommodate different utility source voltages via transformers
+6. ✅ **Concurrent maintainability:** Step-up transformer can be isolated, facility fed from Grid via tie breaker
 
-*Total project includes civil, architectural, site work, MEP systems
+#### Why Main-Tie-Main (MTM) Topology (vs. Traditional 2N UPS)?
+1. ✅ **Leverages dual utility sources:** HPP (3.7 MW) + Grid (4.0 MW) = diverse primary power
+2. ✅ **Simple automatic failover:** Tie breaker closes on single source failure (<1 second transfer)
+3. ✅ **Lower cost:** Eliminates need for separate utility ATS, reduces switchgear complexity
+4. ✅ **Better reliability:** Dual utility + 2N MTU = triple redundancy (vs. single utility + 2N UPS)
+5. ✅ **Concurrent maintainability:** Either transformer/breaker can be maintained via tie breaker
+6. ✅ **Standard topology:** Proven design, widely used in industrial/commercial applications
+7. ✅ **Simple controller:** Relay-based logic (no complex PLC), reduces cost and failure modes
 
-**Cost per MW:**
-- Phase 1: $11.3-13.7M per MW (includes full infrastructure)
-- Phase 2: $3.0-3.8M per MW (incremental)
-- Blended average: $5.1-6.3M per MW
+#### Why MTU Kinetic PowerPack (vs. Separate UPS + Generators)?
+1. ✅ **Integrated solution:** Diesel + flywheel UPS in single package
+2. ✅ **No separate static UPS needed:** Saves ~$500K-800K CAPEX
+3. ✅ **Smaller footprint:** 40% smaller than equivalent static UPS system
+4. ✅ **Lower maintenance:** Fewer components, reduced failure modes
+5. ✅ **Tier III/IV certified:** Uptime Institute approved for all tier levels
+6. ✅ **Fast start:** 15-20 second ride-through, diesel starts in <10 seconds
 
-**Phase 1 Electrical Breakdown:**
-- Generators (3 × 4.0 MW @ 13.8 kV diesel): $4.5M
-- House generators (2 × 300 kW natural gas): $0.1M
-- Transformers (3 × 3,500 kVA, 13.8kV/480V): $0.5M
-- RMUs, MV switchgear, cable (including dual-ring SCADA controls): $1.4M
-- LV switchboards, distribution: $1.3M
-- IT UPS (5-6 × 1,250 kVA N+1 + batteries): $1.2M
-- Mechanical UPS (8 × 250 kW): $0.8M
-- Portable UPS (non-critical areas): $0.05M
-- PDMs (2 units): $2.5M
-- Installation, testing, commissioning: $2.0M
+#### Why 400V Distribution (vs. 480V)?
+1. ✅ **Matches utility voltage:** 11 kV → 400V transformation standard in Georgia (IEC country)
+2. ✅ **Single voltage platform:** No additional transformation needed
+3. ✅ **Equipment availability:** Most European equipment rated 380-415V (IEC standard)
+4. ✅ **MTU output voltage:** Kinetic PowerPack outputs 400V natively
+5. ✅ **Lower current vs. 230V:** 400V 3-phase reduces copper sizing vs. single-phase
 
-**Phase 2 Electrical Breakdown:**
-- Generators (3 × 4.0 MW): $4.5M
-- Transformers (5 × 3,500 kVA): $0.85M
-- MV/LV distribution expansion: $1.5M
-- IT UPS (8-9 × 1,250 kVA N+1 + batteries): $1.8M
-- Mechanical UPS (12 × 250 kW): $1.2M
-- Chillers Loop 3 (8 × 1,500 kW): $6.0M
-- CDUs (60 units): $3.0M
-- Cabinet PDU upgrades: $0.45M
-- Installation, testing, commissioning: $3.0M
+#### Why 3 × 800 kW Chillers (vs. 4 × 400 kW)?
+1. ✅ **Proper N+1 redundancy:** 1,600 kW running > 1,467 kW required
+2. ✅ **Fewer units:** Simpler maintenance, lower parts count
+3. ✅ **Standard industrial size:** Better availability in Georgia/Turkey market
+4. ✅ **Better load staging:** 0% / 50% / 100% load steps (vs. 33% / 66% / 100%)
+5. ✅ **Lower installed cost:** ~$50K savings vs. 4 smaller units
 
-**Note:** If utility provides 34.5 kV service, add ~$1.0-1.5M for two 34.5kV/13.8kV step-down transformers
+#### Why Indirect River Cooling (vs. Direct)?
+1. ✅ **Chiller protection:** Clean, treated water to expensive condensers
+2. ✅ **Reduced fouling:** Plate HX easier to clean than chiller tubes
+3. ✅ **Isolation capability:** Can bypass river system for maintenance
+4. ✅ **Water quality control:** Closed condenser loop has stable chemistry
+5. ✅ **Regulatory compliance:** Easier permitting with indirect discharge
+
+#### Why River-Edge Enclosure (vs. Pumping to Building)?
+1. ✅ **Minimize pumping energy:** Equipment at river level (low head)
+2. ✅ **Centralized filtration:** All river water treatment at one location
+3. ✅ **Easy maintenance access:** Dedicated service structure
+4. ✅ **Flood protection:** Elevated above 100-year flood level
+5. ✅ **Reduced building footprint:** Heat exchangers not in main building
+
+#### Why Separate Office SWBD with Solar Priority?
+1. ✅ **Sustainability:** 700 kW solar reduces carbon footprint, aligns with green DC goals
+2. ✅ **Cost savings:** Solar offsets office electricity costs (payback ~5-7 years in Georgia)
+3. ✅ **Grid independence:** Office loads (103 kW) operate during solar hours without utility
+4. ✅ **Non-critical isolation:** Office failures don't impact critical data center operations
+5. ✅ **No UPS/generator needed:** Office outages acceptable, reduces capital and operating cost
+6. ✅ **Simple ATS:** Solar priority with utility backup, standard residential/commercial solution
 
 ---
 
-### **DESIGN STANDARDS**
-- **Redundancy:** 
-  - **Path redundancy:** 13.8 kV dual-ring MV distribution with self-healing automated switching
-  - **Component redundancy:** N+1 (IT UPS, generators, transformers, chillers)
-  - **Cooling redundancy:** N+N (air cooling loops - Loop 1 + Loop 2 independent)
-- **Concurrent Maintainability:** All systems serviceable without IT interruption
-- **Zero Single Points of Failure:** From 345 kV utility to cabinet-level distribution
-- **Uptime:** Tier III-equivalent (99.982% = 1.6 hours downtime/year)
-- **Monitoring:** DCIM with BMS and EPMS integration
+### **DESIGN STANDARDS & CODES**
+
+**Electrical:**
+- IEC 60364 (Low-voltage electrical installations)
+- IEC 61439 (Low-voltage switchgear and controlgear assemblies)
+- IEEE 1584 (Arc flash hazard calculation)
+- Uptime Institute Tier Standard: Topology
+
+**Mechanical:**
+- ASHRAE 90.1-2019 (Energy Standard for Buildings)
+- ASHRAE 127-2012 (Data Center Thermal Guidelines)
+- ISO 14644 (Cleanrooms and controlled environments)
+- EN 378 (Refrigerating systems and heat pumps)
+
+**Building:**
+- IBC 2021 (International Building Code)
+- NFPA 75 (Protection of Information Technology Equipment)
+- Georgian Building Code (based on Eurocode)
+
+**Environmental:**
+- Georgian Water Pollution Control Regulations
+- EU Water Framework Directive (2000/60/EC) as adopted in Georgia
+- Kura River Basin Management Plan
 
 ---
 
-### **PHASING STRATEGY**
+### **NEXT STEPS**
 
-**Phase 1: Foundation Operations (3 MW)**
-- Data Hall 1 operational: 30 cabinets @ 100 kW each
-- Air cooling: Loops 1+2 (4 chillers, N+1)
-- Power: 3 generators, 3 transformers, 4 IT UPS, 8 mechanical UPS
-- Data Hall 2: Built as powered shell
-- Timeline: [ROM] 18-24 months
-- Cost: [ROM] $34-41M
-
-**Phase 2: High-Density Expansion (12 MW)**
-- Same 30 cabinets: Upgrade to 400 kW (100 kW air + 300 kW D2C)
-- D2C cooling: Loop 3 (8 chillers, 60 CDUs, independent from air cooling)
-- Power: Add 3 generators, 5 transformers, 6 IT UPS, 12 mechanical UPS
-- Zero-downtime implementation
-- Timeline: [ROM] 12-15 months
-- Cost: [ROM] $27-34M
+1. **Finalize building architecture and site layout**
+2. **Conduct Kura River environmental impact study (detailed)**
+3. **Obtain river water usage and discharge permits**
+4. **Confirm equipment lead times (MTU, chillers, transformers)**
+5. **Develop detailed electrical single-line diagrams**
+6. **Develop detailed mechanical P&IDs**
+7. **Begin procurement of long-lead items (MTU units, transformers)**
+8. **Engage Uptime Institute for Tier III certification process**
 
 ---
 
 ## CSI MASTERFORMAT OUTLINE
 
-### **PROCUREMENT AND CONTRACTING REQUIREMENTS GROUP**
+[Detailed sections to follow, organized by CSI divisions]
 
-#### **Division 00 – Procurement and Contracting Requirements**
+---
 
-
-
-**Summary:**
-- **Delivery Method:** Design-Build (DB) with Guaranteed Maximum Price (GMP)
-- **Procurement Strategy:** Phased RFP process with early long-lead equipment orders (switchgear, UPS, generators, chillers)
-- **Vendor Selection:** Tier 1 vendors only; pre-qualification based on data center experience, financial stability, service network
-- **Contract Structure:** GMP with performance guarantees (PUE ≤ 1.4, Tier III uptime, 3 MW capacity)
-- **Risk Allocation:** Design-builder assumes design/construction risk; owner retains site conditions and utility coordination
-- **Schedule:** 24-month fast-track timeline from design kickoff to final completion
-- **Budget:** ~$34-41M total project cost (3 MW Phase 1); $11.3-13.7M per MW
-- **Quality Assurance:** Independent CxA, factory acceptance tests, third-party material testing
+**Tags:** #GGE-data-center #basis-of-design #tbilisi-georgia #drups #kura-river-cooling #tier-iii #400v-distribution #mtm-topology #dual-utility #solar-integration #10kv-mv
 
 ---
 
@@ -514,7 +747,28 @@
 ---
 
 **Document Control:**
-- **Source:** Tbilisi_Bod_Rev01.md
-- **Date Updated:** October 29, 2025
-- **Prepared by:** EVS / PGCIS Team
-- **Corrections:** Tilt-up construction, utility voltage options, mechanical yard sizing
+- **Version:** 04 (MV voltage updated to 10kV)
+- **Date Updated:** November 6, 2025
+- **Prepared by:** EVS / GGE Engineering Team
+- **Key Design Decisions:**
+  - HPP source at 400V with step-up to 10 kV (local hydro generator characteristic)
+  - Redundant MV switchboards (MV-SWBD-A @ HPP, MV-SWBD-B @ Grid)
+  - Main-Tie-Main (MTM) topology at 400V LV level with dual utility sources:
+    * HPP: 3.7 MW @ 400V → 10 kV → 400V (via step-up + step-down transformers)
+    * Grid: 4.0 MW @ 10 kV → 400V (via step-down transformer)
+  - MTU Kinetic PowerPack 2N (2 × 2,200 kW)
+  - 400V distribution throughout critical loads
+  - 3 × 800 kW chillers (N+1)
+  - Indirect Kura River cooling via plate heat exchangers
+  - Separate office SWBD with 700 kW solar array + utility backup
+  - Simple relay-based MTM controller (not PLC)
+
+**Revision History:**
+- **Rev 04 (2025-11-06):** Medium voltage changed from 11kV to 10kV throughout
+  - HPP step-up transformer: 400V/10kV (was 400V/11kV)
+  - MV switchboards: 10kV (was 11kV)
+  - Step-down transformers: 10kV/400V (was 11kV/400V)
+  - Office transformer: 10kV/400V (was 11kV/400V)
+  - Utility Grid incoming: 10kV (was 11kV)
+  - Equipment cost impact: Minimal (10kV more common, potentially lower cost)
+- **Rev 03 (2025-11-04):** MTM with HPP 400V Step-Up + Redundant MV SWBDs + Kura River Cooling

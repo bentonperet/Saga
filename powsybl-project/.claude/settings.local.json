@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell -Command \"Start-Process ''C:\\Users\\eriks\\Documents\\Obsidian\\powsybl-project\\saga_pryor_sld_v1_1_CORRECTED.svg''\")",
+      "Bash(python:*)",
+      "SlashCommand(/sld-generate)",
+      "Bash(powershell -Command \"Start-Process ''C:\\Users\\eriks\\Documents\\Obsidian\\powsybl-project\\gge_10kv_sld.svg''\")",
+      "WebSearch",
+      "Bash(curl:*)",
+      "WebFetch(domain:freesvg.org)",
+      "WebFetch(domain:www.svgrepo.com)",
+      "WebFetch(domain:commons.wikimedia.org)",
+      "Bash(powershell -Command \"Start-Process ''C:\\Users\\eriks\\Documents\\Obsidian\\powsybl-project\\siemens_symbols''\")",
+      "WebFetch(domain:symbols.radicasoftware.com)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

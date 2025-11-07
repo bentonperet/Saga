@@ -1,0 +1,344 @@
+# GGE Data Center - Electrical Specifications
+# MV Voltage: 10 kV (Updated from 11 kV)
+# Generated: 2025-11-06
+
+project:
+  name: "GGE Data Center - Phase 1"
+  location: "Tbilisi, Georgia"
+  tier: "III"
+  topology: "MTM"  # Main-Tie-Main
+  frequency_hz: 50
+  phases: 3
+
+# PRIMARY UTILITY SOURCES
+utility_sources:
+  source_1_hpp:
+    name: "HPP - Hydroelectric Power Plant"
+    type: "hydroelectric"
+    incoming_voltage_v: 400
+    capacity_mw: 3.7
+    step_up_required: true
+    feeds: "MV-SWBD-A"
+    geographic_path: "Feed 1"
+
+  source_2_grid:
+    name: "Utility Grid - National Grid"
+    type: "utility_grid"
+    incoming_voltage_kv: 10
+    capacity_mw: 4.0
+    step_up_required: false
+    feeds: "MV-SWBD-B"
+    geographic_path: "Feed 2 (diverse from HPP)"
+
+# STEP-UP TRANSFORMER (HPP Only)
+hpp_step_up_transformer:
+  id: "HPP-STEP-UP-TX"
+  purpose: "Convert HPP 400V to 10kV MV distribution"
+  rating_kva: 3500
+  primary_voltage_v: 400
+  secondary_voltage_kv: 10
+  configuration: "Dyn11"
+  cooling: "ONAN"
+  type: "oil-filled"
+  input_source: "HPP @ 400V (3.7 MW max)"
+  output_feeds: "MV-SWBD-A"
+  concurrent_maintenance: "Close 52-TIE, feed from Grid only"
+  brands: ["Schneider Electric", "ABB", "Siemens"]
+
+# MEDIUM VOLTAGE SWITCHBOARDS (10 kV)
+mv_switchboards:
+  mv_swbd_a:
+    id: "MV-SWBD-A"
+    voltage_kv: 10
+    bus_rating_a: 630
+    breaker_type: "VCB"  # Vacuum Circuit Breaker
+    fed_from: "HPP-STEP-UP-TX"
+    feeds: "XFMR-A"
+    redundancy: "Independent (2N path)"
+    protection:
+      - "Overcurrent"
+      - "Short-circuit"
+      - "Ground fault"
+
+  mv_swbd_b:
+    id: "MV-SWBD-B"
+    voltage_kv: 10
+    bus_rating_a: 630
+    breaker_type: "VCB"
+    fed_from: "Utility Grid"
+    feeds: "XFMR-B"
+    redundancy: "Independent (2N path)"
+    protection:
+      - "Overcurrent"
+      - "Short-circuit"
+      - "Ground fault"
+
+# STEP-DOWN TRANSFORMERS (10 kV → 400V)
+step_down_transformers:
+  xfmr_a:
+    id: "XFMR-A"
+    rating_kva: 3500
+    primary_voltage_kv: 10
+    secondary_voltage_v: 400
+    configuration: "Dyn11"
+    cooling: "ONAN"
+    type: "oil-filled"
+    fed_from: "MV-SWBD-A (HPP path)"
+    feeds: "BUS A (SWBD-A)"
+    incomer_breaker: "ACB-M1 (6,300A frame, 5,000A trip)"
+    sizing: "100% facility load (2,078 kW failure mode)"
+    redundancy: "2N"
+    brands: ["Schneider Electric", "ABB", "Siemens"]
+
+  xfmr_b:
+    id: "XFMR-B"
+    rating_kva: 3500
+    primary_voltage_kv: 10
+    secondary_voltage_v: 400
+    configuration: "Dyn11"
+    cooling: "ONAN"
+    type: "oil-filled"
+    fed_from: "MV-SWBD-B (Grid path)"
+    feeds: "BUS B (SWBD-B)"
+    incomer_breaker: "ACB-M2 (6,300A frame, 5,000A trip)"
+    sizing: "100% facility load (2,078 kW failure mode)"
+    redundancy: "2N"
+    brands: ["Schneider Electric", "ABB", "Siemens"]
+
+# BACKUP POWER - MTU KINETIC POWERPACK
+backup_power:
+  type: "MTU Kinetic PowerPack (Rotary UPS)"
+  technology: "Diesel engine + kinetic flywheel energy storage"
+
+  mtu_units:
+    - id: "MTU-1"
+      model: "MTU KP7 Kinetic PowerPack"
+      rating_kva: 2750
+      rating_kw: 2200
+      output_voltage_v: 400
+      phases: 3
+      frequency_hz: 50
+      ride_through_sec: 15-20
+      feeds: "BUS A (SWBD-A) via ACB-MTU1"
+
+    - id: "MTU-2"
+      model: "MTU KP7 Kinetic PowerPack"
+      rating_kva: 2750
+      rating_kw: 2200
+      output_voltage_v: 400
+      phases: 3
+      frequency_hz: 50
+      ride_through_sec: 15-20
+      feeds: "BUS B (SWBD-B) via ACB-MTU2"
+
+  total_capacity:
+    kva: 5500
+    kw: 4400
+
+  configuration: "2N"
+  redundancy: "True fault tolerance - either unit carries 100% load"
+  tier_compliance: "Uptime Institute Tier I-IV certified"
+  fuel: "Diesel"
+  fuel_storage_liters: "TBD"
+  runtime_hours: "TBD"
+  emissions: "EU Nonroad Stage II compliant"
+  advantage: "Integrated UPS + generator in single package (no separate static UPS required)"
+
+# LV DISTRIBUTION (400V - MTM TOPOLOGY)
+lv_distribution:
+  voltage_v: 400
+  topology: "Main-Tie-Main (MTM)"
+  configuration: "Dual path (BUS A + BUS B)"
+
+  bus_a:
+    id: "SWBD-A"
+    bus_rating_a: 2500
+    primary_source: "HPP via XFMR-A (normal mode)"
+    backup_source_utility: "Grid via 52-TIE (single source failure)"
+    backup_source_generator: "MTU-1 via ACB-MTU1 (utility failure)"
+    normal_load_kw: 1039
+    normal_load_breakdown:
+      it_load_kw: 735
+      cooling_load_kw: 304
+    failure_load_kw: 2078  # Full facility if Grid fails
+
+  bus_b:
+    id: "SWBD-B"
+    bus_rating_a: 2500
+    primary_source: "Grid via XFMR-B (normal mode)"
+    backup_source_utility: "HPP via 52-TIE (single source failure)"
+    backup_source_generator: "MTU-2 via ACB-MTU2 (utility failure)"
+    normal_load_kw: 1096
+    normal_load_breakdown:
+      it_load_kw: 735
+      cooling_load_kw: 361
+    failure_load_kw: 2078  # Full facility if HPP fails
+
+  tie_breaker:
+    id: "52-TIE"
+    frame_rating_a: 6300
+    trip_setting_a: 5000
+    type: "Drawout ACB with electronic trip"
+    normal_state: "OPEN"
+    automatic_close: "On loss of either utility source"
+    purpose: "Transfer full facility load to remaining utility source"
+
+# DISTRIBUTION PANELS (400V)
+distribution_panels:
+  - id: "A-IT-1"
+    rating_a: 2500
+    breaker_type: "MCCB"
+    fed_from: "BUS A"
+    feeds: "IT loads"
+    load_kw: 735
+
+  - id: "B-IT-1"
+    rating_a: 2500
+    breaker_type: "MCCB"
+    fed_from: "BUS B"
+    feeds: "IT loads"
+    load_kw: 735
+
+  - id: "A-COOL-1"
+    rating_a: 3200
+    breaker_type: "MCCB"
+    fed_from: "BUS A"
+    feeds: "Cooling loads"
+    load_kw: 304
+
+  - id: "B-COOL-1"
+    rating_a: 3200
+    breaker_type: "MCCB"
+    fed_from: "BUS B"
+    feeds: "Cooling loads"
+    load_kw: 361
+
+# CABINET POWER (IT EQUIPMENT)
+cabinet_power:
+  configuration: "Dual PDUs per cabinet (A+B)"
+  pdu_a:
+    fed_from: "A-IT-1 (BUS A)"
+  pdu_b:
+    fed_from: "B-IT-1 (BUS B)"
+  it_equipment: "Dual-corded with automatic failover"
+
+# COOLING LOADS (CRITICAL POWER)
+critical_cooling_loads:
+  - "CHW Pumps"
+  - "CW Pumps"
+  - "River Water Pumps"
+  - "In-row cooling units"
+  - "Chillers"
+  note: "All backed by MTU Kinetic PowerPacks"
+
+# NON-CRITICAL OFFICE POWER
+office_power:
+  switchboard:
+    id: "SWBD-OFFICE"
+    bus_rating_a: 630
+    voltage_v: 400
+
+  primary_source:
+    type: "Solar Array"
+    capacity_kw_ac: 700
+    conversion: "Solar inverters"
+
+  backup_source:
+    type: "Utility Grid"
+    transformer:
+      rating_kva: 250
+      primary_voltage_kv: 10
+      secondary_voltage_v: 400
+
+  transfer_switch:
+    type: "ATS"
+    priority: "Solar"
+    automatic: true
+
+  load:
+    diversified_kw: 103
+    components:
+      - "HVAC"
+      - "Lighting"
+      - "IT office"
+      - "Security"
+      - "Miscellaneous"
+
+  backup_power: "None (non-critical loads only)"
+
+# LOAD SUMMARY
+loads:
+  it_load:
+    total_kw: 1467
+    capacity_mw: 1.47
+
+  cooling:
+    chillers_kw: 267
+    chw_pumps_kw: 60
+    cw_pumps_kw: 90
+    river_water_pumps_kw: 60
+    inrow_fans_kw: 50
+    total_cooling_kw: 527
+
+  infrastructure:
+    electrical_losses_kw: 110
+    lighting_bms_controls_kw: 30
+    building_hvac_offices_kw: 60
+    contingency_kw: 6
+    total_infrastructure_kw: 206
+
+  total_facility_load_kw: 2200
+
+  pue:
+    design_maximum: 1.50
+    calculation: "2,200 kW / 1,467 kW = 1.50"
+    infrastructure_overhead_percent: 33.3
+
+# ELECTRICAL CODE COMPLIANCE
+compliance:
+  standards:
+    - "IEC 60364 (Georgian electrical code based on IEC)"
+  grounding: "TN-S system (separate protective earth)"
+  arc_flash: "Study and labeling per IEC 61482"
+  testing:
+    - "Factory acceptance tests (FAT)"
+    - "Site acceptance tests (SAT)"
+
+# KEY CHANGES FROM 11kV TO 10kV
+changes_from_11kv:
+  voltage_changes:
+    - "HPP step-up transformer: 400V / 10kV (was 400V / 11kV)"
+    - "MV switchboards: 10kV rated (was 11kV)"
+    - "Step-down transformers: 10kV / 400V (was 11kV / 400V)"
+    - "Office transformer: 10kV / 400V (was 11kV / 400V)"
+    - "Utility Grid incoming: 10kV (was 11kV)"
+
+  equipment_impact:
+    - "Transformer insulation class may change (10kV standard vs 11kV)"
+    - "VCB ratings adjusted for 10kV system"
+    - "Cable sizing may be slightly larger (same power, lower voltage = higher current)"
+
+  no_changes:
+    - "LV distribution remains 400V throughout"
+    - "All 400V equipment unchanged"
+    - "MTU Kinetic PowerPack output: 400V"
+    - "Control and protection philosophy: same"
+    - "MTM topology: unchanged"
+
+  advantages_10kv:
+    - "More standard voltage in some European/Asian markets"
+    - "Potentially better equipment availability"
+    - "Transformer and switchgear cost may be lower (more common voltage class)"
+
+# METADATA
+metadata:
+  document_version: "1.0"
+  created_date: "2025-11-06"
+  updated_date: "2025-11-06"
+  created_by: "Claude Code - BOD Extraction"
+  project_phase: "Phase 1"
+  design_status: "Updated to 10kV MV distribution"
+  related_documents:
+    - "GGE_Electrical_BOD_10kV.md"
+    - "_BOD - Exec Summary and TOC.md"
+    - "7BOD - Electrical (CSI Div 26).md"

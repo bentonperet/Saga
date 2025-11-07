@@ -19,13 +19,15 @@ import re
 import math
 import json
 import pypowsybl as pp
+from datetime import datetime
+
+# Try to import diagram module (optional)
 try:
     from pypowsybl import diagram
     DIAGRAM_AVAILABLE = True
 except ImportError:
     DIAGRAM_AVAILABLE = False
     print("Note: pypowsybl-diagram not available. Diagram generation will be skipped.")
-from datetime import datetime
 
 
 def parse_bod_description(text, include_z_matrix=True):
@@ -344,15 +346,31 @@ def build_network_from_description(text, include_z_matrix=True):
     data = parse_bod_description(text, include_z_matrix)
     net = pp.network.create_empty("PACHYDERM_TierIV")
     
-    # Create all buses
+    # Create all buses with voltage levels
     bus_map = {}
+    
+    # Create voltage levels first
+    vl_ids = [b["id"] for b in data["buses"]]
+    vl_voltages = [b["voltage"] for b in data["buses"]]
+    
+    net.create_voltage_levels(
+        id=vl_ids,
+        topology_kind=['BUS_BREAKER'] * len(vl_ids),
+        nominal_v=vl_voltages
+    )
+    
+    # Create buses within voltage levels
+    bus_ids = [f"{b['id']}_BUS" for b in data["buses"]]
+    bus_vl_ids = [b["id"] for b in data["buses"]]
+    
+    net.create_buses(
+        id=bus_ids,
+        voltage_level_id=bus_vl_ids
+    )
+    
+    # Map bus IDs for reference
     for b in data["buses"]:
-        bus_map[b["id"]] = net.create_voltage_level(
-            id=b["id"],
-            topology_kind='BUS_BREAKER',
-            nominal_v=b["voltage"]
-        )
-        net.create_buses(id=[f"{b['id']}_BUS"], voltage_level_id=[b["id"]])
+        bus_map[b["id"]] = b["id"]
         bus_map[f"{b['id']}_BUS"] = f"{b['id']}_BUS"
     
     # Generators
@@ -453,6 +471,10 @@ def generate_diagram(network, metadata, title="PACHYDERM GLOBAL – Tier IV Data
     Returns:
         SVG string
     """
+    if not DIAGRAM_AVAILABLE:
+        print(f"Note: Diagram generation requires pypowsybl-diagram (optional package)")
+        return None
+        
     try:
         # Generate network diagram using PowSyBl diagram library
         # Note: The diagram library may have different API depending on version
@@ -462,7 +484,7 @@ def generate_diagram(network, metadata, title="PACHYDERM GLOBAL – Tier IV Data
         )
         return svg_content
     except Exception as e:
-        print(f"Note: Diagram generation requires pypowsybl-diagram. Error: {e}")
+        print(f"Note: Diagram generation error: {e}")
         return None
 
 

@@ -7,5 +7,14 @@
       ],
       "key": "P"
     }
+  ],
+  "obsidian-shellcommands:shell-command-qlqlj3s8gv": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "G"
+    }
   ]
 }

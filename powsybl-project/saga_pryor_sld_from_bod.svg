@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="3200" height="2400" xmlns="http://www.w3.org/2000/svg">
+<defs>
+
+        <g id="breaker-closed">
+            <rect x="-8" y="-12" width="16" height="24" fill="white" stroke="black" stroke-width="1.5"/>
+            <line x1="-6" y1="-8" x2="6" y2="8" stroke="black" stroke-width="2"/>
+            <line x1="-6" y1="8" x2="6" y2="-8" stroke="black" stroke-width="2"/>
+        </g>
+    
+
+        <g id="breaker-open">
+            <rect x="-8" y="-12" width="16" height="24" fill="white" stroke="black" stroke-width="1.5"/>
+            <line x1="0" y1="-8" x2="0" y2="-2" stroke="black" stroke-width="2"/>
+            <line x1="0" y1="2" x2="0" y2="8" stroke="black" stroke-width="2"/>
+            <circle cx="0" cy="0" r="2.5" fill="white" stroke="black" stroke-width="1.5"/>
+        </g>
+    
+
+        <g id="transformer">
+            <circle cx="-8" cy="0" r="10" fill="white" stroke="black" stroke-width="1.5"/>
+            <circle cx="8" cy="0" r="10" fill="white" stroke="black" stroke-width="1.5"/>
+            <line x1="-8" y1="-10" x2="-8" y2="-20" stroke="black" stroke-width="2"/>
+            <line x1="8" y1="10" x2="8" y2="20" stroke="black" stroke-width="2"/>
+        </g>
+    
+
+        <g id="generator">
+            <circle cx="0" cy="0" r="30" fill="white" stroke="black" stroke-width="2"/>
+            <text x="0" y="8" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="black">G</text>
+        </g>
+    
+
+        <g id="connection-point">
+            <circle cx="0" cy="0" r="3" fill="black"/>
+        </g>
+    
+
+        <g id="fuse">
+            <rect x="-6" y="-10" width="12" height="20" fill="white" stroke="black" stroke-width="1.5"/>
+            <line x1="0" y1="-6" x2="0" y2="6" stroke="black" stroke-width="2"/>
+            <circle cx="0" cy="0" r="3" fill="white" stroke="black" stroke-width="1.5"/>
+        </g>
+    
+
+        <g id="disconnect-closed">
+            <line x1="0" y1="-12" x2="0" y2="12" stroke="black" stroke-width="2"/>
+            <circle cx="0" cy="-12" r="2" fill="black"/>
+            <circle cx="0" cy="12" r="2" fill="black"/>
+        </g>
+    
+
+        <g id="disconnect-open">
+            <line x1="0" y1="-12" x2="4" y2="0" stroke="black" stroke-width="2"/>
+            <circle cx="0" cy="-12" r="2" fill="black"/>
+            <circle cx="0" cy="12" r="2" fill="black"/>
+        </g>
+    
+</defs>
+
+
+    <style>
+        .title { font: bold 18px Arial; fill: #000; }
+        .subtitle { font: bold 14px Arial; fill: #000; }
+        .equipment-label { font: bold 13px Arial; fill: #000; }
+        .rating { font: 10px Arial; fill: #333; }
+        .annotation { font: 9px Arial; fill: #000; }
+        .note { font: italic 9px Arial; fill: #000; }
+        
+        .power-line { stroke: #000; stroke-width: 2; fill: none; }
+        .bus { stroke: #000; stroke-width: 6; fill: none; }
+        .control-line { stroke: #000; stroke-width: 1; stroke-dasharray: 5,5; fill: none; }
+        
+        .switchgear-box { fill: #F5F5F5; stroke: black; stroke-width: 2; }
+        .transformer-box { fill: #FAFAFA; stroke: black; stroke-width: 2; }
+        .rmu-box { fill: #F8F8F8; stroke: black; stroke-width: 2; }
+        .ups-box { fill: #FCFCFC; stroke: black; stroke-width: 2; }
+    </style>
+    
+
+<!-- Title Block -->
+<rect x="50" y="20" width="3100" height="100" fill="white" stroke="black" stroke-width="2"/>
+<text x="1600" y="55" class="title" text-anchor="middle">SAGA PRYOR DATA CENTER - ELECTRICAL SINGLE LINE DIAGRAM</text>
+<text x="1600" y="80" class="subtitle" text-anchor="middle">13.8kV Dual Ring Bus Distribution | Tier III Architecture</text>
+<text x="1600" y="100" class="annotation" text-anchor="middle">From Basis of Design: 7BOD - Electrical (CSI Div 26)</text>
+
+<!-- Date/Revision Block -->
+<text x="3050" y="50" class="label" text-anchor="end">Date: 2025-11-02</text>
+<text x="3050" y="70" class="label" text-anchor="end">Rev: A</text>
+<text x="3050" y="90" class="annotation" text-anchor="end">Auto-generated from BOD</text>
+
+
+<!-- Generator 1 -->
+<g id="gen-1">
+    <circle cx="1060" cy="180" r="40" fill="white" stroke="black" stroke-width="2"/>
+    <text x="1060" y="175" class="bus-label" text-anchor="middle">G</text>
+    <text x="1060" y="190" class="small-label" text-anchor="middle">GEN-1</text>
+    <text x="1060" y="205" class="rating" text-anchor="middle" font-size="9">4.0MW</text>
+    <text x="1060" y="218" class="annotation" text-anchor="middle" font-size="8">DIESEL</text>
+</g>
+<!-- Gen 1 to Sync Bus -->
+<line x1="1060" y1="220" x2="1060" y2="280" class="power-line"/>
+<use href="#breaker-closed" x="1060" y="250"/>
+<line x1="1060" y1="280" x2="1060" y2="310" class="power-line"/>
+
+<!-- Generator 2 -->
+<g id="gen-2">
+    <circle cx="1240" cy="180" r="40" fill="white" stroke="black" stroke-width="2"/>
+    <text x="1240" y="175" class="bus-label" text-anchor="middle">G</text>
+    <text x="1240" y="190" class="small-label" text-anchor="middle">GEN-2</text>
+    <text x="1240" y="205" class="rating" text-anchor="middle" font-size="9">4.0MW</text>
+    <text x="1240" y="218" class="annotation" text-anchor="middle" font-size="8">DIESEL</text>
+</g>
+<!-- Gen 2 to Sync Bus -->
+<line x1="1240" y1="220" x2="1240" y2="280" class="power-line"/>
+<use href="#breaker-closed" x="1240" y="250"/>
+<line x1="1240" y1="280" x2="1240" y2="310" class="power-line"/>
+
+<!-- Generator 3 -->
+<g id="gen-3">
+    <circle cx="1420" cy="180" r="40" fill="white" stroke="black" stroke-width="2"/>
+    <text x="1420" y="175" class="bus-label" text-anchor="middle">G</text>
+    <text x="1420" y="190" class="small-label" text-anchor="middle">GEN-3</text>
+    <text x="1420" y="205" class="rating" text-anchor="middle" font-size="9">4.0MW</text>
+    <text x="1420" y="218" class="annotation" text-anchor="middle" font-size="8">DIESEL</text>
+</g>
+<!-- Gen 3 to Sync Bus -->
+<line x1="1420" y1="220" x2="1420" y2="280" class="power-line"/>
+<use href="#breaker-closed" x="1420" y="250"/>
+<line x1="1420" y1="280" x2="1420" y2="310" class="power-line"/>
+
+<!-- Generator 4 -->
+<g id="gen-4">
+    <circle cx="1600" cy="180" r="40" fill="white" stroke="black" stroke-width="2"/>
+    <text x="1600" y="175" class="bus-label" text-anchor="middle">G</text>
+    <text x="1600" y="190" class="small-label" text-anchor="middle">GEN-4</text>
+    <text x="1600" y="205" class="rating" text-anchor="middle" font-size="9">4.0MW</text>
+    <text x="1600" y="218" class="annotation" text-anchor="middle" font-size="8">DIESEL</text>
+</g>
+<!-- Gen 4 to Sync Bus -->
+<line x1="1600" y1="220" x2="1600" y2="280" class="power-line"/>
+<use href="#breaker-closed" x="1600" y="250"/>
+<line x1="1600" y1="280" x2="1600" y2="310" class="power-line"/>
+
+<!-- Generator 5 -->
+<g id="gen-5">
+    <circle cx="1780" cy="180" r="40" fill="white" stroke="black" stroke-width="2"/>
+    <text x="1780" y="175" class="bus-label" text-anchor="middle">G</text>
+    <text x="1780" y="190" class="small-label" text-anchor="middle">GEN-5</text>
+    <text x="1780" y="205" class="rating" text-anchor="middle" font-size="9">4.0MW</text>
+    <text x="1780" y="218" class="annotation" text-anchor="middle" font-size="8">DIESEL</text>
+</g>
+<!-- Gen 5 to Sync Bus -->
+<line x1="1780" y1="220" x2="1780" y2="280" class="power-line"/>
+<use href="#breaker-closed" x="1780" y="250"/>
+<line x1="1780" y1="280" x2="1780" y2="310" class="power-line"/>
+
+<!-- Generator 6 -->
+<g id="gen-6">
+    <circle cx="1960" cy="180" r="40" fill="white" stroke="black" stroke-width="2"/>
+    <text x="1960" y="175" class="bus-label" text-anchor="middle">G</text>
+    <text x="1960" y="190" class="small-label" text-anchor="middle">GEN-6</text>
+    <text x="1960" y="205" class="rating" text-anchor="middle" font-size="9">4.0MW</text>
+    <text x="1960" y="218" class="annotation" text-anchor="middle" font-size="8">DIESEL</text>
+</g>
+<!-- Gen 6 to Sync Bus -->
+<line x1="1960" y1="220" x2="1960" y2="280" class="power-line"/>
+<use href="#breaker-closed" x="1960" y="250"/>
+<line x1="1960" y1="280" x2="1960" y2="310" class="power-line"/>
+
+<!-- Generator Sync Bus -->
+<g id="sync-bus">
+    <rect x="980" y="310" width="1160" height="90" class="switchgear-box"/>
+    <text x="1600" y="340" class="equipment-label" text-anchor="middle">GENERATOR SYNC BUS</text>
+    <text x="1600" y="360" class="rating" text-anchor="middle">13.8 kV | Woodward Paralleling Controls</text>
+    <text x="1600" y="380" class="rating" text-anchor="middle">6 × 4.0MW (N+1) | Auto Load Share</text>
+</g>
+
+
+<!-- Connection from Sync Bus to MV-SWBD A -->
+<line x1="1240" y1="400" x2="1240" y2="410" class="power-line"/>
+<line x1="1240" y1="410" x2="400" y2="410" class="power-line"/>
+<line x1="400" y1="410" x2="400" y2="460" class="power-line"/>
+<use href="#breaker-closed" x="400" y="430"/>
+
+<!-- Connection from Sync Bus to MV-SWBD B -->
+<line x1="1780" y1="400" x2="1780" y2="410" class="power-line"/>
+<line x1="1780" y1="410" x2="2800" y2="410" class="power-line"/>
+<line x1="2800" y1="410" x2="2800" y2="460" class="power-line"/>
+<use href="#breaker-closed" x="2800" y="430"/>
+
+<!-- MV-SWBD A (Ring A) -->
+<g id="mv-swbd-a">
+    <rect x="250" y="460" width="300" height="120" class="switchgear-box"/>
+    <text x="400" y="495" class="equipment-label" text-anchor="middle">MV-SWBD A</text>
+    <text x="400" y="515" class="annotation" text-anchor="middle">RING A PRIMARY</text>
+    <text x="400" y="535" class="annotation" text-anchor="middle">13.8 kV</text>
+    <text x="400" y="555" class="rating" text-anchor="middle">4000A | 65kAIC</text>
+</g>
+
+<!-- MV-SWBD B (Ring B) -->
+<g id="mv-swbd-b">
+    <rect x="2650" y="460" width="300" height="120" class="switchgear-box"/>
+    <text x="2800" y="495" class="equipment-label" text-anchor="middle">MV-SWBD B</text>
+    <text x="2800" y="515" class="annotation" text-anchor="middle">RING B PRIMARY</text>
+    <text x="2800" y="535" class="annotation" text-anchor="middle">13.8 kV</text>
+    <text x="2800" y="555" class="rating" text-anchor="middle">4000A | 65kAIC</text>
+</g>
+
+
+<!-- RING A (Top) -->
+<line x1="400" y1="580" x2="400" y2="660" class="power-line"/>
+<line x1="400" y1="660" x2="2800" y2="660" class="power-line"/>
+<text x="1600" y="650" class="bus-label" text-anchor="middle">RING A - 13.8 kV</text>
+
+<!-- RING B (Bottom) -->
+<line x1="400" y1="580" x2="400" y2="960" class="power-line"/>
+<line x1="400" y1="960" x2="2800" y2="960" class="power-line"/>
+<text x="1600" y="985" class="bus-label" text-anchor="middle">RING B - 13.8 kV</text>
+
+
+<!-- RMU A-1 -->
+<g id="rmu-a-1">
+    <rect x="970" y="620" width="60" height="80" fill="lightblue" stroke="black" stroke-width="2"/>
+    <text x="1000" y="650" class="small-label" text-anchor="middle">RMU</text>
+    <text x="1000" y="665" class="small-label" text-anchor="middle">A-1</text>
+    <text x="1000" y="680" class="annotation" text-anchor="middle" font-size="8">630A</text>
+</g>
+
+<!-- RMU B-1 -->
+<g id="rmu-b-1">
+    <rect x="970" y="960" width="60" height="80" fill="lightblue" stroke="black" stroke-width="2"/>
+    <text x="1000" y="990" class="small-label" text-anchor="middle">RMU</text>
+    <text x="1000" y="1005" class="small-label" text-anchor="middle">B-1</text>
+    <text x="1000" y="1020" class="annotation" text-anchor="middle" font-size="8">630A</text>
+</g>
+
+<!-- RMU A-2 -->
+<g id="rmu-a-2">
+    <rect x="1570" y="620" width="60" height="80" fill="lightblue" stroke="black" stroke-width="2"/>
+    <text x="1600" y="650" class="small-label" text-anchor="middle">RMU</text>
+    <text x="1600" y="665" class="small-label" text-anchor="middle">A-2</text>
+    <text x="1600" y="680" class="annotation" text-anchor="middle" font-size="8">630A</text>
+</g>
+
+<!-- RMU B-2 -->
+<g id="rmu-b-2">
+    <rect x="1570" y="960" width="60" height="80" fill="lightblue" stroke="black" stroke-width="2"/>
+    <text x="1600" y="990" class="small-label" text-anchor="middle">RMU</text>
+    <text x="1600" y="1005" class="small-label" text-anchor="middle">B-2</text>
+    <text x="1600" y="1020" class="annotation" text-anchor="middle" font-size="8">630A</text>
+</g>
+
+<!-- RMU A-3 -->
+<g id="rmu-a-3">
+    <rect x="2170" y="620" width="60" height="80" fill="lightblue" stroke="black" stroke-width="2"/>
+    <text x="2200" y="650" class="small-label" text-anchor="middle">RMU</text>
+    <text x="2200" y="665" class="small-label" text-anchor="middle">A-3</text>
+    <text x="2200" y="680" class="annotation" text-anchor="middle" font-size="8">630A</text>
+</g>
+
+<!-- RMU B-3 -->
+<g id="rmu-b-3">
+    <rect x="2170" y="960" width="60" height="80" fill="lightblue" stroke="black" stroke-width="2"/>
+    <text x="2200" y="990" class="small-label" text-anchor="middle">RMU</text>
+    <text x="2200" y="1005" class="small-label" text-anchor="middle">B-3</text>
+    <text x="2200" y="1020" class="annotation" text-anchor="middle" font-size="8">630A</text>
+</g>
+
+<!-- Transformer 1 from Ring A -->
+<line x1="400" y1="660" x2="400" y2="1110" class="power-line"/>
+<use href="#breaker-closed" x="400" y="690"/>
+<g id="tx-1">
+    <circle cx="400" cy="1130" r="35" fill="white" stroke="black" stroke-width="2"/>
+    <circle cx="400" cy="1130" r="28" fill="none" stroke="black" stroke-width="1"/>
+    <text x="400" y="1120" class="small-label" text-anchor="middle">TX-1</text>
+    <text x="400" y="1135" class="rating" text-anchor="middle" font-size="8">3500kVA</text>
+    <text x="400" y="1180" class="annotation" text-anchor="middle" font-size="8">13.8kV/0.48kV</text>
+</g>
+<line x1="400" y1="1165" x2="400" y2="1230" class="power-line"/>
+
+<!-- Transformer 2 from Ring A -->
+<line x1="600" y1="660" x2="600" y2="1110" class="power-line"/>
+<use href="#breaker-closed" x="600" y="690"/>
+<g id="tx-2">
+    <circle cx="600" cy="1130" r="35" fill="white" stroke="black" stroke-width="2"/>
+    <circle cx="600" cy="1130" r="28" fill="none" stroke="black" stroke-width="1"/>
+    <text x="600" y="1120" class="small-label" text-anchor="middle">TX-2</text>
+    <text x="600" y="1135" class="rating" text-anchor="middle" font-size="8">3500kVA</text>
+    <text x="600" y="1180" class="annotation" text-anchor="middle" font-size="8">13.8kV/0.48kV</text>
+</g>
+<line x1="600" y1="1165" x2="600" y2="1230" class="power-line"/>
+
+<!-- Transformer 3 from Ring A -->
+<line x1="800" y1="660" x2="800" y2="1110" class="power-line"/>
+<use href="#breaker-closed" x="800" y="690"/>
+<g id="tx-3">
+    <circle cx="800" cy="1130" r="35" fill="white" stroke="black" stroke-width="2"/>
+    <circle cx="800" cy="1130" r="28" fill="none" stroke="black" stroke-width="1"/>
+    <text x="800" y="1120" class="small-label" text-anchor="middle">TX-3</text>
+    <text x="800" y="1135" class="rating" text-anchor="middle" font-size="8">3500kVA</text>
+    <text x="800" y="1180" class="annotation" text-anchor="middle" font-size="8">13.8kV/0.48kV</text>
+</g>
+<line x1="800" y1="1165" x2="800" y2="1230" class="power-line"/>
+
+<!-- Transformer 4 from Ring A -->
+<line x1="1000" y1="660" x2="1000" y2="1110" class="power-line"/>
+<use href="#breaker-closed" x="1000" y="690"/>
+<g id="tx-4">
+    <circle cx="1000" cy="1130" r="35" fill="white" stroke="black" stroke-width="2"/>
+    <circle cx="1000" cy="1130" r="28" fill="none" stroke="black" stroke-width="1"/>
+    <text x="1000" y="1120" class="small-label" text-anchor="middle">TX-4</text>
+    <text x="1000" y="1135" class="rating" text-anchor="middle" font-size="8">3500kVA</text>
+    <text x="1000" y="1180" class="annotation" text-anchor="middle" font-size="8">13.8kV/0.48kV</text>
+</g>
+<line x1="1000" y1="1165" x2="1000" y2="1230" class="power-line"/>
+
+<!-- Transformer 5 from Ring B -->
+<line x1="400" y1="1040" x2="400" y2="1110" class="power-line"/>
+<use href="#breaker-closed" x="400" y="1070"/>
+<g id="tx-5">
+    <circle cx="400" cy="1130" r="35" fill="white" stroke="black" stroke-width="2"/>
+    <circle cx="400" cy="1130" r="28" fill="none" stroke="black" stroke-width="1"/>
+    <text x="400" y="1120" class="small-label" text-anchor="middle">TX-5</text>
+    <text x="400" y="1135" class="rating" text-anchor="middle" font-size="8">3500kVA</text>
+    <text x="400" y="1180" class="annotation" text-anchor="middle" font-size="8">13.8kV/0.48kV</text>
+</g>
+<line x1="400" y1="1165" x2="400" y2="1230" class="power-line"/>
+
+<!-- Transformer 6 from Ring B -->
+<line x1="600" y1="1040" x2="600" y2="1110" class="power-line"/>
+<use href="#breaker-closed" x="600" y="1070"/>
+<g id="tx-6">
+    <circle cx="600" cy="1130" r="35" fill="white" stroke="black" stroke-width="2"/>
+    <circle cx="600" cy="1130" r="28" fill="none" stroke="black" stroke-width="1"/>
+    <text x="600" y="1120" class="small-label" text-anchor="middle">TX-6</text>
+    <text x="600" y="1135" class="rating" text-anchor="middle" font-size="8">3500kVA</text>
+    <text x="600" y="1180" class="annotation" text-anchor="middle" font-size="8">13.8kV/0.48kV</text>
+</g>
+<line x1="600" y1="1165" x2="600" y2="1230" class="power-line"/>
+
+<!-- Transformer 7 from Ring B -->
+<line x1="800" y1="1040" x2="800" y2="1110" class="power-line"/>
+<use href="#breaker-closed" x="800" y="1070"/>
+<g id="tx-7">
+    <circle cx="800" cy="1130" r="35" fill="white" stroke="black" stroke-width="2"/>
+    <circle cx="800" cy="1130" r="28" fill="none" stroke="black" stroke-width="1"/>
+    <text x="800" y="1120" class="small-label" text-anchor="middle">TX-7</text>
+    <text x="800" y="1135" class="rating" text-anchor="middle" font-size="8">3500kVA</text>
+    <text x="800" y="1180" class="annotation" text-anchor="middle" font-size="8">13.8kV/0.48kV</text>
+</g>
+<line x1="800" y1="1165" x2="800" y2="1230" class="power-line"/>
+
+<!-- Transformer 8 from Ring B -->
+<line x1="1000" y1="1040" x2="1000" y2="1110" class="power-line"/>
+<use href="#breaker-closed" x="1000" y="1070"/>
+<g id="tx-8">
+    <circle cx="1000" cy="1130" r="35" fill="white" stroke="black" stroke-width="2"/>
+    <circle cx="1000" cy="1130" r="28" fill="none" stroke="black" stroke-width="1"/>
+    <text x="1000" y="1120" class="small-label" text-anchor="middle">TX-8</text>
+    <text x="1000" y="1135" class="rating" text-anchor="middle" font-size="8">3500kVA</text>
+    <text x="1000" y="1180" class="annotation" text-anchor="middle" font-size="8">13.8kV/0.48kV</text>
+</g>
+<line x1="1000" y1="1165" x2="1000" y2="1230" class="power-line"/>
+
+<!-- LV Switchboards -->
+<rect x="250" y="1260" width="300" height="100" class="switchgear-box"/>
+<text x="400" y="1295" class="equipment-label" text-anchor="middle">LV-SWBD-A</text>
+<text x="400" y="1315" class="annotation" text-anchor="middle">480V/277V</text>
+<text x="400" y="1335" class="rating" text-anchor="middle">4000A | Copper Bus</text>
+
+<rect x="2650" y="1260" width="300" height="100" class="switchgear-box"/>
+<text x="2800" y="1295" class="equipment-label" text-anchor="middle">LV-SWBD-B</text>
+<text x="2800" y="1315" class="annotation" text-anchor="middle">480V/277V</text>
+<text x="2800" y="1335" class="rating" text-anchor="middle">4000A | Copper Bus</text>
+
+<!-- UPS Systems -->
+<rect x="1400" y="1410" width="400" height="120" fill="#ffffcc" stroke="black" stroke-width="2"/>
+<text x="1600" y="1445" class="equipment-label" text-anchor="middle">IT UPS SYSTEM (N+1)</text>
+<text x="1600" y="1465" class="rating" text-anchor="middle">5 × 1250 kVA Modules</text>
+<text x="1600" y="1485" class="annotation" text-anchor="middle">Li-Ion Battery | 5-min Runtime</text>
+<text x="1600" y="1505" class="annotation" text-anchor="middle">Online Double-Conversion</text>
+
+<rect x="1850" y="1410" width="400" height="120" fill="#ccffcc" stroke="black" stroke-width="2"/>
+<text x="2050" y="1445" class="equipment-label" text-anchor="middle">MECH UPS SYSTEM (N+1)</text>
+<text x="2050" y="1465" class="rating" text-anchor="middle">8 × 250 kW Modules</text>
+<text x="2050" y="1485" class="annotation" text-anchor="middle">Protects Chillers/Pumps/CDUs</text>
+<text x="2050" y="1505" class="annotation" text-anchor="middle">Static UPS</text>
+
+<!-- Notes -->
+<text x="100" y="2300" class="annotation">NOTES:</text>
+<text x="100" y="2320" class="annotation">1. Dual ring topology provides N path redundancy</text>
+<text x="100" y="2340" class="annotation">2. N+1 redundancy for generators, transformers, and UPS</text>
+<text x="100" y="2360" class="annotation">3. RMUs enable automatic SCADA-controlled ring reconfiguration</text>
+<text x="100" y="2380" class="annotation">4. IEEE Std 315 / IEC 60617 compliant symbols</text>
+
+</svg>
