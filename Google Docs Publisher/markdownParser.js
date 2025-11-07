@@ -37,13 +37,13 @@ function processNode(node) {
       return {
         type: 'heading',
         level: node.depth,
-        runs: processInlineContent(node.children)
+        runs: optimizeRuns(processInlineContent(node.children))
       };
 
     case 'paragraph':
       return {
         type: 'paragraph',
-        runs: processInlineContent(node.children)
+        runs: optimizeRuns(processInlineContent(node.children))
       };
 
     case 'list':
@@ -52,11 +52,11 @@ function processNode(node) {
         ordered: node.ordered,
         start: node.start || 1,
         items: node.children.map(item => ({
-          runs: processInlineContent(item.children.length > 0 && item.children[0].type === 'paragraph'
+          runs: optimizeRuns(processInlineContent(item.children.length > 0 && item.children[0].type === 'paragraph'
             ? item.children[0].children
-            : item.children),
-          // Handle nested lists (simplified for now - can expand)
-          nested: item.children.slice(1).filter(child => child.type === 'list')
+            : item.children)),
+          // Handle nested lists - recursively process nested list nodes
+          nested: item.children.slice(1).filter(child => child.type === 'list').map(child => processNode(child))
         }))
       };
 
@@ -81,7 +81,7 @@ function processNode(node) {
         align: node.align || [],
         rows: node.children.map(row =>
           row.children.map(cell => ({
-            runs: processInlineContent(cell.children)
+            runs: optimizeRuns(processInlineContent(cell.children))
           }))
         )
       };

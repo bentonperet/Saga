@@ -39,10 +39,10 @@
 
 | Item | Cost Estimate | Confidence | Notes |
 |------|---------------|------------|-------|
-| **Owner's Project Manager** | $3,500,000 | ±20% | Full-time PM team, 24-month construction duration |
-| **Owner's Representative** | $1,200,000 | ±25% | On-site clerk of works, construction administration |
-| **Project Controls & Scheduling** | $600,000 | ±25% | Cost control, schedule management, reporting |
-| **Subtotal - PM Services** | **$5,300,000** |  |  |
+| **Owner's Project Manager** | $2,700,000 | ±20% | PM team + owner self-performs some functions, 20-month construction |
+| **Owner's Representative** | $1,000,000 | ±25% | On-site clerk of works, construction administration (lean approach) |
+| **Project Controls & Scheduling** | $550,000 | ±25% | Cost control, schedule management, reporting |
+| **Subtotal - PM Services** | **$4,250,000** |  | **Owner involvement reduces external PM costs** |
 
 ### 2.2 Independent Commissioning & Testing
 
@@ -77,22 +77,22 @@
 
 | Item | Cost Estimate | Confidence | Notes |
 |------|---------------|------------|-------|
-| **Loan Origination Fees** | $2,500,000 | ±20% | 1% of $250M construction loan |
-| **Interest During Construction** | $12,000,000 | ±25% | 24 months @ 6% on $200M avg balance |
-| **Financial Advisor Fees** | $500,000 | ±20% | Debt placement, financial structuring |
-| **Lender's Legal & Due Diligence** | $300,000 | ±25% | Lender's counsel, third-party reviews |
-| **Subtotal - Financing** | **$15,300,000** |  |  |
+| **Loan Origination Fees** | $2,000,000 | ±20% | 1% of $200M construction loan (50/50 debt/equity vs. 80/20) |
+| **Interest During Construction** | $5,400,000 | ±20% | 20 months @ 5.0% on $135M avg balance (lower rate, more equity, faster construction) |
+| **Financial Advisor Fees** | $400,000 | ±20% | Debt placement, financial structuring |
+| **Lender's Legal & Due Diligence** | $200,000 | ±25% | Lender's counsel, third-party reviews |
+| **Subtotal - Financing** | **$8,000,000** |  | **Reduced via better terms and equity structure** |
 
 ### 2.6 Pre-Operational Expenses
 
 | Item | Cost Estimate | Confidence | Notes |
 |------|---------------|------------|-------|
-| **Startup Power Costs** | $1,500,000 | ±30% | Energization, load bank testing, commissioning power |
-| **Initial Spares & Consumables** | $1,200,000 | ±25% | Critical spares inventory, maintenance supplies |
-| **Training Programs** | $450,000 | ±25% | Operations staff training (electrical, mechanical, IT) |
-| **Pre-Opening Marketing & Sales** | $800,000 | ±30% | Marketing materials, site tours, sales efforts |
-| **Initial Staffing (Pre-Revenue)** | $1,850,000 | ±25% | 6 months pre-opening payroll (operations team) |
-| **Subtotal - Pre-Operational** | **$5,800,000** |  |  |
+| **Startup Power Costs** | $1,200,000 | ±30% | Energization, load bank testing, commissioning power (phased approach) |
+| **Initial Spares & Consumables** | $1,000,000 | ±25% | Critical spares inventory, maintenance supplies (lean initial stock) |
+| **Training Programs** | $400,000 | ±25% | Operations staff training (electrical, mechanical, IT) |
+| **Pre-Opening Marketing & Sales** | $0 | N/A | Deferred to post-opening / revenue phase |
+| **Initial Staffing (Pre-Revenue)** | $1,250,000 | ±25% | 4 months pre-opening payroll (lean operations team) |
+| **Subtotal - Pre-Operational** | **$3,850,000** |  | **Optimized for faster ramp and lower burn rate** |
 
 ### 2.7 Professional Services (Additional)
 
@@ -109,19 +109,23 @@
 
 | Category | Cost Estimate | % of Total | Notes |
 |----------|---------------|------------|-------|
-| **Owner's Project Management** | $5,300,000 | 14.3% | PM, owner's rep, project controls |
-| **Commissioning & Testing** | $4,700,000 | 12.7% | CxA, Tier III cert, third-party testing |
-| **Legal & Permitting** | $2,200,000 | 5.9% | Legal fees, permits, regulatory compliance |
-| **Insurance (Construction)** | $2,200,000 | 5.9% | Builder's risk, GL, professional liability |
-| **Financing Costs** | $15,300,000 | 41.3% | Interest, origination, advisor fees |
-| **Pre-Operational Expenses** | $5,800,000 | 15.7% | Startup, training, initial staffing, marketing |
-| **Professional Services** | $1,230,000 | 3.3% | Specialty consultants |
-| **TOTAL SOFT COSTS** | **$36,730,000** | **100%** | **Range: $27.5-46.0M** |
+| **Owner's Project Management** | $4,250,000 | 14.6% | PM, owner's rep, project controls (owner involvement) |
+| **Commissioning & Testing** | $4,700,000 | 16.2% | CxA, Tier III cert, third-party testing |
+| **Legal & Permitting** | $2,200,000 | 7.6% | Legal fees, permits, regulatory compliance |
+| **Insurance (Construction)** | $2,200,000 | 7.6% | Builder's risk, GL, professional liability |
+| **Financing Costs** | $8,000,000 | 27.5% | Interest, origination, advisor fees (optimized structure) |
+| **Pre-Operational Expenses** | $3,850,000 | 13.2% | Startup, training, initial staffing (marketing deferred) |
+| **Professional Services** | $1,230,000 | 4.2% | Specialty consultants |
+| **TOTAL SOFT COSTS** | **$29,080,000** | **100%** | **Range: $21.8-36.4M** |
 
-**Cost per kW (IT Load):** $1,670/kW (22 MW)
+**Cost per kW (IT Load):** $1,322/kW (22 MW)
 **Industry Benchmark:** Soft costs typically 10-15% of total hard costs ($200M hard costs × 12% = $24M baseline)
 
-**Note:** Financing costs of $15.3M represent interest during construction and loan fees. These costs are often capitalized and amortized over the project life.
+**Optimizations Applied:**
+- Better financing structure: 50/50 debt/equity, 5% rate, 20-month construction
+- Owner self-performs some PM functions
+- Deferred marketing to post-opening
+- Lean pre-operational staffing (4 months vs. 6)
 
 ---
 
@@ -129,9 +133,9 @@
 
 | Category | Cost Estimate | % of Combined | Cost per kW |
 |----------|---------------|---------------|-------------|
-| **Land Acquisition** | $848,000 | 2.3% | $39/kW |
-| **Soft Costs** | $36,730,000 | 97.7% | $1,670/kW |
-| **TOTAL** | **$37,578,000** | **100%** | **$1,708/kW** |
+| **Land Acquisition** | $848,000 | 2.8% | $39/kW |
+| **Soft Costs** | $29,080,000 | 97.2% | $1,322/kW |
+| **TOTAL** | **$29,928,000** | **100%** | **$1,360/kW** |
 
 ---
 

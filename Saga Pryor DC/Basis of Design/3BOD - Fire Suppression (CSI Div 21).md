@@ -95,7 +95,7 @@ Fire protection systems protect personnel, IT equipment, and facility infrastruc
 **Rationale:** Outdoor transformers have natural ventilation and heat dissipation; fixed suppression not required per NFPA 850
 
 ### Generator Enclosures
-TBD
+<!-- @claude - please write a 1-2 sentence statement about the enclosure required -->
 
 ---
 

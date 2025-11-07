@@ -28,14 +28,21 @@
 - **Rack Capacity:** DH-W: 162 racks (L2C), DH-E: 232 racks (RDHx)
 - **Availability:** Tier III (N+1 IT UPS with MV dual-ring path redundancy, N+1 mechanical, concurrent maintainability)
 - **Target PUE:** 1.45 (Phase 1), 1.45 (Phase 2), 1.35 (Phase 3), 1.35 (Phase 4)
-- **Target WUE:** <0.5 L/kWh (domestic use only: restrooms, showers, break room; zero water for cooling)
+- **Target WUE:** 0 L/kWh - zero water for cooling
 - **Site:** Pryor, Oklahoma (Tornado Alley - FM 1-150 protection)
 - **Key Differentiators:**
   - Google Cloud proximity (sub-millisecond latency, eliminate data egress costs)
   - Customer-owned 161 kV substation with 13.8 kV distribution
   - L2C liquid cooling ready from day 1
 
-<!-- @claude, please create a table here that has the following columns. Phase, IT Load, PUE, Facility Load, count per rack type -->
+**Phasing Summary:**
+
+| Phase | IT Load | PUE  | Facility Load | Total Racks | L2C Racks | RDHx Racks | Active Halls |
+|-------|---------|------|---------------|-------------|-----------|------------|--------------|
+| **1** | 3 MW    | 1.45 | 4.35 MW       | 30          | 30        | 0          | DH-W only    |
+| **2** | 6 MW    | 1.45 | 8.7 MW        | 150         | 30        | 120        | DH-W + DH-E  |
+| **3** | 15 MW   | 1.35 | 20.25 MW      | 285         | 105       | 180        | DH-W + DH-E  |
+| **4** | 22 MW   | 1.35 | 29.7 MW       | 394         | 162       | 232        | DH-W + DH-E  |
 
 ---
 
@@ -80,7 +87,16 @@
   - Portable UPS: ~20-30 units for IT equipment ride-through in non-critical areas
 - **Electrical Code:** NEC 2023, Oklahoma amendments
 
-<!-- @claude, please create a table here that has the electrical phasing details -->
+**Electrical Equipment Phasing:**
+
+| Equipment Type | Phase 1 | Phase 2 | Phase 3 | Phase 4 | Sizing Notes |
+|----------------|---------|---------|---------|---------|--------------|
+| **Generators (4.0 MW ea)** | 3 units | 4 units (+1) | 7 units (+3) | 9 units (+2) | N+1 for facility load |
+| **LV Transformers (3.5 MVA)** | 3 units | 4 units (+1) | 8 units (+4) | 11 units (+3) | N+1 for facility load |
+| **IT UPS Modules (1,250 kVA)** | 4 units | 7 units (+3) | 16 units (+9) | 23 units (+7) | N+1 for IT load |
+| **Mechanical UPS (250 kW)** | 8 units | 12 units (+4) | 16 units (+4) | 22 units (+6) | N+1 for mech load |
+| **E-Houses (14'×260')** | 2 units | 2 units | 2 units | 2 units | Full delivery Phase 1 |
+| **RMUs (13.8 kV)** | 8 units | 8 units | 8 units | 8 units | Dual-ring (4 per ring) |
 
 ---
 
@@ -145,11 +161,14 @@
 - **Delivery driver restroom:** Accessible only from outside at NW corner (within view of security)
 - **E-Houses:** 2 Electrical Houses (14' × 260' each) located in south electrical equipment yard, plus 11 LV transformers on outdoor pads
 
-**Multi-Level Central Spine (3 Levels):** <!-- @claude: User confirms it's 3 levels in central spine, 1 level everywhere else. Review this section. -->
-- **Level 1:** Prefabricated storm shelter/safe room (20 person), elevator/stairwell, redundant restrooms, men's/women's showers, break room, lounge, gaming area (TBD)
+**Multi-Level Central Spine:**
+
+*Note: The central spine features 3 occupied levels plus roof access. All other areas (data halls, offices, loading zone) are single-level.*
+
+- **Level 1 (Grade Level):** Prefabricated storm shelter/safe room (20 person), elevator/stairwell, redundant restrooms, men's/women's showers, break room, lounge, gaming area (TBD)
 - **Level 2 (Secure NOC):** NOC (~2,060 SF), private NOC area
 - **Level 3 (Fitness/Tour Route):** Gym/fitness center, secure tour route with internal windows into critical areas, weather-protected balconies (north/south) for equipment yard views, accessible to security and technical operations staff for routine site walks
-- **Roof Level:** Weather-protected access via elevator/stairwell; storm-rated SS debris screen; protected roof-mounted equipment
+- **Roof Access:** Weather-protected access via elevator/stairwell; storm-rated SS debris screen; protected roof-mounted equipment
 
 ---
 

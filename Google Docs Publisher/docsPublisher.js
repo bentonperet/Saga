@@ -40,6 +40,47 @@ class DocsPublisher {
   }
 
   /**
+   * Retry an async function with exponential backoff
+   * @param {Function} fn - Async function to retry
+   * @param {number} maxRetries - Maximum number of retry attempts (default 3)
+   * @param {number} baseDelay - Base delay in ms (default 1000)
+   * @returns {Promise} Result of the function
+   */
+  async retryWithBackoff(fn, maxRetries = 3, baseDelay = 1000) {
+    let lastError;
+
+    for (let attempt = 0; attempt <= maxRetries; attempt++) {
+      try {
+        return await fn();
+      } catch (error) {
+        lastError = error;
+
+        // Don't retry if it's a client error (4xx) - only retry server errors (5xx) or rate limits
+        const isRetryable =
+          error.code >= 500 ||
+          error.code === 429 ||
+          error.message?.includes('rate limit') ||
+          error.message?.includes('RATE_LIMIT') ||
+          error.message?.includes('quota') ||
+          error.message?.includes('UNAVAILABLE');
+
+        if (!isRetryable || attempt === maxRetries) {
+          throw error;
+        }
+
+        // Exponential backoff: 1s, 2s, 4s, 8s...
+        const delay = baseDelay * Math.pow(2, attempt);
+        console.log(`⚠️  API request failed (attempt ${attempt + 1}/${maxRetries + 1}), retrying in ${delay}ms...`);
+        console.log(`   Error: ${error.message}`);
+
+        await new Promise(resolve => setTimeout(resolve, delay));
+      }
+    }
+
+    throw lastError;
+  }
+
+  /**
    * Upload logo image to Google Drive and return the image ID
    * @returns {Promise<string>} Image ID for use in Google Docs
    */
@@ -290,28 +331,60 @@ class DocsPublisher {
       if (block.type === 'table') {
         // Flush any pending non-table requests first
         if (this.requests.length > 0) {
-          await this.docs.documents.batchUpdate({
-            documentId: this.docId,
-            requestBody: { requests: this.requests }
+          await this.retryWithBackoff(async () => {
+            return await this.docs.documents.batchUpdate({
+              documentId: this.docId,
+              requestBody: { requests: this.requests }
+            });
           });
           this.requests = [];
         }
 
         // Insert and populate this table immediately
         const insertIndex = this.cursorIndex;
-        await this.insertAndPopulateTable(block, insertIndex);
 
-        // Read back document to find where cursor should be after table
-        const doc = await this.docs.documents.get({ documentId: this.docId });
-        const table = this.findTableNearIndex(doc.data.body.content, insertIndex);
-        if (table) {
-          this.cursorIndex = table.endIndex;
-        } else {
-          console.warn(`Could not find table near index ${insertIndex}, cursor position may be incorrect`);
-          // Estimate based on table size
+        try {
+          await this.insertAndPopulateTable(block, insertIndex);
+
+          // Read back document to find where cursor should be after table
+          // Add small delay to ensure API replication is complete
+          await new Promise(resolve => setTimeout(resolve, 100));
+
+          const doc = await this.docs.documents.get({ documentId: this.docId });
+          const table = this.findTableNearIndex(doc.data.body.content, insertIndex, 50);
+          if (table) {
+            this.cursorIndex = table.endIndex;
+            // Validate cursor is actually outside the table
+            if (this.cursorIndex <= table.startIndex) {
+              console.warn(`Cursor position ${this.cursorIndex} is inside table [${table.startIndex}, ${table.endIndex}], adjusting to end`);
+              this.cursorIndex = table.endIndex;
+            }
+            console.log(`✓ Table found at index ${table.startIndex}, cursor positioned at ${this.cursorIndex}`);
+          } else {
+            console.warn(`⚠️  Could not find table near index ${insertIndex}, cursor position may be incorrect`);
+            // Estimate based on table size
+            const rows = block.rows.length;
+            const cols = block.rows[0]?.length || 1;
+            this.cursorIndex = insertIndex + 3 + (rows * (cols * 2 + 1));
+            console.warn(`Estimated cursor position: ${this.cursorIndex}`);
+          }
+        } catch (error) {
+          console.error(`❌ Failed to insert table at index ${insertIndex}:`, error.message);
+          console.error(`   Skipping table and continuing with remaining content...`);
+
+          // Try to estimate cursor position to continue
           const rows = block.rows.length;
           const cols = block.rows[0]?.length || 1;
           this.cursorIndex = insertIndex + 3 + (rows * (cols * 2 + 1));
+
+          // Insert a placeholder paragraph to indicate the table failed
+          this.requests.push({
+            insertText: {
+              location: { index: this.cursorIndex },
+              text: `[Table insertion failed - ${rows}x${cols} table]\n`
+            }
+          });
+          this.cursorIndex += `[Table insertion failed - ${rows}x${cols} table]\n`.length;
         }
       } else {
         // Regular block - process normally
@@ -321,9 +394,11 @@ class DocsPublisher {
 
     // Flush any remaining requests
     if (this.requests.length > 0) {
-      await this.docs.documents.batchUpdate({
-        documentId: this.docId,
-        requestBody: { requests: this.requests }
+      await this.retryWithBackoff(async () => {
+        return await this.docs.documents.batchUpdate({
+          documentId: this.docId,
+          requestBody: { requests: this.requests }
+        });
       });
     }
 
@@ -342,17 +417,19 @@ class DocsPublisher {
     const cols = block.rows[0]?.length || 1;
 
     // Phase 1: Create empty table structure
-    await this.docs.documents.batchUpdate({
-      documentId: this.docId,
-      requestBody: {
-        requests: [{
-          insertTable: {
-            rows,
-            columns: cols,
-            location: { index: insertIndex }
-          }
-        }]
-      }
+    await this.retryWithBackoff(async () => {
+      return await this.docs.documents.batchUpdate({
+        documentId: this.docId,
+        requestBody: {
+          requests: [{
+            insertTable: {
+              rows,
+              columns: cols,
+              location: { index: insertIndex }
+            }
+          }]
+        }
+      });
     });
 
     // Phase 2: Read back document and populate table
@@ -362,30 +439,25 @@ class DocsPublisher {
     let table = this.findTableAtIndex(doc.data.body.content, insertIndex);
 
     if (!table) {
-      // Try nearby indexes (table structure can shift by 1-2 positions)
-      table = this.findTableNearIndex(doc.data.body.content, insertIndex, 5);
+      // Try nearby indexes (table structure can shift significantly in large documents)
+      table = this.findTableNearIndex(doc.data.body.content, insertIndex, 50);
     }
 
     if (!table) {
-      console.error(`Could not find table near index ${insertIndex}`);
-      return;
+      const error = new Error(`Could not find table near index ${insertIndex}`);
+      console.error(error.message);
+      throw error;
     }
 
     const tableRequests = this.buildTableContentRequests(block, table, rows, cols);
 
     if (tableRequests.length > 0) {
-      try {
-        await this.docs.documents.batchUpdate({
+      await this.retryWithBackoff(async () => {
+        return await this.docs.documents.batchUpdate({
           documentId: this.docId,
           requestBody: { requests: tableRequests }
         });
-      } catch (error) {
-        console.error(`Error populating table:`, error.message);
-        if (error.errors) {
-          error.errors.forEach(err => console.error(`  - ${err.message}`));
-        }
-        throw error;
-      }
+      });
     }
   }
 
@@ -482,20 +554,20 @@ class DocsPublisher {
         }
 
         // Apply header row styling (white text on dark blue background)
+        // NOTE: Do NOT apply bold here - preserve inline bold formatting from runs
         if (rowIdx === 0 && cellText) {
           const cellEndIndex = cellStartIndex + cellText.length;
           tableRequests.push({
             updateTextStyle: {
               range: { startIndex: cellStartIndex, endIndex: cellEndIndex },
               textStyle: {
-                bold: BRAND.TABLE.headerBold,
                 weightedFontFamily: { fontFamily: BRAND.TABLE.headerFontFamily },
                 fontSize: this.makeDimension(BRAND.BODY.fontSizePt),
                 foregroundColor: {
                   color: { rgbColor: hexToRgb(BRAND.TABLE.headerTextColor) }
                 }
               },
-              fields: 'bold,weightedFontFamily,fontSize,foregroundColor'
+              fields: 'weightedFontFamily,fontSize,foregroundColor'
             }
           });
         }
@@ -710,11 +782,17 @@ class DocsPublisher {
   }
 
   /**
-   * Insert a bulleted or numbered list
+   * Insert a bulleted or numbered list with support for nested lists
+   * @param {Object} block - List block with items
+   * @param {number} nestingLevel - Current nesting depth (0 = top level, max 8)
    */
-  insertList(block) {
+  insertList(block, nestingLevel = 0) {
     const listStartIndex = this.cursorIndex;
     const listItems = [];
+
+    // Google Docs supports up to 9 nesting levels (0-8)
+    const maxNestingLevel = 8;
+    const effectiveNestingLevel = Math.min(nestingLevel, maxNestingLevel);
 
     block.items.forEach(item => {
       const itemStartIndex = this.cursorIndex;
@@ -777,10 +855,19 @@ class DocsPublisher {
       });
 
       this.cursorIndex = itemEndIndex;
+
+      // Process nested lists recursively
+      if (item.nested && item.nested.length > 0) {
+        item.nested.forEach(nestedList => {
+          // Recursively process nested list at deeper level
+          this.insertList(nestedList, effectiveNestingLevel + 1);
+        });
+      }
     });
 
-    // Apply bullet/numbering to all items
+    // Apply bullet/numbering to all items at this level
     listItems.forEach(item => {
+      // Apply bullet/numbering
       this.requests.push({
         createParagraphBullets: {
           range: {
@@ -791,21 +878,42 @@ class DocsPublisher {
         }
       });
 
-      // Reduce spacing between list items (30% less than default)
-      this.requests.push({
-        updateParagraphStyle: {
-          range: {
-            startIndex: item.startIndex,
-            endIndex: item.endIndex
-          },
-          paragraphStyle: {
-            spaceAbove: this.makeDimension(0),
-            spaceBelow: this.makeDimension(3),
-            lineSpacing: 100 // 1.0 line spacing
-          },
-          fields: 'spaceAbove,spaceBelow,lineSpacing'
-        }
-      });
+      // Only apply custom indentation for nested lists (level > 0)
+      if (effectiveNestingLevel > 0) {
+        const indentAmount = effectiveNestingLevel * 36; // 36pt per level (0.5 inch)
+
+        this.requests.push({
+          updateParagraphStyle: {
+            range: {
+              startIndex: item.startIndex,
+              endIndex: item.endIndex
+            },
+            paragraphStyle: {
+              spaceAbove: this.makeDimension(0),
+              spaceBelow: this.makeDimension(3),
+              lineSpacing: 100,
+              indentStart: this.makeDimension(indentAmount)
+            },
+            fields: 'spaceAbove,spaceBelow,lineSpacing,indentStart'
+          }
+        });
+      } else {
+        // Top-level bullets: just apply spacing (let createParagraphBullets handle indentation)
+        this.requests.push({
+          updateParagraphStyle: {
+            range: {
+              startIndex: item.startIndex,
+              endIndex: item.endIndex
+            },
+            paragraphStyle: {
+              spaceAbove: this.makeDimension(0),
+              spaceBelow: this.makeDimension(3),
+              lineSpacing: 100
+            },
+            fields: 'spaceAbove,spaceBelow,lineSpacing'
+          }
+        });
+      }
     });
   }
 
@@ -1179,10 +1287,10 @@ class DocsPublisher {
   }
 
   /**
-   * Find a table near a specific index (within ±10 positions)
+   * Find a table near a specific index (within ±tolerance positions)
    * Useful when index might have shifted due to content insertion
    */
-  findTableNearIndex(content, targetIndex, tolerance = 10) {
+  findTableNearIndex(content, targetIndex, tolerance = 50) {
     let closestTable = null;
     let closestDistance = Infinity;
 

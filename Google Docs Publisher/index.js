@@ -3,9 +3,56 @@
 import fs from 'fs';
 import path from 'path';
 import { execSync } from 'child_process';
+import { fileURLToPath } from 'url';
 import { getAuth } from './googleAuth.js';
 import { parseMarkdownToBlocks } from './markdownParser.js';
 import DocsPublisher from './docsPublisher.js';
+
+// ES module equivalent of __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Log file path
+const LOG_FILE = path.join(__dirname, 'export-errors.log');
+
+/**
+ * Write error to log file with timestamp
+ */
+function logError(error, context = {}) {
+  const timestamp = new Date().toISOString();
+  const logEntry = {
+    timestamp,
+    error: {
+      message: error.message,
+      stack: error.stack,
+      code: error.code,
+      ...error
+    },
+    context
+  };
+
+  const logLine = `
+${'='.repeat(80)}
+[${timestamp}] ERROR
+${'='.repeat(80)}
+Context: ${JSON.stringify(context, null, 2)}
+
+Error Message: ${error.message}
+
+${error.stack || 'No stack trace available'}
+
+${error.errors ? 'API Errors:\n' + JSON.stringify(error.errors, null, 2) : ''}
+${'='.repeat(80)}
+
+`;
+
+  try {
+    fs.appendFileSync(LOG_FILE, logLine);
+    console.log(`\n📝 Error logged to: ${LOG_FILE}`);
+  } catch (logErr) {
+    console.error('⚠️  Failed to write to error log:', logErr.message);
+  }
+}
 
 /**
  * Main function to publish markdown to Google Docs
@@ -82,10 +129,19 @@ async function main() {
   } catch (error) {
     console.error('\n❌ Error:', error.message);
 
+    // Log error to file
+    logError(error, {
+      file: process.argv[2],
+      timestamp: new Date().toISOString(),
+      args: process.argv.slice(2)
+    });
+
     if (error.stack && process.argv.includes('--debug')) {
       console.error('\nStack trace:');
       console.error(error.stack);
     }
+
+    console.log('\n💡 Tip: Check export-errors.log for full error details');
 
     process.exit(1);
   }

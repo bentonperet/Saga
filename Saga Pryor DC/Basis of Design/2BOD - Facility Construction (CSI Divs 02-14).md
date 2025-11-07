@@ -10,7 +10,7 @@
 
 ## OVERVIEW
 
-38,000 SF single-story precast concrete tilt-up building with FM 1-150 tornado-resistant roof, housing 20,000 SF of white space (two 10,000 SF data halls: DH-W and DH-E), 18,000 SF support spaces, and multi-level central spine.
+38,000 SF precast concrete tilt-up building with FM 1-150 tornado-resistant roof, housing 20,000 SF of white space (two 10,000 SF data halls: DH-W and DH-E), 18,000 SF support spaces, and multi-level central spine.
 
 **Key Features:**
 - **Construction:** Precast concrete tilt-up walls (tornado resistance)
@@ -123,7 +123,7 @@ Minimal scope (office millwork, shelving)
 ### Air and Vapor Barriers
 - **Air barrier:** Self-adhered membrane at precast joints, penetrations
 - **Vapor barrier:** Under slab; at wall insulation per climate
-- **Target:** TBD but we want a tight envelope for PUE
+- **Target:** Optimize building envelope efficiency to maximize PUE
 
 ---
 

@@ -11,7 +11,7 @@
 ## DIVISION 31 – EARTHWORK
 
 ### Site Characteristics
-- **Parcel:** ~120 acres (master plan)
+- **Parcel:** ~20 acres (data center area)
 - **Topography:** Slightly rolling; balanced cut/fill expected
 - **Flood/Tornado:** Outside FEMA floodplain; high tornado risk (EF3+ region)
 - **Soils:** TBD by geotechnical; design for frost depth per Oklahoma code
@@ -22,12 +22,11 @@
 - Phase I ESA; wetlands/waters delineation if applicable
 - Utility locates and capacity confirmations (water, sewer, gas, fiber)
 
-### Site Grading and Pads <!-- Benton -->
-- **Building pad:** 50,000 GSF building (precast tilt-up) + aprons
-- **Electrical yard:** ~100,000 SF (161 kV substation, MV gear, generator yard)
+### Site Grading and Pads <!-- @Benton -->
+- **Building pad:** 38,000 GSF building (precast tilt-up) + aprons
+- **Electrical yard:** ~102,000 SF (161 kV substation, MV gear, generator yard)
 - **Mechanical yard:** ~50,000 SF (air-cooled chillers, pumps, headers)
 - **Solar array area:** Allocate 10–20 acres adjacent (phased build)
-- **BESS yard:** Allow 6–10 container positions (future-ready)
 
 ### Subgrade and Earthwork
 - Over-excavate poor soils; import select fill (per Geo report)
@@ -68,18 +67,15 @@ Details and costs covered in Electrical, HVAC and Security
 - Security: Normally sealed/secured; opened only during authorized maintenance activities
 - Location: Marked on as-built drawings with clear access paths from equipment yards
 
-### Solar and BESS Areas
-TBD
-
 ### Stormwater Management
 - **Detention/Retention:** Southeast "horseshoe/moat" basin; sized for local criteria
 - **Quality:** Forebay + outlet control; bioswales where feasible
 - **Discharge:** Match pre-development rates; protect downstream receiving waters
 
 ### Paving and Hardscape
-- **Access roads:** 12" aggregate base; asphalt or PCC pavement per truck loads
-- **Dock apron:** 10" PCC with doweled joints
-- **Parking:** 30–45 stalls; EV-ready conduits stubbed
+- **Access roads:** Asphalt or PCC pavement per truck loads
+- **Dock apron:** PCC with doweled joints
+- **Parking:** 25-30stalls; <!-- @benton, ask Julia -->
 - **Walks:** 6 ft sidewalks to entries; ADA routes and ramps
 
 ### Site Access and Entrances
@@ -132,30 +128,31 @@ TBD
 
 | Scope                                        | ROM Cost       | Confidence | Notes                                                                    |
 | -------------------------------------------- | -------------- | ---------- | ------------------------------------------------------------------------ |
-| **Master Plan Earthwork & Grading**          | $5,000,000     | ±30%       | Full 120-acre site development; 500,000 CY cut/fill @ $10/CY           |
+| **Phase 1 Earthwork & Grading**              | $2,500,000     | ±28%       | Phase 1 footprint (~40 acres); immediate facility area; balance deferred |
 | **Building & Equipment Yard Pads**           | $1,200,000     | ±25%       | Building pad, electrical yard, mechanical yard, precise grading          |
 | **MV Ductbanks & Manholes**                  | $800,000       | ±25%       | ~3,500 LF dual-ring @ $230/LF installed                                  |
 | **Substation Yard Civil**                    | $600,000       | ±30%       | Grading, oil containment, gravel, fence foundation (excl. electrical)    |
-| **Internal Road Construction**               | $2,000,000     | ±30%       | Heavy-duty access roads, fire access perimeter, truck routes             |
+| **Internal Road Construction (Phase 1)**     | $1,200,000     | ±28%       | Primary access, dock access, fire access (essential routes only)         |
 | **Parking, Dock & Hardscape**                | $550,000       | ±25%       | 40 parking stalls, dock apron, sidewalks, ADA routes                     |
 | **Utility Extensions to Site**               | $3,000,000     | ±35%       | Water main, sanitary sewer, natural gas service, fiber route to property |
-| **Perimeter Fencing (Full Site)**            | $1,200,000     | ±30%       | 120-acre perimeter, 8 ft chain-link + barbed wire, gates                 |
-| **Site Lighting**                            | $800,000       | ±30%       | Perimeter and yard LED lighting, photocell + BMS control                 |
-| **Landscaping & Buffering**                  | $450,000       | ±33%       | Native drought-tolerant planting, clear CCTV sightlines                  |
-| **Stormwater Management (Full Buildout)**    | $2,000,000     | ±35%       | Master plan detention/retention, water quality treatment, erosion control |
+| **Perimeter Fencing (Phase 1)**              | $650,000       | ±28%       | Phase 1 secure perimeter (~40-50 acres); expandable design               |
+| **Site Lighting (Phase 1)**                  | $500,000       | ±28%       | Phase 1 perimeter and yard LED lighting, photocell + BMS control         |
+| **Landscaping & Buffering**                  | $300,000       | ±30%       | Phase 1 frontage and buffer areas; native drought-tolerant planting      |
+| **Stormwater Management (Phase 1)**          | $1,200,000     | ±32%       | Phase 1 detention/retention with future expansion capability             |
 | **Equipment Yard Hardstanding**              | $1,500,000     | ±30%       | Generator yard, transformer yard, chiller yard reinforced surfaces        |
-| **Subtotal (Direct Costs)**                  | **$19,100,000** | **±30%**   |                                                                          |
+| **Subtotal (Direct Costs)**                  | **$14,000,000** | **±29%**   | **Phase 1 scope; future phases deferred**                                |
 
-### Professional Services & Contingency
+### Professional Services
 
 | Scope                                        | ROM Cost       | Confidence | Notes                                               |
 | -------------------------------------------- | -------------- | ---------- | --------------------------------------------------- |
-| **Design/Engineering (7%)**                  | $1,337,000     | ±25%       | Civil engineer, geotech, surveyor, stormwater PE    |
-| **Subtotal**                                 | **$20,437,000** | **±30%**   |                                                     |
-| **TOTAL SITE & INFRASTRUCTURE**              | **$20,437,000** | **±30%**   | **Excludes substation electrical equipment**        |
+| **Design/Engineering (7%)**                  | $980,000       | ±25%       | Civil engineer, geotech, surveyor, stormwater PE    |
+| **Subtotal**                                 | **$14,980,000** | **±29%**   |                                                     |
+| **TOTAL SITE & INFRASTRUCTURE**              | **$14,980,000** | **±29%**   | **Excludes substation electrical equipment**        |
 
-**Cost per kW (IT Load):** $929/kW (22 MW)
+**Cost per kW (IT Load):** $681/kW (22 MW)
 **Industry Benchmark:** $800-$1,200/kW
+**Phase 1 Approach:** Essential infrastructure only; future phases expand as revenue grows
 
 ---
 

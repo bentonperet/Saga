@@ -10,7 +10,7 @@
 
 ## OVERVIEW
 
-Telecommunications infrastructure provides carrier-neutral, diverse, and redundant connectivity supporting 12 MW IT capacity with multiple fiber paths, cloud on-ramps, and structured cabling systems.
+Telecommunications infrastructure provides carrier-neutral, diverse, and redundant connectivity supporting 22 MW IT capacity with multiple fiber paths, cloud on-ramps, and structured cabling systems.
 
 **Design Philosophy:**
 - **Carrier-neutral:** Open access to all telecommunications carriers
@@ -170,8 +170,8 @@ Central location for facility network equipment (not customer equipment). Houses
 - No raised floor (slab-on-grade with overhead cable distribution)
 
 **Cabling Types:**
-- **Fiber:** OM4 multi-mode (850 nm, 100 Gbps capable) for cabinet connections
-- **Copper:** Cat6A (10 Gbps) for management/IPMI connections (if needed)
+- Fiber: OM4 multi-mode (850 nm, 100 Gbps capable) for cabinet connections
+- Copper: Cat6A (10 Gbps) for management/IPMI connections (if needed)
 
 **Cabinet Connectivity:**
 - 2 × fiber pairs per cabinet (A-side + B-side for redundancy)
@@ -256,42 +256,43 @@ Central location for facility network equipment (not customer equipment). Houses
 
 ### Telecommunications Infrastructure
 
-| System | Cost Estimate | Confidence | Range |
-|--------|---------------|------------|-------|
-| **Fiber Conduit Infrastructure (Dual Entry)** | $300,000 | ±30% | $210-390K |
-| **MPOE-1 Fit-Out (Racks, Power, Cooling)** | $400,000 | ±30% | $280-520K |
-| **MPOE-2 Fit-Out (Racks, Power, Cooling)** | $400,000 | ±30% | $280-520K |
-| **MDA Fit-Out (Core Switches, Firewall, Racks)** | $600,000 | ±30% | $420-780K |
-| **Fiber Backbone (Dual Ring, Redundant)** | $450,000 | ±30% | $315-585K |
-| **Structured Cabling (394 Racks × 2 Fiber Pairs)** | $1,200,000 | ±30% | $840K-1.56M |
-| **Grounding & Bonding (TMGB, TBB)** | $150,000 | ±25% | $112-188K |
-| **Cross-Connect Infrastructure** | $200,000 | ±30% | $140-260K |
-| **Subtotal - Telecom Infrastructure** | **$3,700,000** |  |  |
+| System                                             | Cost Estimate  | Confidence | Range       |
+| -------------------------------------------------- | -------------- | ---------- | ----------- |
+| **Fiber Conduit Infrastructure (Dual Entry)**      | $300,000       | ±30%       | $210-390K   |
+| **MPOE-1 Fit-Out (Racks, Power, Cooling)**         | $400,000       | ±30%       | $280-520K   |
+| **MPOE-2 Fit-Out (Racks, Power, Cooling)**         | $400,000       | ±30%       | $280-520K   |
+| **MDA Fit-Out (Core Switches, Firewall, Racks)**   | $600,000       | ±30%       | $420-780K   |
+| **Fiber Backbone (Dual Ring, Redundant)**          | $450,000       | ±30%       | $315-585K   |
+| **Structured Cabling (394 Racks × 2 Fiber Pairs)** | $1,200,000     | ±30%       | $840K-1.56M |
+| **Grounding & Bonding (TMGB, TBB)**                | $150,000       | ±25%       | $112-188K   |
+| **Cross-Connect Infrastructure**                   | $200,000       | ±30%       | $140-260K   |
+| **Subtotal - Telecom Infrastructure**              | **$3,700,000** |            |             |
 
 ### IT Infrastructure & Monitoring
 
-| System | Cost Estimate | Confidence | Range |
-|--------|---------------|------------|-------|
-| **DCIM Software Platform** | $2,000,000 | ±30% | $1.4-2.6M |
-| **Environmental Monitoring Sensors** | $350,000 | ±25% | $262-438K |
-| **Power Monitoring Integration** | $450,000 | ±25% | $338-562K |
-| **Asset Tracking Systems** | $300,000 | ±30% | $210-390K |
-| **Security Monitoring Network** | $1,500,000 | ±25% | $1.12-1.88M |
-| **BMS Network Infrastructure** | $800,000 | ±25% | $600K-1.0M |
-| **Facility Operations Network** | $1,200,000 | ±30% | $840K-1.56M |
-| **Subtotal - IT Infrastructure** | **$6,600,000** |  |  |
+| System | Cost Estimate | Confidence | Range | Notes |
+|--------|---------------|------------|-------|-------|
+| **DCIM Software Platform (Cloud-Based)** | $1,000,000 | ±28% | $720K-1.28M | Cloud SaaS model reduces upfront cost; Phase 1 modules |
+| **Environmental Monitoring Sensors** | $280,000 | ±25% | $210-350K | Phase 1 deployment; expand with customer growth |
+| **Power Monitoring Integration** | $350,000 | ±25% | $262-438K | Essential circuits only; expand incrementally |
+| **Asset Tracking Systems** | $150,000 | ±30% | $105-195K | Basic RFID/barcode system; enhance over time |
+| **Security Monitoring Network** | $1,200,000 | ±25% | $900K-1.5M | Core security infrastructure (essential) |
+| **BMS Network Infrastructure** | $650,000 | ±25% | $488-812K | Phase 1 backbone; modular expansion |
+| **Facility Operations Network** | $900,000 | ±28% | $648K-1.15M | Lean initial deployment |
+| **Subtotal - IT Infrastructure** | **$4,530,000** |  |  | **Phased deployment approach** |
 
 ### Project Totals
 
 | Category | Cost Estimate | Confidence | Notes |
 |----------|---------------|------------|-------|
-| **Subtotal (Equipment & Materials)** | $10,300,000 | ±30% | Telecom + IT infrastructure |
-| **Engineering & Commissioning (8%)** | $824,000 | ±25% | Design, integration, testing |
-| **Contingency (15%)** | $1,686,000 | ±30% | BOD phase uncertainty |
-| **TOTAL COMMUNICATIONS & IT** | **$12,810,000** | **±30%** | **Range: $9.0-16.6M** |
+| **Subtotal (Equipment & Materials)** | $8,230,000 | ±29% | Telecom + IT infrastructure (phased) |
+| **Engineering & Commissioning (8%)** | $658,400 | ±25% | Design, integration, testing |
+| **Contingency (15%)** | $1,333,260 | ±30% | BOD phase uncertainty |
+| **TOTAL COMMUNICATIONS & IT** | **$10,221,660** | **±29%** | **Range: $7.3-13.3M** |
 
-**Cost per kW (IT Load):** $582/kW (22 MW)
+**Cost per kW (IT Load):** $465/kW (22 MW)
 **Industry Benchmark:** $400-$600/kW for comprehensive DC IT infrastructure
+**Phase 1 Approach:** Cloud-based DCIM, core systems deployed upfront, enhanced monitoring added as facility scales
 
 **Recurring Costs (OPEX):**
 - Carrier circuits: Varies by customer (customer-paid)
@@ -310,19 +311,16 @@ Central location for facility network equipment (not customer equipment). Houses
 
 ---
 
-**Tags:** #pryor-dc #communications #fiber #mpoe #mmr #carrier-neutral #cloud-connectivity
-
 **Next Steps:**
 1. Confirm fiber routes and carrier availability in Pryor, OK area
 2. Negotiate carrier on-ramp agreements (AWS, Azure, GCP partners)
 3. Design fiber backbone routing (overhead tray layout)
 4. Develop cross-connect pricing and procedures for customers
-5. Coordinate TMGB/TBB installation with electrical grounding system
 
 ---
 
 **Document Control:**
-- **Source:** Pryor_Bod_EVS_Rev01.md and Erik_BOD reference
-- **Date Updated:** October 29, 2025
-- **Prepared by:** EVS / PGCIS Team
-- **Key Updates:** Dual MPOE/MMR for geographic diversity, cloud connectivity strategy
+- **Source:** PGCIS Team
+- **Date Updated:** November 7, 2025
+- **Prepared by:** PGCIS Team
+- **Key Updates:**

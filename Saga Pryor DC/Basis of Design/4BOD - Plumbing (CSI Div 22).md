@@ -1,11 +1,10 @@
-**Created:** 2025-10-29
-**Updated from:** Pryor_Bod_EVS_Rev01.md
+
 
 # BASIS OF DESIGN - PLUMBING
 ## CSI Division 22
 ### Pryor Data Center - PACHYDERM GLOBAL
 
-**Parent Document:** [[Saga Pryor DC/Basis of Design/Erik_BOD_Updated/_BOD - Exec Summary and TOC]]  
+**Parent Document:** [[_TOC - Basis of Design Contents]]
 
 ---
 
@@ -14,7 +13,7 @@
 Plumbing systems provide domestic water service, fire protection water supply, and sanitary/storm drainage. Zero water consumption for cooling operations (air-cooled chillers eliminate evaporative losses).
 
 **Design Philosophy:**
-- **Zero cooling water:** Air-cooled chillers, closed-loop glycol (WUE <0.5 L/kWh)
+- **Zero cooling water:** Air-cooled chillers, closed-loop glycol
 - **Minimal domestic use:** Staff amenities only (~20 occupants)
 
 **Scope Note:** All chilled water piping, glycol systems, and cooling loop equipment are scoped under **Division 23 (HVAC)**. Division 22 provides domestic water service only, including stub connections for makeup water to HVAC glycol systems.
@@ -99,7 +98,7 @@ Plumbing systems provide domestic water service, fire protection water supply, a
 **Sizing:**
 - Design storm: 100-year, 1-hour duration (Oklahoma)
 - Rainfall intensity: [ROM] 5-6 inches/hour
-- Roof area: 50,000 SF
+- Roof area: 38,000 SF
 - Primary drains: [ROM] 8-12 × 6" drains
 - Overflow: Scuppers at roof edge (backup)
 
@@ -264,7 +263,7 @@ Plumbing systems provide domestic water service, fire protection water supply, a
 
 ### Cost Summary (Rough Order of Magnitude)
 
-**Pricing Methodology:** Hybrid approach combining systems-based parametric pricing for distribution piping and bottom-up equipment pricing for discrete items. ROM estimates suitable for BOD-level budgeting (±25-30% accuracy).
+**Pricing Methodology:** Hybrid approach combining systems-based parametric pricing for distribution piping and bottom-up equipment pricing for discrete items. ROM estimates suitable for BOD-level budgeting (±30% accuracy).
 
 | Category                           | Description                                                                         | Cost         |
 | ---------------------------------- | ----------------------------------------------------------------------------------- | ------------ |

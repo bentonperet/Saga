@@ -24,7 +24,7 @@ The design is built on a zoned-hall (DH-W vs. DH-E) concept with two independent
   - **Loops 1+2 (RDHx):** 5.8 MW plant with a **60°F (15.5°C)** "cold water" supply. This temperature is required for effective rear-door air cooling.
 - **Redundancy:** N+1 for all chillers, pumps, and cooling distribution units.
 - **Zero Water Consumption:** Design uses all air-cooled chillers, closed-loop glycol/fluid systems, and zero evaporative cooling.
-- **Target PUE:** 1.45 (Phase 1) to 1.35 (Phase 4) at scale, driven by warm-water cooling efficiencies.
+- **Target PUE:** 1.45 (Phase 1) to 1.35 (Phase 4), improvement driven by warm-water cooling efficiencies.
 
 ---
 
