@@ -1,4 +1,38 @@
 
+We're going to make major changes to the Basis of design: /Users/bentonperet/Library/CloudStorage/GoogleDrive-benperet@gmail.com/My Drive/P3R3T/PGCIS/Saga Obsidian/Saga1/Saga Pryor DC/Basis of Design
+
+  My Electrical Lead wants to change the phasing. I will need you to help me plan a comprehensive phase change, which will cascade through every BOD Doc and pricing detail! Let's make a special note in github when we start this work, in case we need to go back and check before / after on this change.
+
+  I need you to think like an engineer and a top tier management consultant skilled in data center design and documentation, to make sure we're technically correct in our work, and that our documentation is complete and CONCISE - not too many words. WE SHOULD NOT BE ADDING SIGNIFICANT WORD/LINE COUNT TO THE CURRENT SPECS, WE SHOULD BE REDUCING AND CONDENSING LINES WHERE POSSIBLE AND STILL GETTING THE MESSAGE ACROSS TO THE CLIENT.
+
+  Also - this is a long prompt and a big plan. I'd like to capture this plan in it's own MD file, and you should update that plan step by step so that we can come back to it if we run out of context, or we get interrupted. I don't want anything to go wrong in the update process, this will help us stay on track and keep relevant context handy for executing properly. I want to take it step by step, vs. trying to do lots of different things at once.
+
+  Please help me sequence the updates in the most reasonable order for accuracy. And, of course, ask me questions if you need more clarity.
+
+  THE CHANGES:
+
+  The new phasing will be more simple. We will size by 6MW IT Load each block.
+  Phase 1 - 6MW IT Load
+  Phase 2 - 12
+  Phase 3 - 18
+  Phase 4 - 24
+
+  We will use 3.6MW Generators. N=3 per block, N+1 = 4 gens per block.
+  We will have 4 electrical houses per block (so same number as gens)
+
+  We will size electrical using a 1.6PUE b/c it get's hot in OK, and we need about 10% of extra overhead. So those gens are sized correctly. About 10.8MW for 3 gens +1 for safety.
+
+  We are missing Medium Voltage Switch Boards in our current electrical design. Those need to be added.
+
+  Remove all reference of rack counts and number. We don't know what that's going to be and it's certainly going to change per client. If we need that for estimating factors, we can have an estimating number noted in the documents.
+
+  When stating the estimated average PUE of the build, we can state 1.4, on the exec summary, but we'll calculate electrical on 1.6.
+  
+  Let's not do pricing yet, we'll work on that in another prompt.
+
+---
+
+
 Analyze this file: [copy path]
 
 Make sure every single section, every line, is in alignment with our new design as expressed in _BOD. If unsure, flag it.
