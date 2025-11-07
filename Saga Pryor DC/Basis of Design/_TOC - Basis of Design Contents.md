@@ -7,10 +7,6 @@
 
 See: <!-- @claude link this properly -->
 
-- *Project delivery, contracting strategy, phasing approach*
-- Phase 1: 12 MW (20,000 SF white space + support spaces)
-- Phase 2: Shell for additional 20,000 SF white space
-- Modular 3 MW block procurement strategy
 
 ---
 

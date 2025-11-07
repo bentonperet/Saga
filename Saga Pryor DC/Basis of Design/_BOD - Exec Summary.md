@@ -1,10 +1,9 @@
 
 # BASIS OF DESIGN - CSI MASTERFORMAT
-## Pryor Data Center - PACHYDERM GLOBAL
+## Pryor Data Center - PACHYDERM GLOBAL / Saga Energy
 ### Pryor, Oklahoma
 
-**Document Status:** REVISION 02 - 161 kV Substation + 13.8 kV Distribution (US Standard Voltage)
-**Prepared by:** PGCIS Team
+**Prepared by:** PGCIS Team for Saga Energy
 **Date:** October 30, 2025 
 **Purpose:** Comprehensive Basis of Design for Pryor Data Center organized by CSI Master Format
 
@@ -18,8 +17,6 @@
 - **Total Compound:** 140,000 SF (Two 10,000 SF data halls + 18,000 SF support spaces)
   - **Covered Building:** 38,000 SF
   - **Equipment Yard:** 102,000 SF
-  - Phase 1: DH-W only (30 racks)
-  - Phase 2+: Both halls operational (394 racks total capacity)
 - **Power Density:** Scales from 300 W/SF (Phase 1) to 1,100 W/SF (Phase 4)
 - **Rack Capacity:** DH-W: 162 racks (L2C), DH-E: 232 racks (RDHx)
 - **Availability:** Tier III (N+1 IT UPS with MV dual-ring path redundancy, N+1 mechanical, concurrent maintainability)
@@ -50,17 +47,7 @@ This is a purely hypothetical phasing
 - **13.8 kV Common Bus:** Single voltage platform for utility, solar, BESS, generators, data center (US standard voltage)
 - **MV Distribution:** 13.8 kV dual-ring topology (Ring A + Ring B) via 8 RMUs
 - **Generators:** Scalable N+1 diesel generators @ 13.8 kV, Tier 4 Final
-  - Phase 1: 3 × 4.0 MW (N+1 for 4.35 MW facility load)
-  - Phase 2: 4 × 4.0 MW total (N+1 for 8.7 MW facility load, add 1 unit)
-  - Phase 3: 7 × 4.0 MW total (N+1 for 20.25 MW facility load, add 3 units)
-  - Phase 4: 9 × 4.0 MW total (N+1 for 29.7 MW facility load, add 2 units)
-  - Fuel: ~2,000 gal belly tanks per unit connected via common manifold to centralized bulk fuel storage (24-hour runtime with redundant fuel contracts)
-- **LV Transformers:** 11 × 3.5 MVA oil-filled transformers (13.8kV/480V) on outdoor pads, N+1 with concurrent maintainability
-  - Phase 1: 3 × 3,500 kVA (N+1 for 4.35 MW facility load)
-  - Phase 2: 4 × 3,500 kVA total (N+1 for 8.7 MW facility load, add 1 unit)
-  - Phase 3: 8 × 3,500 kVA total (N+1 for 20.25 MW facility load, add 4 units)
-  - Phase 4: 11 × 3,500 kVA total (N+1 for 29.7 MW facility load, add 3 units)
-  - Location: Outdoor concrete pads with oil containment adjacent to E-Houses
+- **LV Transformers:** 11 × 3.5 MVA oil-filled transformers (13.8kV/480V) on outdoor pads, N+1 with concurrent maintainability (Location: Outdoor concrete pads with oil containment adjacent to E-Houses).
 - **E-Houses (Electrical Houses):** 2 climate-controlled prefabricated E-Houses (14' × 260' each, 3,640 SF per unit)
   - Configuration: One E-House per 13.8 kV ring (E-House A for Ring A, E-House B for Ring B)
   - Contents: MV switchgear (RMUs), LV switchboards, IT UPS, Mechanical UPS, battery cabinets, distribution panels

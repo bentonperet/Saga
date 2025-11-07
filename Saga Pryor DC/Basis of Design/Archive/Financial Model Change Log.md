@@ -190,13 +190,14 @@ This document tracks all design changes that require updates to the financial mo
 
 **Financial Model Updates Required:**
 
-| Phase | Facility Load | UPS Capacity | UPS CAPEX | Cumulative CAPEX |
-|---|---|---|---|---|
-| **1** | 4.0-4.3 MW | 6MW (N+1) | $4.5M | $4.5M |
-| **2** | 8.0-8.5 MW | Add 4MW modules | $3.0M | $7.5M |
-| **3** | 12.0-12.8 MW | Add 5MW modules | $3.8M | $11.3M |
-| **4** | 16.0-17.0 MW | Add 6MW modules | $4.5M | $15.8M |
-| **5** | 27.0-28.4 MW | Add 14MW modules | $10.5M | $26.3M |
+| Phase | Facility Load | UPS Capacity     | UPS CAPEX | Cumulative CAPEX |
+| ----- | ------------- | ---------------- | --------- | ---------------- |
+| **1** | 4.0-4.3 MW    | 6MW (N+1)        | $4.5M     | $4.5M            |
+| **2** | 8.0-8.5 MW    | Add 4MW modules  | $3.0M     | $7.5M            |
+| **3** | 12.0-12.8 MW  | Add 5MW modules  | $3.8M     | $11.3M           |
+| **4** | 16.0-17.0 MW  | Add 6MW modules  | $4.5M     | $15.8M           |
+| **5** | 27.0-28.4 MW  | Add 14MW modules | $10.5M    | $26.3M           |
+|       |               |                  |           |                  |
 
 **IRR Impact:**
 - **Phase 1 CAPEX:** $4.5M (vs $29.7-31.2M BESS Phase 1)

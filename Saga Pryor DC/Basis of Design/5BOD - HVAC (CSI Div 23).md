@@ -445,15 +445,15 @@ Critical system for protecting IT equipment from water/glycol damage. All chille
 
 **COOLING PLANT EQUIPMENT**
 
-| Equipment                                  | Quantity   | Unit Size/Rating   | Total Capacity            | Notes                                       |
-| ------------------------------------------ | ---------- | ------------------ | ------------------------- | ------------------------------------------- |
-| **L2C Air-Cooled Chillers**                | 12         | 1,500 kW each      | 18,000 kW (16,500 kW N+1) | Loop 3 warm water (85°F)                    |
-| **RDHx Air-Cooled Chillers**               | 6          | 1,500 kW each      | 9,000 kW (7,500 kW N+1)   | Loops 1+2 cold water (60°F)                 |
-| **Primary Pumps (L2C)**                    | Integrated | -                  | -                         | Factory-integrated in chillers, VFD         |
-| **Primary Pumps (RDHx)**                   | Integrated | -                  | -                         | Factory-integrated in chillers, VFD         |
-| **CDUs (Coolant Distribution Units)**      | 324        | ~100-120 kW each   | -                         | A/B redundant (2 per rack × 162 L2C racks)  |
-| **Expansion Tanks**                        | 3          | 500-1,000 gal each | -                         | 1 per loop (Loop 1, 2, 3)                   |
-| **Air/Dirt Separators**                    | 6          | -                  | -                         | 2 per loop (air + dirt)                     |
+| Equipment                             | Quantity   | Unit Size/Rating   | Total Capacity            | Notes                                      |
+| ------------------------------------- | ---------- | ------------------ | ------------------------- | ------------------------------------------ |
+| **L2C Air-Cooled Chillers**           | 12         | 1,500 kW each      | 18,000 kW (16,500 kW N+1) | Loop 3 warm water (85°F)                   |
+| **RDHx Air-Cooled Chillers**          | 6          | 1,500 kW each      | 9,000 kW (7,500 kW N+1)   | Loops 1+2 cold water (60°F)                |
+| **Primary Pumps (L2C)**               | Integrated | -                  | -                         | Factory-integrated in chillers, VFD        |
+| **Primary Pumps (RDHx)**              | Integrated | -                  | -                         | Factory-integrated in chillers, VFD        |
+| **CDUs (Coolant Distribution Units)** | 324        | ~100-120 kW each   | -                         | A/B redundant (2 per rack × 162 L2C racks) |
+| **Expansion Tanks**                   | 3          | 500-1,000 gal each | -                         | 1 per loop (Loop 1, 2, 3)                  |
+| **Air/Dirt Separators**               | 6          | -                  | -                         | 2 per loop (air + dirt)                    |
 
 **GLYCOL & WATER TREATMENT**
 

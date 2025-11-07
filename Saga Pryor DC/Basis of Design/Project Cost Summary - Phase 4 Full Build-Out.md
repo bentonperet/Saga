@@ -40,17 +40,17 @@ This document consolidates capital expenditure (CAPEX) estimates for the Pryor D
 
 ### SOFT COSTS
 
-| Category | Description                          | Subtotal         | % of Total | Key Components                                                                                    |
-| -------- | ------------------------------------ | ---------------- | ---------- | -------------------------------------------------------------------------------------------------- |
-| **PM**   | Owner's Project Management           | $4,250,000       | 1.8%       | PM team + owner involvement, 20-month construction |
-| **Cx**   | Commissioning & Testing              | $4,700,000       | 1.9%       | Independent CxA, Tier III certification, third-party testing |
-| **Legal**| Legal & Permitting                   | $2,200,000       | 0.9%       | Legal fees, utility agreements, permits, environmental compliance |
-| **Ins**  | Insurance During Construction        | $2,200,000       | 0.9%       | Builder's risk, general liability, professional liability |
-| **Fin**  | Financing Costs (Optimized)          | $8,000,000       | 3.3%       | 50/50 debt/equity, 5% rate, 20 months, lower balance |
-| **PreOp**| Pre-Operational Expenses (Lean)      | $3,850,000       | 1.6%       | Startup power, training, 4-month staffing (marketing deferred) |
-| **Prof** | Professional Services                | $1,230,000       | 0.5%       | Specialty consultants (insurance, telecom, IT, environmental) |
-|          |                                      |                  |            |                                                                                                    |
-|          | **SUBTOTAL SOFT COSTS**              | **$29,080,000**  | **12.0%**  | Optimized project management, financing, pre-operational                                          |
+| Category  | Description                     | Subtotal        | % of Total | Key Components                                                    |
+| --------- | ------------------------------- | --------------- | ---------- | ----------------------------------------------------------------- |
+| **PM**    | Owner's Project Management      | $4,250,000      | 1.8%       | PM team + owner involvement, 20-month construction                |
+| **Cx**    | Commissioning & Testing         | $4,700,000      | 1.9%       | Independent CxA, Tier III certification, third-party testing      |
+| **Legal** | Legal & Permitting              | $2,200,000      | 0.9%       | Legal fees, utility agreements, permits, environmental compliance |
+| **Ins**   | Insurance During Construction   | $2,200,000      | 0.9%       | Builder's risk, general liability, professional liability         |
+| **Fin**   | Financing Costs (Optimized)     | $8,000,000      | 3.3%       | 50/50 debt/equity, 5% rate, 20 months, lower balance              |
+| **PreOp** | Pre-Operational Expenses (Lean) | $3,850,000      | 1.6%       | Startup power, training, 4-month staffing (marketing deferred)    |
+| **Prof**  | Professional Services           | $1,230,000      | 0.5%       | Specialty consultants (insurance, telecom, IT, environmental)     |
+|           |                                 |                 |            |                                                                   |
+|           | **SUBTOTAL SOFT COSTS**         | **$29,080,000** | **12.0%**  | Optimized project management, financing, pre-operational          |
 
 ### RESERVES
 
@@ -122,7 +122,7 @@ This document consolidates capital expenditure (CAPEX) estimates for the Pryor D
 - **Optimization:** Better financing terms, owner self-perform, phased approach
 
 ### 4. Facility Construction ($23.7M - 8.9% of total)
-- Precast concrete tilt-up walls (~50,000 SF @ $84/SF)
+- Precast concrete tilt-up walls
 - FM 1-150 tornado-rated roof with debris protection
 - Multi-level central spine (NOC, fitness area, roof access)
 - 38,000 SF building with 30 ft clear height in data halls
