@@ -1,4 +1,9 @@
 
+Remember to remove mention of Hight density data hall and med density. Both data halls could be used for either density - it really depends on the client.
+
+
+
+----
 We're going to make major changes to the Basis of design: /Users/bentonperet/Library/CloudStorage/GoogleDrive-benperet@gmail.com/My Drive/P3R3T/PGCIS/Saga Obsidian/Saga1/Saga Pryor DC/Basis of Design
 
   My Electrical Lead wants to change the phasing. I will need you to help me plan a comprehensive phase change, which will cascade through every BOD Doc and pricing detail! Let's make a special note in github when we start this work, in case we need to go back and check before / after on this change.

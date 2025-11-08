@@ -9,17 +9,18 @@
 
 ### 1.1 Project Summary
 
-This Basis of Design defines the electrical infrastructure for a two-hall, 20,000 SF data center with an ultimate IT load of **22 MW** and a total facility load of approximately **30 MW**. The system is designed to meet Tier III standards, providing N+1 component redundancy and dual-path redundancy for all critical loads.
+This Basis of Design defines the electrical infrastructure for a two-hall, 20,000 SF data center with an ultimate IT load of **24 MW** and a total facility load of approximately **38.4 MW**. The system is designed to meet Tier III standards, providing N+1 component redundancy and dual-path redundancy for all critical loads.
 
 The electrical backbone is a self-healing 13.8 kV dual-ring MV distribution with 8 RMU switchgear and SCADA-controlled automated switching, enabling concurrent maintainability of any transformer or electrical component. The 13.8 kV common bus allows for flexible integration of utility power, backup generators, solar arrays, and battery energy storage systems.
 
 **Key Infrastructure:**
 - Customer-owned 161 kV substation with 2×35 MVA transformers (N+1 redundancy)
 - Self-healing 13.8 kV dual-ring distribution (8 RMUs, SCADA-controlled) providing path redundancy
-- 9×4.0 MW diesel generators @ 13.8 kV (N+1 for 30 MW facility load)
-- 11×3,500 kVA LV transformers, 13.8kV/480V (N+1 redundancy with concurrent maintainability)
-- N+1 UPS architecture: 23 modular UPS units (1,250 kVA each) at Phase 4, with path redundancy from MV dual-ring
-- Prefabricated Power Delivery Modules (PDMs) for accelerated schedule
+- Medium voltage switchboards at 13.8 kV (count TBD)
+- 16×3.6 MW diesel generators @ 13.8 kV (N+1 for 38.4 MW facility load, phased in 6MW blocks)
+- LV transformers, 13.8kV/480V (3.5 MVA, N+1 redundancy with concurrent maintainability) **[SIZE CONFIRMATION NEEDED]**
+- N+1 UPS architecture: Modular UPS units (1,250 kVA each) with path redundancy from MV dual-ring
+- 16 Electrical Houses (E-Houses): Prefabricated power delivery buildings (4 per 6MW block)
 
 ### 1.2 Design Philosophy
 
@@ -28,7 +29,7 @@ The electrical backbone is a self-healing 13.8 kV dual-ring MV distribution with
 - **Path Redundancy:** Dual (A/B) path diversity from the MV dual-ring distribution through independent transformer banks, switchboards, and distribution panels to dual-PDUs in each cabinet. Self-healing 13.8 kV dual-ring with SCADA-controlled automated switching provides path reconfiguration without human intervention, eliminating the need for duplicate UPS systems.
 - **UPS Architecture:** N+1 modular UPS provides component redundancy (can lose one module), while the self-healing MV dual-ring provides path redundancy. This approach delivers Tier III concurrent maintainability with significantly lower CAPEX than traditional 2N UPS systems (~50% reduction in UPS module count).
 - **Concurrent Maintainability:** Self-healing dual-ring topology enables isolation of any transformer or ring segment for maintenance while maintaining full N+1 redundancy on alternate path. 8 RMU switchgear with automated SCADA controls ensure continuous operation during maintenance activities.
-- **Phasing Strategy:** All infrastructure (substation, generator pads, PDM pads, electrical yard, conduit rough-in) shall be designed and built for the 30 MW full build-out from day 1. Capital equipment (generators, transformers, UPS modules, mechanical UPS) will be purchased and commissioned in phases to match IT load growth.
+- **Phasing Strategy:** All infrastructure (substation, generator pads, E-House pads, electrical yard, conduit rough-in) designed for 38.4 MW full build-out from day 1. Capital equipment (generators, transformers, UPS modules, mechanical UPS) purchased and commissioned in 6MW IT load blocks to match growth.
 
 ## 2.0 UTILITY SERVICE & SUBSTATION
 
@@ -51,7 +52,7 @@ See the SLD Document for more details.
 
 ### 2.3 Substation Transformers
 
-**Configuration:** N+1 Redundancy - Either transformer capable of supporting full 30 MW facility load
+**Configuration:** N+1 Redundancy - Either transformer capable of supporting full 38.4 MW facility load
 
 | Parameter    | Specification                                |
 | ------------ | -------------------------------------------- |
@@ -64,7 +65,7 @@ See the SLD Document for more details.
 
 A 13.8 kV "common bus" infrastructure serves as the single voltage platform for all power sources and loads:
 - Utility power (from 2×35 MVA substation transformers)
-- Backup generators (9×4.0 MW @ 13.8 kV)
+- Backup generators (16×3.6 MW @ 13.8 kV)
 - Solar array (8+ MW DC, inverters output 13.8 kV AC directly)
 - Battery Energy Storage (4-8 MWh, inverters output 13.8 kV AC directly)
 - Data center critical IT and mechanical loads (via 13.8kV/480V transformers)
@@ -88,39 +89,55 @@ The electrical flowchart diagram shows the self-healing 13.8 kV dual-ring archit
 | **Rating**   | 13.8 kV, 630A continuous, 20 kA short-circuit rating                                  |
 | **Function** | Isolate transformers, enable ring reconfiguration, interconnect generators/solar/BESS |
 
+### 3.4 Medium Voltage Switchboards
+
+**Configuration:** 13.8 kV switchboards providing distribution and protection for the electrical system
+
+| Parameter    | Specification                                 |
+| ------------ | --------------------------------------------- |
+| **Voltage**  | 13.8 kV, 3-phase, 60 Hz                       |
+| **Quantity** | Count TBD (to be specified)                   |
+| **Type**     | Metal-clad switchgear with vacuum breakers    |
+| **Function** | Main distribution, metering, protection       |
+
 ## 4.0 GENERATOR SYSTEM
 
 ### 4.1 Configuration
 
-**Redundancy:** N+1 for total 30 MW facility load
+**Redundancy:** N+1 per 6MW IT load block (4 generators per block: 3 running + 1 backup)
 
-**Phase 4 Configuration:**
-- N = 8 generators (8 × 4.0 MW = 32 MW capacity)
-- N+1 = 9 generators total
-- Phased deployment: 3 (Phase 1) → 4 (Phase 2) → 6 (Phase 3) → 9 (Phase 4)
+**Block Architecture:**
+- Each 6MW IT block (9.6 MW facility @ 1.6 PUE) protected by 4×3.6 MW generators
+- N = 3 generators running (10.8 MW capacity)
+- N+1 = 4 generators total per block
+- Phase 4: 16 generators total (4 blocks × 4 generators)
+
+**Phased Deployment:** 4 (Phase 1) → 8 (Phase 2) → 12 (Phase 3) → 16 (Phase 4)
 
 ### 4.2 Generator Specifications
 
 | Parameter                | Specification                                                                                                         |
 | ------------------------ | --------------------------------------------------------------------------------------------------------------------- |
-| **Rating**               | 4,000 kW continuous / 4,400 kW standby @ 13.8 kV                                                                      |
+| **Rating**               | 3,600 kW continuous / 3,960 kW standby @ 13.8 kV                                                                      |
 | **Voltage**              | 13,800V ±5%, 3-phase, 60 Hz, 0.8 power factor                                                                         |
 | **Fuel**                 | Diesel, EPA Tier 4 Final (NOx < 0.67 g/bhp-hr)                                                                        |
+| **Sizing Rationale**     | 3×3.6 MW = 10.8 MW capacity covers 9.6 MW block load with ~12% margin for OK heat conditions                          |
 
 ### 4.3 Generator Yard Layout
 
 - **Location:** South side of building, electrical equipment yard
+- **Quantity:** 16 generator positions at Phase 4 (4 per 6MW block)
 
 ## 5.0 TRANSFORMER SYSTEM (13.8 KV / 480V)
 
 ### 5.1 Configuration
 
-**Redundancy:** N+1 for total 30 MW facility load
+**Redundancy:** N+1 for total 38.4 MW facility load
 
 **Phase 4 Configuration:**
-- N = 10 transformers (10 × 3.15 MW = 31.5 MW capacity @ 0.9 PF)
-- N+1 = 11 transformers total
-- Phased deployment: 3 (Phase 1) → 4 (Phase 2) → 8 (Phase 3) → 11 (Phase 4)
+- Quantity TBD based on block architecture
+- **[CONFIRMATION NEEDED: Verify 3.5 MVA sizing adequate for new 6MW block structure]**
+- Phased deployment aligned with 6MW IT load blocks
 
 ### 5.2 Transformer Specifications
 
@@ -129,6 +146,7 @@ The electrical flowchart diagram shows the self-healing 13.8 kV dual-ring archit
 | **Rating**      | 3,500 kVA / 3.15 MW @ 0.9 power factor              |
 | **Voltage**     | 13,800V delta primary / 480Y/277V secondary         |
 | **Type**        | Oil-filled, ONAN cooling (Oil Natural, Air Natural) |
+| **Note**        | **Sizing requires confirmation for 6MW block architecture** |
 
 ## 6.0 IT UPS SYSTEM (N+1 DUAL-PATH ARCHITECTURE)
 
@@ -137,16 +155,16 @@ The electrical flowchart diagram shows the self-healing 13.8 kV dual-ring archit
 - **Redundancy:** N+1 modular UPS architecture with concurrent maintainability enabled by self-healing 13.8 kV dual-ring MV distribution
 - **Path Redundancy:** Provided by MV dual-ring topology (Ring A / Ring B) with SCADA-controlled automated switching
 - **Component Redundancy:** Provided by N+1 UPS modules (can lose one module and continue operation)
-- **Topology:** The 22 MW IT load (Phase 4) will be protected by 23 UPS modules (22+1 for N+1) with power distributed via dual A/B paths to dual-corded IT equipment
+- **Topology:** The 24 MW IT load (Phase 4) protected by 25 UPS modules (24+1 for N+1) with power distributed via dual A/B paths to dual-corded IT equipment
 
 ### 6.2 System Sizing (Phase 4)
 
-- **IT Load:** 22 MW (22,000 kW)
-- **UPS Modules:** 23 × 1,250 kVA modules
-  - N = 22 modules (22 × 1 MW = 22 MW capacity)
-  - N+1 = 23 modules total
-  - Operating load: ~89% per module (optimal efficiency range of 80-90%)
-- **N+1 Verification:** 22 running modules = 22 MW capacity = full IT load ✓
+- **IT Load:** 24 MW (24,000 kW)
+- **UPS Modules:** 25 × 1,250 kVA modules
+  - N = 24 modules (24 × 1 MW = 24 MW capacity)
+  - N+1 = 25 modules total
+  - Operating load: ~96% per module (N+1 redundancy maintained)
+- **N+1 Verification:** 24 running modules = 24 MW capacity = full IT load ✓
 
 ### 6.3 Path Redundancy Philosophy
 
@@ -276,37 +294,40 @@ House power serves office spaces, NOC (non-IT systems), security control rooms, 
 
 ## 11.0 ELECTRICAL PHASING STRATEGY
 
-Electrical infrastructure designed for 30 MW (Phase 4), with equipment added in phases.
+Electrical infrastructure designed for 38.4 MW facility load (Phase 4), with equipment added in 6MW IT load blocks.
 
 ---
 
 ### 11.1 PHASING SUMMARY TABLE
 
-**Note:** UPS module counts reflect N+1 architecture (N modules to serve IT load + 1 redundant). Path redundancy provided by 13.8 kV self-healing dual-ring MV distribution.
+**Note:** All equipment reflects N+1 architecture per 6MW block. Path redundancy provided by 13.8 kV self-healing dual-ring MV distribution.
 
-| **Phase** | **IT MW** | **Racks (L2C/RDHx)** | **PUE** | **Facility MW** | **Generators (4 MW)** | **LV XFMRs (3.5 MVA)** | **IT UPS Modules (1,250 kVA)** |
-|-----------|-----------|----------------------|---------|-----------------|------------------------|-------------------------|---------------------------|
-| **1** | 3 | 30 (30/0) | 1.45 | ~4.35 | 3 (N+1) | 3 (N+1) | 4 (3+1, N+1) |
-| **2** | 6 | 150 (30/120) | 1.45 | ~8.7 | 4 (N+1) | 4 (N+1) | 7 (6+1, N+1) |
-| **3** | 15 | 285 (105/180) | 1.35 | ~20.25 | 7 (N+1) | 8 (N+1) | 16 (15+1, N+1) |
-| **4** | 22 | 394 (162/232) | 1.35 | ~29.7 | 9 (N+1) | 11 (N+1) | 23 (22+1, N+1) |
+| **Phase** | **IT MW** | **Design PUE** | **Facility MW** | **Generators (3.6 MW)** | **E-Houses** | **LV XFMRs (3.5 MVA)** | **IT UPS Modules (1,250 kVA)** |
+|-----------|-----------|----------------|-----------------|-------------------------|--------------|-------------------------|--------------------------------|
+| **1** | 6 | 1.6 | 9.6 | 4 (N+1) | 4 | TBD | 7 (6+1, N+1) |
+| **2** | 12 | 1.6 | 19.2 | 8 (N+1) | 8 | TBD | 13 (12+1, N+1) |
+| **3** | 18 | 1.6 | 28.8 | 12 (N+1) | 12 | TBD | 19 (18+1, N+1) |
+| **4** | 24 | 1.6 | 38.4 | 16 (N+1) | 16 | TBD | 25 (24+1, N+1) |
+
+**Key Changes:**
+- **Block Structure:** Each phase adds 6MW IT load (one 6MW block)
+- **PUE:** Electrical calculations use 1.6 PUE (accounts for OK heat + 10% overhead). Marketing materials state 1.4 average PUE.
+- **E-Houses:** 4 electrical houses per 6MW block (prefabricated power delivery buildings)
+- **Transformers:** 3.5 MVA sizing requires confirmation for block architecture
 
 ---
 
 ### 11.2 PHASE 4 DATA HALL BREAKDOWN
 
-**Total IT Capacity:** 22 MW across 394 racks in two 10,000 SF data halls
+**Total IT Capacity:** 24 MW across two 10,000 SF data halls
 
-| **Data Hall**   | **Cooling Type**                | **Rack Count** | **Rack Density**  | **IT Load per Hall** | **Cooling Plant**           | **Strategy**                             |
-| --------------- | ------------------------------- | -------------- | ----------------- | -------------------- | --------------------------- | ---------------------------------------- |
-| **DH-W (West)** | L2C (Liquid-to-Chip)            | 162 racks      | 100 kW/rack       | 16.2 MW              | Loop 3 (85°F warm water)    | High-density AI training workloads       |
-| **DH-E (East)** | RDHx (Rear-Door Heat Exchanger) | 232 racks      | 25 kW/rack        | 5.8 MW               | Loops 1+2 (60°F cold water) | Medium-density AI inference / enterprise |
-| **TOTAL**       | -                               | **394 racks**  | Avg: 55.8 kW/rack | **22.0 MW**          | 3 independent loops         | Dual market strategy                     |
+| **Data Hall**   | **Cooling Type**                | **IT Load**    | **Cooling Plant**           | **Strategy**                             |
+| --------------- | ------------------------------- | -------------- | --------------------------- | ---------------------------------------- |
+| **DH-W (West)** | L2C (Liquid-to-Chip)            | High-density   | Loop 3 (85°F warm water)    | High-density AI training workloads       |
+| **DH-E (East)** | RDHx (Rear-Door Heat Exchanger) | Medium-density | Loops 1+2 (60°F cold water) | Medium-density AI inference / enterprise |
+| **TOTAL**       | 3-loop architecture             | **24.0 MW**    | Independent loops           | Dual market strategy                     |
 
-**Key Observations:**
-- DH-W (162 racks) represents 73.6% of IT load despite having only 41% of total rack count - demonstrates high-density advantage
-- DH-E (232 racks) provides 59% of total rack inventory for customer flexibility at lower densities
-- Power density: DH-W = 1,620 W/SF, DH-E = 580 W/SF
+**Note:** Rack counts are client-specific and excluded from basis of design. For estimating purposes only: assume 60 DDC (Direct-to-Chip) racks per 6MW block.
 
 ---
 
@@ -329,7 +350,7 @@ Please see the separate doc for electrical pricing and equipment.
 ---
 
 **Document Control:**
-- **Version:** v4
-- **Date Updated:** 2025-11-05
+- **Version:** v5
+- **Date Updated:** 2025-11-07
 - **Prepared by:** PGCIS Team
-- **Key Updates:**
+- **Key Updates:** Phase restructure to 6MW blocks (6/12/18/24 MW), 16×3.6MW generators, 16 E-Houses, MV switchboards added, PUE 1.6 for sizing

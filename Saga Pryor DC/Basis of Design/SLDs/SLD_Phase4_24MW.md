@@ -1,14 +1,16 @@
 **Created:** 2025-11-05
-**Tags:** #pryor-dc #sld #electrical #phase-4 #22mw #full-buildout
-**Related:** [[Saga Pryor DC/Basis of Design/7BOD - Electrical (CSI Div 26)]], [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/_BOD - Exec Summary and TOC]]
+**Updated:** 2025-11-07
+**Tags:** #pryor-dc #sld #electrical #phase-4 #24mw #full-buildout
+**Related:** [[Saga Pryor DC/Basis of Design/7BOD - Electrical (CSI Div 26)]]
 
-# SINGLE-LINE DIAGRAM - PHASE 4 (22 MW FULL BUILD-OUT)
+# SINGLE-LINE DIAGRAM - PHASE 4 (24 MW FULL BUILD-OUT)
 ## Pryor Data Center - PACHYDERM GLOBAL
 
-**Revision:** 01
-**Date:** 2025-11-05
+**Revision:** 02
+**Date:** 2025-11-07
 **Prepared by:** PGCIS Engineering Team
 **Status:** Design Development
+**Key Updates:** Phase restructure to 6MW blocks, 16×3.6MW generators, 16 E-Houses, MV switchboards
 
 ---
 
@@ -16,16 +18,18 @@
 ## SYSTEM OVERVIEW
 
 **Phase 4 Configuration (Full Build-Out):**
-- **IT Capacity:** 22,000 kW (394 cabinets: 162 L2C @ 100 kW + 232 RDHx @ 25 kW)
+- **IT Capacity:** 24,000 kW (4 blocks × 6MW IT)
 - **Data Halls:** DH-E and DH-W fully operational (10,000 SF each)
-- **Topology:** Dual-ring 13.8 kV MV distribution with N+1 redundancy
-- **Target PUE:** 1.35
+- **Topology:** Dual-ring 13.8 kV MV distribution with N+1 redundancy per 6MW block
+- **Design PUE:** 1.6 (electrical sizing), 1.4 average (marketing)
 - **Redundancy:** Tier III - N+1 component redundancy with dual-path distribution
-- **Total Facility Load:** ~29.7 MW
+- **Total Facility Load:** ~38.4 MW
 
 ---
 
 ## SINGLE-LINE DIAGRAM
+
+**Note:** Diagram below reflects previous 22MW configuration. Full update to 24MW/16-generator configuration in progress.
 
 ```mermaid
 graph TB
@@ -188,11 +192,11 @@ graph TB
 
 ### Generators (Phase 4)
 
-| Equipment             | Quantity | Rating           | Fuel                  | Runtime   | Notes                         |
-| --------------------- | -------- | ---------------- | --------------------- | --------- | ----------------------------- |
-| **Diesel Generators** | 9        | 4.0 MW @ 13.8 kV | Diesel (Tier 4 Final) | 24+ hours | N+1: 8 units carry 30 MW load |
-| **N+1 Capacity**      | -        | 32.0 MW          | -                     | -         | 8 running generators          |
-| **House Generators**  | 2        | 300 kW @ 480V    | Natural Gas           | 72+ hours | N+1 for non-critical loads    |
+| Equipment             | Quantity | Rating           | Fuel                  | Runtime   | Notes                             |
+| --------------------- | -------- | ---------------- | --------------------- | --------- | --------------------------------- |
+| **Diesel Generators** | 16       | 3.6 MW @ 13.8 kV | Diesel (Tier 4 Final) | 24+ hours | 4 per 6MW block (3+1 N+1 per block) |
+| **N+1 Capacity**      | -        | 43.2 MW          | -                     | -         | 12 running generators             |
+| **House Generators**  | 2        | 300 kW @ 480V    | Natural Gas           | 72+ hours | N+1 for non-critical loads        |
 
 ### Renewable Energy Integration
 
@@ -203,83 +207,79 @@ graph TB
 
 ### Step-Down Transformers (Phase 4)
 
-| Equipment | Quantity | Rating | Voltage | Type | Distribution |
-|-----------|----------|--------|---------|------|--------------|
-| **MV/LV Transformers (Bank A)** | 6 | 3,500 kVA | 13.8 kV/480V | Oil-filled, ONAN | TX-A1 through TX-A6 |
-| **MV/LV Transformers (Bank B)** | 5 | 3,500 kVA | 13.8 kV/480V | Oil-filled, ONAN | TX-B1 through TX-B5 |
-| **Total Transformers** | 11 | 38.5 MVA total | - | - | N+1: 10 units = 35 MVA capacity |
+| Equipment | Quantity | Rating | Voltage | Type | Notes |
+|-----------|----------|--------|---------|------|-------|
+| **MV/LV Transformers** | TBD | 3,500 kVA | 13.8 kV/480V | Oil-filled, ONAN | N+1 per block, **SIZE CONFIRMATION NEEDED** |
 | **House Transformer** | 1 | 400 kVA | 13.8 kV/480V | Dry-type | Non-critical loads only |
 
 ### UPS Systems (Phase 4)
 
 | System | Modules | Module Rating | Total Capacity | Battery | Runtime | Function |
 |--------|---------|---------------|----------------|---------|---------|----------|
-| **IT UPS** | 23 | 1,250 kVA | 28.75 MVA (23 MW) | Li-ion | 5 min | IT loads (N+1: 22+1) |
-| **Mechanical UPS** | 22 | 250 kW | 5.5 MW | Li-ion/VRLA | 30-60 sec | HVAC loads (N+1: 21+1) |
+| **IT UPS** | 25 | 1,250 kVA | 31.25 MVA (25 MW) | Li-ion | 5 min | IT loads (N+1: 24+1) |
+| **Mechanical UPS** | TBD | 250 kW | TBD | Li-ion/VRLA | 30-60 sec | HVAC loads (N+1 config) |
 
 ### Distribution & Loads
 
 | Equipment | Quantity | Rating | Notes |
 |-----------|----------|--------|-------|
-| **LV Switchboards** | 2 | 480V, 4000A | SWBD-A (fed from Ring A), SWBD-B (fed from Ring B) |
-| **IT Distribution Panels** | 2 | 800A | Dual-fed from UPS system A/B paths |
-| **Mechanical Dist Panels (Loops 1+2)** | 2 | 800A | Dual-fed A/B for RDHx cooling |
-| **Mechanical Dist Panels (Loop 3)** | 2 | 1,200A | Dual-fed A/B for L2C cooling |
-| **Cabinet PDUs** | 788 | Variable | Dual PDUs per cabinet (2 per rack) |
-| **Total Racks** | 394 | - | 162 L2C @ 100 kW + 232 RDHx @ 25 kW |
+| **LV Switchboards** | TBD | 480V, 4000A | Per E-House (16 total E-Houses at Phase 4) |
+| **IT Distribution Panels** | TBD | Variable | Dual-fed from UPS system A/B paths |
+| **Mechanical Dist Panels** | TBD | Variable | Dual-fed A/B for cooling systems |
+| **Cabinet PDUs** | TBD | Variable | Dual PDUs per cabinet (A/B redundancy) |
+| **Rack Count** | ~240 | - | For pricing: 60 DDC racks/block @ $50k each |
 
 ---
 
 ## LOAD CALCULATIONS
 
+**Note:** Load calculations reflect updated 24MW IT configuration with 1.6 PUE electrical sizing.
+
 ### IT Load (Critical)
 ```
-L2C Racks:         162 × 100 kW  = 16,200 kW
-RDHx Racks:        232 × 25 kW   =  5,800 kW
-                                  ─────────
-Subtotal IT Load:                  22,000 kW
+IT Load (4 blocks × 6MW):          24,000 kW
 
-UPS Losses (8%):                    1,760 kW
-Transformer Losses:                   440 kW
-Distribution Losses:                  200 kW
+UPS Losses (8%):                    1,920 kW
+Transformer Losses:                   480 kW
+Distribution Losses:                  240 kW
                                   ─────────
-Total IT Load Path:                24,400 kW
+Total IT Load Path:                26,640 kW
 ```
 
 ### Mechanical Load (Critical)
 ```
-Loop 3 Chillers (L2C):  8 × 250 kW  =  2,000 kW  (compressor power)
-Loop 1+2 Chillers (RDHx): 6 × 200 kW = 1,200 kW  (compressor power)
-Chiller Pumps:          14 × 30 kW  =    420 kW
-CDU Pumps (L2C):         8 × 15 kW  =    120 kW
-Cabinet FCU Fans:     394 × 1.5 kW  =    591 kW
-Building HVAC:                          300 kW
-Mechanical UPS Loss:                    180 kW
-Other (controls, etc.):                 100 kW
-                                   ──────────
-Total Mechanical Load:                4,911 kW
+Chillers (12-16 units):          ~7,000 kW  (compressor power estimate)
+Chiller Pumps:                    ~600 kW
+Building HVAC:                     400 kW
+Mechanical UPS Loss:               200 kW
+Controls & Other:                  200 kW
+                                 ────────
+Total Mechanical Load:           ~8,400 kW
 ```
 
 ### Building/Support Load (Non-Critical)
 ```
-Lighting:                             120 kW
-Office HVAC:                          180 kW
-NOC/SCR:                               80 kW
-Elevators/Misc:                       120 kW
-                                   ──────────
-Total Building Load:                  500 kW
+Lighting:                          150 kW
+Office HVAC:                       200 kW
+NOC/SCR:                           100 kW
+Elevators/Misc:                    150 kW
+                                  ───────
+Total Building Load:               600 kW
 ```
 
 ### Total Facility Load (Phase 4)
 ```
-IT Load Path:                      24,400 kW
-Mechanical Load:                    4,800 kW
-Building Load (on house power):       500 kW
-                                  ─────────
-Design Load (Phase 4):             29,700 kW (29.7 MW)
+IT Load Path:                   26,640 kW
+Mechanical Load:                 8,400 kW
+Building Load:                     600 kW
+                               ─────────
+Design Load (Phase 4):          35,640 kW (~36 MW)
 
-PUE Calculation: 29,700 / 22,000 = 1.35
+Design PUE: 36.0 / 24.0 = 1.5
+(Conservative estimate - actual @ 38.4 MW with detailed calc)
 ```
+
+**Note:** Full mechanical load calculations in HVAC BOD. Estimated ~38.4 MW total facility load @ 1.6 PUE.
 
 ---
 
@@ -288,21 +288,21 @@ PUE Calculation: 29,700 / 22,000 = 1.35
 ### Generator Capacity Check (N+1)
 
 **Installed Capacity:**
-- 9 × 4.0 MW = **36.0 MW total**
+- 16 × 3.6 MW = **57.6 MW total**
 
-**N+1 Capacity (any 8 generators):**
-- 8 × 4.0 MW = **32.0 MW available**
+**N+1 Capacity (12 running generators, 4 blocks):**
+- 12 × 3.6 MW = **43.2 MW available**
 
 **Design Load:**
-- Phase 4 facility load = **29.7 MW**
+- Phase 4 facility load = **~38.4 MW**
 
 **Margin Check:**
 ```
-Utilization: 29.7 MW / 32.0 MW = 93%
-Margin:      32.0 MW / 29.7 MW = 1.08× (108%)
+Utilization: 38.4 MW / 43.2 MW = 89%
+Margin:      43.2 MW / 38.4 MW = 1.13× (113%)
 ```
 
-✅ **PASS** - Generator N+1 capacity exceeds design load with 8% margin
+✅ **PASS** - Generator N+1 capacity exceeds design load with 13% margin
 
 ---
 
@@ -330,18 +330,18 @@ Margin:      35.0 MVA / 33.0 MVA = 1.06× (106%)
 ### IT UPS Capacity Check (N+1)
 
 **Installed Capacity:**
-- 23 × 1,250 kVA = **28.75 MVA total** (23,000 kW @ 0.8 PF)
+- 25 × 1,250 kVA = **31.25 MVA total** (25,000 kW @ 0.8 PF)
 
-**N+1 Capacity (22 modules running):**
-- 22 × 1,250 kVA = **27.5 MVA available** (22,000 kW)
+**N+1 Capacity (24 modules running):**
+- 24 × 1,250 kVA = **30.0 MVA available** (24,000 kW)
 
 **IT Load:**
-- 22,000 kW / 0.9 PF = **24,444 kVA**
+- 24,000 kW / 0.9 PF = **26,667 kVA**
 
 **Margin Check:**
 ```
-Utilization: 24,444 kVA / 27,500 kVA = 89%
-Margin:      27,500 kVA / 24,444 kVA = 1.13× (113%)
+Utilization: 26,667 kVA / 30,000 kVA = 89%
+Margin:      30,000 kVA / 26,667 kVA = 1.13× (113%)
 ```
 
 ✅ **PASS** - IT UPS N+1 capacity exceeds IT load with 13% margin
