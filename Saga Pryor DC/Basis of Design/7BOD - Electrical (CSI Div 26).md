@@ -366,7 +366,7 @@ This estimate uses industry-confirmed benchmarks for Tier III data center electr
 
 ---
 
-#### Category 3: Generator System (13.8 kV) ⚠️ COST CORRECTED
+#### Category 3: Generator System (13.8 kV)
 
 **Equipment Included:**
 - Diesel generators @ 13.8 kV (3.6 MW continuous rating each)
@@ -376,14 +376,9 @@ This estimate uses industry-confirmed benchmarks for Tier III data center electr
 - Exhaust systems and sound attenuation
 - EPA Tier 4 Final emissions controls
 
-**Industry Range (CORRECTED):** **$600-800/kW** (nameplate generator capacity)
-- Base multi-MW diesel generator: $700/kW
-- Medium voltage premium (480V → 13.8 kV): +$50/kW
-- **Total for 13.8 kV MV generators: $750/kW typical**
+**Industry Range:** **$600-900/kW** (nameplate generator capacity)
+- **Estimate for 13.8 kV MV generators: $750/kW typical**
 
-**Sources:**
-- Penn State Extension: Multi-MW diesel generators at $700/kW capital cost (2024)
-- Consulting-Specifying Engineer: MV upgrade adds $50/kW for 13.8 kV alternator (2024)
 
 **Calculation by Phase (N+1 per 6MW block):**
 
@@ -397,6 +392,8 @@ This estimate uses industry-confirmed benchmarks for Tier III data center electr
 **Phasing:** 4 generators per 6MW block added incrementally
 
 **Note:** Previous estimate of $150-250/kW was for 480V low-voltage generators. 13.8 kV medium voltage generators require specialized alternators and cost significantly more. This is the single largest cost correction in the revised estimate.
+<!-- Why would I generate at 13.8 kV and then step down to 480V right away? -->
+
 
 ---
 
