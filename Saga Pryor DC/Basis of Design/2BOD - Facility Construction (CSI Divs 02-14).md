@@ -402,12 +402,6 @@ Not in base building scope (owner-furnished)
 **Cost Metrics:**
 - **Hard costs only:** $325/SF (38,000 SF)
 - **With A&E:** $348/SF (38,000 SF)
-- **Scope:** Excludes all data hall MEP systems (covered in CSI Divisions 23, 26, 27, 28)
-
-**Position vs Industry Benchmarks:**
-- $325/SF = **premium tornado-hardened range** (top of $200-300/SF, entering $300-350/SF tier)
-- Appropriate for EF4/EF5-rated construction with 30-ft ceilings, multi-level spine, and elevator
-- Includes premium features: security mantrap, storm shelter, enhanced finishes
 
 ---
 

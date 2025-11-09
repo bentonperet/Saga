@@ -12,7 +12,7 @@
 
 This document defines the phased mechanical cooling strategy for a 24 MW IT (~38.4 MW facility) data center deployed in 6MW blocks. The design is optimized for AI/ML workloads and supports both liquid cooling and traditional air-cooled solutions.
 
-The facility supports advanced cooling technologies including a 3-loop architecture with warm-water L2C (Liquid-to-Chip) and cold-water RDHx (Rear-Door Heat Exchanger) capabilities. **Note:** Specific cooling deployment is client-dependent and excluded from this basis of design.
+The facility supports advanced cooling technologies including a 3-loop architecture with warm-water L2C (Liquid-to-Chip) and cold-water DDC Cabinet or RDHx (Rear-Door Heat Exchanger) capabilities. **Note:** Specific cooling deployment is client-dependent and excluded from this basis of design.
 
 **Design Philosophy:**
 - **Block Deployment:** Cooling infrastructure sized per 6MW IT block (~7MW cooling load per block @ 1.6 PUE)
@@ -147,33 +147,27 @@ This section defines the complete chilled water infrastructure for all three coo
 
 **Loop 3 (L2C - 85°F Warm Water):**
 - **Route:** From chillers → mechanical gallery → data hall overhead distribution → CDU connections
-- **Pipe Size:** 6" - 12" steel pipe (sized per flow requirements, final sizing in detailed design)
-- **Material:** Schedule 40 carbon steel with welded joints (preferred) or grooved fittings
-- **Insulation:** 2" closed-cell elastomeric insulation with vapor barrier (prevent condensation)
+- **Pipe Sizing:** Piping shall be sized to maintain industry-standard flow velocities (4-8 fps) and minimize pressure drop
+- **Material:** Primary loop piping shall be welded carbon steel. Grooved fittings may be used where appropriate for maintainability
+- **Insulation:** All chilled water piping shall be insulated to prevent condensation and meet or exceed energy code requirements
 - **Isolation:** Ball valves at each major equipment connection for concurrent maintainability
-- **Hangers/Supports:** Engineered hangers designed for seismic loads per IBC 2021
+- **Supports:** Piping and equipment supports shall be designed and braced for seismic loads per local code
 - **Expansion Compensation:** Expansion loops or flexible connectors at appropriate intervals
 
 **Loops 1+2 (RDHx - 60°F Cold Water):**
 - **Route:** From chillers → mechanical gallery → data hall overhead distribution → RDHx connections
-- **Pipe Size:** 4" - 8" steel pipe (sized per flow requirements)
 - **Material & Details:** Same specifications as Loop 3
 
 ### Secondary Loop Piping (L2C Only)
 
 **CDU to Rack Cold Plates:**
 - **Fluid:** Dielectric fluid or facility-safe coolant (specified by CDU manufacturer)
-- **Route:** From CDU heat exchanger → overhead manifolds → quick-disconnect drops to rack cold plates
-- **Pipe Size:** 1" - 2" (per CDU manufacturer specifications)
-- **Material:** Stainless steel or approved dielectric-compatible tubing
-- **Pressure Rating:** Designed for 150+ psi operating pressure
+- **Material:** Stainless steel or approved dielectric-compatible tubing per CDU vendor requirements
 - **Leak Detection:** Integrated at all connections (see Leak Detection section)
 
 ### Overhead Manifolds & Quick-Disconnects
 
-**Data Hall Distribution Manifolds:**
-- **L2C Manifolds (DH-W):** Overhead pipe manifolds with 162 quick-disconnect drop points (one per L2C rack)
-- **RDHx Manifolds (DH-E):** Overhead pipe manifolds with 232 quick-disconnect drop points (one per RDHx rack)
+**Data Hall Distribution Manifolds:** Including L2C, DDC, or RDHx as per client need
 - **Quick-Disconnects:** Dry-break couplings with automatic shutoff on both sides (prevent spillage during rack maintenance)
 - **Labeling:** All connections clearly labeled with zone and rack identification
 - **Accessibility:** Maintained clearances for overhead access (coordinate with cable tray routing)
@@ -210,69 +204,26 @@ This section defines the complete chilled water infrastructure for all three coo
 **Concentration:**
 - **Target:** 25-30% glycol by volume
 
-**System Volumes:**
-- **Loop 3 (L2C):** ~15,000 gallons total (includes piping, CDUs, expansion tanks)
-- **Loops 1+2 (RDHx):** ~5,000 gallons total (includes piping, RDHx units, expansion tanks)
-- **Total glycol required:** ~6,000 gallons propylene glycol (30% of 20,000 gal total system volume)
-
 ### Glycol Storage & Fill Systems
 
 **Bulk Glycol Storage:**
-- **Phase 1:** 1,500 gallons propylene glycol (for Loops 1+2 initial fill)
-- **Phase 2:** 4,500 gallons additional (for Loop 3)
-- **Delivery:** 55-gallon drums or 275-gallon totes (bulk tanker truck if available)
 - **Storage Location:** Outdoor chemical storage shed with secondary containment per EPA SPCC requirements
 - **Safety:** SDS (Safety Data Sheets) on-site, spill kit and containment equipment
 
-**Glycol Mix Tanks (3 Total):**
-- **Capacity:** 500-gallon mixing tanks (one per loop: Loop 1, Loop 2, Loop 3)
-- **Purpose:** Pre-mix glycol to proper concentration before filling system
-- **Equipment:** Mixing pumps, level indicators, sample ports for testing
+**Glycol Mix & Fill Systems:**
+- The design shall include dedicated, isolated glycol mixing, storage, and fill systems for each primary loop (L2C and RDHx)
+- Each system shall be equipped with makeup water, a mix tank, and a distribution pump
 - **Location:** Near respective chiller plants in mechanical yard
-
-**Fill Stations (3 Total):**
-- **Location:** One fill station per loop, adjacent to each chiller plant
-- **Equipment:**
-  - Hose connection points with isolation valves
-  - Drain connections for maintenance
-  - Portable transfer pump (200-300 GPM for initial fill)
-  - Totalizing flow meters (track makeup volume over time)
-- **Venting:** Manual high-point air vents for purging during initial fill
-
-### Initial Fill Procedure
-
-1. **Pre-Fill Preparation:**
-   - Flush systems with deionized or softened water (no raw municipal water)
-   - Pressure test systems per ASME standards
-   - Verify all isolation valves, connections, and accessories
-
-2. **Glycol Mixing:**
-   - Mix propylene glycol to 25-30% concentration in mixing tanks
-   - Test concentration with refractometer
-   - Add corrosion inhibitors and pH buffers per treatment program
-
-3. **System Fill:**
-   - Pump glycol mixture into system via fill stations
-   - Purge air via high-point manual vents and automatic air separators
-   - Circulate fluid for 24-48 hours
-   - Retest concentration and pH
-   - Top off as needed via fill stations
 
 ### Makeup Water System
 
 **Makeup Water Source:**
-- Division 22 (Plumbing) shall provide 3/4" domestic water stub connections (with isolation valve + union) at three locations (one per glycol mix tank)
+- Division 22 (Plumbing) shall provide domestic water stub connections (with isolation valve + union) at three locations (one per glycol mix tank)
 - Division 23 (HVAC) shall connect makeup water from these stubs to glycol mix tanks
 
 **Annual Makeup Requirements:**
-- **Target:** <1% of system volume per year (~200 gallons/year)
-- **Typical Use:** Leak replacement, expansion tank overflow, sampling losses
+- **Target:** <1% of system volume per year
 - **Alarm Threshold:** If makeup exceeds 2% of system volume, investigate for leaks
-
-**Totalizing Flow Meters:**
-- Install at each makeup water connection
-- Track cumulative makeup volume
-- Integrate with BMS for alarm if threshold exceeded
 
 ### Chemical Water Treatment
 
@@ -281,11 +232,6 @@ This section defines the complete chilled water infrastructure for all three coo
 - **Biological Inhibitors:** Prevent algae/bacteria growth in closed-loop systems
 - **pH Buffers:** Maintain pH 7.5-8.5 for corrosion control
 - **Supplier:** [TBD - e.g., Nalco, ChemTreat, Kurita] - specify in detailed design
-
-**Chemical Dosing:**
-- Manual dosing via chemical dosing pots (CDPs) - one per loop
-- Sized per loop volume and treatment program requirements
-- Chemical replenishment per testing schedule
 
 **Water Quality Monitoring:**
 - **Quarterly Testing:** pH, conductivity, inhibitor concentration, glycol concentration
@@ -302,9 +248,7 @@ Critical system for protecting IT equipment from water/glycol damage. All chille
 
 **Data Hall Coverage:**
 - Under all overhead chilled water piping (Loops 1, 2, 3)
-- At all CDU manifold connections (162 locations in DH-W)
-- At all RDHx manifold connections (232 locations in DH-E)
-- Under CDU equipment locations (if CDUs located in mechanical galleries adjacent to data halls)
+- Under all CDU / RDHx manifold connections
 
 **Mechanical Yard/Gallery Coverage:**
 - Under chiller connections and headers
@@ -317,37 +261,18 @@ Critical system for protecting IT equipment from water/glycol damage. All chille
 **Sensing Cable:**
 - **Type:** Conductive fluid detection cable (continuous sensing)
 - **Detection:** Water, glycol, or other conductive fluids
-- **Length:** [ROM] 2,000-3,000 ft total (data halls + mechanical areas)
-- **Routing:** Mounted in cable tray or direct attachment under all piping
+- **Routing:** Linear sensing cable shall be provided under all overhead primary loop distribution piping in the data halls
 
 **Spot Detectors:**
 - **Type:** Discrete leak detectors at high-risk points
-- **Locations:**
-  - Under each CDU (162 detectors at Phase 4)
-  - At each quick-disconnect fitting (394 total: 162 L2C + 232 RDHx)
-  - At chiller drain pans
+- **Locations:** Spot detectors shall be provided at all high-risk connection points, including CDUs, RDHx units, and quick-disconnects
 - **Response Time:** <1 second alarm notification
 
 **Control Panels:**
-- **Quantity:** 2 × leak detection control panels (N+1 redundancy)
-- **Integration:** BACnet/IP integration to BMS
+- Leak detection control panels shall be N+1 redundant and integrate with the facility BMS
 - **Alarms:** Local audible/visual alarms + BMS notification
 - **Zoning:** System shall identify leak location to within 10-ft zone
 
-### Alarm Response & Integration
-
-**Automatic Actions (via BMS):**
-1. Visual + audible alarm in NOC
-2. Email/SMS notification to on-call maintenance engineer
-3. DCIM integration (log event with timestamp and location)
-4. Optional automatic actions: Close isolation valves if leak zone can be safely isolated
-
-**Manual Response Protocol:**
-1. Maintenance team dispatched within 15 minutes
-2. Locate leak via zone indication on control panel
-3. Isolate affected loop/equipment if possible (concurrent maintainability design)
-4. Repair leak, pressure test, refill system, verify water quality
-5. Document incident in maintenance logs
 
 ---
 
@@ -377,7 +302,7 @@ Critical system for protecting IT equipment from water/glycol damage. All chille
 
 **Glycol & Water Treatment Systems:**
 - Glycol storage (3 × 500-gallon mixing tanks)
-- Bulk propylene glycol procurement (~6,000 gallons total)
+- Bulk propylene glycol procurement
 - Fill pumps and fill stations (3 locations, one per loop)
 - Chemical storage shed with secondary containment
 - Expansion tanks (3 total, one per loop)
