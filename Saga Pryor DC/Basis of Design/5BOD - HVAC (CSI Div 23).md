@@ -10,7 +10,7 @@
 
 ## OVERVIEW
 
-This document defines the phased mechanical cooling strategy for a 24 MW IT (38.4 MW facility) data center deployed in 6MW blocks. The design is optimized for AI/ML workloads and supports both liquid cooling and traditional air-cooled solutions.
+This document defines the phased mechanical cooling strategy for a 24 MW IT (~38.4 MW facility) data center deployed in 6MW blocks. The design is optimized for AI/ML workloads and supports both liquid cooling and traditional air-cooled solutions.
 
 The facility supports advanced cooling technologies including a 3-loop architecture with warm-water L2C (Liquid-to-Chip) and cold-water RDHx (Rear-Door Heat Exchanger) capabilities. **Note:** Specific cooling deployment is client-dependent and excluded from this basis of design.
 

@@ -16,7 +16,7 @@
 - **Construction:** Precast concrete tilt-up walls (tornado resistance)
 - **Roof:** FM 1-150 rating (150 mph 3-second gust, hail resistance)
 - **Floor:** Slab-on-grade (raised floor: Not Applicable), sealed concrete
-- **Ceiling height:** 30 ft clear in data halls (overhead MEP distribution)
+- **Ceiling height:** ~30 ft clear in data halls (overhead MEP distribution)
 - **Containment:** Not Applicable (DDC cabinets provide integrated cooling)
 - **Storm shelter:** FEMA 361 compliant (EF5 protection)
 
@@ -35,9 +35,9 @@
 
 ### Foundation System
 - **Type:** Spread footings below frost line (18-24")
-- **Bearing:** TBD per geotech report
-- **Data hall slab:** 6-8" reinforced concrete, 4,000 PSI, FF 50 / FL 40 flatness, densifier/sealer finish
-- **AI rack floor load:** 750 PSF sustained (supports 3,500 lb racks like NVIDIA GB200 NVL72)
+- **Bearing:** per geotech report
+- **Data hall slab:** Reinforced concrete, 4,000 PSI, FF 50 / FL 40 flatness, densifier/sealer finish
+- **AI rack floor load:** At least 750 PSF sustained (supports 3,500 lb racks like NVIDIA GB200 NVL72)
 
 ### Equipment Pad Foundations
 - **Chillers, generators:** Individual isolated pads; vibration isolation if required
@@ -290,7 +290,6 @@ Not in base building scope (owner-furnished)
 ### Data Halls (20,000 SF - Orange Zone CP 4)
 - **Data Hall West (DH-W):** 10,000 SF (Phase 1 operational) - Orange Zone CP 4
 - **Data Hall East (DH-E):** 10,000 SF (powered shell, future fit-out) - Orange Zone CP 4
-- **Ceiling height:** 30 ft clear
 - **Layout:** Overhead power/cooling distribution (containment: Not Applicable - DDC cabinets)
 - **Access:** 4 secure doors per hall accessible from perimeter corridor (card + biometric MFA required)
 
@@ -318,14 +317,11 @@ Not in base building scope (owner-furnished)
 **Level 1 (Ground - Yellow Zone):**
 - Prefabricated storm shelter (20 person, FEMA 361 compliant)
 - Elevator/stairwell, restrooms, showers, break room, lounge
-
 **Level 2 (Secure NOC - Red Zone):**
 - Network Operations Center (~2,060 SF) with 24/7 operations
-
-**Level 3 (Fitness/Tour Route - Yellow Zone):**
+**Level 3 (Tour Route - Yellow Zone):**
 - Gym/fitness center, secure tour route with internal windows into critical areas
 - Weather-protected balconies (north/south) for equipment yard viewing
-
 **Roof Level:**
 - Elevator/stairwell access with weather-protected door
 - Storm-rated SS debris screen, protected roof equipment
@@ -360,20 +356,19 @@ Not in base building scope (owner-furnished)
 
 ### Direct Construction Costs
 
-| System | Cost Estimate | Confidence | Notes |
-|--------|---------------|------------|-------|
-| **Foundation & Slab** | $2,280,000 | ±25% | 38,000 SF @ $60/SF; upgraded for 750 PSF AI rack loads, FF 50/FL 40 |
-| **Precast Tilt-Up Walls** | $4,200,000 | ±25% | ~50,000 SF @ $84/SF; 8-10" insulated panels, tornado-rated construction |
-| **Structural Steel Roof Frame** | $2,660,000 | ±23% | Enhanced clear-span joists/beams for 30 ft clear + FM 1-150 loads |
-| **FM 1-150 Roof + Debris Protection** | $2,400,000 | ±25% | 50,000 SF @ $48/SF; TPO membrane, insulation, debris screen, enhanced fastening |
-| **Multi-Level Central Spine Structure** | $3,500,000 | ±27% | 3-level structure (NOC level 2, fitness level 3, roof access), stairs, steel framing |
-| **Elevator (4-stop with roof access)** | $600,000 | ±20% | Heavy-duty traction, 3,500 lb capacity, 4 stops including roof, weather protection |
-| **Doors, Windows, Glazing** | $1,200,000 | ±30% | Security mantrap, 4 large equipment doors per hall (10'H × 8'W), standard doors, glazing |
-| **Interior Finishes (Enhanced)** | $3,000,000 | ±27% | Data halls, offices, NOC, fitness area, break rooms, restrooms, sealed concrete, drywall, paint, acoustic ceilings |
-| **Building HVAC (Office/Support)** | $1,500,000 | ±30% | Rooftop units for offices, NOC, support spaces (separate from data hall HVAC in Div 23) |
-| **Plumbing (Domestic/Sanitary)** | $650,000 | ±27% | Restrooms, break rooms, showers, domestic water, sanitary drainage (data hall cooling in Div 23) |
-| **FEMA 361 Storm Shelter** | $150,000 | ±25% | Prefab module, 20-person capacity, EF5-rated, HVAC, emergency lighting |
-| **Subtotal (Direct Costs)** | **$22,140,000** | **±27%** | |
+| System                                  | Cost Estimate            | Confidence | Notes                                                                                                              |
+| --------------------------------------- | ------------------------ | ---------- | ------------------------------------------------------------------------------------------------------------------ |
+| **Foundation & Slab**                   | $2,280,000               | ±25%       | 38,000 SF @ $60/SF; upgraded for 750 PSF AI rack loads, FF 50/FL 40                                                |
+| **Precast Tilt-Up Walls**               | $4,200,000               | ±25%       | ~30,000 SF @ $84/SF; 8-10" insulated panels, tornado-rated construction                                            |
+| **Structural Steel Roof Frame**         | $2,660,000               | ±23%       | Enhanced clear-span joists/beams for 30 ft clear + FM 1-150 loads                                                  |
+| **FM 1-150 Roof + Debris Protection**   | $2,400,000               | ±25%       | 38,000 SF @ $48/SF; TPO membrane, insulation, debris screen, enhanced fastening                                    |
+| **Multi-Level Central Spine Structure** | $3,500,000               | ±27%       | 3-level structure (NOC level 2, fitness level 3, roof access), stairs, steel framing                               |
+| **Elevator (4-stop with roof access)**  | $600,000                 | ±20%       | Heavy-duty traction, 3,500 lb capacity, 4 stops including roof, weather protection                                 |
+| **Doors, Windows, Glazing**             | $1,200,000               | ±30%       | Security mantrap, 4 large equipment doors per hall (10'H × 8'W), standard doors, glazing                           |
+| **Interior Finishes (Enhanced)**        | $3,000,000               | ±27%       | Data halls, offices, NOC, fitness area, break rooms, restrooms, sealed concrete, drywall, paint, acoustic ceilings |
+| **Building HVAC (Office/Support)**      | $1,500,000               | ±30%       | Rooftop units for offices, NOC, support spaces (separate from data hall HVAC in Div 23)                            |
+| **FEMA 361 Storm Shelter**              | $150,000                 | ±25%       | Prefab module, 20-person capacity, EF5-rated, HVAC, emergency lighting                                             |
+| **Subtotal (Direct Costs)**             | **$22,140,000**<br>WRONG | **±27%**   |                                                                                                                    |
 
 ### Professional Services
 
@@ -383,12 +378,25 @@ Not in base building scope (owner-furnished)
 | **Subtotal** | **$23,690,000** | **±27%** | |
 | **TOTAL BUILDING CONSTRUCTION** | **$23,690,000** | **±27%** | **Shell + core + interior fit-out (excludes MEP data hall systems in other divisions)** |
 
-**Cost per SF:** $623/SF (38,000 SF building)
-**Cost per kW (IT Load):** $1,077/kW (22 MW)
+**Cost per SF:** $623/SF (38,000 SF building) <!-- Let's keep this as the estimating factor. $14.4M-->
+**Cost per kW (IT Load):** $1,200/kW (12 MW) <!-- Let's keep this as the estimating factor. -->
+
 **Industry Benchmark:** $900-$1,400/kW for AI-ready, tornado-hardened facilities
 
-**Note on Cost Increase:**
-Previous estimate of $314/SF was significantly below market for tornado-hardened construction with multi-level spine and comprehensive interior fit-out. Industry standards for comparable facilities range $550-$700/SF in non-coastal markets.
+**Sources & Confidence:**
+- **Base data center construction:** $700-$1,000/kW (Uptime Institute 2024 Cost Survey, Tier III facilities)¹
+- **Tornado hardening premium:** +15-25% ($105-250/kW) for FM 1-150 roof, precast tilt-up vs. PEMB (Turner Construction Cost Index 2024, Zone 4 severe weather regions)²
+- **AI-ready infrastructure premium:** +10-20% ($70-200/kW) for enhanced structural loads (750 PSF floor), liquid cooling infrastructure, higher power density distribution (Data Center Dynamics 2024 AI Infrastructure Report)
+- **Confidence level:** ±30% (conceptual estimate phase, no vendor quotes)
+
+**Position Analysis:**
+- Pryor facility: $1,200/kW = mid-range for tornado-hardened, AI-ready construction
+
+**Limitations:**
+- Per kW is drastically different depending on number of blocks deployed. Estimates with 12MW block is a reasonable assumption, and anything beyond 12MW would reduce the facility cost per kW.
+- Tornado hardening costs vary significantly by region and insurance requirements
+- AI-ready costs depend heavily on cooling strategy (air vs. liquid vs. hybrid)
+
 
 ---
 
@@ -406,7 +414,6 @@ Previous estimate of $314/SF was significantly below market for tornado-hardened
 
 ---
 
-**Tags:** #facility #construction #precast-tilt-up #fm-1-150 #tornado #storm-shelter 
 
 **Next Steps:**
 1. Coordinate with Insurance to confirm savings on walls, roof and safe room

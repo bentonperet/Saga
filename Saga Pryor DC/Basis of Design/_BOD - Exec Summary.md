@@ -13,11 +13,11 @@
 
 
 ### **FACILITY OVERVIEW**
-- **IT Capacity:** 4-phase buildout, up to 24 MW ultimate capacity
+- **IT Capacity:** Minimum 2-phase and up to 4-phase buildouts available, with up to 24 MW ultimate capacity
 - **Total Compound:** 140,000 SF (Two 10,000 SF data halls + 18,000 SF support spaces)
   - **Covered Building:** 38,000 SF
   - **Equipment Yard:** 102,000 SF
-- **Power Density:** Scalable by 6MW block increments. A 12, 18, or 24 MW deployment all possible depending on client specifications.
+- **Power Density:** Scalable by 6MW blocks. A 12, 18, or 24 MW deployment all possible depending on client specifications.
 - **Rack Capacity:** Client-specific deployment (Medium and high density supported, depending on client demand)
 - **Availability:** Tier III (N+1 component redundancy per 6MW block, MV dual-ring path redundancy, concurrent maintainability)
 - **Target PUE:** 1.3 - 1.4 average
@@ -28,19 +28,6 @@
   - Customer-owned 161 kV substation with 13.8 kV distribution
   - Block-based deployment (6MW IT blocks) with 4 E-Houses per block
   - L2C liquid cooling capable from day 1 (85°F warm water)
-
-**Phasing Summary:**
-
-| Phase | IT Load | Design PUE | Facility Load | Generators (3.6 MW) | Chillers (X MW) |
-| ----- | ------- | ---------- | ------------- | ------------------- | --------------- |
-| **1** | 6 MW    | 1.6        | 9.6 MW        | 4 (N+1)             | x               |
-| **2** | 12 MW   | 1.6        | 19.2 MW       | 8 (N+1)             | x               |
-| **3** | 18 MW   | 1.6        | 28.8 MW       | 12 (N+1)            | x               |
-| **4** | 24 MW   | 1.6        | 38.4 MW       | 16 (N+1)            | x               |
-
-**Notes:**
-- PUE 1.6 for electrical sizing (Oklahoma heat + 10% overhead).
-- Rack counts are client-specific. For estimating: 60 DDC racks per 6MW block @ $50k each. 
 
 ---
 
@@ -70,29 +57,27 @@
 
 **Electrical Equipment Phasing:**
 
-| Equipment Type | Phase 1 | Phase 2 | Phase 3 | Phase 4 | Sizing Notes |
-|----------------|---------|---------|---------|---------|--------------|
-| **Generators (4.0 MW ea)** | 3 units | 4 units (+1) | 7 units (+3) | 9 units (+2) | N+1 for facility load |
-| **LV Transformers (3.5 MVA)** | 3 units | 4 units (+1) | 8 units (+4) | 11 units (+3) | N+1 for facility load |
-| **IT UPS Modules (1,250 kVA)** | 4 units | 7 units (+3) | 16 units (+9) | 23 units (+7) | N+1 for IT load |
-| **Mechanical UPS (250 kW)** | 8 units | 12 units (+4) | 16 units (+4) | 22 units (+6) | N+1 for mech load |
-| **E-Houses (14'×260')** | 2 units | 2 units | 2 units | 2 units | Full delivery Phase 1 |
-| **RMUs (13.8 kV)** | 8 units | 8 units | 8 units | 8 units | Dual-ring (4 per ring) |
+| Equipment Type                 | Phase 1 | Phase 2       | Phase 3       | Phase 4       | Sizing Notes           |
+| ------------------------------ | ------- | ------------- | ------------- | ------------- | ---------------------- |
+| **Generators (4.0 MW ea)**     | 3 units | 4 units (+1)  | 7 units (+3)  | 9 units (+2)  | N+1 for facility load  |
+| **LV Transformers (3.5 MVA)**  | 3 units | 4 units (+1)  | 8 units (+4)  | 11 units (+3) | N+1 for facility load  |
+| **IT UPS Modules (1,250 kVA)** | 4 units | 7 units (+3)  | 16 units (+9) | 23 units (+7) | N+1 for IT load        |
+| **Mechanical UPS (250 kW)**    | 8 units | 12 units (+4) | 16 units (+4) | 22 units (+6) | N+1 for mech load      |
+| **E-Houses (14'×260')**        | 2 units | 2 units       | 2 units       | 2 units       | Full delivery Phase 1  |
+| **RMUs (13.8 kV)**             | 8 units | 8 units       | 8 units       | 8 units       | Dual-ring (4 per ring) |
+<!-- @muhammed update the table -->
+
 
 ---
 
 ### **MECHANICAL SYSTEMS**
 - **Cooling Strategy:** Separate loop architecture optimized for efficiency and rack diversity
 - **Loop 3 (Warm Water - L2C Direct-to-Chip):**
-  - Temperature: 85°F supply (29°C) - optimized for warm water cooling efficiency
-  - Serves: 162 L2C racks (16.2 MW at Phase 4)
-  - CDUs: 162 rack pairs (324 physical units with A/B redundancy, 100+ kW capacity each)
+  - Temperature: ~85°F supply (29°C) - optimized for warm water cooling efficiency
 - **Loops 1+2 (Cold Water - RDHx Rear-Door Cooling):**
-  - Temperature: 60°F supply (15.5°C) - required for rear-door air cooling
-  - Serves: 232 RDHx racks (5.8 MW at Phase 4)
-  - RDHx: 232 rear-door heat exchangers at full build-out (1 per RDHx rack)
-- **Separate Loop Rationale:** 85°F warm water for L2C provides superior efficiency vs. traditional 55-60°F
-- **Free Cooling:** ~3,500-4,000 hours/year (Oklahoma climate with 85°F warm water - significantly more than 55°F systems)
+  - Temperature: ~60°F supply (15.5°C) - required for rear-door air cooling
+- **Separate Loop Rationale:** 85°F warm water for L2C provides superior efficiency vs. traditional colder temperature cooling for other liquid cooling.
+- **Free Cooling:** ~3,500-4,000 hours/year
 - **Zero Water Strategy:** No evaporative cooling, closed-loop glycol only
 - **Building HVAC:** Separate package units for offices/support spaces
 - **Mechanical Code:** IMC 2021, ASHRAE 90.1-2019
@@ -104,8 +89,8 @@
 - **Roofing:** FM 1-150 tornado-rated (150 mph winds, Class 4 hail); storm-rated stainless steel debris screen; protected roof equipment
 - **Walls:** Tilt-up concrete panels
 - **Floor:** Slab-on-grade (raised floor: Not Applicable), sealed concrete with optional epoxy
-- **Ceiling Height:** 30+ ft clear in data halls
-- **Containment:** Not Applicable (DDC cabinets provide integrated cooling)
+- **Ceiling Height:** ~30 ft clear in data halls
+- **Containment:** Not Applicable (DDC cabinets provide integrated cooling). If client specifies, design allows for containment with ample ceiling height.
 - **Storm Shelter/Safe Room:** FEMA 361 compliant prefabricated module (EF5 protection), 20 person capacity, located on Level 1 adjacent to elevator
 - **Security:** 
   - K-rated perimeter fence (8 ft height)
@@ -132,15 +117,15 @@
 
 **Multi-Level Central Spine:**
 *Note: The central spine features 3 occupied levels plus roof access. All other areas (data halls, offices, loading zone) are single-level.*
-- **Level 1 (Grade Level):** Prefabricated storm shelter/safe room (20 person), elevator/stairwell, redundant restrooms, men's/women's showers, break room, lounge, gaming area (TBD)
+- **Level 1 (Grade Level):** Prefabricated storm shelter/safe room (20 person), elevator/stairwell, redundant restrooms, men's/women's showers, break room, lounge
 - **Level 2 (Secure NOC):** NOC (~2,060 SF), private NOC area
-- **Level 3 (Fitness/Tour Route):** Secure tour route with internal windows into critical areas, weather-protected balconies (north/south) for equipment yard views, accessible to security and technical operations staff for routine site walks
+- **Level 3 (Tour Route):** Secure tour route with internal windows into critical areas, weather-protected balconies (north/south) for equipment yard views, accessible to security and technical operations staff for routine site walks
 - **Roof Access:** Weather-protected access via elevator/stairwell; storm-rated SS debris screen; protected roof-mounted equipment
 
 ---
 
 ### **RENEWABLE ENERGY & UTILITIES**
-- **Solar:** Adjacent ~12 MW solar array (owned separately, behind-the-meter connection to 13.8 kV common bus)
+- **Solar:** Adjacent ~16.8 MW solar array (owned separately, behind-the-meter connection to 13.8 kV common bus)
 - **Primary Utility Service:** Owner-constructed 161 kV substation with 2 × 50 MVA transformers (161kV/13.8kV, N+1 redundancy)
   - Dual redundant 161 kV transmission line feeds
   - All power transformed to 13.8 kV common bus (US standard voltage for data centers)
@@ -148,17 +133,17 @@
 - **Sewer:** Municipal or septic (domestic wastewater)
 - **Natural Gas:** Utility service for house generators (backup power to non-critical areas)
 - **[TBD] OPTIONAL Micro-Turbine Natural Gas Generators:** For Oklahoma SB 480 qualification (budget in Solar/BESS CAPEX, not Data Center)
-- **Fiber:** Dual diverse entries via underground ductbank [CRITICAL PRIORITY - Must confirm physically diverse paths and carrier agreements before project proceeds]
+- **Fiber:** Dual diverse entries  [CRITICAL PRIORITY - Must confirm physically diverse paths and carrier agreements before project proceeds]
 
 ---
 
 ### **FIRE PROTECTION & LIFE SAFETY**
 - **Data Halls:** Zoned preaction sprinkler system with VESDA early warning detection
 - **Cabinet Suppression:** Integrated fire suppression in DDC cabinets
-- **E-Houses:** Clean agent suppression (Novec 1230 or FM-200) in E-Houses (16 units at Phase 4, 4 per 6MW block)
+- **E-Houses:** Clean agent suppression (Novec 1230 or FM-200) in E-Houses
 - **LV Transformer Yard:** Portable fire extinguishers (Class C electrical) at outdoor transformer pads
 - **Detection:** VESDA (Very Early Smoke Detection Apparatus) in data halls
-- **Egress:** 2 minimum exits per data hall, 36" doors (44" preferred)
+- **Egress:** 2 minimum exits per data hall
 - **Emergency Lighting:** 90-minute battery backup
 - **NFPA Compliance:** NFPA 72, 75, 76, 2001, 101; IBC 2021
 
@@ -168,18 +153,16 @@
 
 4-phase modular buildout using 6MW IT blocks:
 
-| Phase | IT MW | Sizing PUE | Facility MW | Gens (3.6MW) | E-Houses | Primary Strategy              |
-| ----- | ----- | ---------- | ----------- | ------------ | -------- | ----------------------------- |
-| **1** | 6     | 1.6        | 9.6         | 4 (N+1)      | 4        | First 6MW block               |
-| **2** | 12    | 1.6        | 19.2        | 8 (N+1)      | 8        | Second 6MW block              |
-| **3** | 18    | 1.6        | 28.8        | 12 (N+1)     | 12       | Third 6MW block               |
-| **4** | 24    | 1.6        | 38.4        | 16 (N+1)     | 16       | Fourth 6MW block (full build) |
+| Phase | IT Load | Design PUE | Facility Load | Generators (3.6 MW) | Chillers (X MW) |
+| ----- | ------- | ---------- | ------------- | ------------------- | --------------- |
+| **1** | 6 MW    | 1.6        | 9.6 MW        | 4 (N+1)             | x               |
+| **2** | 12 MW   | 1.6        | 19.2 MW       | 8 (N+1)             | x               |
+| **3** | 18 MW   | 1.6        | 28.8 MW       | 12 (N+1)            | x               |
+| **4** | 24 MW   | 1.6        | 38.4 MW       | 16 (N+1)            | x               |
+<!-- @benton update this table -->
+**Notes:**
+- PUE 1.6 for electrical sizing (Oklahoma heat waves + overhead).
 
-**Block Architecture:** Each 6MW IT block includes 4 generators (N+1: 3 running + 1 backup) and 4 E-Houses for independent operation. Modular design enables flexible, customer-driven deployment.
-
-**Cooling Infrastructure:** Primary cooling plant (chillers, glycol systems) deployed per 6MW block (~7MW cooling load). Client-specific cooling distribution (L2C, RDHx, or air-cooled) determined during tenant build-out. <!-- @Benton -->
-
-**Detailed phasing specifications:** See Electrical BOD (Div 26) and Mechanical BOD (Div 23).
 
 ---
 
