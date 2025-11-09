@@ -13,21 +13,20 @@
 
 
 ### **FACILITY OVERVIEW**
-- **IT Capacity:** 4-phase buildout to 24 MW ultimate capacity (6MW IT blocks)
+- **IT Capacity:** 4-phase buildout, up to 24 MW ultimate capacity
 - **Total Compound:** 140,000 SF (Two 10,000 SF data halls + 18,000 SF support spaces)
   - **Covered Building:** 38,000 SF
   - **Equipment Yard:** 102,000 SF
-- **Power Density:** Scalable by 6MW block increments
-- **Rack Capacity:** Client-specific deployment (estimating: 60 DDC racks per 6MW block @ $50k each)
+- **Power Density:** Scalable by 6MW block increments. A 12, 18, or 24 MW deployment all possible depending on client specifications.
+- **Rack Capacity:** Client-specific deployment (Medium and high density supported, depending on client demand)
 - **Availability:** Tier III (N+1 component redundancy per 6MW block, MV dual-ring path redundancy, concurrent maintainability)
-- **Target PUE:** 1.4 average (1.6 for electrical sizing to account for Oklahoma heat + 10% overhead)
+- **Target PUE:** 1.3 - 1.4 average
 - **Target WUE:** 0 L/kWh - zero water for cooling
 - **Site:** Pryor, Oklahoma (Tornado Alley - FM 1-150 protection)
 - **Key Differentiators:**
   - Google Cloud proximity (sub-millisecond latency, eliminate data egress costs)
   - Customer-owned 161 kV substation with 13.8 kV distribution
   - Block-based deployment (6MW IT blocks) with 4 E-Houses per block
-  - 16 E-Houses total at Phase 4 (4 per 6MW block)
   - L2C liquid cooling capable from day 1 (85°F warm water)
 
 **Phasing Summary:**
@@ -178,7 +177,7 @@
 
 **Block Architecture:** Each 6MW IT block includes 4 generators (N+1: 3 running + 1 backup) and 4 E-Houses for independent operation. Modular design enables flexible, customer-driven deployment.
 
-**Cooling Infrastructure:** Primary cooling plant (chillers, glycol systems) deployed per 6MW block (~7MW cooling load). Client-specific cooling distribution (L2C, RDHx, or air-cooled) determined during tenant build-out.
+**Cooling Infrastructure:** Primary cooling plant (chillers, glycol systems) deployed per 6MW block (~7MW cooling load). Client-specific cooling distribution (L2C, RDHx, or air-cooled) determined during tenant build-out. <!-- @Benton -->
 
 **Detailed phasing specifications:** See Electrical BOD (Div 26) and Mechanical BOD (Div 23).
 
@@ -191,7 +190,7 @@
 - **Modular Growth:** Enables customer-driven expansion without overbuilding infrastructure. Each 6MW block is a self-contained unit that can be commissioned independently based on customer demand.
 - **Independent Operation:** Each block includes dedicated generators (4 × 3.6MW, N+1) and E-Houses (4 units), providing clear separation and simplified redundancy management.
 - **Flexible Deployment:** Blocks can be added incrementally as contracts are signed, avoiding the risk of stranded capital in unused capacity.
-- **Cost Optimization:** Capital expenditure scales linearly with revenue. Each block costs ~same amount and generates ~same revenue, enabling predictable financial modeling.
+- **Cost Optimization:** Capital expenditure scales linearly with revenue. Each block is repeatable and supports financial modeling. However, total facility costs are less impactful per MW as additional capacity is installed.
 - **Risk Mitigation:** If a single block experiences issues, the other blocks continue operating independently, limiting exposure and simplifying troubleshooting.
 
 ### **Why Tilt-Up Concrete (Not PEMB)**
