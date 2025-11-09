@@ -20,7 +20,7 @@ See: <!-- @claude link this properly -->
 
 **Division 01 – General Requirements**
 
-See: <!-- @claude link this properly -->
+See: <!-- @claude link this properly --> 
 
 - *General project requirements, submittals, quality control*
 - Commissioning requirements (FAT, SAT, integrated systems testing)
@@ -229,7 +229,7 @@ See: <!-- @claude link this properly -->
 
 
 **Summary:**
-- **Utility service:** 345 kV transmission → 2 × 25 MVA transformers (345kV/13.8kV) → 13.8 kV common bus
+- **Utility service:** 161 kV transmission → 2 × 25 MVA transformers (161kV/13.8kV) → 13.8 kV common bus
 - **MV distribution:** 13.8 kV self-healing dual-ring topology via 6 RMUs (Ring A + Ring B) with automated SCADA switching
 - **Generators:** 6 × 4.0 MW @ 13.8 kV diesel (N+1); Tier 4 Final emissions; ~2,000 gal belly tanks + central bulk fuel
 - **Transformers:** 8 × 3,500 kVA (13.8 kV/480V) oil-filled (N+1 with concurrent maintainability)

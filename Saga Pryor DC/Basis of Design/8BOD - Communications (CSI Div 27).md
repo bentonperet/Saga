@@ -1,11 +1,10 @@
-**Created:** 2025-10-29
-**Updated from:** Pryor_Bod_EVS_Rev01.md
+
 
 # BASIS OF DESIGN - COMMUNICATIONS
 ## CSI Division 27
 ### Pryor Data Center - PACHYDERM GLOBAL
 
-**Parent Document:** [[Saga Pryor DC/Basis of Design/Erik_BOD_Updated/_BOD - Exec Summary and TOC]]
+**Parent Document:** [[Saga Pryor DC/Basis of Design/Erik_BOD_Updated/_BOD - Exec Summary and TOC]] 
 
 ---
 
@@ -66,13 +65,13 @@ Telecommunications infrastructure provides carrier-neutral, diverse, and redunda
 
 **MPOE-1 (Primary):**
 - **Location:** East side, ground floor
-- **Size:** 250-300 SF
+- **Size:** 250-300 SF <!-- @benton -->
 - **Fiber entry:** From east property line conduits
 - **Purpose:** Primary carrier demarcation and cross-connect
 
 **MPOE-2 (Secondary/Diverse):**
 - **Location:** West side, ground floor
-- **Size:** 250-300 SF
+- **Size:** 250-300 SF <!-- @benton -->
 - **Fiber entry:** From west property line conduits
 - **Purpose:** Diverse carrier route termination
 
@@ -84,50 +83,21 @@ Telecommunications infrastructure provides carrier-neutral, diverse, and redunda
 ### MPOE/MMR Specifications
 
 **Each MPOE/MMR Includes:**
-
-**Rack Space:**
-- 10-15 × 42U four-post racks (carrier equipment)
-- Capacity: ~10-15 carriers per MMR (adequate for 12 MW facility)
-
 **Power:**
 - Dual-feed power (A-side + B-side from SWBD-A and SWBD-B)
 - 200-400A panel per MMR
 - Redundant UPS-backed circuits for carrier equipment
-
-**Cooling:**
-- Dedicated split system or precision cooling unit
-- Capacity: [ROM] 30-50 kW per MMR (carrier equipment heat load)
-- Redundancy: N+1 or dual units
-
 **Fire Suppression:**
 - Preaction dry pipe or clean agent (coordinate with data hall system)
 - VESDA smoke detection
-
 **Grounding:**
 - Telecommunications main grounding busbar (TMGB) per TIA-607-C
 - Bonded to building grounding system
-
 **Security:**
 - Card reader + biometric (two-factor authentication)
 - CCTV coverage (entry monitoring)
 - Access restricted to facility staff and authorized carriers
 
-### Cross-Connect Infrastructure
-
-**Fiber Cross-Connect Panels:**
-- LC duplex or MTP/MPO high-density panels
-- Capacity: Adequate for 12 MW facility with expansion capability
-- Labeling: Customer ID, circuit ID, carrier name
-
-**Cable Management:**
-- Overhead ladder rack or wire basket tray
-- Vertical cable managers on racks
-- Minimum bend radius: 1.5" for single-mode fiber
-
-**Patch Cords:**
-- Single-mode fiber (OS2) for long-distance/carrier circuits
-- Multi-mode fiber (OM4) for short in-building connections
-- Quality: Low insertion loss (<0.5 dB), tested and certified
 
 ---
 
@@ -141,24 +111,16 @@ Central location for facility network equipment (not customer equipment). Houses
 
 **Location:** Adjacent to data halls (central position)
 
-**Size:** 300-400 SF
-
+**Size:** 300-400 SF <!-- @benton -->
 **Rack Space:**
 - 4-6 × 42U four-post racks
 - Equipment: Core switches, firewalls, BMS/DCIM servers, NOC workstation switches
-
 **Power:**
 - Dual-feed UPS-backed circuits (A-side + B-side)
 - 100-200A panel
-
 **Cooling:**
 - Shared with data hall HVAC or dedicated mini-split
-- Capacity: [ROM] 20-30 kW
 
-**Structured Cabling:**
-- Fiber backbone from MDA to each data hall zone
-- Fiber: 24-48 strands single-mode + 24-48 strands multi-mode
-- Copper: Cat6A for management network (if needed)
 
 ---
 
@@ -172,13 +134,11 @@ Central location for facility network equipment (not customer equipment). Houses
 - Customer servers, applications, internet gateway
 - Isolated from facility networks (firewall, VLAN segmentation)
 - No direct connection to facility BMS/DCIM
-
 **2. Facility Network (BMS/DCIM):**
 - Building management system (HVAC, lighting)
 - EPMS (electrical power monitoring)
 - DCIM (rack power/cooling monitoring)
 - Access control, CCTV
-
 **3. Management Network (NOC/Admin):**
 - NOC workstations
 - Remote access (VPN gateway)
@@ -289,49 +249,54 @@ Central location for facility network equipment (not customer equipment). Houses
 - TIA-607-C (Telecommunications Bonding and Grounding)
 - J-STD-607-B (Commercial Building Grounding/Bonding)
 
----
-
-## CARRIER ONBOARDING PROCESS
-
-### New Carrier Installation
-
-**Step 1: Carrier Requests Space**
-- Carrier submits application (equipment list, power requirements, fiber route)
-- Facility approves based on MMR capacity
-
-**Step 2: Carrier Installation**
-- Carrier pulls fiber from property line vault to assigned MMR
-- Carrier installs equipment in assigned rack space
-- Carrier terminates fiber on designated cross-connect panel
-
-**Step 3: Cross-Connect Activation**
-- Customer orders cross-connect from carrier panel to customer cabinet
-- Facility staff install fiber patch cord (MMR → customer cabinet)
-- Circuit tested and activated
-
-**Step 4: Ongoing Maintenance**
-- Carrier responsible for their equipment maintenance
-- Facility provides rack space, power, cooling, security
 
 ---
 
 ## COST SUMMARY
 
-| System | Cost Estimate |
-|--------|---------------|
-| **Fiber Conduit Infrastructure (Dual Entry)** | $200-400K |
-| **MPOE-1 Fit-Out (Racks, Power, Cooling)** | $150-300K |
-| **MPOE-2 Fit-Out (Racks, Power, Cooling)** | $150-300K |
-| **MDA Fit-Out (Core Switches, Racks)** | $100-200K |
-| **Fiber Backbone (MDA to Data Halls, MPOEs)** | $100-200K |
-| **Structured Cabling (Overhead, Cabinets)** | $200-400K |
-| **Grounding & Bonding (TMGB, TBB)** | $50-100K |
-| **Cross-Connect Infrastructure** | $50-100K |
-| **Total Communications Infrastructure** | **$1.0-2.0M** |
+### Telecommunications Infrastructure
+
+| System | Cost Estimate | Confidence | Range |
+|--------|---------------|------------|-------|
+| **Fiber Conduit Infrastructure (Dual Entry)** | $300,000 | ±30% | $210-390K |
+| **MPOE-1 Fit-Out (Racks, Power, Cooling)** | $400,000 | ±30% | $280-520K |
+| **MPOE-2 Fit-Out (Racks, Power, Cooling)** | $400,000 | ±30% | $280-520K |
+| **MDA Fit-Out (Core Switches, Firewall, Racks)** | $600,000 | ±30% | $420-780K |
+| **Fiber Backbone (Dual Ring, Redundant)** | $450,000 | ±30% | $315-585K |
+| **Structured Cabling (394 Racks × 2 Fiber Pairs)** | $1,200,000 | ±30% | $840K-1.56M |
+| **Grounding & Bonding (TMGB, TBB)** | $150,000 | ±25% | $112-188K |
+| **Cross-Connect Infrastructure** | $200,000 | ±30% | $140-260K |
+| **Subtotal - Telecom Infrastructure** | **$3,700,000** |  |  |
+
+### IT Infrastructure & Monitoring
+
+| System | Cost Estimate | Confidence | Range |
+|--------|---------------|------------|-------|
+| **DCIM Software Platform** | $2,000,000 | ±30% | $1.4-2.6M |
+| **Environmental Monitoring Sensors** | $350,000 | ±25% | $262-438K |
+| **Power Monitoring Integration** | $450,000 | ±25% | $338-562K |
+| **Asset Tracking Systems** | $300,000 | ±30% | $210-390K |
+| **Security Monitoring Network** | $1,500,000 | ±25% | $1.12-1.88M |
+| **BMS Network Infrastructure** | $800,000 | ±25% | $600K-1.0M |
+| **Facility Operations Network** | $1,200,000 | ±30% | $840K-1.56M |
+| **Subtotal - IT Infrastructure** | **$6,600,000** |  |  |
+
+### Project Totals
+
+| Category | Cost Estimate | Confidence | Notes |
+|----------|---------------|------------|-------|
+| **Subtotal (Equipment & Materials)** | $10,300,000 | ±30% | Telecom + IT infrastructure |
+| **Engineering & Commissioning (8%)** | $824,000 | ±25% | Design, integration, testing |
+| **Contingency (15%)** | $1,686,000 | ±30% | BOD phase uncertainty |
+| **TOTAL COMMUNICATIONS & IT** | **$12,810,000** | **±30%** | **Range: $9.0-16.6M** |
+
+**Cost per kW (IT Load):** $582/kW (22 MW)
+**Industry Benchmark:** $400-$600/kW for comprehensive DC IT infrastructure
 
 **Recurring Costs (OPEX):**
 - Carrier circuits: Varies by customer (customer-paid)
 - Cloud on-ramps: $500-5,000/month per connection (customer-paid)
+- DCIM software licenses: $100-200K/year (maintenance & support)
 
 ---
 

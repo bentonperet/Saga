@@ -170,7 +170,7 @@ Examples:
 - DCIM database populated and verified
 
 **Detailed Naming Standard:**
-See [[Saga Pryor DC/Basis of Design/Appendix A - Asset Naming and Tagging Standard]] for complete rubric, equipment type codes, and examples.
+See [[Appendix - Asset Naming and Tagging Standard]] for complete rubric, equipment type codes, and examples.
 
 ---
 

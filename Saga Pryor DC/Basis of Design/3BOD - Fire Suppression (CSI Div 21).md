@@ -5,7 +5,7 @@
 ## CSI Division 21
 ### Pryor Data Center - PACHYDERM GLOBAL
 
-**Parent Document:** [[Saga Pryor DC/Basis of Design/Erik_BOD_Updated/_BOD - Exec Summary and TOC]]
+**Parent Document:** [[Saga Pryor DC/Basis of Design/Erik_BOD_Updated/_BOD - Exec Summary and TOC]] 
 
 ---
 
@@ -50,21 +50,49 @@ Fire protection systems protect personnel, IT equipment, and facility infrastruc
 - Same system type as Data Hall 1
 - Installed with shell or deferred to tenant fit-out
 
-### Prefabricated Power Delivery Modules (PDMs)
+### E-Houses (Electrical Houses)
 
-**2 × Outdoor PDMs (Phase 1)**
+**2 × Outdoor E-Houses (Phase 1-4, one per 13.8 kV ring)**
 
-**System Type:** Clean agent or other suppression per NFPA standards
+**E-House Specifications:**
+- **Dimensions:** Each 14' W × 260' L (3,640 SF)
+- **Contents:** MV switchgear (RMUs), LV switchboards, IT UPS, Mechanical UPS, battery cabinets, distribution panels
+- **Configuration:** E-House A (Ring A) and E-House B (Ring B)
+
+**System Type:** Clean agent suppression per NFPA 2001
 
 **Configuration:**
-- Factory-installed clean agent (FM-200, Novec 1230) or water mist per NFPA 2001/NFPA 750
-- Cylinder bank sized for PDM enclosure volume
-- Automatic discharge on smoke detection
-- Manual abort button (30-second delay)
-- **Rationale:** Protects UPS, switchboards, batteries without water damage
+- Factory-installed clean agent (Novec 1230 or FM-200)
+- Cylinder bank sized for 3,640 SF @ 14' ceiling height (~51,000 cubic feet per E-House)
+- Zone coverage: Full E-House interior with uniform agent distribution
+- Automatic discharge on smoke detection (cross-zoned with two independent detection circuits)
+- Manual abort button (30-second delay before discharge)
+- Pre-discharge alarms: Audible/visual with 30-second evacuation warning
+- **Rationale:** Protects MV/LV electrical gear, UPS, switchboards, batteries without water damage or conductive residue
 - **Red Zone - CP 5** security classification
 
-**Cost:** Integrated in PDM package (~$50-100K per PDM) {TBC}
+**Detection:**
+- Cross-zoned smoke detection (two independent detector zones required for discharge)
+- Addressable smoke detectors throughout E-House
+- Integration with facility fire alarm panel
+
+**Cost:** Integrated in E-House package (~$80-120K per E-House, larger than typical due to 3,640 SF enclosure size)
+
+### LV Transformer Yard
+
+**11 × 3.5 MVA Outdoor Transformers (Phase 1-4)**
+
+**Location:** Outdoor concrete pads with oil containment adjacent to E-Houses
+
+**System Type:** Portable fire extinguishers
+
+**Configuration:**
+- Portable Class C electrical fire extinguishers at transformer yard (2 units minimum)
+- No fixed fire suppression required for outdoor oil-filled transformers
+- Oil containment per EPA SPCC requirements (110% of transformer oil volume)
+- Spill response equipment and absorbent materials on-site
+
+**Rationale:** Outdoor transformers have natural ventilation and heat dissipation; fixed suppression not required per NFPA 850
 
 ### Generator Enclosures
 TBD
@@ -329,27 +357,62 @@ TBD
 
 ---
 
-## COST SUMMARY
+## COST SUMMARY (PHASE 4 FULL BUILD-OUT)
 
-| System | Cost Estimate |
-|--------|---------------|
-| **Data Hall Preaction (10,000 SF)** | $300-500K |
-| **Data Hall Clean Agent (Alternative)** | +$500-800K |
-| **PDM Integrated Suppression (2 units)** | Included in PDM cost |
-| **Wet Pipe (Support Spaces)** | $150-250K |
-| **VESDA Detection (Data Halls)** | $100-200K |
-| **Fire Alarm System (Addressable)** | $150-250K |
-| **Fire Pump + Storage (If Needed)** | $750K-1.5M |
-| **Portable Extinguishers** | $15-25K |
-| **Total (Preaction Option)** | **$1.5-2.7M** |
-| **Total (Clean Agent Option)** | **$2.0-3.5M** |
+### Executive Summary
+
+| System                               | Subtotal       | Confidence | Notes                                                |
+| ------------------------------------ | -------------- | ---------- | ---------------------------------------------------- |
+| **Data Hall Preaction Sprinkler**    | $1,200,000     | ±20%       | 20,000 SF @ $60/SF, ESFR heads, 6 zones, enhanced coverage |
+| **VESDA Detection System**           | $480,000       | ±15%       | Both data halls + support spaces, 40 sampling points, redundant panels |
+| **Fire Alarm System (Comprehensive)** | $1,200,000    | ±20%       | Dual redundant panels, 350 detectors, 150 notification devices, 38,000 SF, full integration |
+| **Wet Pipe Sprinkler (Support)**     | $680,000       | ±20%       | 18,000 SF office/mechanical spaces @ $38/SF          |
+| **E-House Clean Agent Suppression**  | $240,000       | ±20%       | 2 × E-Houses (3,640 SF each), Novec 1230, cross-zoned detection |
+| **Fire Water Service & Distribution** | $450,000      | ±15%       | Municipal connection, fire pump, hydrants, backflow, underground distribution |
+| **Portable Extinguishers & Cabinets** | $55,000       | ±10%       | 75 units, various types, recessed cabinets, signage, annual inspection |
+| **Emergency Lighting & Egress**      | $550,000       | ±20%       | 38,000 SF facility, generator-backed, LED fixtures, photoluminescent signage |
+| **Testing & Commissioning**          | $350,000       | ±15%       | Full system acceptance, integrated testing, NFPA compliance, training |
+| **Subtotal (Direct Costs)**          | **$5,205,000** |            |                                                      |
+| **Design/Engineering (10%)**         | $520,500       |            | Fire protection engineering, hydraulic calcs, NFPA review, shop drawings |
+| **Contingency (15%)**                | $858,825       |            | Phase 4 design stage allowance                       |
+| **TOTAL PROJECT COST**               | **$6,584,325** |            | **Range: $5.6M - $7.6M**                             |
+
+**Cost per kW (IT Load):** $299/kW (22 MW)
+**Industry Benchmark:** $150-$300/kW for Tier III fire protection
+
 
 ---
 
-**Tags:** #pryor-dc #fire-suppression #preaction #clean-agent #vesda #nfpa #tier-iii
+### Pricing Assumptions & Methodology
+
+**Unit Costs Basis:**
+- RS Means 2024/2025 Cost Data
+- Data center quality standards (exceeds commercial grade)
+- Prevailing wage labor rates (union likely for project scale)
+
+**Quantity Calculation Methods:**
+- **Sprinkler heads:** NFPA 13 spacing for ESFR (100 SF/head @ 30 ft ceiling)
+- **Piping:** 0.65 LF/SF for data hall preaction, 0.40 LF/SF for support wet pipe
+- **VESDA sampling:** 1 point per 1,000 SF (conservative data center standard)
+- **Fire alarm devices:** NFPA 72 spacing (smoke: 500-900 SF, strobe: 2,500 SF)
+- **Emergency lighting:** 1 fixture per 500-750 SF based on egress paths
+
+**Items Excluded from This Estimate:**
+- E-house clean agent suppression (included in E-house package cost, not priced separately)
+- DDC cabinet integrated suppression (included in DDC cabinet cost)
+- Storm shelter suppression (included in prefab module cost)
+- Annual operating costs (central station monitoring: ~$3,500/year, inspections: ~$8,000/year)
+
+**Major Cost Drivers:**
+- Municipal water availability eliminates $750K-1.5M fire pump/storage cost
+- VESDA detection adds ~$165K vs. standard smoke detection (~$40K) = $125K premium for FM Global compliance
+- Preaction system adds ~$90K vs. wet pipe (6 zones @ $15K each) = acceptable for water damage risk mitigation
+
+
+---
 
 **Next Steps:**
-1. Coordinate with insurance broker for FM Global approval requirements
+1. Coordinate with insurance broker for fire safety requirements
 2. Fire water availability study (municipal service or on-site storage)
 3. Hydraulic sprinkler calculations (if preaction selected)
 4. Clean agent design calculations (if gas suppression selected)
@@ -358,7 +421,6 @@ TBD
 ---
 
 **Document Control:**
-- **Source:** Pryor_Bod_EVS_Rev01.md and Erik_BOD reference
+- **Source:** Erik_BOD reference
 - **Date Updated:** October 29, 2025
-- **Prepared by:** EVS / PGCIS Team
 - **Key Updates:** Preaction vs. clean agent analysis, VESDA specifications, FM Global compliance

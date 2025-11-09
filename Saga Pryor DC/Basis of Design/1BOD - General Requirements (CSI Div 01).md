@@ -1,11 +1,10 @@
-**Created:** 2025-10-29
-**Updated from:** Pryor_Bod_EVS_Rev01.md + Erik_BOD references
 
 # BASIS OF DESIGN - GENERAL REQUIREMENTS
 ## CSI Division 01
 ### Pryor Data Center - PACHYDERM GLOBAL
 
 **Parent Document:** [[Saga Pryor DC/Basis of Design/Erik_BOD_Updated/_BOD - Exec Summary and TOC]]
+
 
 ---
 
@@ -139,7 +138,7 @@ Examples:
 - BMS/EPMS point address
 - Maintenance schedule links
 
-**Database Population:**
+**Database Population:** 
 - All assets registered in DCIM before commissioning
 - QR codes link directly to DCIM asset record
 - Changes tracked with revision history
@@ -153,7 +152,7 @@ Examples:
 - DCIM database populated and verified
 
 **Detailed Naming Standard:**
-See [[Appendix A - Asset Naming and Tagging Standard]] for complete rubric, equipment type codes, and examples.
+See [[Appendix - Asset Naming and Tagging Standard]] for complete rubric, equipment type codes, and examples.
 
 ---
 
@@ -211,5 +210,4 @@ See [[Appendix A - Asset Naming and Tagging Standard]] for complete rubric, equi
 **Document Control:**
 - **Source:** PGCIS Team
 - **Date Updated:** November 5, 2025
-- **Prepared by:** EVS / PGCIS Team
 - **Key Updates:** n/a

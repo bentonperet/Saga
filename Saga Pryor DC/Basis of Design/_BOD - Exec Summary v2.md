@@ -13,12 +13,9 @@
 ## EXECUTIVE SUMMARY
 
 
+
 ### **FACILITY OVERVIEW**
 - **IT Capacity:** 4-phase buildout to 22 MW ultimate capacity
-  - Phase 1: 3 MW (30 racks @ 100 kW, L2C anchor tenant in DH-W)
-  - Phase 2: 6 MW (150 racks total: 30 L2C + 120 RDHx, open both halls)
-  - Phase 3: 15 MW (285 racks total: 105 L2C + 180 RDHx, scale both halls)
-  - Phase 4: 22 MW (394 racks total: 162 L2C + 232 RDHx, full build-out)
 - **White Space:** 20,000 SF total (two 10,000 SF data halls: DH-W and DH-E)
   - Phase 1: DH-W only (30 racks)
   - Phase 2+: Both halls operational (394 racks total capacity)

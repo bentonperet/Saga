@@ -1,8 +1,8 @@
 **Created:** 2025-11-05
-**Tags:** #pryor-dc #sld #electrical #phase-4 #24mw #full-buildout
-**Related:** [[7BOD - Electrical (CSI Div 26) v2]], [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/_BOD - Exec Summary and TOC]]
+**Tags:** #pryor-dc #sld #electrical #phase-4 #22mw #full-buildout
+**Related:** [[Saga Pryor DC/Basis of Design/7BOD - Electrical (CSI Div 26)]], [[Saga Pryor DC/Basis of Design/Archive/Benton_BOD/_BOD - Exec Summary and TOC]]
 
-# SINGLE-LINE DIAGRAM - PHASE 4 (24 MW FULL BUILD-OUT)
+# SINGLE-LINE DIAGRAM - PHASE 4 (22 MW FULL BUILD-OUT)
 ## Pryor Data Center - PACHYDERM GLOBAL
 
 **Revision:** 01
@@ -12,15 +12,16 @@
 
 ---
 
+
 ## SYSTEM OVERVIEW
 
 **Phase 4 Configuration (Full Build-Out):**
-- **IT Capacity:** 24,000 kW (468 cabinets: 168 L2C @ 100 kW + 288 RDHx @ 25 kW)
+- **IT Capacity:** 22,000 kW (394 cabinets: 162 L2C @ 100 kW + 232 RDHx @ 25 kW)
 - **Data Halls:** DH-E and DH-W fully operational (10,000 SF each)
 - **Topology:** Dual-ring 13.8 kV MV distribution with N+1 redundancy
-- **Target PUE:** 1.25 (optimized at scale)
+- **Target PUE:** 1.35
 - **Redundancy:** Tier III - N+1 component redundancy with dual-path distribution
-- **Total Facility Load:** ~30 MW
+- **Total Facility Load:** ~29.7 MW
 
 ---
 
@@ -29,11 +30,11 @@
 ```mermaid
 graph TB
     %% Utility Service
-    UTIL[345 kV Utility Grid<br/>Kamo Power Electric<br/>Dual Feed]
+    UTIL[161 kV Utility Grid<br/>Kamo Power Electric<br/>Dual Feed]
 
     %% Substation Transformers (N+1)
-    UTIL --> XFMR_SUB_A["XFMR-SUB-A<br/>35 MVA<br/>345kV/13.8kV<br/>N+1"]
-    UTIL --> XFMR_SUB_B["XFMR-SUB-B<br/>35 MVA<br/>345kV/13.8kV<br/>N+1"]
+    UTIL --> XFMR_SUB_A["XFMR-SUB-A<br/>35 MVA<br/>161kV/13.8kV<br/>N+1"]
+    UTIL --> XFMR_SUB_B["XFMR-SUB-B<br/>35 MVA<br/>161kV/13.8kV<br/>N+1"]
 
     %% 13.8 kV Dual Ring Distribution
     XFMR_SUB_A --> RING_A["13.8 kV RING A<br/>═══════════════<br/>Self-Healing Topology"]
@@ -105,12 +106,12 @@ graph TB
     HOUSE_GEN1["House Gen-1<br/>300 kW<br/>Natural Gas<br/>N+1"] --> HOUSE_SWBD
     HOUSE_GEN2["House Gen-2<br/>300 kW<br/>Natural Gas<br/>N+1"] --> HOUSE_SWBD
 
-    %% IT UPS System (N+1 modular, 25 modules)
-    SWBD_A --> UPS_SYSTEM["IT UPS SYSTEM<br/>25 × 1,250 kVA Modules<br/>N+1 Configuration<br/>Total: 25 MW (24+1)<br/>Li-ion Battery<br/>5-min Runtime"]
+    %% IT UPS System (N+1 modular, 23 modules)
+    SWBD_A --> UPS_SYSTEM["IT UPS SYSTEM<br/>23 × 1,250 kVA Modules<br/>N+1 Configuration<br/>Total: 23 MW (22+1)<br/>Li-ion Battery<br/>5-min Runtime"]
     SWBD_B --> UPS_SYSTEM
 
     %% Mechanical UPS (N+1 for critical mechanical loads)
-    SWBD_A --> MECH_UPS["Mechanical UPS<br/>25 × 250 kW<br/>N+1 Config<br/>6 MW Capacity<br/>30-60 sec Runtime"]
+    SWBD_A --> MECH_UPS["Mechanical UPS<br/>22 × 250 kW<br/>N+1 Config<br/>5.5 MW Capacity<br/>30-60 sec Runtime"]
     SWBD_B --> MECH_UPS
 
     %% IT Distribution Panels
@@ -124,7 +125,7 @@ graph TB
     MECH_UPS --> MECH_DIST_2B["Mech Dist 2B<br/>1,200A<br/>Loop 3<br/>L2C Cooling"]
 
     %% Cabinet PDUs (Dual-fed from A/B panels)
-    IT_DIST_A --> PDU_RACK["Cabinet PDUs<br/>468 Total Racks<br/>━━━━━━━━━━━━<br/>168 L2C @ 100 kW<br/>288 RDHx @ 25 kW<br/>━━━━━━━━━━━━<br/>Dual-Fed A/B"]
+    IT_DIST_A --> PDU_RACK["Cabinet PDUs<br/>394 Total Racks<br/>━━━━━━━━━━━━<br/>162 L2C @ 100 kW<br/>232 RDHx @ 25 kW<br/>━━━━━━━━━━━━<br/>Dual-Fed A/B"]
     IT_DIST_B --> PDU_RACK
 
     %% Mechanical Loads
@@ -175,8 +176,8 @@ graph TB
 
 | Equipment | Quantity | Rating | Voltage | Redundancy | Notes |
 |-----------|----------|--------|---------|------------|-------|
-| **Utility Connection** | 1 | - | 345 kV | Dual-feed | Kamo Power Electric Co-op |
-| **Substation Transformers** | 2 | 35 MVA | 345kV/13.8kV | N+1 | Customer-owned, either can carry full load |
+| **Utility Connection** | 1 | - | 161 kV | Dual-feed | Kamo Power Electric Co-op |
+| **Substation Transformers** | 2 | 35 MVA | 161kV/13.8kV | N+1 | Customer-owned, either can carry full load |
 
 ### Medium Voltage Distribution (13.8 kV)
 
@@ -213,8 +214,8 @@ graph TB
 
 | System | Modules | Module Rating | Total Capacity | Battery | Runtime | Function |
 |--------|---------|---------------|----------------|---------|---------|----------|
-| **IT UPS** | 25 | 1,250 kVA | 31.25 MVA (25 MW) | Li-ion | 5 min | IT loads (N+1: 24+1) |
-| **Mechanical UPS** | 25 | 250 kW | 6.25 MW | Li-ion/VRLA | 30-60 sec | HVAC loads (N+1: 24+1) |
+| **IT UPS** | 23 | 1,250 kVA | 28.75 MVA (23 MW) | Li-ion | 5 min | IT loads (N+1: 22+1) |
+| **Mechanical UPS** | 22 | 250 kW | 5.5 MW | Li-ion/VRLA | 30-60 sec | HVAC loads (N+1: 21+1) |
 
 ### Distribution & Loads
 
@@ -224,8 +225,8 @@ graph TB
 | **IT Distribution Panels** | 2 | 800A | Dual-fed from UPS system A/B paths |
 | **Mechanical Dist Panels (Loops 1+2)** | 2 | 800A | Dual-fed A/B for RDHx cooling |
 | **Mechanical Dist Panels (Loop 3)** | 2 | 1,200A | Dual-fed A/B for L2C cooling |
-| **Cabinet PDUs** | 936 | Variable | Dual PDUs per cabinet (2 per rack) |
-| **Total Racks** | 468 | - | 168 L2C @ 100 kW + 288 RDHx @ 25 kW |
+| **Cabinet PDUs** | 788 | Variable | Dual PDUs per cabinet (2 per rack) |
+| **Total Racks** | 394 | - | 162 L2C @ 100 kW + 232 RDHx @ 25 kW |
 
 ---
 
@@ -233,30 +234,30 @@ graph TB
 
 ### IT Load (Critical)
 ```
-L2C Racks:         168 × 100 kW  = 16,800 kW
-RDHx Racks:        288 × 25 kW   =  7,200 kW
+L2C Racks:         162 × 100 kW  = 16,200 kW
+RDHx Racks:        232 × 25 kW   =  5,800 kW
                                   ─────────
-Subtotal IT Load:                  24,000 kW
+Subtotal IT Load:                  22,000 kW
 
-UPS Losses (8%):                    1,920 kW
-Transformer Losses:                   480 kW
+UPS Losses (8%):                    1,760 kW
+Transformer Losses:                   440 kW
 Distribution Losses:                  200 kW
                                   ─────────
-Total IT Load Path:                26,600 kW
+Total IT Load Path:                24,400 kW
 ```
 
 ### Mechanical Load (Critical)
 ```
 Loop 3 Chillers (L2C):  8 × 250 kW  =  2,000 kW  (compressor power)
-Loop 1+2 Chillers (RDHx): 8 × 200 kW = 1,600 kW  (compressor power)
-Chiller Pumps:          16 × 30 kW  =    480 kW
+Loop 1+2 Chillers (RDHx): 6 × 200 kW = 1,200 kW  (compressor power)
+Chiller Pumps:          14 × 30 kW  =    420 kW
 CDU Pumps (L2C):         8 × 15 kW  =    120 kW
-Cabinet FCU Fans:     468 × 1.5 kW  =    702 kW
+Cabinet FCU Fans:     394 × 1.5 kW  =    591 kW
 Building HVAC:                          300 kW
-Mechanical UPS Loss:                    200 kW
+Mechanical UPS Loss:                    180 kW
 Other (controls, etc.):                 100 kW
                                    ──────────
-Total Mechanical Load:                5,502 kW
+Total Mechanical Load:                4,911 kW
 ```
 
 ### Building/Support Load (Non-Critical)
@@ -271,14 +272,13 @@ Total Building Load:                  500 kW
 
 ### Total Facility Load (Phase 4)
 ```
-IT Load Path:                      26,600 kW
-Mechanical Load:                    5,502 kW
+IT Load Path:                      24,400 kW
+Mechanical Load:                    4,800 kW
 Building Load (on house power):       500 kW
                                   ─────────
-Design Load (Phase 4):             32,602 kW
+Design Load (Phase 4):             29,700 kW (29.7 MW)
 
-Rounded for design:                30,000 kW
-PUE Calculation: 30,000 / 24,000 = 1.25
+PUE Calculation: 29,700 / 22,000 = 1.35
 ```
 
 ---
@@ -294,15 +294,15 @@ PUE Calculation: 30,000 / 24,000 = 1.25
 - 8 × 4.0 MW = **32.0 MW available**
 
 **Design Load:**
-- Phase 4 facility load = **30.0 MW**
+- Phase 4 facility load = **29.7 MW**
 
 **Margin Check:**
 ```
-Utilization: 30.0 MW / 32.0 MW = 94%
-Margin:      32.0 MW / 30.0 MW = 1.07× (107%)
+Utilization: 29.7 MW / 32.0 MW = 93%
+Margin:      32.0 MW / 29.7 MW = 1.08× (108%)
 ```
 
-✅ **PASS** - Generator N+1 capacity exceeds design load with 7% margin
+✅ **PASS** - Generator N+1 capacity exceeds design load with 8% margin
 
 ---
 
@@ -315,33 +315,33 @@ Margin:      32.0 MW / 30.0 MW = 1.07× (107%)
 - 10 × 3,500 kVA = **35.0 MVA available**
 
 **Design Load:**
-- Phase 4 facility load = 30.0 MW / 0.9 PF = **33.3 MVA**
+- Phase 4 facility load = 29.7 MW / 0.9 PF = **33.0 MVA**
 
 **Margin Check:**
 ```
-Utilization: 33.3 MVA / 35.0 MVA = 95%
-Margin:      35.0 MVA / 33.3 MVA = 1.05× (105%)
+Utilization: 33.0 MVA / 35.0 MVA = 94%
+Margin:      35.0 MVA / 33.0 MVA = 1.06× (106%)
 ```
 
-✅ **PASS** - Transformer N+1 capacity exceeds design load with 5% margin
+✅ **PASS** - Transformer N+1 capacity exceeds design load with 6% margin
 
 ---
 
 ### IT UPS Capacity Check (N+1)
 
 **Installed Capacity:**
-- 25 × 1,250 kVA = **31.25 MVA total** (25,000 kW @ 0.8 PF)
+- 23 × 1,250 kVA = **28.75 MVA total** (23,000 kW @ 0.8 PF)
 
-**N+1 Capacity (24 modules running):**
-- 24 × 1,250 kVA = **30.0 MVA available** (24,000 kW)
+**N+1 Capacity (22 modules running):**
+- 22 × 1,250 kVA = **27.5 MVA available** (22,000 kW)
 
 **IT Load:**
-- 24,000 kW / 0.9 PF = **26,667 kVA**
+- 22,000 kW / 0.9 PF = **24,444 kVA**
 
 **Margin Check:**
 ```
-Utilization: 26,667 kVA / 30,000 kVA = 89%
-Margin:      30,000 kVA / 26,667 kVA = 1.13× (113%)
+Utilization: 24,444 kVA / 27,500 kVA = 89%
+Margin:      27,500 kVA / 24,444 kVA = 1.13× (113%)
 ```
 
 ✅ **PASS** - IT UPS N+1 capacity exceeds IT load with 13% margin
@@ -351,21 +351,21 @@ Margin:      30,000 kVA / 26,667 kVA = 1.13× (113%)
 ### Mechanical UPS Capacity Check (N+1)
 
 **Installed Capacity:**
-- 25 × 250 kW = **6,250 kW total**
+- 22 × 250 kW = **5,500 kW total**
 
-**N+1 Capacity (24 units running):**
-- 24 × 250 kW = **6,000 kW available**
+**N+1 Capacity (21 units running):**
+- 21 × 250 kW = **5,250 kW available**
 
 **Mechanical Load:**
-- Chillers, pumps, fans = **5,502 kW peak**
+- Chillers, pumps, fans = **4,911 kW peak**
 
 **Margin Check:**
 ```
-Utilization: 5,502 kW / 6,000 kW = 92%
-Margin:      6,000 kW / 5,502 kW = 1.09× (109%)
+Utilization: 4,911 kW / 5,250 kW = 94%
+Margin:      5,250 kW / 4,911 kW = 1.07× (107%)
 ```
 
-✅ **PASS** - Mechanical UPS N+1 capacity exceeds mechanical load with 9% margin
+✅ **PASS** - Mechanical UPS N+1 capacity exceeds mechanical load with 7% margin
 
 ---
 
@@ -375,14 +375,14 @@ Margin:      6,000 kW / 5,502 kW = 1.09× (109%)
 
 **Path A (Ring A → SWBD-A):**
 ```
-345 kV Utility → XFMR-SUB-A → 13.8 kV Ring A → RMUs (1A-4A) →
+161 kV Utility → XFMR-SUB-A → 13.8 kV Ring A → RMUs (1A-4A) →
 Transformers TX-A1 through TX-A6 → SWBD-A → IT UPS System →
 IT Dist Panel A → Cabinet PDU-A
 ```
 
 **Path B (Ring B → SWBD-B):**
 ```
-345 kV Utility → XFMR-SUB-B → 13.8 kV Ring B → RMUs (1B-4B) →
+161 kV Utility → XFMR-SUB-B → 13.8 kV Ring B → RMUs (1B-4B) →
 Transformers TX-B1 through TX-B5 → SWBD-B → IT UPS System →
 IT Dist Panel B → Cabinet PDU-B
 ```
@@ -399,7 +399,7 @@ Each cabinet has **dual PDUs** fed from different distribution panels (A and B),
 **Response:**
 - Remaining 8 generators online
 - Combined capacity: 8 × 4 MW = 32 MW
-- Facility load: 30 MW
+- Facility load: 29.7 MW
 - **Result:** ✅ No impact to IT operations (N+1 redundancy maintained)
 
 ---
@@ -425,10 +425,10 @@ Each cabinet has **dual PDUs** fed from different distribution panels (A and B),
 - SWBD-A now fed from TX-A2, TX-A3, TX-A4, TX-A5, TX-A6 (5 units)
 - SWBD-B now fed from TX-B1, TX-B3, TX-B4, TX-B5 (4 units)
 - Combined remaining capacity: 9 × 3.5 MVA = 31.5 MVA
-- Facility load: 33.3 MVA
-- **Result:** ⚠️ **DEGRADED** - Facility must reduce load to 28.4 MW (90% capacity)
+- Facility load: 31.1 MVA
+- **Result:** ✅ No impact to IT operations (still within capacity with 1% margin)
 
-**Action Required:** Immediate repair/replacement of failed transformers
+**Action Required:** Repair/replacement of failed transformers during next maintenance window
 
 ---
 
@@ -438,7 +438,7 @@ Each cabinet has **dual PDUs** fed from different distribution panels (A and B),
 **Response:**
 - Remaining 24 modules redistribute load
 - Available capacity: 24 × 1,250 kVA = 30.0 MVA (24 MW)
-- IT load: 26.7 MVA
+- IT load: 24.4 MVA
 - **Result:** ✅ No impact to IT operations (N+1 redundancy by design)
 
 **Action Required:** Replace failed module during next maintenance window
@@ -454,7 +454,7 @@ Each cabinet has **dual PDUs** fed from different distribution panels (A and B),
 1. Verify remaining 8 generators online and healthy
 2. Isolate GEN-5 via breaker at Ring B
 3. Perform maintenance (oil change, filter replacement, inspection)
-4. Remaining capacity: 8 × 4 MW = 32 MW (exceeds 30 MW load) ✅
+4. Remaining capacity: 8 × 4 MW = 32 MW (exceeds 29.8 MW load) ✅
 5. **IT Impact:** None
 
 ---
@@ -575,38 +575,9 @@ Each cabinet has **dual PDUs** fed from different distribution panels (A and B),
 ## RENEWABLE ENERGY & SUSTAINABILITY
 
 ### Solar Array Integration
-
-**Capacity:** 8+ MW DC (nominal), with inverters outputting 13.8 kV AC
-
-**Connection:** Dedicated connection to Ring A via RMU
-
-**Purpose:**
-- Reduce grid power consumption during daylight hours
-- Lower operational costs ($/kWh)
-- Improve sustainability metrics (PUE, carbon intensity)
-- Meet customer renewable energy requirements
-
-**Performance:**
-- Expected capacity factor: ~18-22% (Oklahoma climate)
-- Annual generation: ~15-18 GWh/year
-- Offset: ~5-7% of total facility energy consumption
-
+TBD
 ### Battery Energy Storage System (BESS)
-
-**Capacity:** 4-8 MWh (scalable based on economics)
-
-**Connection:** Dedicated connection to Ring B via RMU
-
-**Purpose:**
-- Peak demand shaving (reduce utility demand charges)
-- Energy arbitrage (charge during off-peak, discharge during peak pricing)
-- Grid services (frequency regulation, ancillary services revenue)
-- Emergency backup (supplement generators during extended outages)
-
-**Performance:**
-- Charge/discharge rate: 2-4 MW (C-rate of 0.5-1.0)
-- Round-trip efficiency: ~85-90%
-- Lifespan: 10-15 years (Li-ion chemistry)
+TBD
 
 ---
 
@@ -631,43 +602,26 @@ All infrastructure built from Phase 1 to accommodate Phase 4 expansion:
 - 25 IT UPS modules installed (phased: 4→7→16→25)
 - 25 Mechanical UPS modules installed (phased: 8→12→16→25)
 - All 3 cooling loops operational (Loop 3 L2C + Loops 1+2 RDHx)
-- Both data halls at full rack density (468 total racks)
+- Both data halls at full rack density (394 total racks)
 
 ---
 
 ## NEXT STEPS
 
 **Design Phase:**
-1. ✅ Single-line diagram complete (this document)
-2. ⏳ Protection coordination study (generators, transformers, switchboards)
-3. ⏳ Fault current analysis (short-circuit study at all voltage levels)
-4. ⏳ Arc flash study (NFPA 70E compliance, PPE labeling)
-5. ⏳ Detailed panel schedules (SWBD-A/B, all distribution panels)
-6. ⏳ Load flow analysis (verify voltage drop <3% at full load)
+1. Single-line diagram (conventional design version)
+2. Protection coordination study (generators, transformers, switchboards)
+3. Fault current analysis (short-circuit study at all voltage levels)
+4. Arc flash study (NFPA 70E compliance, PPE labeling)
+5. Detailed panel schedules (SWBD-A/B, all distribution panels)
+6. Load flow analysis (verify voltage drop <3% at full load)
 
-**Procurement Phase:**
-1. Generator RFQ (9 × 4 MW diesel, 13.8 kV, EPA Tier 4 Final)
-2. Substation transformer RFQ (2 × 35 MVA, 345kV/13.8kV)
-3. MV/LV transformer RFQ (11 × 3,500 kVA, 13.8kV/480V, oil-filled ONAN)
-4. IT UPS RFQ (25 × 1,250 kVA modular, Li-ion battery, 5-min runtime)
-5. Mechanical UPS RFQ (25 × 250 kW modular, 30-60 sec runtime)
-6. RMU & MV switchgear RFQ (8 RMUs, 630A, SCADA-integrated, self-healing topology)
-7. Prefabricated Power Delivery Modules (PDMs) RFQ
-
-**Construction Phase:**
-1. Site prep and electrical yard grading
-2. Generator foundations and fuel system (central fuel distribution)
-3. Substation construction (345 kV service, utility coordination)
-4. MV/LV distribution installation (dual-ring 13.8 kV, RMUs, transformers)
-5. PDM installation (SWBD-A/B, UPS systems, battery cabinets)
-6. Solar array and BESS installation (integration with 13.8 kV common bus)
-7. Testing and commissioning (factory acceptance testing + site acceptance testing)
 
 ---
 
-**Prepared by:** PGCIS Engineering Team
-**Document Control:** SLD_Phase4_24MW_Rev01
+**Prepared by:** PGCIS  Team
+**Document Control:** SLD_Phase4_22MW_Rev01
 **Next Review:** After protection coordination study and fault current analysis
 **Related Documents:**
-- [[7BOD - Electrical (CSI Div 26) v2]]
+- [[Saga Pryor DC/Basis of Design/7BOD - Electrical (CSI Div 26)]]
 - [[SLD_Phase1_3MW]] (Phase 1 configuration for comparison)
