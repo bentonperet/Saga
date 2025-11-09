@@ -1,0 +1,343 @@
+HUT 8 RIVERBEND DATA CENTER - WORK BREAKDOWN STRUCTURE (WBS),,,,,,,,,,,,,,
+BLOCK 1 (DH-1) COMMISSIONING + SWITCHYARD PHASE,,,,,,,,,,,,,,
+
+Project: Hut 8 Riverbend Data Center - 224 MW Facility,,,,,,,,,,,,,,
+Scope: Switchyard Commissioning (May-Jul 2026) + Block 1 Data Hall Commissioning (Aug-Sep 2026),,,,,,,,,,,,,,
+Block 1 Capacity: 36 MW IT Load,,,,,,,,,,,,,,
+Document Date: 2025-11-07,,,,,,,,,,,,,,
+
+,,,,,,,,,,,,,,
+
+STAFFING MODEL - TWO FULLY REDUNDANT CREWS,,,,,,,,,,,,,,
+
+Resource Type,Quantity Per Crew,Total Quantity (Both Crews),Role,Location,Hours Per Week (per person),Notes,,,,,,,
+
+CREW A - SITE-BASED TEAM,,,,,,,,,,,,,,
+Commissioning Lead - Electrical,2,2,Lead,On-Site,50,Direct oversight and execution of electrical system commissioning,,,,,,,
+Commissioning Lead - Mechanical,2,2,Lead,On-Site,50,Direct oversight and execution of mechanical system commissioning,,,,,,,
+Commissioning Technician - Electrical,2,2,Technician,On-Site,50,Hands-on electrical testing and data collection,,,,,,,
+Commissioning Technician - Mechanical,2,2,Technician,On-Site,50,Hands-on mechanical testing and equipment setup,,,,,,,
+Redundant Lead,1,1,Lead,On-Site,50,Cross-discipline support and schedule flexibility,,,,,,,
+Redundant Technician,1,1,Technician,On-Site,50,Peak demand support and backup,,,,,,,
+CREW A SUBTOTAL,10,10,,,500,"Site-based commissioning execution team (Crew A only, when single crew deployed)",,,,,,,
+
+CREW B - SITE-BASED TEAM,,,,,,,,,,,,,,
+Commissioning Lead - Electrical,2,2,Lead,On-Site,50,Direct oversight and execution of electrical system commissioning,,,,,,,
+Commissioning Lead - Mechanical,2,2,Lead,On-Site,50,Direct oversight and execution of mechanical system commissioning,,,,,,,
+Commissioning Technician - Electrical,2,2,Technician,On-Site,50,Hands-on electrical testing and data collection,,,,,,,
+Commissioning Technician - Mechanical,2,2,Technician,On-Site,50,Hands-on mechanical testing and equipment setup,,,,,,,
+Redundant Lead,1,1,Lead,On-Site,50,Cross-discipline support and schedule flexibility,,,,,,,
+Redundant Technician,1,1,Technician,On-Site,50,Peak demand support and backup,,,,,,,
+CREW B SUBTOTAL,10,10,,,500,"Site-based commissioning execution team (Crew B only, when single crew deployed)",,,,,,,
+
+BOTH CREWS ACTIVE,20,20,,,1000,"Total site staff when both crews deployed simultaneously (Switchyard, block transitions, overlap periods)",,,,,,,
+
+PROGRAM MANAGEMENT (REMOTE/HYBRID),,,,,,,,,,,,,,
+Commissioning Manager,1,1,Manager,Hybrid/Remote,50,"Program oversight across all blocks. Oversees and directs all L4/L5 commissioning activities. Vendor coordination, client interface, issue resolution",,,,,,,
+Documentation Coordinator,1,1,Coordinator,Hybrid/Remote (50%),25,"Documentation QA/QC, report generation, data management, scheduling support across all blocks",,,,,,,
+MANAGEMENT SUBTOTAL,2,2,,,75,Cx Manager: 50 hrs/week + Doc Coordinator: 25 hrs/week = 75 hrs/week,,,,,,,
+
+TOTAL STAFFING (BOTH CREWS + MANAGEMENT),22,22,,,1075,Maximum weekly hours when both crews active: 1075 hrs/week,,,,,,,
+TOTAL STAFFING (SINGLE CREW + MANAGEMENT),12,12,,,575,Weekly hours when single crew active: 575 hrs/week,,,,,,,
+
+,,,,,,,,,,,,,,
+
+PHASE 0: SWITCHYARD COMMISSIONING (MAY - JULY 2026),,,,,,,,,,,,,,
+
+WBS Code,Task Description,Duration,Start Date,End Date,Crew A,Crew B,Cx Manager,Doc Coord,Site Staff,Total Staff,Weekly Hours,Total Hours,Dependencies / Notes
+
+0.0,SWITCHYARD COMMISSIONING PHASE,12 weeks,May 4 2026,July 26 2026,Active,Active,Active,Active,20,22,1075,12900,Critical path for all data hall commissioning
+
+0.1,Mobilization & Site Setup,1 week,May 4 2026,May 10 2026,Active,Active,Active,Active,20,22,1075,1075,"Crew mobilization, safety orientation, site access, test equipment setup"
+
+0.2,Level 1 - Documentation Review & Submittal Review,2 weeks,May 11 2026,May 24 2026,Active,Active,Active,Active,20,22,1075,2150,"Review design documents, equipment submittals, O&M manuals, coordination studies, protection settings. Memorial Day May 26."
+
+0.3,Level 2 - Physical Verification & Installation QA,2 weeks,May 25 2026,June 7 2026,Active,Active,Active,Active,20,22,1075,2150,"Physical verification of equipment installation, nameplate verification, anchor bolts, grounding, clearances, cable terminations"
+
+0.4,Level 3 - Pre-Functional Testing (Oversight),2 weeks,June 8 2026,June 21 2026,Active,Active,Active,Active,20,22,1075,2150,"Oversight of GC-performed pre-functional testing. Witness point-to-point checks, control sequences, interlocks, safeties"
+
+0.5,Level 4 - Functional Performance Testing,3 weeks,June 22 2026,July 12 2026,Active,Active,Active,Active,20,22,1075,3225,"Functional testing of utility interconnection equipment. Transformer testing (IR, turns ratio, power factor), relay testing (primary/secondary injection), breaker timing, SCADA integration. Independence Day July 4."
+
+0.6,Level 5 - Utility Acceptance & Energization,1 week,July 13 2026,July 19 2026,Active,Active,Active,Active,20,22,1075,1075,"Utility witness testing, acceptance, initial energization coordination. Phased energization to 300 MW capacity."
+
+0.7,Switchyard Closeout & Documentation,1 week,July 20 2026,July 26 2026,Active,Active,Active,Active,20,22,1075,1075,"Final documentation, issue resolution, punch list closeout, commissioning report, turnover to Owner"
+
+0.0,SWITCHYARD PHASE TOTAL,12 weeks,May 4 2026,July 26 2026,12 weeks,12 weeks,12 weeks,12 weeks,20 avg,22 avg,12900,12900,"Both Crew A and Crew B deployed for entire switchyard phase. 12 weeks × 1,075 hrs/week = 12,900 hours"
+
+,,,,,,,,,,,,,,
+
+SWITCHYARD EQUIPMENT SUMMARY,,,,,,,,,,,,,,
+
+Equipment Type,Quantity,OEM,Voltage/Rating,Commissioning Level,Crew Assignment,Testing Activities,,,,,,,
+
+Main Utility Transformers,TBD,TBD,Transmission - 34.5kV,Level 4,Both Crews,"Insulation resistance, turns ratio, power factor, temperature rise, relay testing",,,,,,,
+MV Switchboard,12,TBD,34.5kV,Level 4,Both Crews,"Relay testing, coordination verification, interlocks, SCADA integration, metering accuracy",,,,,,,
+Ring Main Unit,138,TBD,34.5kV,Level 4,Both Crews,"Primary/secondary injection testing, breaker timing, contact resistance, insulation resistance, operational sequences",,,,,,,
+Protective Relaying,Multiple,TBD,34.5kV,Level 4,Both Crews,"Settings verification, coordination study validation, primary injection testing, communications testing",,,,,,,
+SCADA/Metering,1 System,TBD,Varies,Level 4,Both Crews,"Integration testing, data accuracy, alarming, trending, remote monitoring",,,,,,,
+
+Note: Switchyard equipment list to be confirmed via RFI-001.07 (CRITICAL question - switchyard scope ambiguous in RFP),,,,,,,,,,,,,,
+
+,,,,,,,,,,,,,,
+
+SWITCHYARD LABOR SUMMARY,,,,,,,,,,,,,,
+
+Resource,Hours Per Week,Weeks Active,Total Hours,Allocation,Notes,,,,,,,,
+
+Crew A Site Staff,500,12,6000,Switchyard,10 people × 50 hrs/week × 12 weeks = 6000 hours,,,,,,,,
+Crew B Site Staff,500,12,6000,Switchyard,10 people × 50 hrs/week × 12 weeks = 6000 hours,,,,,,,,
+Commissioning Manager,50,12,600,Switchyard,Program oversight and utility coordination,,,,,,,,
+Documentation Coordinator,25,12,300,Switchyard,Documentation QA/QC and reporting,,,,,,,,
+
+Total Switchyard Labor,1075 hrs/week,12 weeks,12900,,"Site: 12,000 hours | Management: 900 hours | Total: 12,900 hours",,,,,,,,
+
+,,,,,,,,,,,,,,
+
+PHASE 1: BLOCK 1 (DH-1) DATA HALL COMMISSIONING (AUGUST - SEPTEMBER 2026),,,,,,,,,,,,,,
+
+WBS Code,Task Description,Duration,Start Date,End Date,Crew A,Crew B,Cx Manager,Doc Coord,Site Staff,Total Staff,Weekly Hours,Total Hours,Dependencies / Notes
+
+1.0,BLOCK 1 (DH-1) - 36 MW DATA HALL,7 weeks,Aug 3 2026,Sep 20 2026,Variable,Variable,Active,Active,Variable,Variable,Variable,7025,"First data hall block. Includes Network Room L1-3 oversight."
+
+1.1,Mobilization & Block 1 Setup,1 week,Aug 3 2026,Aug 9 2026,Active,Active,Active,Active,20,22,1075,1075,"Block 1 commissioning startup. Site familiarization, test equipment setup specific to data hall. Both crews active for startup."
+
+1.2,Level 1 - Documentation Review & Submittal Review,1 week,Aug 10 2026,Aug 16 2026,Active,Standby,Active,Active,10,12,575,575,"Review Block 1 equipment submittals, O&M manuals, test procedures. Single crew adequate. Crew B on standby."
+
+1.3,Level 2 - Physical Verification & Installation QA,1 week,Aug 17 2026,Aug 23 2026,Active,Standby,Active,Active,10,12,575,575,"Physical verification of Block 1 equipment installation. Nameplate verification, grounding checks, clearances. Single crew adequate."
+
+1.4,Level 3 - Pre-Functional Testing (Oversight),1 week,Aug 24 2026,Aug 30 2026,Active,Standby,Active,Active,10,12,575,575,"Oversight of GC-performed pre-functional testing for Block 1. Witness point-to-point checks, control sequences. Single crew adequate."
+
+1.5,Level 4 - Functional Performance Testing (Week 1),1 week,Aug 31 2026,Sep 6 2026,Active,Standby,Active,Active,10,12,575,575,"Block 1 L4 functional testing startup. Transformer testing, switchboard testing, UPS functional testing begins. Labor Day Sep 1."
+
+1.6,Level 4 - Functional Performance Testing (Week 2-5),4 weeks,Sep 7 2026,Oct 4 2026,Active,Standby,Active,Active,10,12,575,2300,"Continued L4 functional testing: UPS (113 units), batteries (351 cabinets), chillers (27), CDUs (32), CRAH units (47 total), rack power panels (160), all electrical and mechanical systems. Single crew adequate for steady-state testing."
+
+1.7,Level 5 - Integrated Systems Testing (Week 1),1 week,Oct 5 2026,Oct 11 2026,Active,Active,Active,Active,20,22,1075,1075,"Block 1 L5 IST startup. Both crews active for integration testing. Electrical system integration, mechanical system integration, load bank testing coordination begins."
+
+1.8,Level 5 - Integrated Systems Testing (Week 2),1 week,Oct 12 2026,Oct 18 2026,Active,Active,Active,Active,20,22,1075,1075,"Continued L5 IST: Heat load testing with load banks (provided by others, PGCIS oversight), failure scenario testing, emergency procedures (EPO), monitoring system integration (BMS/EPMS/DCIM), N+1 verification."
+
+1.9,Block 1 Closeout & Turnover,Included,Oct 19 2026,Oct 20 2026,Active,Active,Active,Active,20,22,Included,Included,"Final punch list resolution, documentation package completion, Owner acceptance, turnover. Included in L5 Week 2 hours."
+
+1.0,BLOCK 1 TOTAL,7 weeks,Aug 3 2026,Sep 20 2026,7 weeks,2 weeks,7 weeks,7 weeks,17.1 avg,19.1 avg,7025,7025,"Crew A: 7 weeks active | Crew B: 2 weeks active (startup + L5) | Average 17.1 site staff"
+
+,,,,,,,,,,,,,,
+
+BLOCK 1 EQUIPMENT SUMMARY (PER 36 MW BLOCK),,,,,,,,,,,,,,
+
+Location,Equipment Type,Quantity,OEM,Voltage/Rating,Commissioning Level,Primary Testing Activities,,,,,,
+
+GRAY SPACE - OUTDOOR,,,,,,,,,,,,,,
+Outdoor,Transformer - IT,32,TBD,34.5kV-480V 2.5MVA,Level 4,"Insulation resistance, turns ratio, power factor, temperature rise, protective relay testing",,,,,,
+Outdoor,Transformer - Mechanical,12,TBD,34.5kV-480V 5MVA,Level 4,"Same as IT transformers, larger capacity",,,,,,
+Outdoor,Ring Main Unit,23,TBD,34.5kV,Level 4,"Primary/secondary injection, breaker timing, contact resistance, operational sequences",,,,,,
+Outdoor,MV Switchboard,2,TBD,34.5kV,Level 4,"Relay testing, coordination verification, interlocks, SCADA integration",,,,,,
+Outdoor,Chiller,27,Vertiv,Vertiv OFC,Level 4,"Full operational testing, capacity verification, control sequences, economizer operation",,,,,,
+Outdoor,Buffer Tank,27,TBD,,Level 4,"Flow verification, temperature monitoring, level controls. TAB by others, PGCIS oversight.",,,,,,
+
+GRAY SPACE - INDOOR,,,,,,,,,,,,,,
+Indoor,LV Switchboard - Electrical,32,Vertiv,4000A 480V,Level 4,"Breaker testing, protective device coordination, ground fault, load balancing, metering",,,,,,
+Indoor,LV Switchboard - Mechanical,12,Vertiv,5000A 480V,Level 4,"Same as electrical switchboards, higher ampacity",,,,,,
+Indoor,UPS,113,Vertiv,480V APM2 600kVA,Level 4,"Full functional test: bypass operation, load transfer, battery discharge, parallel operation, alarms",,,,,,
+Indoor,CRAH Fan Wall - Elec Room,11,Vertiv,CA606,Level 4,"Airflow measurement, control sequences, VFD operation, temperature/humidity monitoring. TAB by others, PGCIS oversight.",,,,,,
+Indoor,Battery Cabinets,351,Vertiv,LI5-LI7,Level 4,"BMS verification, cell voltage monitoring, discharge testing (sampling), isolation verification",,,,,,
+
+WHITE SPACE - OPTION 2 (BASE),,,,,,,,,,,,,,
+White Space,Hot Aisle Containment,11,Vertiv,SmartRun,Level 4,"Pressure verification, door interlocks, monitoring integration",,,,,,
+White Space,Rack Power Panel,160,Vertiv,1000/1200A 480V,Level 4,"Breaker verification, metering accuracy, remote monitoring, load testing",,,,,,
+White Space,Remote Distribution Panel,7,Vertiv,400A RXV 480V,Level 4,"Functional testing, breaker coordination, monitoring, feeder verification",,,,,,
+White Space,CDU,32,Vertiv,XDU 2300,Level 4,"Flow/pressure testing, temperature differential verification, control sequences, leak testing. Pressure test/flush/fill by others, PGCIS oversight.",,,,,,
+White Space,CRAH Fan Wall - Data Hall,36,Vertiv,CA606,Level 4,"Airflow measurement and balancing, control integration, VFD testing, staging sequences. TAB by others, PGCIS oversight.",,,,,,
+
+SYSTEMS INTEGRATION (LEVEL 5),,,,,,,,,,,,,,
+Integration,Electrical System Integration,1 System,Multiple,480V/34.5kV,Level 5,"Complete electrical system load testing, transfer scenarios, N+1 verification, failure mode testing",,,,,,
+Integration,Mechanical System Integration,1 System,Multiple,Chilled Water,Level 5,"Integrated cooling system performance, load following, economizer modes, redundancy verification",,,,,,
+Integration,IT Load Simulation Testing,1 Test,Load Banks,Up to 36 MW,Level 5,"Heat load testing with load banks (provided/operated by others): Ramp testing, steady-state, cooling response, power quality. PGCIS plan review and oversight.",,,,,,
+Integration,Monitoring & Control Integration,1 System,Multiple,BMS/EPMS/DCIM,Level 5,"Full facility monitoring integration: alarms, trending, remote monitoring, control sequences. CxAlloy or Facility Grid platform.",,,,,,
+Integration,Emergency & Failure Scenarios,1 Test,Multiple,,Level 5,"Emergency scenarios: EPO testing, utility failure, cooling failure, UPS transfer",,,,,,
+
+Total Block 1 Equipment,888 pieces,,,,,Plus system-level integration testing,,,,,,
+
+,,,,,,,,,,,,,,
+
+BLOCK 1 LABOR SUMMARY BY DISCIPLINE,,,,,,,,,,,,,,
+
+Discipline,L4 Hours,L5 Hours,Total Direct Hours,Overhead & Contingency (30%),Total Hours,% of Total,Notes,,,,,
+
+Electrical,1975,584,2559,768,3327,49%,"Transformers, switchgear, UPS, batteries, rack power distribution",,,,,
+Mechanical,1674,575,2249,675,2924,43%,"Chillers, CDUs, CRAH units, buffer tanks, containment. Includes TAB oversight (not hands-on).",,,,,
+Integration (Both),0,340,340,102,442,7%,"Load testing, DCIM, emergency scenarios requiring both disciplines",,,,,
+Program Management,0,0,0,332,332,5%,"Cx Manager (300 hrs) + Doc Coordinator (150 hrs) allocated to Block 1",,,,,
+
+Total Block 1,3649,1499,5148,1877,7025,100%,"Direct execution: 5,148 hours | With overhead/contingency/management: 7,025 hours",,,,,
+
+Note: Overhead & contingency includes: documentation coordination (11%), project management (5%), retest contingency (14%),,,,,,,,,,,,,,
+
+,,,,,,,,,,,,,,
+
+BLOCK 1 LABOR SUMMARY BY RESOURCE,,,,,,,,,,,,,,
+
+Resource Type,Quantity,Hours Per Week,Weeks Active,Total Hours,Allocation,Notes,,,,,,,
+
+CREW A - SITE STAFF,,,,,,,,,,,,,,
+Commissioning Lead - Electrical,2,50,7,700,Block 1,"Active all 7 weeks for Block 1",,,,,,,
+Commissioning Lead - Mechanical,2,50,7,700,Block 1,"Active all 7 weeks for Block 1",,,,,,,
+Commissioning Technician - Electrical,2,50,7,700,Block 1,"Active all 7 weeks for Block 1",,,,,,,
+Commissioning Technician - Mechanical,2,50,7,700,Block 1,"Active all 7 weeks for Block 1",,,,,,,
+Redundant Lead,1,50,7,350,Block 1,"Active all 7 weeks for Block 1",,,,,,,
+Redundant Technician,1,50,7,350,Block 1,"Active all 7 weeks for Block 1",,,,,,,
+Crew A Subtotal,10,,7 weeks,3500,Block 1,"10 people × 50 hrs/week × 7 weeks = 3,500 hours",,,,,,,
+
+CREW B - SITE STAFF,,,,,,,,,,,,,,
+Commissioning Lead - Electrical,2,50,2,200,Block 1,"Active 2 weeks only (Week 1 startup + Weeks 6-7 L5)",,,,,,,
+Commissioning Lead - Mechanical,2,50,2,200,Block 1,"Active 2 weeks only (Week 1 startup + Weeks 6-7 L5)",,,,,,,
+Commissioning Technician - Electrical,2,50,2,200,Block 1,"Active 2 weeks only (Week 1 startup + Weeks 6-7 L5)",,,,,,,
+Commissioning Technician - Mechanical,2,50,2,200,Block 1,"Active 2 weeks only (Week 1 startup + Weeks 6-7 L5)",,,,,,,
+Redundant Lead,1,50,2,100,Block 1,"Active 2 weeks only (Week 1 startup + Weeks 6-7 L5)",,,,,,,
+Redundant Technician,1,50,2,100,Block 1,"Active 2 weeks only (Week 1 startup + Weeks 6-7 L5)",,,,,,,
+Crew B Subtotal,10,,2 weeks,1000,Block 1,"10 people × 50 hrs/week × 2 weeks = 1,000 hours",,,,,,,
+
+Site Staff Total,20 (both crews),,,4500,Block 1,"Crew A: 3,500 hrs | Crew B: 1,000 hrs | Total: 4,500 site hours",,,,,,,
+
+PROGRAM MANAGEMENT,,,,,,,,,,,,,,
+Commissioning Manager,1,50,7,350,Block 1,Program oversight and direction of all L4/L5 activities,,,,,,,
+Documentation Coordinator,1,25,7,175,Block 1,Documentation QA/QC and scheduling support,,,,,,,
+Management Subtotal,2,,7 weeks,525,Block 1,"Cx Manager: 350 hrs | Doc Coordinator: 175 hrs | Total: 525 management hours",,,,,,,
+
+Block 1 Total Labor,22,,7 weeks,5025,Block 1,"Site: 4,500 hrs | Management: 525 hrs | Base Total: 5,025 hours",,,,,,,
+
+With Contingency (40%),,,,,7025,Block 1,"Base 5,025 + 2,000 contingency/overhead = 7,025 total hours per Block 1",,,,,,,
+
+,,,,,,,,,,,,,,
+
+WEEKLY STAFFING BREAKDOWN - BLOCK 1,,,,,,,,,,,,,,
+
+Week #,Calendar Week,Phase,Activity,Crew A Status,Crew B Status,Cx Manager,Doc Coord,Site Staff,Total Staff,Weekly Hours,Cumulative Hours,Notes
+
+13,Aug 3-9 2026,Block 1 Setup,Mobilization & Block 1 commissioning startup,Active,Active,Active,Active,20,22,1075,1075,Both crews mobilize for Block 1 startup
+14,Aug 10-16 2026,Block 1 L1,Documentation Review & Submittal Review,Active,Standby,Active,Active,10,12,575,1650,Single crew adequate - Crew A primary
+15,Aug 17-23 2026,Block 1 L2,Physical Verification & Installation QA,Active,Standby,Active,Active,10,12,575,2225,Single crew adequate - Crew A primary
+16,Aug 24-30 2026,Block 1 L3,Pre-Functional Testing Oversight,Active,Standby,Active,Active,10,12,575,2800,Single crew adequate - Crew A primary
+17,Aug 31-Sep 6 2026,Block 1 L4,L4 Functional Testing - Week 1,Active,Standby,Active,Active,10,12,575,3375,Single crew adequate - Crew A primary / Labor Day Sep 1
+18,Sep 7-13 2026,Block 1 L4,L4 Functional Testing - Week 2,Active,Standby,Active,Active,10,12,575,3950,Single crew adequate - Crew A primary
+19,Sep 14-20 2026,Block 1 L4,L4 Functional Testing - Week 3,Active,Standby,Active,Active,10,12,575,4525,Single crew adequate - Crew A primary
+20,Sep 21-27 2026,Block 1 L4,L4 Functional Testing - Week 4,Active,Standby,Active,Active,10,12,575,5100,Single crew adequate - Crew A primary
+21,Sep 28-Oct 4 2026,Block 1 L4,L4 Functional Testing - Week 5,Active,Standby,Active,Active,10,12,575,5675,Single crew adequate - Crew A primary
+22,Oct 5-11 2026,Block 1 L5,L5 Integrated Systems Testing - Week 1,Active,Active,Active,Active,20,22,1075,6750,Both crews active for IST
+23,Oct 12-18 2026,Block 1 L5,L5 Integrated Systems Testing - Week 2 + Closeout,Active,Active,Active,Active,20,22,1075,7825,Both crews active / Block 1 completion
+
+Block 1 Total,7 weeks,Aug 3 - Oct 18,,7 weeks active,2 weeks active,7 weeks,7 weeks,17.1 avg,19.1 avg,7825,,"Note: Cumulative 7,825 includes 40% overhead/contingency buffer. Actual billable may be 7,025 per labor summary."
+
+,,,,,,,,,,,,,,
+
+CREW B STANDBY WEEKS (BLOCK 1),,,,,,,,,,,,,,
+
+Week #,Calendar Week,Crew B Status,Standby Activities,Availability Notes,,,,,,,,
+
+14,Aug 10-16 2026,Standby,"Procedure development, vendor coordination, test equipment prep, training",Available for Block 1 surge support if needed,,,,,,,,
+15,Aug 17-23 2026,Standby,"Procedure development, vendor coordination, test equipment prep, training",Available for Block 1 surge support if needed,,,,,,,,
+16,Aug 24-30 2026,Standby,"Procedure development, vendor coordination, test equipment prep, training",Available for Block 1 surge support if needed,,,,,,,,
+17,Aug 31-Sep 6 2026,Standby,"Block 2 mobilization prep, procedure review, equipment staging for Block 2",Transitioning to Block 2 readiness / Available for Block 1 if critical issue,,,,,,,,
+18-21,Sep 7 - Oct 4 2026,Standby,"Block 2 preparation activities, vendor calls, documentation support",Available for Block 1 deficiency resolution or Block 2 prep,,,,,,,,
+
+Standby Definition: Crew is not actively deployed on-site but remains available for:,,,,,,,,,,,,,,
+,- Emergency support if Block 1 experiences critical deficiencies or delays,,,,,,,,,,,,,,
+,- Surge capacity during punch list resolution or retest activities,,,,,,,,,,,,,,
+,- Preparation activities for upcoming Block 2 commissioning (mobilization begins Week 18),,,,,,,,,,,,,,
+,- Training and professional development,,,,,,,,,,,,,,
+,- Other PGCIS project support as needed,,,,,,,,,,,,,,
+
+,,,,,,,,,,,,,,
+
+NETWORK ROOM COMMISSIONING (CONCURRENT WITH BLOCK 1),,,,,,,,,,,,,,
+
+WBS Code,Task Description,Duration,Start Date,End Date,Crew Assignment,Commissioning Level,Weekly Hours,Total Hours,Notes,,,,
+
+NR.1,Network Room L1-3 Oversight,6 weeks,Aug 3 2026,Sep 13 2026,Crew A & B (minimal),Level 1-3,Included,450,"Network Room equipment commissioning performed by GC under PGCIS oversight. Concurrent with Block 1 Weeks 1-6. Hours included in Block 1 labor totals.",,,,
+
+Network Room Equipment:,,,,,,,,,,,,,,
+,- Transformer - Network IT: 8 units (34.5kV-480V 2MVA),,,,,,,,,,,,,,
+,- Transformer - Network Mech: 4 units (34.5kV-480V 3MVA),,,,,,,,,,,,,,
+,- LV Switchboard - Network Elec: 8 units (4000A 480V),,,,,,,,,,,,,,
+,- LV Switchboard - Network Mech: 4 units (4000A 480V),,,,,,,,,,,,,,
+
+Network Room L4-5 commissioning (if required) would be separate scope - not included in Block 1 WBS.,,,,,,,,,,,,,,
+
+,,,,,,,,,,,,,,
+
+KEY ASSUMPTIONS & NOTES,,,,,,,,,,,,,,
+
+,1. Switchyard commissioning is critical path - must complete before Block 1 start (RFI-001.07 CRITICAL question),,,,,,,,,,,,,,
+,2. Two fully redundant 10-person crews provide schedule flexibility and risk mitigation,,,,,,,,,,,,,,
+,3. Both crews active during: Switchyard (12 weeks), Block 1 startup (Week 1), and Block 1 L5 (Weeks 6-7),,,,,,,,,,,,,,
+,4. Single crew (Crew A) adequate for Block 1 L1-L4 steady-state activities (Weeks 2-5 of Block 1),,,,,,,,,,,,,,
+,5. Crew B on standby during Block 1 Weeks 2-5: Available for surge support or Block 2 preparation,,,,,,,,,,,,,,
+,6. Cx Manager provides continuous program oversight (hybrid/remote) - full-time across all phases,,,,,,,,,,,,,,
+,7. Documentation Coordinator (50%) supports centrally (hybrid/remote) - all phases,,,,,,,,,,,,,,
+,8. Labor hours assume: Equipment energized and L3 complete per schedule, reasonable deficiency rate (15%),,,,,,,,,,,,,,
+,9. TAB and pressure testing performed by others - PGCIS oversight and documentation review only,,,,,,,,,,,,,,
+,10. Load banks provided and operated by others - PGCIS plan review and oversight only,,,,,,,,,,,,,,
+,11. Network Room L1-3 oversight concurrent with Block 1 - hours included in Block 1 totals,,,,,,,,,,,,,,
+,12. Holiday impacts: Memorial Day (Week 4 Switchyard), Independence Day (Week 10 Switchyard), Labor Day (Week 17 Block 1 L4 startup),,,,,,,,,,,,,,
+
+,,,,,,,,,,,,,,
+
+DEPENDENCIES & CRITICAL PATH,,,,,,,,,,,,,,
+
+Task,Predecessor,Critical Path Item,Risk Level,Mitigation,,,,,,,,,
+
+Switchyard L1,None (Project Start),YES,HIGH,"Switchyard is absolute critical path. Any delay cascades to all data halls. Dual crew deployment accelerates schedule.",,,,,,,,,
+Switchyard L2,Switchyard L1,YES,HIGH,Weather-dependent outdoor work. Plan indoor backup activities during weather delays.,,,,,,,,,
+Switchyard L3,Switchyard L2,YES,HIGH,GC must complete installation. PGCIS oversight ensures quality before L4.,,,,,,,,,
+Switchyard L4,Switchyard L3,YES,CRITICAL,Functional testing of utility interconnection. Specialized HV testing required.,,,,,,,,,
+Switchyard L5,Switchyard L4,YES,CRITICAL,Utility coordination required. Energization schedule outside PGCIS control.,,,,,,,,,
+Block 1 Start,Switchyard Complete,YES,CRITICAL,Block 1 cannot start without energized utility power from switchyard.,,,,,,,,,
+Block 1 L1-L2,Block 1 Start,YES,MEDIUM,Crew A leads with Crew B support at startup.,,,,,,,,,
+Block 1 L3,Block 1 L2,YES,HIGH,GC must complete pre-functional testing. Single crew oversight adequate.,,,,,,,,,
+Block 1 L4,Block 1 L3 + Equipment Energized,YES,HIGH,"L4 cannot start until equipment energized and L3 substantially complete. 5 weeks required, single crew adequate.",,,,,,,,,
+Block 1 L5,Block 1 L4 Complete,YES,MEDIUM,Both crews required for integrated systems testing. Load banks must be available.,,,,,,,,,
+Block 1 Turnover,Block 1 L5 Complete,YES,LOW,Final documentation and Owner acceptance.,,,,,,,,,
+
+Critical Path Summary: Switchyard (12 weeks) → Block 1 L1-L4 (6 weeks) → Block 1 L5 (2 weeks) = 20 weeks total (May - October 2026),,,,,,,,,,,,,,
+
+,,,,,,,,,,,,,,
+
+RISK ASSESSMENT - SWITCHYARD & BLOCK 1,,,,,,,,,,,,,,
+
+Risk,Probability,Impact,Consequence,Mitigation Strategy,,,,,,,,
+
+Switchyard Utility Delays,MEDIUM,CRITICAL,Delays all data hall blocks,"Aggressive coordination, early utility engagement, dual crew acceleration capability",,,,,,,,
+Switchyard Weather Delays,HIGH,HIGH,Schedule slip during May-Jul (hurricane season),Build 1-week weather contingency into switchyard schedule,,,,,,,,
+Switchyard Scope Ambiguity,HIGH,CRITICAL,"Cost variance $400K-$1.5M, schedule unknown",RFI-001.07 CRITICAL question must be answered before pricing finalized,,,,,,,,
+GC L3 Completion Delays,MEDIUM,HIGH,L4 start delayed - cascades through Block 1,"Dual crew model allows surge support, early GC coordination, contractual L3 completion requirements",,,,,,,,
+Equipment Deficiencies (Block 1),HIGH,MEDIUM,Retest time extends schedule,15% contingency built in; dual crews provide surge capacity for retest,,,,,,,,
+Vendor Support Delays,MEDIUM,MEDIUM,Testing delays if vendor unavailable,"Pre-schedule vendor support 4-6 weeks in advance, dual crews can work around vendor delays",,,,,,,,
+Load Bank Unavailability,LOW,HIGH,Cannot complete L5 IST,"Contractually require load banks from Owner/others, confirm availability 6 weeks before L5",,,,,,,,
+Holiday Impacts,LOW,LOW,Labor Day during Block 1 L4 startup,Minimal impact - single holiday. Adjust startup to avoid Sep 1 if feasible.,,,,,,,,
+
+Overall Risk: MEDIUM-HIGH for Switchyard (critical path + scope ambiguity). MEDIUM for Block 1 (standard commissioning risks with dual crew mitigation).,,,,,,,,,,,,,,
+
+,,,,,,,,,,,,,,
+
+DELIVERABLES & DOCUMENTATION,,,,,,,,,,,,,,
+
+Deliverable,Responsible,Timing,Format,Audience,Notes,,,,,,,
+
+Commissioning Plan,Cx Manager,Before Switchyard Start,PDF Report,Owner/GC,"Master commissioning plan covering Switchyard + all data hall blocks, procedures, schedules, responsibilities",,,,,,,
+Weekly Progress Reports,Doc Coordinator,Weekly,PDF/Excel,Owner/GC,"Progress updates, issues log, schedule status, photos. Submitted every Friday.",,,,,,
+Test Reports (L4/L5),Site Leads,After Each Test,CxAlloy / Facility Grid,Owner/GC/Vendor,"Individual equipment test reports uploaded to commissioning management platform (CxAlloy or Facility Grid per RFI-001.02)",,,,,,
+Issues Log,Doc Coordinator,Continuous,Excel/CxAlloy,Owner/GC,Deficiency tracking with photos and resolution status,,,,,,
+Switchyard Commissioning Report,Cx Manager,After Switchyard L5,PDF Report,Owner/Utility,"Final switchyard commissioning report including all test results, certifications, utility acceptance documentation",,,,,,
+Block 1 Commissioning Report,Cx Manager,After Block 1 L5,PDF Report,Owner,"Final Block 1 commissioning report including executive summary, all test results, training records, O&M manuals, warranty documentation",,,,,,
+Training Documentation,Site Leads,During L5,Training Logs,Owner/Operations,Operator training on systems and O&M procedures,,,,,,
+Turnover Package,Doc Coordinator,At Completion,Binders + Digital,Owner,"Complete documentation package: reports, test data, issues log, training records, warranties, O&M manuals, as-built drawings",,,,,,
+
+All documentation subject to PGCIS QA/QC review by Documentation Coordinator before submission to Owner.,,,,,,,,,,,,,,
+
+,,,,,,,,,,,,,,
+
+END OF WORK BREAKDOWN STRUCTURE,,,,,,,,,,,,,,
+
+Document: WBS - Block 1 with Switchyard Phase,,,,,,,,,,,,,,
+Prepared: 2025-11-07,,,,,,,,,,,,,,
+For: Hut 8 Riverbend Data Center Commissioning Proposal,,,,,,,,,,,,,,
+By: PGCIS Commissioning Team,,,,,,,,,,,,,,
+Scope: Switchyard (May-Jul 2026) + Block 1 DH-1 (Aug-Oct 2026),,,,,,,,,,,,,,

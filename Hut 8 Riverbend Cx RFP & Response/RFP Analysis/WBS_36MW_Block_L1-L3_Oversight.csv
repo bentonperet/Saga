@@ -1,0 +1,320 @@
+HUT 8 RIVERBEND - DATA HALL COMMISSIONING WBS,,,,,,,,,,
+LEVEL 1-3 OVERSIGHT - SINGLE 36 MW BLOCK,,,,,,,,,,
+
+Project: Hut 8 Riverbend Data Center - 224 MW Facility,,,,,,,,,,
+Scope: Level 1-3 Commissioning Oversight for Single 36 MW Data Hall Block,,,,,,,,,,
+Levels Covered: L1 (Documentation) | L2 (Installation Verification) | L3 (Pre-Functional Testing Oversight),,,,,,,,,,
+Document Date: 2025-11-07,,,,,,,,,,
+
+,,,,,,,,,,
+
+STAFFING MODEL - L1-L3 OVERSIGHT (4 RESOURCES),,,,,,,,,,
+
+Resource Type,Quantity,Role,Location,Hours Per Week (per person),Total Hours Per Week,Notes
+
+Commissioning Lead - Electrical,1,Lead,On-Site,50,50,"Electrical systems oversight: transformers, switchgear, UPS, batteries, power distribution"
+Commissioning Lead - Mechanical,1,Lead,On-Site,50,50,"Mechanical systems oversight: chillers, CDUs, CRAH units, cooling systems, TAB oversight"
+Commissioning Manager,1,Manager,Hybrid/Remote,50,50,"Program oversight, vendor coordination, client interface, schedule management. Oversees and directs L1-L3 activities."
+Documentation Coordinator,1,Coordinator,Hybrid/Remote,50,50,"Documentation QA/QC, report generation, submittal tracking, scheduling support. Full-time during L1-L3 phase."
+
+Total L1-L3 Oversight Staffing,4 people,,,200 hrs/week,200,"2 site-based + 2 remote/hybrid = 4 total resources"
+
+Note: This is oversight and coordination only. GC performs actual L1-L3 commissioning activities per RFP scope definition.,,,,,,,,,,
+
+,,,,,,,,,,
+
+RFP SCHEDULE FOR 36 MW BLOCK (PER RFP PAGE 2),,,,,,,,,,
+
+Phase,RFP Duration,Start,End,CxA Role,GC Role,Notes
+
+Level 1-3 (Combined),Not specified,Block Start,Before L4 Start,Oversight,"Execution (under CxA oversight)","RFP states Levels 1-3 performed by GC under CxA responsibility and oversight"
+Level 4 & IST,6 weeks max,After L1-3,Block Complete,Execution,Support,"RFP specifies 6-week maximum duration for Level 4-IST phase"
+
+Assumption for L1-L3 Duration: 4-5 weeks based on industry standards for 36 MW data hall,,,,,,,,,,
+,- Level 1 (Documentation Review): 1 week,,,,,,,,
+,- Level 2 (Installation Verification): 2 weeks,,,,,,,,
+,- Level 3 (Pre-Functional Testing Oversight): 1-2 weeks,,,,,,,,
+,Total L1-L3: 4-5 weeks (using 5 weeks for this WBS),,,,,,,,
+
+Note: RFI-001.02 requests clarification on L1-3 oversight scope definition,,,,,,,,,,
+
+,,,,,,,,,,
+
+EQUIPMENT SUMMARY - 36 MW BLOCK (888 PIECES),,,,,,,,,,
+
+Location,Equipment Category,Quantity,Commissioning Oversight,Notes,
+
+GRAY SPACE - OUTDOOR,,,,,,
+Outdoor,Transformers (IT + Mech),44,Level 2-3,"32 IT (2.5 MVA) + 12 Mech (5 MVA) transformers",
+Outdoor,Ring Main Units,23,Level 2-3,34.5kV medium voltage switchgear,
+Outdoor,MV Switchboards,2,Level 2-3,34.5kV main distribution,
+Outdoor,Chillers + Buffer Tanks,54,Level 2-3,27 chillers + 27 buffer tanks,
+Outdoor Subtotal,,123,,,
+
+GRAY SPACE - INDOOR,,,,,,
+Indoor,LV Switchboards,44,Level 2-3,32 electrical + 12 mechanical switchboards (4000-5000A),
+Indoor,UPS Units,113,Level 2-3,Vertiv APM2 600kVA modular UPS,
+Indoor,Battery Cabinets,351,Level 2-3,Lithium-ion battery strings,
+Indoor,CRAH Fan Walls (Elec Rooms),11,Level 2-3,Electrical room cooling,
+Indoor Subtotal,,519,,,
+
+WHITE SPACE - OPTION 2 (BASE),,,,,,
+White Space,Hot Aisle Containment,11,Level 2-3,SmartRun containment systems,
+White Space,Rack Power Panels,160,Level 2-3,"1000/1200A rack PDUs",
+White Space,Remote Distribution Panels,7,Level 2-3,400A RXV panels,
+White Space,Cooling Distribution Units (CDU),32,Level 2-3,Vertiv XDU 2300,
+White Space,CRAH Fan Walls (Data Hall),36,Level 2-3,Data hall cooling,
+White Space Subtotal,,246,,,
+
+TOTAL BLOCK EQUIPMENT,,888,,,
+
+,,,,,,,,,,
+
+WORK BREAKDOWN STRUCTURE - L1-L3 OVERSIGHT (5 WEEKS),,,,,,,,,,
+
+WBS Code,Task Description,Duration (Weeks),Start Week,End Week,Elec Lead,Mech Lead,Cx Manager,Doc Coord,Total Weekly Hours,Total Hours
+
+L1-3.0,LEVEL 1-3 COMMISSIONING OVERSIGHT,5,1,5,50 hrs/wk,50 hrs/wk,50 hrs/wk,50 hrs/wk,200,1000
+
+L1-3.1,Pre-Commissioning & Mobilization,0.5,1,1,50,50,50,50,200,100
+L1-3.1.1,Block kickoff meeting with GC and Owner,,,,,,,,,Included
+L1-3.1.2,Review GC commissioning plan and schedule,,,,,,,,,Included
+L1-3.1.3,Establish communication protocols and reporting structure,,,,,,,,,Included
+L1-3.1.4,Define witness points and hold points for L1-L3 activities,,,,,,,,,Included
+L1-3.1.5,Setup commissioning management platform (CxAlloy or Facility Grid),,,,,,,,,Included
+
+L1-3.2,LEVEL 1 - Documentation Review & Submittal Review,1.5,1,2,50,50,50,50,200,300
+L1-3.2.1,Electrical Equipment Submittals Review,,,,,,,,,
+L1-3.2.1.1,Review transformer submittals (44 units),,,,,,,,,Included
+L1-3.2.1.2,Review MV switchgear submittals (RMUs and switchboards),,,,,,,,,Included
+L1-3.2.1.3,Review LV switchboard submittals (44 units),,,,,,,,,Included
+L1-3.2.1.4,Review UPS system submittals (113 units),,,,,,,,,Included
+L1-3.2.1.5,Review battery cabinet submittals (351 units),,,,,,,,,Included
+L1-3.2.1.6,Review rack power distribution submittals (160 RPPs + 7 RDPs),,,,,,,,,Included
+
+L1-3.2.2,Mechanical Equipment Submittals Review,,,,,,,,,
+L1-3.2.2.1,Review chiller submittals (27 units),,,,,,,,,Included
+L1-3.2.2.2,Review buffer tank submittals (27 units),,,,,,,,,Included
+L1-3.2.2.3,Review CDU submittals (32 units),,,,,,,,,Included
+L1-3.2.2.4,Review CRAH fan wall submittals (47 units total),,,,,,,,,Included
+L1-3.2.2.5,Review hot aisle containment submittals (11 units),,,,,,,,,Included
+
+L1-3.2.3,Systems Documentation Review,,,,,,,,,
+L1-3.2.3.1,Review design drawings and single-line diagrams,,,,,,,,,Included
+L1-3.2.3.2,Review control system architecture and sequences,,,,,,,,,Included
+L1-3.2.3.3,Review BMS/EPMS/DCIM integration documentation,,,,,,,,,Included
+L1-3.2.3.4,Review O&M manuals for all equipment,,,,,,,,,Included
+L1-3.2.3.5,Review test procedures prepared by GC for L3 activities,,,,,,,,,Included
+L1-3.2.3.6,Verify protective device coordination studies (electrical),,,,,,,,,Included
+L1-3.2.3.7,Verify TAB plan and procedures (mechanical),,,,,,,,,Included
+
+L1-3.2.4,Documentation Deliverable,,,,,,,,,
+L1-3.2.4.1,Prepare Level 1 Submittal Review Report,,,,,,,,,Included
+L1-3.2.4.2,Document submittal exceptions and required clarifications,,,,,,,,,Included
+
+L1-3.3,LEVEL 2 - Physical Verification & Installation QA,2,3,4,50,50,50,50,200,400
+L1-3.3.1,Electrical Installation Verification,,,,,,,,,
+L1-3.3.1.1,Transformer installation verification (44 units),,,,,,,,,Included
+L1-3.3.1.2,MV switchgear installation verification (RMUs and switchboards),,,,,,,,,Included
+L1-3.3.1.3,LV switchboard installation verification (44 units),,,,,,,,,Included
+L1-3.3.1.4,UPS installation verification (113 units),,,,,,,,,Included
+L1-3.3.1.5,Battery cabinet installation verification (351 units - sampling),,,,,,,,,Included
+L1-3.3.1.6,Rack power distribution installation verification (sampling),,,,,,,,,Included
+L1-3.3.1.7,Verify nameplate data matches submittals,,,,,,,,,Included
+L1-3.3.1.8,Verify grounding and bonding connections,,,,,,,,,Included
+L1-3.3.1.9,Verify cable terminations and torque requirements,,,,,,,,,Included
+L1-3.3.1.10,Verify clearances per NEC and NFPA 70E,,,,,,,,,Included
+
+L1-3.3.2,Mechanical Installation Verification,,,,,,,,,
+L1-3.3.2.1,Chiller installation verification (27 units),,,,,,,,,Included
+L1-3.3.2.2,Buffer tank installation verification (27 units),,,,,,,,,Included
+L1-3.3.2.3,CDU installation verification (32 units),,,,,,,,,Included
+L1-3.3.2.4,CRAH fan wall installation verification (47 units),,,,,,,,,Included
+L1-3.3.2.5,Hot aisle containment installation verification (11 units),,,,,,,,,Included
+L1-3.3.2.6,Verify piping installation and supports,,,,,,,,,Included
+L1-3.3.2.7,Verify isolation valve accessibility and labeling,,,,,,,,,Included
+L1-3.3.2.8,Verify VFD installation and wiring,,,,,,,,,Included
+
+L1-3.3.3,Physical Verification Sampling Strategy,,,,,,,,,
+L1-3.3.3.1,100% verification of critical/unique equipment,,,,,,,,,Included
+L1-3.3.3.2,Statistical sampling for repetitive equipment (batteries),,,,,,,,,Included
+L1-3.3.3.3,Increased sampling if deficiencies found,,,,,,,,,Included
+
+L1-3.3.4,Documentation Deliverable,,,,,,,,,
+L1-3.3.4.1,Prepare Level 2 Installation Verification Report,,,,,,,,,Included
+L1-3.3.4.2,Document installation deficiencies and punch list,,,,,,,,,Included
+L1-3.3.4.3,Photo documentation of installations and deficiencies,,,,,,,,,Included
+
+L1-3.4,LEVEL 3 - Pre-Functional Testing (GC-Performed / CxA Oversight),1.5,5,5,50,50,50,50,200,200
+L1-3.4.1,Electrical Pre-Functional Testing Oversight,,,,,,,,,
+L1-3.4.1.1,Witness point-to-point checks (control wiring verification),,,,,,,,,Included
+L1-3.4.1.2,Witness transformer pre-functional tests (energization checks),,,,,,,,,Included
+L1-3.4.1.3,Witness MV/LV switchboard pre-functional tests,,,,,,,,,Included
+L1-3.4.1.4,Witness UPS pre-functional tests (113 units - sampling),,,,,,,,,Included
+L1-3.4.1.5,Witness battery cabinet pre-functional tests (sampling),,,,,,,,,Included
+L1-3.4.1.6,Witness rack power distribution pre-functional tests (sampling),,,,,,,,,Included
+L1-3.4.1.7,Verify protective device settings loaded per coordination study,,,,,,,,,Included
+L1-3.4.1.8,Witness control sequences and interlocks (electrical),,,,,,,,,Included
+L1-3.4.1.9,Witness alarm and monitoring system checks,,,,,,,,,Included
+
+L1-3.4.2,Mechanical Pre-Functional Testing Oversight,,,,,,,,,
+L1-3.4.2.1,Witness chiller pre-functional tests (27 units),,,,,,,,,Included
+L1-3.4.2.2,Witness CDU pre-functional tests (32 units),,,,,,,,,Included
+L1-3.4.2.3,Witness CRAH fan wall pre-functional tests (47 units),,,,,,,,,Included
+L1-3.4.2.4,Witness pressure testing of piping systems (by others),,,,,,,,,Included
+L1-3.4.2.5,Witness flush and fill of piping systems (by others),,,,,,,,,Included
+L1-3.4.2.6,Witness control sequences and interlocks (mechanical),,,,,,,,,Included
+L1-3.4.2.7,Witness VFD functional checks,,,,,,,,,Included
+L1-3.4.2.8,Witness hot aisle containment functional checks,,,,,,,,,Included
+
+L1-3.4.3,Systems Integration Pre-Functional Checks,,,,,,,,,
+L1-3.4.3.1,Witness BMS/EPMS/DCIM integration pre-functional checks,,,,,,,,,Included
+L1-3.4.3.2,Witness monitoring system communications and points mapping,,,,,,,,,Included
+L1-3.4.3.3,Witness alarm generation and notification,,,,,,,,,Included
+
+L1-3.4.4,Pre-Functional Testing Witness Strategy,,,,,,,,,
+L1-3.4.4.1,Define witness points with GC (critical tests requiring CxA presence),,,,,,,,,Included
+L1-3.4.4.2,Review GC test reports for non-witnessed testing,,,,,,,,,Included
+L1-3.4.4.3,Statistical sampling approach for repetitive equipment,,,,,,,,,Included
+
+L1-3.4.5,Documentation Deliverable,,,,,,,,,
+L1-3.4.5.1,Prepare Level 3 Pre-Functional Testing Oversight Report,,,,,,,,,Included
+L1-3.4.5.2,Review and approve GC test reports,,,,,,,,,Included
+L1-3.4.5.3,Document exceptions and deficiencies requiring resolution,,,,,,,,,Included
+L1-3.4.5.4,Prepare punch list for resolution before L4 start,,,,,,,,,Included
+
+L1-3.5,L1-L3 Phase Closeout,Included,5,5,Included,Included,Included,Included,Included,Included
+L1-3.5.1,Final L1-L3 phase report compilation,,,,,,,,,Included in Week 5
+L1-3.5.2,Readiness assessment for Level 4 commissioning,,,,,,,,,Included in Week 5
+L1-3.5.3,Outstanding punch list review with GC and Owner,,,,,,,,,Included in Week 5
+L1-3.5.4,L4 commissioning kickoff preparation,,,,,,,,,Included in Week 5
+
+L1-3.0,TOTAL L1-L3 OVERSIGHT,5 weeks,Week 1,Week 5,250 hrs,250 hrs,250 hrs,250 hrs,1000 total,1000
+
+,,,,,,,,,,
+
+LABOR SUMMARY - L1-L3 OVERSIGHT (5 WEEKS),,,,,,,,,,
+
+Resource Type,Hours Per Week,Weeks Active,Total Hours,% of Total,Notes,
+
+Commissioning Lead - Electrical,50,5,250,25.0%,On-site oversight of electrical equipment installation and pre-functional testing,
+Commissioning Lead - Mechanical,50,5,250,25.0%,On-site oversight of mechanical equipment installation and pre-functional testing,
+Commissioning Manager,50,5,250,25.0%,"Program oversight, GC coordination, client interface (hybrid/remote)",
+Documentation Coordinator,50,5,250,25.0%,"Submittal tracking, report generation, documentation QA/QC (hybrid/remote)",
+
+Total L1-L3 Oversight,200 hrs/week,5 weeks,1000 hours,100%,"4 resources × 50 hrs/week × 5 weeks = 1,000 hours",
+
+,,,,,,,,,,
+
+LABOR BY DISCIPLINE - L1-L3 OVERSIGHT,,,,,,,,,,
+
+Discipline,Hours,% of Total,Activities,,
+
+Electrical,250,25.0%,"Electrical equipment submittal review, installation verification, pre-functional testing oversight",,
+Mechanical,250,25.0%,"Mechanical equipment submittal review, installation verification, pre-functional testing oversight, TAB plan oversight",,
+Program Management,250,25.0%,"Schedule coordination, GC interface, vendor coordination, issue resolution",,
+Documentation/Admin,250,25.0%,"Submittal tracking, report generation, photo documentation, punch list management",,
+
+Total,1000,100%,,,
+
+,,,,,,,,,,
+
+WEEKLY BREAKDOWN - L1-L3 OVERSIGHT,,,,,,,,,,
+
+Week,Calendar Week (Example),Phase,Primary Activities,Elec Lead,Mech Lead,Cx Mgr,Doc Coord,Weekly Hours,Cumulative Hours
+
+1,Block Week 1,L1 + Startup,"Mobilization, kickoff meeting, documentation review startup",50,50,50,50,200,200
+2,Block Week 2,L1,"Submittal review (electrical and mechanical equipment), design drawing review, test procedure review",50,50,50,50,200,400
+3,Block Week 3,L2,"Physical installation verification begins (electrical systems, transformers, switchgear, UPS)",50,50,50,50,200,600
+4,Block Week 4,L2,"Physical installation verification continues (mechanical systems, chillers, CDUs, CRAH, piping)",50,50,50,50,200,800
+5,Block Week 5,L3,"Pre-functional testing oversight (witness GC testing), L1-L3 closeout, L4 readiness assessment",50,50,50,50,200,1000
+
+Total L1-L3,5 weeks,,Oversight of GC-performed commissioning,250,250,250,250,1000,1000
+
+,,,,,,,,,,
+
+OVERSIGHT SCOPE DEFINITION (PER RFP),,,,,,,,,,
+
+CxA Oversight Activities,GC Execution Activities,CxA Deliverables,,
+
+"Review and approve GC commissioning plan, schedule, and procedures",Execute all L1-L3 commissioning activities,Level 1 Submittal Review Report,,
+Review equipment submittals and O&M documentation,Submit equipment documentation for CxA review,Level 2 Installation Verification Report,,
+Witness and verify physical equipment installation (sampling),Perform 100% equipment installation per design,Level 3 Pre-Functional Testing Oversight Report,,
+Define witness points for pre-functional testing,Perform all pre-functional testing per approved procedures,Punch list of deficiencies requiring resolution,,
+Witness critical pre-functional tests,Provide test reports to CxA for review,Readiness assessment for Level 4 commissioning,,
+Review GC test reports for non-witnessed testing,Resolve all deficiencies before L4 handoff,Weekly progress reports and issues log,,
+Document deficiencies and punch list items,Coordinate vendor startup and support,Photo documentation of key installations,,
+Approve readiness for Level 4 commissioning,Achieve substantial completion of installation and L3 testing,Final L1-L3 phase report,,
+
+Note: "Oversight" means CxA reviews GC work product and witnesses critical activities but does not perform hands-on L1-L3 commissioning,,,,,,,,,,
+
+,,,,,,,,,,
+
+TAG APPROVAL AUTHORITY (PER RFI-001.02),,,,,,,,,,
+
+Question: Will CxA have tag approval authority for equipment/system turnover from L3 to L4?,,,,,,,,,,
+
+Scenario A: CxA has tag approval authority,,,,,,,,,,
+,"If CxA has authority to approve equipment tags, then CxA must verify all L1-L3 activities substantially complete before issuing tag approval for L4 commissioning to proceed. This increases CxA oversight responsibility.",,,,,,,,
+
+Scenario B: Owner retains tag approval authority,,,,,,,,,,
+,"If Owner retains authority, CxA provides recommendation only. Owner makes final approval decision for L3→L4 handoff. This reduces CxA responsibility but may create ambiguity in handoff criteria.",,,,,,,,
+
+Assumption for this WBS: CxA provides readiness recommendation; final approval authority TBD per RFI-001.02 response,,,,,,,,,,
+
+,,,,,,,,,,
+
+ASSUMPTIONS & NOTES - L1-L3 OVERSIGHT,,,,,,,,,,
+
+,1. L1-L3 duration: 5 weeks based on industry standards for 36 MW data hall (RFP does not specify L1-L3 duration),,,,,,,,
+,2. GC performs all L1-L3 commissioning execution; CxA provides oversight per RFP scope definition,,,,,,,,
+,3. 4 resources adequate for oversight role: 2 site-based leads + 2 remote/hybrid management/documentation,,,,,,,,
+,4. Witness point strategy used for L3 pre-functional testing (not 100% witness of all tests),,,,,,,,
+,5. Statistical sampling used for repetitive equipment verification (e.g. 351 battery cabinets),,,,,,,,
+,6. Documentation Coordinator at full-time (50 hrs/week) during L1-L3 due to heavy submittal review workload,,,,,,,,
+,7. Pressure testing and TAB performed by others; CxA oversight and plan review only per scope assumptions,,,,,,,,
+,8. CxA tag approval authority TBD per RFI-001.02 - impacts L3→L4 handoff responsibility,,,,,,,,
+,9. Hours assume GC has commissioning experience and provides quality work product requiring normal oversight,,,,,,,,
+,10. If GC commissioning quality is poor, oversight hours may increase significantly (risk factor),,,,,,,,
+
+,,,,,,,,,,
+
+RISKS - L1-L3 OVERSIGHT PHASE,,,,,,,,,,
+
+Risk,Probability,Impact,Consequence,Mitigation
+
+GC Lacks Commissioning Experience,MEDIUM,HIGH,"Poor quality L1-L3 execution, extensive rework, delays to L4 start",Qualify GC commissioning experience early; escalate issues immediately; budget contingency hours
+GC Schedule Delays,HIGH,HIGH,L4 start delayed - cascades through entire block schedule,"Track GC progress weekly, early warning system, contractual L3 completion requirements"
+Submittal Delays,MEDIUM,MEDIUM,Cannot complete L1 review on schedule,"Request submittals 4-6 weeks before installation, track submittal log aggressively"
+Installation Deficiencies,HIGH,MEDIUM,"Extensive punch list, delays to L3 pre-functional testing","Conduct L2 verification early and often, halt work if major deficiencies found"
+Incomplete Pre-Functional Testing,MEDIUM,HIGH,"Equipment not ready for L4, CxA cannot approve handoff","Define witness points and hold points clearly upfront, do not approve L3 completion until substantially complete"
+Scope Ambiguity (L1-3 Oversight Definition),HIGH,MEDIUM,"Cost overrun if oversight effort exceeds estimate, dispute over responsibility","RFI-001.02 requests clarification; define oversight scope clearly in proposal assumptions"
+
+Overall Risk: MEDIUM-HIGH due to dependency on GC quality and RFI-001.02 scope ambiguity,,,,,,,,,,
+
+,,,,,,,,,,
+
+DELIVERABLES - L1-L3 OVERSIGHT PHASE,,,,,,,,,,
+
+Deliverable,Responsible,Timing,Format,Audience
+
+Level 1 Submittal Review Report,Doc Coordinator,End of Week 2,PDF,Owner/GC
+Level 2 Installation Verification Report,Elec & Mech Leads,End of Week 4,PDF,Owner/GC
+Level 3 Pre-Functional Testing Oversight Report,Elec & Mech Leads,End of Week 5,PDF,Owner/GC
+Weekly Progress Reports,Doc Coordinator,Weekly (Fridays),PDF/Email,Owner/GC
+Punch List & Issues Log,Doc Coordinator,Continuous (Weekly Updates),Excel/CxAlloy,Owner/GC
+Photo Documentation,Site Leads,Continuous,Digital Photos,Owner/GC
+Readiness Assessment for Level 4,Cx Manager,End of Week 5,Memo/Email,Owner
+L1-L3 Phase Summary Report,Cx Manager,End of Week 5,PDF,Owner
+
+All deliverables uploaded to commissioning management platform (CxAlloy or Facility Grid per RFI-001.02),,,,,,,,,,
+
+,,,,,,,,,,
+
+END OF WBS - L1-L3 OVERSIGHT,,,,,,,,,,
+
+Document: Work Breakdown Structure - Level 1-3 Oversight for Single 36 MW Block,,,,,,,,,,
+Prepared: 2025-11-07,,,,,,,,,,
+For: Hut 8 Riverbend Data Center Commissioning Proposal,,,,,,,,,,
+By: PGCIS Commissioning Team,,,,,,,,,,
+Scope: L1-L3 Commissioning Oversight (5 weeks) - 4 Resources (2 Site + 2 Remote/Hybrid),,,,,,,,,,
