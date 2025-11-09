@@ -1,0 +1,232 @@
+HUTS 8 RIVERBEND DATA CENTER COMMISSIONING - WORK BREAKDOWN STRUCTURE & WEEKLY STAFFING PLAN,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+Project Duration: May 2026 - February 2027 (42 weeks total),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Switchyard Phase: May - July 2026 (12 weeks),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Data Hall Commissioning: August 2026 - February 2027 (30 weeks),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+STAFFING MODEL: 2 FULLY REDUNDANT CREWS + PROGRAM MANAGEMENT,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+CREW A (10 people),,,Role,Location,Notes,,,,,,,,,,,,,,,,,,,,,,,,
+,Commissioning Lead - Electrical,2,Lead,On-Site,Direct oversight and execution of electrical commissioning,,,,,,,,,,,,,,,,,,,,,,,,
+,Commissioning Lead - Mechanical,2,Lead,On-Site,Direct oversight and execution of mechanical commissioning,,,,,,,,,,,,,,,,,,,,,,,,
+,Commissioning Technician - Electrical,2,Technician,On-Site,Hands-on electrical testing and data collection,,,,,,,,,,,,,,,,,,,,,,,,
+,Commissioning Technician - Mechanical,2,Technician,On-Site,Hands-on mechanical testing and equipment setup,,,,,,,,,,,,,,,,,,,,,,,,
+,Redundant Lead,1,Lead,On-Site,Cross-discipline support and flexibility,,,,,,,,,,,,,,,,,,,,,,,,
+,Redundant Technician,1,Technician,On-Site,Peak demand support and backup,,,,,,,,,,,,,,,,,,,,,,,,
+,CREW A SUBTOTAL,10,,,500 hrs/week @ 50 hrs per person,,,,,,,,,,,,,,,,,,,,,,,,
+
+CREW B (10 people),,,Role,Location,Notes,,,,,,,,,,,,,,,,,,,,,,,,
+,Commissioning Lead - Electrical,2,Lead,On-Site,Direct oversight and execution of electrical commissioning,,,,,,,,,,,,,,,,,,,,,,,,
+,Commissioning Lead - Mechanical,2,Lead,On-Site,Direct oversight and execution of mechanical commissioning,,,,,,,,,,,,,,,,,,,,,,,,
+,Commissioning Technician - Electrical,2,Technician,On-Site,Hands-on electrical testing and data collection,,,,,,,,,,,,,,,,,,,,,,,,
+,Commissioning Technician - Mechanical,2,Technician,On-Site,Hands-on mechanical testing and equipment setup,,,,,,,,,,,,,,,,,,,,,,,,
+,Redundant Lead,1,Lead,On-Site,Cross-discipline support and flexibility,,,,,,,,,,,,,,,,,,,,,,,,
+,Redundant Technician,1,Technician,On-Site,Peak demand support and backup,,,,,,,,,,,,,,,,,,,,,,,,
+,CREW B SUBTOTAL,10,,,500 hrs/week @ 50 hrs per person,,,,,,,,,,,,,,,,,,,,,,,,
+
+PROGRAM MANAGEMENT,,,Role,Location,Notes,,,,,,,,,,,,,,,,,,,,,,,,
+,Commissioning Manager,1,Manager,Hybrid/Remote,Program oversight across all blocks - oversees and directs all L4/L5 Cx activities,,,,,,,,,,,,,,,,,,,,,,,,
+,Documentation Coordinator,1,Coordinator,Hybrid/Remote (50%),Documentation QA/QC and reporting support across all blocks,,,,,,,,,,,,,,,,,,,,,,,,
+,MANAGEMENT SUBTOTAL,2,,,75 hrs/week (Cx Mgr: 50 hrs + Doc Coord: 25 hrs),,,,,,,,,,,,,,,,,,,,,,,,
+
+TOTAL PROGRAM STAFFING,22 people,,,1075 hrs/week,20 site-based + 1 Cx Manager + 1 Doc Coordinator (50%),,,,,,,,,,,,,,,,,,,,,,,,
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+WEEKLY WORK BREAKDOWN STRUCTURE BY PHASE AND BLOCK,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+Calendar,Week #,Month,Phase,Block 1 (DH-1),Block 2 (DH-2),Block 3 (DH-3),Block 4 (DH-4),Block 5 (DH-5),Block 6 (DH-6),Network Room,Crew A Assignment,Crew B Assignment,Cx Manager,Doc Coord,Total Site Staff,Total Staff,Weekly Hours,Notes & Holidays
+
+PHASE 0: SWITCHYARD COMMISSIONING (May - July 2026),,,,,,,,,,,,,,,,,,,,
+
+May 2026,1,May,Switchyard,,,,,,,Switchyard Cx,Switchyard,Switchyard,Active,Active,20,22,1075,Switchyard commissioning startup - both crews mobilized
+May 2026,2,May,Switchyard,,,,,,,Switchyard Cx,Switchyard,Switchyard,Active,Active,20,22,1075,
+May 2026,3,May,Switchyard,,,,,,,Switchyard Cx,Switchyard,Switchyard,Active,Active,20,22,1075,
+May 2026,4,May,Switchyard,,,,,,,Switchyard Cx,Switchyard,Switchyard,Active,Active,20,22,1075,Memorial Day (May 26)
+Jun 2026,5,Jun,Switchyard,,,,,,,Switchyard Cx,Switchyard,Switchyard,Active,Active,20,22,1075,
+Jun 2026,6,Jun,Switchyard,,,,,,,Switchyard Cx,Switchyard,Switchyard,Active,Active,20,22,1075,
+Jun 2026,7,Jun,Switchyard,,,,,,,Switchyard Cx,Switchyard,Switchyard,Active,Active,20,22,1075,
+Jun 2026,8,Jun,Switchyard,,,,,,,Switchyard Cx,Switchyard,Switchyard,Active,Active,20,22,1075,
+Jul 2026,9,Jul,Switchyard,,,,,,,Switchyard Cx,Switchyard,Switchyard,Active,Active,20,22,1075,
+Jul 2026,10,Jul,Switchyard,,,,,,,Switchyard Cx,Switchyard,Switchyard,Active,Active,20,22,1075,Independence Day (Jul 4)
+Jul 2026,11,Jul,Switchyard,,,,,,,Switchyard Cx,Switchyard,Switchyard,Active,Active,20,22,1075,
+Jul 2026,12,Jul,Switchyard,,,,,,,Switchyard Cx,Switchyard,Switchyard,Active,Active,20,22,1075,Switchyard completion and acceptance
+
+PHASE 1-6: DATA HALL COMMISSIONING (August 2026 - February 2027),,,,,,,,,,,,,,,,,,,,
+
+Aug 2026,13,Aug,Block 1,L4 - Week 1,,,,,,L1-3 Oversight,Block 1 L4,Network L1-3,Active,Active,20,22,1075,Block 1 L4 startup / Network Room L1-3 oversight
+Aug 2026,14,Aug,Block 1,L4 - Week 2,,,,,,L1-3 Oversight,Block 1 L4,Network L1-3,Active,Active,20,22,1075,
+Aug 2026,15,Aug,Block 1,L4 - Week 3,,,,,,L1-3 Oversight,Block 1 L4,Network L1-3,Active,Active,20,22,1075,
+Aug 2026,16,Aug,Block 1,L4 - Week 4,,,,,,L1-3 Oversight,Block 1 L4,Network L1-3,Active,Active,20,22,1075,
+Aug 2026,17,Aug,Block 1,L4 - Week 5,,,,,,L4 Prep,Block 1 L4,Network L1-3,Active,Active,20,22,1075,
+Sep 2026,18,Sep,Blocks 1+2,L5 - Week 1,L4 - Week 1,,,,,L4 Prep,Block 1 L5,Block 2 L4,Active,Active,20,22,1075,Block 1 L5 startup / Block 2 L4 startup (Labor Day Sep 1)
+Sep 2026,19,Sep,Blocks 1+2,L5 - Week 2,L4 - Week 2,,,,,Standby,Block 1 L5,Block 2 L4,Active,Active,20,22,1075,2 blocks active - Crews A & B both deployed
+Sep 2026,20,Sep,Block 2 Only,Complete,L4 - Week 3,,,,,Standby,Standby,Block 2 L4,Active,Active,10,12,575,Block 1 complete / Crew A standby
+Sep 2026,21,Sep,Block 2 Only,,L4 - Week 4,,,,,Standby,Standby,Block 2 L4,Active,Active,10,12,575,
+Sep 2026,22,Sep,Block 2 Only,,L4 - Week 5,,,,,Standby,Standby,Block 2 L4,Active,Active,10,12,575,
+Oct 2026,23,Oct,Blocks 2+3,,L5 - Week 1,L4 - Week 1,,,,L4 Prep,Block 3 L4,Block 2 L5,Active,Active,20,22,1075,Block 2 L5 startup / Block 3 L4 startup
+Oct 2026,24,Oct,Blocks 2+3,,L5 - Week 2,L4 - Week 2,,,,Standby,Block 3 L4,Block 2 L5,Active,Active,20,22,1075,2 blocks active
+Oct 2026,25,Oct,Block 3 Only,,Complete,L4 - Week 3,,,,Standby,Block 3 L4,Standby,Active,Active,10,12,575,Block 2 complete / Crew B standby
+Oct 2026,26,Oct,Block 3 Only,,,L4 - Week 4,,,,Standby,Block 3 L4,Standby,Active,Active,10,12,575,
+Oct 2026,27,Oct,Block 3 Only,,,L4 - Week 5,,,,Standby,Block 3 L4,Standby,Active,Active,10,12,575,
+Nov 2026,28,Nov,Blocks 3+4,,,L5 - Week 1,L4 - Week 1,,,L4 Prep,Block 3 L5,Block 4 L4,Active,Active,20,22,1075,Block 3 L5 startup / Block 4 L4 startup
+Nov 2026,29,Nov,Blocks 3+4,,,L5 - Week 2,L4 - Week 2,,,Standby,Block 3 L5,Block 4 L4,Active,Active,20,22,1075,2 blocks active
+Nov 2026,30,Nov,Block 4 Only,,,Complete,L4 - Week 3,,,Standby,Standby,Block 4 L4,Active,Active,10,12,575,Block 3 complete / Crew A standby / Thanksgiving week
+Nov 2026,31,Nov,Block 4 Only,,,,L4 - Week 4,,,Standby,Standby,Block 4 L4,Active,Active,10,12,575,
+Dec 2026,32,Dec,Block 4 Only,,,,L4 - Week 5,,,Standby,Standby,Block 4 L4,Active,Active,10,12,575,
+Dec 2026,33,Dec,Blocks 4+5,,,,L5 - Week 1,L4 - Week 1,,L4 Prep,Block 5 L4,Block 4 L5,Active,Active,20,22,1075,Block 4 L5 startup / Block 5 L4 startup
+Dec 2026,34,Dec,Blocks 4+5,,,,L5 - Week 2,L4 - Week 2,,Standby,Block 5 L4,Block 4 L5,Active,Active,20,22,1075,2 blocks active / Christmas week (reduced hours)
+Dec 2026,35,Dec,Block 5 Only,,,,Complete,L4 - Week 3,,Standby,Block 5 L4,Standby,Active,Active,10,12,575,Block 4 complete / Crew B standby / New Year's week
+Jan 2027,36,Jan,Block 5 Only,,,,,L4 - Week 4,,Standby,Block 5 L4,Standby,Active,Active,10,12,575,
+Jan 2027,37,Jan,Block 5 Only,,,,,L4 - Week 5,,Standby,Block 5 L4,Standby,Active,Active,10,12,575,
+Jan 2027,38,Jan,Blocks 5+6,,,,,L5 - Week 1,L4 - Week 1,L4 Prep,Block 5 L5,Block 6 L4,Active,Active,20,22,1075,Block 5 L5 startup / Block 6 L4 startup
+Jan 2027,39,Jan,Blocks 5+6,,,,,L5 - Week 2,L4 - Week 2,Standby,Block 5 L5,Block 6 L4,Active,Active,20,22,1075,2 blocks active
+Feb 2027,40,Feb,Block 6 Only,,,,,Complete,L4 - Week 3,Standby,Standby,Block 6 L4,Active,Active,10,12,575,Block 5 complete / Crew A standby
+Feb 2027,41,Feb,Block 6 Only,,,,,,L4 - Week 4,Standby,Standby,Block 6 L4,Active,Active,10,12,575,
+Feb 2027,42,Feb,Block 6 Only,,,,,,L4 - Week 5,Standby,Standby,Block 6 L4,Active,Active,10,12,575,
+Feb 2027,43,Feb,Block 6 Final,,,,,,L5 - Week 1,Standby,Standby,Block 6 L5,Active,Active,10,12,575,Block 6 L5 startup
+Feb 2027,44,Feb,Block 6 Final,,,,,,L5 - Week 2,Complete,Demobilize,Block 6 L5,Active,Active,10,12,575,Block 6 L5 completion / Final closeout
+
+,,,,,,,,,,,,,,,,,,,,
+
+LABOR SUMMARY BY PHASE,,,,,,,,,,,,,,,,,,,,
+
+Phase,Weeks,Crew A Weeks,Crew B Weeks,Site Staff Avg,Cx Manager,Doc Coord,Total Avg Staff,Total Hours,Notes,,,,,,,,,,,
+
+Switchyard,12,12,12,20,12,12,22,12900,"Both crews mobilized for switchyard (300 MW scope). 12 weeks × 1,075 hrs/week = 12,900 hours",,,,,,,,,,,
+Block 1 (DH-1),7,7,7,17.1,7,7,19.1,6950,"5 weeks L4 + 2 weeks L5. Mix of 20-staff and 10-staff weeks. Average 17.1 site staff.",,,,,,,,,,,
+Block 2 (DH-2),7,2,7,17.1,7,7,19.1,6950,"5 weeks L4 + 2 weeks L5. Crew A standby 5 weeks. Average 17.1 site staff.",,,,,,,,,,,
+Block 3 (DH-3),7,7,2,17.1,7,7,19.1,6950,"5 weeks L4 + 2 weeks L5. Crew B standby 5 weeks. Average 17.1 site staff.",,,,,,,,,,,
+Block 4 (DH-4),7,2,7,17.1,7,7,19.1,6950,"5 weeks L4 + 2 weeks L5. Crew A standby 5 weeks. Average 17.1 site staff.",,,,,,,,,,,
+Block 5 (DH-5),7,7,2,17.1,7,7,19.1,6950,"5 weeks L4 + 2 weeks L5. Crew B standby 5 weeks. Average 17.1 site staff.",,,,,,,,,,,
+Block 6 (DH-6),7,2,7,17.1,7,7,19.1,6950,"5 weeks L4 + 2 weeks L5. Crew A standby 5 weeks. Average 17.1 site staff.",,,,,,,,,,,
+Network Room,6,6,6,Oversight,6,6,Oversight,450,"Network room L1-3 oversight concurrent with early blocks (Aug-Sep). Included in Block 1-2 hours.",,,,,,,,,,,
+
+Total Program,44 weeks,45,50,,,44,44,,54600,"Total program hours: 54,600 (includes switchyard + 6 data hall blocks + network room)",,,,,,,,,,,
+
+,,,,,,,,,,,,,,,,,,,,
+
+CREW UTILIZATION ANALYSIS,,,,,,,,,,,,,,,,,,,,
+
+Crew,Total Weeks Active,Weeks on Block L4/L5,Weeks Standby,Utilization %,Notes,,,,,,,,,,,,,,,
+
+Crew A,45,33,12,73%,"Active: Switchyard (12w) + Blocks 1,3,5 L4/L5 (21w). Standby during Blocks 2,4,6 L4 middle weeks (12w).",,,,,,,,,,,,,,,
+Crew B,50,38,12,76%,"Active: Switchyard (12w) + Blocks 2,4,6 L4/L5 (26w). Standby during Blocks 1,3,5 L4 middle weeks (12w).",,,,,,,,,,,,,,,
+
+Standby Weeks Explanation:,,,,,,,,,,,,,,,,,,,,
+,"During each block's middle 5 weeks of L4 commissioning, only one crew is required on-site. The alternate crew is on ""standby"" - available for mobilization but not actively deployed. This provides:",,,,,,,,,,,,,,,,,
+,- Schedule flexibility if a block experiences delays or deficiencies requiring additional resources,,,,,,,,,,,,,,,,,
+,- Backup capacity during peak overlap periods (Oct-Dec when 2-3 blocks may need support),,,,,,,,,,,,,,,,,
+,- Resource availability for punch list resolution or vendor support issues,,,,,,,,,,,,,,,,,
+,"- Holiday coverage and crew rotation capability. Standby crews may perform: training, procedure development, vendor coordination calls, equipment procurement, or support other projects.",,,,,,,,,,,,,,,,,
+
+,,,,,,,,,,,,,,,,,,,,
+
+PEAK STAFFING PERIODS,,,,,,,,,,,,,,,,,,,,
+
+Period,Dates,Active Blocks,Site Staff,Management,Total Staff,Weekly Hours,Challenges,,,,,,,,,,,,,,
+
+Switchyard Phase,May-Jul 2026,Switchyard only,20 (both crews),2,22,1075,Critical path - all data halls depend on switchyard completion,,,,,,,,,,,,,,
+August Startup,Aug 2026,Block 1 + Network,20 (both crews),2,22,1075,Initial commissioning ramp-up and network room oversight,,,,,,,,,,,,,,
+Sept-Oct Transition,Sep-Oct 2026,Blocks 1+2 or 2+3 overlap,20 (both crews),2,22,1075,2 blocks active during L4/L5 handoffs,,,,,,,,,,,,,,
+Holiday Period,Nov-Dec 2026,Blocks 4+5 overlap,20 (both crews),2,22,1075,Thanksgiving through New Year's - challenging for staff retention,,,,,,,,,,,,,,
+Final Push,Jan-Feb 2027,Blocks 5+6 overlap,20 (both crews),2,22,1075,Final 2 blocks - maintaining quality and schedule to finish line,,,,,,,,,,,,,,
+
+,,,,,,,,,,,,,,,,,,,,
+
+HOLIDAY IMPACT ASSESSMENT,,,,,,,,,,,,,,,,,,,,
+
+Holiday,Date,Week #,Active Blocks,Impact,Mitigation,,,,,,,,,,,,,,,,
+
+Memorial Day,May 26 2026,4,Switchyard,1 day lost during critical switchyard phase,Build float into switchyard schedule,,,,,,,,,,,,,,,,
+Independence Day,July 4 2026,10,Switchyard,1 day lost during switchyard completion,Plan final testing before/after holiday,,,,,,,,,,,,,,,,
+Labor Day,Sept 1 2026,18,Blocks 1+2,Block 1 L5 and Block 2 L4 startup week,Adjust startup dates to avoid holiday conflicts,,,,,,,,,,,,,,,,
+Thanksgiving,Nov 27-28 2026,30,Block 4,Mid-L4 testing for Block 4 (Week 3 of 5),Reduced crew or shutdown - build contingency into Block 4 schedule,,,,,,,,,,,,,,,,
+Christmas,Dec 25 2026,34,Blocks 4+5,Block 4 L5 and Block 5 L4 overlap,Critical overlap period - likely reduced hours or shutdown,,,,,,,,,,,,,,,,
+New Year's,Jan 1 2027,35,Block 5,Block 5 L4 Week 3,Plan for reduced productivity week,,,,,,,,,,,,,,,,
+
+Holiday Strategy:,,,,,,,,,,,,,,,,,,,,
+,- Thanksgiving week (Nov 27-28): Plan for 2-3 day shutdown. Ensure no critical testing scheduled this week.,,,,,,,,,,,,,,,,,
+,- Christmas week (Dec 25): Plan for 3-4 day shutdown. Block 4 should be substantially complete before Dec 23.,,,,,,,,,,,,,,,,,
+,- New Year's week (Jan 1): Reduced crew or delayed startup of critical activities until Jan 5.,,,,,,,,,,,,,,,,,
+,- Build 1 additional week of float into Blocks 4 and 5 schedules to account for holiday disruptions.,,,,,,,,,,,,,,,,,
+
+,,,,,,,,,,,,,,,,,,,,
+
+COST ALLOCATION MODEL,,,,,,,,,,,,,,,,,,,,
+
+Resource Type,Quantity,Hourly Rate Assumption,Hours Per Week,Weeks Active,Total Hours,Cost Per Resource,Total Cost Category,Notes,,,,,,,,,,,,,
+
+SITE-BASED CREWS,,,,,,,,,,,,,,,,,,,,
+
+Commissioning Lead,8 (4 per crew),$$$ - Lead Rate,50,Varies by crew,Variable,Calculate per crew,Electrical + Mechanical Leads,2 electrical + 2 mechanical per crew,,,,,,,,,,,,,
+Commissioning Technician,8 (4 per crew),$$$ - Tech Rate,50,Varies by crew,Variable,Calculate per crew,Electrical + Mechanical Techs,2 electrical + 2 mechanical per crew,,,,,,,,,,,,,
+Redundant Lead,2 (1 per crew),$$$ - Lead Rate,50,Varies by crew,Variable,Calculate per crew,Cross-discipline backup,,,,,,,,,,,,,,
+Redundant Technician,2 (1 per crew),$$$ - Tech Rate,50,Varies by crew,Variable,Calculate per crew,Peak demand backup,,,,,,,,,,,,,,
+
+Site Crew Subtotal,20 people,,,Variable by block,Variable,Calculate total,Total site-based labor,Varies by utilization per WBS,,,,,,,,,,,,,
+
+PROGRAM MANAGEMENT,,,,,,,,,,,,,,,,,,,,
+
+Commissioning Manager,1,$$$ - Manager Rate,50,44 weeks,2200,Calculate,Program oversight,Hybrid/remote - full program duration,,,,,,,,,,,,,
+Documentation Coordinator,1,$$$ - Coordinator Rate,25,44 weeks,1100,Calculate,Documentation support,Hybrid/remote 50% - full program duration,,,,,,,,,,,,,
+
+Management Subtotal,2 people,,,44 weeks,3300,Calculate total,Program management,Fixed cost across all blocks,,,,,,,,,,,,,
+
+Total Labor,22 people,,,44 weeks,~54600 total,Calculate,Total program cost,"Site crews: ~51,300 hours + Management: 3,300 hours",,,,,,,,,,,,,
+
+,,,,,,,,,,,,,,,,,,,,
+
+PER-BLOCK COST ALLOCATION,,,,,,,,,,,,,,,,,,,,
+
+Block,Site Crew Hours,Crew A Hours,Crew B Hours,Cx Manager Hours,Doc Coord Hours,Total Hours,% of Total,Notes,,,,,,,,,,,,
+
+Switchyard,12000,6000,6000,600,300,12900,24%,"Both crews × 12 weeks × 500 hrs/week = 12,000 site hours. Mgmt: 12 weeks × 75 hrs/week = 900 hours.",,,,,,,,,,,
+Block 1 (DH-1),6500,3250,3250,350,175,7025,13%,"Both crews for 7 weeks, but averaged 17.1 site staff due to standby periods.",,,,,,,,,,,
+Block 2 (DH-2),6500,1000,5500,350,175,7025,13%,Crew B primary (5w L4 + 2w L5). Crew A active 2 weeks only (overlap periods).,,,,,,,,,,,
+Block 3 (DH-3),6500,5500,1000,350,175,7025,13%,Crew A primary (5w L4 + 2w L5). Crew B active 2 weeks only (overlap periods).,,,,,,,,,,,
+Block 4 (DH-4),6500,1000,5500,350,175,7025,13%,Crew B primary (5w L4 + 2w L5). Crew A active 2 weeks only (overlap periods).,,,,,,,,,,,
+Block 5 (DH-5),6500,5500,1000,350,175,7025,13%,Crew A primary (5w L4 + 2w L5). Crew B active 2 weeks only (overlap periods).,,,,,,,,,,,
+Block 6 (DH-6),6500,1000,5500,350,175,7025,13%,Crew B primary (5w L4 + 2w L5). Crew A active 2 weeks only (overlap periods).,,,,,,,,,,,
+
+Total Program,51000,23250,27750,2550,1275,54825,100%,"Note: Total includes all commissioning activities. Crew hours reflect actual deployment, not standby time.",,,,,,,,,,,
+
+,,,,,,,,,,,,,,,,,,,,
+
+KEY ASSUMPTIONS AND NOTES,,,,,,,,,,,,,,,,,,,,
+
+,1. Two fully redundant 10-person crews provide schedule flexibility and risk mitigation,,,,,,,,,,,,,,,,,,
+,2. Crews alternate as primary for data hall blocks (Crew A: Blocks 1/3/5; Crew B: Blocks 2/4/6),,,,,,,,,,,,,,,,,,
+,3. Both crews active during: Switchyard phase (12 weeks) and block transition weeks (2 weeks per block),,,,,,,,,,,,,,,,,,
+,4. Single crew adequate for middle 3 weeks of each block's L4 phase - alternate crew on standby,,,,,,,,,,,,,,,,,,
+,5. Cx Manager provides continuous program oversight across all blocks (hybrid/remote full-time),,,,,,,,,,,,,,,,,,
+,6. Documentation Coordinator supports all blocks centrally (hybrid/remote 50% time),,,,,,,,,,,,,,,,,,
+,7. Standby crews available for: punch list support, deficiency resolution, overlap support, vendor coordination,,,,,,,,,,,,,,,,,,
+,8. Holiday impacts Blocks 4 and 5 significantly (Thanksgiving through New Year's) - additional float recommended,,,,,,,,,,,,,,,,,,
+,9. Network Room commissioning occurs concurrently with Block 1-2 as L1-3 oversight activity,,,,,,,,,,,,,,,,,,
+,10. Schedule assumes GC substantial completion and successful L3 handoff per block start date,,,,,,,,,,,,,,,,,,
+
+,,,,,,,,,,,,,,,,,,,,
+
+RISK MITIGATION STRATEGIES,,,,,,,,,,,,,,,,,,,,
+
+Risk,Probability,Impact,Mitigation via Dual Crew Model,,,,,,,,,,,,,,,,,,,
+
+GC Delays,HIGH,Schedule slip,"Standby crew can mobilize to accelerate catch-up, or support parallel activities in other blocks",,,,,,,,,,,,,,,,,,,
+Equipment Deficiencies,MEDIUM,Retest/rework time,Standby crew provides surge capacity for deficiency resolution and retesting,,,,,,,,,,,,,,,,,,,
+Vendor Support Delays,MEDIUM,Testing delays,Dual crews allow continued progress on non-vendor-dependent systems,,,,,,,,,,,,,,,,,,,
+Weather Delays (Outdoor),HIGH,Lost testing days,Indoor activities can proceed; standby crew provides makeup capacity,,,,,,,,,,,,,,,,,,,
+Holiday Impacts,HIGH,Reduced productivity,"Crew rotation allows skeleton crew coverage during holidays, or planned shutdowns",,,,,,,,,,,,,,,,,,,
+Key Personnel Loss,LOW,Knowledge/skill gap,Redundant expertise across both crews mitigates single-person dependencies,,,,,,,,,,,,,,,,,,,
+Overlapping Block Issues,MEDIUM,Resource constraints,Two full crews can simultaneously address issues in adjacent blocks during overlap periods,,,,,,,,,,,,,,,,,,,
+
+Overall Assessment:,,,,,,,,,,,,,,,,,,,,
+,"The dual crew model provides significant schedule risk mitigation, particularly during the Oct-Dec peak period when multiple blocks are active and holidays impact productivity. The 24% increase in total program cost (20 people vs 10) is justified by schedule certainty and flexibility.",,,,,,,,,,,,,,,,,,
+
+,,,,,,,,,,,,,,,,,,,,
+
+END OF WORK BREAKDOWN STRUCTURE,,,,,,,,,,,,,,,,,,,,
+
+Document Prepared: 2025-11-07,,,,,,,,,,,,,,,,,,,,
+For: Hut 8 Riverbend Data Center Commissioning Proposal,,,,,,,,,,,,,,,,,,,,
+By: PGCIS Commissioning Team,,,,,,,,,,,,,,,,,,,,

@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="3200" height="4200" xmlns="http://www.w3.org/2000/svg">
+
+<defs>
+<!-- Siemens Generator Symbol -->
+<ns0:symbol xmlns:ns0="http://www.w3.org/2000/svg" id="A" overflow="visible"><ns0:circle cx="10" cy="20" r="10" stroke-width=".5" /><ns0:path d="M10 0v10" fill="none" stroke-width=".5" /><ns0:path d="M14 17.714L12.286 16H7.714L6 17.714v4.571L7.714 24h4.571L14 22.286V20h-4" fill="none" stroke-width=".5" /></ns0:symbol>
+
+<!-- Siemens Transformer Symbol -->
+<symbol id="transformer" viewBox="-10 -10 41 71">
+    <circle cx="10" cy="21.25" fill="none" r="6.25" stroke="black" stroke-width="0.5"/>
+    <circle cx="10" cy="28.75" fill="none" r="6.25" stroke="black" stroke-width="0.5"/>
+    <path d="M10 0v15" fill="none" stroke="black" stroke-width="0.5"/>
+    <path d="M10 50V35" fill="none" stroke="black" stroke-width="0.5"/>
+</symbol>
+
+<!-- Siemens Circuit Breaker Symbol -->
+<symbol id="breaker" viewBox="-10 -10 41 72">
+    <path d="M10 0v15" fill="none" stroke="black" stroke-width="0.5"/>
+    <path d="M12 13l-4 4" fill="none" stroke="black" stroke-width="0.5"/>
+    <path d="M8 13l4 4" fill="none" stroke="black" stroke-width="0.5"/>
+    <path d="M10 50V35" fill="none" stroke="black" stroke-width="0.5"/>
+    <g transform="matrix(.866025 -.5 .5 .866025 .089809 17.834922)">
+        <path d="M0 19.821L5.67 0" fill="none" stroke="black" stroke-width="0.5"/>
+    </g>
+</symbol>
+
+<!-- Generator Symbol -->
+<symbol id="generator" viewBox="-10 -10 41 51">
+    <circle cx="10" cy="20" r="10" stroke="black" stroke-width="0.5" fill="white"/>
+    <path d="M10 0v10" fill="none" stroke="black" stroke-width="0.5"/>
+    <path d="M10 30v10" fill="none" stroke="black" stroke-width="0.5"/>
+    <text x="10" y="24" style="font-size: 14px; font-weight: bold" text-anchor="middle">G</text>
+</symbol>
+
+<!-- UPS Symbol -->
+<symbol id="ups" viewBox="0 0 80 100">
+    <rect x="5" y="5" width="70" height="90" fill="#F3E5F5" stroke="#7B1FA2" stroke-width="2"/>
+    <text x="40" y="30" style="font-size: 12px; font-weight: bold" text-anchor="middle">UPS</text>
+    <rect x="15" y="40" width="50" height="30" fill="#FFE0B2" stroke="#FF6F00" stroke-width="1.5"/>
+    <text x="40" y="58" style="font-size: 10px" text-anchor="middle">BATTERY</text>
+</symbol>
+
+<!-- Utility Source Symbol -->
+<symbol id="utility" viewBox="0 0 60 60">
+    <circle cx="30" cy="30" r="28" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+    <path d="M20 15h20l-10 20h8l-16 20 6-18h-8z" fill="#1976D2"/>
+</symbol>
+
+<!-- ATS Symbol -->
+<symbol id="ats" viewBox="0 0 100 60">
+    <rect x="5" y="5" width="90" height="50" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+    <text x="50" y="35" style="font-size: 14px; font-weight: bold" text-anchor="middle">ATS</text>
+</symbol>
+
+<!-- Connection Point -->
+<symbol id="connection" viewBox="0 0 10 10">
+    <circle cx="5" cy="5" r="4" fill="black"/>
+</symbol>
+
+</defs>
+
+<style>
+    .power-line-mv { stroke: #D32F2F; stroke-width: 3; fill: none; }
+    .power-line-lv { stroke: #1976D2; stroke-width: 2.5; fill: none; }
+    .bus-line { stroke: #FF6F00; stroke-width: 4; fill: none; }
+    .title { font-family: 'Open Sans', Arial; font-size: 24px; font-weight: bold; }
+    .subtitle { font-family: 'Open Sans', Arial; font-size: 11px; }
+    .equipment-name { font-family: 'Open Sans', Arial; font-size: 14px; font-weight: bold; }
+    .rating { font-family: 'Open Sans', Arial; font-size: 11px; }
+    .lv-switchboard { fill: #E8F5E9; stroke: #388E3C; stroke-width: 2; }
+    .dist-panel { fill: #E0F2F1; stroke: #00796B; stroke-width: 2; }
+</style>
+
+<!-- Title Block -->
+<rect x="50" y="30" width="800" height="100" fill="#F5F5F5" stroke="#333" stroke-width="2"/>
+<text x="450" y="65" class="title" text-anchor="middle">Data Center Tier IV</text>
+<text x="450" y="90" class="subtitle" text-anchor="middle">2(N+1) Fully Redundant Power Distribution System</text>
+<text x="450" y="110" class="subtitle" text-anchor="middle">Generated: 2025-11-07</text>
+
+<!-- ZONE 0: UTILITY FEEDS -->
+<!-- A-Side Utility -->
+<use href="#utility" x="670" y="220" width="60" height="60"/>
+<text x="700" y="300" class="equipment-name" text-anchor="middle">UTILITY A</text>
+<text x="700" y="315" class="rating" text-anchor="middle">10kV</text>
+
+<!-- B-Side Utility -->
+<use href="#utility" x="2470" y="220" width="60" height="60"/>
+<text x="2500" y="300" class="equipment-name" text-anchor="middle">UTILITY B</text>
+<text x="2500" y="315" class="rating" text-anchor="middle">10kV</text>
+
+<!-- Utility to Breaker lines -->
+<line x1="700" y1="280" x2="700" y2="350" class="power-line-mv"/>
+<line x1="2500" y1="280" x2="2500" y2="350" class="power-line-mv"/>
+
+<!-- Utility Breakers -->
+<use href="#breaker" x="690" y="350" width="20" height="50"/>
+<text x="730" y="375" class="rating">CB-U1 (N.C.)</text>
+<use href="#breaker" x="2490" y="350" width="20" height="50"/>
+<text x="2530" y="375" class="rating">CB-U2 (N.C.)</text>
+
+<!-- Breaker to Transformer lines -->
+<line x1="700" y1="400" x2="700" y2="450" class="power-line-mv"/>
+<line x1="2500" y1="400" x2="2500" y2="450" class="power-line-mv"/>
+
+<!-- Transformers -->
+<use href="#transformer" x="690" y="450" width="20" height="50"/>
+<text x="700" y="520" class="equipment-name" text-anchor="middle">XFMR-1</text>
+<text x="700" y="535" class="rating" text-anchor="middle">10kV/400V</text>
+
+<use href="#transformer" x="2490" y="450" width="20" height="50"/>
+<text x="2500" y="520" class="equipment-name" text-anchor="middle">XFMR-2</text>
+<text x="2500" y="535" class="rating" text-anchor="middle">10kV/400V</text>
+
+<!-- Transformer to ATS lines -->
+<line x1="700" y1="500" x2="700" y2="700" class="power-line-lv"/>
+<line x1="2500" y1="500" x2="2500" y2="700" class="power-line-lv"/>
+
+<!-- ATS Units -->
+<use href="#ats" x="650" y="700" width="100" height="60"/>
+<text x="700" y="780" class="equipment-name" text-anchor="middle">ATS-1</text>
+<text x="700" y="795" class="rating" text-anchor="middle">400V</text>
+
+<use href="#ats" x="2450" y="700" width="100" height="60"/>
+<text x="2500" y="780" class="equipment-name" text-anchor="middle">ATS-2</text>
+<text x="2500" y="795" class="rating" text-anchor="middle">400V</text>
+
+<!-- ATS to Generator bus lines -->
+<line x1="700" y1="760" x2="700" y2="1050" class="power-line-lv"/>
+<line x1="2500" y1="760" x2="2500" y2="1050" class="power-line-lv"/>
+
+<!-- ZONE 1: GENERATORS (2 per side) -->
+<!-- A-Side Generators -->
+<use href="#generator" x="490" y="1100" width="20" height="40"/>
+<text x="500" y="1155" class="equipment-name" text-anchor="middle">MTU-1</text>
+<text x="500" y="1170" class="rating" text-anchor="middle">1000 kVA</text>
+
+<use href="#generator" x="610" y="1100" width="20" height="40"/>
+<text x="620" y="1155" class="equipment-name" text-anchor="middle">MTU-2</text>
+<text x="620" y="1170" class="rating" text-anchor="middle">1000 kVA</text>
+
+<!-- B-Side Generators -->
+<use href="#generator" x="2290" y="1100" width="20" height="40"/>
+<text x="2300" y="1155" class="equipment-name" text-anchor="middle">MTU-3</text>
+<text x="2300" y="1170" class="rating" text-anchor="middle">1000 kVA</text>
+
+<use href="#generator" x="2410" y="1100" width="20" height="40"/>
+<text x="2420" y="1155" class="equipment-name" text-anchor="middle">MTU-4</text>
+<text x="2420" y="1170" class="rating" text-anchor="middle">1000 kVA</text>
+
+<!-- Generator to bus connections -->
+<line x1="500" y1="1140" x2="500" y2="1200" class="power-line-lv"/>
+<use href="#breaker" x="490" y="1200" width="20" height="50"/>
+<text x="530" y="1225" class="rating">CB-M1</text>
+<line x1="500" y1="1250" x2="500" y2="1300" class="power-line-lv"/>
+
+<line x1="620" y1="1140" x2="620" y2="1200" class="power-line-lv"/>
+<use href="#breaker" x="610" y="1200" width="20" height="50"/>
+<text x="650" y="1225" class="rating">CB-M2</text>
+<line x1="620" y1="1250" x2="620" y2="1300" class="power-line-lv"/>
+
+<line x1="2300" y1="1140" x2="2300" y2="1200" class="power-line-lv"/>
+<use href="#breaker" x="2290" y="1200" width="20" height="50"/>
+<text x="2330" y="1225" class="rating">CB-M3</text>
+<line x1="2300" y1="1250" x2="2300" y2="1300" class="power-line-lv"/>
+
+<line x1="2420" y1="1140" x2="2420" y2="1200" class="power-line-lv"/>
+<use href="#breaker" x="2410" y="1200" width="20" height="50"/>
+<text x="2450" y="1225" class="rating">CB-M4</text>
+<line x1="2420" y1="1250" x2="2420" y2="1300" class="power-line-lv"/>
+
+<!-- Generator bus (horizontal) -->
+<line x1="500" y1="1300" x2="620" y2="1300" class="bus-line"/>
+<line x1="2300" y1="1300" x2="2420" y2="1300" class="bus-line"/>
+
+<!-- Generator bus to main feed -->
+<line x1="700" y1="1050" x2="700" y2="1300" class="power-line-lv"/>
+<use href="#connection" x="695" y="1295"/>
+
+<line x1="2500" y1="1050" x2="2500" y2="1300" class="power-line-lv"/>
+<use href="#connection" x="2495" y="1295"/>
+
+<!-- Main feed to LV Switchboard -->
+<line x1="700" y1="1300" x2="700" y2="1350" class="power-line-lv"/>
+<use href="#breaker" x="690" y="1330" width="20" height="50"/>
+<text x="730" y="1355" class="rating">CB-A (N.C.)</text>
+
+<line x1="2500" y1="1300" x2="2500" y2="1350" class="power-line-lv"/>
+<use href="#breaker" x="2490" y="1330" width="20" height="50"/>
+<text x="2530" y="1355" class="rating">CB-B (N.C.)</text>
+
+<!-- LV Switchboards -->
+<rect x="580" y="1350" width="240" height="150" class="lv-switchboard"/>
+<line x1="600" y1="1370" x2="800" y2="1370" class="bus-line"/>
+<text x="700" y="1410" class="equipment-name" text-anchor="middle">LV-SWBD-A</text>
+<text x="700" y="1430" class="rating" text-anchor="middle">400V Bus</text>
+
+<rect x="2380" y="1350" width="240" height="150" class="lv-switchboard"/>
+<line x1="2400" y1="1370" x2="2600" y2="1370" class="bus-line"/>
+<text x="2500" y="1410" class="equipment-name" text-anchor="middle">LV-SWBD-B</text>
+<text x="2500" y="1430" class="rating" text-anchor="middle">400V Bus</text>
+
+<!-- LV-SWBD to UPS distribution -->
+<line x1="700" y1="1500" x2="700" y2="1700" class="power-line-lv"/>
+<line x1="2500" y1="1500" x2="2500" y2="1700" class="power-line-lv"/>
+
+<!-- Horizontal distribution to UPS units -->
+<line x1="400" y1="1700" x2="1000" y2="1700" class="power-line-lv"/>
+<use href="#connection" x="695" y="1695"/>
+
+<line x1="2200" y1="1700" x2="2800" y2="1700" class="power-line-lv"/>
+<use href="#connection" x="2495" y="1695"/>
+
+<!-- ZONE 2: UPS SYSTEMS (3 per side) -->
+<!-- A-Side UPS units -->
+<line x1="450" y1="1700" x2="450" y2="1750" class="power-line-lv"/>
+<use href="#breaker" x="440" y="1750" width="20" height="50"/>
+<line x1="450" y1="1800" x2="450" y2="1820" class="power-line-lv"/>
+<use href="#ups" x="410" y="1820" width="80" height="100"/>
+<text x="450" y="1935" class="equipment-name" text-anchor="middle">UPS-A1</text>
+<text x="450" y="1950" class="rating" text-anchor="middle">500 kVA</text>
+
+<line x1="700" y1="1700" x2="700" y2="1750" class="power-line-lv"/>
+<use href="#breaker" x="690" y="1750" width="20" height="50"/>
+<line x1="700" y1="1800" x2="700" y2="1820" class="power-line-lv"/>
+<use href="#ups" x="660" y="1820" width="80" height="100"/>
+<text x="700" y="1935" class="equipment-name" text-anchor="middle">UPS-A2</text>
+<text x="700" y="1950" class="rating" text-anchor="middle">500 kVA</text>
+
+<line x1="950" y1="1700" x2="950" y2="1750" class="power-line-lv"/>
+<use href="#breaker" x="940" y="1750" width="20" height="50"/>
+<line x1="950" y1="1800" x2="950" y2="1820" class="power-line-lv"/>
+<use href="#ups" x="910" y="1820" width="80" height="100"/>
+<text x="950" y="1935" class="equipment-name" text-anchor="middle">UPS-A3</text>
+<text x="950" y="1950" class="rating" text-anchor="middle">500 kVA</text>
+
+<!-- B-Side UPS units -->
+<line x1="2250" y1="1700" x2="2250" y2="1750" class="power-line-lv"/>
+<use href="#breaker" x="2240" y="1750" width="20" height="50"/>
+<line x1="2250" y1="1800" x2="2250" y2="1820" class="power-line-lv"/>
+<use href="#ups" x="2210" y="1820" width="80" height="100"/>
+<text x="2250" y="1935" class="equipment-name" text-anchor="middle">UPS-B1</text>
+<text x="2250" y="1950" class="rating" text-anchor="middle">500 kVA</text>
+
+<line x1="2500" y1="1700" x2="2500" y2="1750" class="power-line-lv"/>
+<use href="#breaker" x="2490" y="1750" width="20" height="50"/>
+<line x1="2500" y1="1800" x2="2500" y2="1820" class="power-line-lv"/>
+<use href="#ups" x="2460" y="1820" width="80" height="100"/>
+<text x="2500" y="1935" class="equipment-name" text-anchor="middle">UPS-B2</text>
+<text x="2500" y="1950" class="rating" text-anchor="middle">500 kVA</text>
+
+<line x1="2750" y1="1700" x2="2750" y2="1750" class="power-line-lv"/>
+<use href="#breaker" x="2740" y="1750" width="20" height="50"/>
+<line x1="2750" y1="1800" x2="2750" y2="1820" class="power-line-lv"/>
+<use href="#ups" x="2710" y="1820" width="80" height="100"/>
+<text x="2750" y="1935" class="equipment-name" text-anchor="middle">UPS-B3</text>
+<text x="2750" y="1950" class="rating" text-anchor="middle">500 kVA</text>
+
+<!-- UPS output bus -->
+<line x1="450" y1="1920" x2="450" y2="2000" class="power-line-lv"/>
+<line x1="700" y1="1920" x2="700" y2="2000" class="power-line-lv"/>
+<line x1="950" y1="1920" x2="950" y2="2000" class="power-line-lv"/>
+<line x1="450" y1="2000" x2="950" y2="2000" class="bus-line"/>
+
+<line x1="2250" y1="1920" x2="2250" y2="2000" class="power-line-lv"/>
+<line x1="2500" y1="1920" x2="2500" y2="2000" class="power-line-lv"/>
+<line x1="2750" y1="1920" x2="2750" y2="2000" class="power-line-lv"/>
+<line x1="2250" y1="2000" x2="2750" y2="2000" class="bus-line"/>
+
+<!-- UPS to Distribution -->
+<line x1="700" y1="2000" x2="700" y2="2050" class="power-line-lv"/>
+<use href="#breaker" x="690" y="2050" width="20" height="50"/>
+<text x="730" y="2075" class="rating">CB-DA (N.C.)</text>
+<line x1="700" y1="2100" x2="700" y2="2600" class="power-line-lv"/>
+
+<line x1="2500" y1="2000" x2="2500" y2="2050" class="power-line-lv"/>
+<use href="#breaker" x="2490" y="2050" width="20" height="50"/>
+<text x="2530" y="2075" class="rating">CB-DB (N.C.)</text>
+<line x1="2500" y1="2100" x2="2500" y2="2600" class="power-line-lv"/>
+
+<!-- ZONE 3: DISTRIBUTION PANELS -->
+<rect x="550" y="2600" width="300" height="150" class="dist-panel"/>
+<line x1="570" y1="2620" x2="830" y2="2620" class="bus-line"/>
+<text x="700" y="2670" class="equipment-name" text-anchor="middle">DIST-PANEL-A</text>
+<text x="700" y="2690" class="rating" text-anchor="middle">Static Transfer Switch</text>
+
+<rect x="2350" y="2600" width="300" height="150" class="dist-panel"/>
+<line x1="2370" y1="2620" x2="2630" y2="2620" class="bus-line"/>
+<text x="2500" y="2670" class="equipment-name" text-anchor="middle">DIST-PANEL-B</text>
+<text x="2500" y="2690" class="rating" text-anchor="middle">Static Transfer Switch</text>
+
+<!-- Distribution to rack bus -->
+<line x1="700" y1="2750" x2="700" y2="3200" class="power-line-lv"/>
+<line x1="2500" y1="2750" x2="2500" y2="3200" class="power-line-lv"/>
+
+<!-- Rack distribution bus -->
+<line x1="400" y1="3200" x2="2800" y2="3200" class="bus-line"/>
+<use href="#connection" x="695" y="3195"/>
+<use href="#connection" x="2495" y="3195"/>
+
+<!-- ZONE 4: SERVER RACKS (6 racks) -->
+
+<!-- Rack 1 -->
+<line x1="500" y1="3200" x2="500" y2="3300" class="power-line-lv"/>
+<use href="#connection" x="495" y="3195"/>
+
+<rect x="450" y="3300" width="100" height="400" fill="#C8E6C9" stroke="#333" stroke-width="2"/>
+<text x="500" y="3330" class="equipment-name" text-anchor="middle">RACK-1</text>
+<text x="500" y="3350" class="rating" text-anchor="middle">Non-Critical</text>
+
+<!-- Servers -->
+<rect x="460" y="3370" width="80" height="25" fill="white" stroke="#666"/>
+<text x="500" y="3387" class="rating" text-anchor="middle">Server</text>
+<rect x="460" y="3400" width="80" height="25" fill="white" stroke="#666"/>
+<text x="500" y="3417" class="rating" text-anchor="middle">Server</text>
+<rect x="460" y="3430" width="80" height="25" fill="white" stroke="#666"/>
+<text x="500" y="3447" class="rating" text-anchor="middle">Server</text>
+
+<!-- Dual PSU -->
+<rect x="465" y="3470" width="30" height="18" fill="#E3F2FD" stroke="#1976D2"/>
+<text x="480" y="3483" style="font-size: 10px" text-anchor="middle">PSU-A</text>
+<rect x="505" y="3470" width="30" height="18" fill="#E3F2FD" stroke="#1976D2"/>
+<text x="520" y="3483" style="font-size: 10px" text-anchor="middle">PSU-B</text>
+
+<text x="500" y="3650" class="rating" text-anchor="middle">Load: 4kW</text>
+
+<!-- Rack 2 -->
+<line x1="900" y1="3200" x2="900" y2="3300" class="power-line-lv"/>
+<use href="#connection" x="895" y="3195"/>
+
+<rect x="850" y="3300" width="100" height="400" fill="#C8E6C9" stroke="#333" stroke-width="2"/>
+<text x="900" y="3330" class="equipment-name" text-anchor="middle">RACK-2</text>
+<text x="900" y="3350" class="rating" text-anchor="middle">Non-Critical</text>
+
+<!-- Servers -->
+<rect x="860" y="3370" width="80" height="25" fill="white" stroke="#666"/>
+<text x="900" y="3387" class="rating" text-anchor="middle">Server</text>
+<rect x="860" y="3400" width="80" height="25" fill="white" stroke="#666"/>
+<text x="900" y="3417" class="rating" text-anchor="middle">Server</text>
+<rect x="860" y="3430" width="80" height="25" fill="white" stroke="#666"/>
+<text x="900" y="3447" class="rating" text-anchor="middle">Server</text>
+
+<!-- Dual PSU -->
+<rect x="865" y="3470" width="30" height="18" fill="#E3F2FD" stroke="#1976D2"/>
+<text x="880" y="3483" style="font-size: 10px" text-anchor="middle">PSU-A</text>
+<rect x="905" y="3470" width="30" height="18" fill="#E3F2FD" stroke="#1976D2"/>
+<text x="920" y="3483" style="font-size: 10px" text-anchor="middle">PSU-B</text>
+
+<text x="900" y="3650" class="rating" text-anchor="middle">Load: 4kW</text>
+
+<!-- Rack 3 -->
+<line x1="1300" y1="3200" x2="1300" y2="3300" class="power-line-lv"/>
+<use href="#connection" x="1295" y="3195"/>
+
+<rect x="1250" y="3300" width="100" height="400" fill="#FFF9C4" stroke="#333" stroke-width="2"/>
+<text x="1300" y="3330" class="equipment-name" text-anchor="middle">RACK-3</text>
+<text x="1300" y="3350" class="rating" text-anchor="middle">Application</text>
+
+<!-- Servers -->
+<rect x="1260" y="3370" width="80" height="25" fill="white" stroke="#666"/>
+<text x="1300" y="3387" class="rating" text-anchor="middle">Server</text>
+<rect x="1260" y="3400" width="80" height="25" fill="white" stroke="#666"/>
+<text x="1300" y="3417" class="rating" text-anchor="middle">Server</text>
+<rect x="1260" y="3430" width="80" height="25" fill="white" stroke="#666"/>
+<text x="1300" y="3447" class="rating" text-anchor="middle">Server</text>
+
+<!-- Dual PSU -->
+<rect x="1265" y="3470" width="30" height="18" fill="#E3F2FD" stroke="#1976D2"/>
+<text x="1280" y="3483" style="font-size: 10px" text-anchor="middle">PSU-A</text>
+<rect x="1305" y="3470" width="30" height="18" fill="#E3F2FD" stroke="#1976D2"/>
+<text x="1320" y="3483" style="font-size: 10px" text-anchor="middle">PSU-B</text>
+
+<text x="1300" y="3650" class="rating" text-anchor="middle">Load: 4kW</text>
+
+<!-- Rack 4 -->
+<line x1="1900" y1="3200" x2="1900" y2="3300" class="power-line-lv"/>
+<use href="#connection" x="1895" y="3195"/>
+
+<rect x="1850" y="3300" width="100" height="400" fill="#FFF9C4" stroke="#333" stroke-width="2"/>
+<text x="1900" y="3330" class="equipment-name" text-anchor="middle">RACK-4</text>
+<text x="1900" y="3350" class="rating" text-anchor="middle">Application</text>
+
+<!-- Servers -->
+<rect x="1860" y="3370" width="80" height="25" fill="white" stroke="#666"/>
+<text x="1900" y="3387" class="rating" text-anchor="middle">Server</text>
+<rect x="1860" y="3400" width="80" height="25" fill="white" stroke="#666"/>
+<text x="1900" y="3417" class="rating" text-anchor="middle">Server</text>
+<rect x="1860" y="3430" width="80" height="25" fill="white" stroke="#666"/>
+<text x="1900" y="3447" class="rating" text-anchor="middle">Server</text>
+
+<!-- Dual PSU -->
+<rect x="1865" y="3470" width="30" height="18" fill="#E3F2FD" stroke="#1976D2"/>
+<text x="1880" y="3483" style="font-size: 10px" text-anchor="middle">PSU-A</text>
+<rect x="1905" y="3470" width="30" height="18" fill="#E3F2FD" stroke="#1976D2"/>
+<text x="1920" y="3483" style="font-size: 10px" text-anchor="middle">PSU-B</text>
+
+<text x="1900" y="3650" class="rating" text-anchor="middle">Load: 4kW</text>
+
+<!-- Rack 5 -->
+<line x1="2300" y1="3200" x2="2300" y2="3300" class="power-line-lv"/>
+<use href="#connection" x="2295" y="3195"/>
+
+<rect x="2250" y="3300" width="100" height="400" fill="#FFCDD2" stroke="#333" stroke-width="2"/>
+<text x="2300" y="3330" class="equipment-name" text-anchor="middle">RACK-5</text>
+<text x="2300" y="3350" class="rating" text-anchor="middle">Critical</text>
+
+<!-- Servers -->
+<rect x="2260" y="3370" width="80" height="25" fill="white" stroke="#666"/>
+<text x="2300" y="3387" class="rating" text-anchor="middle">Server</text>
+<rect x="2260" y="3400" width="80" height="25" fill="white" stroke="#666"/>
+<text x="2300" y="3417" class="rating" text-anchor="middle">Server</text>
+<rect x="2260" y="3430" width="80" height="25" fill="white" stroke="#666"/>
+<text x="2300" y="3447" class="rating" text-anchor="middle">Server</text>
+
+<!-- Dual PSU -->
+<rect x="2265" y="3470" width="30" height="18" fill="#E3F2FD" stroke="#1976D2"/>
+<text x="2280" y="3483" style="font-size: 10px" text-anchor="middle">PSU-A</text>
+<rect x="2305" y="3470" width="30" height="18" fill="#E3F2FD" stroke="#1976D2"/>
+<text x="2320" y="3483" style="font-size: 10px" text-anchor="middle">PSU-B</text>
+
+<text x="2300" y="3650" class="rating" text-anchor="middle">Load: 4kW</text>
+
+<!-- Rack 6 -->
+<line x1="2700" y1="3200" x2="2700" y2="3300" class="power-line-lv"/>
+<use href="#connection" x="2695" y="3195"/>
+
+<rect x="2650" y="3300" width="100" height="400" fill="#FFCDD2" stroke="#333" stroke-width="2"/>
+<text x="2700" y="3330" class="equipment-name" text-anchor="middle">RACK-6</text>
+<text x="2700" y="3350" class="rating" text-anchor="middle">Critical</text>
+
+<!-- Servers -->
+<rect x="2660" y="3370" width="80" height="25" fill="white" stroke="#666"/>
+<text x="2700" y="3387" class="rating" text-anchor="middle">Server</text>
+<rect x="2660" y="3400" width="80" height="25" fill="white" stroke="#666"/>
+<text x="2700" y="3417" class="rating" text-anchor="middle">Server</text>
+<rect x="2660" y="3430" width="80" height="25" fill="white" stroke="#666"/>
+<text x="2700" y="3447" class="rating" text-anchor="middle">Server</text>
+
+<!-- Dual PSU -->
+<rect x="2665" y="3470" width="30" height="18" fill="#E3F2FD" stroke="#1976D2"/>
+<text x="2680" y="3483" style="font-size: 10px" text-anchor="middle">PSU-A</text>
+<rect x="2705" y="3470" width="30" height="18" fill="#E3F2FD" stroke="#1976D2"/>
+<text x="2720" y="3483" style="font-size: 10px" text-anchor="middle">PSU-B</text>
+
+<text x="2700" y="3650" class="rating" text-anchor="middle">Load: 4kW</text>
+
+<!-- Legend -->
+<rect x="2850" y="200" width="280" height="700" fill="#F5F5F5" stroke="#333" stroke-width="2"/>
+<text x="2990" y="240" class="equipment-name" text-anchor="middle">LEGEND</text>
+
+<line x1="2880" y1="270" x2="2950" y2="270" class="power-line-mv"/>
+<text x="2970" y="275" class="rating">Medium Voltage (10kV)</text>
+
+<line x1="2880" y1="300" x2="2950" y2="300" class="power-line-lv"/>
+<text x="2970" y="305" class="rating">Low Voltage (400V)</text>
+
+<line x1="2880" y1="330" x2="2950" y2="330" class="bus-line"/>
+<text x="2970" y="335" class="rating">Bus (400V)</text>
+
+<use href="#breaker" x="2905" y="350" width="20" height="50"/>
+<text x="2970" y="385" class="rating">Circuit Breaker</text>
+
+<use href="#connection" x="2905" y="415"/>
+<text x="2970" y="423" class="rating">Connection Point</text>
+
+<rect x="2880" y="450" width="50" height="25" fill="#C8E6C9" stroke="#333"/>
+<text x="2970" y="467" class="rating">Non-Critical Load</text>
+
+<rect x="2880" y="485" width="50" height="25" fill="#FFF9C4" stroke="#333"/>
+<text x="2970" y="502" class="rating">Application Load</text>
+
+<rect x="2880" y="520" width="50" height="25" fill="#FFCDD2" stroke="#333"/>
+<text x="2970" y="537" class="rating">Critical Load</text>
+
+<text x="2990" y="580" class="equipment-name" text-anchor="middle">SPECIFICATIONS</text>
+<text x="2880" y="610" class="rating">Tier: IV</text>
+<text x="2880" y="630" class="rating">Topology: 2(N+1)</text>
+<text x="2880" y="650" class="rating">Availability: 99.995%</text>
+<text x="2880" y="670" class="rating">Downtime: 2.4 min/year</text>
+<text x="2880" y="700" class="rating">Utility: Dual 10kV feeds</text>
+<text x="2880" y="720" class="rating">Generators: 4x1000 kVA</text>
+<text x="2880" y="740" class="rating">UPS: 6x500 kVA</text>
+<text x="2880" y="760" class="rating">Total IT Load: 24 kW</text>
+<text x="2880" y="790" class="rating">Concurrent Maintainable</text>
+<text x="2880" y="810" class="rating">Fault Tolerant</text>
+<text x="2880" y="830" class="rating">Dual Power Paths</text>
+
+<!-- Document info -->
+<text x="100" y="4150" class="rating">Document: Tier IV Data Center PDS</text>
+<text x="100" y="4170" class="rating">Generated: 2025-11-07 13:28:43</text>
+<text x="100" y="4190" class="rating">Standards: IEEE 315 | IEC 60617 | Siemens Symbols</text>
+
+</svg>

@@ -1,0 +1,208 @@
+Section,Equipment Type,Quantity,OEM,Description,Voltage/Rating,Commissioning Level,Discipline,L4 Hours Per Unit,L4 Total Hours,L5 Hours Per Unit,L5 Total Hours,Testing Notes
+
+GRAY SPACE - OUTDOOR,,,,,,,,,,,,,"Outdoor equipment adjacent to data hall building. Weather-dependent testing. Includes medium voltage distribution, transformers, and cooling plant equipment."
+
+Gray Space - Outdoor,Transformer - Data Hall IT,32,TBD,34.5kV - 480V 2.5MVA,34.5kV/480V,Level 4,Electrical,6,192,1.5,48,"MV transformer: Insulation resistance (megger), turns ratio, polarity, power factor/tan delta, winding resistance, temperature rise testing, protective relay settings verification"
+Gray Space - Outdoor,Transformer - Data Hall Mech,12,TBD,34.5kV - 480V 5MVA,34.5kV/480V,Level 4,Electrical,7,84,2,24,"Larger capacity requires additional temperature rise testing time and more complex relay coordination"
+Gray Space - Outdoor,Ring Main Unit,23,TBD,34.5kV,34.5kV,Level 4,Electrical,5,115,1,23,"MV switchgear: Primary/secondary injection testing of protective relays, breaker timing, contact resistance, insulation resistance, operational sequences"
+Gray Space - Outdoor,MV Switchboard,2,TBD,34.5kV,34.5kV,Level 4,Electrical,16,32,3,6,"Main MV distribution: Extensive relay testing, coordination verification, interlocks, SCADA integration, metering accuracy"
+Gray Space - Outdoor,Chiller,27,Vertiv,Vertiv OFC,,Level 4,Mechanical,20,540,6,162,"Free-cooling chiller: Full operational testing, capacity verification, control sequences, safeties, economizer operation, staging"
+Gray Space - Outdoor,Buffer Tank,27,TBD,,,Level 4,Mechanical,4,108,2,54,"Flow verification, temperature stratification monitoring, level controls, isolation valves"
+
+,,,,,,,,,,,,,"GRAY SPACE OUTDOOR SUBTOTAL: 123 pieces | Electrical: 423 hrs (L4) + 101 hrs (L5) | Mechanical: 648 hrs (L4) + 216 hrs (L5)"
+
+GRAY SPACE - INDOOR,,,,,,,,,,,,,"Indoor electrical and mechanical rooms. Includes main power distribution, UPS systems, backup batteries, and electrical room cooling."
+
+Gray Space - Indoor,LV Switchboard - Data Hall Elec,32,Vertiv,4000A,480V,Level 4,Electrical,5,160,1,32,"480V main distribution: Breaker testing, protective device coordination, ground fault, arc flash verification, load balancing, metering"
+Gray Space - Indoor,LV Switchboard - Data Hall Mech,12,Vertiv,5000A,480V,Level 4,Electrical,6,72,1.5,18,"Higher ampacity mechanical boards: More extensive load testing and coordination verification required"
+Gray Space - Indoor,UPS,113,Vertiv,480V APM2 600kVA,480V,Level 4,Electrical,4,452,1.5,170,"Modular UPS: Full functional test including bypass operation, load transfer, battery discharge, parallel operation, alarms, monitoring"
+Gray Space - Indoor,CRAH Fan Wall - Electrical Room,11,Vertiv,CA606,,Level 4,Mechanical,8,88,3,33,"Fan wall: Airflow measurement, control sequences, VFD operation, temperature/humidity monitoring, staging algorithms"
+Gray Space - Indoor,Battery Cabinets,351,Vertiv,LI5 - LI7,,Level 4,Electrical,1.5,527,0.5,176,"Li-ion battery strings: BMS verification, cell voltage monitoring, temperature monitoring, discharge testing (sampling), isolation verification"
+
+,,,,,,,,,,,,,"GRAY SPACE INDOOR SUBTOTAL: 519 pieces | Electrical: 1,211 hrs (L4) + 396 hrs (L5) | Mechanical: 88 hrs (L4) + 33 hrs (L5)"
+
+WHITE SPACE - OPTION 2 (BASE),,,,,,,,,,,,,"Data hall white space equipment. This is the BASE configuration per RFP and proposal assumptions. Includes rack power distribution, cooling distribution, and hot aisle containment."
+
+White Space - Option 2,HAC - SmartRun,11,Vertiv,Hot Aisle Containment,,Level 4,Mechanical,6,66,2,22,"Containment: Pressure verification, door interlocks, monitoring system integration, airflow patterns"
+White Space - Option 2,Rack Power Panel,160,Vertiv,1000/1200A,480V,Level 4,Electrical,2,320,0.5,80,"Rack PDU: Breaker verification, metering accuracy, remote monitoring, load testing, branch circuit verification"
+White Space - Option 2,Remote Distribution Panel,7,Vertiv,400A RXV Panels,480V,Level 4,Electrical,3,21,1,7,"RDP: Functional testing, breaker coordination, monitoring, feeder verification"
+White Space - Option 2,CDU,32,Vertiv,XDU 2300,,Level 4,Mechanical,16,512,5,160,"Cooling distribution: Flow/pressure testing, temperature differential verification, control sequences, leak testing, valve operation"
+White Space - Option 2,CRAH Fan Wall - Data Hall,36,Vertiv,CA606,,Level 4,Mechanical,10,360,4,144,"Data hall fan walls: Airflow measurement and balancing, control integration, VFD testing, staging sequences, temperature control"
+
+,,,,,,,,,,,,,"WHITE SPACE SUBTOTAL: 246 pieces | Electrical: 341 hrs (L4) + 87 hrs (L5) | Mechanical: 938 hrs (L4) + 326 hrs (L5)"
+
+SYSTEMS INTEGRATION & HEAT LOAD TESTING,,,,,,,,,,,,,
+
+Systems Integration,Electrical System Integration Testing,1,Multiple,Full facility electrical distribution,480V/34.5kV,Level 5,Electrical,0,0,40,40,"L5 IST: Complete electrical system load testing, transfer scenarios, N+1 verification, failure mode testing"
+Systems Integration,Mechanical System Integration Testing,1,Multiple,Full facility cooling system,Chilled Water,Level 5,Mechanical,0,0,120,120,"L5 IST: Integrated cooling system performance, load following, economizer modes, redundancy verification"
+Systems Integration,IT Load Simulation Testing,1,Load Banks,Simulated IT load testing,Up to 36 MW,Level 5,Both,0,0,200,200,"Heat load testing with load banks: Ramp testing, steady-state operation, cooling response, power quality"
+Systems Integration,Monitoring & Control System Integration,1,Multiple,BMS/EPMS/DCIM integration,,Level 5,Both,0,0,60,60,"Full facility monitoring integration: Alarms, trending, remote monitoring, control sequences"
+Systems Integration,Emergency & Failure Scenarios,1,Multiple,EPO testing and failure modes,,Level 5,Both,0,0,80,80,"Emergency scenarios: EPO testing, utility failure, cooling failure, UPS transfer, generator start (if applicable)"
+
+,,,,,,,,,,,,,"SYSTEMS INTEGRATION SUBTOTAL: L5 Only: 500 hours | Electrical: 40 hrs | Mechanical: 120 hrs | Both: 340 hrs"
+
+TOTAL EQUIPMENT & SYSTEMS,,888 pieces,,,,,,,,,,,
+
+DISCIPLINE BREAKDOWN,,,,,,,,,,,,,
+
+,Electrical,,,,,Level 4,1975,,,,,"Electrical systems: transformers, switchgear, UPS, batteries, rack power"
+,Electrical,,,,,Level 5,584,,,,,"Electrical system integration and testing"
+,Electrical Total,,,,,L4 + L5,2559,,,,,"Total electrical commissioning hours (35% of total)"
+
+,Mechanical,,,,,Level 4,1674,,,,,"Mechanical systems: chillers, CDUs, CRAH units, buffer tanks, containment"
+,Mechanical,,,,,Level 5,575,,,,,"Mechanical system integration and testing"
+,Mechanical Total,,,,,L4 + L5,2249,,,,,"Total mechanical commissioning hours (31% of total)"
+
+,Integration/Both,,,,,Level 4,0,,,,,"No integration activities in L4"
+,Integration/Both,,,,,Level 5,340,,,,,"Load testing, DCIM, emergency scenarios requiring both disciplines"
+,Integration Total,,,,,L4 + L5,340,,,,,"Cross-discipline integration activities (5% of total)"
+
+LABOR SUMMARY BY PHASE,,,,,,,,,,,,,
+
+Phase,Electrical Hours,Mechanical Hours,Integration Hours,Total Hours,% of Total,,,,
+
+Level 4 (Functional Testing),1975,1674,0,3649,51%,,,,,"Equipment-level functional testing, heat load testing, system level testing"
+Level 5 (IST),584,575,340,1499,21%,,,,,Integrated systems testing with full facility coordination
+Documentation & Coordination,395,335,68,798,11%,,,,,Test procedure development not included per assumption; this is execution coordination
+Project Management & Meetings,197,167,34,398,5%,,,,,Weekly coordination meetings and daily reporting
+Contingency (Retest/Deficiencies),494,419,85,998,14%,,,,,15% contingency for equipment deficiencies requiring retest
+Grand Total,3645,3170,527,7342,102%,,,,,"Total commissioning hours for single 36 MW block (rounding adjustment: 7,342 hours)"
+
+LEVEL 4 TOTALS,,,,3649,,,,,,"Level 4 Functional Performance Testing, Heat Load Testing, System Level Testing"
+LEVEL 5 TOTALS,,,,1499,,,,,,Level 5 Integrated Systems Testing
+COMBINED L4 + L5,,,,5148,,,,,,"Total direct commissioning execution hours (L4 + L5 only, before overhead)"
+WITH OVERHEAD & CONTINGENCY,,,,7342,,,,,,"Total hours including documentation coordination (11%), project management (5%), and contingency (14%)"
+
+LABOR RESOURCE ALLOCATION,,,,,,,,,,,,,
+
+Resource Type,Quantity,Hours Per Week,Available Per Week,Total Available (6 weeks),Location,Role & Responsibilities,,,,,
+
+SITE-BASED RESOURCES (On-Site Daily),,,,,,,,,,,,
+
+Commissioning Lead - Electrical,2,50,100,600,On-Site,"Electrical systems expertise: transformers, switchgear, UPS, power distribution. Direct oversight and execution of L4/L5 electrical testing",,,,,
+Commissioning Lead - Mechanical,2,50,100,600,On-Site,"Mechanical systems expertise: chillers, CDUs, CRAH units, cooling systems. Direct oversight and execution of L4/L5 mechanical testing",,,,,
+Commissioning Technician - Electrical,2,50,100,600,On-Site,"Hands-on electrical testing, data collection, equipment setup, test execution",,,,,
+Commissioning Technician - Mechanical,2,50,100,600,On-Site,"Hands-on mechanical testing, equipment setup, test execution, data collection",,,,,
+Redundant Resource (Lead),1,50,50,300,On-Site,"Backup for schedule flexibility, cross-discipline support, peak demand periods",,,,,
+Redundant Resource (Tech),1,50,50,300,On-Site,"Backup technician for peak demand periods, equipment deficiency support",,,,,
+
+Site-Based Subtotal,10 people,,500 hrs/week,3000 (6 weeks),,,,,,"50 hours/week × 10 people × 6 weeks = 3,000 site-based hours"
+
+REMOTE/HYBRID MANAGEMENT & SUPPORT,,,,,,,,,,,,
+
+Commissioning Manager (Program),1,50,50,300,Hybrid/Remote,"Program oversight, vendor coordination, client communication, schedule management, issue resolution. Oversees and directs all L4/L5 commissioning activities across all blocks",,,,,
+Documentation Coordinator,1,25,25,150,Hybrid/Remote (50%),"Documentation QA/QC, report generation, data management, scheduling support, test procedure formatting, submittal tracking",,,,,
+
+Management/Support Subtotal,2 people,,75 hrs/week,450 (6 weeks),,,,,,"Cx Manager: 50 hrs/week × 6 weeks = 300 hrs | Doc Coordinator: 25 hrs/week × 6 weeks = 150 hrs"
+
+TOTAL RESOURCES ALL ROLES,12 people,,575 hrs/week,3450 (6 weeks),,,,,,"Total available hours per 6-week block: 3,450 hours (includes management and documentation support)"
+
+SCHEDULE ANALYSIS - 6 WEEK SCENARIO,,,,,,,,,,,,,
+
+Phase,Total Hours Required,Available Site Hours (6 weeks),Utilization %,Feasibility Assessment,,,,,,
+
+Level 4 (Functional Testing),3649,3000 (site-based),122%,FEASIBLE - 6.1 weeks with 10-person site crew + management support,,,,,,
+Level 5 (IST),1499,3000 (site-based),50%,FEASIBLE - Can complete in 3 weeks with current site resources,,,,,,
+Combined L4 + L5 (Direct),5148,3000 (site-based),172%,REQUIRES 10.3 weeks with 10-person site crew; 7-8 weeks more realistic target,,,,,,
+With Project Mgmt Overhead,7342,3450 (total w/ mgmt),213%,Cx Manager and Doc Coordinator provide program oversight across all blocks; not direct execution hours,,,,,,
+
+SCHEDULE ANALYSIS - REALISTIC SCENARIO,,,,,,,,,,,,,
+
+Scenario,Duration,Site Staffing,Site Hours Available,Utilization %,Feasibility,,,,,,
+
+Level 4 Only,5 weeks,10 people on-site,2500,146%,TIGHT but achievable with Cx Manager oversight and Doc Coordinator support,,,,,,
+Level 5 Only,1.5 weeks,10 people on-site,750,200%,AGGRESSIVE - can be compressed to 1 week if L4 goes smoothly; 2 weeks safer,,,,,,
+Combined L4 + L5,6.5 weeks,10 people on-site,3250,158%,FEASIBLE with strong Cx Manager coordination and efficient execution,,,,,,
+Recommended Target,7 weeks,10 people on-site,3500,148%,RECOMMENDED - Provides margin for deficiencies and weather delays,,,,,,
+
+RECOMMENDED STAFFING OPTIONS,,,,,,,,,,,,,
+
+Option,Site Staffing,Management,L4 Duration,L5 Duration,Total Duration,Cost Impact,Schedule Risk,,,,
+
+Option 1: Baseline (RECOMMENDED),10 site (4L/4T/2R),1 Cx Mgr + 0.5 Doc Coord,5 weeks,1.5 weeks,6.5 weeks,Baseline,MEDIUM - Achievable with good GC readiness and strong management,,,,
+Option 2: Accelerated,12 site (5L/5T/2R),1 Cx Mgr + 0.5 Doc Coord,4 weeks,1.5 weeks,5.5 weeks,+20% site labor,LOW - Provides schedule margin for blocks with issues,,,,
+Option 3: Conservative,10 site (4L/4T/2R),1 Cx Mgr + 0.5 Doc Coord,5 weeks,2 weeks,7 weeks,Baseline + 1 week,VERY LOW - Comfortable schedule with full contingency,,,,
+
+PROGRAM-LEVEL MANAGEMENT NOTES,,,,,,,,,,,,,
+
+,"Cx Manager (hybrid/remote) provides continuous oversight across ALL six 36 MW blocks simultaneously during overlapping phases (Oct-Dec 2026). Role is program-level, not dedicated to single block.",,,,,,,,,,
+,"Documentation Coordinator (50% hybrid/remote) supports all active blocks with centralized documentation QA/QC, reporting, and scheduling coordination.",,,,,,,,,,
+,"Peak period (Oct-Dec): Blocks 3, 4, 5 overlap. Cx Manager and Doc Coordinator critical for multi-block coordination during this period.",,,,,,,,,,
+
+MECHANICAL VS ELECTRICAL LABOR BREAKDOWN,,,,,,,,,,,,,
+
+Discipline,L4 Hours,L5 Hours,Total Direct Hours,With Overhead & Contingency,% of Total,,,,,,
+
+Mechanical,1674,575,2249,3200,62%,,,,,,"Mechanical dominates due to chiller testing, CDU commissioning, CRAH balancing, cooling system integration"
+Electrical,1975,584,2559,3600,35%,,,,,,"Electrical work front-loaded in L4 for power distribution and UPS systems"
+Integration (Both),0,340,340,540,5%,,,,,,Load testing and emergency scenarios requiring both disciplines
+Total,3649,1499,5148,7342,102%,,,,,,Rounding adjustment
+
+SCHEDULE RISK ASSESSMENT,,,,,,,,,,,,,
+
+Risk Factor,Impact,Likelihood,Mitigation Strategy,,,,,,
+
+GC L3 Completion Delays,HIGH,MEDIUM,"Level 4 cannot start until L3 substantially complete. Build 1-week buffer into schedule. Include contractual language about GC readiness",,,,,,
+Weather Delays (Outdoor Equipment),MEDIUM,HIGH,"Louisiana weather: Plan outdoor testing early in schedule. Have indoor backup tasks ready. 10% contingency built into schedule",,,,,,
+Vendor Support Delays,MEDIUM,MEDIUM,"Pre-coordinate vendor startup schedules 4-6 weeks in advance. Have vendor SOWs signed before L4 start",,,,,,
+Equipment Deficiencies,MEDIUM,HIGH,"15% retest contingency built in. Maintain punch list tracking. Work with GC to resolve issues during L4 (not after)",,,,,,
+Utility/Switchyard Delays,CRITICAL,MEDIUM,"Switchyard must be energized before data hall L4 start. Any switchyard delay cascades to all blocks. Monitor closely during Phase 0",,,,,,
+
+NOTES AND ASSUMPTIONS,,,,,,,,,,,,,
+
+,"1. Hours assume equipment has been properly energized and Level 3 (Pre-Functional Testing) completed by GC",,,,,,,,,,
+,"2. Mechanical systems represent 62% of total labor due to chiller testing, CDU commissioning, and CRAH balancing complexity",,,,,,,,,,
+,"3. Electrical work is more straightforward with shorter per-unit testing times once equipment is energized",,,,,,,,,,
+,"4. Level 4 duration: 5 weeks for functional testing with 10-person crew",,,,,,,,,,
+,"5. Level 5 duration: 1.5 weeks for integrated systems testing (can be compressed to 1 week if needed)",,,,,,,,,,
+,"6. Total target duration: 6.5 weeks provides realistic schedule; 6 weeks achievable with good execution",,,,,,,,,,
+,"7. Overhead includes daily coordination meetings, weekly reporting, test documentation, vendor coordination",,,,,,,,,,
+,"8. 15% contingency for equipment deficiencies is based on typical data center commissioning punch list rates",,,,,,,,,,
+,"9. Battery testing uses statistical sampling per IEEE standards (not full discharge of all 351 cabinets)",,,,,,,,,,
+,"10. Pressure testing, flush & fill, and test and balancing (TAB) of liquid/liquid and liquid/air equipment performed by others; PGCIS provides oversight and documentation review only",,,,,,,,,,
+,"11. Air and liquid load banks provided and operated by others; PGCIS provides load bank plan review and oversight only",,,,,,,,,,
+,"12. Hours do NOT include hands-on pressure testing, flushing, filling, or TAB activities - oversight and witnessing only",,,,,,,,,,
+
+COMPLETE STAFFING MODEL - SINGLE 36 MW BLOCK,,,,,,,,,,,,,
+
+Role,Quantity,Location,Hours/Week,Duration,Total Hours,FTE,Notes,,,,,
+
+SITE-BASED EXECUTION TEAM (Direct L4/L5 Testing),,,,,,,,,,,,,
+Commissioning Lead - Electrical,2,On-Site,50,6.5 weeks,650,2.0,"Direct oversight and execution of electrical system commissioning",,,,,
+Commissioning Lead - Mechanical,2,On-Site,50,6.5 weeks,650,2.0,"Direct oversight and execution of mechanical system commissioning",,,,,
+Commissioning Technician - Electrical,2,On-Site,50,6.5 weeks,650,2.0,"Hands-on electrical testing and data collection",,,,,
+Commissioning Technician - Mechanical,2,On-Site,50,6.5 weeks,650,2.0,"Hands-on mechanical testing and equipment setup",,,,,
+Redundant Lead,1,On-Site,50,6.5 weeks,325,1.0,"Cross-discipline support and schedule flexibility",,,,,
+Redundant Technician,1,On-Site,50,6.5 weeks,325,1.0,"Peak demand support and backup",,,,,
+Site Team Subtotal,10,On-Site,500 hrs/week,6.5 weeks,3250,10.0,"Primary commissioning execution team",,,,,
+
+PROGRAM MANAGEMENT (Remote/Hybrid),,,,,,,,,,,,,
+Commissioning Manager,1,Hybrid/Remote,50,Full Program,1800 total,1.0,"Program oversight across all 6 blocks. Oversees and directs all L4/L5 commissioning activities. Vendor coordination, client interface, issue resolution",,,,,
+Documentation Coordinator,1,Hybrid/Remote,25,Full Program,900 total,0.5,"Documentation QA/QC, reporting, scheduling support across all 6 blocks. Centralized documentation management",,,,,
+Management Subtotal,2,Hybrid/Remote,75 hrs/week,Full Program,2700 total,1.5,"Program-level support not dedicated to single block",,,,,
+
+TOTAL STAFFING MODEL,12 people,,,,,11.5 FTE,"10 FTE site-based + 1.5 FTE program management",,,,,
+
+PER-BLOCK ALLOCATION OF MANAGEMENT,,,,,,,,,,,,,
+,"For single 36 MW block commissioning (6.5 weeks), allocate:",,,,,,,,,,
+,- Cx Manager: 300 hours (50 hrs/week × 6 weeks),,,,,,,,,,
+,- Doc Coordinator: 150 hours (25 hrs/week × 6 weeks),,,,,,,,,,
+,"Total per-block cost: 3,250 site hours + 300 mgmt hours + 150 doc hours = 3,700 total hours per block",,,,,,,,,,
+,,,,,,,,,,,,,
+,"NOTE: Cx Manager and Doc Coordinator costs should be allocated proportionally across all 6 blocks based on active commissioning periods (Aug 2026 - Feb 2027 = 36 weeks total program duration)",,,,,,,,,,
+
+RECOMMENDATION,,,,,,,,,,,,,
+
+,"STAFFING MODEL: 10-person site team + 1 Cx Manager (hybrid/remote) + 0.5 Doc Coordinator (hybrid/remote)",,,,,,,,,,
+,,,,,,,,,,,,,
+,"LABOR HOURS PER 36 MW BLOCK:",,,,,,,,,,
+,"- Level 4 functional testing: 3,649 hours (5 weeks with 10-person site crew)",,,,,,,,,,
+,"- Level 5 integrated testing: 1,499 hours (1.5 weeks with 10-person site crew)",,,,,,,,,,
+,"- Total direct execution: 5,148 hours (site-based)",,,,,,,,,,
+,"- Program management allocation: 450 hours (300 Cx Mgr + 150 Doc Coord per block)",,,,,,,,,,
+,"- Total per block: 5,598 hours (before overhead & contingency)",,,,,,,,,,
+,"- With 15% contingency: 6,437 hours per block",,,,,,,,,,
+,,,,,,,,,,,,,
+,"SCHEDULE: 6.5-7 weeks per 36 MW block is FEASIBLE with baseline staffing and strong management coordination.",,,,,,,,,,
+,"Mechanical systems drive schedule due to chiller testing, CDU commissioning, and CRAH balancing complexity (62% of labor).",,,,,,,,,,
+,"Cx Manager critical for coordinating overlapping blocks during Oct-Dec 2026 peak period (Blocks 3, 4, 5 active simultaneously).",,,,,,,,,,

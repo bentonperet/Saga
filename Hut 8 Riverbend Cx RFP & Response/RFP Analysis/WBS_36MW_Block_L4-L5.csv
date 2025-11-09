@@ -1,0 +1,383 @@
+HUT 8 RIVERBEND - DATA HALL COMMISSIONING WBS,,,,,,,,,,,,
+LEVEL 4-5 EXECUTION - SINGLE 36 MW BLOCK,,,,,,,,,,,,
+
+Project: Hut 8 Riverbend Data Center - 224 MW Facility,,,,,,,,,,,,
+Scope: Level 4-5 Commissioning Execution for Single 36 MW Data Hall Block,,,,,,,,,,,,
+Levels Covered: L4 (Functional Performance Testing + Heat Load Testing + System Level Testing) | L5 (Integrated Systems Testing),,,,,,,,,,,,
+Document Date: 2025-11-07,,,,,,,,,,,,
+
+,,,,,,,,,,,,
+
+STAFFING MODEL - L4-L5 EXECUTION,,,,,,,,,,,,
+
+Resource Type,Quantity,Role,Location,Hours Per Week (per person),Total Hours Per Week,Notes
+
+SITE-BASED CREW (ON-SITE DAILY),,,,,,,,,,,,
+Commissioning Lead - Electrical,2,Lead,On-Site,50,100,"Direct execution of electrical system commissioning: transformers, switchgear, UPS, batteries"
+Commissioning Lead - Mechanical,2,Lead,On-Site,50,100,"Direct execution of mechanical system commissioning: chillers, CDUs, CRAH, cooling systems"
+Commissioning Technician - Electrical,2,Technician,On-Site,50,100,Hands-on electrical testing and data collection
+Commissioning Technician - Mechanical,2,Technician,On-Site,50,100,Hands-on mechanical testing and equipment setup
+Redundant Lead,1,Lead,On-Site,50,50,Cross-discipline support and schedule flexibility
+Redundant Technician,1,Technician,On-Site,50,50,Peak demand support and backup
+Site Crew Subtotal,10,,,500 hrs/week,500,"Primary commissioning execution team on-site daily"
+
+REMOTE/HYBRID MANAGEMENT,,,,,,,,,,,,
+Commissioning Manager,1,Manager,Hybrid/Remote,50,50,"Program oversight, vendor coordination, client interface. Oversees and directs all L4-L5 commissioning activities."
+Documentation Coordinator,1,Coordinator,Hybrid/Remote (50%),25,25,"Documentation QA/QC, report generation, scheduling support (50% allocation during L4-L5)"
+Management Subtotal,2,,,75 hrs/week,75,"Program-level support (not dedicated solely to this block)"
+
+Total L4-L5 Staffing,12 people,,,575 hrs/week,575,"10 site + 1 Cx Mgr + 0.5 Doc Coord"
+
+Note: CxA performs full execution of L4-L5 commissioning activities per RFP scope definition,,,,,,,,,,,,
+
+,,,,,,,,,,,,
+
+RFP SCHEDULE CONSTRAINT (PER RFP PAGE 1),,,,,,,,,,,,
+
+"Level 4 – IST Duration: No more than six (6) weeks per 36 MW block",,,,,,,,,,,,
+
+Critical Question (RFI-001.01): Does 6-week constraint apply to:,,,,,,,,,,,,
+,A. Level 4 only (Functional Performance Testing)?,,,,,,,,,,,,
+,B. Combined Level 4 + Level 5 (IST)?,,,,,,,,,,,,
+,C. Specific activities within Level 4?,,,,,,,,,,,,
+
+This WBS assumes: 6 weeks applies to combined L4+L5 based on RFP wording "Level 4 – IST",,,,,,,,,,,,
+,- Level 4 (Functional/Heat Load/System Testing): 4-5 weeks,,,,,,,,,,,,
+,- Level 5 (Integrated Systems Testing): 1-2 weeks,,,,,,,,,,,,
+,- Total: 5.5-6.5 weeks (targeting 6 weeks for this WBS),,,,,,,,,,,,
+
+,,,,,,,,,,,,
+
+EQUIPMENT SUMMARY - 36 MW BLOCK (888 PIECES),,,,,,,,,,,,
+
+Location,Equipment Category,Quantity,Testing Level,Primary Discipline
+
+GRAY SPACE - OUTDOOR,,,,,,
+Outdoor,Transformer - IT,32,Level 4,Electrical
+Outdoor,Transformer - Mechanical,12,Level 4,Electrical
+Outdoor,Ring Main Unit,23,Level 4,Electrical
+Outdoor,MV Switchboard,2,Level 4,Electrical
+Outdoor,Chiller,27,Level 4,Mechanical
+Outdoor,Buffer Tank,27,Level 4,Mechanical
+Outdoor Subtotal,,123,,,
+
+GRAY SPACE - INDOOR,,,,,,
+Indoor,LV Switchboard - Electrical,32,Level 4,Electrical
+Indoor,LV Switchboard - Mechanical,12,Level 4,Electrical
+Indoor,UPS,113,Level 4,Electrical
+Indoor,CRAH Fan Wall - Elec Room,11,Level 4,Mechanical
+Indoor,Battery Cabinets,351,Level 4,Electrical
+Indoor Subtotal,,519,,,
+
+WHITE SPACE - OPTION 2 (BASE),,,,,,
+White Space,Hot Aisle Containment,11,Level 4,Mechanical
+White Space,Rack Power Panel,160,Level 4,Electrical
+White Space,Remote Distribution Panel,7,Level 4,Electrical
+White Space,CDU,32,Level 4,Mechanical
+White Space,CRAH Fan Wall - Data Hall,36,Level 4,Mechanical
+White Space Subtotal,,246,,,
+
+SYSTEMS INTEGRATION (LEVEL 5),,,,,,
+Integration,Electrical System Integration,1 System,Level 5,Electrical
+Integration,Mechanical System Integration,1 System,Level 5,Mechanical
+Integration,IT Load Simulation Testing,1 Test,Level 5,Both Disciplines
+Integration,Monitoring & Control Integration,1 System,Level 5,Both Disciplines
+Integration,Emergency & Failure Scenarios,1 Test,Level 5,Both Disciplines
+
+TOTAL BLOCK EQUIPMENT,,888 pieces + 5 system-level tests,,,
+
+,,,,,,,,,,,,
+
+WORK BREAKDOWN STRUCTURE - L4-L5 EXECUTION (6 WEEKS),,,,,,,,,,,,
+
+WBS Code,Task Description,Duration (Weeks),Start Week,End Week,Site Crew (10),Cx Mgr,Doc Coord (0.5),Total Weekly Hours,Total Hours
+
+L4-5.0,LEVEL 4-5 COMMISSIONING EXECUTION,6,1,6,500 hrs/wk,50 hrs/wk,25 hrs/wk,575,3450
+
+L4-5.1,Level 4 Commissioning Kickoff,0.5,1,1,500,50,25,575,287.5
+L4-5.1.1,L4 kickoff meeting with Owner and GC,,,,,,,,,Included
+L4-5.1.2,Review L1-L3 punch list and verify substantial completion,,,,,,,,,Included
+L4-5.1.3,Finalize L4 test procedures and sequence,,,,,,,,,Included
+L4-5.1.4,Vendor coordination and startup scheduling,,,,,,,,,Included
+L4-5.1.5,Test equipment mobilization and calibration,,,,,,,,,Included
+
+L4-5.2,LEVEL 4 - FUNCTIONAL PERFORMANCE TESTING (WEEKS 1-5),5,1,5,500,50,25,575,2875
+
+L4-5.2.1,Outdoor Equipment - Electrical (Weeks 1-2),2,1,2,500,50,25,575,1150
+L4-5.2.1.1,Transformer Functional Testing - IT (32 units),,,,,,,,,
+,,"Insulation resistance (megger), turns ratio, polarity, power factor/tan delta, winding resistance, temperature rise testing, protective relay settings verification and testing",,,,,,,,,
+L4-5.2.1.2,Transformer Functional Testing - Mechanical (12 units),,,,,,,,,
+,,"Same as IT transformers, larger capacity, more complex relay coordination",,,,,,,,,
+L4-5.2.1.3,Ring Main Unit Functional Testing (23 units),,,,,,,,,
+,,"Primary/secondary injection testing of protective relays, breaker timing, contact resistance, insulation resistance, operational sequences",,,,,,,,,
+L4-5.2.1.4,MV Switchboard Functional Testing (2 units),,,,,,,,,
+,,"Extensive relay testing, coordination verification, interlocks, SCADA integration, metering accuracy",,,,,,,,,
+
+L4-5.2.2,Outdoor Equipment - Mechanical (Weeks 1-3),3,1,3,500,50,25,575,1725
+L4-5.2.2.1,Chiller Functional Testing (27 units),,,,,,,,,
+,,"Full operational testing, capacity verification, control sequences, safeties, economizer operation, staging. Load testing coordinated with CDU/CRAH systems.",,,,,,,,,
+L4-5.2.2.2,Buffer Tank Functional Testing (27 units),,,,,,,,,
+,,"Flow verification, temperature stratification monitoring, level controls, isolation valves. Integrated with chiller loop testing.",,,,,,,,,
+L4-5.2.2.3,Chilled Water System Integration,,,,,,,,,
+,,"System-level chilled water loop testing, flow balancing verification (TAB by others - oversight only), temperature differential verification",,,,,,,,,
+
+L4-5.2.3,Indoor Equipment - Electrical (Weeks 2-4),3,2,4,500,50,25,575,1725
+L4-5.2.3.1,LV Switchboard Functional Testing - Electrical (32 units),,,,,,,,,
+,,"480V main distribution: breaker testing, protective device coordination, ground fault, arc flash verification, load balancing, metering",,,,,,,,,
+L4-5.2.3.2,LV Switchboard Functional Testing - Mechanical (12 units),,,,,,,,,
+,,"Higher ampacity mechanical boards: more extensive load testing and coordination verification required",,,,,,,,,
+L4-5.2.3.3,UPS Functional Testing (113 units),,,,,,,,,
+,,"Modular UPS: full functional test including bypass operation, load transfer, battery discharge, parallel operation, alarms, monitoring. Most labor-intensive electrical activity.",,,,,,,,,
+L4-5.2.3.4,Battery Cabinet Testing (351 units - sampling),,,,,,,,,
+,,"Li-ion battery strings: BMS verification, cell voltage monitoring, temperature monitoring, discharge testing (statistical sampling per IEEE standards), isolation verification",,,,,,,,,
+
+L4-5.2.4,Indoor Equipment - Mechanical (Weeks 3-5),3,3,5,500,50,25,575,1725
+L4-5.2.4.1,CRAH Fan Wall Testing - Electrical Rooms (11 units),,,,,,,,,
+,,"Fan wall: airflow measurement, control sequences, VFD operation, temperature/humidity monitoring, staging algorithms. TAB by others - oversight only.",,,,,,,,,
+L4-5.2.4.2,CDU Functional Testing (32 units),,,,,,,,,
+,,"Cooling distribution: flow/pressure testing, temperature differential verification, control sequences, leak testing, valve operation. Integrated testing with CRAH and chillers.",,,,,,,,,
+L4-5.2.4.3,CRAH Fan Wall Testing - Data Halls (36 units),,,,,,,,,
+,,"Data hall fan walls: airflow measurement and balancing (TAB by others - oversight), control integration, VFD testing, staging sequences, temperature control",,,,,,,,,
+L4-5.2.4.4,Hot Aisle Containment Testing (11 units),,,,,,,,,
+,,"Containment: pressure verification, door interlocks, monitoring system integration, airflow patterns",,,,,,,,,
+
+L4-5.2.5,White Space Power Distribution (Weeks 4-5),2,4,5,500,50,25,575,1150
+L4-5.2.5.1,Rack Power Panel Functional Testing (160 units),,,,,,,,,
+,,"Rack PDU: breaker verification, metering accuracy, remote monitoring, load testing, branch circuit verification. High quantity drives schedule.",,,,,,,,,
+L4-5.2.5.2,Remote Distribution Panel Testing (7 units),,,,,,,,,
+,,"RDP: functional testing, breaker coordination, monitoring, feeder verification",,,,,,,,,
+
+L4-5.2.6,System-Level Testing - Electrical & Mechanical (Week 5),1,5,5,500,50,25,575,575
+L4-5.2.6.1,Electrical System-Level Testing,,,,,,,,,
+,,"Complete electrical distribution system testing: load balancing across all switchboards, transfer scenarios, protective device coordination verification end-to-end, ground fault system verification",,,,,,,,,
+L4-5.2.6.2,Mechanical System-Level Testing,,,,,,,,,
+,,"Complete cooling system testing: chiller staging and load following, CDU distribution uniformity, CRAH airflow balancing across all units, temperature stratification, economizer modes",,,,,,,,,
+L4-5.2.6.3,Heat Load Testing Preparation,,,,,,,,,
+,,"Coordinate load bank setup (provided/operated by others), review load bank plans, pre-test walkdown, safety verification",,,,,,,,,
+
+L4-5.3,LEVEL 5 - INTEGRATED SYSTEMS TESTING (WEEKS 6-7),1.5,6,6,500,50,25,575,862.5
+,Note: WBS shows Week 6 only (575 hrs). Additional 0.5 week (287.5 hrs) would extend to 6.5 weeks total if needed.,,,,,,,,,,
+
+L4-5.3.1,Electrical System Integration Testing (Week 6),,,,,,,,,
+L4-5.3.1.1,Complete electrical system load testing,,,,,,,,,Included
+L4-5.3.1.2,Transfer scenarios and failover testing,,,,,,,,,Included
+L4-5.3.1.3,N+1 redundancy verification,,,,,,,,,Included
+L4-5.3.1.4,Electrical failure mode testing,,,,,,,,,Included
+
+L4-5.3.2,Mechanical System Integration Testing (Week 6),,,,,,,,,
+L4-5.3.2.1,Integrated cooling system performance testing,,,,,,,,,Included
+L4-5.3.2.2,Load following and staging algorithms,,,,,,,,,Included
+L4-5.3.2.3,Economizer mode verification,,,,,,,,,Included
+L4-5.3.2.4,Redundancy verification (N+1 or 2N depending on design),,,,,,,,,Included
+
+L4-5.3.3,IT Load Simulation Testing (Week 6),,,,,,,,,
+L4-5.3.3.1,Load bank setup and safety verification (by others - CxA oversight),,,,,,,,,Included
+L4-5.3.3.2,Ramp testing: 0% → 25% → 50% → 75% → 100% IT load,,,,,,,,,Included
+L4-5.3.3.3,Steady-state operation at target load (typically 80-90% for initial operation),,,,,,,,,Included
+L4-5.3.3.4,Cooling system response verification during load ramp,,,,,,,,,Included
+L4-5.3.3.5,Power quality monitoring under load,,,,,,,,,Included
+L4-5.3.3.6,Temperature and humidity stability verification,,,,,,,,,Included
+
+L4-5.3.4,Monitoring & Control System Integration (Week 6),,,,,,,,,
+L4-5.3.4.1,BMS/EPMS/DCIM full facility integration,,,,,,,,,Included
+L4-5.3.4.2,Alarm generation and notification verification,,,,,,,,,Included
+L4-5.3.4.3,Trending and data logging verification,,,,,,,,,Included
+L4-5.3.4.4,Remote monitoring and control verification,,,,,,,,,Included
+L4-5.3.4.5,Integration with CxAlloy or Facility Grid platform (per RFI-001.02),,,,,,,,,Included
+
+L4-5.3.5,Emergency & Failure Scenarios (Week 6),,,,,,,,,
+L4-5.3.5.1,EPO (Emergency Power Off) testing,,,,,,,,,Included
+L4-5.3.5.2,Utility failure simulation,,,,,,,,,Included
+L4-5.3.5.3,Cooling failure scenarios,,,,,,,,,Included
+L4-5.3.5.4,UPS transfer testing under load,,,,,,,,,Included
+L4-5.3.5.5,Generator start testing (if applicable - not in RFP equipment list),,,,,,,,,Included
+
+L4-5.4,Closeout & Turnover (Week 6),Included,6,6,Included,Included,Included,Included,Included
+L4-5.4.1,Final punch list resolution,,,,,,,,,Included in Week 6
+L4-5.4.2,Commissioning report compilation,,,,,,,,,Included in Week 6
+L4-5.4.3,Training for Owner operations staff,,,,,,,,,Included in Week 6
+L4-5.4.4,Final acceptance and turnover,,,,,,,,,Included in Week 6
+
+L4-5.0,TOTAL L4-L5 EXECUTION,6 weeks,Week 1,Week 6,3000 hrs,300 hrs,150 hrs,3450 total,3450
+
+,,,,,,,,,,,,
+
+LABOR SUMMARY - L4-L5 EXECUTION (6 WEEKS),,,,,,,,,,,,
+
+Resource Type,Quantity,Hours Per Week,Weeks Active,Total Hours,% of Total,Notes
+
+SITE-BASED CREW,,,,,,,,,,,,
+Commissioning Lead - Electrical,2,50,6,600,17.4%,Direct execution of electrical system commissioning
+Commissioning Lead - Mechanical,2,50,6,600,17.4%,Direct execution of mechanical system commissioning
+Commissioning Technician - Electrical,2,50,6,600,17.4%,Hands-on electrical testing and data collection
+Commissioning Technician - Mechanical,2,50,6,600,17.4%,Hands-on mechanical testing and equipment setup
+Redundant Lead,1,50,6,300,8.7%,Cross-discipline support and schedule flexibility
+Redundant Technician,1,50,6,300,8.7%,Peak demand support and backup
+Site Crew Subtotal,10,500 hrs/week,6 weeks,3000,87.0%,"10 people × 50 hrs/week × 6 weeks = 3,000 site hours"
+
+REMOTE/HYBRID MANAGEMENT,,,,,,,,,,,,
+Commissioning Manager,1,50,6,300,8.7%,"Program oversight, vendor coordination, directs all L4-L5 activities"
+Documentation Coordinator,1,25,6,150,4.3%,"Documentation QA/QC, reporting, scheduling support (50% allocation)"
+Management Subtotal,2,75 hrs/week,6 weeks,450,13.0%,"Cx Manager: 300 hrs | Doc Coordinator: 150 hrs"
+
+Total L4-L5 Resources,12,575 hrs/week,6 weeks,3450,100%,"Site: 3,000 hrs | Management: 450 hrs | Total: 3,450 hours"
+
+,,,,,,,,,,,,
+
+LABOR BY DISCIPLINE - L4-L5 EXECUTION,,,,,,,,,,,,
+
+Discipline,L4 Hours,L5 Hours,Total Hours,% of Total,Notes
+
+Electrical,1975,584,2559,74.2%,"Transformers, switchgear, UPS, batteries, rack power distribution, electrical system integration"
+Mechanical,1674,575,2249,65.2%,"Chillers, CDUs, CRAH units, buffer tanks, containment, mechanical system integration. Includes TAB oversight (not hands-on)."
+Integration (Both Disciplines),0,340,340,9.9%,"Load testing, DCIM, emergency scenarios requiring both electrical and mechanical coordination"
+Management & Documentation,300,150,450,13.0%,"Cx Manager + Doc Coordinator allocated to this block"
+
+Subtotal (Direct Execution),3649,1499,5148,149.3%,"Direct L4 + L5 commissioning hours (equipment + systems testing)"
+Less: Overlap Adjustment,,,-1698,-49.2%,"Adjust for double-counting (electrical + mechanical percentages exceed 100% due to shared activities)"
+
+Total L4-L5,,,3450,100%,"Actual total hours: 3,450 (site crew + management for 6 weeks)"
+
+Note: Discipline breakdown shows activity distribution. Actual hours per WBS staffing model: 3450 total.,,,,,,,,,,,,
+
+,,,,,,,,,,,,
+
+WEEKLY BREAKDOWN - L4-L5 EXECUTION,,,,,,,,,,,,
+
+Week,Calendar Week (Example),Phase,Primary Activities,Site Crew,Cx Mgr,Doc Coord,Weekly Hours,Cumulative Hours
+
+1,L4 Week 1,L4 Startup,"Kickoff, outdoor electrical equipment (transformers, RMUs, MV switchboards), outdoor mechanical equipment startup (chillers)",500,50,25,575,575
+2,L4 Week 2,L4 Continued,"Outdoor electrical completion, outdoor mechanical (chillers, buffer tanks, chilled water system), indoor electrical startup (LV switchboards, UPS)",500,50,25,575,1150
+3,L4 Week 3,L4 Mid-Phase,"Indoor electrical (UPS 113 units, batteries 351 units), indoor mechanical startup (CRAH elec rooms, CDU)",500,50,25,575,1725
+4,L4 Week 4,L4 Continued,"Indoor electrical completion, indoor mechanical (CDUs 32 units, CRAH data halls 36 units), white space power distribution startup (rack power panels)",500,50,25,575,2300
+5,L4 Week 5,L4 Completion,"White space power completion (160 rack panels), system-level testing (electrical & mechanical), heat load test prep",500,50,25,575,2875
+6,L4 Week 6,L5 IST,"Integrated systems testing: electrical system integration, mechanical system integration, IT load simulation testing (load banks), monitoring integration (BMS/EPMS/DCIM), emergency scenarios (EPO, failures), closeout & turnover",500,50,25,575,3450
+
+Total L4-L5,6 weeks,,"L4: Weeks 1-5 (functional, heat load, system testing) | L5: Week 6 (integrated systems testing)",3000,300,150,3450,3450
+
+,,,,,,,,,,,,
+
+SCHEDULE FEASIBILITY ANALYSIS - 6 WEEK TARGET,,,,,,,,,,,,
+
+Phase,Industry Standard Duration,RFP Constraint,Proposed WBS,Feasibility,Notes
+
+Level 4 Functional Testing,8-10 weeks,Not specified,5 weeks,AGGRESSIVE,"Compressed from typical 8-10 weeks to 5 weeks. Requires efficient execution and 10-person site crew."
+Level 5 IST,2-3 weeks,Not specified,1 week,AGGRESSIVE,"Compressed from typical 2-3 weeks to 1 week. Requires load banks ready and no major deficiencies from L4."
+Combined L4+L5,10-13 weeks typical,"6 weeks max per RFP",6 weeks,FEASIBLE,"Achieves RFP 6-week constraint with 10-person site crew and strong management coordination. Minimal schedule contingency."
+
+Risk Assessment:,,,,,,,,,,,,
+,- 6-week duration is feasible but aggressive compared to industry standards (54% schedule compression),,,,,,,,,,,,
+,- Requires: No major equipment deficiencies from L4, load banks ready and operational, strong vendor support, good weather (minimal outdoor delays), efficient crew with no downtime,,,,,,,,,,,,
+,- Contingency: If issues arise, 6.5-7 weeks more realistic. Build flexibility into contract terms per pricing assumptions.,,,,,,,,,,,,
+
+,,,,,,,,,,,,
+
+CRITICAL PATH ACTIVITIES - L4-L5,,,,,,,,,,,,
+
+Activity,Duration,Dependencies,Critical Path?,Schedule Risk
+
+Outdoor Electrical (Transformers, RMUs, MV SWBDs),2 weeks,L3 complete + equipment energized,YES,HIGH - Weather dependent outdoor testing
+Outdoor Mechanical (Chillers 27 units),3 weeks,"L3 complete, piping systems pressure tested/flushed/filled",YES,HIGH - Large chiller quantity drives schedule
+Indoor Electrical (UPS 113 units),3 weeks,Outdoor electrical complete + power available,YES,HIGH - High UPS quantity (113 units) is schedule driver
+Indoor Mechanical (CDUs + CRAH),3 weeks,"Outdoor mechanical complete, chilled water available",YES,MEDIUM - Dependent on chiller commissioning completion
+White Space Power Distribution (160 RPPs),2 weeks,Indoor electrical complete,MEDIUM,MEDIUM - High quantity but straightforward testing
+System-Level Testing,1 week,All equipment functional testing complete,YES,MEDIUM - Cannot start until all equipment passes L4
+L5 IST with Load Banks,1 week,"All L4 complete, load banks available and operational",YES,CRITICAL - Load bank availability and readiness
+
+Overall Critical Path: Outdoor Elec (2w) → Indoor Elec (3w overlaps with Outdoor Mech) → System Testing (1w) → L5 IST (1w) = 6 weeks minimum,,,,,,,,,,,,
+
+,,,,,,,,,,,,
+
+EQUIPMENT TESTING SEQUENCE & PARALLELIZATION,,,,,,,,,,,,
+
+Week,Electrical Activities,Mechanical Activities,Parallel Activities Explanation
+
+1,"Transformers (44 units), RMUs (23 units), MV SWBDs (2)",Chillers startup (27 units),"Electrical and mechanical teams work in parallel on different systems. Both can proceed simultaneously."
+2,"Complete outdoor electrical, LV switchboards startup (44 units)","Chillers continued (27 units), Buffer tanks (27), Chilled water system","Continued parallel execution. Electrical moves indoors while mechanical completes outdoor equipment."
+3,"UPS functional testing (113 units), Battery testing startup (351 sampling)","CRAH elec rooms (11 units), CDU startup (32 units)","UPS testing is most labor-intensive electrical activity. Mechanical starts indoor equipment commissioning."
+4,"Complete UPS and batteries, Rack power panels startup (160 units)","CDU continued (32 units), CRAH data halls (36 units), Hot aisle containment (11)","High equipment quantities in both disciplines require full crews. Some cross-discipline support for containment."
+5,"Complete rack power panels (160), RDPs (7 units), Electrical system-level testing","Complete CRAH and CDUs, Mechanical system-level testing, Heat load test prep","Disciplines converge for system-level testing. Teams coordinate for integrated testing preparation."
+6,Electrical system integration (L5),Mechanical system integration (L5),"Fully integrated testing: both disciplines work together on load testing, monitoring, emergency scenarios"
+
+Key Parallelization Strategy: Electrical and mechanical teams work independently on their systems Weeks 1-4, converge for system testing Week 5, fully integrate for L5 testing Week 6.,,,,,,,,,,,,
+
+,,,,,,,,,,,,
+
+VENDOR COORDINATION REQUIREMENTS,,,,,,,,,,,,
+
+Equipment Type,Vendor Support Required,Timing,Coordination Lead,Notes
+
+Transformers (44 units),Startup assistance and warranty activation,Weeks 1-2,Elec Lead,"Pre-schedule vendor 4-6 weeks before L4 start"
+UPS (113 units),Factory startup technician for initial units,Week 3,Elec Lead,"Vendor must witness first few units, then CxA can proceed independently"
+Chillers (27 units),Startup technician for each unit,Weeks 1-3,Mech Lead,"Chiller startup is vendor-required for warranty. Long lead time due to quantity."
+CDUs (32 units),Startup assistance,Weeks 3-4,Mech Lead,Vertiv CDU startup support
+CRAH Fan Walls (47 units),Startup assistance and TAB support,Weeks 3-5,Mech Lead,"Vertiv startup support. TAB performed by others, CxA oversight."
+Load Banks,Setup and operation (by others),Week 6,Cx Manager,"PGCIS reviews load bank plan and oversees operation, but does not provide/operate per scope assumptions"
+Monitoring Systems (BMS/EPMS/DCIM),Integration support,Weeks 5-6,Cx Manager,Controls contractor or OEM support for system integration
+CxAlloy or Facility Grid Platform,Platform support and training,Weeks 1-6,Doc Coordinator,Commissioning management platform per RFI-001.02
+
+Critical Vendor Coordination: Chiller vendor startup (27 units) is critical path item. Must pre-schedule and confirm availability.,,,,,,,,,,,,
+
+,,,,,,,,,,,,
+
+ASSUMPTIONS & NOTES - L4-L5 EXECUTION,,,,,,,,,,,,
+
+,1. 6-week duration based on RFP constraint "Level 4 – IST Duration: No more than six (6) weeks per 36 MW block",,,,,,,,,,,,
+,2. Assumes 6-week constraint applies to combined L4+L5 per RFI-001.01 (critical question requiring clarification),,,,,,,,,,,,
+,3. L4 duration: 5 weeks (Functional Performance Testing + Heat Load Testing + System Level Testing),,,,,,,,,,,,
+,4. L5 duration: 1 week (Integrated Systems Testing) - aggressive but achievable if L4 goes smoothly,,,,,,,,,,,,
+,5. 10-person site crew working 50 hours/week provides adequate capacity for 6-week timeline,,,,,,,,,,,,
+,6. Equipment has been properly energized and L3 pre-functional testing substantially complete before L4 start,,,,,,,,,,,,
+,7. Mechanical systems dominate schedule due to high equipment count and sequential dependencies (chillers → CDUs → CRAH),,,,,,,,,,,,
+,8. Pressure testing, flush & fill, and TAB performed by others; PGCIS oversight only per scope assumptions,,,,,,,,,,,,
+,9. Load banks provided and operated by others; PGCIS load bank plan review and oversight only per scope assumptions,,,,,,,,,,,,
+,10. Weather contingency NOT explicitly included - assume indoor work can proceed during outdoor weather delays,,,,,,,,,,,,
+,11. Vendor support pre-coordinated 4-6 weeks before L4 start to avoid delays,,,,,,,,,,,,
+,12. Commissioning management platform (CxAlloy or Facility Grid) used per RFI-001.02 for test data and documentation,,,,,,,,,,,,
+
+,,,,,,,,,,,,
+
+RISKS - L4-L5 EXECUTION PHASE,,,,,,,,,,,,
+
+Risk,Probability,Impact,Consequence,Mitigation
+
+6-Week Schedule Constraint Infeasible,MEDIUM,CRITICAL,"Cannot complete L4+L5 in 6 weeks if RFP constraint interpreted strictly","RFI-001.01 CRITICAL question - must clarify scope of 6-week constraint before finalizing schedule"
+Equipment Deficiencies from L3,HIGH,HIGH,"Retest time extends L4 schedule, may exceed 6-week window","15% contingency typically required. Include contractual language about L3 substantial completion requirements."
+Vendor Support Delays,MEDIUM,MEDIUM,"Cannot complete equipment startup without vendor, particularly chillers (27 units)","Pre-schedule vendors 4-6 weeks in advance, have vendor SOWs signed before L4 start"
+Load Bank Unavailability,LOW,CRITICAL,"Cannot complete L5 IST load testing without load banks","Contractually require load banks from Owner/others per scope assumptions, confirm availability 6 weeks before L5"
+Chiller Commissioning Delays,MEDIUM,HIGH,"Chiller testing is critical path and weather-dependent. 27 units require significant time.","Start chiller commissioning early (Week 1), have backup indoor activities if weather delays outdoor work"
+UPS Quantity (113 units),MEDIUM,HIGH,"Testing 113 UPS units in 3 weeks is aggressive (2.6 units/day)","Efficient test procedures, vendor support for initial units, potential for parallel testing with full crew"
+Weather Delays (Outdoor Equipment),MEDIUM,MEDIUM,"Outdoor transformer and chiller testing weather-dependent","Plan outdoor testing early in schedule (Weeks 1-2), have indoor backup tasks ready"
+Monitoring System Integration Issues,MEDIUM,MEDIUM,"BMS/EPMS/DCIM integration problems delay L5 IST","Early integration testing during L4, controls contractor support, dedicated integration time in Week 6"
+
+Overall Risk: MEDIUM-HIGH due to aggressive 6-week schedule and RFI-001.01 constraint ambiguity,,,,,,,,,,,,
+
+,,,,,,,,,,,,
+
+DELIVERABLES - L4-L5 EXECUTION PHASE,,,,,,,,,,,,
+
+Deliverable,Responsible,Timing,Format,Audience
+
+Weekly Progress Reports,Doc Coordinator,Weekly (Fridays),PDF/Email,Owner/GC
+Individual Equipment Test Reports,Site Leads,After Each Test,CxAlloy/Facility Grid,Owner/GC/Vendor
+Issues Log & Punch List,Doc Coordinator,Continuous (Daily Updates),Excel/CxAlloy,Owner/GC
+Photo Documentation,Site Leads,Continuous,Digital Photos,Owner/GC
+Level 4 Functional Testing Summary Report,Cx Manager,End of Week 5,PDF,Owner
+Level 5 IST Summary Report,Cx Manager,End of Week 6,PDF,Owner
+Final Block Commissioning Report,Cx Manager,End of Week 6,PDF Report,"Owner (Executive summary, all test results, training records, O&M manuals, warranty documentation)"
+Training Documentation,Site Leads,Week 6,Training Logs,Owner/Operations
+Turnover Package,Doc Coordinator,Week 6,Binders + Digital,"Owner (Complete documentation package: reports, test data, issues log, training records, warranties, O&M manuals)"
+As-Built Coordination,Doc Coordinator,Week 6,Redlines,Owner/Design Team
+
+All deliverables uploaded to commissioning management platform (CxAlloy or Facility Grid per RFI-001.02) in real-time,,,,,,,,,,,,
+
+,,,,,,,,,,,,
+
+END OF WBS - L4-L5 EXECUTION,,,,,,,,,,,,
+
+Document: Work Breakdown Structure - Level 4-5 Execution for Single 36 MW Block,,,,,,,,,,,,
+Prepared: 2025-11-07,,,,,,,,,,,,
+For: Hut 8 Riverbend Data Center Commissioning Proposal,,,,,,,,,,,,
+By: PGCIS Commissioning Team,,,,,,,,,,,,
+Scope: L4-L5 Commissioning Execution (6 weeks target per RFP) - 10 Site Crew + Cx Manager + 0.5 Doc Coordinator,,,,,,,,,,,,
+Total Hours: 3450 (Site: 3000 hrs | Management: 450 hrs),,,,,,,,,,,,

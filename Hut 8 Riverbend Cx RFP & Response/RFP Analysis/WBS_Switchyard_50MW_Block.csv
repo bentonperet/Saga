@@ -1,0 +1,273 @@
+HUT 8 RIVERBEND - SWITCHYARD COMMISSIONING WBS,,,,,,,,,,,,
+SINGLE 50 MW BLOCK (1 of 6 blocks totaling 300 MW),,,,,,,,,,,,
+
+Project: Hut 8 Riverbend Data Center - 300 MW Utility Interconnection,,,,,,,,,,,,
+Scope: Single 50 MW Switchyard Block Commissioning (Levels 1-5),,,,,,,,,,,,
+Total Switchyard: 6 blocks × 50 MW = 300 MW capacity,,,,,,,,,,,,
+Document Date: 2025-11-07,,,,,,,,,,,,
+
+,,,,,,,,,,,,
+
+STAFFING MODEL - SINGLE 50 MW SWITCHYARD BLOCK,,,,,,,,,,,,
+
+Resource Type,Quantity,Role,Location,Hours Per Week (per person),Total Hours Per Week,Notes
+
+Commissioning Lead - Electrical,1,Lead,On-Site,50,50,Electrical systems and protective relaying expertise
+Commissioning Lead - Mechanical,1,Lead,On-Site,50,50,Mechanical systems and HVAC expertise (if applicable to switchyard)
+Commissioning Technician - Electrical,2,Technician,On-Site,50,100,Hands-on HV testing and relay testing
+Commissioning Technician - Mechanical,1,Technician,On-Site,50,50,Mechanical equipment support (if applicable)
+Commissioning Manager (Switchyard),0.5,Manager,Hybrid/Remote,25,25,Program oversight for this 50 MW block (50% allocation)
+Documentation Coordinator,0.25,Coordinator,Hybrid/Remote,12.5,12.5,Documentation support for this block (25% allocation)
+
+Total Staffing per 50 MW Block,5.75 FTE,,,187.5 hrs/week,287.5,"Site: 5 people (250 hrs/week) + Management: 0.75 FTE (37.5 hrs/week)"
+
+Note: Cx Manager and Doc Coordinator are shared across all 6 switchyard blocks proportionally,,,,,,,,,,,,
+
+,,,,,,,,,,,,
+
+SWITCHYARD BLOCK EQUIPMENT (50 MW CAPACITY),,,,,,,,,,,,
+
+Equipment Type,Quantity per 50MW Block,Total for 300MW (6 blocks),OEM,Voltage/Rating,Commissioning Level,Notes
+
+Main Utility Transformer,TBD,TBD,TBD,Transmission Voltage - 34.5kV,Level 4,"To be confirmed via RFI-001.07. Likely 1-2 transformers per 50 MW block."
+MV Switchboard,2,12 total,TBD,34.5kV,Level 4,2 MV switchboards per 50 MW block (12 total per RFP)
+Ring Main Unit (RMU),23,138 total,TBD,34.5kV,Level 4,23 RMUs per 50 MW block (138 total per RFP)
+Protective Relaying,Multiple,Multiple,TBD,34.5kV,Level 4,"Feeder protection, transformer protection, bus protection, tie protection"
+SCADA/Metering Points,TBD,TBD,TBD,Varies,Level 4,"Revenue metering, SCADA integration, substation automation"
+Grounding System,1 System,6 Systems,TBD,,Level 2-3,"Ground grid, equipment grounding, ground fault protection"
+
+ASSUMPTIONS: Equipment quantities per 50 MW block calculated as 1/6 of total RFP quantities (12 MV switchboards ÷ 6 = 2 per block; 138 RMUs ÷ 6 = 23 per block),,,,,,,,,,,,
+CRITICAL: Switchyard scope requires clarification via RFI-001.07. Main transformer quantities and utility voltage unknown.,,,,,,,,,,,,
+
+,,,,,,,,,,,,
+
+WORK BREAKDOWN STRUCTURE - 50 MW SWITCHYARD BLOCK,,,,,,,,,,,,
+
+WBS Code,Task Description,Duration (Weeks),Start Week,End Week,Elec Lead,Mech Lead,Elec Tech (2),Mech Tech,Cx Mgr (0.5),Doc Coord (0.25),Total Weekly Hours,Total Hours
+
+SY.0,50 MW SWITCHYARD BLOCK COMMISSIONING,12,1,12,50 hrs/wk,50 hrs/wk,100 hrs/wk,50 hrs/wk,25 hrs/wk,12.5 hrs/wk,287.5,3450
+
+SY.1,Mobilization & Pre-Commissioning,1,1,1,50,50,100,50,25,12.5,287.5,287.5
+SY.1.1,Site mobilization and safety orientation,,,,,,,,,,,Included
+SY.1.2,Test equipment setup and calibration verification,,,,,,,,,,,Included
+SY.1.3,Site access and logistics coordination,,,,,,,,,,,Included
+SY.1.4,Commissioning plan review and finalization,,,,,,,,,,,Included
+
+SY.2,Level 1 - Documentation Review & Submittal Review,2,2,3,50,50,100,50,25,12.5,287.5,575
+SY.2.1,Review utility interconnection design drawings and single-line diagrams,,,,,,,,,,,Included
+SY.2.2,Review equipment submittals (transformers if applicable),,,,,,,,,,,Included
+SY.2.3,Review MV switchboard and RMU submittals,,,,,,,,,,,Included
+SY.2.4,Review protective relay coordination study,,,,,,,,,,,Included
+SY.2.5,Review SCADA/metering system submittals,,,,,,,,,,,Included
+SY.2.6,Review O&M manuals for all equipment,,,,,,,,,,,Included
+SY.2.7,Verify arc flash calculations and labeling requirements,,,,,,,,,,,Included
+
+SY.3,Level 2 - Physical Verification & Installation QA,2,4,5,50,50,100,50,25,12.5,287.5,575
+SY.3.1,Verify equipment installation per design drawings,,,,,,,,,,,Included
+SY.3.2,Nameplate verification (all transformers if applicable),,,,,,,,,,,Included
+SY.3.3,Nameplate verification (MV switchboards and RMUs),,,,,,,,,,,Included
+SY.3.4,Verify grounding system installation and connections,,,,,,,,,,,Included
+SY.3.5,Verify cable terminations and torque requirements,,,,,,,,,,,Included
+SY.3.6,Verify clearances and work space requirements (NEC/NFPA 70E),,,,,,,,,,,Included
+SY.3.7,Verify anchor bolts and seismic bracing if applicable,,,,,,,,,,,Included
+SY.3.8,Document installation deficiencies and punch list items,,,,,,,,,,,Included
+
+SY.4,Level 3 - Pre-Functional Testing (GC-Performed / CxA Oversight),2,6,7,50,50,100,50,25,12.5,287.5,575
+SY.4.1,Witness insulation resistance (megger) testing - transformers,,,,,,,,,,,Included
+SY.4.2,Witness insulation resistance testing - MV switchgear/RMUs,,,,,,,,,,,Included
+SY.4.3,Witness protective relay continuity and point-to-point checks,,,,,,,,,,,Included
+SY.4.4,Witness control power and auxiliary power circuits,,,,,,,,,,,Included
+SY.4.5,Witness breaker mechanical operation tests,,,,,,,,,,,Included
+SY.4.6,Witness SCADA/metering communications checks,,,,,,,,,,,Included
+SY.4.7,Review GC test reports and documentation,,,,,,,,,,,Included
+
+SY.5,Level 4 - Functional Performance Testing (CxA-Performed),4,8,11,50,50,100,50,25,12.5,287.5,1150
+SY.5.1,Transformer Testing (if in CxA scope),1,8,8,50,50,100,50,25,12.5,287.5,287.5
+SY.5.1.1,Insulation resistance (megger) at high voltage,,,,,,,,,,,Included
+SY.5.1.2,Turns ratio testing,,,,,,,,,,,Included
+SY.5.1.3,Polarity and phase relationship testing,,,,,,,,,,,Included
+SY.5.1.4,Power factor / tan delta testing,,,,,,,,,,,Included
+SY.5.1.5,Winding resistance testing,,,,,,,,,,,Included
+SY.5.1.6,Temperature rise testing (if required),,,,,,,,,,,Included
+
+SY.5.2,MV Switchboard & RMU Testing,1.5,9,10,50,50,100,50,25,12.5,287.5,431.25
+SY.5.2.1,Primary injection testing of protective relays,,,,,,,,,,,Included
+SY.5.2.2,Secondary injection testing of protective relays,,,,,,,,,,,Included
+SY.5.2.3,Relay timing and coordination verification,,,,,,,,,,,Included
+SY.5.2.4,Breaker timing tests (open/close operations),,,,,,,,,,,Included
+SY.5.2.5,Contact resistance testing,,,,,,,,,,,Included
+SY.5.2.6,Insulation resistance testing at operating voltage,,,,,,,,,,,Included
+SY.5.2.7,Operational sequences and interlocks,,,,,,,,,,,Included
+
+SY.5.3,SCADA & Metering Integration Testing,0.5,10,10,50,50,100,50,25,12.5,287.5,143.75
+SY.5.3.1,Metering accuracy verification,,,,,,,,,,,Included
+SY.5.3.2,SCADA points mapping and verification,,,,,,,,,,,Included
+SY.5.3.3,Alarm and status indication testing,,,,,,,,,,,Included
+SY.5.3.4,Remote control sequences (if applicable),,,,,,,,,,,Included
+SY.5.3.5,Data logging and trending verification,,,,,,,,,,,Included
+
+SY.5.4,System-Level Testing,1,11,11,50,50,100,50,25,12.5,287.5,287.5
+SY.5.4.1,Ground fault protection testing,,,,,,,,,,,Included
+SY.5.4.2,Arc flash protection testing (if applicable),,,,,,,,,,,Included
+SY.5.4.3,Protective relay coordination verification (end-to-end),,,,,,,,,,,Included
+SY.5.4.4,Transfer schemes and automatic switching (if applicable),,,,,,,,,,,Included
+SY.5.4.5,Emergency shutdown sequences,,,,,,,,,,,Included
+
+SY.6,Level 5 - Utility Acceptance & Energization,1,12,12,50,50,100,50,25,12.5,287.5,287.5
+SY.6.1,Utility witness testing coordination,,,,,,,,,,,Included
+SY.6.2,Utility relay settings approval and sign-off,,,,,,,,,,,Included
+SY.6.3,Pre-energization safety verification,,,,,,,,,,,Included
+SY.6.4,Phased energization coordination (if applicable),,,,,,,,,,,Included
+SY.6.5,Initial energization witness and documentation,,,,,,,,,,,Included
+SY.6.6,Power quality monitoring during initial energization,,,,,,,,,,,Included
+SY.6.7,50 MW capacity verification under no-load conditions,,,,,,,,,,,Included
+
+SY.7,Closeout & Documentation,Included,12,12,Included,Included,Included,Included,Included,Included,Included,Included
+SY.7.1,Final punch list resolution,,,,,,,,,,,Included in Week 12
+SY.7.2,Commissioning report preparation,,,,,,,,,,,Included in Week 12
+SY.7.3,Test data compilation and documentation package,,,,,,,,,,,Included in Week 12
+SY.7.4,Training for Owner operations staff (if required),,,,,,,,,,,Included in Week 12
+SY.7.5,Final turnover and acceptance,,,,,,,,,,,Included in Week 12
+
+SY.0,TOTAL 50 MW SWITCHYARD BLOCK,12 weeks,Week 1,Week 12,600 hrs,600 hrs,1200 hrs,600 hrs,300 hrs,150 hrs,3450 total,3450
+
+,,,,,,,,,,,,
+
+LABOR SUMMARY - 50 MW SWITCHYARD BLOCK,,,,,,,,,,,,
+
+Resource Type,Hours Per Week,Weeks Active,Total Hours,% of Total,Cost Allocation,Notes
+
+Commissioning Lead - Electrical,50,12,600,17.4%,Calculate,High voltage and protective relaying expertise required
+Commissioning Lead - Mechanical,50,12,600,17.4%,Calculate,Minimal mechanical scope in switchyard (mostly electrical)
+Commissioning Technician - Electrical (2),100,12,1200,34.8%,Calculate,Primary hands-on testing resources for HV equipment
+Commissioning Technician - Mechanical,50,12,600,17.4%,Calculate,Support role for outdoor equipment installation verification
+Commissioning Manager (0.5 FTE),25,12,300,8.7%,Calculate,Shared across 6 switchyard blocks - 50% allocation to this block
+Documentation Coordinator (0.25 FTE),12.5,12,150,4.3%,Calculate,Shared across 6 switchyard blocks - 25% allocation to this block
+
+Total Labor - 50 MW Block,287.5 hrs/week,12 weeks,3450 hours,100%,Calculate,"Single 50 MW block total. Multiply by 6 for full 300 MW switchyard."
+
+,,,,,,,,,,,,
+
+LABOR BY DISCIPLINE - 50 MW SWITCHYARD BLOCK,,,,,,,,,,,,
+
+Discipline,Site Hours,Management Hours,Total Hours,% of Total,Notes,
+
+Electrical,1800,225,2025,58.7%,"Electrical leads + techs (1,800 hrs) + 75% of Cx Mgr (225 hrs)",
+Mechanical,600,75,675,19.6%,Mechanical lead + tech (600 hrs) + 25% of Cx Mgr (75 hrs),
+Documentation/Coordination,0,150,150,4.3%,Documentation Coordinator (25% allocation),
+Overhead & Contingency (15%),540,68,608,17.6%,15% contingency for retest and weather delays,
+
+Total with Contingency,2940,518,3458,100.2%,Rounding: ~3450 hours total per 50 MW block,
+
+,,,,,,,,,,,,
+
+FULL 300 MW SWITCHYARD LABOR SUMMARY (6 BLOCKS),,,,,,,,,,,,
+
+Resource,Hours per Block,Number of Blocks,Total Hours (300 MW),Notes,,
+
+Site-Based Staff,3000,6,18000,"Leads + Techs: 5 people × 50 hrs/week × 12 weeks = 3,000 hrs per block × 6 blocks",,
+Commissioning Manager (1.0 FTE),300,6,1800,1 FTE shared across all 6 blocks: 50 hrs/week × 12 weeks × 3 blocks running = 1800 hrs total,,
+Documentation Coordinator (0.25 FTE),150,6,900,0.25 FTE shared across 6 blocks: 12.5 hrs/week × 12 weeks × 6 blocks = 900 hrs total,,
+
+Subtotal (Direct),3450,6,20700,"Direct labor for 300 MW switchyard commissioning (all 6 blocks)",,
+Contingency (15%),,,3105,Weather delays and retest contingency,,
+
+Total 300 MW Switchyard,,,23805,"Full switchyard commissioning: ~23,800 hours total",,
+
+Note: Assumes blocks can be commissioned in parallel or staggered sequence. Cx Manager and Doc Coordinator provide oversight across concurrent blocks.,,,,,,,,,,
+
+,,,,,,,,,,,,
+
+EQUIPMENT TESTING HOURS BREAKDOWN - 50 MW BLOCK,,,,,,,,,,,,
+
+Equipment Type,Quantity,Hours per Unit,Total Hours,Phase,Notes
+
+Main Utility Transformer (if in scope),TBD,40,TBD,L4,"Full transformer commissioning: IR, turns ratio, power factor, temp rise, relay testing. Hours TBD pending RFI-001.07 response."
+MV Switchboard,2,30,60,L4,"Extensive relay testing, breaker timing, interlocks, SCADA integration per switchboard"
+Ring Main Unit,23,8,184,L4,"Primary/secondary injection, breaker timing, contact resistance, operational sequences per RMU"
+Protective Relaying (System-Level),Multiple,40,40,L4,"End-to-end coordination verification, ground fault, arc flash protection testing"
+SCADA/Metering Integration,1 System,30,30,L4,"Metering accuracy, SCADA points, alarms, remote control, data logging"
+Utility Acceptance Activities,1,30,30,L5,"Utility witness testing, acceptance sign-off, energization coordination"
+
+Subtotal Equipment Testing,,,344+,L4-L5,"Core equipment testing hours (excludes L1-L3 and contingency)"
+
+Overhead Activities,,,,,
+Documentation Review (L1),,,120,L1,"Design drawings, submittals, O&M manuals, coordination studies"
+Physical Verification (L2),,,120,L2,"Installation QA, nameplate verification, grounding, clearances"
+Pre-Functional Oversight (L3),,,120,L3,Witness GC-performed testing
+Closeout & Documentation,,,60,L7,Final reports and turnover package
+Project Management & Coordination,,,186,All Phases,"Daily coordination, vendor calls, utility meetings (included in Cx Mgr/Doc Coord hours)"
+
+Subtotal Overhead,,,606,,
+
+Total Hours Before Contingency,,,950+,,"Core testing + overhead (excludes transformer hours pending RFI). With transformer testing, estimate ~1,100-1,300 hours base."
+
+With 15% Contingency,,,1092-1495,,"Weather delays, retest, deficiencies"
+
+Actual Estimate (per WBS),,,3450,,Includes full site crew allocation and management support for 12-week duration
+
+Note: Discrepancy between bottom-up equipment hours and WBS crew allocation hours reflects:,,,,,,,,,,
+,1. Crew availability/standby time during specialist vendor testing,,,,,,,,,,
+,2. Weather delays and outdoor work restrictions (Louisiana May-July),,,,,,,,,,
+,3. Utility coordination delays and waiting time,,,,,,,,,,
+,4. Safety requirements and work permit constraints for high voltage testing,,,,,,,,,,
+,5. Parallel activities and multi-discipline coordination inefficiencies,,,,,,,,,,
+
+,,,,,,,,,,,,
+
+CRITICAL ASSUMPTIONS & NOTES,,,,,,,,,,,,
+
+,1. 300 MW switchyard divided into 6 blocks of 50 MW each per utility distribution architecture,,,,,,,,
+,2. Equipment quantities per block: 2 MV switchboards + 23 RMUs per RFP totals (12 ÷ 6 and 138 ÷ 6),,,,,,,,
+,3. Main transformer quantities and utility voltage UNKNOWN - requires RFI-001.07 clarification (CRITICAL),,,,,,,,
+,4. Cx Manager (1.0 FTE) shared across all 6 switchyard blocks - provides program-level oversight,,,,,,,,
+,5. Documentation Coordinator (0.25 FTE) shared across 6 blocks - centralized documentation support,,,,,,,,
+,6. 12-week duration per block assumes sequential or partially overlapping commissioning,,,,,,,,
+,7. Weather contingency (15%) built in for Louisiana May-July outdoor high voltage testing,,,,,,,,
+,8. Utility coordination and witness testing critical path items - schedule depends on utility availability,,,,,,,,
+,9. High voltage testing requires specialized test equipment and certified technicians,,,,,,,,
+,10. Switchyard must be fully commissioned and energized before any data hall commissioning can begin,,,,,,,,
+
+,,,,,,,,,,,,
+
+DEPENDENCIES & RISKS - SWITCHYARD 50 MW BLOCK,,,,,,,,,,,,
+
+Dependency/Risk,Type,Impact,Mitigation,,,,
+
+Design completion,Dependency,CRITICAL,Requires completed utility interconnection design before L1 can start,,,,
+Utility approval of relay settings,Dependency,CRITICAL,Requires utility engineer review and approval before energization - long lead time,,,,
+Equipment delivery and installation,Dependency,HIGH,GC must complete installation before commissioning can begin,,,,
+Weather delays (outdoor HV testing),Risk,HIGH,"Louisiana May-July: hurricanes, thunderstorms, high humidity affect outdoor testing",,,,
+Utility energization schedule,Risk,CRITICAL,Utility controls energization timeline - may not align with project schedule,,,,
+Specialized test equipment availability,Risk,MEDIUM,High voltage test equipment (megger 500kV+) rental availability and lead time,,,,
+Certified HV technicians,Risk,MEDIUM,Require utility-approved or certified technicians for high voltage work,,,,
+Scope ambiguity (RFI-001.07),Risk,CRITICAL,"Main transformer scope unclear, utility voltage unknown, equipment list incomplete",,,,
+
+Overall Risk Rating: HIGH due to critical path nature and RFI-001.07 scope ambiguity,,,,,,,,,,
+
+,,,,,,,,,,,,
+
+DELIVERABLES - 50 MW SWITCHYARD BLOCK,,,,,,,,,,,,
+
+Deliverable,Responsible,Timing,Format,Notes,
+
+Level 1 Documentation Review Report,Elec Lead,End of Week 3,PDF,"Submittal review, design verification findings"
+Level 2 Installation Verification Report,Site Team,End of Week 5,PDF,Physical inspection findings and punch list
+Level 3 Pre-Functional Test Oversight Report,Elec Lead,End of Week 7,PDF,Witness testing summary and GC test report review
+Level 4 Functional Test Reports,Site Team,End of Week 11,CxAlloy/PDF,"Individual equipment test reports: transformers, switchgear, RMUs, relays, SCADA"
+Level 5 Utility Acceptance Documentation,Cx Manager,End of Week 12,PDF,"Utility sign-off, energization records, acceptance certificates"
+Final 50 MW Block Commissioning Report,Cx Manager,End of Week 12,PDF,"Executive summary, all test results, issues log, photos, turnover documentation"
+Training Records (if required),Site Team,Week 12,PDF,Operator training on switchyard equipment and emergency procedures
+As-Built Coordination,Doc Coordinator,Week 12,Redlines,Document any field changes to design for as-built drawing updates
+
+All deliverables subject to Doc Coordinator QA/QC review before submission,,,,,,,,,,
+
+,,,,,,,,,,,,
+
+END OF WBS - 50 MW SWITCHYARD BLOCK,,,,,,,,,,,,
+
+Document: Work Breakdown Structure - Single 50 MW Switchyard Block (1 of 6),,,,,,,,,,,,
+Prepared: 2025-11-07,,,,,,,,,,,,
+For: Hut 8 Riverbend Data Center Commissioning Proposal,,,,,,,,,,,,
+By: PGCIS Commissioning Team,,,,,,,,,,,,
+Scope: 50 MW Switchyard Block - Levels 1-5 Commissioning (12 weeks),,,,,,,,,,,,
