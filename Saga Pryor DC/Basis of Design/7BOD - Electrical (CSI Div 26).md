@@ -103,7 +103,6 @@ The electrical flowchart diagram shows the self-healing 13.8 kV dual-ring archit
 - Each 6MW block (phase) has two Main MV Switchboards (A and B paths)
 - Generators connect in a loop between the A and B switchboards, supplying both
 - RMUs connect from each switchboard to provide distribution to transformers
-- This A/B configuration provides path redundancy for concurrent maintainability
 
 ## 4.0 GENERATOR SYSTEM
 
@@ -113,8 +112,6 @@ The electrical flowchart diagram shows the self-healing 13.8 kV dual-ring archit
 
 **Block Architecture:**
 - Each 6MW IT block (9.6 MW facility @ 1.6 PUE) protected by 4×3.6 MW generators
-- N = 3 generators running (10.8 MW capacity)
-- N+1 = 4 generators total per block
 - Phase 4: 16 generators total (4 blocks × 4 generators)
 
 **Electrical Topology:**
@@ -133,8 +130,8 @@ The electrical flowchart diagram shows the self-healing 13.8 kV dual-ring archit
 
 ### 4.3 Generator Yard Layout
 
-- **Location:** South side of building, electrical equipment yard
-- **Quantity:** 16 generator positions at Phase 4 (4 per 6MW block)
+- **Location:** Electrical equipment yard
+- **Quantity:** 16 generator positions at Phase 4 (4 per 6MW block) lined up in a row.
 
 ## 5.0 TRANSFORMER SYSTEM (13.8 KV / 480V)
 
@@ -153,37 +150,18 @@ The electrical flowchart diagram shows the self-healing 13.8 kV dual-ring archit
 | **Rating**  | 3,500 kVA / 3.15 MW @ 0.9 power factor              |
 | **Voltage** | 13,800V delta primary / 480Y/277V secondary         |
 | **Type**    | Oil-filled, ONAN cooling (Oil Natural, Air Natural) |
-<!-- Engineering - please double check this table -->
+
 
 ## 6.0 IT UPS SYSTEM (N+1 DUAL-PATH ARCHITECTURE)
 
 ### 6.1 Configuration
 
-- **Redundancy:** Distributed 1+1 (N+1) UPS architecture. Each of the 16 Low Voltage Main Distribution Boards (LV-MDBs) feeds a dedicated. UPS system.
+- **Redundancy:** Distributed 1+1 (N+1) UPS architecture. Each of the 16 Low Voltage Main Distribution Boards (LV-MDBs) feeds a dedicated UPS system.
 - **Path Redundancy:** Provided by the 13.8 kV dual-ring MV topology. 8 UPS systems are fed from MV Ring A and 8 UPS systems are fed from MV Ring B, providing full A/B path diversity to the IT loads.
 - **Component Redundancy:** Provided at each of the 16 locations by a 1+1 (N+1) module configuration. The failure of a single UPS module will not impact the critical load.
 - **Topology:** The 24 MW IT load (Phase 4) is protected by 16 independent 1+1 UPS systems. Each system provides A/B power (from its respective A or B logical source) to the PDUs/RPPs in its data hall zone.
 
-### 6.2 System Sizing (Phase 4)
-
-- **Total IT Load:** 24 MW (24,000 kW)
-- **UPS Locations:** 16 (one per LV-MDB)
-- **Average IT Load per Location:** 1.5 MW (24 MW / 16 locations)
-- **UPS Configuration per Location:** Two (2) x 1.0 MW UPS modules (1+1 redundancy)
-    - **N Capacity:** 1.0 MW (The capacity of one module)
-    - **N+1 Capacity:** 2.0 MW (Total installed capacity)
-- **N+1 Verification:** ⚠️ **NEEDS REVIEW** - The 1.0 MW "N" capacity at each location is insufficient for the 1.5 MW load. This configuration provides 2.0 MW total (N+1) to support 1.5 MW, running at 75% of total capacity, but only 67% utilization of N capacity during normal operation with both modules running. During single module failure, the remaining 1.0 MW module cannot support the full 1.5 MW load. **Alternative interpretation:** If load is actually 1.0 MW per location (not 1.5 MW), then N+1 works correctly.
-- **Total Modules:** 32 (16 locations × 2 modules/location)
-
-### 6.3 Path Redundancy Philosophy
-
-**Path diversity is provided by the 13.8 kV self-healing dual-ring MV distribution, not by duplicate UPS systems at the same location.**
-- **A/B Systems:** The 16 UPS systems are logically designated as "A" or "B" (8 systems on Ring A, 8 systems on Ring B).
-- **IT Equipment:** Dual-corded IT equipment is fed from PDUs connected to two independent UPS systems (one from an "A" system, one from a "B" system).
-- Any single UPS module can be removed for maintenance without impacting the load, as the other module (N) carries the full 1.5 MW.
-- An entire 1+1 UPS system (and its associated LV-MDB and transformer) can be taken offline for maintenance, as all IT equipment is dual-corded and will remain powered by its secondary "B" (or "A") source.
-
-### 6.4 UPS Module Specifications
+### 6.2 UPS Module Specifications
 
 | Parameter    | Specification                                     |
 | ------------ | ------------------------------------------------- |
@@ -191,15 +169,15 @@ The electrical flowchart diagram shows the self-healing 13.8 kV dual-ring archit
 | **Topology** | Online double-conversion (VFI per IEC 62040-3)    |
 | **Voltage**  | 480V input/output, 3-phase                        |
 
-### 6.5 Battery System
+### 6.3 Battery System
 
 - **Type:** Lithium-Ion (preferred) or VRLA
-- **Configuration:** 16 independent external battery systems, one per 1+1 UPS system. Each battery plant is sized to support the full 1.5 MW load for its location.
-- **Runtime:** 5 minutes at full 1.5 MW load
+- **Configuration:** 16 independent external battery systems, one per 1+1 UPS system. Each battery plant is sized to support the full load for its location
+- **Runtime:** 5 minutes
 - **Purpose:** Sized to allow for MV generator synchronization to 13.8 kV common bus (~30-60 seconds) with margin for two startup attempts if needed.
 - **Why Lithium-Ion:** Higher energy density, longer lifespan (10-15 years vs 5-7 for VRLA), lower maintenance, better performance at elevated temperatures, superior performance for high-rate discharge applications.
 
-### 6.6 Recommended UPS Vendors
+### 6.4 Recommended UPS Vendors
 - Schneider Electric, Eaton, Vertiv
 
 ## 7.0 MECHANICAL UPS SYSTEM
@@ -221,6 +199,40 @@ The mechanical UPS system protects critical mechanical loads (chiller pumps, CDU
 - Building HVAC fans (data hall pressurization and humidity control)
 
 **Phased Deployment:** 250 kW static UPS modules added in phases to match mechanical load growth. Phase 4: 22×250 kW modules (N+1) for 6,000 kW mechanical load.
+
+### 7.3 Mechanical UPS Distribution Boards
+
+**Configuration:** Distributed mechanical power delivery architecture
+
+| Parameter    | Specification                                                                     |
+| ------------ | --------------------------------------------------------------------------------- |
+| **Quantity** | 16 Mechanical UPS Distribution Boards (Mech DB) at Phase 4                        |
+| **Location** | One Mech DB per LV-MDB location (co-located with IT UPS systems)                  |
+| **Function** | Distribute UPS-backed power to mechanical equipment                               |
+| **Input**    | Fed from mechanical UPS modules (parallel feed from LV-MDB, isolated from IT UPS) |
+
+### 7.4 Chiller Buffer Vessels
+
+**Purpose:** Provide thermal inertia to maintain cooling during brief power interruptions and utility-to-generator transfer events.
+
+**Configuration:**
+- **Buffer vessels** integrated with chiller systems to store thermal capacity
+- Sized to maintain cooling continuity during generator startup sequence (30-60 seconds)
+- Works in conjunction with mechanical UPS to protect critical cooling infrastructure
+
+**Function:**
+- Provide thermal mass to absorb cooling load during power transitions
+- Reduce immediate electrical demand on battery-backed mechanical systems
+- Maintain stable chilled water temperature during utility outages
+- Allow time for generators to synchronize and come online without thermal stress
+
+**Benefits:**
+- Reduces mechanical UPS capacity requirements (thermal storage offsets electrical storage)
+- Provides smoother transition during utility-to-generator transfer
+- Protects IT equipment from thermal excursions during brief outages
+- Enhances overall system resilience during multiple startup attempts
+
+**Integration:** Buffer vessels coordinate with mechanical UPS, generators, and building automation system (BAS) to optimize cooling continuity and minimize electrical load during transitions.
 
 ## 8.0 LOW VOLTAGE (480V) DISTRIBUTION
 
@@ -246,8 +258,6 @@ The mechanical UPS system protects critical mechanical loads (chiller pumps, CDU
 
 All critical IT and mechanical loads served by dual (A/B) distribution panels fed from respective (A/B) main switchboards.
 
-
-
 ## 9.0 CABINET POWER DISTRIBUTION
 
 **Status:** Rack power distribution strategy is TBD and will be finalized during detailed design phase.
@@ -256,14 +266,6 @@ All critical IT and mechanical loads served by dual (A/B) distribution panels fe
 - **Option 1:** Remote Power Panels (RPPs) with branch circuits to rack-mounted PDUs
 - **Option 2:** Direct connection from UPS distribution to rack-mounted PDUs
 - **Option 3:** Combination approach with RPPs for high-density zones and direct PDU connection for standard zones
-
-**Design Intent:**
-- Dual-corded IT equipment will receive A/B power from independent UPS systems
-- Final distribution topology (PDU/RPP naming and configuration) will be determined based on:
-  - Rack density requirements
-  - Customer-specific power distribution preferences
-  - Cable management and serviceability considerations
-  - Cost optimization during value engineering
 
 **Placeholder in SLD:** PDU/RPP symbols in the single-line diagram represent the final power delivery to IT equipment, regardless of the specific distribution method selected.
 
@@ -313,22 +315,7 @@ House power serves office spaces, NOC (non-IT systems), security control rooms, 
 
 ---
 
-## 11.0 ELECTRICAL PHASING STRATEGY
 
-Electrical infrastructure designed for 38.4 MW facility load (Phase 4), with equipment added in 6MW IT load blocks. All equipment reflects N+1 architecture per 6MW block. Path redundancy provided by 13.8 kV self-healing dual-ring MV distribution.
-
-| **Phase** | **IT MW** | **Design PUE** | **Facility MW** | **Generators (3.6 MW)** | **E-Houses** | **LV XFMRs (3.5 MVA)** | **IT UPS Modules (1.0 MW / 1,250 kVA)** |
-|-----------|-----------|----------------|-----------------|-------------------------|--------------|-------------------------|--------------------------------|
-| **1** | 6 | 1.6 | 9.6 | 4 (N+1) | 4 | TBD | 8 modules (2×1.0 MW at 4 locations) |
-| **2** | 12 | 1.6 | 19.2 | 8 (N+1) | 8 | TBD | 16 modules (2×1.0 MW at 8 locations) |
-| **3** | 18 | 1.6 | 28.8 | 12 (N+1) | 12 | TBD | 24 modules (2×1.0 MW at 12 locations) |
-| **4** | 24 | 1.6 | 38.4 | 16 (N+1) | 16 | TBD | 32 modules (2×1.0 MW at 16 locations) |
-
-**Key Changes:**
-- **Block Structure:** Each phase adds 6MW IT load (one 6MW block)
-- **PUE:** Electrical calculations use 1.6 PUE (accounts for OK heat + 10% overhead). Marketing materials state 1.4 average PUE.
-- **E-Houses:** 4 electrical houses per 6MW block (prefabricated power delivery buildings)
-- **Transformers:** 3.5 MVA sizing requires confirmation for block architecture
 
 ---
 
@@ -368,23 +355,25 @@ This estimate uses industry-confirmed benchmarks for Tier III data center electr
 
 **Phasing:** Installed Phase 1, sized for full 38.4 MW Phase 4 capacity
 
+*Note: We included this as a placeholder as I know Saga is working on the substation*
+
 ---
 
 #### Category 2: Medium Voltage Distribution (13.8 kV)
 
 **Equipment Included:**
 - 13.8 kV dual-ring distribution infrastructure
-- 8 Ring Main Units (RMUs) with SF6 or vacuum breakers (630A, 20 kA rating)
-- MV switchboards (count TBD based on final design)
+- 4 Ring Main Units (RMUs) with SF6 or vacuum breakers (630A, 20 kA rating)
+- 2 MV switchboards
 - SCADA control system for self-healing ring topology
 - MV cable, terminations, and accessories
 
 **Industry Range:** **$50-100/kW** (facility load)
 
-**Calculation (Phase 4):**
-- 38.4 MW facility load × $50-100/kW = **$1.9-3.8M**
+**Calculation (1 block):**
+- 9.6 MW facility load × $50-100/kW = <!-- calculate with code -->
 
-**Phasing:** Ring infrastructure installed Phase 1, switchgear/SCADA added per block
+**Phasing:** One block at a time
 
 ---
 
@@ -412,9 +401,6 @@ This estimate uses industry-confirmed benchmarks for Tier III data center electr
 | **4** | 24 MW | 38.4 MW | 16 units (N+1) | 57.6 MW | **$34.6-46.1M** |
 
 **Phasing:** 4 generators per 6MW block added incrementally
-
-**Note:** Previous estimate of $150-250/kW was for 480V low-voltage generators. 13.8 kV medium voltage generators require specialized alternators and cost significantly more. This is the single largest cost correction in the revised estimate.
-<!-- Why would I generate at 13.8 kV and then step down to 480V right away? -->
 
 
 ---
@@ -549,15 +535,15 @@ This estimate uses industry-confirmed benchmarks for Tier III data center electr
 
 **Restructured Categories:**
 
-| Category | Description | Components |
-|----------|-------------|------------|
-| **1. Utility & Substation** | 161 kV substation complete | 2×50 MVA transformers, metering, protection, control building |
-| **2. MV Distribution (Outdoor)** | 13.8 kV ring infrastructure only | Outdoor cable, SCADA backbone (RMUs in E-Houses) |
-| **3. Generators (13.8 kV)** | Medium voltage diesel generators | 16×3.6 MW @ 13.8 kV (N+1 per block) |
-| **4. LV Transformers** | Outdoor pad-mounted 13.8kV/480V | Oil-filled transformers with containment |
-| **5. E-Houses (Turnkey)** | Prefab electrical buildings complete | MV switchgear, LV switchboards, UPS, batteries, fire suppression, HVAC |
-| **6. Cabinet PDUs & Dist** | Final distribution to IT racks | Rack PDUs, cable tray, overhead distribution |
-| **7. Supporting Systems** | Ancillary electrical systems | Mech UPS, house generators, house UPS, lighting, testing |
+| Category                         | Description                          | Components                                                             |
+| -------------------------------- | ------------------------------------ | ---------------------------------------------------------------------- |
+| **1. Utility & Substation**      | 161 kV substation complete           | 2×50 MVA transformers, metering, protection, control building          |
+| **2. MV Distribution (Outdoor)** | 13.8 kV ring infrastructure only     | Outdoor cable, SCADA backbone (RMUs in E-Houses)                       |
+| **3. Generators (13.8 kV)**      | Medium voltage diesel generators     | 16×3.6 MW @ 13.8 kV (N+1 per block)                                    |
+| **4. LV Transformers**           | Outdoor pad-mounted 13.8kV/480V      | Oil-filled transformers with containment                               |
+| **5. E-Houses (Turnkey)**        | Prefab electrical buildings complete | MV switchgear, LV switchboards, UPS, batteries, fire suppression, HVAC |
+| **6. Cabinet PDUs & Dist**       | Final distribution to IT racks       | Rack PDUs, cable tray, overhead distribution                           |
+| **7. Supporting Systems**        | Ancillary electrical systems         | Mech UPS, house generators, house UPS, lighting, testing               |
 
 **Revised Cost Summary by Phase:**
 
@@ -584,12 +570,12 @@ This estimate uses industry-confirmed benchmarks for Tier III data center electr
 
 **Corrected Industry Benchmarks (2024-2025 Research):**
 
-| Source | Scope | Range | Confidence | Notes |
-|--------|-------|-------|------------|-------|
-| **Dgtl Infra / Multiple sources** | Total data center (all divisions) | $7-12M per MW | High | Greenfield construction |
-| **Hyperscale builders** | Total data center (optimized) | $6M per MW | High | Experienced builders, minimal support infra |
-| **Electrical portion** | 40-45% of total DC cost | **$2.8-5.4M per MW** | High | **= $2,800-5,400/kW (IT load)** |
-| **Previous benchmark (incomplete)** | Partial electrical only | $400-700/kW | Low | Likely excludes substation, E-Houses, or distribution |
+| Source                              | Scope                             | Range                | Confidence | Notes                                                 |
+| ----------------------------------- | --------------------------------- | -------------------- | ---------- | ----------------------------------------------------- |
+| **Dgtl Infra / Multiple sources**   | Total data center (all divisions) | $7-12M per MW        | High       | Greenfield construction                               |
+| **Hyperscale builders**             | Total data center (optimized)     | $6M per MW           | High       | Experienced builders, minimal support infra           |
+| **Electrical portion**              | 40-45% of total DC cost           | **$2.8-5.4M per MW** | High       | **= $2,800-5,400/kW (IT load)**                       |
+
 
 **Our Estimate (Phase 4):** $2,004-4,242/kW (midpoint $3,123/kW)
 
@@ -600,7 +586,6 @@ This estimate uses industry-confirmed benchmarks for Tier III data center electr
 | **Electrical (40-45% of total)** | **$2,800-5,400/kW** | $2,004-4,242/kW | -28% to +51% ✅ |
 | Total DC cost (for reference) | $6,000-12,000/kW | N/A (elec only) | Electrical is 34-71% of total |
 
-**✅ ESTIMATE IS WITHIN REASONABLE RANGE**
 
 Our estimate of $2,004-4,242/kW falls within or slightly below the validated industry range of $2,800-5,400/kW for electrical systems (40-45% of total data center cost).
 
@@ -1277,140 +1262,9 @@ If budget constraints require cost reduction, consider these alternatives:
 
 ---
 
-### 12.9.5 Equipment Lead Times (Critical Path Items)
-
-**⚠️ CRITICAL FOR PROCUREMENT PLANNING**
-
-Long lead times for major electrical equipment require early procurement to avoid schedule delays. Order equipment during design phase (60-90% CDs) to ensure delivery aligns with construction schedule.
-
-**Lead Time Table:**
-
-| Equipment | Lead Time | Qty (Phase 4) | Critical Path | Notes |
-|-----------|-----------|---------------|---------------|-------|
-| **161 kV Substation Transformers** | **52 weeks** 🔴 | 2 | YES | Longest lead item. Order at 60% design. |
-| **13.8 kV Diesel Generators** | **48-52 weeks** 🔴 | 16 | YES | MV generators have longer lead than 480V. |
-| **E-Houses (Custom)** | **40-48 weeks** 🔴 | 16 | YES | Factory fabrication + testing + shipping. |
-| **3.5 MVA LV Transformers** | **36-40 weeks** | 11 | YES | Outdoor pad-mounted oil-filled units. |
-| **UPS Modules (1,250 kVA)** | **24-32 weeks** | 32 | MODERATE | Modular units, shorter lead than custom. 2×1.0 MW at 16 locations. |
-| **MV Switchgear (RMUs)** | **20-28 weeks** | 16 | MODERATE | Ring Main Units with vacuum breakers. |
-| **LV Switchboards** | **16-24 weeks** | 16 | MODERATE | Custom-built, tested at factory. One per LV-MDB. |
-| **Lithium-Ion Battery Cabinets** | **16-20 weeks** | 32 | MODERATE | External cabinets for UPS modules. One per UPS module. |
-| **Distribution Panels** | **12-16 weeks** | 8 | LOW | Standard panels, shorter lead time. |
-| **Cabinet PDUs** | **8-12 weeks** | 788 | LOW | Rack-mounted, catalog items. |
-
-**Procurement Strategy:**
-
-1. **Long-Lead Equipment (52 weeks):**
-   - Order 161 kV transformers at 60% design (12 months before installation)
-   - Lock in pricing and delivery dates early
-   - Consider prepayment to secure manufacturing slot
-
-2. **Critical Path Equipment (48-52 weeks):**
-   - Order 13.8 kV generators at 60-75% design (10-12 months before installation)
-   - Coordinate generator delivery with generator yard construction
-   - FAT testing 4-6 weeks before shipment
-
-3. **E-Houses (40-48 weeks):**
-   - Order at 75-90% design (9-11 months before installation)
-   - Coordinate internal equipment with E-House shell fabrication
-   - Allow 4-6 weeks for factory assembly testing (FAT)
-
-4. **Standard Equipment (<24 weeks):**
-   - Order at 90-100% design (4-6 months before installation)
-   - Shorter lead items can be ordered later in design process
-
-**Lead Time Inflation Factors:**
-- **Supply chain disruptions:** Add 10-20% buffer to published lead times
-- **Custom specifications:** Add 4-8 weeks for engineering review and approval
-- **Volume orders:** May reduce per-unit lead time (e.g., 16 generators vs. 4)
-- **Market demand:** AI/data center boom has extended lead times 20-30% since 2023
-
-**Sources:**
-- Appendix - Phase 4 Electrical Equipment and Cost Analysis (internal document)
-- Manufacturer quotes and published lead times (Caterpillar, Schneider, Eaton, ABB, Siemens)
-- Industry reports: Equipment lead times for data centers (2024-2025)
 
 ---
 
-### 12.9.6 Application of Soft Costs to Project Budget
-
-**Equipment Costs in Section 12.3 (Revised Estimate):**
-
-The equipment costs shown in Section 12.3 represent **material/equipment procurement only** and exclude:
-- ❌ Installation labor and EC overhead/profit
-- ❌ Engineering and design fees
-- ❌ Commissioning and testing costs
-- ❌ Project contingency
-
-**Soft Costs Applied at Aggregated Project Level:**
-
-These multipliers will be applied in the **aggregated project budget** across all divisions:
-
-```
-PHASE 4 ELECTRICAL DIVISION (EXAMPLE CALCULATION)
-
-Equipment Cost (from Section 12.3):        $70.8M - $126.9M
-
-Add Soft Costs:
-├─ Labor & Installation (18-33%):          +$12.7M - $41.9M
-├─ Engineering & Design (4.5-5%):          +$3.2M - $6.3M
-├─ Commissioning & Testing (3-4%):         +$2.1M - $5.1M
-└─ Subtotal (before contingency):          $88.8M - $180.2M
-
-Add Contingency (12.5% of subtotal):       +$11.1M - $22.5M
-
-TOTAL ELECTRICAL DIVISION (FULLY-LOADED):  $99.9M - $202.7M
-
-Cost per kW (24 MW IT load):               $4,163/kW - $8,446/kW
-```
-
-**Division-Specific Multipliers:**
-
-Each division will have different labor percentages based on prefabrication level:
-
-| Division | Equipment | Labor % | Eng % | Comm % | Cont % | Total Multiplier |
-|----------|-----------|---------|-------|--------|--------|------------------|
-| **Electrical (Div 26)** | $70.8-126.9M | 18-33% | 4.5-5% | 3-4% | 12.5% | **1.41-1.60×** |
-| **Mechanical (Div 23)** | TBD | 30-45% | 4.5-5% | 3-4% | 12.5% | **1.57-1.74×** |
-| **Fire Protection (Div 21)** | TBD | 35-50% | 3-4% | 2-3% | 12.5% | **1.59-1.77×** |
-| **Architectural (Div 00)** | TBD | 40-60% | 5-6% | 1-2% | 12.5% | **1.66-1.88×** |
-| **Site/Civil (Div 33)** | TBD | 25-40% | 3-4% | 1-2% | 12.5% | **1.48-1.66×** |
-
-**Fully-Loaded Project Cost Formula:**
-
-```
-Total Project Cost = Σ (Equipment Cost × Division Multiplier) across all divisions
-```
-
-**This approach provides:**
-- ✅ Consistency: Same methodology across all divisions
-- ✅ Flexibility: Adjust multipliers in one place (aggregated budget)
-- ✅ Transparency: Clear separation of equipment vs. soft costs
-- ✅ Accuracy: Division-specific rates based on actual construction methods
-
----
-
-### 12.9.7 Summary: Soft Cost Multipliers for Aggregated Budget
-
-**Quick Reference Table for Project Budget Integration:**
-
-| Cost Category | Range | Typical | Basis | Confidence |
-|--------------|-------|---------|-------|------------|
-| **Labor & Installation** | 18-33% | 25% | % of equipment | ±25% (Medium) |
-| **Engineering & Design** | 4.5-5% | 4.75% | % of equipment | ±20% (Medium-High) |
-| **Commissioning & Testing** | 3-4% | 3.5% | % of equipment | ±20% (Medium-High) |
-| **Subtotal Soft Costs** | 25.5-42% | 33.25% | % of equipment | ±22% (Medium) |
-| **Contingency** | 12.5% | 12.5% | % of subtotal | ±10% (High) |
-| **Total Multiplier** | **1.41-1.60×** | **1.50×** | Equipment → Fully-loaded | ±20% (Medium-High) |
-
-**Example: Electrical Division Phase 4**
-- Equipment: $70.8M - $126.9M (Section 12.3 revised estimate)
-- **Typical multiplier: 1.50×**
-- **Fully-loaded: $106.2M - $190.4M**
-
----
-
-**⚠️ REMINDER:** This section will be moved to the aggregated project budget spreadsheet and removed from this BOD document once all divisions are complete.
 
 ---
 
