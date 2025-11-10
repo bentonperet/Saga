@@ -15,11 +15,11 @@ The electrical backbone is a self-healing 13.8 kV dual-ring MV distribution with
 
 **Key Infrastructure:**
 - Customer-owned 161 kV substation with 2×50 MVA transformers (N+1 redundancy)
-- Self-healing 13.8 kV dual-ring distribution (8 RMUs, SCADA-controlled) providing path redundancy
+- Self-healing 13.8 kV dual-ring distribution (16 RMUs, SCADA-controlled) providing path redundancy
 - Medium voltage switchboards at 13.8 kV (count TBD)
 - 16×3.6 MW diesel generators @ 13.8 kV (N+1 for 38.4 MW facility load, phased in 6MW blocks)
-- LV transformers, 13.8kV/480V (3.5 MVA, N+1 redundancy with concurrent maintainability) **[SIZE CONFIRMATION NEEDED]**
-- N+1 UPS architecture: Modular UPS units (1,250 kVA each) with path redundancy from MV dual-ring
+- LV transformers, 13.8kV/480V (3.5 MVA, N+1 redundancy with concurrent maintainability)
+- Distributed 1+1 UPS architecture (16 locations, 2×1.0 MW modules each) with path redundancy from MV dual-ring
 - 16 Electrical Houses (E-Houses): Prefabricated power delivery buildings (4 per 6MW block)
 
 ### 1.2 Design Philosophy
@@ -28,7 +28,7 @@ The electrical backbone is a self-healing 13.8 kV dual-ring MV distribution with
 - **Component Redundancy:** N+1 for all core infrastructure (Substation Transformers, Generators, LV Transformers, IT UPS modules, and Mechanical UPS).
 - **Path Redundancy:** Dual (A/B) path diversity from the MV dual-ring distribution through independent transformer banks, switchboards, and distribution panels to dual-PDUs in each cabinet. Self-healing 13.8 kV dual-ring with SCADA-controlled automated switching provides path reconfiguration without human intervention, eliminating the need for duplicate UPS systems.
 - **UPS Architecture:** N+1 modular UPS provides component redundancy (can lose one module), while the self-healing MV dual-ring provides path redundancy.
-- **Concurrent Maintainability:** Self-healing dual-ring topology enables isolation of any transformer or ring segment for maintenance while maintaining full N+1 redundancy on alternate path. 8 RMU switchgear with automated SCADA controls ensure continuous operation during maintenance activities.
+- **Concurrent Maintainability:** Self-healing dual-ring topology enables isolation of any transformer or ring segment for maintenance while maintaining full N+1 redundancy on alternate path. 16 RMU switchgear with automated SCADA controls ensure continuous operation during maintenance activities.
 - **Phasing Strategy:** All infrastructure (substation, generator pads, E-House pads, electrical yard, conduit rough-in) designed for 38.4 MW full build-out from day 1. Capital equipment (generators, transformers, UPS modules, mechanical UPS) purchased and commissioned in 6MW IT load blocks to match growth.
 
 ## 2.0 UTILITY SERVICE & SUBSTATION
@@ -94,9 +94,16 @@ The electrical flowchart diagram shows the self-healing 13.8 kV dual-ring archit
 | Parameter    | Specification                              |
 | ------------ | ------------------------------------------ |
 | **Voltage**  | 13.8 kV                                    |
-| **Quantity** | 8                                          |
+| **Quantity** | 8 total (2 per phase: A and B)             |
+| **Layout**   | Phase 1: SWBD 1-A and 1-B; Phase 2: SWBD 2-A and 2-B, etc. |
 | **Type**     | Metal-clad switchgear with vacuum breakers |
 | **Function** | Main distribution, metering, protection    |
+
+**Topology:**
+- Each 6MW block (phase) has two Main MV Switchboards (A and B paths)
+- Generators connect in a loop between the A and B switchboards, supplying both
+- RMUs connect from each switchboard to provide distribution to transformers
+- This A/B configuration provides path redundancy for concurrent maintainability
 
 ## 4.0 GENERATOR SYSTEM
 
@@ -109,6 +116,11 @@ The electrical flowchart diagram shows the self-healing 13.8 kV dual-ring archit
 - N = 3 generators running (10.8 MW capacity)
 - N+1 = 4 generators total per block
 - Phase 4: 16 generators total (4 blocks × 4 generators)
+
+**Electrical Topology:**
+- Generators are connected in a loop configuration between the two Main MV Switchboards (e.g., Phase 1-A and Phase 1-B)
+- This loop topology allows generators to supply power to both MV switchboards simultaneously
+- Provides enhanced reliability and load sharing across both A and B electrical paths
 
 ### 4.2 Generator Specifications
 
@@ -147,47 +159,47 @@ The electrical flowchart diagram shows the self-healing 13.8 kV dual-ring archit
 
 ### 6.1 Configuration
 
-- **Redundancy:** N+1 modular UPS architecture with concurrent maintainability enabled by self-healing 13.8 kV dual-ring MV distribution
-- **Path Redundancy:** Provided by MV dual-ring topology (Ring A / Ring B) with SCADA-controlled automated switching
-- **Component Redundancy:** Provided by N+1 UPS modules (can lose one module and continue operation)
-- **Topology:** The 24 MW IT load (Phase 4) protected by 25 UPS modules (24+1 for N+1) with power distributed via dual A/B paths to dual-corded IT equipment <!-- @muhammed -->
+- **Redundancy:** Distributed 1+1 (N+1) UPS architecture. Each of the 16 Low Voltage Main Distribution Boards (LV-MDBs) feeds a dedicated. UPS system.
+- **Path Redundancy:** Provided by the 13.8 kV dual-ring MV topology. 8 UPS systems are fed from MV Ring A and 8 UPS systems are fed from MV Ring B, providing full A/B path diversity to the IT loads.
+- **Component Redundancy:** Provided at each of the 16 locations by a 1+1 (N+1) module configuration. The failure of a single UPS module will not impact the critical load.
+- **Topology:** The 24 MW IT load (Phase 4) is protected by 16 independent 1+1 UPS systems. Each system provides A/B power (from its respective A or B logical source) to the PDUs/RPPs in its data hall zone.
 
 ### 6.2 System Sizing (Phase 4)
 
-- **IT Load:** 24 MW (24,000 kW)
-- **UPS Modules:** 25 × 1,250 kVA modules
-  - N = 24 modules (24 × 1 MW = 24 MW capacity)
-  - N+1 = 25 modules total
-  - Operating load: ~96% per module (N+1 redundancy maintained)
-- **N+1 Verification:** 24 running modules = 24 MW capacity = full IT load ✓
+- **Total IT Load:** 24 MW (24,000 kW)
+- **UPS Locations:** 16 (one per LV-MDB)
+- **Average IT Load per Location:** 1.5 MW (24 MW / 16 locations)
+- **UPS Configuration per Location:** Two (2) x 1.0 MW UPS modules (1+1 redundancy)
+    - **N Capacity:** 1.0 MW (The capacity of one module)
+    - **N+1 Capacity:** 2.0 MW (Total installed capacity)
+- **N+1 Verification:** ⚠️ **NEEDS REVIEW** - The 1.0 MW "N" capacity at each location is insufficient for the 1.5 MW load. This configuration provides 2.0 MW total (N+1) to support 1.5 MW, running at 75% of total capacity, but only 67% utilization of N capacity during normal operation with both modules running. During single module failure, the remaining 1.0 MW module cannot support the full 1.5 MW load. **Alternative interpretation:** If load is actually 1.0 MW per location (not 1.5 MW), then N+1 works correctly.
+- **Total Modules:** 32 (16 locations × 2 modules/location)
 
 ### 6.3 Path Redundancy Philosophy
 
-**Path diversity is provided by the 13.8 kV self-healing dual-ring MV distribution, not by duplicate UPS systems:**
-
-**Concurrent Maintainability:**
-- Can isolate and maintain any MV ring segment via RMU switching while maintaining full N+1 UPS capacity on alternate path
-- Can remove UPS modules for maintenance (firmware updates, battery service) while maintaining N redundancy
-- Can transfer full facility load to either A-side or B-side independently during planned maintenance
+**Path diversity is provided by the 13.8 kV self-healing dual-ring MV distribution, not by duplicate UPS systems at the same location.**
+- **A/B Systems:** The 16 UPS systems are logically designated as "A" or "B" (8 systems on Ring A, 8 systems on Ring B).
+- **IT Equipment:** Dual-corded IT equipment is fed from PDUs connected to two independent UPS systems (one from an "A" system, one from a "B" system).
+- Any single UPS module can be removed for maintenance without impacting the load, as the other module (N) carries the full 1.5 MW.
+- An entire 1+1 UPS system (and its associated LV-MDB and transformer) can be taken offline for maintenance, as all IT equipment is dual-corded and will remain powered by its secondary "B" (or "A") source.
 
 ### 6.4 UPS Module Specifications
 
-| Parameter      | Specification                                          |
-| -------------- | ------------------------------------------------------ |
-| **Rating**     | 1,250 kVA / 1,000 kW per module                        |
-| **Topology**   | Online double-conversion (VFI per IEC 62040-3)         |
-| **Voltage**    | 480V input/output, 3-phase                             |
+| Parameter    | Specification                                     |
+| ------------ | ------------------------------------------------- |
+| **Rating**   | 1,250 kVA / 1,000 kW per module (or similar size) |
+| **Topology** | Online double-conversion (VFI per IEC 62040-3)    |
+| **Voltage**  | 480V input/output, 3-phase                        |
 
 ### 6.5 Battery System
 
 - **Type:** Lithium-Ion (preferred) or VRLA
-- **Configuration:** External battery cabinets distributed across UPS modules
-- **Runtime:** 5 minutes at full IT load (sized for each phase's IT load capacity)
-- **Purpose:** Sized to allow for MV generator synchronization to 13.8 kV common bus (~30-60 seconds) with margin for two startup attempts if needed
-- **Why Lithium-Ion:** Higher energy density, longer lifespan (10-15 years vs 5-7 for VRLA), lower maintenance, better performance at elevated temperatures, superior performance for high-rate discharge applications
+- **Configuration:** 16 independent external battery systems, one per 1+1 UPS system. Each battery plant is sized to support the full 1.5 MW load for its location.
+- **Runtime:** 5 minutes at full 1.5 MW load
+- **Purpose:** Sized to allow for MV generator synchronization to 13.8 kV common bus (~30-60 seconds) with margin for two startup attempts if needed.
+- **Why Lithium-Ion:** Higher energy density, longer lifespan (10-15 years vs 5-7 for VRLA), lower maintenance, better performance at elevated temperatures, superior performance for high-rate discharge applications.
 
 ### 6.6 Recommended UPS Vendors
-
 - Schneider Electric, Eaton, Vertiv
 
 ## 7.0 MECHANICAL UPS SYSTEM
@@ -216,13 +228,19 @@ The mechanical UPS system protects critical mechanical loads (chiller pumps, CDU
 
 **Configuration:** Dual switchboards for dual-path (A/B) distribution
 
-| Parameter         | Specification                                                                  |
-| ----------------- | ------------------------------------------------------------------------------ |
-| **Quantity**      | 16 (at phase 4)                                                                |
-| **Rating**        | 4,000A copper busbar, 480V, 3-phase, 4-wire - {TBC}                            |
-| **Short-Circuit** | 65 kA SCCR (Short-Circuit Current Rating) {TBC}                                |
+| Parameter          | Specification                                                                             |
+| ------------------ | ----------------------------------------------------------------------------------------- |
+| **Quantity**       | Sixteen (16) LV-MDBs (one per 3.5 MVA transformer)                                        |
+| **Logical System** | 8 MDBs fed from MV Ring A ("A" System); 8 MDBs fed from MV Ring B ("B" System)            |
+| **Rating**         | 4,000A copper busbar, 480V, 3-phase, 4-wire {_Rating TBC, must match transformer output_} |
+| **Short-Circuit**  | 65 kA SCCR (TBC)                                                                          |
+| **Function**       | Main 480V distribution for all mechanical and UPS loads.                                  |
 
-
+**Distribution Architecture:**
+- Each LV-MDB feeds two parallel branches:
+  1. **IT UPS branch** - Powers 2×1.0 MW IT UPS modules (1+1 redundancy) for critical IT loads
+  2. **Mechanical UPS branch** - Powers mechanical UPS modules (parallel feed, not downstream of IT UPS) for mechanical equipment (CHW pumps, fuel pumps, CRRWA, CDU, CDB)
+- This parallel configuration ensures mechanical loads are isolated from IT UPS systems
 
 ### 8.2 Distribution Panels
 
@@ -232,7 +250,22 @@ All critical IT and mechanical loads served by dual (A/B) distribution panels fe
 
 ## 9.0 CABINET POWER DISTRIBUTION
 
-<!-- Should we remove this section?  why do I need it? Is this something engineering or client should decide on later? -->
+**Status:** Rack power distribution strategy is TBD and will be finalized during detailed design phase.
+
+**Potential Configurations:**
+- **Option 1:** Remote Power Panels (RPPs) with branch circuits to rack-mounted PDUs
+- **Option 2:** Direct connection from UPS distribution to rack-mounted PDUs
+- **Option 3:** Combination approach with RPPs for high-density zones and direct PDU connection for standard zones
+
+**Design Intent:**
+- Dual-corded IT equipment will receive A/B power from independent UPS systems
+- Final distribution topology (PDU/RPP naming and configuration) will be determined based on:
+  - Rack density requirements
+  - Customer-specific power distribution preferences
+  - Cable management and serviceability considerations
+  - Cost optimization during value engineering
+
+**Placeholder in SLD:** PDU/RPP symbols in the single-line diagram represent the final power delivery to IT equipment, regardless of the specific distribution method selected.
 
 ## 10.0 NON-CRITICAL (HOUSE) POWER
 
@@ -284,12 +317,12 @@ House power serves office spaces, NOC (non-IT systems), security control rooms, 
 
 Electrical infrastructure designed for 38.4 MW facility load (Phase 4), with equipment added in 6MW IT load blocks. All equipment reflects N+1 architecture per 6MW block. Path redundancy provided by 13.8 kV self-healing dual-ring MV distribution.
 
-| **Phase** | **IT MW** | **Design PUE** | **Facility MW** | **Generators (3.6 MW)** | **E-Houses** | **LV XFMRs (3.5 MVA)** | **IT UPS Modules (1,250 kVA)** |
+| **Phase** | **IT MW** | **Design PUE** | **Facility MW** | **Generators (3.6 MW)** | **E-Houses** | **LV XFMRs (3.5 MVA)** | **IT UPS Modules (1.0 MW / 1,250 kVA)** |
 |-----------|-----------|----------------|-----------------|-------------------------|--------------|-------------------------|--------------------------------|
-| **1** | 6 | 1.6 | 9.6 | 4 (N+1) | 4 | TBD | 7 (6+1, N+1) |
-| **2** | 12 | 1.6 | 19.2 | 8 (N+1) | 8 | TBD | 13 (12+1, N+1) |
-| **3** | 18 | 1.6 | 28.8 | 12 (N+1) | 12 | TBD | 19 (18+1, N+1) |
-| **4** | 24 | 1.6 | 38.4 | 16 (N+1) | 16 | TBD | 25 (24+1, N+1) |
+| **1** | 6 | 1.6 | 9.6 | 4 (N+1) | 4 | TBD | 8 modules (2×1.0 MW at 4 locations) |
+| **2** | 12 | 1.6 | 19.2 | 8 (N+1) | 8 | TBD | 16 modules (2×1.0 MW at 8 locations) |
+| **3** | 18 | 1.6 | 28.8 | 12 (N+1) | 12 | TBD | 24 modules (2×1.0 MW at 12 locations) |
+| **4** | 24 | 1.6 | 38.4 | 16 (N+1) | 16 | TBD | 32 modules (2×1.0 MW at 16 locations) |
 
 **Key Changes:**
 - **Block Structure:** Each phase adds 6MW IT load (one 6MW block)
@@ -418,16 +451,16 @@ This estimate uses industry-confirmed benchmarks for Tier III data center electr
 
 **Industry Range:** **$100-200/kW** (IT load, including batteries)
 
-**Calculation by Phase (N+1 modular):**
+**Calculation by Phase (1+1 redundancy per location):**
 
-| Phase | IT Load | UPS Modules (1,250 kVA) | Configuration | Cost Range @ $100-200/kW |
-|-------|---------|-------------------------|---------------|--------------------------|
-| **1** | 6 MW | 7 units | 6+1 (N+1) | $0.6-1.2M |
-| **2** | 12 MW | 13 units | 12+1 (N+1) | $1.2-2.4M |
-| **3** | 18 MW | 19 units | 18+1 (N+1) | $1.8-3.6M |
-| **4** | 24 MW | 25 units | 24+1 (N+1) | **$2.4-4.8M** |
+| Phase | IT Load | UPS Modules (1.0 MW / 1,250 kVA) | Configuration | Cost Range @ $100-200/kW |
+|-------|---------|----------------------------------|---------------|--------------------------|
+| **1** | 6 MW | 8 units | 2×1.0 MW at 4 locations | $0.6-1.2M |
+| **2** | 12 MW | 16 units | 2×1.0 MW at 8 locations | $1.2-2.4M |
+| **3** | 18 MW | 24 units | 2×1.0 MW at 12 locations | $1.8-3.6M |
+| **4** | 24 MW | 32 units | 2×1.0 MW at 16 locations | **$2.4-4.8M** |
 
-**Phasing:** UPS modules added per 6MW block to maintain N+1 redundancy
+**Phasing:** UPS modules added per 6MW block (4 LV-MDBs × 2 UPS modules = 8 modules per block) to maintain 1+1 redundancy at each location
 
 ---
 
@@ -1157,9 +1190,9 @@ If budget constraints require cost reduction, consider these alternatives:
    - Travel and testing at manufacturer facilities
    - Witness testing for major equipment:
      - 13.8 kV generators (16 units, 48-52 week lead time)
-     - UPS modules (25 units)
+     - UPS modules (32 units, 1.0 MW / 1,250 kVA each)
      - 161 kV substation transformers (2 units, 52 week lead time)
-     - MV/LV switchgear and E-Houses
+     - MV/LV switchgear and E-Houses (16 RMUs, 16 LV switchboards)
    - Review of factory test reports and certifications
 
 3. **Site Acceptance Testing (SAT) - 0.4-0.6%**
@@ -1258,10 +1291,10 @@ Long lead times for major electrical equipment require early procurement to avoi
 | **13.8 kV Diesel Generators** | **48-52 weeks** 🔴 | 16 | YES | MV generators have longer lead than 480V. |
 | **E-Houses (Custom)** | **40-48 weeks** 🔴 | 16 | YES | Factory fabrication + testing + shipping. |
 | **3.5 MVA LV Transformers** | **36-40 weeks** | 11 | YES | Outdoor pad-mounted oil-filled units. |
-| **UPS Modules (1,250 kVA)** | **24-32 weeks** | 25 | MODERATE | Modular units, shorter lead than custom. |
-| **MV Switchgear (RMUs)** | **20-28 weeks** | 8 | MODERATE | Ring Main Units with vacuum breakers. |
-| **LV Switchboards** | **16-24 weeks** | 2 | MODERATE | Custom-built, tested at factory. |
-| **Lithium-Ion Battery Cabinets** | **16-20 weeks** | 25 | MODERATE | External cabinets for UPS modules. |
+| **UPS Modules (1,250 kVA)** | **24-32 weeks** | 32 | MODERATE | Modular units, shorter lead than custom. 2×1.0 MW at 16 locations. |
+| **MV Switchgear (RMUs)** | **20-28 weeks** | 16 | MODERATE | Ring Main Units with vacuum breakers. |
+| **LV Switchboards** | **16-24 weeks** | 16 | MODERATE | Custom-built, tested at factory. One per LV-MDB. |
+| **Lithium-Ion Battery Cabinets** | **16-20 weeks** | 32 | MODERATE | External cabinets for UPS modules. One per UPS module. |
 | **Distribution Panels** | **12-16 weeks** | 8 | LOW | Standard panels, shorter lead time. |
 | **Cabinet PDUs** | **8-12 weeks** | 788 | LOW | Rack-mounted, catalog items. |
 
