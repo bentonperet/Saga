@@ -11,10 +11,10 @@
 
 This Basis of Design defines the electrical infrastructure for a two-hall, 20,000 SF data center with an ultimate IT load of **24 MW** and a total facility load of approximately **38.4 MW**. The system is designed to meet Tier III standards, providing N+1 component redundancy and dual-path redundancy for all critical loads.
 
-The electrical backbone is a self-healing 13.8 kV dual-ring MV distribution with 8 RMU switchgear and SCADA-controlled automated switching, enabling concurrent maintainability of any transformer or electrical component. The 13.8 kV common bus allows for flexible integration of utility power, backup generators, solar arrays, and battery energy storage systems.
+The electrical backbone is a self-healing 13.8 kV dual-ring MV distribution with 16 RMU switchgear and SCADA-controlled automated switching, enabling concurrent maintainability of any transformer or electrical component. The 13.8 kV common bus allows for flexible integration of utility power, backup generators, solar arrays, and battery energy storage systems.
 
 **Key Infrastructure:**
-- Customer-owned 161 kV substation with 2×35 MVA transformers (N+1 redundancy)
+- Customer-owned 161 kV substation with 2×50 MVA transformers (N+1 redundancy)
 - Self-healing 13.8 kV dual-ring distribution (8 RMUs, SCADA-controlled) providing path redundancy
 - Medium voltage switchboards at 13.8 kV (count TBD)
 - 16×3.6 MW diesel generators @ 13.8 kV (N+1 for 38.4 MW facility load, phased in 6MW blocks)
@@ -66,13 +66,11 @@ See the SLD Document for more details.
 A 13.8 kV "common bus" infrastructure serves as the single voltage platform for all power sources and loads:
 - Utility power (from 2×50 MVA substation transformers)
 - Backup generators (16×3.6 MW @ 13.8 kV)
-- Solar array (8+ MW DC, inverters output 13.8 kV AC directly)
-- Battery Energy Storage (4-8 MWh, inverters output 13.8 kV AC directly)
 - Data center critical IT and mechanical loads (via 13.8kV/480V transformers)
 
 ### 3.2 MV Dual-Ring Topology
 
-The electrical flowchart diagram shows the self-healing 13.8 kV dual-ring architecture with 8 RMU switchgear and A/B transformer bank connections:
+The electrical flowchart diagram shows the self-healing 13.8 kV dual-ring architecture with 16 RMU and A/B transformer bank connections:
 
 **Configuration:**
 - Two (2) independent 13.8 kV distribution rings (Ring A and Ring B)
@@ -83,21 +81,22 @@ The electrical flowchart diagram shows the self-healing 13.8 kV dual-ring archit
 
 | Parameter    | Specification                                                                         |
 | ------------ | ------------------------------------------------------------------------------------- |
-| **Quantity** | Eight (8) RMUs (4 per ring)                                                           |
+| **Quantity** | Sixteen (16) RMUs                                                                     |
 | **Type**     | SF6 or vacuum circuit breakers                                                        |
-| **Rating**   | 13.8 kV, 630A continuous, 20 kA short-circuit rating                                  |
+| **Rating**   | 13.8 kV, 630A continuous, 20 kA short-circuit rating {TBC}                            |
 | **Function** | Isolate transformers, enable ring reconfiguration, interconnect generators/solar/BESS |
+
 
 ### 3.4 Medium Voltage Switchboards
 
 **Configuration:** 13.8 kV switchboards providing distribution and protection for the electrical system
 
-| Parameter    | Specification                                 |
-| ------------ | --------------------------------------------- |
-| **Voltage**  | 13.8 kV, 3-phase, 60 Hz                       |
-| **Quantity** | Count TBD (to be specified)                   |
-| **Type**     | Metal-clad switchgear with vacuum breakers    |
-| **Function** | Main distribution, metering, protection       |
+| Parameter    | Specification                              |
+| ------------ | ------------------------------------------ |
+| **Voltage**  | 13.8 kV                                    |
+| **Quantity** | 8                                          |
+| **Type**     | Metal-clad switchgear with vacuum breakers |
+| **Function** | Main distribution, metering, protection    |
 
 ## 4.0 GENERATOR SYSTEM
 
@@ -111,16 +110,14 @@ The electrical flowchart diagram shows the self-healing 13.8 kV dual-ring archit
 - N+1 = 4 generators total per block
 - Phase 4: 16 generators total (4 blocks × 4 generators)
 
-**Phased Deployment:** 4 (Phase 1) → 8 (Phase 2) → 12 (Phase 3) → 16 (Phase 4)
-
 ### 4.2 Generator Specifications
 
-| Parameter                | Specification                                                                                                         |
-| ------------------------ | --------------------------------------------------------------------------------------------------------------------- |
-| **Rating**               | 3,600 kW continuous / 3,960 kW standby @ 13.8 kV                                                                      |
-| **Voltage**              | 13,800V ±5%, 3-phase, 60 Hz, 0.8 power factor                                                                         |
-| **Fuel**                 | Diesel, EPA Tier 4 Final (NOx < 0.67 g/bhp-hr)                                                                        |
-| **Sizing Rationale**     | 3×3.6 MW = 10.8 MW capacity covers 9.6 MW block load with ~12% margin for OK heat conditions                          |
+| Parameter            | Specification                                                                                |
+| -------------------- | -------------------------------------------------------------------------------------------- |
+| **Rating**           | 3,600 kW continuous / 3,960 kW standby @ 13.8 kV                                             |
+| **Voltage**          | 13,800V ±5%, 3-phase, 60 Hz, 0.8 power factor                                                |
+| **Fuel**             | Diesel, EPA Tier 4 Final (NOx < 0.67 g/bhp-hr)                                               |
+| **Sizing Rationale** | 3×3.6 MW = 10.8 MW capacity covers 9.6 MW block load with ~12% margin for OK heat conditions |
 
 ### 4.3 Generator Yard Layout
 
@@ -134,18 +131,17 @@ The electrical flowchart diagram shows the self-healing 13.8 kV dual-ring archit
 **Redundancy:** N+1 for total 38.4 MW facility load
 
 **Phase 4 Configuration:**
-- Quantity TBD based on block architecture
-- **[CONFIRMATION NEEDED: Verify 3.5 MVA sizing adequate for new 6MW block structure]**
-- Phased deployment aligned with 6MW IT load blocks
+- Quantity: 16
+- One per RMU, on dedicated outside concrete pad.
 
 ### 5.2 Transformer Specifications
 
-| Parameter       | Specification                                       |
-| --------------- | --------------------------------------------------- |
-| **Rating**      | 3,500 kVA / 3.15 MW @ 0.9 power factor              |
-| **Voltage**     | 13,800V delta primary / 480Y/277V secondary         |
-| **Type**        | Oil-filled, ONAN cooling (Oil Natural, Air Natural) |
-| **Note**        | **Sizing requires confirmation for 6MW block architecture** |
+| Parameter   | Specification                                       |
+| ----------- | --------------------------------------------------- |
+| **Rating**  | 3,500 kVA / 3.15 MW @ 0.9 power factor              |
+| **Voltage** | 13,800V delta primary / 480Y/277V secondary         |
+| **Type**    | Oil-filled, ONAN cooling (Oil Natural, Air Natural) |
+<!-- Engineering - please double check this table -->
 
 ## 6.0 IT UPS SYSTEM (N+1 DUAL-PATH ARCHITECTURE)
 
@@ -222,28 +218,21 @@ The mechanical UPS system protects critical mechanical loads (chiller pumps, CDU
 
 | Parameter         | Specification                                                                  |
 | ----------------- | ------------------------------------------------------------------------------ |
-| **Quantity**      | Two (2): SWBD-A and SWBD-B                                                     |
-| **Rating**        | 4,000A copper busbar, 480V, 3-phase, 4-wire                                    |
-| **Short-Circuit** | 65 kA SCCR (Short-Circuit Current Rating)                                      |
-| **Source**        | SWBD-A fed from MV Ring A transformers; SWBD-B fed from MV Ring B transformers |
+| **Quantity**      | 16 (at phase 4)                                                                |
+| **Rating**        | 4,000A copper busbar, 480V, 3-phase, 4-wire - {TBC}                            |
+| **Short-Circuit** | 65 kA SCCR (Short-Circuit Current Rating) {TBC}                                |
+
 
 
 ### 8.2 Distribution Panels
 
 All critical IT and mechanical loads served by dual (A/B) distribution panels fed from respective (A/B) main switchboards.
 
-| Panel | Rating | Loads Served | Path |
-|-------|--------|--------------|------|
-| **IT Dist A / IT Dist B** | 800A | Cabinet PDUs for IT racks | A / B |
-| **Mech Dist 1A / 1B** | 800A | Loops 1+2 chillers, pumps (RDHx cooling) | A / B |
-| **Mech Dist 2A / 2B** | 1,200A | Loop 3 chillers, CDUs (L2C cooling) | A / B |
-| **UPS Dist A / UPS Dist B** | 400A | UPS System A/B output distribution | A / B |
+
 
 ## 9.0 CABINET POWER DISTRIBUTION
 
-- **PDUs:** Each IT cabinet will be equipped with two (2) rack-mounted Power Distribution Units (PDUs), PDU-A and PDU-B.
-- **Source:** PDU-A shall be fed from the "A" power path, and PDU-B from the "B" power path.
-- **Rating:** PDUs shall be sized based on the cabinet's designed load 
+<!-- Should we remove this section?  why do I need it? Is this something engineering or client should decide on later? -->
 
 ## 10.0 NON-CRITICAL (HOUSE) POWER
 
@@ -1029,6 +1018,366 @@ If budget constraints require cost reduction, consider these alternatives:
 2. **Phasing Optimization:** Model capex deployment scenarios based on customer contract pipeline
 3. **Procurement Strategy:** Consider pre-purchasing long-lead equipment (generators, E-Houses) at Phase 1 pricing to lock in costs for future phases
 4. **Financing:** Use refined estimate for debt financing, equity raise, or power purchase agreements (PPAs)
+
+---
+
+## 12.9 SOFT COSTS (TO BE INTEGRATED INTO AGGREGATED PROJECT BUDGET)
+
+**⚠️ NOTE:** This section documents soft cost research and multipliers for project planning purposes. These costs are **NOT included in the equipment cost estimates in Section 12.3**. Soft costs will be applied at the **aggregated project budget level** across all divisions (electrical, mechanical, fire protection, architectural, site/civil).
+
+---
+
+### 12.9.1 Labor & Installation
+
+**Cost Range:** **18-33% of equipment cost** (typical: 25%)
+
+**Breakdown:**
+- **Installation labor (field work):** 15-25% of equipment cost
+  - Cable pulling, terminations, testing, connections
+  - Setting E-Houses, generators, transformers on pads
+  - Panel installations, grounding, conduit installation
+  - Equipment startup and integration
+
+- **Electrical Contractor (EC) Overhead & Profit:** 3-8% of equipment cost
+  - Typically 17.5% markup on labor costs
+  - Supervision, project management, tools, mobilization
+  - Insurance, bonds, warranty administration
+  - Contractor profit margin
+
+**Confidence Level:** ±25% (Medium)
+
+---
+
+#### Research Findings: Why Data Centers Have Lower Labor Costs
+
+**Prefabricated Equipment Advantage:**
+- **Prefab electrical equipment:** 10-20% labor fraction (very low)
+- **Traditional field-built electrical:** 50-60% labor fraction (very high)
+- **Data center equipment is prefab-heavy:**
+  - E-Houses: Factory-built, tested, and shipped complete
+  - UPS modules: Pre-assembled and factory-tested
+  - Generators: Complete units on skids with integrated controls
+  - Transformers: Factory-assembled pad-mounted units
+  - Switchgear: Pre-assembled and tested at manufacturer
+
+**Industry Data:**
+- One data center project reduced labor costs by **60%** using prefabricated conduit vs. field-built
+- General electrical work: "Expect to pay 4-5× more for labor than materials" (50-80% labor)
+- Data center electrical: 18-33% labor due to factory prefabrication
+
+**Labor Burden Rates (Fully-Burdened Labor Cost):**
+- Electrical contractors: 28-65% burden on top of base wages
+- Texas specialty subcontractors: 20-30% burden typical
+- Includes: Payroll taxes, workers' comp, health insurance, 401(k), PTO, training
+- Example: $30/hr base wage + 25% burden = $40/hr fully-burdened rate
+
+**Division-Specific Labor Rates:**
+
+| Division | Labor % of Equipment | Notes |
+|----------|---------------------|-------|
+| **Electrical (Div 26)** | 18-33% (typical 25%) | Prefab-heavy: E-Houses, UPS, generators |
+| **Mechanical (Div 23)** | 30-45% (typical 40%) | More field assembly: piping, ductwork, controls |
+| **Fire Protection (Div 21)** | 35-50% (typical 45%) | Field installation: sprinkler piping, testing |
+| **Architectural (Div 00)** | 40-60% (typical 50%) | Labor-intensive: finishes, framing, doors |
+| **Site/Civil (Div 33)** | 25-40% (typical 35%) | Equipment-heavy: excavation, paving, utilities |
+
+**Sources:**
+- Construction Physics - "Construction Cost Breakdown and Partial Industrialization" (2024)
+- Knowify - "Electrical Contractors Guide to Job Costing" (2024)
+- Buildforce - "What is Labor Burden for Trade Contractors" (March 2024)
+- RSMeans 2024 Electrical Cost Data
+- Electrical contractor forums and industry benchmarks
+
+---
+
+### 12.9.2 Engineering & Design
+
+**Cost Range:** **4.5-5% of equipment cost**
+
+**Scope:**
+
+1. **Electrical Engineering (EE) Firm - 3.5-4%**
+   - Detailed design: MV/LV distribution, one-line diagrams, panel schedules
+   - Lighting design, grounding design, arc flash analysis
+   - Short circuit and protective device coordination studies
+   - Load calculations and transformer sizing
+   - NEC compliance and code review
+   - Construction documents and specifications
+   - Permitting coordination with AHJ
+
+2. **Specialty Consultants - 1.0-1.5%**
+   - 161 kV substation design (high voltage engineering)
+   - SCADA system programming and integration
+   - Utility interconnection engineering and coordination
+   - Relay coordination and protection studies
+   - Self-healing dual-ring topology design (complex)
+
+3. **Value Engineering - 0.3-0.5%**
+   - Post-30% design review
+   - Post-60% design review
+   - Cost optimization studies
+   - Constructability reviews
+
+4. **Owner's Electrical Consultant - 0.4-0.6%**
+   - Independent third-party design review
+   - QA/QC oversight
+   - Constructability and operability reviews
+   - Standards compliance verification
+
+**Confidence Level:** ±20% (Medium-High)
+
+**Notes:**
+- Tier III N+1 redundancy and 13.8 kV self-healing dual-ring topology add design complexity
+- 161 kV substation requires specialized high-voltage engineering expertise
+- Data center electrical design is more complex than typical commercial buildings (4.5-5% vs. 2-3% typical)
+
+**Sources:**
+- Appendix - Phase 4 Electrical Equipment and Cost Analysis (internal document)
+- Industry standard: 3-5% for data center MEP design
+- AIA B101 Standard Form of Agreement (typical architect/engineer fees)
+
+---
+
+### 12.9.3 Commissioning & Testing
+
+**Cost Range:** **3-4% of equipment cost** (industry standard: 2-5%)
+
+**Scope:**
+
+1. **Independent Commissioning Agent (CxA) - 2.5-3%**
+   - Design phase review (30%, 60%, 90% reviews)
+   - Factory Acceptance Testing (FAT) witness at manufacturer facilities
+   - Site Acceptance Testing (SAT) oversight during installation
+   - Integrated Systems Testing (IST) coordination
+   - Functional performance testing
+   - Final commissioning report and O&M documentation
+   - Continuous oversight from design through completion
+
+2. **Factory Acceptance Testing (FAT) - 0.3-0.5%**
+   - Travel and testing at manufacturer facilities
+   - Witness testing for major equipment:
+     - 13.8 kV generators (16 units, 48-52 week lead time)
+     - UPS modules (25 units)
+     - 161 kV substation transformers (2 units, 52 week lead time)
+     - MV/LV switchgear and E-Houses
+   - Review of factory test reports and certifications
+
+3. **Site Acceptance Testing (SAT) - 0.4-0.6%**
+   - On-site functional testing after installation
+   - Point-to-point verification of all systems
+   - Control system verification and SCADA testing
+   - Protective relay testing and coordination verification
+   - Documentation of as-built conditions
+
+4. **Integrated Systems Testing (IST) - 0.3-0.5%**
+   - Full facility load testing with load banks
+   - Generator paralleling and load transfer testing
+   - UPS transfer and failover scenarios
+   - Emergency power off (EPO) testing
+   - Dual-ring self-healing topology validation
+   - 72-hour burn-in test at full load
+
+5. **Uptime Institute Tier III Certification - ~$350K (0.3-0.5%)**
+   - Design review for Tier III compliance
+   - Construction oversight and inspections
+   - Final certification audit
+   - Tier III Certificate of Compliance
+   - Third-party validation of concurrent maintainability
+
+**Confidence Level:** ±20% (Medium-High)
+
+**Notes:**
+- Commissioning is critical for Tier III data centers to validate N+1 redundancy and concurrent maintainability
+- Industry standard: 2-5% of construction cost for commissioning
+- Data centers require more rigorous testing than typical commercial buildings
+- Independent CxA (not affiliated with contractor) is required for Tier III certification
+
+**Sources:**
+- Appendix - Phase 4 Electrical Equipment and Cost Analysis (internal document)
+- Uptime Institute - Tier III certification requirements
+- ASHRAE Guideline 0 - The Commissioning Process
+- Industry benchmarks for data center commissioning
+
+---
+
+### 12.9.4 Contingency
+
+**Cost Range:** **12.5% of base cost** (design + construction contingency combined)
+
+**Breakdown:**
+
+1. **Design Contingency - 5.0%**
+   - Allowance for design development and scope refinements
+   - Unknown site conditions discovered during design
+   - Equipment specification changes
+   - Code or regulatory requirement changes
+   - Covers changes during 30% → 60% → 90% → 100% design progression
+
+2. **Construction Contingency - 7.5%**
+   - Field issues and unforeseen site conditions
+   - Equipment substitutions or long-lead equipment delays
+   - Change orders during construction
+   - Testing failures requiring rework
+   - Weather delays and schedule impacts
+   - Industry standard for data center electrical: 7-10%
+
+**Total Combined Contingency: 12.5%**
+
+**Confidence Level:** ±10% (High) - Industry standard is well-established
+
+**Notes:**
+- Contingency is applied to base cost (equipment + labor + engineering + commissioning)
+- Contingency is typically drawn down to 3-5% remaining at project completion
+- Some owners separate design contingency (released at 100% CDs) from construction contingency
+- Tier III data centers require lower contingency than Tier IV (less design complexity)
+- Pre-fabricated equipment (E-Houses, modular UPS) reduces field contingency risk
+
+**Industry Benchmarks:**
+- Data center electrical: 10-15% combined contingency
+- Commercial electrical: 5-10% combined contingency
+- Mission-critical facilities: 12-18% combined contingency
+
+**Sources:**
+- Appendix - Phase 4 Electrical Equipment and Cost Analysis (internal document)
+- AACE International - Contingency estimation guidelines
+- Industry practice for data center construction
+
+---
+
+### 12.9.5 Equipment Lead Times (Critical Path Items)
+
+**⚠️ CRITICAL FOR PROCUREMENT PLANNING**
+
+Long lead times for major electrical equipment require early procurement to avoid schedule delays. Order equipment during design phase (60-90% CDs) to ensure delivery aligns with construction schedule.
+
+**Lead Time Table:**
+
+| Equipment | Lead Time | Qty (Phase 4) | Critical Path | Notes |
+|-----------|-----------|---------------|---------------|-------|
+| **161 kV Substation Transformers** | **52 weeks** 🔴 | 2 | YES | Longest lead item. Order at 60% design. |
+| **13.8 kV Diesel Generators** | **48-52 weeks** 🔴 | 16 | YES | MV generators have longer lead than 480V. |
+| **E-Houses (Custom)** | **40-48 weeks** 🔴 | 16 | YES | Factory fabrication + testing + shipping. |
+| **3.5 MVA LV Transformers** | **36-40 weeks** | 11 | YES | Outdoor pad-mounted oil-filled units. |
+| **UPS Modules (1,250 kVA)** | **24-32 weeks** | 25 | MODERATE | Modular units, shorter lead than custom. |
+| **MV Switchgear (RMUs)** | **20-28 weeks** | 8 | MODERATE | Ring Main Units with vacuum breakers. |
+| **LV Switchboards** | **16-24 weeks** | 2 | MODERATE | Custom-built, tested at factory. |
+| **Lithium-Ion Battery Cabinets** | **16-20 weeks** | 25 | MODERATE | External cabinets for UPS modules. |
+| **Distribution Panels** | **12-16 weeks** | 8 | LOW | Standard panels, shorter lead time. |
+| **Cabinet PDUs** | **8-12 weeks** | 788 | LOW | Rack-mounted, catalog items. |
+
+**Procurement Strategy:**
+
+1. **Long-Lead Equipment (52 weeks):**
+   - Order 161 kV transformers at 60% design (12 months before installation)
+   - Lock in pricing and delivery dates early
+   - Consider prepayment to secure manufacturing slot
+
+2. **Critical Path Equipment (48-52 weeks):**
+   - Order 13.8 kV generators at 60-75% design (10-12 months before installation)
+   - Coordinate generator delivery with generator yard construction
+   - FAT testing 4-6 weeks before shipment
+
+3. **E-Houses (40-48 weeks):**
+   - Order at 75-90% design (9-11 months before installation)
+   - Coordinate internal equipment with E-House shell fabrication
+   - Allow 4-6 weeks for factory assembly testing (FAT)
+
+4. **Standard Equipment (<24 weeks):**
+   - Order at 90-100% design (4-6 months before installation)
+   - Shorter lead items can be ordered later in design process
+
+**Lead Time Inflation Factors:**
+- **Supply chain disruptions:** Add 10-20% buffer to published lead times
+- **Custom specifications:** Add 4-8 weeks for engineering review and approval
+- **Volume orders:** May reduce per-unit lead time (e.g., 16 generators vs. 4)
+- **Market demand:** AI/data center boom has extended lead times 20-30% since 2023
+
+**Sources:**
+- Appendix - Phase 4 Electrical Equipment and Cost Analysis (internal document)
+- Manufacturer quotes and published lead times (Caterpillar, Schneider, Eaton, ABB, Siemens)
+- Industry reports: Equipment lead times for data centers (2024-2025)
+
+---
+
+### 12.9.6 Application of Soft Costs to Project Budget
+
+**Equipment Costs in Section 12.3 (Revised Estimate):**
+
+The equipment costs shown in Section 12.3 represent **material/equipment procurement only** and exclude:
+- ❌ Installation labor and EC overhead/profit
+- ❌ Engineering and design fees
+- ❌ Commissioning and testing costs
+- ❌ Project contingency
+
+**Soft Costs Applied at Aggregated Project Level:**
+
+These multipliers will be applied in the **aggregated project budget** across all divisions:
+
+```
+PHASE 4 ELECTRICAL DIVISION (EXAMPLE CALCULATION)
+
+Equipment Cost (from Section 12.3):        $70.8M - $126.9M
+
+Add Soft Costs:
+├─ Labor & Installation (18-33%):          +$12.7M - $41.9M
+├─ Engineering & Design (4.5-5%):          +$3.2M - $6.3M
+├─ Commissioning & Testing (3-4%):         +$2.1M - $5.1M
+└─ Subtotal (before contingency):          $88.8M - $180.2M
+
+Add Contingency (12.5% of subtotal):       +$11.1M - $22.5M
+
+TOTAL ELECTRICAL DIVISION (FULLY-LOADED):  $99.9M - $202.7M
+
+Cost per kW (24 MW IT load):               $4,163/kW - $8,446/kW
+```
+
+**Division-Specific Multipliers:**
+
+Each division will have different labor percentages based on prefabrication level:
+
+| Division | Equipment | Labor % | Eng % | Comm % | Cont % | Total Multiplier |
+|----------|-----------|---------|-------|--------|--------|------------------|
+| **Electrical (Div 26)** | $70.8-126.9M | 18-33% | 4.5-5% | 3-4% | 12.5% | **1.41-1.60×** |
+| **Mechanical (Div 23)** | TBD | 30-45% | 4.5-5% | 3-4% | 12.5% | **1.57-1.74×** |
+| **Fire Protection (Div 21)** | TBD | 35-50% | 3-4% | 2-3% | 12.5% | **1.59-1.77×** |
+| **Architectural (Div 00)** | TBD | 40-60% | 5-6% | 1-2% | 12.5% | **1.66-1.88×** |
+| **Site/Civil (Div 33)** | TBD | 25-40% | 3-4% | 1-2% | 12.5% | **1.48-1.66×** |
+
+**Fully-Loaded Project Cost Formula:**
+
+```
+Total Project Cost = Σ (Equipment Cost × Division Multiplier) across all divisions
+```
+
+**This approach provides:**
+- ✅ Consistency: Same methodology across all divisions
+- ✅ Flexibility: Adjust multipliers in one place (aggregated budget)
+- ✅ Transparency: Clear separation of equipment vs. soft costs
+- ✅ Accuracy: Division-specific rates based on actual construction methods
+
+---
+
+### 12.9.7 Summary: Soft Cost Multipliers for Aggregated Budget
+
+**Quick Reference Table for Project Budget Integration:**
+
+| Cost Category | Range | Typical | Basis | Confidence |
+|--------------|-------|---------|-------|------------|
+| **Labor & Installation** | 18-33% | 25% | % of equipment | ±25% (Medium) |
+| **Engineering & Design** | 4.5-5% | 4.75% | % of equipment | ±20% (Medium-High) |
+| **Commissioning & Testing** | 3-4% | 3.5% | % of equipment | ±20% (Medium-High) |
+| **Subtotal Soft Costs** | 25.5-42% | 33.25% | % of equipment | ±22% (Medium) |
+| **Contingency** | 12.5% | 12.5% | % of subtotal | ±10% (High) |
+| **Total Multiplier** | **1.41-1.60×** | **1.50×** | Equipment → Fully-loaded | ±20% (Medium-High) |
+
+**Example: Electrical Division Phase 4**
+- Equipment: $70.8M - $126.9M (Section 12.3 revised estimate)
+- **Typical multiplier: 1.50×**
+- **Fully-loaded: $106.2M - $190.4M**
+
+---
+
+**⚠️ REMINDER:** This section will be moved to the aggregated project budget spreadsheet and removed from this BOD document once all divisions are complete.
 
 ---
 

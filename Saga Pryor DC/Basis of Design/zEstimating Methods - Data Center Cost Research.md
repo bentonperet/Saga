@@ -48,11 +48,13 @@ Data center costs can be estimated using three primary methods, depending on the
 - Interiors (Div 09-10): $30-80/SF (GSF)
 - Total facility (all divisions): $600-1,100/SF (GSF)
 
+Examples output is here: [[Saga Pryor DC/Basis of Design/2BOD - Facility Construction (CSI Divs 02-14)|2BOD - Facility Construction (CSI Divs 02-14)]]
+
 ---
 
 ### Method 2: Cost per Kilowatt ($/kW) or Megawatt ($/MW)
 
-**Best for:** MEP systems, power distribution, cooling, generators (CSI Div 21-28)
+**Best for:** MEP systems, Power, cooling, generators (CSI Div 21-28)
 
 **Application:**
 - Multiply unit cost ($/kW) by IT load capacity (kW or MW)
@@ -62,18 +64,6 @@ Data center costs can be estimated using three primary methods, depending on the
 - Directly correlates to data center capacity
 - Industry-standard metric for MEP systems
 - Scales appropriately with power density
-
-**Limitations:**
-- Requires clear definition of "IT load" vs "facility load"
-- Doesn't capture building-specific features
-
-**Typical Ranges (2024-2025):**
-- Electrical distribution (Div 26): $200-400/kW (IT load)
-- UPS systems: $100-200/kW (IT load)
-- Generators: $150-250/kW (facility load)
-- Mechanical/cooling (Div 23): $150-300/kW (IT load, varies by PUE)
-- Fire protection (Div 21): $15-40/kW (IT load)
-- Total MEP: $500-900/kW (IT load)
 
 **Key Definitions:**
 - **IT Load:** Power consumed by servers, storage, network equipment (critical load)
@@ -88,22 +78,11 @@ Data center costs can be estimated using three primary methods, depending on the
 
 **Application:**
 - Calculate as percentage of relevant base costs
-- Example: Physical security at 2-3% of total building cost
+- This will need to be researched based on the specific division you're pricing
+- Roll up all division pricing into their assigned numbered BOD document. Some BOD documents contain multiple divisions. Other larger ones, like electrical, are their own document and own division (7BOD is only Div 26, for example)
 
-**Advantages:**
-- Appropriate for systems that scale with facility size/complexity
-- Useful when direct $/SF or $/kW don't apply
+This section is a catchall and will require additional questions to get clarity for estimates
 
-**Limitations:**
-- Requires accurate base cost estimates first
-- Percentages vary widely by facility tier and tenant requirements
-
-**Typical Ranges (2024-2025):**
-- Physical security (access control, CCTV, intrusion): 2-4% of building construction cost
-- Fire alarm/detection: 1-2% of building construction cost
-- Telecom/structured cabling: 1-3% of building construction cost
-- Building automation/DCIM: 1-2% of total MEP cost
-- Commissioning: 1-3% of total construction cost
 
 ---
 
@@ -412,6 +391,8 @@ START: What project phase are you in?
 ---
 
 ## DIVISION-BY-DIVISION GUIDE
+
+Note: all information in the division-specific application documentation below should be verified outside of this file using web search. These are just examples.
 
 ### How to Use This Section
 
