@@ -10,13 +10,13 @@
 
 ## OVERVIEW
 
-38,000 SF single-story precast concrete tilt-up building with FM 1-150 tornado-resistant roof, housing 20,000 SF of white space (two 10,000 SF data halls: DH-W and DH-E), 18,000 SF support spaces, and multi-level central spine.
+38,000 SF precast concrete tilt-up building with FM 1-150 tornado-resistant roof, housing 20,000 SF of white space (two 10,000 SF data halls: DH-W and DH-E), 18,000 SF support spaces, and multi-level central spine.
 
 **Key Features:**
 - **Construction:** Precast concrete tilt-up walls (tornado resistance)
 - **Roof:** FM 1-150 rating (150 mph 3-second gust, hail resistance)
 - **Floor:** Slab-on-grade (raised floor: Not Applicable), sealed concrete
-- **Ceiling height:** 30 ft clear in data halls (overhead MEP distribution)
+- **Ceiling height:** ~30 ft clear in data halls (overhead MEP distribution)
 - **Containment:** Not Applicable (DDC cabinets provide integrated cooling)
 - **Storm shelter:** FEMA 361 compliant (EF5 protection)
 
@@ -35,9 +35,9 @@
 
 ### Foundation System
 - **Type:** Spread footings below frost line (18-24")
-- **Bearing:** TBD per geotech report
-- **Data hall slab:** 6-8" reinforced concrete, 4,000 PSI, FF 50 / FL 40 flatness, densifier/sealer finish
-- **AI rack floor load:** 750 PSF sustained (supports 3,500 lb racks like NVIDIA GB200 NVL72)
+- **Bearing:** per geotech report
+- **Data hall slab:** Reinforced concrete, 4,000 PSI, FF 50 / FL 40 flatness, densifier/sealer finish
+- **AI rack floor load:** At least 750 PSF sustained (supports 3,500 lb racks like NVIDIA GB200 NVL72)
 
 ### Equipment Pad Foundations
 - **Chillers, generators:** Individual isolated pads; vibration isolation if required
@@ -85,6 +85,8 @@ Minimal scope (office millwork, shelving)
 - Total building envelope premium: ~$1.3-2.0M for 50,000 GSF {TBC}
 - Offset by insurance savings (~$200-300K/year → 5-7 year payback) {TBC}
 
+**CAPEX Savings Note:**
+- We've kept the sparkle of the high ceilings and raised walking track for customer tours and security... However, for cost savings during value engineering, an overall reduction in building height to ~20ft would provide ample space for any type of adaptation (hot aisle containment, etc.). It would save on steel and concrete, if required.
 ### Roof System (FM 1-150 Rating)
 
 **FM 1-150 Compliance:**
@@ -121,7 +123,7 @@ Minimal scope (office millwork, shelving)
 ### Air and Vapor Barriers
 - **Air barrier:** Self-adhered membrane at precast joints, penetrations
 - **Vapor barrier:** Under slab; at wall insulation per climate
-- **Target:** TBD but we want a tight envelope for PUE
+- **Target:** Optimize building envelope efficiency to maximize PUE
 
 ---
 
@@ -288,7 +290,6 @@ Not in base building scope (owner-furnished)
 ### Data Halls (20,000 SF - Orange Zone CP 4)
 - **Data Hall West (DH-W):** 10,000 SF (Phase 1 operational) - Orange Zone CP 4
 - **Data Hall East (DH-E):** 10,000 SF (powered shell, future fit-out) - Orange Zone CP 4
-- **Ceiling height:** 30 ft clear
 - **Layout:** Overhead power/cooling distribution (containment: Not Applicable - DDC cabinets)
 - **Access:** 4 secure doors per hall accessible from perimeter corridor (card + biometric MFA required)
 
@@ -316,14 +317,11 @@ Not in base building scope (owner-furnished)
 **Level 1 (Ground - Yellow Zone):**
 - Prefabricated storm shelter (20 person, FEMA 361 compliant)
 - Elevator/stairwell, restrooms, showers, break room, lounge
-
 **Level 2 (Secure NOC - Red Zone):**
 - Network Operations Center (~2,060 SF) with 24/7 operations
-
-**Level 3 (Fitness/Tour Route - Yellow Zone):**
+**Level 3 (Tour Route - Yellow Zone):**
 - Gym/fitness center, secure tour route with internal windows into critical areas
 - Weather-protected balconies (north/south) for equipment yard viewing
-
 **Roof Level:**
 - Elevator/stairwell access with weather-protected door
 - Storm-rated SS debris screen, protected roof equipment
@@ -354,39 +352,56 @@ Not in base building scope (owner-furnished)
 
 ---
 
-## COST SUMMARY (PHASE 4 FULL BUILD-OUT)
+## COST SUMMARY
 
-### Direct Construction Costs
+### Cost Analysis - Per SF (Building Shell Only)
 
-| System | Cost Estimate | Confidence | Notes |
-|--------|---------------|------------|-------|
-| **Foundation & Slab** | $2,280,000 | ±25% | 38,000 SF @ $60/SF; upgraded for 750 PSF AI rack loads, FF 50/FL 40 |
-| **Precast Tilt-Up Walls** | $4,200,000 | ±25% | ~50,000 SF @ $84/SF; 8-10" insulated panels, tornado-rated construction |
-| **Structural Steel Roof Frame** | $2,660,000 | ±23% | Enhanced clear-span joists/beams for 30 ft clear + FM 1-150 loads |
-| **FM 1-150 Roof + Debris Protection** | $2,400,000 | ±25% | 50,000 SF @ $48/SF; TPO membrane, insulation, debris screen, enhanced fastening |
-| **Multi-Level Central Spine Structure** | $3,500,000 | ±27% | 3-level structure (NOC level 2, fitness level 3, roof access), stairs, steel framing |
-| **Elevator (4-stop with roof access)** | $600,000 | ±20% | Heavy-duty traction, 3,500 lb capacity, 4 stops including roof, weather protection |
-| **Doors, Windows, Glazing** | $1,200,000 | ±30% | Security mantrap, 4 large equipment doors per hall (10'H × 8'W), standard doors, glazing |
-| **Interior Finishes (Enhanced)** | $3,000,000 | ±27% | Data halls, offices, NOC, fitness area, break rooms, restrooms, sealed concrete, drywall, paint, acoustic ceilings |
-| **Building HVAC (Office/Support)** | $1,500,000 | ±30% | Rooftop units for offices, NOC, support spaces (separate from data hall HVAC in Div 23) |
-| **Plumbing (Domestic/Sanitary)** | $650,000 | ±27% | Restrooms, break rooms, showers, domestic water, sanitary drainage (data hall cooling in Div 23) |
-| **FEMA 361 Storm Shelter** | $150,000 | ±25% | Prefab module, 20-person capacity, EF5-rated, HVAC, emergency lighting |
-| **Subtotal (Direct Costs)** | **$22,140,000** | **±27%** | |
+**Scope Definition - What's Included in "Shell":**
+- Foundation and slab (reinforced concrete, 750 PSF AI rack load capacity, FF 50/FL 40 flatness)
+- Precast concrete tilt-up walls (8-10" insulated panels, tornado-rated)
+- Structural steel roof framing (clear-span joists/beams, 30-ft clear height)
+- FM 1-150 roof assembly (TPO membrane, insulation, storm debris protection)
+- Multi-level central spine structure (3 levels: ground, NOC level 2, fitness level 3)
+- Elevator (4-stop with roof access)
+- Doors, windows, glazing (including security mantrap, equipment doors)
+- Interior finishes (sealed concrete floors, drywall, paint, acoustic ceilings)
+- FEMA 361 storm shelter (prefabricated module)
+- Building HVAC for office/support spaces only
 
-### Professional Services
+**Industry Benchmarks - Shell-Only Construction (2024):**
 
-| Item | Cost Estimate | Confidence | Notes |
-|------|---------------|------------|-------|
-| **Architectural & Engineering (7%)** | $1,550,000 | ±20% | Architect, structural, envelope consultant, specifications |
-| **Subtotal** | **$23,690,000** | **±27%** | |
-| **TOTAL BUILDING CONSTRUCTION** | **$23,690,000** | **±27%** | **Shell + core + interior fit-out (excludes MEP data hall systems in other divisions)** |
+| Construction Type               | Cost Range ($/SF) | Notes                                                                                                           | Source                    |
+| ------------------------------- | ----------------- | --------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| **PEMB (Metal Building)**       | $20-50/SF         | Not suitable for tornado zones                                                                                  | Industry average⁴         |
+| **Standard Concrete Tilt-Up**   | $130-200/SF       | Base data center shell                                                                                          | Cushman & Wakefield 2025⁵ |
+| **Tornado-Hardened Concrete**   | $200-300/SF       | EF3-EF5 resistance, reinforced                                                                                  | Multiple sources⁴⁵⁶       |
+| **Premium Hardened + Features** | $300-350/SF       | With high ceilings, multi-level spine, FM roof, elevator, positive-pressure data hall, man traps, walkway, etc. | Multiple sources⁴⁵⁶       |
 
-**Cost per SF:** $623/SF (38,000 SF building)
-**Cost per kW (IT Load):** $1,077/kW (22 MW)
-**Industry Benchmark:** $900-$1,400/kW for AI-ready, tornado-hardened facilities
 
-**Note on Cost Increase:**
-Previous estimate of $314/SF was significantly below market for tornado-hardened construction with multi-level spine and comprehensive interior fit-out. Industry standards for comparable facilities range $550-$700/SF in non-coastal markets.
+**References:**
+1. Uptime Institute, "Data Center Capital Cost Survey 2024" (Tier III baseline costs)
+2. Turner Construction, "Building Cost Index Q3 2024" (severe weather construction premiums)
+3. Data Center Dynamics, "AI Infrastructure Cost Analysis 2024" (liquid cooling and high-density premiums)
+4. RSMeans Construction Cost Data 2024 (National and regional data center costs)
+5. Cushman & Wakefield, "Data Center Development Cost Guide 2025" (Shell cost ranges $80-160/SF standard, $200+/SF hardened)
+6. Turner & Townsend, "Data Centre Cost Index 2024" (Global cost trends, tornado-hardened facilities)
+7. Building Design + Construction, "Data Center Construction Costs for 2024" (Industry averages and ranges)
+
+**Confidence Level:** ±25% (conceptual estimate phase, no competitive bids)
+
+### Final Shell Cost Summary
+
+**Calculation Basis:** $325/SF × 38,000 SF (premium premium-hardened benchmark)
+
+| Item                                 | Calculation         | Cost Estimate   | Confidence | Notes                                                                                 |
+| ------------------------------------ | ------------------- | --------------- | ---------- | ------------------------------------------------------------------------------------- |
+| **Building Shell (Hard Costs)**      | $325/SF × 38,000 SF | $12,350,000     | ±25%       | Foundation, walls, roof, structure, finishes (tornado-hardened concrete construction) |
+| **Architectural & Engineering (7%)** | $12,350,000 × 7%    | $864,500        | ±20%       | Architect, structural engineer, envelope consultant, specifications                   |
+| **TOTAL SHELL COST (with A&E)**      |                     | **$13,214,500** | **±25%**   | **Complete building shell ready for MEP installation**                                |
+
+**Cost Metrics:**
+- **Hard costs only:** $325/SF (38,000 SF)
+- **With A&E:** $348/SF (38,000 SF)
 
 ---
 
@@ -404,7 +419,6 @@ Previous estimate of $314/SF was significantly below market for tornado-hardened
 
 ---
 
-**Tags:** #facility #construction #precast-tilt-up #fm-1-150 #tornado #storm-shelter 
 
 **Next Steps:**
 1. Coordinate with Insurance to confirm savings on walls, roof and safe room
@@ -421,4 +435,4 @@ Previous estimate of $314/SF was significantly below market for tornado-hardened
 - **Source:** PGCIS Team
 - **Date Updated:** October 29, 2025
 - **Prepared by:** PGCIS Team
-- **Key Updates:** Precast tilt-up rationale, FM 1-150 roof, FEMA 361 shelter/safe room
+- **Key Updates:** Per SF Benchmarks incorporated

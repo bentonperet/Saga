@@ -5,14 +5,13 @@
 
 **Parent Document:** [[_BOD - Exec Summary]]  
 
----
 
+---
 ## PURPOSE
 
 This appendix provides detailed market positioning, customer profiles, and value proposition analysis for the Pryor Data Center. This content supports sales, marketing, and business development efforts but is separated from the technical Basis of Design documents to maintain their focus on engineering specifications.
 
 ---
-
 ## STRATEGIC LOCATION ADVANTAGE
 
 ### Google Cloud Proximity
@@ -26,7 +25,6 @@ The Pryor DC is located **4 miles from Google's us-central2 data center campus**
 - Latency: <1ms round-trip
 
 ---
-
 ## TARGET CUSTOMER PROFILES
 
 ### Customer #1: AI Training Cluster (Primary Target)
@@ -77,8 +75,6 @@ The Pryor DC is located **4 miles from Google's us-central2 data center campus**
    - vs. $500K on GCP
    - **70% cost savings**
 
-
-
 **Hybrid Cloud Architecture:**
 ```
 Customer's GCP Environment (us-central2, Pryor)
@@ -120,7 +116,7 @@ Pryor DC Training Cluster (Phase 1: 30 racks, 240 GPUs)
 - Values: GCP proximity + cheap power + liquid cooling ready from day 1
 
 **The Sales Pitch:**
-*"Your customers keep their data in Google Cloud (us-central2). You run training jobs 4 miles away at 1/3 the cost. Direct fiber interconnect means 500 TB datasets transfer in hours, not days. Save $50K per training run on egress fees alone. Your customers never leave the Google ecosystem—you just give them access to cheaper, denser GPUs with liquid cooling from day 1."*
+*"Your customers keep their data in Google Cloud in Pryor. You run training jobs only 4 miles away at 1/3 the cost. Direct fiber interconnect means 500 TB datasets transfer in hours, not days. Save $50K per training run on egress fees alone. Your customers never leave the Google ecosystem. You just give them access to cheaper, denser GPUs with liquid cooling from day 1."*
 
 ---
 

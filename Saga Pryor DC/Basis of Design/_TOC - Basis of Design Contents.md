@@ -7,10 +7,6 @@
 
 See: <!-- @claude link this properly -->
 
-- *Project delivery, contracting strategy, phasing approach*
-- Phase 1: 12 MW (20,000 SF white space + support spaces)
-- Phase 2: Shell for additional 20,000 SF white space
-- Modular 3 MW block procurement strategy
 
 ---
 
@@ -279,7 +275,10 @@ See: <!-- @claude link this properly -->
 
 
 **Summary:**
-- **Site area:** 20+ acres total; 50,000 GSF building footprint
+- **Site area:** 20+ acres total
+- **Total Compound:** 140,000 SF (Two 10,000 SF data halls + 18,000 SF support spaces)
+  - **Covered Building:** 38,000 SF
+  - **Equipment Yard:** 102,000 SF
 - **Grading:** Cut/fill balance; positive drainage away from building; 2% min slope
 - **Stormwater management:** Detention pond (100-year storm); SWPPP compliance (>1 acre disturbance); Oklahoma DEQ permit
 - **Paving:** Reinforced concrete (equipment yards, loading dock); asphalt (parking, drives); 8" base course
@@ -287,9 +286,6 @@ See: <!-- @claude link this properly -->
   - Water: 6" main from municipal or well
   - Sanitary: 8" gravity sewer to municipal or on-site septic
   - Fiber: Dual diverse underground duct bank entries (4" conduits)
-- **Equipment yards:**
-  - Electrical: ~100,000 SF (generators, transformers, switchgear); sized for 24 MW master plan
-  - Mechanical: ~50,000 SF (chillers, cooling towers, pumps); sized for 12 chillers total
 - **Fencing:** 8 ft K-rated perimeter; controlled access gates
 - **Landscaping:** Drought-tolerant native species; drip irrigation; minimal turf area
 - **Site lighting:** LED (100%); photocell/time clock control; dark-sky compliance

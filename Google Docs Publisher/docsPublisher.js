@@ -27,7 +27,7 @@ class DocsPublisher {
     this.requests = [];
     this.cursorIndex = 1; // Docs body starts at index 1
     this.logoImageId = null;
-    this.listCounter = 0; // Counter for generating unique list IDs
+    this.bookmarkNames = {}; // Track bookmark names for headings
   }
 
   /**
@@ -56,7 +56,7 @@ class DocsPublisher {
 
     try {
       const fileMetadata = {
-        name: 'PACHYDERM GLOBAL Logo',
+        name: 'Pachyderm Global Logo',
         mimeType: 'image/png'
       };
 
@@ -89,7 +89,7 @@ class DocsPublisher {
   }
 
   /**
-   * Insert PACHYDERM GLOBAL branded header at the top of the document
+   * Insert Pachyderm Global branded header at the top of the document
    */
   async insertHeader() {
     // Upload logo first
@@ -270,27 +270,57 @@ class DocsPublisher {
   }
 
   /**
-   * Set document margins (page margins and header/footer margins)
+   * Set document margins
    */
   async setDocumentMargins() {
-    const marginRequests = [{
-      updateDocumentStyle: {
-        documentStyle: {
-          marginTop: this.makeDimension(BRAND.PAGE.marginTop),
-          marginBottom: this.makeDimension(BRAND.PAGE.marginBottom),
-          marginLeft: this.makeDimension(BRAND.PAGE.marginLeft),
-          marginRight: this.makeDimension(BRAND.PAGE.marginRight),
-          marginHeader: this.makeDimension(BRAND.PAGE.marginHeader),
-          marginFooter: this.makeDimension(BRAND.PAGE.marginFooter)
-        },
-        fields: 'marginTop,marginBottom,marginLeft,marginRight,marginHeader,marginFooter'
-      }
-    }];
-
     await this.docs.documents.batchUpdate({
       documentId: this.docId,
-      requestBody: { requests: marginRequests }
+      requestBody: {
+        requests: [{
+          updateDocumentStyle: {
+            documentStyle: {
+              marginTop: this.makeDimension(BRAND.PAGE.marginTop),
+              marginBottom: this.makeDimension(BRAND.PAGE.marginBottom),
+              marginLeft: this.makeDimension(BRAND.PAGE.marginLeft),
+              marginRight: this.makeDimension(BRAND.PAGE.marginRight),
+              marginHeader: this.makeDimension(BRAND.PAGE.marginHeader),
+              marginFooter: this.makeDimension(BRAND.PAGE.marginFooter)
+            },
+            fields: 'marginTop,marginBottom,marginLeft,marginRight,marginHeader,marginFooter'
+          }
+        }]
+      }
     });
+  }
+
+  /**
+   * Generate a URL-friendly bookmark name from heading text
+   */
+  generateBookmarkName(text) {
+    // Convert to lowercase, replace spaces with hyphens, remove special chars
+    let name = text
+      .toLowerCase()
+      .trim()
+      .replace(/[^\w\s-]/g, '') // Remove special characters
+      .replace(/\s+/g, '-')     // Replace spaces with hyphens
+      .replace(/-+/g, '-')      // Replace multiple hyphens with single hyphen
+      .replace(/^-|-$/g, '');   // Remove leading/trailing hyphens
+
+    // If name is empty after cleaning, generate a default name
+    if (!name || name.length === 0) {
+      name = `heading-${Object.keys(this.bookmarkNames).length + 1}`;
+    }
+
+    // Ensure uniqueness
+    let uniqueName = name;
+    let counter = 1;
+    while (this.bookmarkNames[uniqueName]) {
+      uniqueName = `${name}-${counter}`;
+      counter++;
+    }
+
+    this.bookmarkNames[uniqueName] = true;
+    return uniqueName;
   }
 
   /**
@@ -308,9 +338,8 @@ class DocsPublisher {
     this.docId = createRes.data.documentId;
     this.requests = [];
     this.cursorIndex = 1;
-    this.pendingTables = [];
 
-    // Set document margins first (before adding content)
+    // Set document margins first
     await this.setDocumentMargins();
 
     // Process blocks sequentially, handling tables specially
@@ -327,16 +356,23 @@ class DocsPublisher {
 
         // Insert and populate this table immediately
         const insertIndex = this.cursorIndex;
-        await this.insertAndPopulateTable(block, insertIndex);
 
-        // Read back document to find where cursor should be after table
-        const doc = await this.docs.documents.get({ documentId: this.docId });
-        const table = this.findTableNearIndex(doc.data.body.content, insertIndex);
-        if (table) {
-          this.cursorIndex = table.endIndex;
-        } else {
-          console.warn(`Could not find table near index ${insertIndex}, cursor position may be incorrect`);
-          // Estimate based on table size
+        try {
+          await this.insertAndPopulateTable(block, insertIndex);
+
+          // Read back document to find where cursor should be after table
+          const doc = await this.docs.documents.get({ documentId: this.docId });
+          const table = this.findTableNearIndex(doc.data.body.content, insertIndex, 50);
+          if (table) {
+            this.cursorIndex = table.endIndex;
+          } else {
+            console.warn(`⚠️  Could not find table near index ${insertIndex}`);
+            const rows = block.rows.length;
+            const cols = block.rows[0]?.length || 1;
+            this.cursorIndex = insertIndex + 3 + (rows * (cols * 2 + 1));
+          }
+        } catch (error) {
+          console.error(`❌ Failed to insert table:`, error.message);
           const rows = block.rows.length;
           const cols = block.rows[0]?.length || 1;
           this.cursorIndex = insertIndex + 3 + (rows * (cols * 2 + 1));
@@ -386,34 +422,39 @@ class DocsPublisher {
     // Phase 2: Read back document and populate table
     const doc = await this.docs.documents.get({ documentId: this.docId });
 
-    // Find the table - it might be at insertIndex ±1 due to document structure
+    // Find the table
     let table = this.findTableAtIndex(doc.data.body.content, insertIndex);
 
     if (!table) {
-      // Try nearby indexes (table structure can shift by 1-2 positions)
-      table = this.findTableNearIndex(doc.data.body.content, insertIndex, 5);
+      table = this.findTableNearIndex(doc.data.body.content, insertIndex, 50);
     }
 
     if (!table) {
-      console.error(`Could not find table near index ${insertIndex}`);
-      return;
+      throw new Error(`Could not find table near index ${insertIndex}`);
     }
 
     const tableRequests = this.buildTableContentRequests(block, table, rows, cols);
 
     if (tableRequests.length > 0) {
-      try {
-        await this.docs.documents.batchUpdate({
-          documentId: this.docId,
-          requestBody: { requests: tableRequests }
-        });
-      } catch (error) {
-        console.error(`Error populating table:`, error.message);
-        if (error.errors) {
-          error.errors.forEach(err => console.error(`  - ${err.message}`));
+      await this.docs.documents.batchUpdate({
+        documentId: this.docId,
+        requestBody: { requests: tableRequests }
+      });
+    }
+
+    // Pin header row if configured
+    if (BRAND.TABLE.pinHeaderRow && rows > 0) {
+      await this.docs.documents.batchUpdate({
+        documentId: this.docId,
+        requestBody: {
+          requests: [{
+            pinTableHeaderRows: {
+              tableStartLocation: { index: table.startIndex },
+              pinnedHeaderRowsCount: 1
+            }
+          }]
         }
-        throw error;
-      }
+      });
     }
   }
 
@@ -436,11 +477,9 @@ class DocsPublisher {
         // Get the actual start index of the cell's first paragraph
         const cellContent = tableCell.content[0];
         if (!cellContent || !cellContent.paragraph) {
-          console.warn(`Cell at row ${rowIdx}, col ${colIdx} has no paragraph content`);
           continue;
         }
 
-        // Get the paragraph's first element index (where we can insert)
         const paragraph = cellContent.paragraph;
         let cellStartIndex;
 
@@ -469,23 +508,42 @@ class DocsPublisher {
               const runEnd = runStart + run.text.length;
 
               const textStyle = {};
-              if (run.bold) textStyle.bold = true;
-              if (run.italic) textStyle.italic = true;
-              if (run.strikethrough) textStyle.strikethrough = true;
+              const fields = [];
+
+              if (run.bold) {
+                // Check if this is medium weight text (colon labels)
+                if (run.medium) {
+                  // Use Medium (500) for colon-prefixed labels
+                  textStyle.weightedFontFamily = { fontFamily: 'Poppins', weight: 500 };
+                } else {
+                  // Use Semi-Bold (600) for regular bold text
+                  textStyle.weightedFontFamily = { fontFamily: 'Poppins', weight: 600 };
+                }
+                fields.push('weightedFontFamily');
+              }
+              if (run.italic) {
+                textStyle.italic = true;
+                fields.push('italic');
+              }
+              if (run.strikethrough) {
+                textStyle.strikethrough = true;
+                fields.push('strikethrough');
+              }
               if (run.code) {
-                textStyle.weightedFontFamily = { fontFamily: BRAND.CODE.fontFamily };
+                textStyle.weightedFontFamily = { fontFamily: BRAND.CODE.fontFamily, weight: BRAND.CODE.fontWeight };
                 textStyle.fontSize = this.makeDimension(BRAND.CODE.fontSizePt);
                 textStyle.backgroundColor = {
                   color: { rgbColor: hexToRgb(BRAND.CODE.backgroundColor) }
                 };
+                fields.push('weightedFontFamily', 'fontSize', 'backgroundColor');
               }
 
-              if (Object.keys(textStyle).length > 0) {
+              if (fields.length > 0) {
                 tableRequests.push({
                   updateTextStyle: {
                     range: { startIndex: runStart, endIndex: runEnd },
                     textStyle,
-                    fields: Object.keys(textStyle).join(',')
+                    fields: fields.join(',')
                   }
                 });
               }
@@ -507,43 +565,53 @@ class DocsPublisher {
               offset += run.text.length;
             }
           });
-        }
 
-        // Apply styling based on row type
-        if (cellText) {
+          // Apply cell-level styling
           const cellEndIndex = cellStartIndex + cellText.length;
 
+          // Set font, size, and spacing for all cells
+          tableRequests.push({
+            updateTextStyle: {
+              range: { startIndex: cellStartIndex, endIndex: cellEndIndex },
+              textStyle: {
+                weightedFontFamily: {
+                  fontFamily: BRAND.TABLE.cellFontFamily,
+                  weight: BRAND.TABLE.cellFontWeight
+                },
+                fontSize: this.makeDimension(BRAND.TABLE.cellFontSizePt),
+                foregroundColor: {
+                  color: { rgbColor: hexToRgb(BRAND.TABLE.cellTextColor) }
+                }
+              },
+              fields: 'weightedFontFamily,fontSize,foregroundColor'
+            }
+          });
+
+          tableRequests.push({
+            updateParagraphStyle: {
+              range: { startIndex: cellStartIndex, endIndex: cellEndIndex },
+              paragraphStyle: {
+                lineSpacing: BRAND.TABLE.cellLineSpacing * 100,
+                spaceAbove: this.makeDimension(BRAND.TABLE.cellBeforeSpacingPt),
+                spaceBelow: this.makeDimension(BRAND.TABLE.cellAfterSpacingPt)
+              },
+              fields: 'lineSpacing,spaceAbove,spaceBelow'
+            }
+          });
+
+          // Apply header row styling (white text on dark blue background)
           if (rowIdx === 0) {
-            // Header row styling (white text on dark blue background)
             tableRequests.push({
               updateTextStyle: {
                 range: { startIndex: cellStartIndex, endIndex: cellEndIndex },
                 textStyle: {
                   weightedFontFamily: {
                     fontFamily: BRAND.TABLE.headerFontFamily,
-                    weight: BRAND.TABLE.headerFontWeight || 600
+                    weight: BRAND.TABLE.headerFontWeight
                   },
                   fontSize: this.makeDimension(BRAND.TABLE.headerFontSizePt),
                   foregroundColor: {
                     color: { rgbColor: hexToRgb(BRAND.TABLE.headerTextColor) }
-                  }
-                },
-                fields: 'weightedFontFamily,fontSize,foregroundColor'
-              }
-            });
-          } else {
-            // Regular cell styling (dark text)
-            tableRequests.push({
-              updateTextStyle: {
-                range: { startIndex: cellStartIndex, endIndex: cellEndIndex },
-                textStyle: {
-                  weightedFontFamily: {
-                    fontFamily: BRAND.TABLE.cellFontFamily,
-                    weight: BRAND.TABLE.cellFontWeight || 400
-                  },
-                  fontSize: this.makeDimension(BRAND.TABLE.cellFontSizePt),
-                  foregroundColor: {
-                    color: { rgbColor: hexToRgb(BRAND.TABLE.cellTextColor) }
                   }
                 },
                 fields: 'weightedFontFamily,fontSize,foregroundColor'
@@ -554,7 +622,7 @@ class DocsPublisher {
       }
     }
 
-    // Apply borders to all cells (0.5pt black grid)
+    // Apply borders to all cells
     const borderStyle = {
       color: { color: { rgbColor: hexToRgb(BRAND.TABLE.borderColor) } },
       width: this.makeDimension(BRAND.TABLE.borderWidth),
@@ -607,47 +675,6 @@ class DocsPublisher {
           fields: 'backgroundColor'
         }
       });
-
-      // Pin header row if configured
-      if (BRAND.TABLE.pinHeaderRow) {
-        tableRequests.push({
-          pinTableHeaderRows: {
-            tableStartLocation: { index: startIndex },
-            pinnedHeaderRowsCount: 1
-          }
-        });
-      }
-    }
-
-    // Apply cell spacing to all table cells (single spacing, no extra spacing)
-    for (let rowIdx = 0; rowIdx < rows; rowIdx++) {
-      for (let colIdx = 0; colIdx < cols; colIdx++) {
-        const tableRow = table.table.tableRows[rowIdx];
-        const tableCell = tableRow.tableCells[colIdx];
-        const cellContent = tableCell.content[0];
-
-        if (cellContent && cellContent.paragraph) {
-          const paragraph = cellContent.paragraph;
-          const cellStartIndex = paragraph.elements[0]?.startIndex || cellContent.startIndex + 1;
-          const cellText = block.rows[rowIdx][colIdx]?.runs.map(r => r.text).join('') || '';
-
-          if (cellText) {
-            const cellEndIndex = cellStartIndex + cellText.length + 1; // +1 for paragraph marker
-
-            tableRequests.push({
-              updateParagraphStyle: {
-                range: { startIndex: cellStartIndex, endIndex: cellEndIndex },
-                paragraphStyle: {
-                  lineSpacing: BRAND.TABLE.cellLineSpacing * 100,
-                  spaceAbove: this.makeDimension(BRAND.TABLE.cellBeforeSpacingPt),
-                  spaceBelow: this.makeDimension(BRAND.TABLE.cellAfterSpacingPt)
-                },
-                fields: 'lineSpacing,spaceAbove,spaceBelow'
-              }
-            });
-          }
-        }
-      }
     }
 
     return tableRequests;
@@ -673,10 +700,6 @@ class DocsPublisher {
       case 'blockquote':
         this.insertBlockquote(block);
         break;
-      case 'table':
-        // Tables are handled separately in publish() method
-        // This case should not be reached
-        break;
       case 'hr':
         this.insertHorizontalRule();
         break;
@@ -686,13 +709,14 @@ class DocsPublisher {
   }
 
   /**
-   * Insert a heading with brand styling
+   * Insert a heading with brand styling and create a bookmark
    */
   insertHeading(block) {
     const brandStyle = getBrandStyleForHeading(block.level);
     const namedStyle = getNamedStyleForHeading(block.level);
 
     const startIndex = this.cursorIndex;
+    const headingText = block.runs.map(r => r.text).join('').trim();
 
     this.insertStyledParagraph(
       block.runs,
@@ -700,38 +724,24 @@ class DocsPublisher {
       brandStyle
     );
 
-    const endIndex = this.cursorIndex;
+    // Create bookmark for this heading only if it has text
+    if (headingText && headingText.length > 0) {
+      const bookmarkName = this.generateBookmarkName(headingText);
+      const endIndex = this.cursorIndex - 1; // Exclude trailing newline
 
-    // Create a named range for this heading (for TOC linking)
-    // Generate a bookmark name from the heading text
-    const headingText = block.runs.map(r => r.text).join('');
-    const bookmarkName = this.generateBookmarkName(headingText);
-
-    this.requests.push({
-      createNamedRange: {
-        name: bookmarkName,
-        range: {
-          startIndex: startIndex,
-          endIndex: endIndex - 1  // Exclude the trailing newline
-        }
+      // Only create bookmark if we have a valid name (max 256 chars for Google Docs API)
+      if (bookmarkName && bookmarkName.length > 0 && bookmarkName.length <= 256) {
+        this.requests.push({
+          createNamedRange: {
+            name: bookmarkName,
+            range: {
+              startIndex,
+              endIndex
+            }
+          }
+        });
       }
-    });
-  }
-
-  /**
-   * Generate a bookmark name from heading text
-   * @param {string} text - Heading text
-   * @returns {string} Valid bookmark name
-   */
-  generateBookmarkName(text) {
-    // Create a URL-friendly bookmark name
-    // Remove special characters, replace spaces with hyphens, lowercase
-    return text
-      .toLowerCase()
-      .replace(/[^\w\s-]/g, '') // Remove special chars
-      .replace(/\s+/g, '-')      // Replace spaces with hyphens
-      .replace(/-+/g, '-')       // Replace multiple hyphens with single
-      .substring(0, 256);        // Max 256 characters
+    }
   }
 
   /**
@@ -761,60 +771,7 @@ class DocsPublisher {
       }
     });
 
-    // 2. Apply inline formatting to each run
-    let offset = 0;
-    runs.forEach(run => {
-      const runStart = startIndex + offset;
-      const runEnd = runStart + run.text.length;
-
-      const textStyle = {};
-
-      // Inline formatting
-      if (run.bold) textStyle.bold = true;
-      if (run.italic) textStyle.italic = true;
-      if (run.strikethrough) textStyle.strikethrough = true;
-
-      // Code styling
-      if (run.code) {
-        // textStyle.fontFamily = BRAND.CODE.fontFamily; // TODO: Fix API field
-        textStyle.fontSize = { magnitude: BRAND.CODE.fontSizePt, unit: 'PT' };
-        textStyle.backgroundColor = {
-          color: { rgbColor: hexToRgb(BRAND.CODE.backgroundColor) }
-        };
-      }
-
-      // Links
-      if (run.link) {
-        // Check if this is a heading anchor link (starts with #)
-        if (run.link.startsWith('#')) {
-          // Convert #heading-name to named range name
-          // The anchor format from markdown uses the exact same format we generate
-          const namedRangeName = run.link.substring(1); // Remove the #
-          textStyle.link = { url: `#heading=${namedRangeName}` };
-        } else {
-          // External URL
-          textStyle.link = { url: run.link };
-        }
-        textStyle.underline = true;
-        textStyle.foregroundColor = {
-          color: { rgbColor: hexToRgb('#0066CC') }
-        };
-      }
-
-      if (Object.keys(textStyle).length > 0) {
-        this.requests.push({
-          updateTextStyle: {
-            range: { startIndex: runStart, endIndex: runEnd },
-            textStyle,
-            fields: Object.keys(textStyle).join(',')
-          }
-        });
-      }
-
-      offset += run.text.length;
-    });
-
-    // 3. Apply paragraph-level brand styling
+    // 2. Apply paragraph-level named style and spacing
     this.requests.push({
       updateParagraphStyle: {
         range: { startIndex, endIndex },
@@ -828,36 +785,121 @@ class DocsPublisher {
       }
     });
 
-    // 4. Apply brand font, size, color, weight, and underline
-    const textStyle = {
-      fontSize: this.makeDimension(brandStyle.fontSizePt),
-      foregroundColor: {
-        color: { rgbColor: hexToRgb(brandStyle.color) }
-      },
-      weightedFontFamily: {
-        fontFamily: brandStyle.fontFamily,
-        weight: brandStyle.fontWeight || 400
+    // 3. Apply brand styling to all runs (font, size, color, weight)
+    let offset = 0;
+    runs.forEach(run => {
+      const runStart = startIndex + offset;
+      const runEnd = runStart + run.text.length;
+
+      const textStyle = {
+        weightedFontFamily: {
+          fontFamily: brandStyle.fontFamily,
+          weight: brandStyle.fontWeight
+        },
+        fontSize: this.makeDimension(brandStyle.fontSizePt),
+        foregroundColor: {
+          color: { rgbColor: hexToRgb(brandStyle.color) }
+        }
+      };
+
+      const fields = ['weightedFontFamily', 'fontSize', 'foregroundColor'];
+
+      // Handle underline (explicit true or false)
+      if (brandStyle.underline === true) {
+        textStyle.underline = true;
+        fields.push('underline');
+      } else if (brandStyle.underline === false) {
+        textStyle.underline = false;
+        fields.push('underline');
       }
-    };
 
-    const fields = ['fontSize', 'foregroundColor', 'weightedFontFamily'];
+      this.requests.push({
+        updateTextStyle: {
+          range: { startIndex: runStart, endIndex: runEnd },
+          textStyle,
+          fields: fields.join(',')
+        }
+      });
 
-    // Handle underline explicitly
-    if (brandStyle.underline === true) {
-      textStyle.underline = true;
-      fields.push('underline');
-    } else if (brandStyle.underline === false) {
-      // Explicitly remove underline if specified
-      textStyle.underline = false;
-      fields.push('underline');
-    }
+      offset += run.text.length;
+    });
 
-    this.requests.push({
-      updateTextStyle: {
-        range: { startIndex, endIndex: endIndex - 1 }, // Exclude newline
-        textStyle,
-        fields: fields.join(',')
+    // 4. Apply inline formatting to each run (bold, italic, links, etc.)
+    offset = 0;
+    runs.forEach(run => {
+      const runStart = startIndex + offset;
+      const runEnd = runStart + run.text.length;
+
+      const textStyle = {};
+      const fields = [];
+
+      // Inline formatting
+      if (run.bold) {
+        // Check if this is medium weight text (colon labels)
+        if (run.medium) {
+          // Use Medium (500) for colon-prefixed labels
+          textStyle.weightedFontFamily = {
+            fontFamily: brandStyle.fontFamily,
+            weight: 500
+          };
+        } else {
+          // Use Semi-Bold (600) for regular bold text
+          textStyle.weightedFontFamily = {
+            fontFamily: brandStyle.fontFamily,
+            weight: 600
+          };
+        }
+        fields.push('weightedFontFamily');
       }
+
+      if (run.italic) {
+        textStyle.italic = true;
+        fields.push('italic');
+      }
+
+      if (run.strikethrough) {
+        textStyle.strikethrough = true;
+        fields.push('strikethrough');
+      }
+
+      // Code styling
+      if (run.code) {
+        textStyle.weightedFontFamily = { fontFamily: BRAND.CODE.fontFamily, weight: BRAND.CODE.fontWeight };
+        textStyle.fontSize = this.makeDimension(BRAND.CODE.fontSizePt);
+        textStyle.backgroundColor = {
+          color: { rgbColor: hexToRgb(BRAND.CODE.backgroundColor) }
+        };
+        fields.push('weightedFontFamily', 'fontSize', 'backgroundColor');
+      }
+
+      // Links
+      if (run.link) {
+        // Check if it's an internal anchor link
+        if (run.link.startsWith('#')) {
+          const anchor = run.link.substring(1);
+          const bookmarkName = this.generateBookmarkName(anchor);
+          textStyle.link = { bookmarkId: bookmarkName };
+        } else {
+          textStyle.link = { url: run.link };
+        }
+        textStyle.underline = true;
+        textStyle.foregroundColor = {
+          color: { rgbColor: hexToRgb('#0066CC') }
+        };
+        fields.push('link', 'underline', 'foregroundColor');
+      }
+
+      if (fields.length > 0) {
+        this.requests.push({
+          updateTextStyle: {
+            range: { startIndex: runStart, endIndex: runEnd },
+            textStyle,
+            fields: fields.join(',')
+          }
+        });
+      }
+
+      offset += run.text.length;
     });
 
     this.cursorIndex = endIndex;
@@ -891,19 +933,35 @@ class DocsPublisher {
         const runEnd = runStart + run.text.length;
 
         const textStyle = {};
-        if (run.bold) textStyle.bold = true;
-        if (run.italic) textStyle.italic = true;
+        const fields = [];
+
+        if (run.bold) {
+          // Check if this is medium weight text (colon labels)
+          if (run.medium) {
+            // Use Medium (500) for colon-prefixed labels
+            textStyle.weightedFontFamily = { fontFamily: 'Poppins', weight: 500 };
+          } else {
+            // Use Semi-Bold (600) for regular bold text
+            textStyle.weightedFontFamily = { fontFamily: 'Poppins', weight: 600 };
+          }
+          fields.push('weightedFontFamily');
+        }
+        if (run.italic) {
+          textStyle.italic = true;
+          fields.push('italic');
+        }
         if (run.link) {
           textStyle.link = { url: run.link };
           textStyle.underline = true;
+          fields.push('link', 'underline');
         }
 
-        if (Object.keys(textStyle).length > 0) {
+        if (fields.length > 0) {
           this.requests.push({
             updateTextStyle: {
               range: { startIndex: runStart, endIndex: runEnd },
               textStyle,
-              fields: Object.keys(textStyle).join(',')
+              fields: fields.join(',')
             }
           });
         }
@@ -916,16 +974,16 @@ class DocsPublisher {
         updateTextStyle: {
           range: { startIndex: itemStartIndex, endIndex: itemEndIndex - 1 },
           textStyle: {
+            weightedFontFamily: {
+              fontFamily: BRAND.LIST.fontFamily,
+              weight: BRAND.LIST.fontWeight
+            },
             fontSize: this.makeDimension(BRAND.LIST.fontSizePt),
             foregroundColor: {
               color: { rgbColor: hexToRgb(BRAND.LIST.color) }
-            },
-            weightedFontFamily: {
-              fontFamily: BRAND.LIST.fontFamily,
-              weight: BRAND.LIST.fontWeight || 400
             }
           },
-          fields: 'fontSize,foregroundColor,weightedFontFamily'
+          fields: 'weightedFontFamily,fontSize,foregroundColor'
         }
       });
 
@@ -937,31 +995,9 @@ class DocsPublisher {
       this.cursorIndex = itemEndIndex;
     });
 
-    // Generate a unique list ID for this list block to ensure independent numbering
-    const uniqueListId = `list-${this.listCounter++}`;
-
-    // Apply bullet/numbering to all items
-    // Each list block gets its own unique ID so numbering resets (doesn't continue from previous lists)
+    // Apply formatting to all items
     listItems.forEach(item => {
-      const bulletRequest = {
-        createParagraphBullets: {
-          range: {
-            startIndex: item.startIndex,
-            endIndex: item.endIndex
-          },
-          bulletPreset: block.ordered ? 'NUMBERED_DECIMAL_ALPHA_ROMAN' : 'BULLET_DISC_CIRCLE_SQUARE'
-        }
-      };
-
-      // For ordered lists, assign unique list ID to force independent numbering
-      // For bulleted lists, also use unique IDs to keep them separate
-      if (block.ordered) {
-        bulletRequest.createParagraphBullets.listId = uniqueListId;
-      }
-
-      this.requests.push(bulletRequest);
-
-      // Apply list paragraph spacing from brand config
+      // Apply spacing
       this.requests.push({
         updateParagraphStyle: {
           range: {
@@ -969,11 +1005,22 @@ class DocsPublisher {
             endIndex: item.endIndex
           },
           paragraphStyle: {
+            lineSpacing: BRAND.LIST.lineSpacing * 100,
             spaceAbove: this.makeDimension(BRAND.LIST.beforeSpacingPt),
-            spaceBelow: this.makeDimension(BRAND.LIST.afterSpacingPt),
-            lineSpacing: BRAND.LIST.lineSpacing * 100
+            spaceBelow: this.makeDimension(BRAND.LIST.afterSpacingPt)
           },
-          fields: 'spaceAbove,spaceBelow,lineSpacing'
+          fields: 'lineSpacing,spaceAbove,spaceBelow'
+        }
+      });
+
+      // Create bullets - each list gets its own auto-generated ID
+      this.requests.push({
+        createParagraphBullets: {
+          range: {
+            startIndex: item.startIndex,
+            endIndex: item.endIndex
+          },
+          bulletPreset: block.ordered ? 'NUMBERED_DECIMAL_ALPHA_ROMAN' : 'BULLET_DISC_CIRCLE_SQUARE'
         }
       });
     });
@@ -1001,7 +1048,10 @@ class DocsPublisher {
       updateTextStyle: {
         range: { startIndex, endIndex: endIndex - 1 },
         textStyle: {
-          weightedFontFamily: { fontFamily: BRAND.CODE.fontFamily },
+          weightedFontFamily: {
+            fontFamily: BRAND.CODE.fontFamily,
+            weight: BRAND.CODE.fontWeight
+          },
           fontSize: this.makeDimension(BRAND.CODE.fontSizePt),
           foregroundColor: {
             color: { rgbColor: hexToRgb(BRAND.CODE.color) }
@@ -1037,7 +1087,6 @@ class DocsPublisher {
     // Flatten blockquote blocks into simple paragraphs with blockquote styling
     block.blocks.forEach(innerBlock => {
       if (innerBlock.type === 'paragraph') {
-        // Insert as styled paragraph with blockquote styling
         const startIndex = this.cursorIndex;
         const fullText = innerBlock.runs.map(r => r.text).join('') + '\n';
         const endIndex = startIndex + fullText.length;
@@ -1050,26 +1099,42 @@ class DocsPublisher {
           }
         });
 
-        // 1.5 Apply inline formatting to runs
+        // 2. Apply inline formatting
         let offset = 0;
         innerBlock.runs.forEach(run => {
           const runStart = startIndex + offset;
           const runEnd = runStart + run.text.length;
 
           const textStyle = {};
-          if (run.bold) textStyle.bold = true;
-          if (run.italic) textStyle.italic = true;
+          const fields = [];
+
+          if (run.bold) {
+            // Check if this is medium weight text (colon labels)
+            if (run.medium) {
+              // Use Medium (500) for colon-prefixed labels
+              textStyle.weightedFontFamily = { fontFamily: 'Poppins', weight: 500 };
+            } else {
+              // Use Semi-Bold (600) for regular bold text
+              textStyle.weightedFontFamily = { fontFamily: 'Poppins', weight: 600 };
+            }
+            fields.push('weightedFontFamily');
+          }
+          if (run.italic) {
+            textStyle.italic = true;
+            fields.push('italic');
+          }
           if (run.link) {
             textStyle.link = { url: run.link };
             textStyle.underline = true;
+            fields.push('link', 'underline');
           }
 
-          if (Object.keys(textStyle).length > 0) {
+          if (fields.length > 0) {
             this.requests.push({
               updateTextStyle: {
                 range: { startIndex: runStart, endIndex: runEnd },
                 textStyle,
-                fields: Object.keys(textStyle).join(',')
+                fields: fields.join(',')
               }
             });
           }
@@ -1077,7 +1142,7 @@ class DocsPublisher {
           offset += run.text.length;
         });
 
-        // 2. Apply blockquote paragraph style
+        // 3. Apply blockquote paragraph style
         this.requests.push({
           updateParagraphStyle: {
             range: { startIndex, endIndex },
@@ -1086,364 +1151,42 @@ class DocsPublisher {
               spaceAbove: this.makeDimension(BRAND.BLOCKQUOTE.beforeSpacingPt),
               spaceBelow: this.makeDimension(BRAND.BLOCKQUOTE.afterSpacingPt),
               indentStart: this.makeDimension(BRAND.BLOCKQUOTE.indentStart)
-              // Note: borderLeft is not supported via API - would need manual styling
             },
             fields: 'lineSpacing,spaceAbove,spaceBelow,indentStart'
           }
         });
 
-        // 3. Apply blockquote text style
+        // 4. Apply blockquote text style
         this.requests.push({
           updateTextStyle: {
             range: { startIndex, endIndex: endIndex - 1 },
             textStyle: {
+              weightedFontFamily: {
+                fontFamily: BRAND.BLOCKQUOTE.fontFamily,
+                weight: BRAND.BLOCKQUOTE.fontWeight
+              },
               fontSize: this.makeDimension(BRAND.BLOCKQUOTE.fontSizePt),
               italic: true,
               foregroundColor: {
                 color: { rgbColor: hexToRgb(BRAND.BLOCKQUOTE.color) }
               }
             },
-            fields: 'fontSize,italic,foregroundColor'
+            fields: 'weightedFontFamily,fontSize,italic,foregroundColor'
           }
         });
 
         this.cursorIndex = endIndex;
       } else {
-        // For other block types (headings, lists), process normally without blockquote styling
         this.processBlock(innerBlock);
       }
     });
   }
 
   /**
-   * Insert a table with proper Google Docs table structure and brand styling
-   * This is stored for later processing since tables require a two-phase approach
-   */
-  insertTable(block) {
-    const rows = block.rows.length;
-    const cols = block.rows[0]?.length || 1;
-    const tableStartIndex = this.cursorIndex;
-
-    // Store table data for processing in a separate batch
-    if (!this.pendingTables) {
-      this.pendingTables = [];
-    }
-
-    this.pendingTables.push({
-      block,
-      startIndex: tableStartIndex,
-      rows,
-      cols
-    });
-
-    // Insert the table structure
-    this.requests.push({
-      insertTable: {
-        rows,
-        columns: cols,
-        location: { index: tableStartIndex }
-      }
-    });
-
-    // Calculate end index of table
-    // Table structure: start + 1 (table start) + (rows * (1 row start + cols * 2)) + 1 (table end)
-    const tableEndIndex = tableStartIndex + 2 + (rows * (1 + cols * 2));
-    this.cursorIndex = tableEndIndex;
-  }
-
-  /**
-   * Process pending tables after initial table structures are created
-   * This must be called after the first batchUpdate completes
-   */
-  async processPendingTables() {
-    if (!this.pendingTables || this.pendingTables.length === 0) {
-      return;
-    }
-
-    // Read back the document to get actual table cell locations
-    const doc = await this.docs.documents.get({ documentId: this.docId });
-
-    const tableRequests = [];
-
-    for (const tableData of this.pendingTables) {
-      const { block, startIndex, rows, cols } = tableData;
-
-      // Find the table in the document structure
-      const table = this.findTableAtIndex(doc.data.body.content, startIndex);
-
-      if (!table) {
-        console.warn(`Could not find table at index ${startIndex}`);
-        continue;
-      }
-
-      // Process cells in reverse order to avoid index shifting
-      for (let rowIdx = rows - 1; rowIdx >= 0; rowIdx--) {
-        const row = block.rows[rowIdx];
-        const tableRow = table.table.tableRows[rowIdx];
-
-        for (let colIdx = cols - 1; colIdx >= 0; colIdx--) {
-          const cell = row[colIdx] || { runs: [{ text: '' }] };
-          const tableCell = tableRow.tableCells[colIdx];
-
-          // Get the actual start index of the cell's first paragraph
-          // Each cell contains at least one paragraph with content
-          const cellContent = tableCell.content[0]; // First element is the paragraph
-          if (!cellContent || !cellContent.paragraph) {
-            console.warn(`Cell at row ${rowIdx}, col ${colIdx} has no paragraph content`);
-            continue;
-          }
-
-          // The paragraph element has a startIndex, but we need to insert INSIDE it
-          // The paragraph's first content element (if it exists) tells us where to insert
-          // For an empty paragraph, we insert right after the paragraph start
-          const paragraph = cellContent.paragraph;
-          let cellStartIndex;
-
-          if (paragraph.elements && paragraph.elements.length > 0) {
-            // Use the first element's start index
-            cellStartIndex = paragraph.elements[0].startIndex;
-          } else {
-            // Empty paragraph - insert at start + 1
-            cellStartIndex = cellContent.startIndex + 1;
-          }
-
-          const cellText = cell.runs.map(r => r.text).join('');
-          console.log(`Cell [${rowIdx},${colIdx}]: cellStartIndex=${cellStartIndex}, paragraphStart=${cellContent.startIndex}, text="${cellText}"`);
-
-          // Insert cell content
-          if (cellText) {
-            tableRequests.push({
-              insertText: {
-                location: { index: cellStartIndex },
-                text: cellText
-              }
-            });
-
-            // Apply inline formatting to each run within the cell
-            let offset = 0;
-            cell.runs.forEach(run => {
-              if (run.text) {
-                const runStart = cellStartIndex + offset;
-                const runEnd = runStart + run.text.length;
-
-                const textStyle = {};
-                if (run.bold) textStyle.bold = true;
-                if (run.italic) textStyle.italic = true;
-                if (run.strikethrough) textStyle.strikethrough = true;
-                if (run.code) {
-                  textStyle.weightedFontFamily = { fontFamily: BRAND.CODE.fontFamily };
-                  textStyle.fontSize = this.makeDimension(BRAND.CODE.fontSizePt);
-                  textStyle.backgroundColor = {
-                    color: { rgbColor: hexToRgb(BRAND.CODE.backgroundColor) }
-                  };
-                }
-
-                // Apply text style if there's any formatting
-                if (Object.keys(textStyle).length > 0) {
-                  tableRequests.push({
-                    updateTextStyle: {
-                      range: { startIndex: runStart, endIndex: runEnd },
-                      textStyle,
-                      fields: Object.keys(textStyle).join(',')
-                    }
-                  });
-                }
-
-                // Apply links
-                if (run.link) {
-                  tableRequests.push({
-                    updateTextStyle: {
-                      range: { startIndex: runStart, endIndex: runEnd },
-                      textStyle: {
-                        link: { url: run.link },
-                        foregroundColor: {
-                          color: { rgbColor: hexToRgb('#4F81BD') }
-                        },
-                        underline: true
-                      },
-                      fields: 'link,foregroundColor,underline'
-                    }
-                  });
-                }
-
-                offset += run.text.length;
-              }
-            });
-          }
-
-          // Apply styling based on row type
-          if (cellText) {
-            const cellEndIndex = cellStartIndex + cellText.length;
-
-            if (rowIdx === 0) {
-              // Header row styling (white text on dark blue background)
-              tableRequests.push({
-                updateTextStyle: {
-                  range: { startIndex: cellStartIndex, endIndex: cellEndIndex },
-                  textStyle: {
-                    weightedFontFamily: {
-                      fontFamily: BRAND.TABLE.headerFontFamily,
-                      weight: BRAND.TABLE.headerFontWeight || 600
-                    },
-                    fontSize: this.makeDimension(BRAND.TABLE.headerFontSizePt),
-                    foregroundColor: {
-                      color: { rgbColor: hexToRgb(BRAND.TABLE.headerTextColor) }
-                    }
-                  },
-                  fields: 'weightedFontFamily,fontSize,foregroundColor'
-                }
-              });
-            } else {
-              // Regular cell styling (dark text)
-              tableRequests.push({
-                updateTextStyle: {
-                  range: { startIndex: cellStartIndex, endIndex: cellEndIndex },
-                  textStyle: {
-                    weightedFontFamily: {
-                      fontFamily: BRAND.TABLE.cellFontFamily,
-                      weight: BRAND.TABLE.cellFontWeight || 400
-                    },
-                    fontSize: this.makeDimension(BRAND.TABLE.cellFontSizePt),
-                    foregroundColor: {
-                      color: { rgbColor: hexToRgb(BRAND.TABLE.cellTextColor) }
-                    }
-                  },
-                  fields: 'weightedFontFamily,fontSize,foregroundColor'
-                }
-              });
-            }
-          }
-        }
-      }
-
-      // Style header row with background color and borders
-      if (rows > 0) {
-        tableRequests.push({
-          updateTableCellStyle: {
-            tableRange: {
-              tableCellLocation: {
-                tableStartLocation: { index: startIndex },
-                rowIndex: 0,
-                columnIndex: 0
-              },
-              rowSpan: 1,
-              columnSpan: cols
-            },
-            tableCellStyle: {
-              backgroundColor: {
-                color: { rgbColor: hexToRgb(BRAND.TABLE.headerBackgroundColor) }
-              },
-              borderBottom: {
-                color: {
-                  color: { rgbColor: hexToRgb(BRAND.TABLE.borderColor) }
-                },
-                width: this.makeDimension(1),
-                dashStyle: 'SOLID'
-              },
-              paddingTop: this.makeDimension(BRAND.TABLE.cellPaddingPt),
-              paddingBottom: this.makeDimension(BRAND.TABLE.cellPaddingPt),
-              paddingLeft: this.makeDimension(BRAND.TABLE.cellPaddingPt),
-              paddingRight: this.makeDimension(BRAND.TABLE.cellPaddingPt)
-            },
-            fields: 'backgroundColor,borderBottom,paddingTop,paddingBottom,paddingLeft,paddingRight'
-          }
-        });
-
-        // Pin header row if configured
-        if (BRAND.TABLE.pinHeaderRow) {
-          tableRequests.push({
-            pinTableHeaderRows: {
-              tableStartLocation: { index: startIndex },
-              pinnedHeaderRowsCount: 1
-            }
-          });
-        }
-      }
-
-      // Apply cell spacing to all table cells (single spacing, no extra spacing)
-      for (let rowIdx = 0; rowIdx < rows; rowIdx++) {
-        for (let colIdx = 0; colIdx < cols; colIdx++) {
-          const tableRow = table.table.tableRows[rowIdx];
-          const tableCell = tableRow.tableCells[colIdx];
-          const cellContent = tableCell.content[0];
-
-          if (cellContent && cellContent.paragraph) {
-            const paragraph = cellContent.paragraph;
-            const cellStartIndex = paragraph.elements[0]?.startIndex || cellContent.startIndex + 1;
-            const cellText = block.rows[rowIdx][colIdx]?.runs.map(r => r.text).join('') || '';
-
-            if (cellText) {
-              const cellEndIndex = cellStartIndex + cellText.length + 1; // +1 for paragraph marker
-
-              tableRequests.push({
-                updateParagraphStyle: {
-                  range: { startIndex: cellStartIndex, endIndex: cellEndIndex },
-                  paragraphStyle: {
-                    lineSpacing: BRAND.TABLE.cellLineSpacing * 100,
-                    spaceAbove: this.makeDimension(BRAND.TABLE.cellBeforeSpacingPt),
-                    spaceBelow: this.makeDimension(BRAND.TABLE.cellAfterSpacingPt)
-                  },
-                  fields: 'lineSpacing,spaceAbove,spaceBelow'
-                }
-              });
-            }
-          }
-        }
-      }
-    }
-
-    // Execute all table content requests in a second batch update
-    if (tableRequests.length > 0) {
-      await this.docs.documents.batchUpdate({
-        documentId: this.docId,
-        requestBody: { requests: tableRequests }
-      });
-    }
-
-    // Clear pending tables
-    this.pendingTables = [];
-  }
-
-  /**
-   * Find a table in the document content at a specific index
-   */
-  findTableAtIndex(content, targetIndex) {
-    for (const element of content) {
-      if (element.table && element.startIndex === targetIndex) {
-        return element;
-      }
-    }
-    return null;
-  }
-
-  /**
-   * Find a table near a specific index (within ±10 positions)
-   * Useful when index might have shifted due to content insertion
-   */
-  findTableNearIndex(content, targetIndex, tolerance = 10) {
-    let closestTable = null;
-    let closestDistance = Infinity;
-
-    for (const element of content) {
-      if (element.table) {
-        const distance = Math.abs(element.startIndex - targetIndex);
-        if (distance <= tolerance && distance < closestDistance) {
-          closestTable = element;
-          closestDistance = distance;
-        }
-      }
-    }
-
-    return closestTable;
-  }
-
-  /**
-   * Insert a horizontal rule as a visual line
-   * (Google Docs API doesn't support insertHorizontalRule or paragraph borders)
+   * Insert a horizontal rule
    */
   insertHorizontalRule() {
     const startIndex = this.cursorIndex;
-    // Use a thin underline character repeated to create a line
     const lineChar = '_';
     const text = lineChar.repeat(80) + '\n';
     const endIndex = startIndex + text.length;
@@ -1455,7 +1198,7 @@ class DocsPublisher {
       }
     });
 
-    // Style the line - light gray, small font, centered
+    // Style the line
     this.requests.push({
       updateTextStyle: {
         range: { startIndex, endIndex: endIndex - 1 },
@@ -1482,6 +1225,38 @@ class DocsPublisher {
     });
 
     this.cursorIndex = endIndex;
+  }
+
+  /**
+   * Find a table in the document content at a specific index
+   */
+  findTableAtIndex(content, targetIndex) {
+    for (const element of content) {
+      if (element.table && element.startIndex === targetIndex) {
+        return element;
+      }
+    }
+    return null;
+  }
+
+  /**
+   * Find a table near a specific index (within ±tolerance positions)
+   */
+  findTableNearIndex(content, targetIndex, tolerance = 50) {
+    let closestTable = null;
+    let closestDistance = Infinity;
+
+    for (const element of content) {
+      if (element.table) {
+        const distance = Math.abs(element.startIndex - targetIndex);
+        if (distance <= tolerance && distance < closestDistance) {
+          closestTable = element;
+          closestDistance = distance;
+        }
+      }
+    }
+
+    return closestTable;
   }
 }
 

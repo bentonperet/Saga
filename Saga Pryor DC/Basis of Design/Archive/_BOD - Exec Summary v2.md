@@ -139,24 +139,23 @@
 - **Delivery driver restroom:** Accessible only from outside at NW corner (within view of security)
 - **E-Houses:** 2 Electrical Houses (14' × 260' each) located in south electrical equipment yard, plus 11 LV transformers on outdoor pads
 
-**Multi-Level Central Spine (3 Levels):** <!-- @claude: User confirms it's 3 levels in central spine, 1 level everywhere else. Review this section. -->
-- **Level 1:** Prefabricated storm shelter/safe room (20 person), elevator/stairwell, redundant restrooms, men's/women's showers, break room, lounge, gaming area (TBD)
+**Multi-Level Central Spine (3 Levels):**
+- **Level 1:** Prefabricated storm shelter/safe room (20 person), elevator/stairwell, redundant restrooms, men's/women's showers, break room, lounge
 - **Level 2 (Secure NOC):** NOC (~2,060 SF), private NOC area
-- **Level 3 (Fitness/Tour Route):** Gym/fitness center, secure tour route with internal windows into critical areas, weather-protected balconies (north/south) for equipment yard views, accessible to security and technical operations staff for routine site walks
+- **Level 3 (Fitness/Tour Route):** Gym/fitness center, secure tour route with internal windows into critical areas, accessible to security and technical operations staff for routine site walks
 - **Roof Level:** Weather-protected access via elevator/stairwell; storm-rated SS debris screen; protected roof-mounted equipment
 
 ---
 
 ### **RENEWABLE ENERGY & UTILITIES**
-- **Solar:** Adjacent ~12 MW solar array (owned separately, behind-the-meter connection to 13.8 kV common bus)
-- **BESS:** Battery Energy Storage System (owned separately, behind-the-meter connection to 13.8 kV common bus)
+- **Solar:** Adjacent ~16.8 MW solar array (owned separately, behind-the-meter connection to 13.8 kV common bus)
 - **Primary Utility Service:** Owner-constructed 161 kV substation with 2 × 35 MVA transformers (161kV/13.8kV, N+1 redundancy)
   - Dual redundant 161 kV transmission line feeds
   - All power transformed to 13.8 kV common bus (US standard voltage for data centers and renewables)
 - **Water:** Municipal or well (domestic use only, ~500-1,000 gal/day)
 - **Sewer:** Municipal or septic (domestic wastewater)
 - **Natural Gas:** Utility service for house generators (backup power to non-critical areas)
-- **[TBD] OPTIONAL Micro-Turbine Natural Gas Generators:** For Oklahoma SB 480 qualification (budget in Solar/BESS CAPEX, not Data Center)
+- **[TBD] OPTIONAL Micro-Turbine Natural Gas Generators:** For Oklahoma SB 480 qualification
 - **Fiber:** Dual diverse entries via underground ductbank [CRITICAL PRIORITY - Must confirm physically diverse paths and carrier agreements before project proceeds]
 
 ---
@@ -232,7 +231,7 @@
 
 
 **Next Steps:**
-1. TBD
+1. TBD {BENTON}
 
 ---
 
@@ -242,5 +241,3 @@
 - **Corrections:**
 
 
-**CAPEX Savings Note:**
-- We've kept the sparkle of the high ceilings and raised walking track for customer tours and security... However, for cost savings, an overall reduction in building height to ~20ft would provide ample space for any type of adaptation (hot aisle containment, etc.). It would save on steel and concrete, if required.

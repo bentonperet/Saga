@@ -35,10 +35,6 @@ Fire protection systems protect personnel, IT equipment, and facility infrastruc
   2. Second detection zone confirms → alarm
   3. Heat activation (sprinkler fusible link) → water release to specific zone only
 - **Benefit:** Dry pipe until both smoke + heat detected; zoned activation limits water discharge area
-- **Sprinkler heads:** ESFR (Early Suppression Fast Response) per NFPA 13
-- **Coverage:** Per NFPA 13 for data center occupancy
-- **Water demand:** Per hydraulic calculations and NFPA 13
-- **Zoned demand:** Per zone hydraulic calculations
 
 **DDC Cabinet Integrated Suppression:**
 - DDC cabinets include factory-integrated fire suppression
@@ -95,7 +91,7 @@ Fire protection systems protect personnel, IT equipment, and facility infrastruc
 **Rationale:** Outdoor transformers have natural ventilation and heat dissipation; fixed suppression not required per NFPA 850
 
 ### Generator Enclosures
-TBD
+<!-- @claude - please write a 1-2 sentence statement about the enclosure required -->
 
 ---
 

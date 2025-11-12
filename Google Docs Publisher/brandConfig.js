@@ -74,12 +74,12 @@ const BRAND = {
   },
   BODY: {
     fontFamily: 'Poppins',
-    fontWeight: 400,           // Regular
+    fontWeight: 300,           // Light
     color: '#222222',
     fontSizePt: 10,
     lineSpacing: 1.15,
-    beforeSpacingPt: 6,
-    afterSpacingPt: 3
+    beforeSpacingPt: 0,
+    afterSpacingPt: 0
   },
   LIST: {
     fontFamily: 'Poppins',

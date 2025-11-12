@@ -70,6 +70,27 @@ cd "Google Docs Publisher"
 node index.js "path/to/file.md"
 ```
 
+## Error Logging
+
+If the export fails, all error details are automatically saved to `export-errors.log` in the same directory. This helps capture errors that disappear quickly when using the hotkey.
+
+**Error log includes:**
+- Full error message and stack trace
+- Timestamp of when the error occurred
+- File path and command-line arguments used
+- Google API error details (if applicable)
+
+**To view recent errors:**
+```bash
+# View last 50 lines of the error log
+tail -50 "Google Docs Publisher/export-errors.log"
+
+# View entire error log
+cat "Google Docs Publisher/export-errors.log"
+```
+
+**Note:** The error log file (`export-errors.log`) is already in `.gitignore` and won't be committed to Git.
+
 ## Customizing Your Brand
 
 **Want different colors or fonts?** Edit `brandConfig.js`:

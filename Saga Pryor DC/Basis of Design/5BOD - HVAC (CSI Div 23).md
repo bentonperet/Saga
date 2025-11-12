@@ -10,110 +10,93 @@
 
 ## OVERVIEW
 
-This document defines the phased mechanical cooling strategy for a 22 MW IT (28 MW facility) data center. The design is optimized for AI/ML workloads, starting with a 3 MW L2C (Liquid-to-Chip) anchor tenant (Phase 1) and expanding to a 22 MW ultimate capacity.
+This document defines the phased mechanical cooling strategy for a 24 MW IT (~38.4 MW facility) data center deployed in 6MW blocks. The design is optimized for AI/ML workloads and supports both liquid cooling and traditional air-cooled solutions.
 
-The design is built on a zoned-hall (DH-W vs. DH-E) concept with two independent, physically separate cooling plants (a 16.2 MW warm-water L2C plant and a 5.8 MW cold-water RDHx plant).
+The facility supports advanced cooling technologies including a 3-loop architecture with warm-water L2C (Liquid-to-Chip) and cold-water DDC Cabinet or RDHx (Rear-Door Heat Exchanger) capabilities. **Note:** Specific cooling deployment is client-dependent and excluded from this basis of design.
 
 **Design Philosophy:**
-- **Phased Deployment:** Cooling plant CapEx is deployed in phases to match IT load and rack growth (30 → 150 → 285 → 394 racks).
-- **Zoned-Hall Strategy:**
-  - **Data Hall West:** Served by Loop 3 (L2C)
-  - **Data Hall East:** Served by Loops 1+2 (RDHx)
-- **Separate Loop Architecture:**
-  - **Loop 3 (L2C):** 16.2 MW plant with an **85°F (29°C)** "warm water" supply. This temperature is specified to maximize chiller efficiency and free cooling hours.
-  - **Loops 1+2 (RDHx):** 5.8 MW plant with a **60°F (15.5°C)** "cold water" supply. This temperature is required for effective rear-door air cooling.
-- **Redundancy:** N+1 for all chillers, pumps, and cooling distribution units.
-- **Zero Water Consumption:** Design uses all air-cooled chillers, closed-loop glycol/fluid systems, and zero evaporative cooling.
-- **Target PUE:** 1.45 (Phase 1) to 1.35 (Phase 4) at scale, driven by warm-water cooling efficiencies.
+- **Block Deployment:** Cooling infrastructure sized per 6MW IT block (~7MW cooling load per block @ 1.6 PUE)
+- **3-Loop Architecture:** Facility supports independent warm water (85°F) and cold water (60°F) cooling loops
+  - **Loop 3 (L2C):** 85°F warm water maximizes chiller efficiency and free cooling hours
+  - **Loops 1+2 (RDHx):** 60°F cold water enables rear-door heat exchangers
+- **Redundancy:** N+1 for all chillers and distribution equipment
+- **Zero Water Consumption:** All air-cooled chillers, closed-loop glycol systems, zero evaporative cooling
+- **Target PUE:** 1.4 average (electrical sizing at 1.6 PUE for Oklahoma heat conditions)
 
 ---
 
 ## COOLING LOAD PHASING
 
-
 ### Load Summary by Phase
 
-| Phase | IT MW | PUE  | Facility MW |
-| ----- | ----- | ---- | ----------- |
-| **1** | 3     | 1.45 | 4.35        |
-| **2** | 6     | 1.45 | 8.7         |
-| **3** | 15    | 1.35 | 20.25       |
-| **4** | 22    | 1.35 | 29.7        |
+| Phase | IT MW | Design PUE | Facility MW | Cooling Load per Block |
+| ----- | ----- | ---------- | ----------- | ---------------------- |
+| **1** | 6     | 1.6        | 9.6         | ~7 MW                  |
+| **2** | 12    | 1.6        | 19.2        | ~7 MW                  |
+| **3** | 18    | 1.6        | 28.8        | ~7 MW                  |
+| **4** | 24    | 1.6        | 38.4        | ~7 MW                  |
 
-
-### IT Load & Rack Phasing
-
-| **Phase** | **IT MW (Cumulative)** | **Racks (Total)** | **L2C Racks (100kW)** | **RDHx Racks (25kW)** | **L2C Load** | **RDHx Load** |
-|---|---|---|---|---|---|---|
-| **1** | 3 MW | 30 | 30 | 0 | 3.0 MW | 0 MW |
-| **2** | 6 MW | 150 | 30 | 120 | 3.0 MW | 3.0 MW |
-| **3** | 15 MW | 285 | 105 | 180 | 10.5 MW | 4.5 MW |
-| **4** | 22 MW | 394 | 162 | 232 | **16.2 MW** | **5.8 MW** |
+**Note:** Each 6MW IT block requires approximately 7MW of cooling capacity (accounts for UPS losses, mechanical loads, and environmental overhead).
 
 ### Mechanical Plant Phasing
 
-| **Phase** | **L2C Load** | **L2C Plant (N+1)** | **RDHx Load** | **RDHx Plant (N+1)** | **L2C CDU Solution** |
-|---|---|---|---|---|---|
-| **1** | 3.0 MW | Phased to 3 MW | 0 MW | Not Commissioned | A/B for 30 Racks |
-| **2** | 3.0 MW | Phased to 3 MW | 3.0 MW | Phased to 3 MW | A/B for 30 Racks |
-| **3** | 10.5 MW | Phased to 10.5 MW | 4.5 MW | Phased to 4.5 MW | A/B for 105 Racks |
-| **4** | 16.2 MW | Phased to 16.2 MW | 5.8 MW | Phased to 5.8 MW | A/B for 162 Racks |
+Cooling plant deployed per 6MW block:
+- **Chillers:** N+1 configuration sized for ~7MW cooling load per block
+- **Estimated:** 3-4 chillers per block (vendor-dependent sizing)
+- **Phase 4:** 12-16 chillers total across 4 blocks
+- **Free Cooling:** 85°F warm water loop enables ~3,500-4,000 hours/year of economization in Oklahoma climate
+
+**Client-Specific:** Final cooling distribution (L2C vs RDHx vs air-cooled) determined by tenant requirements. Facility infrastructure supports all approaches.
 
 ---
 
-## LOOP 3: WARM WATER L2C PLANT (16.2 MW)
+## LOOP 3: WARM WATER L2C PLANT
 
-This plant serves the 162 high-density (100 kW) L2C racks in Data Hall West.
+**Facility supports advanced liquid-to-chip (L2C) cooling for high-density AI/ML workloads.**
 
 ### L2C Chiller Plant
 
-- **Capacity (Phase 4):** Shall be an N+1 air-cooled chiller plant, phased to meet the ultimate **16.2 MW** L2C load.
+- **Supply Temperature:** **85°F (29°C)** warm water
+- **Efficiency Advantage:** 85°F supply maximizes chiller COP and enables ~3,500-4,000 hours/year free cooling in Oklahoma
 - **Fluid:** 25% Propylene Glycol / Water Mixture
-- **Supply Temperature:** **85°F (29°C)**
-- **Efficiency:** The 85°F supply temperature is specified to maximize mechanical COP and free-cooling opportunities.
-- **Pumping:** **Variable Primary Flow (VPF)**. All primary pumps shall be integrated into the packaged chillers with VFDs. No separate pump rooms required.
+- **Configuration:** N+1 air-cooled chiller plant with variable primary flow (VPF)
+- **Sizing:** Deployed per 6MW block requirements
 
-### L2C Coolant Distribution
+### L2C Distribution Concept
 
-**Loop Architecture:**
-- **Primary Loop (Loop 3):** Facility water (25% glycol) from chillers to CDU heat exchanger
-- **Secondary Loop:** Dielectric fluid (or facility-safe coolant) from CDU to rack cold plates
-- **Tertiary Loop:** Cold plate internal micro-channels
-- **Separation:** Primary and secondary loops isolated via plate heat exchanger in CDU (no cross-contamination)
+**3-Loop Architecture:**
+- **Primary Loop:** Facility glycol/water from chillers to CDU heat exchangers
+- **Secondary Loop:** Dielectric fluid from CDU to rack cold plates
+- **Tertiary Loop:** Cold plate micro-channels for component-level cooling
+- **Separation:** Loops isolated via heat exchangers (prevents cross-contamination)
 
-**CDU Configuration:**
-- **Location:** High-capacity CDUs located in the adjacent mechanical galleries, not in the data hall.
-- **Redundancy:** Each 100 kW L2C rack shall be fed by an **A/B redundant CDU solution.**
-- **Capacity (Each CDU):** The A/B CDU solution shall be sized to support the full 100 kW rack load.
-- **Components:** Plate heat exchanger, secondary pumps (N+1), expansion tank, filtration system, control system with PLC, leak detection sensors.
-- **Primary Side:** 85°F warm water from Loop 3.
-- **Secondary Side:** Dielectric fluid (or facility-safe fluid) piped via overhead manifolds to quick-disconnects at each rack's cold plates.
-- **Controls:** Integrated leak detection at all connections, reporting to BMS.
+**Key Benefits:**
+- Supports 100+ kW/rack densities for GPU clusters
+- Significantly improved PUE vs air cooling (1.2-1.3 achievable)
+- Reduced data hall HVAC loads
+- Extended free cooling season with warm water
 
-**Design Requirements (Next Phase):**
-- **Water Quality:** Water quality requirements for primary and secondary loops shall be specified in detailed design.
-- **Cold Plate Specifications:** Cold plate performance requirements, thermal interface materials, and component coverage shall be specified by system engineers.
-- **Piping Specifications:** Manifold materials, pressure ratings, isolation valves, and quick-disconnect specifications shall be determined in detailed design.
-- **Commissioning:** L2C commissioning is a specialized effort requiring coordination with commissioning professionals. PACHYDERM GLOBAL has experience with liquid cooling commissioning.
-- **Maintenance & Monitoring:** Routine testing schedules, filter replacement protocols, and water quality monitoring shall be specified in the next phase.
+**Note:** Detailed L2C specifications (CDUs, cold plates, secondary piping, commissioning) are client-specific and determined during tenant build-out. Facility provides primary infrastructure to support L2C deployment.
 
-## LOOPS 1+2: COLD WATER RDHx PLANT (5.8 MW)
+## LOOPS 1+2: COLD WATER RDHx PLANT
 
-This plant serves the 232 medium-density (25 kW) RDHx racks in Data Hall East.
+**Facility supports rear-door heat exchanger (RDHx) cooling for medium-density workloads.**
 
 ### RDHx Chiller Plant
 
-- **Capacity (Phase 4):** Shall be an N+1 air-cooled chiller plant, phased to meet the ultimate **5.8 MW** RDHx load.
+- **Supply Temperature:** **60°F (15.5°C)** cold water
+- **Rationale:** Colder water required for effective rear-door air-to-water cooling
 - **Fluid:** 25% Propylene Glycol / Water Mixture
-- **Supply Temperature:** **60°F (15.5°C)**
-- **Rationale:** This colder temperature is required for the RDHx units to effectively cool air.
-- **Pumping:** **Variable Primary Flow (VPF)**. All primary pumps shall be integrated into the packaged chillers with VFDs.
+- **Configuration:** N+1 air-cooled chiller plant with variable primary flow (VPF)
+- **Sizing:** Deployed per facility cooling requirements
 
-### RDHx Distribution
+### RDHx Distribution Concept
 
-- **RDHx Units:** One (1) Rear-Door Heat Exchanger shall be mounted on each of the 232 racks.
-- **Capacity (Each RDHx):** Sized to support the 25 kW rack load.
-- **Distribution:** 60°F cold water shall be piped via overhead manifolds to quick-disconnects at each RDHx unit.
+- **Distribution:** Cold water piped via overhead manifolds to rack-mounted heat exchangers
+- **Typical Density:** Supports 25-40 kW/rack for traditional enterprise and AI inference workloads
+- **Installation:** RDHx units mounted on rear door of standard racks
+
+**Note:** RDHx deployment and specifications are client-specific and determined during tenant build-out.
 
 ---
 
@@ -164,33 +147,27 @@ This section defines the complete chilled water infrastructure for all three coo
 
 **Loop 3 (L2C - 85°F Warm Water):**
 - **Route:** From chillers → mechanical gallery → data hall overhead distribution → CDU connections
-- **Pipe Size:** 6" - 12" steel pipe (sized per flow requirements, final sizing in detailed design)
-- **Material:** Schedule 40 carbon steel with welded joints (preferred) or grooved fittings
-- **Insulation:** 2" closed-cell elastomeric insulation with vapor barrier (prevent condensation)
+- **Pipe Sizing:** Piping shall be sized to maintain industry-standard flow velocities (4-8 fps) and minimize pressure drop
+- **Material:** Primary loop piping shall be welded carbon steel. Grooved fittings may be used where appropriate for maintainability
+- **Insulation:** All chilled water piping shall be insulated to prevent condensation and meet or exceed energy code requirements
 - **Isolation:** Ball valves at each major equipment connection for concurrent maintainability
-- **Hangers/Supports:** Engineered hangers designed for seismic loads per IBC 2021
+- **Supports:** Piping and equipment supports shall be designed and braced for seismic loads per local code
 - **Expansion Compensation:** Expansion loops or flexible connectors at appropriate intervals
 
 **Loops 1+2 (RDHx - 60°F Cold Water):**
 - **Route:** From chillers → mechanical gallery → data hall overhead distribution → RDHx connections
-- **Pipe Size:** 4" - 8" steel pipe (sized per flow requirements)
 - **Material & Details:** Same specifications as Loop 3
 
 ### Secondary Loop Piping (L2C Only)
 
 **CDU to Rack Cold Plates:**
 - **Fluid:** Dielectric fluid or facility-safe coolant (specified by CDU manufacturer)
-- **Route:** From CDU heat exchanger → overhead manifolds → quick-disconnect drops to rack cold plates
-- **Pipe Size:** 1" - 2" (per CDU manufacturer specifications)
-- **Material:** Stainless steel or approved dielectric-compatible tubing
-- **Pressure Rating:** Designed for 150+ psi operating pressure
+- **Material:** Stainless steel or approved dielectric-compatible tubing per CDU vendor requirements
 - **Leak Detection:** Integrated at all connections (see Leak Detection section)
 
 ### Overhead Manifolds & Quick-Disconnects
 
-**Data Hall Distribution Manifolds:**
-- **L2C Manifolds (DH-W):** Overhead pipe manifolds with 162 quick-disconnect drop points (one per L2C rack)
-- **RDHx Manifolds (DH-E):** Overhead pipe manifolds with 232 quick-disconnect drop points (one per RDHx rack)
+**Data Hall Distribution Manifolds:** Including L2C, DDC, or RDHx as per client need
 - **Quick-Disconnects:** Dry-break couplings with automatic shutoff on both sides (prevent spillage during rack maintenance)
 - **Labeling:** All connections clearly labeled with zone and rack identification
 - **Accessibility:** Maintained clearances for overhead access (coordinate with cable tray routing)
@@ -227,69 +204,26 @@ This section defines the complete chilled water infrastructure for all three coo
 **Concentration:**
 - **Target:** 25-30% glycol by volume
 
-**System Volumes:**
-- **Loop 3 (L2C):** ~15,000 gallons total (includes piping, CDUs, expansion tanks)
-- **Loops 1+2 (RDHx):** ~5,000 gallons total (includes piping, RDHx units, expansion tanks)
-- **Total glycol required:** ~6,000 gallons propylene glycol (30% of 20,000 gal total system volume)
-
 ### Glycol Storage & Fill Systems
 
 **Bulk Glycol Storage:**
-- **Phase 1:** 1,500 gallons propylene glycol (for Loops 1+2 initial fill)
-- **Phase 2:** 4,500 gallons additional (for Loop 3)
-- **Delivery:** 55-gallon drums or 275-gallon totes (bulk tanker truck if available)
 - **Storage Location:** Outdoor chemical storage shed with secondary containment per EPA SPCC requirements
 - **Safety:** SDS (Safety Data Sheets) on-site, spill kit and containment equipment
 
-**Glycol Mix Tanks (3 Total):**
-- **Capacity:** 500-gallon mixing tanks (one per loop: Loop 1, Loop 2, Loop 3)
-- **Purpose:** Pre-mix glycol to proper concentration before filling system
-- **Equipment:** Mixing pumps, level indicators, sample ports for testing
+**Glycol Mix & Fill Systems:**
+- The design shall include dedicated, isolated glycol mixing, storage, and fill systems for each primary loop (L2C and RDHx)
+- Each system shall be equipped with makeup water, a mix tank, and a distribution pump
 - **Location:** Near respective chiller plants in mechanical yard
-
-**Fill Stations (3 Total):**
-- **Location:** One fill station per loop, adjacent to each chiller plant
-- **Equipment:**
-  - Hose connection points with isolation valves
-  - Drain connections for maintenance
-  - Portable transfer pump (200-300 GPM for initial fill)
-  - Totalizing flow meters (track makeup volume over time)
-- **Venting:** Manual high-point air vents for purging during initial fill
-
-### Initial Fill Procedure
-
-1. **Pre-Fill Preparation:**
-   - Flush systems with deionized or softened water (no raw municipal water)
-   - Pressure test systems per ASME standards
-   - Verify all isolation valves, connections, and accessories
-
-2. **Glycol Mixing:**
-   - Mix propylene glycol to 25-30% concentration in mixing tanks
-   - Test concentration with refractometer
-   - Add corrosion inhibitors and pH buffers per treatment program
-
-3. **System Fill:**
-   - Pump glycol mixture into system via fill stations
-   - Purge air via high-point manual vents and automatic air separators
-   - Circulate fluid for 24-48 hours
-   - Retest concentration and pH
-   - Top off as needed via fill stations
 
 ### Makeup Water System
 
 **Makeup Water Source:**
-- Division 22 (Plumbing) shall provide 3/4" domestic water stub connections (with isolation valve + union) at three locations (one per glycol mix tank)
+- Division 22 (Plumbing) shall provide domestic water stub connections (with isolation valve + union) at three locations (one per glycol mix tank)
 - Division 23 (HVAC) shall connect makeup water from these stubs to glycol mix tanks
 
 **Annual Makeup Requirements:**
-- **Target:** <1% of system volume per year (~200 gallons/year)
-- **Typical Use:** Leak replacement, expansion tank overflow, sampling losses
+- **Target:** <1% of system volume per year
 - **Alarm Threshold:** If makeup exceeds 2% of system volume, investigate for leaks
-
-**Totalizing Flow Meters:**
-- Install at each makeup water connection
-- Track cumulative makeup volume
-- Integrate with BMS for alarm if threshold exceeded
 
 ### Chemical Water Treatment
 
@@ -298,11 +232,6 @@ This section defines the complete chilled water infrastructure for all three coo
 - **Biological Inhibitors:** Prevent algae/bacteria growth in closed-loop systems
 - **pH Buffers:** Maintain pH 7.5-8.5 for corrosion control
 - **Supplier:** [TBD - e.g., Nalco, ChemTreat, Kurita] - specify in detailed design
-
-**Chemical Dosing:**
-- Manual dosing via chemical dosing pots (CDPs) - one per loop
-- Sized per loop volume and treatment program requirements
-- Chemical replenishment per testing schedule
 
 **Water Quality Monitoring:**
 - **Quarterly Testing:** pH, conductivity, inhibitor concentration, glycol concentration
@@ -319,9 +248,7 @@ Critical system for protecting IT equipment from water/glycol damage. All chille
 
 **Data Hall Coverage:**
 - Under all overhead chilled water piping (Loops 1, 2, 3)
-- At all CDU manifold connections (162 locations in DH-W)
-- At all RDHx manifold connections (232 locations in DH-E)
-- Under CDU equipment locations (if CDUs located in mechanical galleries adjacent to data halls)
+- Under all CDU / RDHx manifold connections
 
 **Mechanical Yard/Gallery Coverage:**
 - Under chiller connections and headers
@@ -334,37 +261,18 @@ Critical system for protecting IT equipment from water/glycol damage. All chille
 **Sensing Cable:**
 - **Type:** Conductive fluid detection cable (continuous sensing)
 - **Detection:** Water, glycol, or other conductive fluids
-- **Length:** [ROM] 2,000-3,000 ft total (data halls + mechanical areas)
-- **Routing:** Mounted in cable tray or direct attachment under all piping
+- **Routing:** Linear sensing cable shall be provided under all overhead primary loop distribution piping in the data halls
 
 **Spot Detectors:**
 - **Type:** Discrete leak detectors at high-risk points
-- **Locations:**
-  - Under each CDU (162 detectors at Phase 4)
-  - At each quick-disconnect fitting (394 total: 162 L2C + 232 RDHx)
-  - At chiller drain pans
+- **Locations:** Spot detectors shall be provided at all high-risk connection points, including CDUs, RDHx units, and quick-disconnects
 - **Response Time:** <1 second alarm notification
 
 **Control Panels:**
-- **Quantity:** 2 × leak detection control panels (N+1 redundancy)
-- **Integration:** BACnet/IP integration to BMS
+- Leak detection control panels shall be N+1 redundant and integrate with the facility BMS
 - **Alarms:** Local audible/visual alarms + BMS notification
 - **Zoning:** System shall identify leak location to within 10-ft zone
 
-### Alarm Response & Integration
-
-**Automatic Actions (via BMS):**
-1. Visual + audible alarm in NOC
-2. Email/SMS notification to on-call maintenance engineer
-3. DCIM integration (log event with timestamp and location)
-4. Optional automatic actions: Close isolation valves if leak zone can be safely isolated
-
-**Manual Response Protocol:**
-1. Maintenance team dispatched within 15 minutes
-2. Locate leak via zone indication on control panel
-3. Isolate affected loop/equipment if possible (concurrent maintainability design)
-4. Repair leak, pressure test, refill system, verify water quality
-5. Document incident in maintenance logs
 
 ---
 
@@ -394,7 +302,7 @@ Critical system for protecting IT equipment from water/glycol damage. All chille
 
 **Glycol & Water Treatment Systems:**
 - Glycol storage (3 × 500-gallon mixing tanks)
-- Bulk propylene glycol procurement (~6,000 gallons total)
+- Bulk propylene glycol procurement
 - Fill pumps and fill stations (3 locations, one per loop)
 - Chemical storage shed with secondary containment
 - Expansion tanks (3 total, one per loop)
@@ -436,24 +344,20 @@ Critical system for protecting IT equipment from water/glycol damage. All chille
 
 | Equipment | Phase 1 | Phase 2 | Phase 3 | Phase 4 | Purpose |
 |-----------|---------|---------|---------|---------|---------|
-| **L2C Plant Capacity (N+1)** | 3 MW | 3 MW | 10.5 MW | 16.2 MW | Warm water (85°F) for L2C cooling |
-| **RDHx Plant Capacity (N+1)** | - | 3 MW | 6.0 MW | 7.5 MW | Cold water (60°F) for RDHx cooling |
-| **CDUs (A/B Redundant)** | 30 racks | 30 racks | 105 racks | 162 racks | L2C coolant distribution (2 physical units per rack) |
-| **RDHx Units** | 0 | 120 | 180 | 232 | Rear-door heat exchangers |
+| **Cooling Capacity (N+1)** | ~7 MW | ~14 MW | ~21 MW | ~28 MW | Per 6MW IT block @ 1.6 PUE |
+| **Estimated Chillers** | 3-4 units | 6-8 units | 9-12 units | 12-16 units | N+1 configuration per block |
+| **Cooling Loops** | 3-loop support | 3-loop support | 3-loop support | 3-loop support | 85°F warm + 60°F cold water capable |
 
 ### Phase 4 Equipment Count (Ultimate Build-Out)
 
 **COOLING PLANT EQUIPMENT**
 
-| Equipment                                  | Quantity   | Unit Size/Rating   | Total Capacity            | Notes                                       |
-| ------------------------------------------ | ---------- | ------------------ | ------------------------- | ------------------------------------------- |
-| **L2C Air-Cooled Chillers**                | 12         | 1,500 kW each      | 18,000 kW (16,500 kW N+1) | Loop 3 warm water (85°F)                    |
-| **RDHx Air-Cooled Chillers**               | 6          | 1,500 kW each      | 9,000 kW (7,500 kW N+1)   | Loops 1+2 cold water (60°F)                 |
-| **Primary Pumps (L2C)**                    | Integrated | -                  | -                         | Factory-integrated in chillers, VFD         |
-| **Primary Pumps (RDHx)**                   | Integrated | -                  | -                         | Factory-integrated in chillers, VFD         |
-| **CDUs (Coolant Distribution Units)**      | 324        | ~100-120 kW each   | -                         | A/B redundant (2 per rack × 162 L2C racks)  |
-| **Expansion Tanks**                        | 3          | 500-1,000 gal each | -                         | 1 per loop (Loop 1, 2, 3)                   |
-| **Air/Dirt Separators**                    | 6          | -                  | -                         | 2 per loop (air + dirt)                     |
+| Equipment                       | Quantity   | Unit Size/Rating   | Total Capacity | Notes                                 |
+| ------------------------------- | ---------- | ------------------ | -------------- | ------------------------------------- |
+| **Air-Cooled Chillers**         | 12-16      | Vendor-dependent   | ~28 MW (N+1)   | 3-loop architecture (85°F + 60°F)     |
+| **Primary Pumps**               | Integrated | -                  | -              | Factory-integrated in chillers, VFD   |
+| **Expansion Tanks**             | 3          | 500-1,000 gal each | -              | 1 per loop (Loop 1, 2, 3)             |
+| **Air/Dirt Separators**         | 6          | -                  | -              | 2 per loop (air + dirt)               |
 
 **GLYCOL & WATER TREATMENT**
 
@@ -468,18 +372,16 @@ Critical system for protecting IT equipment from water/glycol damage. All chille
 
 | Equipment | Quantity | Size/Type | Notes |
 |-----------|----------|-----------|-------|
-| **Primary Loop Piping (Loop 3)** | ~3,000 LF | 6"-12" steel, insulated | Chillers to CDU manifolds |
-| **Primary Loop Piping (Loops 1+2)** | ~2,000 LF | 4"-8" steel, insulated | Chillers to RDHx manifolds |
-| **Secondary Loop Piping (L2C)** | ~5,000 LF | 1"-2" SS/dielectric | CDUs to rack cold plates |
-| **Quick-Disconnect Couplings** | 394 | Dry-break type | 162 L2C + 232 RDHx drops |
-| **Isolation Ball Valves** | ~100 | Various sizes | Major equipment isolation |
+| **Primary Loop Piping** | TBD | 4"-12" steel, insulated | Chillers to distribution points |
+| **Isolation Ball Valves** | TBD | Various sizes | Equipment isolation for maintainability |
+| **Quick-Disconnect Infrastructure** | TBD | Dry-break type | Client-specific deployment |
 
 **LEAK DETECTION SYSTEMS**
 
 | Equipment | Quantity | Type | Coverage |
 |-----------|----------|------|----------|
-| **Sensing Cable** | ~3,000 LF | Conductive fluid detection | Under all chilled water piping |
-| **Spot Leak Detectors** | ~500 | Discrete sensors | CDUs, quick-disconnects, equipment |
+| **Sensing Cable** | TBD | Conductive fluid detection | Under all chilled water piping |
+| **Spot Leak Detectors** | TBD | Discrete sensors | Equipment and connection points |
 | **Leak Detection Control Panels** | 2 | BACnet/IP integration | N+1 redundancy |
 
 **DATA HALL ENVIRONMENTAL CONTROL**
@@ -499,49 +401,26 @@ Critical system for protecting IT equipment from water/glycol damage. All chille
 
 ### Phase 4 Cost Summary (ROM - Rough Order of Magnitude)
 
-**COST SUMMARY BY CATEGORY**
+**Note:** Costs reflect primary cooling infrastructure only. Client-specific liquid cooling distribution (CDUs, RDHx units, secondary piping) priced separately per tenant requirements.
 
-### Air-Side Cooling Systems
+| Category                            | Cost Placeholder | Notes                                                  |
+| ----------------------------------- | ---------------- | ------------------------------------------------------ |
+| **Chillers (12-16 units)**          | TBD              | 3-loop architecture, N+1 per 6MW block                 |
+| **Glycol Systems**                  | TBD              | Bulk glycol, mix tanks, fill stations, treatment       |
+| **Primary Piping & Distribution**   | TBD              | Steel piping, valves, tanks, separators                |
+| **Leak Detection**                  | TBD              | Sensing cable, spot detectors, control panels          |
+| **Data Hall Environmental**         | TBD              | DOAS units + humidification                            |
+| **Support Space HVAC**              | TBD              | RTUs + mechanical room cooling                         |
+|                                     |                  |                                                        |
+| **TOTAL MECHANICAL (PHASE 4)**      | **TBD**          | Pricing update in progress - shell infrastructure only |
 
-| Category                               | Cost            | Certainty | Notes                                                               |
-| -------------------------------------- | --------------- | --------- | ------------------------------------------------------------------- |
-| **Chillers (L2C + RDHx)**              | $6,300,000      | 60%       | 18 total units @ 1,500 kW each (12 L2C + 6 RDHx)                    |
-| **Glycol Systems**                     | $151,500        | 73%       | Bulk glycol, mix tanks, fill stations, dosing                       |
-| **Piping & Distribution (Primary)**    | $1,872,200      | 61%       | Primary/secondary piping, valves, tanks, separators                 |
-| **Leak Detection**                     | $245,000        | 73%       | Sensing cable, spot detectors, control panels                       |
-| **Data Hall Environmental**            | $388,000        | 61%       | DOAS units + humidification                                         |
-| **Support Space HVAC**                 | $300,000        | 68%       | RTUs + mechanical room cooling (included in Div 02-14)              |
-|                                        |                 |           |                                                                     |
-| **Subtotal - Air-Side Systems**        | **$9,256,700**  |           | Chilled water plant, primary distribution, data hall environment    |
+**Cost Approach:**
+- **Base Infrastructure:** Chillers, primary piping, glycol systems (estimated $2,000-3,000/kW IT)
+- **Client-Specific:** Liquid cooling distribution per tenant deployment
 
-### Liquid Cooling Distribution (NOW INCLUDED)
-
-| Category                                    | Cost            | Certainty | Notes                                                                     |
-| ------------------------------------------- | --------------- | --------- | ------------------------------------------------------------------------- |
-| **CDU Units (L2C Racks)**                   | $16,200,000     | 65%       | 324 units (A/B redundancy) @ $50K each for 162 L2C racks                  |
-| **RDHx Units (Rear-Door Heat Exchangers)**  | $6,960,000      | 65%       | 232 units @ $30K each for 232 RDHx racks                                  |
-| **Secondary Loop Piping & Manifolds**       | $4,500,000      | 60%       | Overhead manifolds, quick-disconnects, stainless piping, dielectric fluid |
-| **CDU Pumps & Controls**                    | $1,620,000      | 65%       | Secondary pumps, expansion tanks, PLCs, leak detection integration        |
-| **Cold Plates & Rack Integration**          | $720,000        | 55%       | Cold plates for high-density GPU servers (162 L2C racks)                  |
-|                                             |                 |           |                                                                           |
-| **Subtotal - Liquid Cooling Distribution**  | **$30,000,000** |           | Full liquid cooling infrastructure for 394 racks                          |
-
-### Project Totals
-
-| Category                                | Cost            | Certainty | Notes                                                  |
-| --------------------------------------- | --------------- | --------- | ------------------------------------------------------ |
-| **Subtotal - Equipment & Materials**    | **$39,256,700** |           | Air-side + liquid cooling equipment                    |
-| **Installation Labor**                  | $15,702,680     | 60%       | 40% of equipment cost (industry standard)              |
-| **Engineering & Commissioning**         | $5,495,938      | 65%       | 10% of installed cost (design, startup, TAB, Cx)       |
-| **Contingency**                         | $6,046,532      | N/A       | 15% contingency (BOD phase uncertainty)                |
-|                                         |                 |           |                                                        |
-| **TOTAL MECHANICAL SYSTEMS (PHASE 4)**  | **$66,501,850** | **~65%**  | ROM estimate - **INCLUDES liquid cooling distribution** |
-
-**Cost per kW (IT Load):** $3,023/kW (22 MW)
-**Industry Benchmark:** $1,000-$2,000/kW for air-cooled DCs; $2,000-$4,000/kW with comprehensive liquid cooling
-
-**DECISION:**
-Liquid cooling distribution (CDUs/RDHx) is **NOW INCLUDED** in base CAPEX. This reflects the AI-optimized design with 162 high-density L2C racks (100 kW each) and 232 medium-density RDHx racks (25 kW each). These systems are essential infrastructure required before any customer deployment.
+**Industry Benchmarks:**
+- Air-cooled DCs: $1,000-2,000/kW
+- With liquid cooling: $2,000-4,000/kW (client-dependent)
 
 
 
@@ -549,5 +428,7 @@ Liquid cooling distribution (CDUs/RDHx) is **NOW INCLUDED** in base CAPEX. This 
 
 **Document Control:**
 - **Created:** 2025-10-29
-- **Updated:** 2025-11-04
+- **Updated:** 2025-11-07
+- **Version:** v2
+- **Key Updates:** Phase restructure to 6MW blocks (6/12/18/24 MW), chillers recalculated per block (~7MW each), L2C details simplified, rack counts removed, PUE 1.6 for sizing
 - **Related:** [[Saga Pryor DC/Basis of Design/7BOD - Electrical (CSI Div 26)]]

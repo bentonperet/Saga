@@ -27,15 +27,15 @@ The data center is divided into distinct security zones creating a layered defen
 
 ### Security Zone Definitions
 
-| Zone Color | Control Point | Definition & Access Requirements |
-|------------|---------------|----------------------------------|
-| **Violet** | CP 1 | Inside perimeter fence but outside building envelope. Includes parking lots, equipment yards, generator areas. **Access:** Perimeter gates with card reader/intercom |
-| **Blue** | CP 2 | Visitor reception areas inside building but outside private offices and critical areas. Includes security vestibule lobbies, designated conference rooms/restrooms. **Access:** Building entry mantrap with card reader |
-| **Yellow** | CP 3 | Access-controlled private office areas for customers and PACHYDERM personnel. **Access:** Card reader from Blue Zone |
-| **Orange** | CP 4 | Secure data center premises restricted to authorized personnel with special access clearance. Includes data halls (DH1, DH2). **Access:** Card + biometric (MFA) via CICO checkpoint |
-| **Red** | CP 5 | Most critical spaces protecting essential operations. Includes electrical rooms (PDMs, transformers), mechanical rooms (chillers, pumps), SCR, network rooms (MDF/IDF). **Access:** Card + biometric (MFA), highest clearance |
-| **Black** | N/A | Construction zones not yet operational, physically separated from active areas. **Access:** Dedicated construction access, temporary barriers |
-
+| Zone Color | Control Point | Definition & Access Requirements                                                                                                                                                                                              |
+| ---------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Violet** | CP 1          | Inside perimeter fence but outside building envelope. Includes parking lots, equipment yards, generator areas. **Access:** Perimeter gates with card reader/intercom                                                          |
+| **Blue**   | CP 2          | Visitor reception areas inside building but outside private offices and critical areas. Includes security vestibule lobbies, designated conference rooms/restrooms. **Access:** Building entry mantrap with card reader       |
+| **Yellow** | CP 3          | Access-controlled private office areas for customers and data center personnel. **Access:** Card reader from Blue Zone                                                                                                        |
+| **Orange** | CP 4          | Secure data center premises restricted to authorized personnel with special access clearance. Includes data halls (DH1, DH2). **Access:** Card + biometric (MFA) via CICO checkpoint                                          |
+| **Red**    | CP 5          | Most critical spaces protecting essential operations. Includes electrical rooms (PDMs, transformers), mechanical rooms (chillers, pumps), SCR, network rooms (MDF/IDF). **Access:** Card + biometric (MFA), highest clearance |
+| **Black**  | N/A           | Construction zones not yet operational, physically separated from active areas. **Access:** Dedicated construction access, temporary barriers                                                                                 |
+<!-- @Benton - work with Julia on a floorplan map that shows all zoning shaded in -->
 ### Risk Level Classification
 
 SAGA assesses threat level for each site. The Pryor Data Center is classified as **High Risk (HR)** due to:

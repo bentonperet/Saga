@@ -3,9 +3,56 @@
 import fs from 'fs';
 import path from 'path';
 import { execSync } from 'child_process';
+import { fileURLToPath } from 'url';
 import { getAuth } from './googleAuth.js';
 import { parseMarkdownToBlocks } from './markdownParser.js';
 import DocsPublisher from './docsPublisher.js';
+
+// ES module equivalent of __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Log file path
+const LOG_FILE = path.join(__dirname, 'export-errors.log');
+
+/**
+ * Write error to log file with timestamp
+ */
+function logError(error, context = {}) {
+  const timestamp = new Date().toISOString();
+  const logEntry = {
+    timestamp,
+    error: {
+      message: error.message,
+      stack: error.stack,
+      code: error.code,
+      ...error
+    },
+    context
+  };
+
+  const logLine = `
+${'='.repeat(80)}
+[${timestamp}] ERROR
+${'='.repeat(80)}
+Context: ${JSON.stringify(context, null, 2)}
+
+Error Message: ${error.message}
+
+${error.stack || 'No stack trace available'}
+
+${error.errors ? 'API Errors:\n' + JSON.stringify(error.errors, null, 2) : ''}
+${'='.repeat(80)}
+
+`;
+
+  try {
+    fs.appendFileSync(LOG_FILE, logLine);
+    console.log(`\n📝 Error logged to: ${LOG_FILE}`);
+  } catch (logErr) {
+    console.error('⚠️  Failed to write to error log:', logErr.message);
+  }
+}
 
 /**
  * Clean up extra newlines/carriage returns from markdown
@@ -24,6 +71,94 @@ function cleanExtraNewlines(markdown) {
     .replace(/[ \t]+$/gm, '')
     // Ensure file ends with single newline
     .replace(/\n*$/, '\n');
+}
+
+/**
+ * Fix numbered list continuations - restart numbering at 1 when interrupted by non-list text
+ * @param {string} markdown - Markdown content
+ * @returns {string} Markdown with corrected list numbering
+ */
+function fixListNumbering(markdown) {
+  const lines = markdown.split('\n');
+  const result = [];
+  let inNumberedList = false;
+  let expectedNumber = 1;
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const trimmedLine = line.trim();
+
+    // Check if this is a numbered list item (starts with digit(s) followed by period and space)
+    const numberedListMatch = trimmedLine.match(/^(\d+)\.\s+(.+)$/);
+
+    if (numberedListMatch) {
+      const actualNumber = parseInt(numberedListMatch[1]);
+      const content = numberedListMatch[2];
+
+      // If we're starting a new list (not in a list or number jumped), reset to 1
+      if (!inNumberedList || actualNumber > expectedNumber + 1) {
+        result.push(line.replace(/^\s*\d+\./, line.match(/^\s*/)[0] + '1.'));
+        expectedNumber = 2;
+        inNumberedList = true;
+      } else {
+        // Continue the list with expected number
+        result.push(line.replace(/^\s*\d+\./, line.match(/^\s*/)[0] + expectedNumber + '.'));
+        expectedNumber++;
+      }
+    } else {
+      // Not a numbered list item
+      // If line is not empty and not blank, we've left the list
+      if (trimmedLine.length > 0) {
+        inNumberedList = false;
+        expectedNumber = 1;
+      }
+      result.push(line);
+    }
+  }
+
+  return result.join('\n');
+}
+
+/**
+ * Format colon-prefixed text as medium weight
+ * Detects patterns like "Label:" at start of lines or list items and wraps them for medium formatting
+ * Only affects plain text (not already bold/italic/etc)
+ * @param {string} markdown - Markdown content
+ * @returns {string} Markdown with colon labels marked for medium weight
+ */
+function formatColonLabels(markdown) {
+  const lines = markdown.split('\n');
+  const result = [];
+
+  for (let i = 0; i < lines.length; i++) {
+    let line = lines[i];
+
+    // Pattern 1: Line starts with text ending in colon (e.g., "Company Structure:")
+    // Pattern 2: Bulleted list item with label: (e.g., "- Label: text")
+    // Pattern 3: Numbered list item with label: (e.g., "1. Label: text")
+
+    // Match: optional whitespace, optional bullet/number, then text with colon, then more text
+    // Don't match if the label is already formatted (contains **, *, __, _, etc.)
+    const match = line.match(/^(\s*(?:[-*+]|\d+\.)\s+)?([^*_`[\]]+?):\s+(.+)$/);
+
+    if (match) {
+      const prefix = match[1] || ''; // bullet/number or empty
+      const label = match[2]; // text before colon
+      const rest = match[3]; // text after colon
+
+      // Check if label contains any markdown formatting
+      const hasFormatting = /[*_`[\]]/.test(label);
+
+      if (!hasFormatting) {
+        // Wrap the label (including colon) with special marker {{MEDIUM}}
+        line = `${prefix}{{MEDIUM}}${label}:{{/MEDIUM}} ${rest}`;
+      }
+    }
+
+    result.push(line);
+  }
+
+  return result.join('\n');
 }
 
 /**
@@ -62,6 +197,14 @@ async function main() {
     // Clean up extra newlines and whitespace
     console.log('🧹 Cleaning extra newlines...');
     markdown = cleanExtraNewlines(markdown);
+
+    // Fix numbered list numbering
+    console.log('🔢 Fixing list numbering...');
+    markdown = fixListNumbering(markdown);
+
+    // Format colon labels as medium weight
+    console.log('🏷️  Formatting colon labels...');
+    markdown = formatColonLabels(markdown);
 
     // Parse markdown into structured blocks
     console.log('🔍 Parsing markdown...');
@@ -105,10 +248,19 @@ async function main() {
   } catch (error) {
     console.error('\n❌ Error:', error.message);
 
+    // Log error to file
+    logError(error, {
+      file: process.argv[2],
+      timestamp: new Date().toISOString(),
+      args: process.argv.slice(2)
+    });
+
     if (error.stack && process.argv.includes('--debug')) {
       console.error('\nStack trace:');
       console.error(error.stack);
     }
+
+    console.log('\n💡 Tip: Check export-errors.log for full error details');
 
     process.exit(1);
   }

@@ -15,7 +15,7 @@ Integrated monitoring and control systems provide real-time visibility, automate
 **System Integration Architecture:**
 - **BMS (Building Management System):** HVAC, lighting, environmental control
 - **EPMS (Electrical Power Monitoring System):** Utility, generators, UPS, transformers
-- **Microgrid Controller:** Coordinates utility, solar, BESS, generators at 13.8kV
+- **Microgrid Controller:** Coordinates utility, solar, generators at 13.8kV
 - **DCIM (Data Center Infrastructure Management):** Rack-level power, cooling, capacity
 - **Fire Alarm System:** Life safety integration (monitoring only)
 - **Access Control System:** Security integration

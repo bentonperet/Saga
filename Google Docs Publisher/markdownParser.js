@@ -10,19 +10,43 @@ import { toString } from 'mdast-util-to-string';
  * @returns {Array} Array of block objects ready for Docs API
  */
 function parseMarkdownToBlocks(markdownText) {
+  // Convert {{MEDIUM}} markers to bold markdown, we'll handle them specially later
+  // Replace {{MEDIUM}}text{{/MEDIUM}} with **{{M}}text{{/M}}**
+  markdownText = markdownText.replace(/\{\{MEDIUM\}\}(.*?)\{\{\/MEDIUM\}\}/g, '**{{M}}$1{{/M}}**');
+
   const tree = unified()
     .use(remarkParse)
     .use(remarkGfm) // Enable GitHub Flavored Markdown (tables, strikethrough, etc.)
     .parse(markdownText);
 
   const blocks = [];
+  // let previousEndLine = 0;
 
   // Process top-level children
   tree.children.forEach(node => {
+    // BLANK LINE DETECTION - COMMENTED OUT (user preference: blank lines don't look good)
+    // // Check if there are blank lines before this node
+    // if (node.position && previousEndLine > 0) {
+    //   const currentStartLine = node.position.start.line;
+    //   const blankLinesBetween = currentStartLine - previousEndLine - 1;
+    //
+    //   // Insert blank paragraph blocks for each blank line
+    //   for (let i = 0; i < blankLinesBetween; i++) {
+    //     blocks.push({
+    //       type: 'blank'
+    //     });
+    //   }
+    // }
+
     const block = processNode(node);
     if (block) {
       blocks.push(block);
     }
+
+    // // Track the end position of this node
+    // if (node.position) {
+    //   previousEndLine = node.position.end.line;
+    // }
   });
 
   return blocks;
@@ -37,13 +61,13 @@ function processNode(node) {
       return {
         type: 'heading',
         level: node.depth,
-        runs: processInlineContent(node.children)
+        runs: optimizeRuns(processInlineContent(node.children))
       };
 
     case 'paragraph':
       return {
         type: 'paragraph',
-        runs: processInlineContent(node.children)
+        runs: optimizeRuns(processInlineContent(node.children))
       };
 
     case 'list':
@@ -52,11 +76,11 @@ function processNode(node) {
         ordered: node.ordered,
         start: node.start || 1,
         items: node.children.map(item => ({
-          runs: processInlineContent(item.children.length > 0 && item.children[0].type === 'paragraph'
+          runs: optimizeRuns(processInlineContent(item.children.length > 0 && item.children[0].type === 'paragraph'
             ? item.children[0].children
-            : item.children),
-          // Handle nested lists (simplified for now - can expand)
-          nested: item.children.slice(1).filter(child => child.type === 'list')
+            : item.children)),
+          // Handle nested lists - recursively process nested list nodes
+          nested: item.children.slice(1).filter(child => child.type === 'list').map(child => processNode(child))
         }))
       };
 
@@ -81,7 +105,7 @@ function processNode(node) {
         align: node.align || [],
         rows: node.children.map(row =>
           row.children.map(cell => ({
-            runs: processInlineContent(cell.children)
+            runs: optimizeRuns(processInlineContent(cell.children))
           }))
         )
       };
@@ -129,10 +153,25 @@ function processInlineNode(node, inheritedStyle = {}) {
       }];
 
     case 'strong':
-      return processInlineContent(node.children).map(run => ({
-        ...run,
-        bold: true
-      }));
+      return processInlineContent(node.children).map(run => {
+        // Check if this is a {{M}} marked text (colon label for medium weight)
+        const mediumMatch = run.text && run.text.match(/^\{\{M\}\}(.*)\{\{\/M\}\}$/);
+
+        if (mediumMatch) {
+          // Strip markers and flag as medium weight
+          return {
+            ...run,
+            text: mediumMatch[1],
+            bold: true,
+            medium: true  // Flag for medium weight instead of semi-bold
+          };
+        } else {
+          return {
+            ...run,
+            bold: true
+          };
+        }
+      });
 
     case 'emphasis':
       return processInlineContent(node.children).map(run => ({
