@@ -8,7 +8,7 @@
 **Document Purpose:** Evaluate three distinct strategies for monetizing 7-8MW of excess solar capacity during Phase 1-2 buildout, comparing direct grid export, mobile edge computing, and battery energy storage based on risk-adjusted NPV and operational requirements.
 ****Assumes that grid power is available day 1
 
-**Prepared By:** Pachyderm Global / PGCIS
+**Prepared By:** PACHYDERM GLOBAL / PGCIS
 **Prepared For:** Saga Energy
 **Date:** 2025-10-22
 **Status:** DRAFT - REQUIRES ADDITIONAL RESEARCH

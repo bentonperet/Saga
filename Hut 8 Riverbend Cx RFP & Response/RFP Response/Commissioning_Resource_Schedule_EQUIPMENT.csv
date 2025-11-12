@@ -1,0 +1,43 @@
+﻿Phase 1 EQ QTY,Phase 2 EQ QTY,Phase 3 EQ QTY,Phase 4 EQ QTY,Phase 5 EQ QTY,Phase 6 EQ QTY,Location,Equipment Type,Quantity,Per Phase,OEM,Description,Voltage/Rating,Notes,"Commissioning 
+Level","Per Block
+Quantity","Total
+Blocks",L2,L3,L4,L5,L6,Total Hours,L2 Total Hours,L3 Total Hours,L4 Total Hours,L5 Total Hours,,PM & Coordination,Switchyard,Phase 1 Labor Hours,Phase 2 Labor Hours,Phase 3 Labor Hours,Phase 4 Labor Hours,Phase 5 Labor Hours,Phase 6 Labor Hours,Total All Phases
+32,32,32,32,32,32,Gray Space - Outdoor,Transformer - Data Hall IT,192,32,TBD,34.5kV - 480V 2.5MVA,,All 6 data halls,Level 4,32,6,0.9,1.6,0.7,0.5,0.5,4.2,173,307,142,96,,,,136,136,136,136,136,136,814
+12,12,12,12,12,12,Gray Space - Outdoor,Transformer - Data Hall Mech,72,12,TBD,34.5kV - 480V 5MVA,,All 6 data halls,Level 4,12,6,0.9,1.6,0.7,0.5,0.5,4.2,65,115,53,36,,,,51,51,51,51,51,51,305
+8,8,8,8,8,8,Gray Space - Outdoor,Transformer - Network IT,8,8,TBD,34.5kV - 480V 2MVA,,Network Room,Level 4,8,1,0.9,1.6,0.7,0.5,0.5,4.2,7,13,6,4,,,,34,34,34,34,34,34,203
+4,4,4,4,4,4,Gray Space - Outdoor,Transformer - Network Mech,4,4,TBD,34.5kV - 480V 3MVA,,Network Room,Level 4,4,1,0.9,1.6,0.7,0.5,0.5,4.2,4,6,3,2,,,,17,17,17,17,17,17,102
+23,23,23,23,23,23,Gray Space - Outdoor,Ring Main Unit,138,23,TBD,34.5kV,,Per switchyard/distribution,Level 4,23,6,0.9,1.6,0.7,0.5,0.5,4.2,124,221,102,69,,,,97,97,97,97,97,97,585
+2,2,2,2,2,2,Gray Space - Outdoor,MV Switchboard,12,2,TBD,34.5kV,,Switchyard,Level 4,2,6,2.7,4.8,2.2,0.5,0.5,10.7,32,58,27,6,,,,21,21,21,21,21,21,129
+27,27,27,27,27,27,Gray Space - Outdoor,Chiller,162,27,Vertiv,Vertiv OFC,,All 6 data halls,Level 4,27,6,1.35,1.6,1.5,0.5,0.5,5.4,219,259,239,81,,,,146,146,146,146,146,146,879
+27,27,27,27,27,27,Gray Space - Outdoor,Buffer Tank,162,27,TBD,,,All 6 data halls,Level 4,27,6,0.45,0.8,0.7,0.5,0.5,3.0,73,130,119,81,,,,81,81,81,81,81,81,484
+32,32,32,32,32,32,Gray Space - Indoor,LV Switchboard - Data Hall Elec,192,32,Vertiv,4000A,480V,All 6 data halls,Level 4,32,6,2.7,3.2,1.5,0.5,0.5,8.4,518,614,283,96,,,,268,268,268,268,268,268,1608
+12,12,12,12,12,12,Gray Space - Indoor,LV Switchboard - Data Hall Mech,72,12,Vertiv,5000A,480V,All 6 data halls,Level 4,12,6,1.8,3.2,1.5,0.5,0.5,7.5,130,230,106,36,,,,90,90,90,90,90,90,538
+8,0,0,0,0,0,Gray Space - Indoor,LV Switchboard - Network Elec,8,8,Vertiv,4000A,480V,Network Room,Level 4,8,1,2.7,3.2,1.5,0.5,0.5,8.4,22,26,12,4,,,,67,0,0,0,0,0,67
+4,0,0,0,0,0,Gray Space - Indoor,LV Switchboard - Network Mech,4,4,Vertiv,4000A,480V,Network Room,Level 4,4,1,2.7,3.2,1.5,0.5,0.5,8.4,11,13,6,2,,,,33,0,0,0,0,0,33
+113,113,113,113,113,113,Gray Space - Indoor,UPS,676,112,Vertiv,480V APM2 600kVA,,All 6 data halls + Network,Level 4,113,6,0.9,2.4,1.8,0.5,0.5,6.1,608,1622,1246,338,,,,694,694,694,694,694,694,4165
+11,11,11,11,11,11,Gray Space - Indoor,CRAH Fan Wall - Electrical Room,64,10,Vertiv,CA606,,Electrical rooms,Level 4,11,6,1.35,2.4,0.7,0.5,0.5,5.5,86,154,47,32,,,,60,60,60,60,60,60,362
+351,351,351,351,351,351,Gray Space - Indoor,Battery Cabinets,2104,350,Vertiv,LI5 - LI7,,All 6 data halls + Network,Level 4,351,6,1.35,0.8,0.4,0.5,0.5,3.5,2840,1683,776,1052,,,,1235,1235,1235,1235,1235,1235,7410
+,,,,,,White Space - Option 1,HAC - SmartRun,41,6,Vertiv,Hot Aisle Containment,,Option 1 (not base),Level 4,7,6,1.8,1.6,0.7,0.5,0.5,5.1,74,66,30,21,,,,0,0,0,0,0,0,0
+,,,,,,White Space - Option 1,Rack Power Panel,576,96,Vertiv,1000/1200A,480V,Option 1 (not base),Level 4,96,6,0.9,1.6,1.1,0.5,0.5,4.6,518,922,637,288,,,,0,0,0,0,0,0,0
+,,,,,,White Space - Option 1,Remote Distribution Panel,328,54,Vertiv,400A RXV Panels,480V,Option 1 (not base),Level 4,55,6,1.35,1.6,1.1,0.5,0.5,5.1,443,525,363,164,,,,0,0,0,0,0,0,0
+,,,,,,White Space - Option 1,CDU,190,31,Vertiv,XDU 2300,,Option 1 (not base),Level 4,32,6,0.9,2.4,1.5,0.5,0.5,5.8,171,456,280,95,,,,0,0,0,0,0,0,0
+,,,,,,White Space - Option 1,CRAH Fan Wall - Data Hall,214,35,Vertiv,CA606,,Option 1 (not base),Level 4,36,6,1.35,2.4,1.1,0.5,0.5,5.9,289,514,237,107,,,,0,0,0,0,0,0,0
+10,10,10,10,10,10,White Space - Option 2,HAC - SmartRun,65,10,Vertiv,Hot Aisle Containment,,Option 2 (BASE),Level 4,11,6,1.8,3.2,0.7,0.5,0.5,6.7,117,208,48,33,,,,67,67,67,67,67,67,404
+160,160,160,160,160,160,White Space - Option 2,Rack Power Panel,960,160,Vertiv,1000/1200A,480V,Option 2 (BASE),Level 4,160,6,0.9,1.6,1.1,0.5,0.5,4.6,864,1536,1062,480,,,,737,737,737,737,737,737,4422
+7,7,7,7,7,7,White Space - Option 2,Remote Distribution Panel,40,6,Vertiv,400A RXV Panels,480V,Option 2 (BASE),Level 4,7,6,1.35,1.6,1.1,0.5,0.5,5.1,54,64,44,20,,,,35,35,35,35,35,35,212
+32,32,32,32,32,32,White Space - Option 2,CDU,190,31,Vertiv,XDU 2300,,Option 2 (BASE),Level 4,32,6,0.9,2.4,1.5,0.5,0.5,5.8,171,456,280,95,,,,185,185,185,185,185,185,1109
+36,36,36,36,36,36,White Space - Option 2,CRAH Fan Wall - Data Hall,214,35,Vertiv,CA606,,Option 2 (BASE),Level 4,36,6,1.35,2.4,1.1,0.5,0.5,5.9,289,514,237,107,,,,211,211,211,211,211,211,1265
+,,,,,,White Space - Option 3,HAC - SmartRun,41,6,Vertiv,Hot Aisle Containment,,Option 3 (not base),Level 4,7,6,1.8,3.2,0.7,0.5,0.5,6.7,74,131,30,21,,,,0,0,0,0,0,0,0
+,,,,,,White Space - Option 3,Rack Power Panel,576,96,Vertiv,1000/1200A,480V,Option 3 (not base),Level 4,96,6,0.9,1.6,1.1,0.5,0.5,4.6,518,922,637,288,,,,0,0,0,0,0,0,0
+,,,,,,White Space - Option 3,Remote Distribution Panel,40,6,Vertiv,400A RXV Panels,480V,Option 3 (not base),Level 4,7,6,1.35,1.6,1.1,0.5,0.5,5.1,54,64,44,20,,,,0,0,0,0,0,0,0
+,,,,,,White Space - Option 3,CDU,190,31,Vertiv,XDU 2300,,Option 3 (not base),Level 4,32,6,0.9,2.4,1.5,0.5,0.5,5.8,171,456,280,95,,,,0,0,0,0,0,0,0
+,,,,,,White Space - Option 3,CRAH Fan Wall - Data Hall,214,35,Vertiv,CA606,,Option 3 (not base),Level 4,36,6,1.35,2.4,1.1,0.5,0.5,5.9,289,514,237,107,,,,0,0,0,0,0,0,0
+,,,,,,PM & Coordination,,,,,,,,,,,,,,,,,,,,,,,,1719,1678,1678,1678,1678,1678,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4266,4166,4166,4166,4166,4166,25096
+,,,,,,,,,,,,,,,,,,,,,,Total Hours,9008,12797,7612,3875,,10110,5670,5985,5844,5844,5844,5844,5844,40876
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,Total Hours/Phase,1501,2133,1269,646,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,Total Hours/6-Man Team,250,355,211,108,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,Total Days,25,36,21,11,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,Total Weeks,5,7,4,2,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

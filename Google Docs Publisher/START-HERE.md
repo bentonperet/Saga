@@ -114,13 +114,13 @@ If you already have:
 ✅ **Blockquotes** with indent + border
 ✅ **Horizontal rules**
 
-### Brand Styling (Pachyderm Global)
+### Brand Styling (PACHYDERM GLOBAL)
 
 - **Headings**: Rubik, #044A74 (H1), #4F81BD (H2)
 - **Body**: Source Sans 3, 11.5pt, 1.28 line spacing
 - **Code**: Source Code Pro, gray background
 - **Tables**: Professional borders, header styling
-- **Footer**: "© Pachyderm Global 2025 — Confidential"
+- **Footer**: "© PACHYDERM GLOBAL 2025 — Confidential"
 
 All customizable in `brandConfig.js`!
 
@@ -168,4 +168,4 @@ All customizable in `brandConfig.js`!
 
 ---
 
-Made with ❤️ for Pachyderm Global
+Made with ❤️ for PACHYDERM GLOBAL

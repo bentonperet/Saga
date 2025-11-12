@@ -10,7 +10,7 @@
 
 **Document Status:** DRAFT FOR INTERNAL REVIEW
 **Date:** 2025-10-21
-**Prepared By:** Pachyderm Global / PGCIS
+**Prepared By:** PACHYDERM GLOBAL / PGCIS
 **Prepared For:** Saga Energy / Internal Planning
 
 **Related Documents:**

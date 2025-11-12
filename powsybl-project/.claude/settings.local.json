@@ -1,17 +1,14 @@
 {
   "permissions": {
     "allow": [
-      "Bash(powershell -Command \"Start-Process ''C:\\Users\\eriks\\Documents\\Obsidian\\powsybl-project\\saga_pryor_sld_v1_1_CORRECTED.svg''\")",
-      "Bash(python:*)",
-      "SlashCommand(/sld-generate)",
-      "Bash(powershell -Command \"Start-Process ''C:\\Users\\eriks\\Documents\\Obsidian\\powsybl-project\\gge_10kv_sld.svg''\")",
+      "Bash(do sed -i 's/ —/, /g' \"$file\")",
+      "Bash(do sed -i 's/—/, /g' \"$file\")",
       "WebSearch",
-      "Bash(curl:*)",
-      "WebFetch(domain:freesvg.org)",
-      "WebFetch(domain:www.svgrepo.com)",
-      "WebFetch(domain:commons.wikimedia.org)",
-      "Bash(powershell -Command \"Start-Process ''C:\\Users\\eriks\\Documents\\Obsidian\\powsybl-project\\siemens_symbols''\")",
-      "WebFetch(domain:symbols.radicasoftware.com)"
+      "WebFetch(domain:atlas.geoportalmaps.com)",
+      "WebFetch(domain:www.wfassessor.com)",
+      "WebFetch(domain:westfeliciana.smartcama.com)",
+      "Bash(dir:*)",
+      "Bash(find:*)"
     ],
     "deny": [],
     "ask": []

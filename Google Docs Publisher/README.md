@@ -164,6 +164,6 @@ MIT License - Use it, modify it, share it!
 
 ---
 
-**Made with ❤️ for Pachyderm Global** 🐘
+**Made with ❤️ for PACHYDERM GLOBAL** 🐘
 
 *Turning markdown notes into professional documents, one hotkey at a time.*

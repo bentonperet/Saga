@@ -27,6 +27,7 @@ class DocsPublisher {
     this.requests = [];
     this.cursorIndex = 1; // Docs body starts at index 1
     this.logoImageId = null;
+    this.listCounter = 0; // Counter for generating unique list IDs
   }
 
   /**
@@ -55,7 +56,7 @@ class DocsPublisher {
 
     try {
       const fileMetadata = {
-        name: 'Pachyderm Global Logo',
+        name: 'PACHYDERM GLOBAL Logo',
         mimeType: 'image/png'
       };
 
@@ -88,7 +89,7 @@ class DocsPublisher {
   }
 
   /**
-   * Insert Pachyderm Global branded header at the top of the document
+   * Insert PACHYDERM GLOBAL branded header at the top of the document
    */
   async insertHeader() {
     // Upload logo first
@@ -269,6 +270,30 @@ class DocsPublisher {
   }
 
   /**
+   * Set document margins (page margins and header/footer margins)
+   */
+  async setDocumentMargins() {
+    const marginRequests = [{
+      updateDocumentStyle: {
+        documentStyle: {
+          marginTop: this.makeDimension(BRAND.PAGE.marginTop),
+          marginBottom: this.makeDimension(BRAND.PAGE.marginBottom),
+          marginLeft: this.makeDimension(BRAND.PAGE.marginLeft),
+          marginRight: this.makeDimension(BRAND.PAGE.marginRight),
+          marginHeader: this.makeDimension(BRAND.PAGE.marginHeader),
+          marginFooter: this.makeDimension(BRAND.PAGE.marginFooter)
+        },
+        fields: 'marginTop,marginBottom,marginLeft,marginRight,marginHeader,marginFooter'
+      }
+    }];
+
+    await this.docs.documents.batchUpdate({
+      documentId: this.docId,
+      requestBody: { requests: marginRequests }
+    });
+  }
+
+  /**
    * Create a new Google Doc and publish content
    * @param {string} title - Document title
    * @param {Array} blocks - Parsed markdown blocks
@@ -284,6 +309,9 @@ class DocsPublisher {
     this.requests = [];
     this.cursorIndex = 1;
     this.pendingTables = [];
+
+    // Set document margins first (before adding content)
+    await this.setDocumentMargins();
 
     // Process blocks sequentially, handling tables specially
     for (const block of blocks) {
@@ -481,23 +509,47 @@ class DocsPublisher {
           });
         }
 
-        // Apply header row styling (white text on dark blue background)
-        if (rowIdx === 0 && cellText) {
+        // Apply styling based on row type
+        if (cellText) {
           const cellEndIndex = cellStartIndex + cellText.length;
-          tableRequests.push({
-            updateTextStyle: {
-              range: { startIndex: cellStartIndex, endIndex: cellEndIndex },
-              textStyle: {
-                bold: BRAND.TABLE.headerBold,
-                weightedFontFamily: { fontFamily: BRAND.TABLE.headerFontFamily },
-                fontSize: this.makeDimension(BRAND.BODY.fontSizePt),
-                foregroundColor: {
-                  color: { rgbColor: hexToRgb(BRAND.TABLE.headerTextColor) }
-                }
-              },
-              fields: 'bold,weightedFontFamily,fontSize,foregroundColor'
-            }
-          });
+
+          if (rowIdx === 0) {
+            // Header row styling (white text on dark blue background)
+            tableRequests.push({
+              updateTextStyle: {
+                range: { startIndex: cellStartIndex, endIndex: cellEndIndex },
+                textStyle: {
+                  weightedFontFamily: {
+                    fontFamily: BRAND.TABLE.headerFontFamily,
+                    weight: BRAND.TABLE.headerFontWeight || 600
+                  },
+                  fontSize: this.makeDimension(BRAND.TABLE.headerFontSizePt),
+                  foregroundColor: {
+                    color: { rgbColor: hexToRgb(BRAND.TABLE.headerTextColor) }
+                  }
+                },
+                fields: 'weightedFontFamily,fontSize,foregroundColor'
+              }
+            });
+          } else {
+            // Regular cell styling (dark text)
+            tableRequests.push({
+              updateTextStyle: {
+                range: { startIndex: cellStartIndex, endIndex: cellEndIndex },
+                textStyle: {
+                  weightedFontFamily: {
+                    fontFamily: BRAND.TABLE.cellFontFamily,
+                    weight: BRAND.TABLE.cellFontWeight || 400
+                  },
+                  fontSize: this.makeDimension(BRAND.TABLE.cellFontSizePt),
+                  foregroundColor: {
+                    color: { rgbColor: hexToRgb(BRAND.TABLE.cellTextColor) }
+                  }
+                },
+                fields: 'weightedFontFamily,fontSize,foregroundColor'
+              }
+            });
+          }
         }
       }
     }
@@ -555,6 +607,47 @@ class DocsPublisher {
           fields: 'backgroundColor'
         }
       });
+
+      // Pin header row if configured
+      if (BRAND.TABLE.pinHeaderRow) {
+        tableRequests.push({
+          pinTableHeaderRows: {
+            tableStartLocation: { index: startIndex },
+            pinnedHeaderRowsCount: 1
+          }
+        });
+      }
+    }
+
+    // Apply cell spacing to all table cells (single spacing, no extra spacing)
+    for (let rowIdx = 0; rowIdx < rows; rowIdx++) {
+      for (let colIdx = 0; colIdx < cols; colIdx++) {
+        const tableRow = table.table.tableRows[rowIdx];
+        const tableCell = tableRow.tableCells[colIdx];
+        const cellContent = tableCell.content[0];
+
+        if (cellContent && cellContent.paragraph) {
+          const paragraph = cellContent.paragraph;
+          const cellStartIndex = paragraph.elements[0]?.startIndex || cellContent.startIndex + 1;
+          const cellText = block.rows[rowIdx][colIdx]?.runs.map(r => r.text).join('') || '';
+
+          if (cellText) {
+            const cellEndIndex = cellStartIndex + cellText.length + 1; // +1 for paragraph marker
+
+            tableRequests.push({
+              updateParagraphStyle: {
+                range: { startIndex: cellStartIndex, endIndex: cellEndIndex },
+                paragraphStyle: {
+                  lineSpacing: BRAND.TABLE.cellLineSpacing * 100,
+                  spaceAbove: this.makeDimension(BRAND.TABLE.cellBeforeSpacingPt),
+                  spaceBelow: this.makeDimension(BRAND.TABLE.cellAfterSpacingPt)
+                },
+                fields: 'lineSpacing,spaceAbove,spaceBelow'
+              }
+            });
+          }
+        }
+      }
     }
 
     return tableRequests;
@@ -599,11 +692,46 @@ class DocsPublisher {
     const brandStyle = getBrandStyleForHeading(block.level);
     const namedStyle = getNamedStyleForHeading(block.level);
 
+    const startIndex = this.cursorIndex;
+
     this.insertStyledParagraph(
       block.runs,
       namedStyle,
       brandStyle
     );
+
+    const endIndex = this.cursorIndex;
+
+    // Create a named range for this heading (for TOC linking)
+    // Generate a bookmark name from the heading text
+    const headingText = block.runs.map(r => r.text).join('');
+    const bookmarkName = this.generateBookmarkName(headingText);
+
+    this.requests.push({
+      createNamedRange: {
+        name: bookmarkName,
+        range: {
+          startIndex: startIndex,
+          endIndex: endIndex - 1  // Exclude the trailing newline
+        }
+      }
+    });
+  }
+
+  /**
+   * Generate a bookmark name from heading text
+   * @param {string} text - Heading text
+   * @returns {string} Valid bookmark name
+   */
+  generateBookmarkName(text) {
+    // Create a URL-friendly bookmark name
+    // Remove special characters, replace spaces with hyphens, lowercase
+    return text
+      .toLowerCase()
+      .replace(/[^\w\s-]/g, '') // Remove special chars
+      .replace(/\s+/g, '-')      // Replace spaces with hyphens
+      .replace(/-+/g, '-')       // Replace multiple hyphens with single
+      .substring(0, 256);        // Max 256 characters
   }
 
   /**
@@ -657,7 +785,16 @@ class DocsPublisher {
 
       // Links
       if (run.link) {
-        textStyle.link = { url: run.link };
+        // Check if this is a heading anchor link (starts with #)
+        if (run.link.startsWith('#')) {
+          // Convert #heading-name to named range name
+          // The anchor format from markdown uses the exact same format we generate
+          const namedRangeName = run.link.substring(1); // Remove the #
+          textStyle.link = { url: `#heading=${namedRangeName}` };
+        } else {
+          // External URL
+          textStyle.link = { url: run.link };
+        }
         textStyle.underline = true;
         textStyle.foregroundColor = {
           color: { rgbColor: hexToRgb('#0066CC') }
@@ -691,18 +828,35 @@ class DocsPublisher {
       }
     });
 
-    // 4. Apply brand font, size, color
+    // 4. Apply brand font, size, color, weight, and underline
+    const textStyle = {
+      fontSize: this.makeDimension(brandStyle.fontSizePt),
+      foregroundColor: {
+        color: { rgbColor: hexToRgb(brandStyle.color) }
+      },
+      weightedFontFamily: {
+        fontFamily: brandStyle.fontFamily,
+        weight: brandStyle.fontWeight || 400
+      }
+    };
+
+    const fields = ['fontSize', 'foregroundColor', 'weightedFontFamily'];
+
+    // Handle underline explicitly
+    if (brandStyle.underline === true) {
+      textStyle.underline = true;
+      fields.push('underline');
+    } else if (brandStyle.underline === false) {
+      // Explicitly remove underline if specified
+      textStyle.underline = false;
+      fields.push('underline');
+    }
+
     this.requests.push({
       updateTextStyle: {
         range: { startIndex, endIndex: endIndex - 1 }, // Exclude newline
-        textStyle: {
-          bold: brandStyle.bold,
-          fontSize: this.makeDimension(brandStyle.fontSizePt),
-          foregroundColor: {
-            color: { rgbColor: hexToRgb(brandStyle.color) }
-          }
-        },
-        fields: 'bold,fontSize,foregroundColor'
+        textStyle,
+        fields: fields.join(',')
       }
     });
 
@@ -757,17 +911,21 @@ class DocsPublisher {
         offset += run.text.length;
       });
 
-      // Apply body styling
+      // Apply list styling (font, size, color, weight)
       this.requests.push({
         updateTextStyle: {
           range: { startIndex: itemStartIndex, endIndex: itemEndIndex - 1 },
           textStyle: {
-            fontSize: this.makeDimension(BRAND.BODY.fontSizePt),
+            fontSize: this.makeDimension(BRAND.LIST.fontSizePt),
             foregroundColor: {
-              color: { rgbColor: hexToRgb(BRAND.BODY.color) }
+              color: { rgbColor: hexToRgb(BRAND.LIST.color) }
+            },
+            weightedFontFamily: {
+              fontFamily: BRAND.LIST.fontFamily,
+              weight: BRAND.LIST.fontWeight || 400
             }
           },
-          fields: 'fontSize,foregroundColor'
+          fields: 'fontSize,foregroundColor,weightedFontFamily'
         }
       });
 
@@ -779,9 +937,13 @@ class DocsPublisher {
       this.cursorIndex = itemEndIndex;
     });
 
+    // Generate a unique list ID for this list block to ensure independent numbering
+    const uniqueListId = `list-${this.listCounter++}`;
+
     // Apply bullet/numbering to all items
+    // Each list block gets its own unique ID so numbering resets (doesn't continue from previous lists)
     listItems.forEach(item => {
-      this.requests.push({
+      const bulletRequest = {
         createParagraphBullets: {
           range: {
             startIndex: item.startIndex,
@@ -789,9 +951,17 @@ class DocsPublisher {
           },
           bulletPreset: block.ordered ? 'NUMBERED_DECIMAL_ALPHA_ROMAN' : 'BULLET_DISC_CIRCLE_SQUARE'
         }
-      });
+      };
 
-      // Reduce spacing between list items (30% less than default)
+      // For ordered lists, assign unique list ID to force independent numbering
+      // For bulleted lists, also use unique IDs to keep them separate
+      if (block.ordered) {
+        bulletRequest.createParagraphBullets.listId = uniqueListId;
+      }
+
+      this.requests.push(bulletRequest);
+
+      // Apply list paragraph spacing from brand config
       this.requests.push({
         updateParagraphStyle: {
           range: {
@@ -799,9 +969,9 @@ class DocsPublisher {
             endIndex: item.endIndex
           },
           paragraphStyle: {
-            spaceAbove: this.makeDimension(0),
-            spaceBelow: this.makeDimension(3),
-            lineSpacing: 100 // 1.0 line spacing
+            spaceAbove: this.makeDimension(BRAND.LIST.beforeSpacingPt),
+            spaceBelow: this.makeDimension(BRAND.LIST.afterSpacingPt),
+            lineSpacing: BRAND.LIST.lineSpacing * 100
           },
           fields: 'spaceAbove,spaceBelow,lineSpacing'
         }
@@ -1101,20 +1271,47 @@ class DocsPublisher {
             });
           }
 
-          // Apply header row styling (first row)
-          if (rowIdx === 0 && cellText) {
+          // Apply styling based on row type
+          if (cellText) {
             const cellEndIndex = cellStartIndex + cellText.length;
-            tableRequests.push({
-              updateTextStyle: {
-                range: { startIndex: cellStartIndex, endIndex: cellEndIndex },
-                textStyle: {
-                  bold: BRAND.TABLE.headerBold,
-                  weightedFontFamily: { fontFamily: BRAND.TABLE.headerFontFamily },
-                  fontSize: this.makeDimension(BRAND.BODY.fontSizePt)
-                },
-                fields: 'bold,weightedFontFamily,fontSize'
-              }
-            });
+
+            if (rowIdx === 0) {
+              // Header row styling (white text on dark blue background)
+              tableRequests.push({
+                updateTextStyle: {
+                  range: { startIndex: cellStartIndex, endIndex: cellEndIndex },
+                  textStyle: {
+                    weightedFontFamily: {
+                      fontFamily: BRAND.TABLE.headerFontFamily,
+                      weight: BRAND.TABLE.headerFontWeight || 600
+                    },
+                    fontSize: this.makeDimension(BRAND.TABLE.headerFontSizePt),
+                    foregroundColor: {
+                      color: { rgbColor: hexToRgb(BRAND.TABLE.headerTextColor) }
+                    }
+                  },
+                  fields: 'weightedFontFamily,fontSize,foregroundColor'
+                }
+              });
+            } else {
+              // Regular cell styling (dark text)
+              tableRequests.push({
+                updateTextStyle: {
+                  range: { startIndex: cellStartIndex, endIndex: cellEndIndex },
+                  textStyle: {
+                    weightedFontFamily: {
+                      fontFamily: BRAND.TABLE.cellFontFamily,
+                      weight: BRAND.TABLE.cellFontWeight || 400
+                    },
+                    fontSize: this.makeDimension(BRAND.TABLE.cellFontSizePt),
+                    foregroundColor: {
+                      color: { rgbColor: hexToRgb(BRAND.TABLE.cellTextColor) }
+                    }
+                  },
+                  fields: 'weightedFontFamily,fontSize,foregroundColor'
+                }
+              });
+            }
           }
         }
       }
@@ -1151,6 +1348,47 @@ class DocsPublisher {
             fields: 'backgroundColor,borderBottom,paddingTop,paddingBottom,paddingLeft,paddingRight'
           }
         });
+
+        // Pin header row if configured
+        if (BRAND.TABLE.pinHeaderRow) {
+          tableRequests.push({
+            pinTableHeaderRows: {
+              tableStartLocation: { index: startIndex },
+              pinnedHeaderRowsCount: 1
+            }
+          });
+        }
+      }
+
+      // Apply cell spacing to all table cells (single spacing, no extra spacing)
+      for (let rowIdx = 0; rowIdx < rows; rowIdx++) {
+        for (let colIdx = 0; colIdx < cols; colIdx++) {
+          const tableRow = table.table.tableRows[rowIdx];
+          const tableCell = tableRow.tableCells[colIdx];
+          const cellContent = tableCell.content[0];
+
+          if (cellContent && cellContent.paragraph) {
+            const paragraph = cellContent.paragraph;
+            const cellStartIndex = paragraph.elements[0]?.startIndex || cellContent.startIndex + 1;
+            const cellText = block.rows[rowIdx][colIdx]?.runs.map(r => r.text).join('') || '';
+
+            if (cellText) {
+              const cellEndIndex = cellStartIndex + cellText.length + 1; // +1 for paragraph marker
+
+              tableRequests.push({
+                updateParagraphStyle: {
+                  range: { startIndex: cellStartIndex, endIndex: cellEndIndex },
+                  paragraphStyle: {
+                    lineSpacing: BRAND.TABLE.cellLineSpacing * 100,
+                    spaceAbove: this.makeDimension(BRAND.TABLE.cellBeforeSpacingPt),
+                    spaceBelow: this.makeDimension(BRAND.TABLE.cellAfterSpacingPt)
+                  },
+                  fields: 'lineSpacing,spaceAbove,spaceBelow'
+                }
+              });
+            }
+          }
+        }
       }
     }
 

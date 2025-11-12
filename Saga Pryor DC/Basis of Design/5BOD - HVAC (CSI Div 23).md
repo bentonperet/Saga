@@ -94,7 +94,7 @@ This plant serves the 162 high-density (100 kW) L2C racks in Data Hall West.
 - **Water Quality:** Water quality requirements for primary and secondary loops shall be specified in detailed design.
 - **Cold Plate Specifications:** Cold plate performance requirements, thermal interface materials, and component coverage shall be specified by system engineers.
 - **Piping Specifications:** Manifold materials, pressure ratings, isolation valves, and quick-disconnect specifications shall be determined in detailed design.
-- **Commissioning:** L2C commissioning is a specialized effort requiring coordination with commissioning professionals. Pachyderm Global has experience with liquid cooling commissioning.
+- **Commissioning:** L2C commissioning is a specialized effort requiring coordination with commissioning professionals. PACHYDERM GLOBAL has experience with liquid cooling commissioning.
 - **Maintenance & Monitoring:** Routine testing schedules, filter replacement protocols, and water quality monitoring shall be specified in the next phase.
 
 ## LOOPS 1+2: COLD WATER RDHx PLANT (5.8 MW)

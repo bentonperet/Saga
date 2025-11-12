@@ -1,3 +1,14 @@
+📄 Reading markdown file...
+🔍 Parsing markdown...
+   Found 268 blocks
+🔐 Authenticating with Google...
+📝 Creating Google Doc...
+
+✅ Document published successfully!
+
+   Title: 04_Risk_Assessment
+   URL:   https://docs.google.com/document/d/1xTZCA8ieaDGevYHMIgxzncK1_bQvaOJkgDhjp_TorrE/edit
+
 # Hut 8 Riverbend - Risk Assessment & Considerations
 
 **Created:** 2025-11-07

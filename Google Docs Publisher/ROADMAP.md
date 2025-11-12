@@ -7,7 +7,7 @@
 ### ✅ Completed Features
 
 **Core Functionality:**
-- Headings (H1-H6) with Pachyderm Global brand styling
+- Headings (H1-H6) with PACHYDERM GLOBAL brand styling
 - Paragraphs with inline formatting (bold, italic, strikethrough)
 - Inline code with monospace font
 - Clickable links

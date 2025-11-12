@@ -14,21 +14,21 @@ Gray Space - Indoor,LV Switchboard - Data Hall Elec,192,32,Vertiv,4000A,480V,All
 Gray Space - Indoor,LV Switchboard - Data Hall Mech,72,12,Vertiv,5000A,480V,All 6 data halls,Level 4,12,6
 Gray Space - Indoor,LV Switchboard - Network Elec,8,8,Vertiv,4000A,480V,Network Room,Level 4,8,1
 Gray Space - Indoor,LV Switchboard - Network Mech,4,4,Vertiv,4000A,480V,Network Room,Level 4,4,1
-Gray Space - Indoor,UPS,676,112.6666667,Vertiv,480V APM2 600kVA,,All 6 data halls + Network,Level 4,113,6
-Gray Space - Indoor,CRAH Fan Wall - Electrical Room,64,10.66666667,Vertiv,CA606,,Electrical rooms,Level 4,11,6
-Gray Space - Indoor,Battery Cabinets,2104,350.6666667,Vertiv,LI5 - LI7,,All 6 data halls + Network,Level 4,351,6
-White Space - Option 1,HAC - SmartRun,41,6.833333333,Vertiv,Hot Aisle Containment,,Option 1 (not base),Level 4,7,6
+Gray Space - Indoor,UPS,676,112,Vertiv,480V APM2 600kVA,,All 6 data halls + Network,Level 4,113,6
+Gray Space - Indoor,CRAH Fan Wall - Electrical Room,64,10,Vertiv,CA606,,Electrical rooms,Level 4,11,6
+Gray Space - Indoor,Battery Cabinets,2104,350,Vertiv,LI5 - LI7,,All 6 data halls + Network,Level 4,351,6
+White Space - Option 1,HAC - SmartRun,41,6,Vertiv,Hot Aisle Containment,,Option 1 (not base),Level 4,7,6
 White Space - Option 1,Rack Power Panel,576,96,Vertiv,1000/1200A,480V,Option 1 (not base),Level 4,96,6
-White Space - Option 1,Remote Distribution Panel,328,54.66666667,Vertiv,400A RXV Panels,480V,Option 1 (not base),Level 4,55,6
-White Space - Option 1,CDU,190,31.66666667,Vertiv,XDU 2300,,Option 1 (not base),Level 4,32,6
-White Space - Option 1,CRAH Fan Wall - Data Hall,214,35.66666667,Vertiv,CA606,,Option 1 (not base),Level 4,36,6
-White Space - Option 2,HAC - SmartRun,65,10.83333333,Vertiv,Hot Aisle Containment,,Option 2 (BASE),Level 4,11,6
+White Space - Option 1,Remote Distribution Panel,328,54,Vertiv,400A RXV Panels,480V,Option 1 (not base),Level 4,55,6
+White Space - Option 1,CDU,190,31,Vertiv,XDU 2300,,Option 1 (not base),Level 4,32,6
+White Space - Option 1,CRAH Fan Wall - Data Hall,214,35,Vertiv,CA606,,Option 1 (not base),Level 4,36,6
+White Space - Option 2,HAC - SmartRun,65,10,Vertiv,Hot Aisle Containment,,Option 2 (BASE),Level 4,11,6
 White Space - Option 2,Rack Power Panel,960,160,Vertiv,1000/1200A,480V,Option 2 (BASE),Level 4,160,6
-White Space - Option 2,Remote Distribution Panel,40,6.666666667,Vertiv,400A RXV Panels,480V,Option 2 (BASE),Level 4,7,6
-White Space - Option 2,CDU,190,31.66666667,Vertiv,XDU 2300,,Option 2 (BASE),Level 4,32,6
-White Space - Option 2,CRAH Fan Wall - Data Hall,214,35.66666667,Vertiv,CA606,,Option 2 (BASE),Level 4,36,6
-White Space - Option 3,HAC - SmartRun,41,6.833333333,Vertiv,Hot Aisle Containment,,Option 3 (not base),Level 4,7,6
+White Space - Option 2,Remote Distribution Panel,40,6,Vertiv,400A RXV Panels,480V,Option 2 (BASE),Level 4,7,6
+White Space - Option 2,CDU,190,31,Vertiv,XDU 2300,,Option 2 (BASE),Level 4,32,6
+White Space - Option 2,CRAH Fan Wall - Data Hall,214,35,Vertiv,CA606,,Option 2 (BASE),Level 4,36,6
+White Space - Option 3,HAC - SmartRun,41,6,Vertiv,Hot Aisle Containment,,Option 3 (not base),Level 4,7,6
 White Space - Option 3,Rack Power Panel,576,96,Vertiv,1000/1200A,480V,Option 3 (not base),Level 4,96,6
-White Space - Option 3,Remote Distribution Panel,40,6.666666667,Vertiv,400A RXV Panels,480V,Option 3 (not base),Level 4,7,6
-White Space - Option 3,CDU,190,31.66666667,Vertiv,XDU 2300,,Option 3 (not base),Level 4,32,6
-White Space - Option 3,CRAH Fan Wall - Data Hall,214,35.66666667,Vertiv,CA606,,Option 3 (not base),Level 4,36,6
+White Space - Option 3,Remote Distribution Panel,40,6,Vertiv,400A RXV Panels,480V,Option 3 (not base),Level 4,7,6
+White Space - Option 3,CDU,190,31,Vertiv,XDU 2300,,Option 3 (not base),Level 4,32,6
+White Space - Option 3,CRAH Fan Wall - Data Hall,214,35,Vertiv,CA606,,Option 3 (not base),Level 4,36,6

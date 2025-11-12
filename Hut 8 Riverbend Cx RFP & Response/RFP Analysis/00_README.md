@@ -121,7 +121,7 @@ This folder contains a comprehensive analysis of the Hut 8 Riverbend Data Center
    - Schedule impact: Early coordination for first-of-a-kind installations
    - Key unknowns: Critical infrastructure only vs. entire project, timing of QA/QC involvement, role definition
 
-**See [[RFI_001_Commissioning_Scope_Clarifications]] for formal RFI document**
+**See [[RFI_001_Detailed_Commissioning_Scope_Clarifications]] for formal RFI document**
 **See [[Switchyard_Commissioning_Notes]] for detailed switchyard analysis**
 
 ---

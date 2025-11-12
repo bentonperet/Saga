@@ -8,6 +8,25 @@ import { parseMarkdownToBlocks } from './markdownParser.js';
 import DocsPublisher from './docsPublisher.js';
 
 /**
+ * Clean up extra newlines/carriage returns from markdown
+ * @param {string} markdown - Raw markdown content
+ * @returns {string} Cleaned markdown
+ */
+function cleanExtraNewlines(markdown) {
+  return markdown
+    // Normalize line endings (CRLF -> LF)
+    .replace(/\r\n/g, '\n')
+    // Remove standalone carriage returns
+    .replace(/\r/g, '\n')
+    // Replace 3+ consecutive newlines with 2 newlines (preserve paragraph breaks)
+    .replace(/\n{3,}/g, '\n\n')
+    // Remove trailing whitespace from lines
+    .replace(/[ \t]+$/gm, '')
+    // Ensure file ends with single newline
+    .replace(/\n*$/, '\n');
+}
+
+/**
  * Main function to publish markdown to Google Docs
  */
 async function main() {
@@ -33,12 +52,16 @@ async function main() {
 
     // Read markdown content
     console.log('📄 Reading markdown file...');
-    const markdown = fs.readFileSync(absolutePath, 'utf8');
+    let markdown = fs.readFileSync(absolutePath, 'utf8');
 
     if (!markdown.trim()) {
       console.error('❌ Error: File is empty');
       process.exit(1);
     }
+
+    // Clean up extra newlines and whitespace
+    console.log('🧹 Cleaning extra newlines...');
+    markdown = cleanExtraNewlines(markdown);
 
     // Parse markdown into structured blocks
     console.log('🔍 Parsing markdown...');
