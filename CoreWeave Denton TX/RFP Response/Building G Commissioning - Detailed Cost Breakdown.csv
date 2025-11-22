@@ -1,0 +1,272 @@
+BUILDING G COMMISSIONING PROGRAM - DETAILED COST BREAKDOWN
+Using Cx Rate Card Actual Rates
+
+COMPARISON: Building G has 24-day L4 phase (Oct 21 - Nov 25, 2025) vs Building H 14-day L4 phase
+Building G has 3-day L5 phase (Nov 25 - Dec 2, 2025) vs Building H 5-day L5 phase
+
+PHASE,RESOURCE ROLE,RESOURCE NAME,HOURLY RATE,HOURS ALLOCATED,TOTAL COST,NOTES
+
+1.0 L1 FACTORY TESTING (Pre-Oct 2025),,,,,,
+1.1,Cx Manager,Ben Solum,$185.00,40,$7400,"Coordination of FAT witness trips"
+1.1,Lead ECx-A,Tyler Dunlap,$150.00,80,$12000,"MV Transformers, LV Switchboards FAT witness"
+1.1,Lead MCx-D,Josip Bilen,$150.00,40,$6000,"Chillers, UPS FAT witness"
+1.1,Travel & Expenses (Lump Sum),Multiple,N/A,N/A,$15000,"4-6 factory trips for major equipment FAT"
+L1 SUBTOTAL,,,,$160,$40400,
+
+2.0 L2 PRE-FUNCTIONAL VERIFICATION (Aug - Oct 2025),,,,,,
+2.1,Lead ECx-A,Tyler Dunlap,$150.00,400,$60000,"Electrical system installation verification leadership"
+2.2,ECx Tech-A,Zach Tucker,$120.00,1200,$144000,"Electrical installation checks, busway inspection, megger testing"
+2.3,Lead MCx-D,Josip Bilen,$150.00,300,$45000,"Mechanical system installation verification leadership"
+2.4,MCx Tech-D,Mohamed Ben-Salah,$120.00,800,$96000,"Chiller, fan wall, battery installation checks"
+2.5,Cx Scheduler/Coordinator,Lashica Woodard,$165.00,200,$33000,"Schedule coordination with construction, checklist tracking"
+2.6,Doc Control-A,Dakota Padoven,$110.00,55,$6050,"Pre-functional documentation compilation"
+L2 SUBTOTAL,,,,2955,$384050,"Assume similar scope to Building H"
+
+3.0 L2/L3 STARTUP & COMMISSIONING (Similar to Bldg H timeline),,,,,,
+3.1,Cx Manager,Ben Solum,$185.00,296,$54760,"Overall startup coordination and oversight"
+3.2,Lead ECx-A,Tyler Dunlap,$150.00,600,$90000,"MV energization, UPS startup, STS commissioning leadership"
+3.3,Lead ECx-B,Muhammed Kurt,$150.00,400,$60000,"Secondary electrical lead for parallel work streams"
+3.4,ECx Tech-A,Zach Tucker,$120.00,800,$96000,"Electrical startup support, UPS testing, busway energization"
+3.5,ECx Tech-B,Carter Corey,$120.00,800,$96000,"Electrical startup support, battery testing, distribution"
+3.6,Lead MCx-D,Josip Bilen,$150.00,500,$75000,"Chiller startup, HVAC system commissioning leadership"
+3.7,MCx Tech-D,Mohamed Ben-Salah,$120.00,600,$72000,"Chiller startup execution, fan wall commissioning"
+3.8,MCx Tech-B,Kedric Benford,$120.00,600,$72000,"Mechanical system startup support, water quality"
+3.9,Cx Scheduler/Coordinator,Lashica Woodard,$165.00,200,$33000,"Startup schedule management, manufacturer coordination"
+3.10,Mech Floater,TBD,$125.00,80,$10000,"T&B support, air-water balance"
+3.11,Doc Control-A,Dakota Padoven,$110.00,62,$6820,"Startup documentation, deficiency tracking"
+L3 SUBTOTAL,,,,4938,$665580,
+
+4.0 L4 PERFORMANCE COMMISSIONING (Oct 21 - Nov 25, 2025 - 24 DAYS),,,,,,
+TEAM 1: POWER SYSTEMS (24 days vs H's 14 days),,,,,,
+4.1,Lead ECx-A,Tyler Dunlap,$150.00,288,$43200,"Team 1 Lead - Power systems testing (12 hrs/day x 24 days)"
+4.2,ECx Tech-A,Zach Tucker,$120.00,576,$69120,"Team 1 Tech - UPS, battery, transformer testing (2 techs x 12 hrs/day x 24 days)"
+4.3,ECx Tech-B,Carter Corey,$120.00,576,$69120,"Team 1 Tech - Distribution, protective systems, power quality"
+4.4,Substation Electrical Engineering SME,Daniel Dus,$185.00,48,$8880,"Subject matter expert for protective relay testing (2 days)"
+
+TEAM 2: MECHANICAL SYSTEMS (24 days),,,,,,
+4.5,Lead MCx-D,Josip Bilen,$150.00,240,$36000,"Team 2 Lead - Mechanical systems testing (10 hrs/day x 24 days)"
+4.6,MCx Tech-D,Mohamed Ben-Salah,$120.00,480,$57600,"Team 2 Tech - Chiller, VFD, pump performance (2 techs x 10 hrs/day x 24 days)"
+4.7,MCx Tech-B,Kedric Benford,$120.00,480,$57600,"Team 2 Tech - Fan wall performance, HVAC verification"
+4.8,D2C Mech Engineering SME,Sherif Khamis,$185.00,32,$5920,"Subject matter expert for data center mechanical systems"
+4.9,Mech Floater,TBD,$125.00,72,$9000,"T&B verification, system balance checks"
+
+TEAM 3: INTEGRATION & CONTROLS (24 days),,,,,,
+4.10,Lead ECx-B,Muhammed Kurt,$150.00,240,$36000,"Team 3 Lead - Controls & integration testing (10 hrs/day x 24 days)"
+4.11,ECx Tech-C,Tyler Roady,$120.00,480,$57600,"Team 3 Tech - STS testing, BMS integration (2 techs x 10 hrs/day x 24 days)"
+4.12,ECx Tech-D,Kevin Duong,$120.00,480,$57600,"Team 3 Tech - SCADA verification, sequence testing"
+4.13,Elect Floater,TBD,$125.00,60,$7500,"Controls support, specialty testing"
+
+INTEGRATED TESTING & COORDINATION,,,,,,
+4.14,Cx Manager,Ben Solum,$185.00,288,$53280,"Overall L4 coordination, client interface (12 hrs/day x 24 days)"
+4.15,Cx Scheduler/Coordinator,Lashica Woodard,$165.00,192,$31680,"Daily coordination, schedule management (8 hrs/day x 24 days)"
+4.16,Doc Control-A,Dakota Padoven,$110.00,192,$21120,"Real-time documentation, test report compilation (8 hrs/day x 24 days)"
+4.17,Doc Control-B,Christine Stockglausner,$110.00,192,$21120,"Support documentation, deficiency tracking (8 hrs/day x 24 days)"
+
+BUSWAY TESTING (CRITICAL NOTE - SAME AS BUILDING H),,,,,,
+4.18,ECx Tech-C,Tyler Roady,$120.00,800,$96000,"Busway load testing - 24,000 LF x 0.1 hrs/LF = 2400 hrs allocated across multiple techs"
+4.19,ECx Tech-D,Kevin Duong,$120.00,800,$96000,"Busway thermal imaging, voltage drop measurements"
+4.20,Elect Floater,TBD,$125.00,800,$100000,"Busway testing support"
+
+L4 SUBTOTAL,,,,7296,$934440,"Building G has 24 days vs Building H's 14 days; 71% more time but similar daily intensity"
+
+5.0 L5 RELIABILITY & FAILURE MODE TESTING (Nov 25 - Dec 2, 2025 - 3 DAYS),,,,,,
+5.1,Cx Manager,Ben Solum,$185.00,24,$4440,"L5 coordination (8 hrs/day x 3 days)"
+5.2,Lead ECx-A,Tyler Dunlap,$150.00,21,$3150,"UPS redundancy, STS transfer testing (7 hrs/day x 3 days)"
+5.3,Lead MCx-D,Josip Bilen,$150.00,12,$1800,"Chiller N+1 redundancy testing (4 hrs/day x 3 days)"
+5.4,ECx Tech-A,Zach Tucker,$120.00,24,$2880,"Electrical failure mode execution (8 hrs/day x 3 days)"
+5.5,MCx Tech-D,Mohamed Ben-Salah,$120.00,12,$1440,"Mechanical failure mode execution (4 hrs/day x 3 days)"
+5.6,Cx Scheduler/Coordinator,Lashica Woodard,$165.00,12,$1980,"L5 coordination (4 hrs/day x 3 days)"
+L5 SUBTOTAL,,,,105,$15690,"3 days vs Building H's 5 days; less customer overlap for Building G"
+
+6.0 POST-HANDOFF DOCUMENTATION (Dec 2025),,,,,,
+6.1,Cx Manager,Ben Solum,$185.00,40,$7400,"Final report review and client delivery"
+6.2,Lead ECx-A,Tyler Dunlap,$150.00,16,$2400,"Electrical documentation review"
+6.3,Lead MCx-D,Josip Bilen,$150.00,16,$2400,"Mechanical documentation review"
+6.4,Doc Control-A,Dakota Padoven,$110.00,40,$4400,"O&M manual assembly, as-built coordination"
+6.5,Doc Control-B,Christine Stockglausner,$110.00,40,$4400,"Final commissioning report compilation"
+POST-HANDOFF SUBTOTAL,,,,152,$21000,
+
+
+======================================
+TOTAL LABOR COST SUMMARY
+======================================
+
+PHASE,HOURS,LABOR COST
+L1 Factory Testing,160,$40400
+L2 Pre-Functional Verification,2955,$384050
+L3 Startup & Commissioning,4938,$665580
+L4 Performance Commissioning,7296,$934440
+L5 Reliability Testing,105,$15690
+Post-Handoff Documentation,152,$21000
+
+TOTAL LABOR HOURS,15606,$2061160
+
+
+======================================
+ADDITIONAL COSTS (NON-LABOR)
+======================================
+
+ITEM,DESCRIPTION,QUANTITY,UNIT COST,TOTAL COST
+Load Bank Rental - 3000kW,4-week rental for transformer/UPS testing,1,$45000,$45000
+Load Bank Rental - 800kW,4-week rental for distribution testing,2,$15000,$30000
+Calibrated Test Equipment,Multimeters power analyzers thermal cameras (rental),Lump Sum,N/A,$12000
+Consumables & Supplies,Test forms labels safety equipment misc,Lump Sum,N/A,$5000
+SUBTOTAL NON-LABOR,,,,$92000
+
+
+======================================
+GRAND TOTAL - BUILDING G COMMISSIONING
+======================================
+
+Labor,,$2061160
+Non-Labor Equipment & Expenses,,$92000
+Travel (L1 FAT Witness),,$15000
+
+SUBTOTAL,,$2168160
+Contingency (15%),,$325224
+
+TOTAL PROGRAM COST,,$2493384
+
+
+======================================
+BUILDING G vs BUILDING H COMPARISON
+======================================
+
+METRIC,BUILDING G,BUILDING H,DIFFERENCE
+Total Program Cost,$2493384,$2202963,"+$290,421 (+13.2%)"
+L4 Duration,24 days,14 days,+10 days
+L5 Duration,3 days,5 days,-2 days
+Total Cx Days,27 days,19 days,+8 days
+L4 Labor Cost,$934440,$670780,"+$263,660 (+39.3%)"
+L5 Labor Cost,$15690,$26810,"-$11,120 (-41.5%)"
+Total Labor Hours,15606,13676,"+1,930 hours (+14.1%)"
+Average Blended Rate,$132.09,$132.24,"Similar ($0.15 difference)"
+Cost per Day (L4),$38935,$47913,"-$8,978 (lower daily intensity)"
+
+KEY DIFFERENCES:
+
+1. L4 PHASE IMPACT:
+   - Building G: 24 days at lower daily intensity (~$38.9K/day)
+   - Building H: 14 days at higher daily intensity (~$47.9K/day)
+   - Building G adds $263,660 in L4 labor due to 10 extra days
+
+2. L5 PHASE SAVINGS:
+   - Building G: Only 3 days (less customer activity overlap)
+   - Building H: 5 days (coordinating with GB200 rack installation)
+   - Building G saves $11,120 in L5 phase
+
+3. STAFFING STRATEGY:
+   - Building G: More conservative pace, potentially smaller peak team
+   - Building H: Aggressive parallel testing, 13-person peak team
+   - Both use same resources and rates from rate card
+
+4. NET COST DIFFERENCE:
+   - Building G is $290,421 MORE expensive (13.2% higher)
+   - Primarily driven by longer L4 duration
+   - Less pressure on overtime/extended shifts for Building G
+
+
+======================================
+PROGRAM COST METRICS - BUILDING G
+======================================
+
+Total Commissioned Capacity,"50,000 kVA (estimated)"
+Cost per kVA Commissioned,,$49.87
+Number of Power Blocks,27
+Cost per Power Block,,$92348
+Total Commissioning Hours,15606
+Average Blended Rate,,$132.09
+
+
+======================================
+CRITICAL COST OPTIMIZATION OPPORTUNITY
+======================================
+
+BUSWAY TESTING SCOPE REDUCTION (SAME FOR BOTH BUILDINGS):
+Current approach: 24000 LF x 0.1 hrs/LF = 2400 hours in L4
+Alternative sampling approach: Test 10% thoroughly = 240 hours
+
+POTENTIAL SAVINGS FOR BUILDING G:
+Labor hours saved: 2160 hours
+Cost savings at $120-125/hr blended rate: $259200 - $270000
+Revised L4 cost: $675,240 - $664,440
+Revised total program cost: $2,234,184 - $2,223,384 (after contingency adjustment)
+
+WITH BUSWAY SAMPLING:
+Building G: ~$2.23M
+Building H: ~$1.94M
+Difference: ~$290K (still 13% higher for G due to longer schedule)
+
+
+======================================
+STAFFING COST BREAKDOWN BY ROLE CATEGORY - BUILDING G
+======================================
+
+ROLE CATEGORY,TOTAL HOURS,AVERAGE RATE,TOTAL COST,% OF LABOR
+Cx Management (Cx Manager),688,$185.00,$127280,6.2%
+Lead Engineers (ECx/MCx Leads),2901,$150.00,$435150,21.1%
+Technicians (ECx/MCx Techs),10392,$120.00,$1247040,60.5%
+SME Engineers (Electrical/Mechanical),80,$185.00,$14800,0.7%
+Coordination (Scheduler/Coordinator),604,$165.00,$99660,4.8%
+Documentation (Doc Control),421,$110.00,$46310,2.2%
+Floaters (Mech/Elect),1012,$125.00,$126500,6.1%
+
+TOTAL,16098,,$2096740,
+
+
+======================================
+MONTHLY CASH FLOW PROJECTION - BUILDING G
+======================================
+
+MONTH,PHASE,LABOR HOURS,LABOR COST,EQUIPMENT COST,MONTHLY TOTAL
+Aug 2025,L2 Pre-Functional,650,$84500,$0,$84500
+Sep 2025,L2 Pre-Functional,850,$110500,$0,$110500
+Oct 2025,L2 Pre-Func + L3 Start + L4 Start,3500,$455000,$67000,$522000
+Nov 2025,L3 + L4 Performance,4500,$585000,$25000,$610000
+Dec 2025,L5 + Post-Handoff,350,$45500,$0,$45500
+
+Note: Building G commissioning complete by early December 2025, significantly earlier than Building H (April 2026)
+
+
+======================================
+SCHEDULE ADVANTAGE FOR BUILDING G
+======================================
+
+FIRST BUILDING COMMISSIONED:
+- Building G turnover: November 25, 2025
+- Building H turnover: April 6, 2026
+- Building G is operational 4.5 MONTHS EARLIER
+
+REVENUE IMPLICATIONS:
+If customer pays for operational capacity, Building G generates revenue ~130 days sooner
+Potential early revenue offsets higher commissioning cost
+
+LESSONS LEARNED:
+Building G commissioning (first building) provides:
+- Team training and experience
+- Procedure refinement
+- Issue identification early
+- Knowledge transfer to later buildings (F, D, C, B, H)
+
+This justifies the more conservative 24-day L4 schedule and higher cost.
+
+
+======================================
+FINAL RECOMMENDATION
+======================================
+
+Building G: $2,493,384 (27 days total, delivered Nov 25, 2025)
+Building H: $2,202,963 (19 days total, delivered Apr 6, 2026)
+
+Cost Difference: +$290,421 for Building G (+13.2%)
+Time Difference: Building G delivered 4.5 months earlier
+
+CONCLUSION:
+Building G's higher cost is justified by:
+1. First-building learning curve requiring conservative schedule
+2. Earlier revenue generation (4.5 months ahead of Building H)
+3. Knowledge capture benefits all subsequent buildings
+4. Lower daily stress/intensity on commissioning team
+5. More time for deficiency resolution without schedule pressure
+
+Building H benefits from lessons learned, enabling more aggressive 14-day L4 schedule and lower overall cost.

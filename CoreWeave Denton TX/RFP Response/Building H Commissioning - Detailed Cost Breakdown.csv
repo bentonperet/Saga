@@ -1,0 +1,247 @@
+BUILDING H COMMISSIONING PROGRAM - DETAILED COST BREAKDOWN
+Using Cx Rate Card Actual Rates
+
+PHASE,RESOURCE ROLE,RESOURCE NAME,HOURLY RATE,HOURS ALLOCATED,TOTAL COST,NOTES
+
+1.0 L1 FACTORY TESTING (Pre-Nov 2025),,,,,,
+1.1,Cx Manager,Ben Solum,$185.00,40,$7400,"Coordination of FAT witness trips"
+1.1,Lead ECx-A,Tyler Dunlap,$150.00,80,$12000,"MV Transformers, LV Switchboards FAT witness"
+1.1,Lead MCx-D,Josip Bilen,$150.00,40,$6000,"Chillers, UPS FAT witness"
+1.1,Travel & Expenses (Lump Sum),Multiple,N/A,N/A,$15000,"4-6 factory trips for major equipment FAT"
+L1 SUBTOTAL,,,,$160,$40400,
+
+2.0 L2 PRE-FUNCTIONAL VERIFICATION (Nov 7 2025 - Feb 8 2026),,,,,,
+2.1,Lead ECx-A,Tyler Dunlap,$150.00,400,$60000,"Electrical system installation verification leadership"
+2.2,ECx Tech-A,Zach Tucker,$120.00,1200,$144000,"Electrical installation checks, busway inspection, megger testing"
+2.3,Lead MCx-D,Josip Bilen,$150.00,300,$45000,"Mechanical system installation verification leadership"
+2.4,MCx Tech-D,Mohamed Ben-Salah,$120.00,800,$96000,"Chiller, fan wall, battery installation checks"
+2.5,Cx Scheduler/Coordinator,Lashica Woodard,$165.00,200,$33000,"Schedule coordination with construction, checklist tracking"
+2.6,Doc Control-A,Dakota Padoven,$110.00,55,$6050,"Pre-functional documentation compilation"
+L2 SUBTOTAL,,,,2955,$384050,"Note: Busway dominates hours; may reduce via sampling"
+
+3.0 L2/L3 STARTUP & COMMISSIONING (Feb 9 - Mar 17 2026),,,,,,
+3.1,Cx Manager,Ben Solum,$185.00,296,$54760,"Overall startup coordination and oversight"
+3.2,Lead ECx-A,Tyler Dunlap,$150.00,600,$90000,"MV energization, UPS startup, STS commissioning leadership"
+3.3,Lead ECx-B,Muhammed Kurt,$150.00,400,$60000,"Secondary electrical lead for parallel work streams"
+3.4,ECx Tech-A,Zach Tucker,$120.00,800,$96000,"Electrical startup support, UPS testing, busway energization"
+3.5,ECx Tech-B,Carter Corey,$120.00,800,$96000,"Electrical startup support, battery testing, distribution"
+3.6,Lead MCx-D,Josip Bilen,$150.00,500,$75000,"Chiller startup, HVAC system commissioning leadership"
+3.7,MCx Tech-D,Mohamed Ben-Salah,$120.00,600,$72000,"Chiller startup execution, fan wall commissioning"
+3.8,MCx Tech-B,Kedric Benford,$120.00,600,$72000,"Mechanical system startup support, water quality"
+3.9,Cx Scheduler/Coordinator,Lashica Woodard,$165.00,200,$33000,"Startup schedule management, manufacturer coordination"
+3.10,Mech Floater,TBD,$125.00,80,$10000,"T&B support, air-water balance"
+3.11,Doc Control-A,Dakota Padoven,$110.00,62,$6820,"Startup documentation, deficiency tracking"
+L3 SUBTOTAL,,,,4938,$665580,
+
+4.0 L4 PERFORMANCE COMMISSIONING (Mar 18 - Apr 6 2026),,,,,,
+TEAM 1: POWER SYSTEMS,,,,,,
+4.1,Lead ECx-A,Tyler Dunlap,$150.00,168,$25200,"Team 1 Lead - Power systems testing (12 hrs/day x 14 days)"
+4.2,ECx Tech-A,Zach Tucker,$120.00,336,$40320,"Team 1 Tech - UPS, battery, transformer testing (2 techs x 12 hrs/day x 14 days)"
+4.3,ECx Tech-B,Carter Corey,$120.00,336,$40320,"Team 1 Tech - Distribution, protective systems, power quality"
+4.4,Substation Electrical Engineering SME,Daniel Dus,$185.00,40,$7400,"Subject matter expert for protective relay testing"
+
+TEAM 2: MECHANICAL SYSTEMS,,,,,,
+4.5,Lead MCx-D,Josip Bilen,$150.00,140,$21000,"Team 2 Lead - Mechanical systems testing (10 hrs/day x 14 days)"
+4.6,MCx Tech-D,Mohamed Ben-Salah,$120.00,280,$33600,"Team 2 Tech - Chiller, VFD, pump performance (2 techs x 10 hrs/day x 14 days)"
+4.7,MCx Tech-B,Kedric Benford,$120.00,280,$33600,"Team 2 Tech - Fan wall performance, HVAC verification"
+4.8,D2C Mech Engineering SME,Sherif Khamis,$185.00,24,$4440,"Subject matter expert for data center mechanical systems"
+4.9,Mech Floater,TBD,$125.00,44,$5500,"T&B verification, system balance checks"
+
+TEAM 3: INTEGRATION & CONTROLS,,,,,,
+4.10,Lead ECx-B,Muhammed Kurt,$150.00,140,$21000,"Team 3 Lead - Controls & integration testing (10 hrs/day x 14 days)"
+4.11,ECx Tech-C,Tyler Roady,$120.00,280,$33600,"Team 3 Tech - STS testing, BMS integration (2 techs x 10 hrs/day x 14 days)"
+4.12,ECx Tech-D,Kevin Duong,$120.00,280,$33600,"Team 3 Tech - SCADA verification, sequence testing"
+4.13,Elect Floater,TBD,$125.00,40,$5000,"Controls support, specialty testing"
+
+INTEGRATED TESTING & COORDINATION,,,,,,
+4.14,Cx Manager,Ben Solum,$185.00,168,$31080,"Overall L4 coordination, client interface (12 hrs/day x 14 days)"
+4.15,Cx Scheduler/Coordinator,Lashica Woodard,$165.00,112,$18480,"Daily coordination, schedule management (8 hrs/day x 14 days)"
+4.16,Doc Control-A,Dakota Padoven,$110.00,112,$12320,"Real-time documentation, test report compilation (8 hrs/day x 14 days)"
+4.17,Doc Control-B,Christine Stockglausner,$110.00,112,$12320,"Support documentation, deficiency tracking (8 hrs/day x 14 days)"
+
+BUSWAY TESTING (CRITICAL NOTE),,,,,,
+4.18,ECx Tech-C,Tyler Roady,$120.00,800,$96000,"Busway load testing - 24,000 LF x 0.1 hrs/LF = 2400 hrs allocated across multiple techs"
+4.19,ECx Tech-D,Kevin Duong,$120.00,800,$96000,"Busway thermal imaging, voltage drop measurements"
+4.20,Elect Floater,TBD,$125.00,800,$100000,"Busway testing support"
+
+L4 SUBTOTAL,,,,5292,$670780,"CRITICAL: Busway hours (2400) dominate; sampling could reduce to ~240 hrs saving ~$259,200"
+
+5.0 L5 RELIABILITY & FAILURE MODE TESTING (Apr 7 - Apr 13 2026),,,,,,
+5.1,Cx Manager,Ben Solum,$185.00,40,$7400,"L5 coordination with customer rack installation (8 hrs/day x 5 days)"
+5.2,Lead ECx-A,Tyler Dunlap,$150.00,35,$5250,"UPS redundancy, STS transfer testing (7 hrs/day x 5 days)"
+5.3,Lead MCx-D,Josip Bilen,$150.00,20,$3000,"Chiller N+1 redundancy testing (4 hrs/day x 5 days)"
+5.4,ECx Tech-A,Zach Tucker,$120.00,40,$4800,"Electrical failure mode execution (8 hrs/day x 5 days)"
+5.5,MCx Tech-D,Mohamed Ben-Salah,$120.00,20,$2400,"Mechanical failure mode execution (4 hrs/day x 5 days)"
+5.6,Cx Scheduler/Coordinator,Lashica Woodard,$165.00,24,$3960,"Customer coordination, evening test scheduling (varies)"
+L5 SUBTOTAL,,,,179,$26810,
+
+6.0 POST-HANDOFF DOCUMENTATION (May 1 - May 15 2026),,,,,,
+6.1,Cx Manager,Ben Solum,$185.00,40,$7400,"Final report review and client delivery"
+6.2,Lead ECx-A,Tyler Dunlap,$150.00,16,$2400,"Electrical documentation review"
+6.3,Lead MCx-D,Josip Bilen,$150.00,16,$2400,"Mechanical documentation review"
+6.4,Doc Control-A,Dakota Padoven,$110.00,40,$4400,"O&M manual assembly, as-built coordination"
+6.5,Doc Control-B,Christine Stockglausner,$110.00,40,$4400,"Final commissioning report compilation"
+POST-HANDOFF SUBTOTAL,,,,152,$21000,
+
+
+======================================
+TOTAL LABOR COST SUMMARY
+======================================
+
+PHASE,HOURS,LABOR COST
+L1 Factory Testing,160,$40400
+L2 Pre-Functional Verification,2955,$384050
+L3 Startup & Commissioning,4938,$665580
+L4 Performance Commissioning,5292,$670780
+L5 Reliability Testing,179,$26810
+Post-Handoff Documentation,152,$21000
+
+TOTAL LABOR HOURS,13676,$1808620
+
+
+======================================
+ADDITIONAL COSTS (NON-LABOR)
+======================================
+
+ITEM,DESCRIPTION,QUANTITY,UNIT COST,TOTAL COST
+Load Bank Rental - 3000kW,4-week rental for transformer/UPS testing,1,$45000,$45000
+Load Bank Rental - 800kW,4-week rental for distribution testing,2,$15000,$30000
+Calibrated Test Equipment,Multimeters power analyzers thermal cameras (rental),Lump Sum,N/A,$12000
+Consumables & Supplies,Test forms labels safety equipment misc,Lump Sum,N/A,$5000
+SUBTOTAL NON-LABOR,,,,$92000
+
+
+======================================
+GRAND TOTAL - BUILDING H COMMISSIONING
+======================================
+
+Labor,,$1808620
+Non-Labor Equipment & Expenses,,$92000
+Travel (L1 FAT Witness),,$15000
+
+SUBTOTAL,,$1915620
+Contingency (15%),,$287343
+
+TOTAL PROGRAM COST,,$2202963
+
+
+======================================
+PROGRAM COST METRICS
+======================================
+
+Total Commissioned Capacity,"50,000 kVA (estimated)"
+Cost per kVA Commissioned,,$44.06
+Number of Power Blocks,27
+Cost per Power Block,,$81591
+Total Commissioning Hours,13676
+Average Blended Rate,,$132.24
+
+
+======================================
+CRITICAL COST OPTIMIZATION OPPORTUNITY
+======================================
+
+BUSWAY TESTING SCOPE REDUCTION:
+Current approach: 24000 LF x 0.1 hrs/LF = 2400 hours in L4
+Alternative sampling approach: Test 10% thoroughly = 240 hours
+
+POTENTIAL SAVINGS:
+Labor hours saved: 2160 hours
+Cost savings at $120-125/hr blended rate: $259200 - $270000
+Revised L4 cost: $411580 - $400780
+Revised total program cost: $1943763 - $1932963 (after contingency adjustment)
+
+RECOMMENDATION:
+Implement statistical sampling approach for busway testing per industry standard commissioning practices. Test 10% of busway runs thoroughly (representative samples from each block type) with 100% visual inspection and thermal imaging under load. This approach maintains quality assurance while reducing testing hours by 90%.
+
+
+======================================
+STAFFING COST BREAKDOWN BY ROLE CATEGORY
+======================================
+
+ROLE CATEGORY,TOTAL HOURS,AVERAGE RATE,TOTAL COST,% OF LABOR
+Cx Management (Cx Manager),544,$185.00,$100640,5.6%
+Lead Engineers (ECx/MCx Leads),2835,$150.00,$425250,23.5%
+Technicians (ECx/MCx Techs),9480,$120.00,$1137600,62.9%
+SME Engineers (Electrical/Mechanical),64,$185.00,$11840,0.7%
+Coordination (Scheduler/Coordinator),536,$165.00,$88440,4.9%
+Documentation (Doc Control),421,$110.00,$46310,2.6%
+Floaters (Mech/Elect),964,$125.00,$120500,6.7%
+
+TOTAL,14844,,$1930580,
+
+
+======================================
+MONTHLY CASH FLOW PROJECTION
+======================================
+
+MONTH,PHASE,LABOR HOURS,LABOR COST,EQUIPMENT COST,MONTHLY TOTAL
+Oct 2025,L1 Factory Testing,80,$15200,$0,$15200
+Nov 2025,L1 Factory + L2 Start,400,$50000,$0,$50000
+Dec 2025,L2 Pre-Functional,650,$84500,$0,$84500
+Jan 2026,L2 Pre-Functional,850,$110500,$0,$110500
+Feb 2026,L2 Pre-Functional + L3 Start,1500,$195000,$25000,$220000
+Mar 2026,L3 Startup + L4 Start,4500,$585000,$67000,$652000
+Apr 2026,L4 Performance + L5,2500,$325000,$0,$325000
+May 2026,Post-Handoff,152,$21000,$0,$21000
+
+Note: Equipment costs include load bank rental mobilization demobilization and test equipment rental.
+
+
+======================================
+ASSUMPTIONS & NOTES
+======================================
+
+1. RATE CARD APPLICATION: All rates sourced from Cx_Rate_Card.csv with specific named resources where assigned. Floater positions use generic floater rates.
+
+2. HOURS BASIS: Total hours (13,676) differ from WBS total (15,826) because:
+   - WBS includes 2,400 busway hours in both L2 and L4 (4,800 total)
+   - This estimate assumes those hours are INCLUDED in L2/L4 phases as shown
+   - Discrepancy suggests need to clarify: are busway hours ADDITIONAL or INCLUDED in phase totals?
+   - This pricing assumes busway hours are PART OF the phase totals not additional
+
+3. BUSWAY TESTING: Priced at full scope (2,400 hrs in L4) but strongly recommend sampling approach to reduce by ~$260K
+
+4. MANUFACTURER SUPPORT: Costs for UPS, chiller, and major equipment manufacturer startup technicians are typically included in equipment purchase and NOT reflected in this commissioning cost estimate.
+
+5. OWNER RESPONSIBILITIES: Assumes owner provides:
+   - Temporary power for testing
+   - Access to water for chiller testing
+   - Site office space and facilities
+   - Safety equipment and site orientation
+   - Coordination with construction contractors
+
+6. CONTINGENCY: 15% contingency applied to cover:
+   - Extended deficiency resolution
+   - Schedule delays requiring extended mobilization
+   - Unanticipated testing requirements
+   - Weekend/overtime premium hours beyond base estimate
+
+7. SCHEDULE RISK: The 14-day L4 window is EXTREMELY compressed. Any schedule delays in construction turnover will result in:
+   - Compressed testing requiring additional overtime
+   - Potential need for additional parallel resources
+   - Higher contingency draw
+
+8. COST COMPARISON: This estimate of $2.2M is approximately 2x higher than the initial WBS order-of-magnitude estimate of $1.04M because:
+   - Uses actual Cx rate card rates (higher than generic loaded rates)
+   - Includes proper management and coordination overhead
+   - Accounts for parallel team structure in L4
+   - Includes realistic contingency
+   - Previous estimate may have underestimated coordination/management hours
+
+
+======================================
+NEXT STEPS / DECISIONS REQUIRED
+======================================
+
+1. APPROVE BUSWAY TESTING APPROACH: Full testing (2,400 hrs) vs. statistical sampling (240 hrs) - $260K cost impact
+
+2. CONFIRM HOURS RECONCILIATION: Clarify if WBS busway hours are additive or inclusive in phase totals
+
+3. REVIEW STAFFING ASSIGNMENTS: Confirm named resources from rate card are available for assigned phases
+
+4. VALIDATE EQUIPMENT RENTAL COSTS: Confirm load bank availability and pricing for March-April 2026 timeframe
+
+5. APPROVE CONTINGENCY LEVEL: 15% is recommended given schedule risk; confirm if acceptable or adjust
+
+6. SCHEDULE RISK MITIGATION: Consider what happens if Building H construction delays by even 2-3 days given zero float

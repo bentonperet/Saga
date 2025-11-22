@@ -60,7 +60,7 @@ Best if you want to understand each step.
 - 🎛️ Advanced workflows
 - 💡 Tips & tricks
 
-### [README.md](README.md)
+### [README.md](Google%20Docs%20Publisher/README.md)
 - 📊 Feature overview
 - 🗂️ File structure
 - 🛠️ Tech stack

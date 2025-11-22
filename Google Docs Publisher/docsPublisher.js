@@ -763,6 +763,9 @@ class DocsPublisher {
     const fullText = runs.map(r => r.text).join('') + '\n';
     const endIndex = startIndex + fullText.length;
 
+    // Check if this is a heading (named style starts with HEADING_)
+    const isHeading = namedStyle && namedStyle.startsWith('HEADING_');
+
     // 1. Insert text
     this.requests.push({
       insertText: {
@@ -785,7 +788,8 @@ class DocsPublisher {
       }
     });
 
-    // 3. Apply brand styling to all runs (font, size, color, weight)
+    // 3. For headings: apply brand styling (font, size, color, weight) to override named style
+    //    For body text: apply brand styling normally
     let offset = 0;
     runs.forEach(run => {
       const runStart = startIndex + offset;
