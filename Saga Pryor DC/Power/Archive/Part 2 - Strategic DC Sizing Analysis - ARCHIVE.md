@@ -9,7 +9,7 @@
 
 **Document Status:** DRAFT FOR CLIENT REVIEW
 **Date:** 2025-10-20
-**Prepared By:** Pachyderm Global / PGCIS
+**Prepared By:** PACHYDERM GLOBAL / PGCIS
 **Prepared For:** Saga Energy
 
 **Related Documents:**

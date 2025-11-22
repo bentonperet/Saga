@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="3200" height="4000" xmlns="http://www.w3.org/2000/svg">
+
+<defs>
+
+        <g id="breaker-closed">
+            <rect x="-8" y="-12" width="16" height="24" fill="white" stroke="black" stroke-width="1.5"/>
+            <line x1="-6" y1="-8" x2="6" y2="8" stroke="black" stroke-width="2"/>
+            <line x1="-6" y1="8" x2="6" y2="-8" stroke="black" stroke-width="2"/>
+        </g>
+    
+
+        <g id="breaker-open">
+            <rect x="-8" y="-12" width="16" height="24" fill="white" stroke="black" stroke-width="1.5"/>
+            <line x1="0" y1="-8" x2="0" y2="-2" stroke="black" stroke-width="2"/>
+            <line x1="0" y1="2" x2="0" y2="8" stroke="black" stroke-width="2"/>
+            <circle cx="0" cy="0" r="2.5" fill="white" stroke="black" stroke-width="1.5"/>
+        </g>
+    
+
+        <g id="transformer">
+            <circle cx="-8" cy="0" r="10" fill="white" stroke="black" stroke-width="1.5"/>
+            <circle cx="8" cy="0" r="10" fill="white" stroke="black" stroke-width="1.5"/>
+            <line x1="-8" y1="-10" x2="-8" y2="-20" stroke="black" stroke-width="2"/>
+            <line x1="8" y1="10" x2="8" y2="20" stroke="black" stroke-width="2"/>
+        </g>
+    
+
+        <g id="generator">
+            <circle cx="0" cy="0" r="30" fill="white" stroke="black" stroke-width="2"/>
+            <text x="0" y="8" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="black">G</text>
+        </g>
+    
+
+        <g id="connection-point">
+            <circle cx="0" cy="0" r="3" fill="black"/>
+        </g>
+    
+
+        <g id="fuse">
+            <rect x="-6" y="-10" width="12" height="20" fill="white" stroke="black" stroke-width="1.5"/>
+            <line x1="0" y1="-6" x2="0" y2="6" stroke="black" stroke-width="2"/>
+            <circle cx="0" cy="0" r="3" fill="white" stroke="black" stroke-width="1.5"/>
+        </g>
+    
+
+        <g id="disconnect-closed">
+            <line x1="0" y1="-12" x2="0" y2="12" stroke="black" stroke-width="2"/>
+            <circle cx="0" cy="-12" r="2" fill="black"/>
+            <circle cx="0" cy="12" r="2" fill="black"/>
+        </g>
+    
+
+        <g id="disconnect-open">
+            <line x1="0" y1="-12" x2="4" y2="0" stroke="black" stroke-width="2"/>
+            <circle cx="0" cy="-12" r="2" fill="black"/>
+            <circle cx="0" cy="12" r="2" fill="black"/>
+        </g>
+    
+</defs>
+
+
+    <style>
+        /* Text Styles - SLD Standards v1.1 - Open Sans Font Hierarchy */
+        .title { font: bold 24px "Open Sans", Arial; fill: #000; }
+        .subtitle { font: bold 14px "Open Sans", Arial; fill: #000; }
+        .equipment-label { font: bold 14px "Open Sans", Arial; fill: #000; }
+        .bus-label { font: bold 12px "Open Sans", Arial; fill: #000; }
+        .small-label { font: 11px "Open Sans", Arial; fill: #000; }
+        .rating { font: 11px "Open Sans", Arial; fill: #333; }
+        .annotation { font: 11px "Open Sans", Arial; fill: #000; }
+        .feeder-label { font: 10px "Open Sans", Arial; fill: #666; }
+        .note { font: italic 11px "Open Sans", Arial; fill: #000; }
+
+        /* Line Styles */
+        .power-line { stroke: #000; stroke-width: 2; fill: none; }
+        .bus { stroke: #000; stroke-width: 6; fill: none; }
+        .control-line { stroke: #000; stroke-width: 1; stroke-dasharray: 5,5; fill: none; }
+
+        /* Equipment Boxes - LIGHT BACKGROUNDS for readability */
+        .mv-switchboard { fill: #E3F2FD; stroke: #000; stroke-width: 2; }
+        .lv-switchboard { fill: #E8F5E9; stroke: #000; stroke-width: 2; }
+        .generator-box { fill: #FFF3E0; stroke: #000; stroke-width: 2; }
+        .transformer-box { fill: #FFFFFF; stroke: #000; stroke-width: 2; }
+        .rmu-box { fill: #FFF9C4; stroke: #000; stroke-width: 2; }
+        .ups-module { fill: #F3E5F5; stroke: #000; stroke-width: 1.5; }
+        .dist-panel { fill: #E0F2F1; stroke: #000; stroke-width: 1; }
+
+        /* Legacy aliases for backwards compatibility */
+        .switchgear-box { fill: #E3F2FD; stroke: black; stroke-width: 2; }
+        .ups-box { fill: #F3E5F5; stroke: black; stroke-width: 2; }
+
+        /* Ring Bus Colors */
+        .ring-bus-a { stroke: #E74C3C; stroke-width: 4; fill: none; }
+        .ring-bus-b { stroke: #3498DB; stroke-width: 4; fill: none; }
+    </style>
+    
+
+    <style>
+        .breaker-nc { font: 11px "Open Sans", Arial; fill: #D32F2F; font-weight: bold; }
+        .breaker-no { font: 11px "Open Sans", Arial; fill: #333; }
+        .breaker-id { font: 11px "Open Sans", Arial; fill: #000; }
+        .timestamp { font: 11px "Open Sans", Arial; fill: #666; }
+        .ring-a-line { stroke: #E74C3C; stroke-width: 4; fill: none; }
+        .ring-b-line { stroke: #3498DB; stroke-width: 4; fill: none; }
+    </style>
+
+
+<!-- ===================================================================== -->
+<!--                              TITLE BLOCK                              -->
+<!-- ===================================================================== -->
+<rect x="50" y="30" width="2950" height="100" fill="white" stroke="black" stroke-width="2"/>
+<text x="1600.0" y="70" class="title" text-anchor="middle">Saga Pryor Data Center - Electrical Single-Line Diagram</text>
+<text x="1600.0" y="95" class="equipment-label" text-anchor="middle">13.8 kV Dual-Ring MV Distribution | N+1 Architecture | Tier III</text>
+<text x="1600.0" y="115" class="rating" text-anchor="middle">24 MW IT Load | 30 MW Facility | PACHYDERM GLOBAL | Pryor, OK</text>
+
+<rect x="3010" y="30" width="140" height="100" fill="white" stroke="black" stroke-width="2"/>
+<text x="3020" y="60" class="rating">Date: 2025-11-06</text>
+<text x="3020" y="77" class="timestamp">Time: 19:13:58</text>
+<text x="3020" y="97" class="rating">Rev: 01</text>
+<text x="3020" y="114" class="rating">Phase 4</text>
+
+<!-- ===================================================================== -->
+<!--                          UTILITY SERVICE                              -->
+<!-- ===================================================================== -->
+
+<!-- Utility Grid -->
+<rect x="1450.0" y="250" width="300" height="80" fill="#87CEEB" stroke="black" stroke-width="2"/>
+<text x="1600.0" y="285" class="equipment-label" text-anchor="middle">UTILITY GRID</text>
+<text x="1600.0" y="305" class="rating" text-anchor="middle">Kamo Power Electric Co-op</text>
+<text x="1600.0" y="320" class="rating" text-anchor="middle">345 kV or 161 kV</text>
+
+<!-- Lines to substation transformers -->
+<line x1="1520.0" y1="330" x2="1520.0" y2="450" class="power-line"/>
+<line x1="1680.0" y1="330" x2="1680.0" y2="450" class="power-line"/>
+
+<!-- ===================================================================== -->
+<!--                      SUBSTATION TRANSFORMERS                          -->
+<!-- ===================================================================== -->
+
+<!-- XFMR-SUB-A -->
+<use href="#transformer" x="1520.0" y="500"/>
+<rect x="1460.0" y="450.0" width="120" height="100" class="transformer-box"/>
+<text x="1520.0" y="570" class="equipment-label" text-anchor="middle">XFMR-SUB-A</text>
+<text x="1520.0" y="585" class="rating" text-anchor="middle">35 MVA</text>
+<text x="1520.0" y="600" class="rating" text-anchor="middle">345kV/13.8kV</text>
+
+<!-- XFMR-SUB-B -->
+<use href="#transformer" x="1680.0" y="500"/>
+<rect x="1620.0" y="450.0" width="120" height="100" class="transformer-box"/>
+<text x="1680.0" y="570" class="equipment-label" text-anchor="middle">XFMR-SUB-B</text>
+<text x="1680.0" y="585" class="rating" text-anchor="middle">35 MVA</text>
+<text x="1680.0" y="600" class="rating" text-anchor="middle">345kV/13.8kV</text>
+
+<!-- Lines to dual-ring -->
+<line x1="1512.0" y1="520" x2="1512.0" y2="650" class="power-line"/>
+<line x1="1512.0" y1="650" x2="800" y2="650" class="power-line"/>
+<line x1="800" y1="650" x2="800" y2="820" class="power-line"/>
+
+<line x1="1688.0" y1="520" x2="1688.0" y2="650" class="power-line"/>
+<line x1="1688.0" y1="650" x2="2400" y2="650" class="power-line"/>
+<line x1="2400" y1="650" x2="2400" y2="820" class="power-line"/>
+
+<!-- ===================================================================== -->
+<!--                    13.8 KV DUAL-RING DISTRIBUTION                     -->
+<!-- ===================================================================== -->
+
+<!-- RING A (RED) -->
+<!-- RMU-1A -->
+<rect x="760.0" y="820.0" width="80" height="60" class="rmu-box"/>
+<text x="800" y="845" class="equipment-label" text-anchor="middle">RMU-1A</text>
+<text x="800" y="860" class="rating" text-anchor="middle">13.8kV</text>
+<text x="800" y="873" class="rating" text-anchor="middle">630A</text>
+
+<!-- Ring A vertical segments -->
+<line x1="800" y1="880.0" x2="800" y2="1270.0" class="ring-a-line"/>
+<use href="#transformer" x="800" y="1250"/>
+<text x="860" y="1250" class="rating" text-anchor="start">XFMR-A1</text>
+<line x1="800" y1="1310.0" x2="800" y2="1370.0" class="ring-a-line"/>
+
+<!-- RMU-3A -->
+<rect x="760.0" y="1370.0" width="80" height="60" class="rmu-box"/>
+<text x="800" y="1395" class="equipment-label" text-anchor="middle">RMU-3A</text>
+<text x="800" y="1410" class="rating" text-anchor="middle">13.8kV</text>
+
+<line x1="800" y1="1430.0" x2="800" y2="1820.0" class="ring-a-line"/>
+<use href="#transformer" x="800" y="1800"/>
+<text x="860" y="1800" class="rating" text-anchor="start">XFMR-A3</text>
+<line x1="800" y1="1860.0" x2="800" y2="1920.0" class="ring-a-line"/>
+
+<!-- Horizontal ring connections -->
+<line x1="840.0" y1="850" x2="1360.0" y2="850" class="ring-a-line"/>
+<line x1="840.0" y1="1400" x2="1360.0" y2="1400" class="ring-a-line"/>
+
+<!-- RMU-2A -->
+<rect x="1360.0" y="820.0" width="80" height="60" class="rmu-box"/>
+<text x="1400" y="845" class="equipment-label" text-anchor="middle">RMU-2A</text>
+<text x="1400" y="860" class="rating" text-anchor="middle">13.8kV</text>
+
+<line x1="1400" y1="880.0" x2="1400" y2="1270.0" class="ring-a-line"/>
+<use href="#transformer" x="1400" y="1250"/>
+<text x="1460" y="1250" class="rating" text-anchor="start">XFMR-A2</text>
+<line x1="1400" y1="1310.0" x2="1400" y2="1370.0" class="ring-a-line"/>
+
+<!-- RMU-4A -->
+<rect x="1360.0" y="1370.0" width="80" height="60" class="rmu-box"/>
+<text x="1400" y="1395" class="equipment-label" text-anchor="middle">RMU-4A</text>
+<text x="1400" y="1410" class="rating" text-anchor="middle">13.8kV</text>
+
+<line x1="1400" y1="1430.0" x2="1400" y2="1820.0" class="ring-a-line"/>
+<use href="#transformer" x="1400" y="1800"/>
+<text x="1460" y="1800" class="rating" text-anchor="start">XFMR-A4</text>
+
+<!-- RING B (BLUE) - Mirror of Ring A -->
+<!-- RMU-1B -->
+<rect x="2360.0" y="820.0" width="80" height="60" class="rmu-box"/>
+<text x="2400" y="845" class="equipment-label" text-anchor="middle">RMU-1B</text>
+<text x="2400" y="860" class="rating" text-anchor="middle">13.8kV</text>
+<text x="2400" y="873" class="rating" text-anchor="middle">630A</text>
+
+<line x1="2400" y1="880.0" x2="2400" y2="1270.0" class="ring-b-line"/>
+<use href="#transformer" x="2400" y="1250"/>
+<text x="2340" y="1250" class="rating" text-anchor="end">XFMR-B1</text>
+<line x1="2400" y1="1310.0" x2="2400" y2="1370.0" class="ring-b-line"/>
+
+<!-- RMU-3B -->
+<rect x="2360.0" y="1370.0" width="80" height="60" class="rmu-box"/>
+<text x="2400" y="1395" class="equipment-label" text-anchor="middle">RMU-3B</text>
+<text x="2400" y="1410" class="rating" text-anchor="middle">13.8kV</text>
+
+<line x1="2400" y1="1430.0" x2="2400" y2="1820.0" class="ring-b-line"/>
+<use href="#transformer" x="2400" y="1800"/>
+<text x="2340" y="1800" class="rating" text-anchor="end">XFMR-B3</text>
+<line x1="2400" y1="1860.0" x2="2400" y2="1920.0" class="ring-b-line"/>
+
+<line x1="2360.0" y1="850" x2="1840.0" y2="850" class="ring-b-line"/>
+<line x1="2360.0" y1="1400" x2="1840.0" y2="1400" class="ring-b-line"/>
+
+<!-- RMU-2B -->
+<rect x="1760.0" y="820.0" width="80" height="60" class="rmu-box"/>
+<text x="1800" y="845" class="equipment-label" text-anchor="middle">RMU-2B</text>
+<text x="1800" y="860" class="rating" text-anchor="middle">13.8kV</text>
+
+<line x1="1800" y1="880.0" x2="1800" y2="1270.0" class="ring-b-line"/>
+<use href="#transformer" x="1800" y="1250"/>
+<text x="1740" y="1250" class="rating" text-anchor="end">XFMR-B2</text>
+<line x1="1800" y1="1310.0" x2="1800" y2="1370.0" class="ring-b-line"/>
+
+<!-- RMU-4B -->
+<rect x="1760.0" y="1370.0" width="80" height="60" class="rmu-box"/>
+<text x="1800" y="1395" class="equipment-label" text-anchor="middle">RMU-4B</text>
+<text x="1800" y="1410" class="rating" text-anchor="middle">13.8kV</text>
+
+<line x1="1800" y1="1430.0" x2="1800" y2="1820.0" class="ring-b-line"/>
+<use href="#transformer" x="1800" y="1800"/>
+<text x="1740" y="1800" class="rating" text-anchor="end">XFMR-B4</text>
+
+<!-- ===================================================================== -->
+<!--                  GENERATORS, SOLAR, BESS (13.8 KV)                    -->
+<!-- ===================================================================== -->
+
+<!-- Generators -->
+<rect x="1150.0" y="2300" width="300" height="70" class="generator-box"/>
+<text x="1300.0" y="2330" class="equipment-label" text-anchor="middle">GENERATORS (9×)</text>
+<text x="1300.0" y="2348" class="rating" text-anchor="middle">4.0 MW ea @ 13.8 kV</text>
+<text x="1300.0" y="2362" class="rating" text-anchor="middle">N+1 for 30 MW</text>
+
+<!-- Solar + BESS -->
+<rect x="1750.0" y="2300" width="300" height="70" class="generator-box"/>
+<text x="1900.0" y="2330" class="equipment-label" text-anchor="middle">SOLAR + BESS</text>
+<text x="1900.0" y="2348" class="rating" text-anchor="middle">8+ MW Solar</text>
+<text x="1900.0" y="2362" class="rating" text-anchor="middle">4-8 MWh BESS @ 13.8kV</text>
+
+<!-- Connection to dual-ring -->
+<line x1="1300.0" y1="2300" x2="1300.0" y2="2000" class="power-line"/>
+<line x1="1300.0" y1="2000" x2="1600.0" y2="2000" class="power-line"/>
+<line x1="1900.0" y1="2300" x2="1900.0" y2="2000" class="power-line"/>
+<line x1="1900.0" y1="2000" x2="1600.0" y2="2000" class="power-line"/>
+<text x="1600.0" y="1980" class="rating" text-anchor="middle">13.8 kV Common Bus</text>
+
+<!-- ===================================================================== -->
+<!--                      LV SWITCHBOARDS (480V)                           -->
+<!-- ===================================================================== -->
+
+<!-- SWBD-A -->
+<rect x="1010.0" y="2700.0" width="180" height="100" class="lv-switchboard"/>
+<text x="1100.0" y="2735" class="equipment-label" text-anchor="middle">SWBD-A</text>
+<text x="1100.0" y="2755" class="rating" text-anchor="middle">480V | Path A</text>
+<text x="1100.0" y="2770" class="rating" text-anchor="middle">N+1 Transformers</text>
+
+<!-- SWBD-B -->
+<rect x="2010.0" y="2700.0" width="180" height="100" class="lv-switchboard"/>
+<text x="2100.0" y="2735" class="equipment-label" text-anchor="middle">SWBD-B</text>
+<text x="2100.0" y="2755" class="rating" text-anchor="middle">480V | Path B</text>
+<text x="2100.0" y="2770" class="rating" text-anchor="middle">N+1 Transformers</text>
+
+<!-- Connection from transformers to switchboards (simplified) -->
+<line x1="1100.0" y1="1950" x2="1100.0" y2="2700.0" class="power-line" stroke-dasharray="5,5"/>
+<line x1="2100.0" y1="1950" x2="2100.0" y2="2700.0" class="power-line" stroke-dasharray="5,5"/>
+
+<!-- ===================================================================== -->
+<!--                         UPS SYSTEM (N+1)                              -->
+<!-- ===================================================================== -->
+
+<rect x="1525.0" y="3110.0" width="150" height="80" class="ups-module"/>
+<text x="1600.0" y="3140" class="equipment-label" text-anchor="middle">UPS MODULES</text>
+<text x="1600.0" y="3158" class="rating" text-anchor="middle">25 × 1,250 kVA (N+1)</text>
+<text x="1600.0" y="3173" class="rating" text-anchor="middle">24 MW IT Capacity</text>
+
+<!-- Dual path connections -->
+<line x1="1100.0" y1="2800.0" x2="1100.0" y2="3150" class="power-line"/>
+<line x1="1100.0" y1="3150" x2="1525.0" y2="3150" class="power-line"/>
+
+<line x1="2100.0" y1="2800.0" x2="2100.0" y2="3150" class="power-line"/>
+<line x1="2100.0" y1="3150" x2="1675.0" y2="3150" class="power-line"/>
+
+<!-- ===================================================================== -->
+<!--                         IT EQUIPMENT                                  -->
+<!-- ===================================================================== -->
+
+<rect x="1300.0" y="3460" width="600" height="80" fill="#E0F2F1" stroke="black" stroke-width="2"/>
+<text x="1600.0" y="3495" class="equipment-label" text-anchor="middle">IT EQUIPMENT</text>
+<text x="1600.0" y="3515" class="rating" text-anchor="middle">24 MW (Phase 4) | Dual-Corded (A+B Paths)</text>
+
+<line x1="1600.0" y1="3190.0" x2="1600.0" y2="3460" class="power-line"/>
+
+<!-- ===================================================================== -->
+<!--                              LEGEND                                   -->
+<!-- ===================================================================== -->
+
+<rect x="50" y="3580" width="900" height="180" fill="#F5F5F5" stroke="black" stroke-width="1"/>
+<text x="70" y="3610" class="subtitle">DESIGN SUMMARY:</text>
+<text x="70" y="3630" class="rating">• IT Load: 24 MW (Phase 4), 30 MW Facility</text>
+<text x="70" y="3648" class="rating">• Utility: 2×35 MVA @ 345kV/13.8kV (N+1)</text>
+<text x="70" y="3666" class="rating">• MV Distribution: 13.8 kV Self-Healing Dual-Ring (8 RMUs)</text>
+<text x="70" y="3684" class="rating">• Transformers: 11×3,500 kVA (13.8kV/480V) N+1</text>
+<text x="70" y="3702" class="rating">• UPS: 25×1,250 kVA modular (N+1)</text>
+<text x="70" y="3720" class="rating">• Generators: 9×4.0 MW @ 13.8 kV (N+1 for 30 MW)</text>
+<text x="70" y="3738" class="rating">• Solar + BESS: 8+ MW Solar, 4-8 MWh BESS @ 13.8kV</text>
+
+<rect x="1000" y="3580" width="900" height="180" fill="#F5F5F5" stroke="black" stroke-width="1"/>
+<text x="1020" y="3610" class="subtitle">TIER III COMPLIANCE:</text>
+<text x="1020" y="3630" class="rating">• N+1 Component Redundancy: All major equipment</text>
+<text x="1020" y="3648" class="rating">• Path Redundancy: Dual-ring MV distribution (A/B paths)</text>
+<text x="1020" y="3666" class="rating">• Concurrent Maintainability: Self-healing ring topology</text>
+<text x="1020" y="3684" class="rating">• SCADA-Controlled: Automated switching, fault isolation</text>
+<text x="1020" y="3702" class="rating">• Dual-Corded IT Equipment: Path A + Path B</text>
+<text x="1020" y="3720" class="rating">• Phased Deployment: Infrastructure built for full 30 MW</text>
+<text x="1020" y="3738" class="rating">• Standards: IEC 60364, IEEE 315/IEC 60617, Tier III</text>
+
+<!-- Ring legend -->
+<line x1="2100" y1="3620" x2="2180" y2="3620" class="ring-a-line"/>
+<text x="2190" y="3625" class="rating">Ring A (Red)</text>
+<line x1="2100" y1="3650" x2="2180" y2="3650" class="ring-b-line"/>
+<text x="2190" y="3655" class="rating">Ring B (Blue)</text>
+
+</svg>

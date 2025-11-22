@@ -14,7 +14,7 @@
 ## CSI Divisions 31-32
 ### Tbilisi Data Center - PACHYDERM GLOBAL
 
-**Parent Document:** [[_BOD - Exec Summary and TOC]]
+**Parent Document:** [[GGE/GGE BoD Template/_BOD - Exec Summary and TOC]]
 
 ---
 

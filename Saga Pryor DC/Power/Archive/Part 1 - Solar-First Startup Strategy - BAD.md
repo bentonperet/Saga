@@ -12,7 +12,7 @@
 **Document Status:** DRAFT FOR CLIENT REVIEW - v2.0 (MAJOR UPDATE)
 **Date:** 2025-10-21 (Updated post-meeting)
 **Version:** 2.0 - See revision history at end for changes
-**Prepared By:** Pachyderm Global / PGCIS
+**Prepared By:** PACHYDERM GLOBAL / PGCIS
 **Prepared For:** Saga Energy
 
 **Related Documents:**

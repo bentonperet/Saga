@@ -10,7 +10,7 @@
 
 **Document Status:** TECHNICAL REFERENCE
 **Date:** 2025-10-21
-**Prepared By:** Pachyderm Global / PGCIS
+**Prepared By:** PACHYDERM GLOBAL / PGCIS
 **Prepared For:** Saga Energy Engineering Team
 
 **Related Documents:**
@@ -849,7 +849,7 @@ Saga Energy is developing a 10 MW IT load data center in Pryor, Oklahoma with in
 
 **Questions? Contact:**
 Benton Peret, Project Manager
-Pachyderm Global / PGCIS
+PACHYDERM GLOBAL / PGCIS
 [Contact Information]
 
 ---

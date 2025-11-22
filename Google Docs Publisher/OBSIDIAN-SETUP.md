@@ -1,5 +1,5 @@
-# Obsidian Integration Guide
-
+its# Obsidian Integration Guide
+C:\progre
 **Complete step-by-step guide to adding a "Publish to Google Docs" button in Obsidian.**
 
 ## How It Works

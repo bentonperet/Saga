@@ -7,7 +7,7 @@
 
 **Document Purpose:** Demonstrate that BESS sized for solar excess capture eliminates traditional UPS requirements, saving $11-15M in CAPEX while providing superior backup duration (~1 hours vs. 15 minutes).
 
-**Prepared By:** Pachyderm Global / PGCIS
+**Prepared By:** PACHYDERM GLOBAL / PGCIS
 **Prepared For:** Saga Energy (Executives, Vendors, Lenders)
 **Date:** 2025-10-21
 **Status:** DRAFT FOR CLIENT REVIEW

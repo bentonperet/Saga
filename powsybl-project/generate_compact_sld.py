@@ -1,0 +1,210 @@
+"""
+Generate a more compact, easier-to-view SLD with prominent switchboards
+"""
+import json
+from datetime import datetime
+from pathlib import Path
+from sld_standards import get_svg_symbols, get_svg_style_section
+
+# Read metadata
+with open('saga_pryor_metadata.json', 'r') as f:
+    data = json.load(f)
+
+generators = data.get('generators', [])
+transformers = data.get('transformers', [])
+rmus = data.get('rmu', [])
+it_ups = [u for u in data.get('ups', []) if u['function'] == 'IT']
+mech_ups = [u for u in data.get('ups', []) if u['function'] == 'MECHANICAL']
+
+# Compact layout - fit in standard screen
+width = 1600
+height = 1800
+
+svg = f'''<?xml version="1.0" encoding="UTF-8"?>
+<svg width="{width}" height="{height}" viewBox="0 0 {width} {height}" xmlns="http://www.w3.org/2000/svg">
+{get_svg_symbols()}
+{get_svg_style_section()}
+
+<!-- Enhanced styles for better visibility -->
+<style>
+.mv-switchboard {{ fill: #4A90E2; stroke: #000; stroke-width: 3; }}
+.lv-switchboard {{ fill: #50C878; stroke: #000; stroke-width: 3; }}
+.switchboard-label {{ font: bold 16px Arial; fill: white; }}
+</style>
+
+<!-- Title -->
+<rect x="20" y="10" width="{width-40}" height="70" fill="white" stroke="black" stroke-width="2"/>
+<text x="{width//2}" y="35" class="title" text-anchor="middle">SAGA PRYOR DATA CENTER</text>
+<text x="{width//2}" y="55" class="subtitle" text-anchor="middle">Electrical Single Line Diagram - Dual Ring Topology</text>
+<text x="{width-30}" y="70" class="annotation" text-anchor="end">Rev A - {datetime.now().strftime('%Y-%m-%d')}</text>
+
+<!-- Generators at top -->
+<rect x="100" y="100" width="1400" height="80" fill="#FFE6CC" stroke="black" stroke-width="2"/>
+<text x="800" y="130" class="equipment-label" text-anchor="middle">GENERATOR SYNC BUS</text>
+<text x="800" y="150" class="rating" text-anchor="middle">6 x 4.0 MW Diesel Generators @ 13.8 kV (N+1)</text>
+<text x="800" y="165" class="annotation" text-anchor="middle">Woodward Paralleling | Auto Load Share</text>
+
+<!-- MV SWITCHBOARDS - HIGHLIGHTED -->
+<g id="mv-swbd-a">
+    <rect x="100" y="250" width="300" height="140" class="mv-switchboard"/>
+    <text x="250" y="290" class="switchboard-label" text-anchor="middle">MV-SWBD A</text>
+    <text x="250" y="310" class="switchboard-label" text-anchor="middle" font-size="14">13.8 kV</text>
+    <text x="250" y="330" class="annotation" text-anchor="middle" fill="white">RING A PRIMARY</text>
+    <text x="250" y="350" class="rating" text-anchor="middle" fill="white">4000A | 65kAIC</text>
+    <text x="250" y="370" class="note" text-anchor="middle" fill="white">MV Distribution</text>
+</g>
+
+<g id="mv-swbd-b">
+    <rect x="1200" y="250" width="300" height="140" class="mv-switchboard"/>
+    <text x="1350" y="290" class="switchboard-label" text-anchor="middle">MV-SWBD B</text>
+    <text x="1350" y="310" class="switchboard-label" text-anchor="middle" font-size="14">13.8 kV</text>
+    <text x="1350" y="330" class="annotation" text-anchor="middle" fill="white">RING B PRIMARY</text>
+    <text x="1350" y="350" class="rating" text-anchor="middle" fill="white">4000A | 65kAIC</text>
+    <text x="1350" y="370" class="note" text-anchor="middle" fill="white">MV Distribution</text>
+</g>
+
+<!-- Connections from Gen Bus -->
+<line x1="250" y1="180" x2="250" y2="250" class="power-line" stroke-width="3"/>
+<line x1="1350" y1="180" x2="1350" y2="250" class="power-line" stroke-width="3"/>
+
+<!-- Dual Ring Bus -->
+<text x="800" y="470" class="bus-label" text-anchor="middle">13.8 kV DUAL RING BUS</text>
+
+<!-- Ring A -->
+<line x1="250" y1="390" x2="250" y2="500" class="power-line" stroke-width="4" stroke="#E74C3C"/>
+<line x1="250" y1="500" x2="1350" y2="500" class="power-line" stroke-width="4" stroke="#E74C3C"/>
+<text x="125" y="450" class="annotation" fill="#E74C3C">RING A</text>
+
+<!-- Ring B -->
+<line x1="250" y1="390" x2="250" y2="650" class="power-line" stroke-width="4" stroke="#3498DB"/>
+<line x1="250" y1="650" x2="1350" y2="650" class="power-line" stroke-width="4" stroke="#3498DB"/>
+<line x1="1350" y1="650" x2="1350" y2="390" class="power-line" stroke-width="4" stroke="#3498DB"/>
+<text x="125" y="650" class="annotation" fill="#3498DB">RING B</text>
+
+<!-- RMUs on rings -->
+<rect x="520" y="480" width="60" height="40" fill="lightblue" stroke="black" stroke-width="2"/>
+<text x="550" y="505" class="small-label" text-anchor="middle">RMU-A1</text>
+
+<rect x="770" y="480" width="60" height="40" fill="lightblue" stroke="black" stroke-width="2"/>
+<text x="800" y="505" class="small-label" text-anchor="middle">RMU-A2</text>
+
+<rect x="1020" y="480" width="60" height="40" fill="lightblue" stroke="black" stroke-width="2"/>
+<text x="1050" y="505" class="small-label" text-anchor="middle">RMU-A3</text>
+
+<rect x="520" y="630" width="60" height="40" fill="lightblue" stroke="black" stroke-width="2"/>
+<text x="550" y="655" class="small-label" text-anchor="middle">RMU-B1</text>
+
+<rect x="770" y="630" width="60" height="40" fill="lightblue" stroke="black" stroke-width="2"/>
+<text x="800" y="655" class="small-label" text-anchor="middle">RMU-B2</text>
+
+<rect x="1020" y="630" width="60" height="40" fill="lightblue" stroke="black" stroke-width="2"/>
+<text x="1050" y="655" class="small-label" text-anchor="middle">RMU-B3</text>
+
+<!-- Transformers -->
+<text x="800" y="770" class="equipment-label" text-anchor="middle">8 x 3,500 kVA TRANSFORMERS (13.8kV / 480V)</text>
+
+<circle cx="400" cy="820" r="30" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="400" cy="820" r="23" fill="none" stroke="black" stroke-width="1"/>
+<text x="400" y="825" class="annotation" text-anchor="middle">TX-1</text>
+
+<circle cx="600" cy="820" r="30" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="600" cy="820" r="23" fill="none" stroke="black" stroke-width="1"/>
+<text x="600" y="825" class="annotation" text-anchor="middle">TX-2</text>
+
+<circle cx="800" cy="820" r="30" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="800" cy="820" r="23" fill="none" stroke="black" stroke-width="1"/>
+<text x="800" y="825" class="annotation" text-anchor="middle">TX-3</text>
+
+<circle cx="1000" cy="820" r="30" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="1000" cy="820" r="23" fill="none" stroke="black" stroke-width="1"/>
+<text x="1000" y="825" class="annotation" text-anchor="middle">TX-4</text>
+
+<circle cx="1200" cy="820" r="30" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="1200" cy="820" r="23" fill="none" stroke="black" stroke-width="1"/>
+<text x="1200" y="825" class="annotation" text-anchor="middle">... +4 more</text>
+
+<!-- Transformer connections to rings -->
+<line x1="400" y1="500" x2="400" y2="790" class="power-line"/>
+<line x1="600" y1="500" x2="600" y2="790" class="power-line"/>
+<line x1="1000" y1="650" x2="1000" y2="790" class="power-line"/>
+<line x1="1200" y1="650" x2="1200" y2="790" class="power-line"/>
+
+<!-- LV SWITCHBOARDS - HIGHLIGHTED -->
+<g id="lv-swbd-a">
+    <rect x="100" y="950" width="300" height="140" class="lv-switchboard"/>
+    <text x="250" y="990" class="switchboard-label" text-anchor="middle">LV-SWBD-A</text>
+    <text x="250" y="1010" class="switchboard-label" text-anchor="middle" font-size="14">480V / 277V</text>
+    <text x="250" y="1030" class="annotation" text-anchor="middle" fill="white">From Ring A Transformers</text>
+    <text x="250" y="1050" class="rating" text-anchor="middle" fill="white">4000A Copper Bus</text>
+    <text x="250" y="1070" class="note" text-anchor="middle" fill="white">LV Distribution</text>
+</g>
+
+<g id="lv-swbd-b">
+    <rect x="1200" y="950" width="300" height="140" class="lv-switchboard"/>
+    <text x="1350" y="990" class="switchboard-label" text-anchor="middle">LV-SWBD-B</text>
+    <text x="1350" y="1010" class="switchboard-label" text-anchor="middle" font-size="14">480V / 277V</text>
+    <text x="1350" y="1030" class="annotation" text-anchor="middle" fill="white">From Ring B Transformers</text>
+    <text x="1350" y="1050" class="rating" text-anchor="middle" fill="white">4000A Copper Bus</text>
+    <text x="1350" y="1070" class="note" text-anchor="middle" fill="white">LV Distribution</text>
+</g>
+
+<!-- Transformer to LV SWBD connections -->
+<line x1="400" y1="850" x2="400" y2="920" class="power-line"/>
+<line x1="400" y1="920" x2="250" y2="920" class="power-line"/>
+<line x1="250" y1="920" x2="250" y2="950" class="power-line"/>
+
+<line x1="1000" y1="850" x2="1000" y2="920" class="power-line"/>
+<line x1="1000" y1="920" x2="1350" y2="920" class="power-line"/>
+<line x1="1350" y1="920" x2="1350" y2="950" class="power-line"/>
+
+<!-- UPS Systems -->
+<rect x="200" y="1170" width="500" height="100" fill="#FFFFCC" stroke="black" stroke-width="2"/>
+<text x="450" y="1205" class="equipment-label" text-anchor="middle">IT UPS SYSTEM (N+1)</text>
+<text x="450" y="1225" class="rating" text-anchor="middle">{len(it_ups)} x {it_ups[0]['kva'] if it_ups else 0} kVA Modules</text>
+<text x="450" y="1245" class="annotation" text-anchor="middle">Li-Ion | 5-min Runtime</text>
+
+<rect x="900" y="1170" width="500" height="100" fill="#CCFFCC" stroke="black" stroke-width="2"/>
+<text x="1150" y="1205" class="equipment-label" text-anchor="middle">MECHANICAL UPS (N+1)</text>
+<text x="1150" y="1225" class="rating" text-anchor="middle">{len(mech_ups)} x {mech_ups[0]['kw'] if mech_ups else 0} kW Modules</text>
+<text x="1150" y="1245" class="annotation" text-anchor="middle">Protects Chillers/Pumps/CDUs</text>
+
+<!-- Legend -->
+<text x="50" y="1350" class="equipment-label">LEGEND:</text>
+<rect x="50" y="1370" width="80" height="30" class="mv-switchboard"/>
+<text x="140" y="1390" class="annotation">MV Switchboards (13.8 kV)</text>
+
+<rect x="50" y="1410" width="80" height="30" class="lv-switchboard"/>
+<text x="140" y="1430" class="annotation">LV Switchboards (480V)</text>
+
+<line x1="50" y1="1460" x2="130" y2="1460" stroke="#E74C3C" stroke-width="4"/>
+<text x="140" y="1465" class="annotation">Ring A (13.8 kV)</text>
+
+<line x1="50" y1="1490" x2="130" y2="1490" stroke="#3498DB" stroke-width="4"/>
+<text x="140" y="1495" class="annotation">Ring B (13.8 kV)</text>
+
+<!-- Notes -->
+<text x="50" y="1550" class="annotation">NOTES:</text>
+<text x="50" y="1570" class="annotation">1. MV-SWBD A/B: Medium voltage switchboards feeding dual ring distribution</text>
+<text x="50" y="1590" class="annotation">2. LV-SWBD-A/B: Low voltage switchboards for 480V distribution to loads</text>
+<text x="50" y="1610" class="annotation">3. Dual ring topology provides N path redundancy for Tier III compliance</text>
+<text x="50" y="1630" class="annotation">4. N+1 redundancy for all critical components (generators, transformers, UPS)</text>
+
+<!-- Highlight box around switchboards -->
+<rect x="90" y="240" width="320" height="860" fill="none" stroke="#FF6B6B" stroke-width="3" stroke-dasharray="10,5"/>
+<text x="105" y="230" class="annotation" fill="#FF6B6B" font-weight="bold">MV &amp; LV SWITCHBOARDS (LEFT)</text>
+
+<rect x="1190" y="240" width="320" height="860" fill="none" stroke="#FF6B6B" stroke-width="3" stroke-dasharray="10,5"/>
+<text x="1480" y="230" class="annotation" text-anchor="end" fill="#FF6B6B" font-weight="bold">MV &amp; LV SWITCHBOARDS (RIGHT)</text>
+
+</svg>'''
+
+output = Path('saga_pryor_sld_COMPACT.svg')
+with open(output, 'w', encoding='utf-8') as f:
+    f.write(svg)
+
+print(f"Created compact SLD with HIGHLIGHTED switchboards: {output}")
+print(f"\nSwitchboards are shown in:")
+print(f"  - BLUE boxes (MV-SWBD A & B) - 13.8 kV medium voltage")
+print(f"  - GREEN boxes (LV-SWBD-A & B) - 480V low voltage")
+print(f"  - Red dashed boxes highlight their locations")
+print(f"\nOpening in browser...")

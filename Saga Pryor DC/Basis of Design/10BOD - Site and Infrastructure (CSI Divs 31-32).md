@@ -1,18 +1,17 @@
-**Created:** 2025-10-29
-**Updated from:** Pryor_Bod_EVS_Rev01.md + Erik_BOD references
+
 
 # BASIS OF DESIGN - SITE AND INFRASTRUCTURE
 ## CSI Divisions 31-32
 ### Pryor Data Center - PACHYDERM GLOBAL
 
-**Parent Document:** [[Saga Pryor DC/Basis of Design/Erik_BOD_Updated/_BOD - Exec Summary and TOC]]
+**Parent Document:** [[Saga Pryor DC/Basis of Design/Erik_BOD_Updated/_BOD - Exec Summary and TOC]] 
 
 ---
 
 ## DIVISION 31 – EARTHWORK
 
 ### Site Characteristics
-- **Parcel:** ~120 acres (master plan)
+- **Parcel:** ~20 acres (data center area)
 - **Topography:** Slightly rolling; balanced cut/fill expected
 - **Flood/Tornado:** Outside FEMA floodplain; high tornado risk (EF3+ region)
 - **Soils:** TBD by geotechnical; design for frost depth per Oklahoma code
@@ -23,12 +22,11 @@
 - Phase I ESA; wetlands/waters delineation if applicable
 - Utility locates and capacity confirmations (water, sewer, gas, fiber)
 
-### Site Grading and Pads
-- **Building pad:** 50,000 GSF building (precast tilt-up) + aprons
-- **Electrical yard:** ~100,000 SF (345 kV substation, MV gear, generator yard)
+### Site Grading and Pads <!-- @Benton -->
+- **Building pad:** 38,000 GSF building (precast tilt-up) + aprons
+- **Electrical yard:** ~102,000 SF (161 kV substation, MV gear, generator yard)
 - **Mechanical yard:** ~50,000 SF (air-cooled chillers, pumps, headers)
 - **Solar array area:** Allocate 10–20 acres adjacent (phased build)
-- **BESS yard:** Allow 6–10 container positions (future-ready)
 
 ### Subgrade and Earthwork
 - Over-excavate poor soils; import select fill (per Geo report)
@@ -39,10 +37,9 @@
 
 ## DIVISION 32 – EXTERIOR IMPROVEMENTS
 
-### 345 kV Substation Yard (Customer-Owned)
-- **Footprint:** ~35,000–50,000 SF fenced yard
-- **Equipment:** 345 kV switchyard, 2 × 25 MVA 345kV/13.8kV transformers (2N), protection & control house
-- **Grounding:** Copper grid per IEEE 80; step/touch potential analysis
+### 161 kV Substation Yard (Customer-Owned)
+- **Footprint:** TBD
+- **Equipment:** 161 kV switchyard, 2 × 35 MVA 161kV/13.8kV transformers (2N), protection & control house
 - **Oil containment:** Transformer spill containment per EPA SPCC
 - **Security:** 8–10 ft fence + barbed wire, cameras, access control
 
@@ -52,20 +49,10 @@
 - Pull boxes/manholes at 300–500 ft intervals; spare conduits for expansion
 
 ### Generator Yard (MV Generators)
-- **Capacity:** 6 × 4.0 MW @ 13.8 kV diesel gens (N+1 at 12 MW design)
-- **Pads:** Individual concrete pads with anchorage; crane access aisle
-- **Fuel:** Belly tanks per unit connected via common fuel manifold to centralized bulk fuel storage tank farm (24 hours runtime); spill containment per SPCC
-- **Bulk Fuel Storage:** Above-ground or underground tank farm (sized for 24-hour runtime Phase 2) with redundant fuel service contracts
-- **Noise:** Enclosures per local noise ordinance compliance
-- **Security:** Fenced, CCTV, vehicle barriers at perimeter
-- **Access:** East-west emergency/maintenance access points for equipment delivery and temporary rental equipment
+Details and costs covered in Electrical, HVAC and Security
 
 ### Mechanical Yard (Air-Cooled)
-- **Phase 1:** 4 × 1,500 kW chillers; **Phase 2:** +8 (total 12)
-- **Layout:** Two rows with 15 ft service corridors; overhead pipe racks to building
-- **Drainage:** Sloped slabs; trench drains to oil/water separator where needed
-- **Access:** East-west emergency/maintenance access points for equipment delivery
-- **Temporary Equipment Support:** Connection provisions for rental chillers and load banks via quick-connects and cable pass-through doors
+Details and costs covered in Electrical, HVAC and Security
 
 ### Building Envelope Equipment Yard Interface
 
@@ -80,20 +67,15 @@
 - Security: Normally sealed/secured; opened only during authorized maintenance activities
 - Location: Marked on as-built drawings with clear access paths from equipment yards
 
-### Solar and BESS Areas
-- **Solar:** Inverter stations at 13.8 kV tie to common bus (separate fenced area)
-- **BESS:** 4–8 MWh containers; 13.8 kV bi-directional inverters; space for growth
-- **Fire lanes:** 20 ft access; signage; clearances per NFPA 855 for energy storage
-
 ### Stormwater Management
 - **Detention/Retention:** Southeast "horseshoe/moat" basin; sized for local criteria
 - **Quality:** Forebay + outlet control; bioswales where feasible
 - **Discharge:** Match pre-development rates; protect downstream receiving waters
 
 ### Paving and Hardscape
-- **Access roads:** 12" aggregate base; asphalt or PCC pavement per truck loads
-- **Dock apron:** 10" PCC with doweled joints
-- **Parking:** 30–45 stalls; EV-ready conduits stubbed
+- **Access roads:** Asphalt or PCC pavement per truck loads
+- **Dock apron:** PCC with doweled joints
+- **Parking:** 25-30stalls; <!-- @benton, ask Julia -->
 - **Walks:** 6 ft sidewalks to entries; ADA routes and ramps
 
 ### Site Access and Entrances
@@ -140,33 +122,50 @@
 
 ---
 
-## COST SUMMARY (ROM)
-| Scope | ROM Cost |
-|-------|---------|
-| Earthwork, grading, pads | $0.7–1.2M |
-| MV ductbanks, manholes | $0.6–1.0M |
-| Substation yard civil (excl. electrical) | $0.4–0.8M |
-| Generator/Chiller yards civil | $0.4–0.8M |
-| Paving, parking, dock | $0.4–0.7M |
-| Fencing, lighting, landscaping | $0.3–0.6M |
-| Stormwater basin & LID | $0.3–0.6M |
-| Total Div 31–32 (civil scope) | $3.1–5.7M |
+## COST SUMMARY (ROM - PHASE 4 FULL BUILD-OUT)
+
+### Direct Construction Costs
+
+| Scope                                        | ROM Cost       | Confidence | Notes                                                                    |
+| -------------------------------------------- | -------------- | ---------- | ------------------------------------------------------------------------ |
+| **Phase 1 Earthwork & Grading**              | $2,500,000     | ±28%       | Phase 1 footprint (~40 acres); immediate facility area; balance deferred |
+| **Building & Equipment Yard Pads**           | $1,200,000     | ±25%       | Building pad, electrical yard, mechanical yard, precise grading          |
+| **MV Ductbanks & Manholes**                  | $800,000       | ±25%       | ~3,500 LF dual-ring @ $230/LF installed                                  |
+| **Substation Yard Civil**                    | $600,000       | ±30%       | Grading, oil containment, gravel, fence foundation (excl. electrical)    |
+| **Internal Road Construction (Phase 1)**     | $1,200,000     | ±28%       | Primary access, dock access, fire access (essential routes only)         |
+| **Parking, Dock & Hardscape**                | $550,000       | ±25%       | 40 parking stalls, dock apron, sidewalks, ADA routes                     |
+| **Utility Extensions to Site**               | $3,000,000     | ±35%       | Water main, sanitary sewer, natural gas service, fiber route to property |
+| **Perimeter Fencing (Phase 1)**              | $650,000       | ±28%       | Phase 1 secure perimeter (~40-50 acres); expandable design               |
+| **Site Lighting (Phase 1)**                  | $500,000       | ±28%       | Phase 1 perimeter and yard LED lighting, photocell + BMS control         |
+| **Landscaping & Buffering**                  | $300,000       | ±30%       | Phase 1 frontage and buffer areas; native drought-tolerant planting      |
+| **Stormwater Management (Phase 1)**          | $1,200,000     | ±32%       | Phase 1 detention/retention with future expansion capability             |
+| **Equipment Yard Hardstanding**              | $1,500,000     | ±30%       | Generator yard, transformer yard, chiller yard reinforced surfaces        |
+| **Subtotal (Direct Costs)**                  | **$14,000,000** | **±29%**   | **Phase 1 scope; future phases deferred**                                |
+
+### Professional Services
+
+| Scope                                        | ROM Cost       | Confidence | Notes                                               |
+| -------------------------------------------- | -------------- | ---------- | --------------------------------------------------- |
+| **Design/Engineering (7%)**                  | $980,000       | ±25%       | Civil engineer, geotech, surveyor, stormwater PE    |
+| **Subtotal**                                 | **$14,980,000** | **±29%**   |                                                     |
+| **TOTAL SITE & INFRASTRUCTURE**              | **$14,980,000** | **±29%**   | **Excludes substation electrical equipment**        |
+
+**Cost per kW (IT Load):** $681/kW (22 MW)
+**Industry Benchmark:** $800-$1,200/kW
+**Phase 1 Approach:** Essential infrastructure only; future phases expand as revenue grows
 
 ---
 
-**Tags:** #site #infrastructure #substation #yards #stormwater #ductbank #csi-31-32
-
 **Next Steps:**
-1. Complete topo and geotechnical; finalize grading and pad elevations
-2. Lay out MV ductbank/ring routes and manholes
-3. Substation civil/grounding design (IEEE 80 study)
-4. Finalize stormwater basin hydraulics/hydrology
-5. Site plan approval and permits (grading, stormwater)
+1. Lay out MV ductbank/ring routes and manholes
+2. Substation civil/grounding design (IEEE 80 study)
+3. Finalize stormwater basin hydraulics/hydrology
+4. Site plan approval and permits (grading, stormwater)
 
 ---
 
 **Document Control:**
-- **Source:** Pryor_Bod_EVS_Rev01.md, Electrical Div 26, Erik_BOD references
+- **Source:** Erik_BOD references
 - **Date Updated:** October 29, 2025
-- **Prepared by:** EVS / PGCIS Team
-- **Key Updates:** 345 kV substation yard, MV rings, BESS/solar yards, 50,000 SF mech yard
+- **Prepared by:** PGCIS Team
+- **Key Updates:** 161 kV substation yard, MV rings

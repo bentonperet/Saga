@@ -1,419 +1,434 @@
-**Created:** 2025-10-29
-**Updated from:** Pryor_Bod_EVS_Rev01.md
+
 
 # BASIS OF DESIGN - HVAC
 ## CSI Division 23
 ### Pryor Data Center - PACHYDERM GLOBAL
 
-**Parent Document:** [[Saga Pryor DC/Basis of Design/Erik_BOD_Updated/_BOD - Exec Summary and TOC]]
+**Parent Document:** [[Saga Pryor DC/Basis of Design/Erik_BOD_Updated/_BOD - Exec Summary and TOC]]  
 
 ---
 
 ## OVERVIEW
 
-Phased mechanical cooling strategy supporting 3 MW Phase 1 (air cooling only) expandable to 12 MW Phase 2 (air + direct-to-chip cooling). Target PUE 1.35 (Phase 1) and 1.25 (Phase 2) through extended free cooling, efficient equipment, and zero water consumption.
+This document defines the phased mechanical cooling strategy for a 24 MW IT (~38.4 MW facility) data center deployed in 6MW blocks. The design is optimized for AI/ML workloads and supports both liquid cooling and traditional air-cooled solutions.
+
+The facility supports advanced cooling technologies including a 3-loop architecture with warm-water L2C (Liquid-to-Chip) and cold-water DDC Cabinet or RDHx (Rear-Door Heat Exchanger) capabilities. **Note:** Specific cooling deployment is client-dependent and excluded from this basis of design.
 
 **Design Philosophy:**
-- **Phased deployment:** Cooling capacity matches IT load growth
-- **Separate cooling plants:** Loops 1+2 (air cooling) independent from Loop 3 (D2C cooling)
-- **N+1 redundancy:** Each cooling plant has N+1 chillers
-- **N+N air cooling:** Dual loops (1+2) each capable of full 3,000 kW air cooling load
-- **Zero water consumption:** Air-cooled chillers, closed-loop glycol
+- **Block Deployment:** Cooling infrastructure sized per 6MW IT block (~7MW cooling load per block @ 1.6 PUE)
+- **3-Loop Architecture:** Facility supports independent warm water (85°F) and cold water (60°F) cooling loops
+  - **Loop 3 (L2C):** 85°F warm water maximizes chiller efficiency and free cooling hours
+  - **Loops 1+2 (RDHx):** 60°F cold water enables rear-door heat exchangers
+- **Redundancy:** N+1 for all chillers and distribution equipment
+- **Zero Water Consumption:** All air-cooled chillers, closed-loop glycol systems, zero evaporative cooling
+- **Target PUE:** 1.4 average (electrical sizing at 1.6 PUE for Oklahoma heat conditions)
 
 ---
 
-## PHASE 1: AIR COOLING ONLY (3 MW IT LOAD)
+## COOLING LOAD PHASING
 
-### IT Heat Load
+### Load Summary by Phase
 
-**30 cabinets @ 100 kW each = 3,000 kW IT load**
+| Phase | IT MW | Design PUE | Facility MW | Cooling Load per Block |
+| ----- | ----- | ---------- | ----------- | ---------------------- |
+| **1** | 6     | 1.6        | 9.6         | ~7 MW                  |
+| **2** | 12    | 1.6        | 19.2        | ~7 MW                  |
+| **3** | 18    | 1.6        | 28.8        | ~7 MW                  |
+| **4** | 24    | 1.6        | 38.4        | ~7 MW                  |
 
-### Cabinet Integrated Cooling
+**Note:** Each 6MW IT block requires approximately 7MW of cooling capacity (accounts for UPS losses, mechanical loads, and environmental overhead).
 
-**DDC S-Series Cabinets with Integrated 100 kW FCUs:**
-- **30 cabinets total**
-- Each cabinet contains:
-  - **Dual coils:** 50 kW capacity each
-    - Coil #1 → connected to Loop 1
-    - Coil #2 → connected to Loop 2
-  - **Dual fans:** Component-level redundancy
-  - Total FCU capacity: 100 kW per cabinet
-- **Normal operation:** Both coils run in parallel (50 kW + 50 kW = 100 kW)
-- **N operation:** Either loop provides full 100 kW to cabinet
+### Mechanical Plant Phasing
 
-**Total cooling capacity:**
-- Loop 1 load: 30 cabinets × 50 kW = 1,500 kW
-- Loop 2 load: 30 cabinets × 50 kW = 1,500 kW
-- **Combined: 3,000 kW** ✓
+Cooling plant deployed per 6MW block:
+- **Chillers:** N+1 configuration sized for ~7MW cooling load per block
+- **Estimated:** 3-4 chillers per block (vendor-dependent sizing)
+- **Phase 4:** 12-16 chillers total across 4 blocks
+- **Free Cooling:** 85°F warm water loop enables ~3,500-4,000 hours/year of economization in Oklahoma climate
 
-### Redundancy Test (N+N)
+**Client-Specific:** Final cooling distribution (L2C vs RDHx vs air-cooled) determined by tenant requirements. Facility infrastructure supports all approaches.
 
-**Normal operation:**
-- Both loops carry 1,500 kW each
-- 3,000 kW total cooling matches 3,000 kW IT load ✓
+---
 
-**N operation (Loop 1 failure):**
-- Loop 2 carries full 3,000 kW
-- All 30 cabinets receive 100 kW cooling from Loop 2 coils only
-- **Zero IT impact** ✓
+## LOOP 3: WARM WATER L2C PLANT
 
-**This is true N+N redundancy at the cabinet level.**
+**Facility supports advanced liquid-to-chip (L2C) cooling for high-density AI/ML workloads.**
+
+### L2C Chiller Plant
+
+- **Supply Temperature:** **85°F (29°C)** warm water
+- **Efficiency Advantage:** 85°F supply maximizes chiller COP and enables ~3,500-4,000 hours/year free cooling in Oklahoma
+- **Fluid:** 25% Propylene Glycol / Water Mixture
+- **Configuration:** N+1 air-cooled chiller plant with variable primary flow (VPF)
+- **Sizing:** Deployed per 6MW block requirements
+
+### L2C Distribution Concept
+
+**3-Loop Architecture:**
+- **Primary Loop:** Facility glycol/water from chillers to CDU heat exchangers
+- **Secondary Loop:** Dielectric fluid from CDU to rack cold plates
+- **Tertiary Loop:** Cold plate micro-channels for component-level cooling
+- **Separation:** Loops isolated via heat exchangers (prevents cross-contamination)
+
+**Key Benefits:**
+- Supports 100+ kW/rack densities for GPU clusters
+- Significantly improved PUE vs air cooling (1.2-1.3 achievable)
+- Reduced data hall HVAC loads
+- Extended free cooling season with warm water
+
+**Note:** Detailed L2C specifications (CDUs, cold plates, secondary piping, commissioning) are client-specific and determined during tenant build-out. Facility provides primary infrastructure to support L2C deployment.
+
+## LOOPS 1+2: COLD WATER RDHx PLANT
+
+**Facility supports rear-door heat exchanger (RDHx) cooling for medium-density workloads.**
+
+### RDHx Chiller Plant
+
+- **Supply Temperature:** **60°F (15.5°C)** cold water
+- **Rationale:** Colder water required for effective rear-door air-to-water cooling
+- **Fluid:** 25% Propylene Glycol / Water Mixture
+- **Configuration:** N+1 air-cooled chiller plant with variable primary flow (VPF)
+- **Sizing:** Deployed per facility cooling requirements
+
+### RDHx Distribution Concept
+
+- **Distribution:** Cold water piped via overhead manifolds to rack-mounted heat exchangers
+- **Typical Density:** Supports 25-40 kW/rack for traditional enterprise and AI inference workloads
+- **Installation:** RDHx units mounted on rear door of standard racks
+
+**Note:** RDHx deployment and specifications are client-specific and determined during tenant build-out.
+
+---
+
+## CHILLER & FREE COOLING SPECIFICATIONS
+
+### General Chiller Specifications
+
+- **Type:** Air-cooled screw or scroll compressors with integrated VFDs and free-cooling (waterside economizer) coils.
+- **Refrigerant:** Shall be a **Low-GWP (Global Warming Potential) fluid** compliant with all current and anticipated EPA/AIM Act regulations.
+- **Controls:** BACnet/IP integration with facility BMS for staging, rotation, and free-cooling optimization.
+
+### Free Cooling Operation
+
+- **L2C Loop (85°F):** The warm-water loop allows for an extended free-cooling season. The BMS shall optimize for waterside economization when ambient conditions permit.
+- **RDHx Loop (60°F):** Free cooling shall be utilized when ambient conditions permit.
+- **Estimated Hours:** The 85°F loop is projected to provide ~3,500-4,000 hours/year of full or partial free cooling in the Pryor, OK climate.
+
+---
+
+## DATA HALL ENVIRONMENTAL CONTROL (HVAC)
+
+The L2C and RDHx systems handle 100% of the IT heat load. A separate HVAC system is required to manage the data hall environment (air quality, humidity, pressurization).
+
+### DOAS (Dedicated Outdoor Air System)
+
+- **Purpose:** To provide ventilation, humidity control, and positive pressurization to the data halls, per ASHRAE TC 9.9 guidelines.
+- **Type:** Dedicated 100% outdoor air units with energy recovery (enthalpy wheel).
+- **Redundancy:** N+1 DOAS units shall be provided for each data hall.
+- **Pressurization:** System shall maintain a positive pressure to prevent dust/contaminant infiltration.
+- **Filtration:** System shall provide air filtration compliant with ASHRAE TC 9.9 for a Class A1 data center.
+- **Humidity Control:**
+  - **Target:** 40-60% RH
+  - **Humidification:** Steam injection humidifiers
+  - **Dehumidification:** Integrated cooling coil + reheat in DOAS units
+
+### Support Space HVAC
+
+- **Offices, NOC, Support:** Standard rooftop package units (RTUs) will provide comfort cooling and ventilation.
+- **Electrical/PDM Rooms:** Integrated, redundant HVAC units (factory-installed) will maintain the optimal operating temperature for UPS and switchgear.
+
+---
+
+## CHILLED WATER PIPING & DISTRIBUTION
+
+This section defines the complete chilled water infrastructure for all three cooling loops (Loops 1, 2, and 3). **Note:** All chilled water piping and glycol systems are Division 23 (HVAC) scope per industry standard practice.
+
+### Primary Loop Piping
+
+**Loop 3 (L2C - 85°F Warm Water):**
+- **Route:** From chillers → mechanical gallery → data hall overhead distribution → CDU connections
+- **Pipe Sizing:** Piping shall be sized to maintain industry-standard flow velocities (4-8 fps) and minimize pressure drop
+- **Material:** Primary loop piping shall be welded carbon steel. Grooved fittings may be used where appropriate for maintainability
+- **Insulation:** All chilled water piping shall be insulated to prevent condensation and meet or exceed energy code requirements
+- **Isolation:** Ball valves at each major equipment connection for concurrent maintainability
+- **Supports:** Piping and equipment supports shall be designed and braced for seismic loads per local code
+- **Expansion Compensation:** Expansion loops or flexible connectors at appropriate intervals
+
+**Loops 1+2 (RDHx - 60°F Cold Water):**
+- **Route:** From chillers → mechanical gallery → data hall overhead distribution → RDHx connections
+- **Material & Details:** Same specifications as Loop 3
+
+### Secondary Loop Piping (L2C Only)
+
+**CDU to Rack Cold Plates:**
+- **Fluid:** Dielectric fluid or facility-safe coolant (specified by CDU manufacturer)
+- **Material:** Stainless steel or approved dielectric-compatible tubing per CDU vendor requirements
+- **Leak Detection:** Integrated at all connections (see Leak Detection section)
+
+### Overhead Manifolds & Quick-Disconnects
+
+**Data Hall Distribution Manifolds:** Including L2C, DDC, or RDHx as per client need
+- **Quick-Disconnects:** Dry-break couplings with automatic shutoff on both sides (prevent spillage during rack maintenance)
+- **Labeling:** All connections clearly labeled with zone and rack identification
+- **Accessibility:** Maintained clearances for overhead access (coordinate with cable tray routing)
+
+### Piping Accessories
+
+**Expansion Tanks:**
+- One expansion tank per loop (3 total)
+- Sized for thermal expansion of glycol/water mixture
+- Bladder-type or diaphragm-type (preferred over open tanks)
+- Mounted at high point with isolation valves
+
+**Air/Dirt Separators:**
+- One air separator per loop (removes entrained air)
+- One dirt separator per loop (removes particulates)
+- Side-stream filtration with replaceable cartridge filters
+
+**Isolation Valves:**
+- Ball valves at all major equipment (chillers, CDUs, RDHx units, expansion tanks)
+- Enables concurrent maintainability (isolate equipment without draining entire loop)
+
+**Pressure Gauges & Thermometers:**
+- Installed at key points: chiller inlet/outlet, CDU inlet/outlet, loop supply/return headers
+- Digital sensors integrated with BMS for continuous monitoring
+
+---
+
+## GLYCOL SYSTEMS & WATER TREATMENT
+
+### Glycol Specification
+
+**Fluid Type:** Propylene glycol (non-toxic, food-grade) mixed with deionized water
+
+**Concentration:**
+- **Target:** 25-30% glycol by volume
+
+### Glycol Storage & Fill Systems
+
+**Bulk Glycol Storage:**
+- **Storage Location:** Outdoor chemical storage shed with secondary containment per EPA SPCC requirements
+- **Safety:** SDS (Safety Data Sheets) on-site, spill kit and containment equipment
+
+**Glycol Mix & Fill Systems:**
+- The design shall include dedicated, isolated glycol mixing, storage, and fill systems for each primary loop (L2C and RDHx)
+- Each system shall be equipped with makeup water, a mix tank, and a distribution pump
+- **Location:** Near respective chiller plants in mechanical yard
+
+### Makeup Water System
+
+**Makeup Water Source:**
+- Division 22 (Plumbing) shall provide domestic water stub connections (with isolation valve + union) at three locations (one per glycol mix tank)
+- Division 23 (HVAC) shall connect makeup water from these stubs to glycol mix tanks
+
+**Annual Makeup Requirements:**
+- **Target:** <1% of system volume per year
+- **Alarm Threshold:** If makeup exceeds 2% of system volume, investigate for leaks
+
+### Chemical Water Treatment
+
+**Treatment Program:**
+- **Corrosion Inhibitors:** Protect steel, copper, aluminum, and stainless steel components
+- **Biological Inhibitors:** Prevent algae/bacteria growth in closed-loop systems
+- **pH Buffers:** Maintain pH 7.5-8.5 for corrosion control
+- **Supplier:** [TBD - e.g., Nalco, ChemTreat, Kurita] - specify in detailed design
+
+**Water Quality Monitoring:**
+- **Quarterly Testing:** pH, conductivity, inhibitor concentration, glycol concentration
+- **Annual Full Analysis:** Dissolved metals, biological activity, fluid degradation
+- **BMS Integration:** Continuous conductivity sensors provide real-time monitoring and alarms
+
+---
+
+## LEAK DETECTION SYSTEMS
+
+Critical system for protecting IT equipment from water/glycol damage. All chilled water leak detection is Division 23 (HVAC) scope.
+
+### Detection Zones
+
+**Data Hall Coverage:**
+- Under all overhead chilled water piping (Loops 1, 2, 3)
+- Under all CDU / RDHx manifold connections
+
+**Mechanical Yard/Gallery Coverage:**
+- Under chiller connections and headers
+- At all pumps, valves, heat exchangers
+- Near expansion tanks and fill stations
+- At mechanical room penetrations into data halls
+
+### Detection Technology
+
+**Sensing Cable:**
+- **Type:** Conductive fluid detection cable (continuous sensing)
+- **Detection:** Water, glycol, or other conductive fluids
+- **Routing:** Linear sensing cable shall be provided under all overhead primary loop distribution piping in the data halls
+
+**Spot Detectors:**
+- **Type:** Discrete leak detectors at high-risk points
+- **Locations:** Spot detectors shall be provided at all high-risk connection points, including CDUs, RDHx units, and quick-disconnects
+- **Response Time:** <1 second alarm notification
+
+**Control Panels:**
+- Leak detection control panels shall be N+1 redundant and integrate with the facility BMS
+- **Alarms:** Local audible/visual alarms + BMS notification
+- **Zoning:** System shall identify leak location to within 10-ft zone
 
 
 ---
 
-## LOOPS 1+2 SHARED CHILLER PLANT
+## SCOPE CLARIFICATION - DIVISION 23 vs DIVISION 22
 
-### Configuration
+**Critical Note:** To prevent scope gaps and bid-day confusion, this section clarifies the boundary between Division 23 (HVAC) and Division 22 (Plumbing) scopes.
 
-**4 × 1,500 kW Air-Cooled Chillers (N+1)**
-- **Normal operation:** 3 chillers running (4,500 kW capacity for 3,000 kW load)
-- **Utilization:** 67% (optimal efficiency range)
-- **N+1 redundancy:** One chiller fails → 3 remain with 4,500 kW capacity ✓
-- **Either loop can draw full 3,000 kW** during N operation
+### Division 23 (HVAC) INCLUDES:
 
-### Chiller Specifications (Each Unit)
+**Cooling Equipment:**
+- All air-cooled chillers (L2C and RDHx plants)
+- All CDUs (Coolant Distribution Units) - 162 units at Phase 4
+- All RDHx (Rear-Door Heat Exchangers) - 232 units at Phase 4
+- Primary pumps (integrated with chillers)
+- Secondary pumps (integrated with CDUs)
+- DOAS units for data hall environmental control
+- Support space RTUs and mechanical room HVAC
 
-| Parameter | Specification |
-|-----------|---------------|
-| **Capacity** | 1,500 kW (430 ton) |
-| **Type** | Air-cooled screw compressor with integrated free cooling |
-| **Supply Temperature** | 7-10°C (45-50°F) |
-| **Return Temperature** | 15-18°C (59-64°F) |
-| **Refrigerant** | R-134a or R-513A (low-GWP) |
-| **COP (Mechanical)** | 3.8-4.2 at design conditions |
-| **COP (Free Cooling)** | 15-25 with waterside economizer |
-| **Integrated Pumps** | VFD-controlled |
-| **Free Cooling Mode** | Waterside economizer, active below 10°C ambient |
-| **Controls** | BACnet/IP integration with facility BMS |
-| **Enclosure** | Outdoor-rated, sound-attenuated |
+**Chilled Water Piping Systems (Complete):**
+- All primary loop piping (Loop 1, Loop 2, Loop 3) from chillers to equipment
+- All secondary loop piping (CDU to rack cold plates via dielectric fluid)
+- Overhead manifolds in data halls with quick-disconnect drop points (394 total connections)
+- All pipe hangers, supports, seismic bracing
+- All pipe insulation for chilled water systems
+- Expansion loops and flexible connectors
+- Isolation valves at all equipment connections
 
-### Free Cooling Operation (Oklahoma Climate)
+**Glycol & Water Treatment Systems:**
+- Glycol storage (3 × 500-gallon mixing tanks)
+- Bulk propylene glycol procurement
+- Fill pumps and fill stations (3 locations, one per loop)
+- Chemical storage shed with secondary containment
+- Expansion tanks (3 total, one per loop)
+- Air separators and dirt separators (3 sets)
+- Chemical dosing pots and treatment chemicals
+- Water quality testing equipment and procedures
+- Totalizing flow meters for makeup water tracking
+- Initial system fill, flushing, commissioning, and balancing
 
-**Oklahoma provides ~3,500-4,000 hours/year of free cooling opportunity**
+**Leak Detection for Chilled Water:**
+- Conductive sensing cable (2,000-3,000 LF) under all chilled water piping
+- Spot leak detectors (500+ total: under CDUs, at quick-disconnects, at equipment)
+- Leak detection control panels (2 × panels, N+1 redundancy)
+- BMS integration for chilled water leak detection
+- All cabling, conduit, and field devices for leak detection
 
-**Mode 1: Full Free Cooling (Ambient < 10°C)**
-- Compressors off, heat rejected via air-cooled coils only
-- Significantly improved COP vs. mechanical cooling
-- **Season:** Late October through April (extended free cooling season)
+**Controls & Monitoring:**
+- BMS integration for all HVAC equipment
+- Temperature and pressure sensors for all loops
+- Flow meters and monitoring devices
+- Chiller sequencing and optimization controls
 
-**Mode 2: Partial Free Cooling (Ambient 10-15°C)**
-- Compressors run at reduced capacity (part-load)
-- Blended efficiency mode
-- **Season:** Spring/fall transition periods
-
-**Mode 3: Full Mechanical Cooling (Ambient > 15°C)**
-- Compressors run at full capacity
-- Standard mechanical cooling efficiency
-- **Season:** May through September (peak summer)
-
-**Annual PUE Impact:**
-- Extended free cooling season reduces annual cooling energy by 35-40%
-- Target Phase 1 PUE: 1.35 (includes all infrastructure losses)
-
-### Piping Strategy (Shared Plant, Dual Distribution)
-
-**Shared chiller plant with dual distribution headers:**
-- **Primary loop:** Constant flow through chillers (4 chillers in parallel)
-- **Header A → Loop 1 distribution** (feeds 30 cabinets, Coil #1)
-- **Header B → Loop 2 distribution** (feeds 30 cabinets, Coil #2)
-- **Isolation valves:** Enable maintenance on one loop while other operates
-- **Cross-tie valves:** Allow full plant capacity to serve either loop during N operation
-
-**Pumping:**
-- **Primary pumps:** Integrated in chiller packages (N+1 configuration)
-- **Secondary pumps:** Distributed to cabinet headers (N+1 configuration)
-- **VFD control:** Variable speed on all pumps for energy optimization
-
-**Glycol System:**
-- **Fluid:** 25% propylene glycol / water mixture
-- **Purpose:** Freeze protection, corrosion inhibition
-- **Treatment:** pH 7.5-8.5, biocide dosing
-
-**Bypass Valves and Temporary Equipment Provisions:**
-- **Chiller bypass valves:** Each chiller equipped with isolation and bypass valves for maintenance
-- **Quick-connect points:** Camlock or similar fittings at strategic piping locations for temporary chiller connection
-- **Purpose:** Support rental/backup chillers during maintenance or emergency situations
-- **Sizing:** Quick-connects sized for standard rental chiller capacities (300-1,500 kW range)
-- **Access:** Connection points accessible from equipment yard with cable pass-through provisions in building envelope
-- **Documentation:** As-built drawings showing all connection points and rental equipment compatibility specifications
 
 ---
 
-## PHASE 2: ADD DIRECT-TO-CHIP COOLING (12 MW TOTAL IT LOAD)
+## CODES AND STANDARDS
 
-### IT Heat Load Breakdown
-
-**30 cabinets @ 400 kW each = 12,000 kW IT load**
-- **Air cooling portion:** 100 kW per cabinet × 30 = 3,000 kW (unchanged from Phase 1)
-- **D2C cooling portion:** 300 kW per cabinet × 30 = 9,000 kW (new)
-
-### Air Cooling (Loops 1+2) - No Change
-
-**Same 4 × 1,500 kW chillers from Phase 1:**
-- Load remains 3,000 kW (air portion unchanged)
-- Chillers now operate at higher utilization (3,000 kW load vs. 4,500 kW capacity = 67%)
-- **No additional air cooling equipment required**
-
----
-
-## LOOP 3: DIRECT-TO-CHIP COOLING PLANT (INDEPENDENT)
-
-### Configuration
-
-**8 × 1,500 kW Air-Cooled Chillers (N+1 with Margin)**
-- **Normal operation:** 6 chillers running (9,000 kW capacity for 9,000 kW load)
-- **Utilization:** 100% at peak (design point)
-- **N+1 redundancy:** One chiller fails → 7 remain with 10,500 kW capacity (17% margin) ✓
-- **Alternative operation:** Run 7 chillers normally (10,500 kW capacity, 17% margin)
-
-### Why Independent Loop 3 (Not Shared with Loops 1+2)
-
-**Air Cooling (Loops 1+2) Load Profile:**
-- Predictable, stable loads
-- Diurnal patterns (±10% variation day-to-night)
-- Traditional HVAC control strategies work well
-- Load changes: minutes to hours
-
-**D2C Cooling (Loop 3) Load Profile:**
-- **Violent load swings:** 0-100% in seconds as GPU jobs launch
-- **Unpredictable:** AI/ML batch jobs start/stop without warning
-- **Requires aggressive control tuning:** Fast-acting VFDs, buffer tanks
-
-**Problems if Mixed on Shared Plant:**
-- **Control hunting:** Rapid D2C swings cause chiller staging instability
-- **Reduced efficiency:** Frequent load cycling reduces COP
-- **Accelerated wear:** Compressors and valves cycle excessively
-- **Complicated troubleshooting:** Which loop caused the upset? Air or D2C?
-
-**Benefits of Separation:**
-- **Optimized controls:** Tune Loop 3 for fast response, Loops 1+2 for stability
-- **Clear contractor boundaries:** Traditional HVAC contractor (Loops 1+2) vs. liquid cooling specialist (Loop 3)
-- **Independent maintenance:** Service Loop 3 without impacting air cooling
-- **Fault isolation:** Loop 3 failure doesn't cascade to air cooling (and vice versa)
-
-### Loop 3 Chiller Specifications
-
-**Same 1,500 kW air-cooled chillers, but optimized for D2C:**
-- **Supply temperature:** 25°C (77°F) - warmer than air cooling for efficiency
-- **Return temperature:** 30-35°C (86-95°F)
-- **ΔT:** 5-10°C (enables higher COP)
-- **COP:** 5.0-5.5 (better than air cooling due to elevated supply temp)
-- **Power consumption:** ~273 kW at full load (vs. 395 kW for colder air cooling)
-
-**Why warmer supply temp:**
-- D2C cold plates can accept warmer coolant (GPUs tolerate higher temps than air-cooled servers)
-- Higher chiller leaving water temp enables improved efficiency
-- **Phase 2 PUE improvement:** Loop 3 efficiency gain contributes to target PUE 1.25
-
----
-
-## CDU DISTRIBUTION (COOLANT DISTRIBUTION UNITS)
-
-### Configuration
-
-**60 × CDU Units (2 per cabinet, A/B redundancy)**
-- Each CDU: 300 kW capacity
-- Total CDU capacity: 60 × 300 = 18,000 kW (2× redundancy for 9,000 kW D2C load) ✓
-- CDU power: 15 kW each (pumps + controls) × 60 = 900 kW total
-
-**CDU Location:**
-- **Mechanical Gallery (Pipe Gallery)** on north end of building envelope
-- NOT located inside data halls
-- CDUs housed in dedicated mechanical gallery flanking both data halls
-- Secondary fluid distribution from CDUs to cabinets via overhead manifolds
-
-### CDU Specifications (Each Unit)
-
-| Parameter | Specification |
-|-----------|---------------|
-| **Capacity** | 300 kW heat rejection |
-| **Primary Side** | Chilled water from Loop 3 (supply/return per design) |
-| **Secondary Side** | Dielectric fluid to cold plates |
-| **Redundancy** | Dual CDUs per cabinet (A-side + B-side) |
-| **Controls** | Modbus TCP, BACnet integration |
-| **Leak Detection** | Integrated sensors at all connections |
-
-### Cabinet D2C Manifolds
-
-**Distribution from Mechanical Gallery to Data Halls:**
-- CDUs located in mechanical gallery (north pipe gallery)
-- Secondary dielectric fluid distribution via overhead piping into data halls
-- **Quick-disconnect fittings:** Rapid connection/removal at cabinet level without draining system
-- **Isolation valves:** Enable cabinet service without system shutdown
-- **Leak detection:** Sensors at all connections (integrated with BMS)
-- **Overhead distribution:** Dielectric fluid manifolds from pipe gallery to cabinet rows
-
-**Deployment Strategy:**
-- Phase 1: Install pipe gallery infrastructure and CDU rough-in (capped)
-- Phase 2: Install CDUs in mechanical gallery, commission D2C cooling cabinet-by-cabinet
-- **Zero downtime:** Air cooling continues during D2C commissioning
-
----
-
-## MECHANICAL EQUIPMENT YARD
-
-### Layout
-
-**Location:** North side of building (opposite electrical yard)
-**Area:** ~50,000 SF (sized for all 12 chillers)
-
-**Equipment Arrangement:**
-- **Loops 1+2 Zone:** 4 × 1,500 kW chillers (Phase 1)
-- **Loop 3 Zone:** 8 × 1,500 kW chillers (Phase 2)
-- **Elevated Platforms:** All chillers on 1.5-meter (5 ft) structural steel platforms
-- **Buffer Tanks:** Integrated with chiller platforms for thermal mass
-- **Clearances:** 8-10 ft between chillers for airflow and maintenance access
-
-**No Pump Rooms Required:**
-- All pumps integrated within packaged chiller systems
-- VFDs and controls factory-installed
-- Eliminates separate pump room construction
-
-**Enclosure:**
-- Solid CMU walls (12-15 ft height) with exterior trellis and vine plantings ("green wall")
-- Security, noise attenuation, visual screening
-- Gated access for maintenance and equipment delivery
-
----
-
-## BUILDING HVAC (NON-CRITICAL)
-
-### White Space Environmental Control
-
-**Purpose:** Maintain positive pressure, humidity control, and air quality in data halls
-
-**Pressurization System:**
-- **Type:** Dedicated DOAS (Dedicated Outdoor Air System)
-- **Capacity:** [ROM] 10,000-15,000 CFM per data hall
-- **Pressure Target:** +0.02-0.05 in. w.g. relative to adjacent spaces
-- **Why:** Prevents dust/contaminant infiltration, maintains ASHRAE A1 environment
-- **Redundancy:** N+1 units (2 × 100% capacity per data hall)
-
-**Humidity Control:**
-- **Target:** 40-60% RH (ASHRAE allowable: 20-80% RH)
-- **Dehumidification:** Integrated in DOAS units (cooling coil + reheat)
-- **Humidification:** Steam injection humidifiers (redundant units)
-- **Monitoring:** Continuous RH sensors (min 4 per data hall), BMS alarming
-
-**Air Filtration:**
-- **Pre-filters:** MERV 8 (removes large particulate)
-- **Final filters:** MERV 13 (removes fine dust, meets ASHRAE 52.2)
-- **Filter monitoring:** Differential pressure sensors, scheduled replacement
-
-**DOAS Specifications:**
-- **Supply air temp:** 18-20°C (tempered, not for primary cooling)
-- **Outdoor air:** 100% OA (no recirculation)
-- **Energy recovery:** Enthalpy wheel (recovers cooling/heating energy)
-- **Controls:** BACnet/IP to BMS, modulating dampers for pressure control
-- **Location:** Rooftop-mounted, ducted to data halls via overhead distribution
-
-**Why Separate from IT Cooling:**
-- Cabinet FCUs provide 100% of IT heat removal (closed-loop chilled water)
-- DOAS only maintains environment (pressure, humidity, air quality)
-- If DOAS fails, cabinet cooling continues without interruption
-
-### Common Area Comfort HVAC
-
-**Rooftop Air Handling Units (RTUs):**
-
-**Purpose:** Comfort cooling and ventilation for support spaces
-
-**Equipment:**
-- **Quantity:** [ROM] 3-4 RTU units
-- **Capacity:** Sized for office/NOC/support space loads (~300-400 kW total)
-- **Supply:** Conditioned air for temperature and humidity control
-- **Zones:** Office areas, conference rooms, break rooms, corridors, restrooms
-
-### NOC Precision Cooling
-
-**Purpose:** 24/7 temperature control for Network Operations Center
-
-**Equipment:**
-- **Type:** Precision CRAC or mini-split systems
-- **Capacity:** [ROM] 50 kW
-- **Redundancy:** N+1 (dual units)
-- **Supply temp:** 20-22°C (68-72°F) for operator comfort
-
-### PDM/Electrical Room Cooling
-
-**Purpose:** Climate control for prefabricated power delivery modules
-
-**Equipment:**
-- **Type:** Integrated HVAC within PDM containers (factory-installed)
-- **Capacity:** [ROM] 50-75 kW per PDM
-- **Setpoint:** 25°C ±2°C (maintains UPS/switchboard optimal operating temp)
-
----
-
-## MECHANICAL CODES AND STANDARDS
-
-- **IMC 2021** (International Mechanical Code), Oklahoma amendments
-- **ASHRAE 90.1-2019** (Energy Standard for Buildings)
-- **ASHRAE 62.1** (Ventilation for Acceptable Indoor Air Quality)
+- **IMC 2021** (International Mechanical Code)
+- **ASHRAE 90.1-2019** (Energy Standard)
+- **ASHRAE 62.1** (Ventilation)
 - **ASHRAE TC 9.9** (Mission Critical Facilities)
-- **ASHRAE Thermal Guidelines** for Data Processing Environments (Class A1)
-- **NFPA 90A** (Installation of Air-Conditioning and Ventilating Systems)
+- **NFPA 90A** (Installation of A/C and Ventilating Systems)
 
 ---
 
-## TARGET PERFORMANCE METRICS
+## EQUIPMENT AND COST SUMMARY
 
-### PUE (Power Usage Effectiveness)
+### Cooling Plant Equipment by Phase
 
-**Phase 1 Target: 1.35 (Air Cooling)**
-- IT load: 3,000 kW
-- Infrastructure loads: cooling, power distribution losses, building/lighting
-- Target PUE: 1.35
+| Equipment | Phase 1 | Phase 2 | Phase 3 | Phase 4 | Purpose |
+|-----------|---------|---------|---------|---------|---------|
+| **Cooling Capacity (N+1)** | ~7 MW | ~14 MW | ~21 MW | ~28 MW | Per 6MW IT block @ 1.6 PUE |
+| **Estimated Chillers** | 3-4 units | 6-8 units | 9-12 units | 12-16 units | N+1 configuration per block |
+| **Cooling Loops** | 3-loop support | 3-loop support | 3-loop support | 3-loop support | 85°F warm + 60°F cold water capable |
 
-**Phase 2 Target: 1.25 (Air + D2C Cooling)**
-- IT load: 12,000 kW
-- Infrastructure loads: all cooling loops, power distribution, building systems
-- Target PUE: 1.25
-- Improved efficiency from Loop 3 warmer supply temperature and free cooling
+### Phase 4 Equipment Count (Ultimate Build-Out)
 
-### WUE (Water Usage Effectiveness)
+**COOLING PLANT EQUIPMENT**
 
-**Target: <0.5 L/kWh**
-- **Air-cooled chillers:** Zero water consumption (no evaporative cooling)
-- **Closed-loop glycol:** No makeup water required (only initial fill)
-- **Domestic water only:** Restrooms, kitchen, landscaping (~500-1,000 gal/day)
+| Equipment                       | Quantity   | Unit Size/Rating   | Total Capacity | Notes                                 |
+| ------------------------------- | ---------- | ------------------ | -------------- | ------------------------------------- |
+| **Air-Cooled Chillers**         | 12-16      | Vendor-dependent   | ~28 MW (N+1)   | 3-loop architecture (85°F + 60°F)     |
+| **Primary Pumps**               | Integrated | -                  | -              | Factory-integrated in chillers, VFD   |
+| **Expansion Tanks**             | 3          | 500-1,000 gal each | -              | 1 per loop (Loop 1, 2, 3)             |
+| **Air/Dirt Separators**         | 6          | -                  | -              | 2 per loop (air + dirt)               |
 
-**Why This Matters:**
-- Water scarcity concerns in many regions
-- ESG reporting increasingly focuses on water consumption
-- Air-cooled systems eliminate cooling tower water treatment and blowdown costs
+**GLYCOL & WATER TREATMENT**
 
----
+| Equipment | Quantity | Size/Capacity | Notes |
+|-----------|----------|---------------|-------|
+| **Propylene Glycol (Bulk)** | ~6,000 gal | - | 25-30% concentration for all loops |
+| **Glycol Mix Tanks** | 3 | 500 gal each | Pre-mix stations (1 per loop) |
+| **Fill Stations** | 3 | - | With transfer pumps, meters, valves |
+| **Chemical Dosing Pots** | 3 | - | 1 per loop for corrosion inhibitors |
 
-## EQUIPMENT SUMMARY
+**PIPING & DISTRIBUTION**
 
-| Equipment | Phase 1 | Phase 2 Add | Total | Unit Size | Purpose |
-|-----------|---------|-------------|-------|-----------|---------|
-| **Chillers (Loops 1+2)** | 4 | 0 | 4 | 1,500 kW | Air cooling |
-| **Chillers (Loop 3)** | 0 | 8 | 8 | 1,500 kW | D2C cooling |
-| **Cabinet FCUs** | 30 | 0 | 30 | 100 kW | In-cabinet air cooling |
-| **CDUs** | 0 | 60 | 60 | 300 kW | D2C coolant distribution |
-| **Primary Pumps (Loops 1+2)** | 4 | 0 | 4 | 22 kW | Chiller loop circulation |
-| **Secondary Pumps (Loops 1+2)** | 4 | 0 | 4 | 22 kW | Cabinet distribution |
-| **Primary Pumps (Loop 3)** | 0 | 4 | 4 | 56 kW | Loop 3 circulation |
-| **Building RTUs** | 3-4 | 0 | 3-4 | Varies | Office/NOC HVAC |
+| Equipment | Quantity | Size/Type | Notes |
+|-----------|----------|-----------|-------|
+| **Primary Loop Piping** | TBD | 4"-12" steel, insulated | Chillers to distribution points |
+| **Isolation Ball Valves** | TBD | Various sizes | Equipment isolation for maintainability |
+| **Quick-Disconnect Infrastructure** | TBD | Dry-break type | Client-specific deployment |
+
+**LEAK DETECTION SYSTEMS**
+
+| Equipment | Quantity | Type | Coverage |
+|-----------|----------|------|----------|
+| **Sensing Cable** | TBD | Conductive fluid detection | Under all chilled water piping |
+| **Spot Leak Detectors** | TBD | Discrete sensors | Equipment and connection points |
+| **Leak Detection Control Panels** | 2 | BACnet/IP integration | N+1 redundancy |
+
+**DATA HALL ENVIRONMENTAL CONTROL**
+
+| Equipment | Quantity | Capacity/Type | Notes |
+|-----------|----------|---------------|-------|
+| **DOAS Units (Data Hall West)** | 2 | 100% OA, enthalpy wheel | N+1 redundancy, L2C hall |
+| **DOAS Units (Data Hall East)** | 2 | 100% OA, enthalpy wheel | N+1 redundancy, RDHx hall |
+| **Steam Humidifiers** | 4 | - | Integrated in DOAS units |
+
+**SUPPORT SPACE HVAC**
+
+| Equipment | Quantity | Type | Serves |
+|-----------|----------|------|--------|
+| **Rooftop Units (RTUs)** | 4-6 | Package DX units | Offices, NOC, support spaces |
+| **Mechanical Room HVAC** | 4-6 | Factory-integrated | UPS modules, PDMs, switchgear |
+
+### Phase 4 Cost Summary (ROM - Rough Order of Magnitude)
+
+**Note:** Costs reflect primary cooling infrastructure only. Client-specific liquid cooling distribution (CDUs, RDHx units, secondary piping) priced separately per tenant requirements.
+
+| Category                            | Cost Placeholder | Notes                                                  |
+| ----------------------------------- | ---------------- | ------------------------------------------------------ |
+| **Chillers (12-16 units)**          | TBD              | 3-loop architecture, N+1 per 6MW block                 |
+| **Glycol Systems**                  | TBD              | Bulk glycol, mix tanks, fill stations, treatment       |
+| **Primary Piping & Distribution**   | TBD              | Steel piping, valves, tanks, separators                |
+| **Leak Detection**                  | TBD              | Sensing cable, spot detectors, control panels          |
+| **Data Hall Environmental**         | TBD              | DOAS units + humidification                            |
+| **Support Space HVAC**              | TBD              | RTUs + mechanical room cooling                         |
+|                                     |                  |                                                        |
+| **TOTAL MECHANICAL (PHASE 4)**      | **TBD**          | Pricing update in progress - shell infrastructure only |
+
+**Cost Approach:**
+- **Base Infrastructure:** Chillers, primary piping, glycol systems (estimated $2,000-3,000/kW IT)
+- **Client-Specific:** Liquid cooling distribution per tenant deployment
+
+**Industry Benchmarks:**
+- Air-cooled DCs: $1,000-2,000/kW
+- With liquid cooling: $2,000-4,000/kW (client-dependent)
 
 
----
-
-**Tags:** #pryor-dc #hvac #csi-div-23 #air-cooling #direct-to-chip #free-cooling #zero-water
-
-**Next Steps:**
-1. Chiller vendor selection and performance verification
-2. CDU specification and integration testing
-3. Glycol system design and chemical treatment plan
-4. BMS programming for chiller rotation and free cooling optimization
-5. Mechanical yard layout and crane access planning
 
 ---
 
 **Document Control:**
-- **Source:** Pryor_Bod_EVS_Rev01.md
-- **Date Updated:** October 29, 2025
-- **Prepared by:** EVS / PGCIS Team
+- **Created:** 2025-10-29
+- **Updated:** 2025-11-07
+- **Version:** v2
+- **Key Updates:** Phase restructure to 6MW blocks (6/12/18/24 MW), chillers recalculated per block (~7MW each), L2C details simplified, rack counts removed, PUE 1.6 for sizing
+- **Related:** [[Saga Pryor DC/Basis of Design/7BOD - Electrical (CSI Div 26)]]

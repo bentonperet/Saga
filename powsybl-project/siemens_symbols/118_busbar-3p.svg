@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60" fill="none" stroke="#000" stroke-width="2">
+  <!-- 3-Phase Busbar Symbol (IEC/IEEE Style) -->
+  <!-- Three horizontal bars representing 3-phase bus -->
+  <line x1="10" y1="15" x2="90" y2="15" stroke-width="4"/>
+  <line x1="10" y1="30" x2="90" y2="30" stroke-width="4"/>
+  <line x1="10" y1="45" x2="90" y2="45" stroke-width="4"/>
+
+  <!-- Phase labels (optional) -->
+  <text x="5" y="18" font-family="Arial" font-size="10" fill="#000" text-anchor="end">L1</text>
+  <text x="5" y="33" font-family="Arial" font-size="10" fill="#000" text-anchor="end">L2</text>
+  <text x="5" y="48" font-family="Arial" font-size="10" fill="#000" text-anchor="end">L3</text>
+</svg>

@@ -168,7 +168,7 @@ This connects the "Publish" button to your Obsidian hotkey.
 When you publish a note, these markdown elements will be beautifully formatted in Google Docs:
 
 **✅ Fully Working:**
-- **Headings** (H1-H6) - Styled with Pachyderm Global brand colors (Rubik font, custom blues)
+- **Headings** (H1-H6) - Styled with PACHYDERM GLOBAL brand colors (Rubik font, custom blues)
 - **Text formatting** - **Bold**, *italic*, ~~strikethrough~~, `inline code`
 - **Links** - Become clickable blue links in Google Docs
 - **Lists** - Both bulleted and numbered lists

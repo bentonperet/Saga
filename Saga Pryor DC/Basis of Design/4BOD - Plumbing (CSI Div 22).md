@@ -1,23 +1,22 @@
-**Created:** 2025-10-29
-**Updated from:** Pryor_Bod_EVS_Rev01.md
+
 
 # BASIS OF DESIGN - PLUMBING
 ## CSI Division 22
 ### Pryor Data Center - PACHYDERM GLOBAL
 
-**Parent Document:** [[Saga Pryor DC/Basis of Design/Erik_BOD_Updated/_BOD - Exec Summary and TOC]]
+**Parent Document:** [[_TOC - Basis of Design Contents]]
 
 ---
 
 ## OVERVIEW
 
-Plumbing systems provide domestic water service, fire protection water supply, sanitary/storm drainage, and chilled water makeup for closed-loop glycol systems. Zero water consumption for cooling operations (air-cooled chillers eliminate evaporative losses).
+Plumbing systems provide domestic water service, fire protection water supply, and sanitary/storm drainage. Zero water consumption for cooling operations (air-cooled chillers eliminate evaporative losses).
 
 **Design Philosophy:**
-- **Zero cooling water:** Air-cooled chillers, closed-loop glycol (WUE <0.5 L/kWh)
-- **Minimal domestic use:** Staff amenities only (~10-20 occupants)
-- **Leak detection:** Comprehensive system protecting IT equipment
-- **Sustainable design:** Stormwater management, low-flow fixtures
+- **Zero cooling water:** Air-cooled chillers, closed-loop glycol
+- **Minimal domestic use:** Staff amenities only (~20 occupants)
+
+**Scope Note:** All chilled water piping, glycol systems, and cooling loop equipment are scoped under **Division 23 (HVAC)**. Division 22 provides domestic water service only, including stub connections for makeup water to HVAC glycol systems.
 
 ---
 
@@ -33,14 +32,8 @@ Plumbing systems provide domestic water service, fire protection water supply, s
 
 **One-Time Fill Requirements:**
 - Fire sprinkler system: 8,000-15,000 gallons (wet pipe areas)
-- Chilled water loops: 15,000-25,000 gallons total
-  - Loops 1+2: ~5,000 gallons (Phase 1)
-  - Loop 3: ~15,000 gallons (Phase 2)
-- **Total initial fill:** ~25,000-40,000 gallons
-
-**Annual Makeup (Closed-Loop Systems):**
-- Chilled water makeup: <1% volume/year (leak replacement only)
-- Glycol concentration maintenance: Minimal (~100-200 gallons/year)
+- HVAC glycol system makeup water: Provided via domestic water stub connections (HVAC contractor to connect and fill)
+- **Total initial fill (Plumbing scope):** ~8,000-15,000 gallons (fire sprinkler only)
 
 ### Service Specifications
 
@@ -105,7 +98,7 @@ Plumbing systems provide domestic water service, fire protection water supply, s
 **Sizing:**
 - Design storm: 100-year, 1-hour duration (Oklahoma)
 - Rainfall intensity: [ROM] 5-6 inches/hour
-- Roof area: 50,000 SF
+- Roof area: 38,000 SF
 - Primary drains: [ROM] 8-12 × 6" drains
 - Overflow: Scuppers at roof edge (backup)
 
@@ -129,143 +122,6 @@ Plumbing systems provide domestic water service, fire protection water supply, s
 **Erosion Control:**
 - During construction: Silt fences, sediment basins per SWPPP
 - Permanent: Vegetated slopes, riprap at outfalls
-
----
-
-## CHILLED WATER MAKEUP & TREATMENT
-
-### Glycol System Fill (Closed-Loop)
-
-**System Volumes:**
-- **Loops 1+2 (Phase 1):** ~5,000 gallons total (includes glycol mixture)
-- **Loop 3 (Phase 2):** ~15,000 gallons total (includes glycol mixture)
-- **Total (Phase 2):** ~20,000 gallons total
-- **Glycol concentration:** 25-30% for freeze protection
-
-**Initial Fill Procedure:**
-- Deionized or softened water only (no raw municipal water)
-- Pre-mix glycol per design concentration
-- Pump into system via fill stations (one per loop)
-- Purge air via high-point vents, circulation
-- Test concentration with refractometer
-
-### Makeup Water System
-
-**Equipment:**
-- Glycol mix tanks (sized per system volumes, one per loop)
-- Circulation pumps for mixing
-- Fill connections at each chiller plant
-- Totalizing flow meters (track makeup volume)
-
-**Annual Makeup Requirements:**
-- Target: <1% of system volume per year
-- Typical: 100-200 gallons/year (leak replacement, expansion tank overflow)
-- Alarm if makeup exceeds threshold (indicates leak)
-
-### Water Treatment
-
-**Chemical Treatment Program:**
-- **Corrosion inhibitors:** Protect steel, copper, aluminum components
-- **Biological inhibitors:** Prevent algae/bacteria growth
-- **pH buffers:** Maintain pH 7.5-8.5
-- **Supplier:** [TBD - e.g., Nalco, ChemTreat, Kurita]
-
-**Monitoring:**
-- Quarterly testing: pH, conductivity, inhibitor concentration, glycol %
-- Annual full analysis: Metals, biological activity, fluid degradation
-- BMS integration: Conductivity sensors provide continuous monitoring
-
-**Chemical Dosing:**
-- Manual dosing via chemical dosing pots (CDPs)
-- Sized per loop volume and chemical treatment program
-- Replenish per testing schedule
-
-### Filtration
-
-**Side-Stream Filtration:**
-- Dirt and air separators (DAS) per loop
-- Removes particulates, deaerates fluid
-- Replaceable cartridge filters
-
----
-
-## GLYCOL STORAGE & HANDLING
-
-### Bulk Glycol Storage
-
-**Phase 1 Initial Fill:**
-- 1,500 gallons propylene glycol (30% of 5,000 gal system)
-- Delivered in 55-gallon drums or 275-gallon totes
-- Storage: Outdoor chemical storage shed with secondary containment
-
-**Phase 2 Additional:**
-- 4,500 gallons propylene glycol (Loop 3)
-- Bulk delivery via tanker truck (if available)
-- Temporary storage in totes during fill operation
-
-**Safety:**
-- Propylene glycol: Non-toxic, food-grade (safe for data center environment)
-- SDS (Safety Data Sheets) on-site
-- Spill kit and containment equipment
-
-### Fill Stations
-
-**One Fill Station per Loop (3 Total):**
-- Location: Near each chiller plant
-- Equipment: Hose connection, isolation valves, drain
-- Pump: Portable transfer pump (200-300 GPM)
-- Venting: High-point manual air vents during fill
-
----
-
-## WATER LEAK DETECTION SYSTEM
-
-Critical for protecting IT equipment from water damage.
-
-### Detection Zones
-
-**Data Hall Coverage:**
-- Under all overhead chilled water piping
-- At all cabinet D2C manifold connections (Phase 2)
-- Under CDU units (Phase 2)
-- At mechanical room penetrations
-
-**Mechanical Room Coverage:**
-- Under pumps, valves, heat exchangers
-- At chiller connections
-- Near expansion tanks, fill stations
-
-### Detection Technology
-
-**Sensing Cable:**
-- Conductive fluid detection cable (continuous sensing)
-- Detects water, glycol, or other conductive fluids
-- Length: [ROM] 1,000-2,000 ft per data hall
-
-**Spot Detectors:**
-- Discrete leak detectors at high-risk points
-- Under each CDU (60 detectors in Phase 2)
-- At quick-disconnect fittings
-- Response time: <1 second
-
-**Control Panels:**
-- 2 × leak detection control panels (redundant)
-- BACnet/IP integration to BMS
-- Audible/visual local alarms
-
-### Alarm Response
-
-**Automatic Actions:**
-1. BMS alarm (visual + audible in NOC)
-2. Email/SMS to on-call engineer
-3. DCIM integration (log event, track location)
-4. Optional: Close isolation valves if leak zone can be isolated
-
-**Manual Response:**
-1. Maintenance team dispatched within 15 minutes
-2. Locate leak via sensing cable zone indication
-3. Isolate affected loop/cabinet if possible
-4. Repair and refill system
 
 ---
 
@@ -334,15 +190,59 @@ Critical for protecting IT equipment from water damage.
 
 ---
 
-## NATURAL GAS (IF AVAILABLE)
+## SCOPE CLARIFICATION - DIVISION 22 vs DIVISION 23
 
-**Potential Uses:**
-- Emergency generator fuel (if dual-fuel capability desired)
-- Space heating (if needed for office areas)
+**Critical Note:** To prevent scope gaps and bid-day confusion, this section clarifies the boundary between Division 22 (Plumbing) and Division 23 (HVAC) scopes.
 
-**Service:**
-- Coordinate with local gas utility for availability
-- If unavailable: All-electric building design
+### Division 22 (Plumbing) INCLUDES:
+
+**Domestic Water Systems:**
+- Municipal water service connection (3-4" service lateral, meter, backflow preventer)
+- If municipal unavailable: On-site well system with pressure tanks and booster pumps
+- Domestic water distribution piping to all plumbing fixtures
+- Water softening/filtration equipment (if required)
+- Makeup water stub connections (3/4" isolation valve + union) at HVAC glycol system locations (3 locations)
+
+**Sanitary Waste Systems:**
+- Sanitary sewer lateral connection (6" to municipal system or on-site septic)
+- All sanitary waste piping from fixtures to building lateral
+- Vent piping for drainage system
+- Cleanouts and access points
+
+**Storm Drainage Systems:**
+- Roof drains (8-12 primary drains)
+- Overflow scuppers
+- Interior storm leaders
+- Connection to site storm system (coordinate with civil)
+
+**Plumbing Fixtures & DHW:**
+- All plumbing fixtures (toilets, urinals, lavatories, sinks, showers)
+- Domestic hot water system (2 × 80-gal electric water heaters, recirculation pumps, distribution)
+- Emergency eyewash/safety shower stations (even if located in mechanical rooms)
+
+**Piping & Insulation:**
+- All domestic water piping (hot and cold)
+- All sanitary waste and vent piping
+- All storm drainage piping
+- Insulation for domestic water piping per energy code
+
+### Division 22 (Plumbing) DOES NOT INCLUDE:
+
+**Chilled Water & Glycol Systems (Division 23 Scope):**
+- All chilled water piping (Loops 1, 2, and 3)
+- Overhead chilled water manifolds in data halls
+- Quick-disconnect fittings for CDU or RDHx connections
+- Glycol systems 
+- Chemical treatment systems (dosing pots, inhibitors)
+- Expansion tanks, air separators, dirt separators for chilled water loops
+- Water quality testing/treatment for HVAC systems
+- Leak detection systems for chilled water piping or equipment
+- Piping insulation for chilled water systems
+
+**Coordination Point:**
+- Division 22 shall provide 3/4" domestic water stub connections (with isolation valve + union) at locations indicated by HVAC contractor
+- HVAC contractor shall connect makeup water from these stubs to their glycol mix tanks
+- HVAC contractor is responsible for all glycol system fill operations, testing, and commissioning
 
 ---
 
@@ -355,49 +255,35 @@ Critical for protecting IT equipment from water damage.
 - **ANSI Z358.1** (Emergency eyewash and shower equipment)
 - **Oklahoma DEQ** (Stormwater, septic system regulations)
 
----
-
-## SUSTAINABILITY & EFFICIENCY
-
-### Water Usage Effectiveness (WUE)
-
-**Target: <0.5 L/kWh**
-- Air-cooled chillers: Zero evaporative cooling water
-- Closed-loop glycol: Minimal makeup (<200 gal/year)
-- Domestic water only: Staff use (~500-1,000 gal/day)
-
-**Comparison:**
-- Traditional data centers: 1.8 L/kWh (cooling towers)
-- Pryor DC: <0.5 L/kWh (air-cooled) ✓
-
-### Low-Flow Fixtures
-
-**Water Savings:**
-- Low-flow toilets: 1.28 GPF vs. 3.5 GPF (63% reduction)
-- Low-flow faucets: 0.5 GPM vs. 2.2 GPM (77% reduction)
-- Low-flow showers: 2.0 GPM vs. 2.5 GPM (20% reduction)
-
-**Annual Savings:** [ROM] 30-40% vs. standard fixtures
 
 ---
 
-## EQUIPMENT SUMMARY
+## EQUIPMENT AND COST SUMMARY
 
-| System | Equipment | Quantity | Notes |
-|--------|-----------|----------|-------|
-| **Domestic Water** | 3-4" service connection | 1 | Municipal or well |
-| **Backflow Prevention** | RPZ backflow preventer | 1 | Required by code |
-| **Sanitary Sewer** | 6" lateral connection | 1 | Municipal or septic |
-| **Glycol Mix Tanks** | 500-gallon tanks | 3 | One per loop (1, 2, 3) |
-| **Fill Pumps** | Transfer pumps | 3 | 200-300 GPM portable |
-| **Water Heaters** | 80-gallon electric | 2 | N+1 redundancy |
-| **Leak Detection Cable** | Conductive sensing cable | 2,000-3,000 ft | Data halls + mech rooms |
-| **Leak Spot Detectors** | Discrete detectors | 100+ | CDUs, valves, pumps |
-| **Emergency Fixtures** | Eyewash/shower stations | 2-3 | Chemical storage, mech rooms |
+
+### Cost Summary (Rough Order of Magnitude)
+
+**Pricing Methodology:** Hybrid approach combining systems-based parametric pricing for distribution piping and bottom-up equipment pricing for discrete items. ROM estimates suitable for BOD-level budgeting (±30% accuracy).
+
+| Category                           | Description                                                                         | Cost         |
+| ---------------------------------- | ----------------------------------------------------------------------------------- | ------------ |
+| **Domestic Water Systems**         | Service connection, meter, RPZ, filtration, distribution piping, makeup water stubs | $85,000      |
+| **Sanitary & Storm**               | Sewer lateral, waste/vent piping, roof drains, storm leaders, site connections      | $100,000     |
+| **Fixtures & DHW**                 | Toilets, sinks, showers, accessories, water heaters, recirculation system           | $80,000      |
+| **Testing & PM**                   | Commissioning, water quality testing, general conditions, contractor markup         | $85,000      |
+| **TOTAL - DIVISION 22 (PLUMBING)** |                                                                                     | **$350,000** |
+
+**Contingency Items (if needed):**
+- Well system: $75,000 (if municipal water unavailable)
+- Septic system: $65,000 (if municipal sewer unavailable)
+
+**Excluded from This Estimate:**
+- HVAC chilled water systems (Division 23 scope - see HVAC BOD)
+- Fire protection piping (Division 21 scope)
+- Electrical work for pumps, water heaters (Division 26 scope)
+- Site civil work beyond building connection points
 
 ---
-
-**Tags:** #pryor-dc #plumbing #domestic-water #glycol-systems #leak-detection #wue
 
 **Next Steps:**
 1. Confirm municipal water/sewer availability via utility coordination
@@ -409,7 +295,6 @@ Critical for protecting IT equipment from water damage.
 ---
 
 **Document Control:**
-- **Source:** Pryor_Bod_EVS_Rev01.md and Erik_BOD reference
+- **Source:** Erik_BOD reference
 - **Date Updated:** October 29, 2025
-- **Prepared by:** EVS / PGCIS Team
-- **Key Updates:** Glycol system details, leak detection expansion for D2C
+- **Key Updates:**

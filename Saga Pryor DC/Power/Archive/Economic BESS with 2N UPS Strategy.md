@@ -7,7 +7,7 @@
 
 **Document Purpose:** Demonstrate that a Tier III-compliant design using JIT-deployed 2N UPS + separate economic BESS delivers superior IRR through revenue generation rather than cost avoidance, while maintaining bankable reliability standards.
 
-**Prepared By:** Pachyderm Global / PGCIS
+**Prepared By:** PACHYDERM GLOBAL / PGCIS
 **Prepared For:** Saga Energy
 **Date:** 2025-10-22
 **Status:** DRAFT FOR CLIENT REVIEW

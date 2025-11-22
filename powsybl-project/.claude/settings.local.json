@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(do sed -i 's/ —/, /g' \"$file\")",
+      "Bash(do sed -i 's/—/, /g' \"$file\")",
+      "WebSearch",
+      "WebFetch(domain:atlas.geoportalmaps.com)",
+      "WebFetch(domain:www.wfassessor.com)",
+      "WebFetch(domain:westfeliciana.smartcama.com)",
+      "Bash(dir:*)",
+      "Bash(find:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

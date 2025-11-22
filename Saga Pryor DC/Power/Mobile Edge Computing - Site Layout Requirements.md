@@ -7,7 +7,7 @@
 
 **Document Purpose:** Provide detailed site planning requirements for mobile edge computing container deployment to avoid conflicts with Phase 3-5 infrastructure buildout.
 
-**Prepared By:** Pachyderm Global / PGCIS
+**Prepared By:** PACHYDERM GLOBAL / PGCIS
 **Prepared For:** Saga Energy (Site Planning Team)
 **Date:** 2025-10-22
 **Status:** PLANNING GUIDANCE

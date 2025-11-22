@@ -1,0 +1,52 @@
+SIEMENS SINGLE-LINE ELECTRICAL SYMBOLS CATALOG
+======================================================================
+
+Downloaded: 0/44 symbols
+Date: 2025-11-07 12:11:24
+
+SYMBOL LIST:
+----------------------------------------------------------------------
+  0  contactor-3p                                   Contactor 3P
+  1  circuit-breaker-3p                             Circuit Breaker 3P
+  2  disconnector-isolator-3p                       Disconnector/Isolator 3P
+  3  switch-disconnector-3p                         Switch Disconnector 3P
+  4  fuse-disconnector-isolator-3p                  Fuse Disconnector/Isolator 3P
+  5  fuse-switch-disconnector-3p                    Fuse Switch Disconnector 3P
+  9  fuse-3p                                        Fuse 3P
+  6  selector-switch-1p                             Selector Switch 1P
+  7  selector-switch-2p                             Selector Switch 2P
+  8  selector-switch-3p                             Selector Switch 3P
+ 17  manual-switch                                  Manual Switch
+ 18  emergency-stop-switch                          Emergency Stop Switch
+ 22  key-selector-switch                            Key Selector Switch
+ 12  normally-open-contact                          Normally Open Contact
+ 13  normally-close-contact                         Normally Close Contact
+ 14  changeover-contact-break-before-make           ChangeOver Contact
+ 36  circuit-breaker-thermal-magnetic-3p            Circuit Breaker Thermal & Magnetic 3P
+ 37  circuit-breaker-thermal-3p                     Circuit Breaker Thermal 3P
+ 38  circuit-breaker-magnetic-3p                    Circuit Breaker Magnetic 3P
+ 44  under-voltage-relay                            Undervoltage Relay
+ 45  earth-fault-relay                              Earth Fault Relay
+ 46  instantaneous-overcurrent-relay                Instantaneous OverCurrent Relay
+ 51  thermal-overload-relay                         Thermal Overload Relay
+ 57  transformer-3p                                 Transformer 3P
+ 59  autotransformer-3p                             AutoTransformer 3P
+ 60  current-transformer                            Current Transformer
+ 61  voltage-transformer                            Voltage Transformer
+ 63  transformer-3p-star-delta                      Transformer 3P Star-Delta
+ 66  motor-3p                                       Motor 3P
+ 67  motor-3p-star                                  Motor 3P Star
+ 68  motor-3p-delta                                 Motor 3P Delta
+ 75  generator                                      Generator
+ 76  battery                                        Battery
+ 77  power-supply-converter-dc-dc                   Power Supply DC/DC Converter
+ 78  ammeter                                        Ammeter
+ 79  voltmeter                                      Voltmeter
+ 80  wattmeter                                      Wattmeter
+ 81  frequency-meter                                Frequency Meter
+ 82  power-factor-meter                             Power Factor Meter
+ 10  pilot-light                                    Pilot Light
+ 11  photo-cell                                     Photo Cell
+117  earth-ground                                   Earth/Ground
+118  busbar-3p                                      Busbar 3P
+120  ups                                            UPS (Uninterruptible Power Supply)

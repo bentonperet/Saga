@@ -2,7 +2,7 @@
 ## 24 MW Master Plan (2 Data Halls × 12 MW Each)
 ### Tbilisi Data Center - PACHYDERM GLOBAL
 
-**Parent Document:** [[_BOD - Exec Summary and TOC]]
+**Parent Document:** [[GGE/GGE BoD Template/_BOD - Exec Summary and TOC]]
 
 ---
 

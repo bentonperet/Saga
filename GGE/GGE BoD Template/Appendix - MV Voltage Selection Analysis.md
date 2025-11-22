@@ -13,7 +13,7 @@
 ## Supply Chain, Cost, and Maintainability Assessment
 ### Tbilisi Data Center - PACHYDERM GLOBAL
 
-**Parent Document:** [[_BOD - Exec Summary and TOC]]  
+**Parent Document:** [[GGE/GGE BoD Template/_BOD - Exec Summary and TOC]]  
 **Created:** 2025-10-30  
 **Purpose:** Document the analysis and rationale for selecting 13.8 kV MV distribution voltage (US standard) over 11 kV (IEC standard)
 

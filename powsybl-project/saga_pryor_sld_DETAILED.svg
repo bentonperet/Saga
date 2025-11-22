@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="3400" height="3000" viewBox="0 0 3400 3000" xmlns="http://www.w3.org/2000/svg">
+<defs>
+
+        <g id="breaker-closed">
+            <rect x="-8" y="-12" width="16" height="24" fill="white" stroke="black" stroke-width="1.5"/>
+            <line x1="-6" y1="-8" x2="6" y2="8" stroke="black" stroke-width="2"/>
+            <line x1="-6" y1="8" x2="6" y2="-8" stroke="black" stroke-width="2"/>
+        </g>
+    
+
+        <g id="breaker-open">
+            <rect x="-8" y="-12" width="16" height="24" fill="white" stroke="black" stroke-width="1.5"/>
+            <line x1="0" y1="-8" x2="0" y2="-2" stroke="black" stroke-width="2"/>
+            <line x1="0" y1="2" x2="0" y2="8" stroke="black" stroke-width="2"/>
+            <circle cx="0" cy="0" r="2.5" fill="white" stroke="black" stroke-width="1.5"/>
+        </g>
+    
+
+        <g id="transformer">
+            <circle cx="-8" cy="0" r="10" fill="white" stroke="black" stroke-width="1.5"/>
+            <circle cx="8" cy="0" r="10" fill="white" stroke="black" stroke-width="1.5"/>
+            <line x1="-8" y1="-10" x2="-8" y2="-20" stroke="black" stroke-width="2"/>
+            <line x1="8" y1="10" x2="8" y2="20" stroke="black" stroke-width="2"/>
+        </g>
+    
+
+        <g id="generator">
+            <circle cx="0" cy="0" r="30" fill="white" stroke="black" stroke-width="2"/>
+            <text x="0" y="8" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="black">G</text>
+        </g>
+    
+
+        <g id="connection-point">
+            <circle cx="0" cy="0" r="3" fill="black"/>
+        </g>
+    
+
+        <g id="fuse">
+            <rect x="-6" y="-10" width="12" height="20" fill="white" stroke="black" stroke-width="1.5"/>
+            <line x1="0" y1="-6" x2="0" y2="6" stroke="black" stroke-width="2"/>
+            <circle cx="0" cy="0" r="3" fill="white" stroke="black" stroke-width="1.5"/>
+        </g>
+    
+
+        <g id="disconnect-closed">
+            <line x1="0" y1="-12" x2="0" y2="12" stroke="black" stroke-width="2"/>
+            <circle cx="0" cy="-12" r="2" fill="black"/>
+            <circle cx="0" cy="12" r="2" fill="black"/>
+        </g>
+    
+
+        <g id="disconnect-open">
+            <line x1="0" y1="-12" x2="4" y2="0" stroke="black" stroke-width="2"/>
+            <circle cx="0" cy="-12" r="2" fill="black"/>
+            <circle cx="0" cy="12" r="2" fill="black"/>
+        </g>
+    
+</defs>
+
+
+    <style>
+        .title { font: bold 18px Arial; fill: #000; }
+        .subtitle { font: bold 14px Arial; fill: #000; }
+        .equipment-label { font: bold 13px Arial; fill: #000; }
+        .rating { font: 10px Arial; fill: #333; }
+        .annotation { font: 9px Arial; fill: #000; }
+        .note { font: italic 9px Arial; fill: #000; }
+        
+        .power-line { stroke: #000; stroke-width: 2; fill: none; }
+        .bus { stroke: #000; stroke-width: 6; fill: none; }
+        .control-line { stroke: #000; stroke-width: 1; stroke-dasharray: 5,5; fill: none; }
+        
+        .switchgear-box { fill: #F5F5F5; stroke: black; stroke-width: 2; }
+        .transformer-box { fill: #FAFAFA; stroke: black; stroke-width: 2; }
+        .rmu-box { fill: #F8F8F8; stroke: black; stroke-width: 2; }
+        .ups-box { fill: #FCFCFC; stroke: black; stroke-width: 2; }
+    </style>
+    
+
+<style>
+.mv-switchboard { fill: #E8F4F8; stroke: #000; stroke-width: 2; }
+.lv-switchboard { fill: #F0F8E8; stroke: #000; stroke-width: 2; }
+.rmu-box { fill: #FFF8E8; stroke: #000; stroke-width: 2; }
+.feeder-label { font: 9px Arial; fill: #666; }
+</style>
+
+<!-- Title -->
+<rect x="20" y="10" width="3360" height="80" fill="white" stroke="black" stroke-width="2"/>
+<text x="1700" y="40" class="title" text-anchor="middle">SAGA PRYOR DATA CENTER - ELECTRICAL SINGLE LINE DIAGRAM</text>
+<text x="1700" y="60" class="subtitle" text-anchor="middle">13.8kV Dual Ring MV Distribution with Individual Breaker Positions</text>
+<text x="3370" y="80" class="annotation" text-anchor="end">Rev A - 2025-11-02</text>
+
+
+<!-- Generator 1 -->
+<circle cx="700" cy="150" r="40" fill="white" stroke="black" stroke-width="2"/>
+<text x="700" y="145" class="bus-label" text-anchor="middle">G</text>
+<text x="700" y="160" class="small-label" text-anchor="middle">GEN-1</text>
+<text x="700" y="175" class="rating" text-anchor="middle" font-size="9">4.0MW</text>
+<line x1="700" y1="190" x2="700" y2="230" class="power-line"/>
+<use href="#breaker-closed" x="700" y="210"/>
+<line x1="700" y1="230" x2="700" y2="260" class="power-line"/>
+
+<!-- Generator 2 -->
+<circle cx="1100" cy="150" r="40" fill="white" stroke="black" stroke-width="2"/>
+<text x="1100" y="145" class="bus-label" text-anchor="middle">G</text>
+<text x="1100" y="160" class="small-label" text-anchor="middle">GEN-2</text>
+<text x="1100" y="175" class="rating" text-anchor="middle" font-size="9">4.0MW</text>
+<line x1="1100" y1="190" x2="1100" y2="230" class="power-line"/>
+<use href="#breaker-closed" x="1100" y="210"/>
+<line x1="1100" y1="230" x2="1100" y2="260" class="power-line"/>
+
+<!-- Generator 3 -->
+<circle cx="1500" cy="150" r="40" fill="white" stroke="black" stroke-width="2"/>
+<text x="1500" y="145" class="bus-label" text-anchor="middle">G</text>
+<text x="1500" y="160" class="small-label" text-anchor="middle">GEN-3</text>
+<text x="1500" y="175" class="rating" text-anchor="middle" font-size="9">4.0MW</text>
+<line x1="1500" y1="190" x2="1500" y2="230" class="power-line"/>
+<use href="#breaker-closed" x="1500" y="210"/>
+<line x1="1500" y1="230" x2="1500" y2="260" class="power-line"/>
+
+<!-- Generator 4 -->
+<circle cx="1900" cy="150" r="40" fill="white" stroke="black" stroke-width="2"/>
+<text x="1900" y="145" class="bus-label" text-anchor="middle">G</text>
+<text x="1900" y="160" class="small-label" text-anchor="middle">GEN-4</text>
+<text x="1900" y="175" class="rating" text-anchor="middle" font-size="9">4.0MW</text>
+<line x1="1900" y1="190" x2="1900" y2="230" class="power-line"/>
+<use href="#breaker-closed" x="1900" y="210"/>
+<line x1="1900" y1="230" x2="1900" y2="260" class="power-line"/>
+
+<!-- Generator 5 -->
+<circle cx="2300" cy="150" r="40" fill="white" stroke="black" stroke-width="2"/>
+<text x="2300" y="145" class="bus-label" text-anchor="middle">G</text>
+<text x="2300" y="160" class="small-label" text-anchor="middle">GEN-5</text>
+<text x="2300" y="175" class="rating" text-anchor="middle" font-size="9">4.0MW</text>
+<line x1="2300" y1="190" x2="2300" y2="230" class="power-line"/>
+<use href="#breaker-closed" x="2300" y="210"/>
+<line x1="2300" y1="230" x2="2300" y2="260" class="power-line"/>
+
+<!-- Generator 6 -->
+<circle cx="2700" cy="150" r="40" fill="white" stroke="black" stroke-width="2"/>
+<text x="2700" y="145" class="bus-label" text-anchor="middle">G</text>
+<text x="2700" y="160" class="small-label" text-anchor="middle">GEN-6</text>
+<text x="2700" y="175" class="rating" text-anchor="middle" font-size="9">4.0MW</text>
+<line x1="2700" y1="190" x2="2700" y2="230" class="power-line"/>
+<use href="#breaker-closed" x="2700" y="210"/>
+<line x1="2700" y1="230" x2="2700" y2="260" class="power-line"/>
+
+<!-- Generator Sync Bus -->
+<rect x="620" y="260" width="2480" height="80" class="switchgear-box"/>
+<text x="1700" y="290" class="equipment-label" text-anchor="middle">GENERATOR SYNC BUS</text>
+<text x="1700" y="310" class="rating" text-anchor="middle">13.8 kV | 6 x 4.0MW (N+1)</text>
+<text x="1700" y="325" class="annotation" text-anchor="middle">Woodward Paralleling Controls | Auto Load Share</text>
+
+<!-- Connection from Sync Bus to MV-SWBD A -->
+<line x1="1100" y1="340" x2="1100" y2="330" class="power-line"/>
+<line x1="1100" y1="330" x2="500" y2="330" class="power-line"/>
+<line x1="500" y1="330" x2="500" y2="380" class="power-line"/>
+<use href="#breaker-closed" x="500" y="360"/>
+<line x1="500" y1="380" x2="500" y2="410" class="power-line"/>
+
+<!-- MV-SWBD A -->
+<rect x="240" y="410" width="520" height="120" class="mv-switchboard"/>
+<text x="500" y="445" class="equipment-label" text-anchor="middle">MV-SWBD A</text>
+<text x="500" y="465" class="annotation" text-anchor="middle">RING A PRIMARY</text>
+<text x="500" y="485" class="annotation" text-anchor="middle">13.8 kV</text>
+<text x="500" y="505" class="rating" text-anchor="middle">4000A | 65kAIC</text>
+
+<!-- MV-SWBD A Main Bus (horizontal inside box) -->
+<line x1="260" y1="425" x2="740" y2="425" class="bus"/>
+
+<!-- MV-SWBD A - Feeder 1 -->
+<line x1="320.0" y1="425" x2="320.0" y2="530" class="power-line"/>
+<use href="#breaker-closed" x="320.0" y="550"/>
+<text x="320.0" y="518" class="feeder-label" text-anchor="middle">Feeder A1</text>
+
+<!-- MV-SWBD A - Feeder 2 -->
+<line x1="440.0" y1="425" x2="440.0" y2="530" class="power-line"/>
+<use href="#breaker-closed" x="440.0" y="550"/>
+<text x="440.0" y="518" class="feeder-label" text-anchor="middle">Feeder A2</text>
+
+<!-- MV-SWBD A - Feeder 3 -->
+<line x1="560.0" y1="425" x2="560.0" y2="530" class="power-line"/>
+<use href="#breaker-closed" x="560.0" y="550"/>
+<text x="560.0" y="518" class="feeder-label" text-anchor="middle">Feeder A3</text>
+
+<!-- MV-SWBD A - Feeder 4 -->
+<line x1="680.0" y1="425" x2="680.0" y2="530" class="power-line"/>
+<use href="#breaker-closed" x="680.0" y="550"/>
+<text x="680.0" y="518" class="feeder-label" text-anchor="middle">Feeder A4</text>
+
+<!-- Connection from Sync Bus to MV-SWBD B -->
+<line x1="2300" y1="340" x2="2300" y2="330" class="power-line"/>
+<line x1="2300" y1="330" x2="2900" y2="330" class="power-line"/>
+<line x1="2900" y1="330" x2="2900" y2="380" class="power-line"/>
+<use href="#breaker-closed" x="2900" y="360"/>
+<line x1="2900" y1="380" x2="2900" y2="410" class="power-line"/>
+
+<!-- MV-SWBD B -->
+<rect x="2640" y="410" width="520" height="120" class="mv-switchboard"/>
+<text x="2900" y="445" class="equipment-label" text-anchor="middle">MV-SWBD B</text>
+<text x="2900" y="465" class="annotation" text-anchor="middle">RING B PRIMARY</text>
+<text x="2900" y="485" class="annotation" text-anchor="middle">13.8 kV</text>
+<text x="2900" y="505" class="rating" text-anchor="middle">4000A | 65kAIC</text>
+
+<!-- MV-SWBD B Main Bus -->
+<line x1="2660" y1="425" x2="3140" y2="425" class="bus"/>
+
+<!-- MV-SWBD B - Feeder 1 -->
+<line x1="2720.0" y1="425" x2="2720.0" y2="530" class="power-line"/>
+<use href="#breaker-closed" x="2720.0" y="550"/>
+<text x="2720.0" y="518" class="feeder-label" text-anchor="middle">Feeder B1</text>
+
+<!-- MV-SWBD B - Feeder 2 -->
+<line x1="2840.0" y1="425" x2="2840.0" y2="530" class="power-line"/>
+<use href="#breaker-closed" x="2840.0" y="550"/>
+<text x="2840.0" y="518" class="feeder-label" text-anchor="middle">Feeder B2</text>
+
+<!-- MV-SWBD B - Feeder 3 -->
+<line x1="2960.0" y1="425" x2="2960.0" y2="530" class="power-line"/>
+<use href="#breaker-closed" x="2960.0" y="550"/>
+<text x="2960.0" y="518" class="feeder-label" text-anchor="middle">Feeder B3</text>
+
+<!-- MV-SWBD B - Feeder 4 -->
+<line x1="3080.0" y1="425" x2="3080.0" y2="530" class="power-line"/>
+<use href="#breaker-closed" x="3080.0" y="550"/>
+<text x="3080.0" y="518" class="feeder-label" text-anchor="middle">Feeder B4</text>
+
+<!-- Feeder A1 to RMU-1 -->
+<line x1="320.0" y1="570" x2="320.0" y2="630" class="power-line"/>
+
+<!-- RMU-1 -->
+<rect x="260.0" y="660" width="120" height="100" class="rmu-box"/>
+<text x="320.0" y="690" class="equipment-label" text-anchor="middle">RMU-1</text>
+<text x="320.0" y="710" class="annotation" text-anchor="middle">Ring Main Unit</text>
+<text x="320.0" y="730" class="rating" text-anchor="middle">13.8kV | 630A</text>
+<text x="320.0" y="745" class="annotation" text-anchor="middle">SF6 Breakers</text>
+
+<!-- RMU to Transformer -->
+<line x1="320.0" y1="760" x2="320.0" y2="790" class="power-line"/>
+<use href="#breaker-closed" x="320.0" y="775"/>
+
+<!-- Transformer TX-1 -->
+<circle cx="320.0" cy="840" r="40" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="320.0" cy="840" r="32" fill="none" stroke="black" stroke-width="1"/>
+<text x="320.0" y="830" class="small-label" text-anchor="middle">TX-1</text>
+<text x="320.0" y="847" class="rating" text-anchor="middle" font-size="9">3500kVA</text>
+<text x="320.0" y="900" class="annotation" text-anchor="middle">13.8kV/0.48kV</text>
+
+<!-- Transformer to LV Switchboard -->
+<line x1="320.0" y1="880" x2="320.0" y2="930" class="power-line"/>
+<use href="#breaker-closed" x="320.0" y="910"/>
+
+<!-- LV-SWBD-1 -->
+<rect x="260.0" y="950" width="120" height="120" class="lv-switchboard"/>
+<text x="320.0" y="980" class="equipment-label" text-anchor="middle">LV-SWBD-1</text>
+<text x="320.0" y="1000" class="annotation" text-anchor="middle">480V/277V</text>
+<text x="320.0" y="1020" class="rating" text-anchor="middle">Distribution Panel</text>
+<text x="320.0" y="1040" class="annotation" text-anchor="middle">Dual-Fed Loads</text>
+
+<!-- LV Feeder -->
+<line x1="320.0" y1="1070" x2="320.0" y2="1110" class="power-line"/>
+<use href="#breaker-closed" x="320.0" y="1090"/>
+<line x1="320.0" y1="1110" x2="320.0" y2="1140" class="power-line"/>
+
+<!-- Feeder A2 to RMU-2 -->
+<line x1="440.0" y1="570" x2="440.0" y2="630" class="power-line"/>
+
+<!-- RMU-2 -->
+<rect x="380.0" y="660" width="120" height="100" class="rmu-box"/>
+<text x="440.0" y="690" class="equipment-label" text-anchor="middle">RMU-2</text>
+<text x="440.0" y="710" class="annotation" text-anchor="middle">Ring Main Unit</text>
+<text x="440.0" y="730" class="rating" text-anchor="middle">13.8kV | 630A</text>
+<text x="440.0" y="745" class="annotation" text-anchor="middle">SF6 Breakers</text>
+
+<!-- RMU to Transformer -->
+<line x1="440.0" y1="760" x2="440.0" y2="790" class="power-line"/>
+<use href="#breaker-closed" x="440.0" y="775"/>
+
+<!-- Transformer TX-2 -->
+<circle cx="440.0" cy="840" r="40" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="440.0" cy="840" r="32" fill="none" stroke="black" stroke-width="1"/>
+<text x="440.0" y="830" class="small-label" text-anchor="middle">TX-2</text>
+<text x="440.0" y="847" class="rating" text-anchor="middle" font-size="9">3500kVA</text>
+<text x="440.0" y="900" class="annotation" text-anchor="middle">13.8kV/0.48kV</text>
+
+<!-- Transformer to LV Switchboard -->
+<line x1="440.0" y1="880" x2="440.0" y2="930" class="power-line"/>
+<use href="#breaker-closed" x="440.0" y="910"/>
+
+<!-- LV-SWBD-2 -->
+<rect x="380.0" y="950" width="120" height="120" class="lv-switchboard"/>
+<text x="440.0" y="980" class="equipment-label" text-anchor="middle">LV-SWBD-2</text>
+<text x="440.0" y="1000" class="annotation" text-anchor="middle">480V/277V</text>
+<text x="440.0" y="1020" class="rating" text-anchor="middle">Distribution Panel</text>
+<text x="440.0" y="1040" class="annotation" text-anchor="middle">Dual-Fed Loads</text>
+
+<!-- LV Feeder -->
+<line x1="440.0" y1="1070" x2="440.0" y2="1110" class="power-line"/>
+<use href="#breaker-closed" x="440.0" y="1090"/>
+<line x1="440.0" y1="1110" x2="440.0" y2="1140" class="power-line"/>
+
+<!-- Feeder A3 to RMU-3 -->
+<line x1="560.0" y1="570" x2="560.0" y2="630" class="power-line"/>
+
+<!-- RMU-3 -->
+<rect x="500.0" y="660" width="120" height="100" class="rmu-box"/>
+<text x="560.0" y="690" class="equipment-label" text-anchor="middle">RMU-3</text>
+<text x="560.0" y="710" class="annotation" text-anchor="middle">Ring Main Unit</text>
+<text x="560.0" y="730" class="rating" text-anchor="middle">13.8kV | 630A</text>
+<text x="560.0" y="745" class="annotation" text-anchor="middle">SF6 Breakers</text>
+
+<!-- RMU to Transformer -->
+<line x1="560.0" y1="760" x2="560.0" y2="790" class="power-line"/>
+<use href="#breaker-closed" x="560.0" y="775"/>
+
+<!-- Transformer TX-3 -->
+<circle cx="560.0" cy="840" r="40" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="560.0" cy="840" r="32" fill="none" stroke="black" stroke-width="1"/>
+<text x="560.0" y="830" class="small-label" text-anchor="middle">TX-3</text>
+<text x="560.0" y="847" class="rating" text-anchor="middle" font-size="9">3500kVA</text>
+<text x="560.0" y="900" class="annotation" text-anchor="middle">13.8kV/0.48kV</text>
+
+<!-- Transformer to LV Switchboard -->
+<line x1="560.0" y1="880" x2="560.0" y2="930" class="power-line"/>
+<use href="#breaker-closed" x="560.0" y="910"/>
+
+<!-- LV-SWBD-3 -->
+<rect x="500.0" y="950" width="120" height="120" class="lv-switchboard"/>
+<text x="560.0" y="980" class="equipment-label" text-anchor="middle">LV-SWBD-3</text>
+<text x="560.0" y="1000" class="annotation" text-anchor="middle">480V/277V</text>
+<text x="560.0" y="1020" class="rating" text-anchor="middle">Distribution Panel</text>
+<text x="560.0" y="1040" class="annotation" text-anchor="middle">Dual-Fed Loads</text>
+
+<!-- LV Feeder -->
+<line x1="560.0" y1="1070" x2="560.0" y2="1110" class="power-line"/>
+<use href="#breaker-closed" x="560.0" y="1090"/>
+<line x1="560.0" y1="1110" x2="560.0" y2="1140" class="power-line"/>
+
+<!-- Feeder A4 to RMU-4 -->
+<line x1="680.0" y1="570" x2="680.0" y2="630" class="power-line"/>
+
+<!-- RMU-4 -->
+<rect x="620.0" y="660" width="120" height="100" class="rmu-box"/>
+<text x="680.0" y="690" class="equipment-label" text-anchor="middle">RMU-4</text>
+<text x="680.0" y="710" class="annotation" text-anchor="middle">Ring Main Unit</text>
+<text x="680.0" y="730" class="rating" text-anchor="middle">13.8kV | 630A</text>
+<text x="680.0" y="745" class="annotation" text-anchor="middle">SF6 Breakers</text>
+
+<!-- RMU to Transformer -->
+<line x1="680.0" y1="760" x2="680.0" y2="790" class="power-line"/>
+<use href="#breaker-closed" x="680.0" y="775"/>
+
+<!-- Transformer TX-4 -->
+<circle cx="680.0" cy="840" r="40" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="680.0" cy="840" r="32" fill="none" stroke="black" stroke-width="1"/>
+<text x="680.0" y="830" class="small-label" text-anchor="middle">TX-4</text>
+<text x="680.0" y="847" class="rating" text-anchor="middle" font-size="9">3500kVA</text>
+<text x="680.0" y="900" class="annotation" text-anchor="middle">13.8kV/0.48kV</text>
+
+<!-- Transformer to LV Switchboard -->
+<line x1="680.0" y1="880" x2="680.0" y2="930" class="power-line"/>
+<use href="#breaker-closed" x="680.0" y="910"/>
+
+<!-- LV-SWBD-4 -->
+<rect x="620.0" y="950" width="120" height="120" class="lv-switchboard"/>
+<text x="680.0" y="980" class="equipment-label" text-anchor="middle">LV-SWBD-4</text>
+<text x="680.0" y="1000" class="annotation" text-anchor="middle">480V/277V</text>
+<text x="680.0" y="1020" class="rating" text-anchor="middle">Distribution Panel</text>
+<text x="680.0" y="1040" class="annotation" text-anchor="middle">Dual-Fed Loads</text>
+
+<!-- LV Feeder -->
+<line x1="680.0" y1="1070" x2="680.0" y2="1110" class="power-line"/>
+<use href="#breaker-closed" x="680.0" y="1090"/>
+<line x1="680.0" y1="1110" x2="680.0" y2="1140" class="power-line"/>
+
+<!-- Feeder B1 to RMU-5 -->
+<line x1="2720.0" y1="570" x2="2720.0" y2="630" class="power-line"/>
+
+<!-- RMU-5 -->
+<rect x="2660.0" y="660" width="120" height="100" class="rmu-box"/>
+<text x="2720.0" y="690" class="equipment-label" text-anchor="middle">RMU-5</text>
+<text x="2720.0" y="710" class="annotation" text-anchor="middle">Ring Main Unit</text>
+<text x="2720.0" y="730" class="rating" text-anchor="middle">13.8kV | 630A</text>
+<text x="2720.0" y="745" class="annotation" text-anchor="middle">SF6 Breakers</text>
+
+<!-- RMU to Transformer -->
+<line x1="2720.0" y1="760" x2="2720.0" y2="790" class="power-line"/>
+<use href="#breaker-closed" x="2720.0" y="775"/>
+
+<!-- Transformer TX-5 -->
+<circle cx="2720.0" cy="840" r="40" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="2720.0" cy="840" r="32" fill="none" stroke="black" stroke-width="1"/>
+<text x="2720.0" y="830" class="small-label" text-anchor="middle">TX-5</text>
+<text x="2720.0" y="847" class="rating" text-anchor="middle" font-size="9">3500kVA</text>
+<text x="2720.0" y="900" class="annotation" text-anchor="middle">13.8kV/0.48kV</text>
+
+<!-- Transformer to LV Switchboard -->
+<line x1="2720.0" y1="880" x2="2720.0" y2="930" class="power-line"/>
+<use href="#breaker-closed" x="2720.0" y="910"/>
+
+<!-- LV-SWBD-5 -->
+<rect x="2660.0" y="950" width="120" height="120" class="lv-switchboard"/>
+<text x="2720.0" y="980" class="equipment-label" text-anchor="middle">LV-SWBD-5</text>
+<text x="2720.0" y="1000" class="annotation" text-anchor="middle">480V/277V</text>
+<text x="2720.0" y="1020" class="rating" text-anchor="middle">Distribution Panel</text>
+<text x="2720.0" y="1040" class="annotation" text-anchor="middle">Dual-Fed Loads</text>
+
+<!-- LV Feeder -->
+<line x1="2720.0" y1="1070" x2="2720.0" y2="1110" class="power-line"/>
+<use href="#breaker-closed" x="2720.0" y="1090"/>
+<line x1="2720.0" y1="1110" x2="2720.0" y2="1140" class="power-line"/>
+
+<!-- Feeder B2 to RMU-6 -->
+<line x1="2840.0" y1="570" x2="2840.0" y2="630" class="power-line"/>
+
+<!-- RMU-6 -->
+<rect x="2780.0" y="660" width="120" height="100" class="rmu-box"/>
+<text x="2840.0" y="690" class="equipment-label" text-anchor="middle">RMU-6</text>
+<text x="2840.0" y="710" class="annotation" text-anchor="middle">Ring Main Unit</text>
+<text x="2840.0" y="730" class="rating" text-anchor="middle">13.8kV | 630A</text>
+<text x="2840.0" y="745" class="annotation" text-anchor="middle">SF6 Breakers</text>
+
+<!-- RMU to Transformer -->
+<line x1="2840.0" y1="760" x2="2840.0" y2="790" class="power-line"/>
+<use href="#breaker-closed" x="2840.0" y="775"/>
+
+<!-- Transformer TX-6 -->
+<circle cx="2840.0" cy="840" r="40" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="2840.0" cy="840" r="32" fill="none" stroke="black" stroke-width="1"/>
+<text x="2840.0" y="830" class="small-label" text-anchor="middle">TX-6</text>
+<text x="2840.0" y="847" class="rating" text-anchor="middle" font-size="9">3500kVA</text>
+<text x="2840.0" y="900" class="annotation" text-anchor="middle">13.8kV/0.48kV</text>
+
+<!-- Transformer to LV Switchboard -->
+<line x1="2840.0" y1="880" x2="2840.0" y2="930" class="power-line"/>
+<use href="#breaker-closed" x="2840.0" y="910"/>
+
+<!-- LV-SWBD-6 -->
+<rect x="2780.0" y="950" width="120" height="120" class="lv-switchboard"/>
+<text x="2840.0" y="980" class="equipment-label" text-anchor="middle">LV-SWBD-6</text>
+<text x="2840.0" y="1000" class="annotation" text-anchor="middle">480V/277V</text>
+<text x="2840.0" y="1020" class="rating" text-anchor="middle">Distribution Panel</text>
+<text x="2840.0" y="1040" class="annotation" text-anchor="middle">Dual-Fed Loads</text>
+
+<!-- LV Feeder -->
+<line x1="2840.0" y1="1070" x2="2840.0" y2="1110" class="power-line"/>
+<use href="#breaker-closed" x="2840.0" y="1090"/>
+<line x1="2840.0" y1="1110" x2="2840.0" y2="1140" class="power-line"/>
+
+<!-- Feeder B3 to RMU-7 -->
+<line x1="2960.0" y1="570" x2="2960.0" y2="630" class="power-line"/>
+
+<!-- RMU-7 -->
+<rect x="2900.0" y="660" width="120" height="100" class="rmu-box"/>
+<text x="2960.0" y="690" class="equipment-label" text-anchor="middle">RMU-7</text>
+<text x="2960.0" y="710" class="annotation" text-anchor="middle">Ring Main Unit</text>
+<text x="2960.0" y="730" class="rating" text-anchor="middle">13.8kV | 630A</text>
+<text x="2960.0" y="745" class="annotation" text-anchor="middle">SF6 Breakers</text>
+
+<!-- RMU to Transformer -->
+<line x1="2960.0" y1="760" x2="2960.0" y2="790" class="power-line"/>
+<use href="#breaker-closed" x="2960.0" y="775"/>
+
+<!-- Transformer TX-7 -->
+<circle cx="2960.0" cy="840" r="40" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="2960.0" cy="840" r="32" fill="none" stroke="black" stroke-width="1"/>
+<text x="2960.0" y="830" class="small-label" text-anchor="middle">TX-7</text>
+<text x="2960.0" y="847" class="rating" text-anchor="middle" font-size="9">3500kVA</text>
+<text x="2960.0" y="900" class="annotation" text-anchor="middle">13.8kV/0.48kV</text>
+
+<!-- Transformer to LV Switchboard -->
+<line x1="2960.0" y1="880" x2="2960.0" y2="930" class="power-line"/>
+<use href="#breaker-closed" x="2960.0" y="910"/>
+
+<!-- LV-SWBD-7 -->
+<rect x="2900.0" y="950" width="120" height="120" class="lv-switchboard"/>
+<text x="2960.0" y="980" class="equipment-label" text-anchor="middle">LV-SWBD-7</text>
+<text x="2960.0" y="1000" class="annotation" text-anchor="middle">480V/277V</text>
+<text x="2960.0" y="1020" class="rating" text-anchor="middle">Distribution Panel</text>
+<text x="2960.0" y="1040" class="annotation" text-anchor="middle">Dual-Fed Loads</text>
+
+<!-- LV Feeder -->
+<line x1="2960.0" y1="1070" x2="2960.0" y2="1110" class="power-line"/>
+<use href="#breaker-closed" x="2960.0" y="1090"/>
+<line x1="2960.0" y1="1110" x2="2960.0" y2="1140" class="power-line"/>
+
+<!-- Feeder B4 to RMU-8 -->
+<line x1="3080.0" y1="570" x2="3080.0" y2="630" class="power-line"/>
+
+<!-- RMU-8 -->
+<rect x="3020.0" y="660" width="120" height="100" class="rmu-box"/>
+<text x="3080.0" y="690" class="equipment-label" text-anchor="middle">RMU-8</text>
+<text x="3080.0" y="710" class="annotation" text-anchor="middle">Ring Main Unit</text>
+<text x="3080.0" y="730" class="rating" text-anchor="middle">13.8kV | 630A</text>
+<text x="3080.0" y="745" class="annotation" text-anchor="middle">SF6 Breakers</text>
+
+<!-- RMU to Transformer -->
+<line x1="3080.0" y1="760" x2="3080.0" y2="790" class="power-line"/>
+<use href="#breaker-closed" x="3080.0" y="775"/>
+
+<!-- Transformer TX-8 -->
+<circle cx="3080.0" cy="840" r="40" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="3080.0" cy="840" r="32" fill="none" stroke="black" stroke-width="1"/>
+<text x="3080.0" y="830" class="small-label" text-anchor="middle">TX-8</text>
+<text x="3080.0" y="847" class="rating" text-anchor="middle" font-size="9">3500kVA</text>
+<text x="3080.0" y="900" class="annotation" text-anchor="middle">13.8kV/0.48kV</text>
+
+<!-- Transformer to LV Switchboard -->
+<line x1="3080.0" y1="880" x2="3080.0" y2="930" class="power-line"/>
+<use href="#breaker-closed" x="3080.0" y="910"/>
+
+<!-- LV-SWBD-8 -->
+<rect x="3020.0" y="950" width="120" height="120" class="lv-switchboard"/>
+<text x="3080.0" y="980" class="equipment-label" text-anchor="middle">LV-SWBD-8</text>
+<text x="3080.0" y="1000" class="annotation" text-anchor="middle">480V/277V</text>
+<text x="3080.0" y="1020" class="rating" text-anchor="middle">Distribution Panel</text>
+<text x="3080.0" y="1040" class="annotation" text-anchor="middle">Dual-Fed Loads</text>
+
+<!-- LV Feeder -->
+<line x1="3080.0" y1="1070" x2="3080.0" y2="1110" class="power-line"/>
+<use href="#breaker-closed" x="3080.0" y="1090"/>
+<line x1="3080.0" y1="1110" x2="3080.0" y2="1140" class="power-line"/>
+
+<!-- IT UPS System -->
+<rect x="300" y="1190" width="600" height="120" fill="#FFFFCC" stroke="black" stroke-width="2"/>
+<text x="600" y="1225" class="equipment-label" text-anchor="middle">IT UPS SYSTEM (N+1)</text>
+<text x="600" y="1245" class="rating" text-anchor="middle">5 x 1250 kVA Modular UPS</text>
+<text x="600" y="1265" class="annotation" text-anchor="middle">Li-Ion Battery | 5-min Runtime</text>
+<text x="600" y="1285" class="annotation" text-anchor="middle">Online Double-Conversion | Feeds IT Cabinets</text>
+
+<!-- Mechanical UPS System -->
+<rect x="1000" y="1190" width="600" height="120" fill="#CCFFCC" stroke="black" stroke-width="2"/>
+<text x="1300" y="1225" class="equipment-label" text-anchor="middle">MECHANICAL UPS SYSTEM (N+1)</text>
+<text x="1300" y="1245" class="rating" text-anchor="middle">8 x 250 kW Static UPS</text>
+<text x="1300" y="1265" class="annotation" text-anchor="middle">Protects Chillers, Pumps, CDUs, CRAH Units</text>
+<text x="1300" y="1285" class="annotation" text-anchor="middle">Covers Generator Start/Sync Time (~30-60 sec)</text>
+
+<!-- Notes -->
+<text x="50" y="1370" class="equipment-label">NOTES:</text>
+<text x="50" y="1390" class="annotation">1. All breaker positions shown with breaker symbols at each connection point</text>
+<text x="50" y="1410" class="annotation">2. Each RMU enables ring reconfiguration for concurrent maintainability</text>
+<text x="50" y="1430" class="annotation">3. Dual ring topology (Ring A/Ring B) provides N path redundancy</text>
+<text x="50" y="1450" class="annotation">4. N+1 redundancy for generators, transformers, and UPS systems</text>
+<text x="50" y="1470" class="annotation">5. Each LV switchboard serves dual-fed distribution panels for cabinet PDUs</text>
+<text x="50" y="1490" class="annotation">6. Total IT capacity: 6.2 MVA | Total mechanical: 2.0 MW</text>
+
+</svg>

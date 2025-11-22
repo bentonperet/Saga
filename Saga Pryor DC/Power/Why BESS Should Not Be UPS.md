@@ -7,7 +7,7 @@
 
 **Document Purpose:** Demonstrate why using battery energy storage systems (BESS) as the primary UPS solution violates Tier III requirements and creates unacceptable financial and operational risks for data center operators and lenders.
 
-**Prepared By:** Pachyderm Global / PGCIS
+**Prepared By:** PACHYDERM GLOBAL / PGCIS
 **Prepared For:** Saga Energy (Technical Review)
 **Date:** 2025-10-22
 **Status:** TECHNICAL ANALYSIS

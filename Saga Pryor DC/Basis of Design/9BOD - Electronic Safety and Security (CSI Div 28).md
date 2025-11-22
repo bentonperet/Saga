@@ -1,11 +1,10 @@
-**Created:** 2025-10-29
-**Updated from:** Pryor_Bod_EVS_Rev01.md
+
 
 # BASIS OF DESIGN - ELECTRONIC SAFETY AND SECURITY
 ## CSI Division 28
 ### Pryor Data Center - PACHYDERM GLOBAL
 
-**Parent Document:** [[Saga Pryor DC/Basis of Design/Erik_BOD_Updated/_BOD - Exec Summary and TOC]]
+**Parent Document:** [[Saga Pryor DC/Basis of Design/Erik_BOD_Updated/_BOD - Exec Summary and TOC]] 
 
 ---
 
@@ -28,15 +27,15 @@ The data center is divided into distinct security zones creating a layered defen
 
 ### Security Zone Definitions
 
-| Zone Color | Control Point | Definition & Access Requirements |
-|------------|---------------|----------------------------------|
-| **Violet** | CP 1 | Inside perimeter fence but outside building envelope. Includes parking lots, equipment yards, generator areas. **Access:** Perimeter gates with card reader/intercom |
-| **Blue** | CP 2 | Visitor reception areas inside building but outside private offices and critical areas. Includes security vestibule lobbies, designated conference rooms/restrooms. **Access:** Building entry mantrap with card reader |
-| **Yellow** | CP 3 | Access-controlled private office areas for customers and PACHYDERM personnel. **Access:** Card reader from Blue Zone |
-| **Orange** | CP 4 | Secure data center premises restricted to authorized personnel with special access clearance. Includes data halls (DH1, DH2). **Access:** Card + biometric (MFA) via CICO checkpoint |
-| **Red** | CP 5 | Most critical spaces protecting essential operations. Includes electrical rooms (PDMs, transformers), mechanical rooms (chillers, pumps), SCR, network rooms (MDF/IDF). **Access:** Card + biometric (MFA), highest clearance |
-| **Black** | N/A | Construction zones not yet operational, physically separated from active areas. **Access:** Dedicated construction access, temporary barriers |
-
+| Zone Color | Control Point | Definition & Access Requirements                                                                                                                                                                                              |
+| ---------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Violet** | CP 1          | Inside perimeter fence but outside building envelope. Includes parking lots, equipment yards, generator areas. **Access:** Perimeter gates with card reader/intercom                                                          |
+| **Blue**   | CP 2          | Visitor reception areas inside building but outside private offices and critical areas. Includes security vestibule lobbies, designated conference rooms/restrooms. **Access:** Building entry mantrap with card reader       |
+| **Yellow** | CP 3          | Access-controlled private office areas for customers and data center personnel. **Access:** Card reader from Blue Zone                                                                                                        |
+| **Orange** | CP 4          | Secure data center premises restricted to authorized personnel with special access clearance. Includes data halls (DH1, DH2). **Access:** Card + biometric (MFA) via CICO checkpoint                                          |
+| **Red**    | CP 5          | Most critical spaces protecting essential operations. Includes electrical rooms (PDMs, transformers), mechanical rooms (chillers, pumps), SCR, network rooms (MDF/IDF). **Access:** Card + biometric (MFA), highest clearance |
+| **Black**  | N/A           | Construction zones not yet operational, physically separated from active areas. **Access:** Dedicated construction access, temporary barriers                                                                                 |
+<!-- @Benton - work with Julia on a floorplan map that shows all zoning shaded in -->
 ### Risk Level Classification
 
 SAGA assesses threat level for each site. The Pryor Data Center is classified as **High Risk (HR)** due to:
@@ -46,17 +45,17 @@ SAGA assesses threat level for each site. The Pryor Data Center is classified as
 
 **Risk Level Requirements Summary:**
 
-| Requirement | Medium Risk (MR) | High Risk (HR) - **Pryor DC** |
-|-------------|------------------|-------------------------------|
-| **Perimeter Berm** | Not required | **Required** |
-| **Perimeter Lighting** | Reactive (motion) | **Persistent (always on)** |
-| **Main Vehicle Entrance** | K4-rated arrestor | **Sally Port with K4** |
-| **Pedestrian Entrances** | Standard gate | **Full-height turnstiles** |
-| **Fence-to-Building Standoff** | 45 ft (15 m) min | **100 ft (30 m) min** |
-| **Permanent Visitor Center** | Not required | **Required at gate** |
-| **Exterior Orange Zone Doors** | Standard | **15-min forced entry resistance** |
-| **SCR Transaction Window** | 4×6 in. opening | **Solid with transaction drawer** |
-| **Roof Surveillance** | Inside doors only | **Inside + outside with thermal** |
+| Requirement                    | Medium Risk (MR)  | High Risk (HR) - **Pryor DC**      |
+| ------------------------------ | ----------------- | ---------------------------------- |
+| **Perimeter Berm**             | Not required      | **Required**                       |
+| **Perimeter Lighting**         | Reactive (motion) | **Persistent (always on)**         |
+| **Main Vehicle Entrance**      | K4-rated arrestor | **Sally Port with K4**             |
+| **Pedestrian Entrances**       | Standard gate     | **Full-height turnstiles**         |
+| **Fence-to-Building Standoff** | 45 ft (15 m) min  | **100 ft (30 m) min**              |
+| **Permanent Visitor Center**   | Not required      | **Required at gate**               |
+| **Exterior Orange Zone Doors** | Standard          | **15-min forced entry resistance** |
+| **SCR Transaction Window**     | 4×6 in. opening   | **Solid with transaction drawer**  |
+| **Roof Surveillance**          | Inside doors only | **Inside + outside with thermal**  |
 
 ### Foundational Security Tenets
 
@@ -226,7 +225,7 @@ To enhance security beyond card-based access, MFA is required at high-risk trans
 - **Location:**
   - Building entry points (main entrance, loading dock)
   - Generator yard perimeter
-  - 345kV substation perimeter
+  - 161kV substation perimeter
   - Critical transformer locations
 - **Spacing:** 4-5 ft on center (prevent vehicle passage)
 - **Material:** Steel-reinforced concrete or steel pipe filled with concrete
@@ -445,8 +444,6 @@ To ensure continuous security monitoring aligned with Tier III availability obje
 
 ---
 
----
-
 ## BLACK ZONE - CONSTRUCTION ZONES
 
 **General Requirements:**
@@ -582,7 +579,7 @@ All personnel (employees, contractors, vendors) must be formally granted a secur
 **Exterior Critical Areas:**
 - Generator yard (each generator)
 - Chiller yard (all chillers)
-- 345kV substation (transformers, switchgear)
+- 161kV substation (transformers, switchgear)
 - Loading dock (deliveries)
 
 **Interior:**
@@ -739,57 +736,6 @@ For critical choke points where positive identification is paramount for securit
 **Data Hall Zone:**
 - Data hall entry doors (armed 24/7 or during designated hours)
 
----
-
----
-
-## ADVANCED FIRE AND ENVIRONMENTAL DETECTION
-
-### Very Early Smoke Detection Apparatus (VESDA)
-
-**Purpose:** Provide earliest possible fire warning, allowing intervention before significant damage or downtime.
-
-**Installation Locations:**
-- All data halls (DH1, DH2)
-- All MEP rooms
-- UPS/switchyard areas
-- Red Zone critical infrastructure spaces
-
-**System Capabilities:**
-- Multi-stage alerting (Alert, Action, Fire 1, Fire 2) based on predefined smoke concentration levels
-- Sampling pipes run above ceilings, under raised floors (if present), and within air handling units for comprehensive coverage
-- Integration with BMS to initiate pre-programmed responses (HVAC shutdown, door release)
-- Audible and visual alarms in 24/7 Network Operations Center (NOC)
-
-**Response Protocols:**
-- **"Alert" level:** Visual notification, investigation by next security patrol
-- **"Action" or "Fire" level:**
-  - Immediate audible/visual alarm in NOC
-  - Activation of incident response protocols
-  - Dispatch of on-site personnel
-  - Zone-level location data provided to guide response
-
-### Thermal Imaging Monitoring
-
-**Purpose:** Proactively identify abnormal heat patterns in critical infrastructure, preventing equipment failure and fire.
-
-**Monitoring Coverage:**
-- IT racks (25 kW+)
-- Power Distribution Units (PDUs)
-- Static UPS battery cabinets
-- Critical power infrastructure
-
-**System Configuration:**
-- Fixed thermal imaging cameras providing continuous monitoring
-- Temperature threshold configuration with alert generation in NOC
-- Thermal data and alert logs retained per Security Recording Retention Policy
-
-**Thermal Alarm Response:**
-- **Rack thermal alarm:** Immediate ticket to IT Operations team for affected asset investigation
-- **Power infrastructure thermal alarm:**
-  - Immediate response from Infrastructure Engineers
-  - Treated as potential P1/P2 incident (cascading failure risk)
-  - Escalation per established incident management procedures
 
 ---
 
@@ -945,14 +891,6 @@ Security personnel are integral to physical security system effectiveness. Fixed
 - Pre- and post-maintenance system status
 - **Retention:** Minimum 3 years (audit support)
 
-### Failure Response
-
-**Procedures for system failures:**
-- Immediate notification to SCR
-- Implementation of temporary security measures within 2 hours
-- Full system restoration within 24 hours for critical systems
-- Documentation of failures and compensatory controls for audit
-
 ### Performance Monitoring
 
 **System performance continuously monitored against established KPIs:**
@@ -1043,40 +981,57 @@ Security personnel are integral to physical security system effectiveness. Fixed
 
 ---
 
-## COST SUMMARY (HIGH RISK SITE)
+## COST SUMMARY (HIGH RISK SITE - PHASE 4 FULL BUILD-OUT)
 
-|| System | Cost Estimate | Notes |
-||--------|---------------|-------|
-|| **Perimeter Fencing (8 ft + Anti-Climb + Anti-Dig Barrier)** | $300-500K | HR requirement: 100 ft standoff, anti-dig barrier |
-|| **Perimeter Berm (HR Requirement)** | $150-250K | Earthen berm, integrated with grading |
-|| **Sally Port (Dual-Gate with K4 Arrestor)** | $200-350K | HR requirement: interlocking gates |
-|| **Permanent Visitor Center (Gatehouse)** | $150-250K | HR requirement: climate-controlled, hardened |
-|| **Full-Height Turnstiles (Pedestrian Gates)** | $50-100K | HR requirement |
-|| **Line-of-Sight Intrusion Detection** | $100-200K | Perimeter-wide coverage |
-|| **Vehicle Barriers (K4/K12 Bollards)** | $150-250K | Critical infrastructure protection |
-|| **Access Control System (Redundant, Biometric)** | $300-500K | Redundant servers, MFA, clearance levels 1-5 |
-|| **Video Surveillance (100-150 Cameras, Redundant NVR)** | $500-800K | 125 PPFW critical points, thermal cameras, redundant storage |
-|| **Security Control Room (SCR) Infrastructure** | $200-350K | Redundant systems, 99.982% availability, hardened construction |
-|| **CICO Checkpoint Equipment** | $75-150K | Magnetometer, screening equipment, UPS-backed |
-|| **Intrusion Detection System (Enhanced)** | $100-200K | Secondary sensors, tamper-proof enclosures |
-|| **VESDA Systems** | $150-250K | Data halls, MEP rooms, UPS areas |
-|| **Thermal Imaging Monitoring** | $100-200K | Racks 25kW+, PDUs, battery cabinets |
-|| **Secure Network Infrastructure** | $100-150K | Physically separate, redundant switches, firewalls |
-|| **Customer Cage Infrastructure** | $100-200K | Mesh partitions, access control |
-|| **Integration with BMS/DCIM/Fire** | $75-150K | Unified monitoring platform |
-|| **Guard Posts (Furniture, Equipment)** | $50-100K | Main gatehouse, SCR, CICO positions |
-|| **Physical Protection (Conduit, Tamper Enclosures)** | $100-150K | Rigid steel conduit, tamper-proof housings |
-|| **Central Station Monitoring (Annual OPEX)** | $10-20K/year | 24/7 UL-listed service |
-|| **Security Personnel (Annual OPEX)** | $500K-1M/year | 24/7 coverage (3 posts + roving patrols) |
-|| **Total Security Systems (CAPEX)** | **$2.9M-4.8M** | High Risk site with Tier III availability |
+### Executive Summary
 
-**Notes:**
-- Costs reflect High Risk (HR) site requirements per Security Narrative
-- Enhanced perimeter security (berm, sally port, permanent gatehouse) adds ~$500-850K vs. Medium Risk
-- Redundant systems for 99.982% availability adds ~$300-500K
-- VESDA and thermal monitoring adds ~$250-450K
-- Biometric MFA and clearance-level ACS adds ~$150-200K vs. card-only
-- Security personnel OPEX is ongoing operational cost (not included in CAPEX total)
+| System                                               | Cost Estimate  | Confidence | Basis                                           |
+| ---------------------------------------------------- | -------------- | ---------- | ----------------------------------------------- |
+| **Perimeter Fencing (8 ft + Anti-Climb + Anti-Dig)** | $400,000       | ±25%       | ~3,500 LF @ $115/LF installed with anti-dig     |
+| **Sally Port (Dual-Gate with K4 Arrestor)**          | $275,000       | ±27%       | K4 gates + interlocking controls + installation |
+| **Permanent Visitor Center (Gatehouse)**             | $175,000       | ±25%       | 200 SF prefab hardened structure + utilities    |
+| **Full-Height Turnstiles (Pedestrian Gates)**        | $75,000        | ±33%       | 2 turnstiles @ ~$35K each installed             |
+| **Line-of-Sight Intrusion Detection**                | $150,000       | ±33%       | Microwave/infrared perimeter system             |
+| **Vehicle Barriers (K4/K12 Bollards)**               | $200,000       | ±25%       | ~40 bollards @ $5K each installed               |
+| **Access Control System (Redundant, Biometric)**     | $400,000       | ±25%       | ~50 doors, biometric readers, redundant servers |
+| **Video Surveillance (125 Cameras, Redundant NVR)**  | $650,000       | ±23%       | 125 cameras @ ~$5.2K avg installed              |
+| **Security Control Room (SCR) Infrastructure**       | $275,000       | ±27%       | Video wall, redundant systems, hardened room    |
+| **CICO Checkpoint Equipment**                        | $112,500       | ±33%       | Magnetometer, x-ray, screening equipment        |
+| **Intrusion Detection System (Enhanced)**            | $150,000       | ±33%       | Door contacts, motion sensors, glass break      |
+| **Secure Network Infrastructure**                    | $125,000       | ±20%       | Separate VLAN, redundant switches, firewalls    |
+| **Customer Cage Infrastructure**                     | $150,000       | ±33%       | Mesh partitions for ~50 cages                   |
+| **Integration with BMS/DCIM/Fire**                   | $112,500       | ±33%       | Software integration, API development           |
+| **Guard Posts (Furniture, Equipment)**               | $50,000        | ±33%       | 3 posts: gatehouse, SCR, CICO                   |
+| **Physical Protection (Conduit, Tamper Enclosures)** | $125,000       | ±20%       | Rigid conduit, tamper-proof housings            |
+| **Subtotal (Direct CAPEX)**                          | **$3,425,000** | **±26%**   |                                                 |
+| **Design/Engineering (8%)**                          | $274,000       | ±20%       | Security consultant, shop drawings              |
+| **Contingency (15%)**                                | $514,000       | ±30%       | Phase 4 design stage allowance                  |
+| **TOTAL CAPEX**                                      | **$4,213,000** | **±25%**   | **HR site with Tier III availability**          |
+
+---
+
+### Key Cost Drivers & HR Site Premium
+
+**High Risk (HR) Site vs. Medium Risk (MR) Cost Delta:**
+
+| Feature                 | MR Cost   | HR Cost  | Delta          | Why HR Costs More                           |
+| ----------------------- | --------- | -------- | -------------- | ------------------------------------------- |
+| **Sally Port**          | $120-180K | $275K    | +$95-155K      | Dual interlocking gates vs. single gate     |
+| **Permanent Gatehouse** | $0        | $200K    | +$200K         |                                             |
+| **Ballistic SCR**       | $150K     | $275K    | +$125K         | Higher ballistic rating, transaction drawer |
+| **Thermal Cameras**     | $0        | Included | N/A            | Rooftop monitoring requirement              |
+| **CICO X-Ray**          | $0        | Included | N/A            | Enhanced screening for HR                   |
+| **Total HR Premium:**   |           |          | **~$620-680K** | **21% of total budget**                     |
+
+---
+
+**To Improve Confidence:
+- Architectural floor plan with door schedule (ACS door count)
+- Camera placement map (exact camera count + type specification)
+- Customer cage leasing strategy (cage count/size mix)
+- Ballistic rating requirements (SCR, gatehouse levels specified)
+- Perimeter survey (exact fence line length, topology for berm)
+- Integration platform selection (known API compatibility reduces risk)
 
 ---
 
@@ -1093,8 +1048,6 @@ Security personnel are integral to physical security system effectiveness. Fixed
 
 ---
 
-**Tags:** #pryor-dc #security #access-control #cctv #intrusion-detection #perimeter-security
-
 **Next Steps:**
 1. Select access control and VMS platforms (single vendor preferred for integration)
 2. Design camera layout with coverage analysis (blind spot identification)
@@ -1105,7 +1058,7 @@ Security personnel are integral to physical security system effectiveness. Fixed
 ---
 
 **Document Control:**
-- **Source:** Pryor_Bod_EVS_Rev01.md and Erik_BOD reference
+- **Source:** Erik_BOD reference
 - **Date Updated:** October 29, 2025
-- **Prepared by:** EVS / PGCIS Team
-- **Key Updates:** Man-trap design, customer cage security, SOC 2/ISO 27001 compliance
+- **Prepared by:** PGCIS Team
+- **Key Updates:**

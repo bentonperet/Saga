@@ -1,0 +1,153 @@
+{
+  "project": "Pryor Data Center",
+  "location": "Pryor, Oklahoma",
+  "topology": "dual_ring",
+  "nominal_voltage_kv": 13.8,
+  "utility": {},
+  "generators": [],
+  "transformers": [],
+  "ups": [
+    {
+      "id": "IT_UPS_Phase1",
+      "type": "STATIC",
+      "battery": "LI-ION",
+      "function": "IT",
+      "modules": 5,
+      "module_kva": 1250,
+      "total_kva": 6250,
+      "runtime_minutes": 5,
+      "phase": 1
+    },
+    {
+      "id": "IT_UPS_Phase2",
+      "type": "STATIC",
+      "battery": "LI-ION",
+      "function": "IT",
+      "modules": 13,
+      "module_kva": 1250,
+      "total_kva": 16250,
+      "runtime_minutes": 5,
+      "phase": 2
+    },
+    {
+      "id": "MECH_UPS_Phase1",
+      "type": "STATIC",
+      "function": "MECHANICAL",
+      "units": 8,
+      "unit_kw": 250,
+      "total_kw": 2000,
+      "purpose": "pumps_fans",
+      "phase": 1
+    },
+    {
+      "id": "MECH_UPS_Phase2",
+      "type": "STATIC",
+      "function": "MECHANICAL",
+      "units": 20,
+      "unit_kw": 250,
+      "total_kw": 5000,
+      "purpose": "pumps_fans",
+      "phase": 2
+    }
+  ],
+  "switchboards": [
+    {
+      "id": "SWBD_A",
+      "type": "LV",
+      "voltage_v": 480,
+      "rating_a": "TBD",
+      "redundancy": "A",
+      "fed_from": "Ring_A transformers"
+    },
+    {
+      "id": "SWBD_B",
+      "type": "LV",
+      "voltage_v": 480,
+      "rating_a": "TBD",
+      "redundancy": "B",
+      "fed_from": "Ring_B transformers"
+    }
+  ],
+  "rmus": [
+    {
+      "id": "RMU_1",
+      "voltage_kv": 13.8,
+      "rating_a": 630,
+      "type": "SF6 or vacuum",
+      "ring": "A"
+    },
+    {
+      "id": "RMU_2",
+      "voltage_kv": 13.8,
+      "rating_a": 630,
+      "type": "SF6 or vacuum",
+      "ring": "A"
+    },
+    {
+      "id": "RMU_3",
+      "voltage_kv": 13.8,
+      "rating_a": 630,
+      "type": "SF6 or vacuum",
+      "ring": "A"
+    },
+    {
+      "id": "RMU_4",
+      "voltage_kv": 13.8,
+      "rating_a": 630,
+      "type": "SF6 or vacuum",
+      "ring": "A"
+    },
+    {
+      "id": "RMU_5",
+      "voltage_kv": 13.8,
+      "rating_a": 630,
+      "type": "SF6 or vacuum",
+      "ring": "B"
+    },
+    {
+      "id": "RMU_6",
+      "voltage_kv": 13.8,
+      "rating_a": 630,
+      "type": "SF6 or vacuum",
+      "ring": "B"
+    },
+    {
+      "id": "RMU_7",
+      "voltage_kv": 13.8,
+      "rating_a": 630,
+      "type": "SF6 or vacuum",
+      "ring": "B"
+    },
+    {
+      "id": "RMU_8",
+      "voltage_kv": 13.8,
+      "rating_a": 630,
+      "type": "SF6 or vacuum",
+      "ring": "B"
+    }
+  ],
+  "phases": [
+    {
+      "phase": 1,
+      "it_load_kw": 3000,
+      "cabinets": 30,
+      "cabinet_power_kw": 100,
+      "generators": 3,
+      "transformers": 3,
+      "it_ups_modules": 5,
+      "mech_ups_units": 8,
+      "data_halls_active": "DH-E only"
+    },
+    {
+      "phase": 2,
+      "it_load_kw": 12000,
+      "cabinets": 30,
+      "cabinet_power_kw": 400,
+      "generators": 6,
+      "transformers": 8,
+      "it_ups_modules": 13,
+      "mech_ups_units": 20,
+      "data_halls_active": "DH-E + DH-W"
+    }
+  ]
+}
