@@ -1,5 +1,7 @@
 # PACHYDERM GLOBAL Critical Infrastructure Services
+
 ## Knowledge Management & Obsidian Vault Strategy
+
 ## Best-in-Class Documentation Structure for Advisory Services
 
 **Created:** 2025-11-12

@@ -8,7 +8,14 @@
       "WebFetch(domain:www.wfassessor.com)",
       "WebFetch(domain:westfeliciana.smartcama.com)",
       "Bash(dir:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(\"C:\\Program Files\\nodejs\\node.exe\" index.js \"C:\\Users\\eriks\\Documents\\Obsidian\\__Miscellaneous\\Pedestrian_vs_Construction_Fatalities_Germany_Comparison.md\")",
+      "Bash(git checkout:*)",
+      "Bash(git add:*)",
+      "Bash(node index.js:*)",
+      "Bash(mkdir -p:*)",
+      "Bash(mv:*)",
+      "Bash(findstr:*)"
     ],
     "deny": [],
     "ask": []

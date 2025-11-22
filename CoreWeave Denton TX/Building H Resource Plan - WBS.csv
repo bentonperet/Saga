@@ -1,0 +1,166 @@
+WBS Code,Task Description,Equipment Type,Unit Count,L2 Hours/Unit,L3 Hours/Unit,L4 Hours/Unit,L5 Hours/Unit,Total L2 Hours,Total L3 Hours,Total L4 Hours,Total L5 Hours,Total Hours,Start Date,End Date,Duration (Days),Resource Type,Team Size,Notes
+1,BUILDING H COMMISSIONING,,,,,,,0,0,0,0,0,11/7/2025,5/15/2026,190,,,
+1.1,L1 FACTORY TESTING,,,,,,,0,0,0,0,0,Pre-Delivery,11/1/2025,N/A,,,
+1.1.1,MV Transformers FAT Witness,Transformer,27,0,0,0,0,0,0,0,0,0,Pre-Delivery,10/15/2025,N/A,CxA + Owner,2,"Travel to factory, witness testing per IEEE C57.12.90"
+1.1.2,LV Switchboards FAT Witness,LV Switchboard,27,0,0,0,0,0,0,0,0,0,Pre-Delivery,10/20/2025,N/A,CxA + Owner,2,"Witness short-circuit testing, breaker operations"
+1.1.3,UPS Systems FAT Witness,UPS,62,0,0,0,0,0,0,0,0,0,Pre-Delivery,10/25/2025,N/A,CxA + Owner,2,"24 MA units, 36 PA units, 2 RA units"
+1.1.4,Chillers FAT Witness,Chiller,24,0,0,0,0,0,0,0,0,0,Pre-Delivery,10/30/2025,N/A,CxA + Owner,2,8 MA blocks x 3 chillers each
+,,,,,,,,,,,,,,,,,,
+1.2,L2 PRE-FUNCTIONAL VERIFICATION,,,,,,,484.2,0,0,0,484.2,11/7/2025,2/8/2026,94,,,Integrated with construction
+1.2.1,MV Transformers - Installation Verification,Transformer,27,0.9,0,0,0,24.3,0,0,0,24.3,12/18/2025,12/27/2025,10,Electrical Eng + Tech,2,"Nameplate verification, clearances, grounding, oil sampling"
+1.2.2,LV Switchboards - Installation Verification,LV Switchboard,27,2.7,0,0,0,72.9,0,0,0,72.9,12/9/2025,1/17/2026,40,Electrical Eng + Tech,2,"Bus bar inspection, breaker installation, relay settings review"
+1.2.3,UPS Systems - Installation Verification,UPS,62,0.9,0,0,0,55.8,0,0,0,55.8,1/5/2026,2/8/2026,35,Electrical Eng + Tech,2,"Battery connections, control wiring, manufacturer pre-start checks"
+1.2.4,Chillers - Installation Verification,Chiller,24,1.35,0,0,0,32.4,0,0,0,32.4,12/18/2025,1/17/2026,31,Mechanical Eng + Tech,2,"Refrigerant charge, piping connections, control verification"
+1.2.5,Fan Walls - Installation Verification,CRAH/Fan Wall,62,1.35,0,0,0,83.7,0,0,0,83.7,12/29/2025,1/19/2026,22,Mechanical Eng + Tech,2,MA: 8 blocks x 6 fans = 48; PA: estimated 14 units based on typical config
+1.2.6,Battery Cabinets - Installation Verification,Battery Cabinets,62,1.35,0,0,0,83.7,0,0,0,83.7,1/5/2026,2/2/2026,29,Electrical Tech,2,"String voltage, cell connections, torque verification"
+1.2.7,Busway - Installation Verification,Busway,24000,0.1,0,0,0,2400,0,0,0,2400,1/8/2026,2/7/2026,31,Electrical Tech,2,"Estimated 1000 LF per PA block (18 blocks) + 300 LF per MA block (8 blocks) = 20,400 LF rounded to 24,000"
+1.2.8,Cable/Conduit - Megger Testing,N/A - Labor Task,27,4,0,0,0,108,0,0,0,108,1/19/2026,1/29/2026,11,Electrical Tech,2,"MV cables, LV feeders, control circuits per block"
+1.2.9,Grounding System Verification,N/A - Labor Task,27,2,0,0,0,54,0,0,0,54,12/9/2025,1/17/2026,40,Electrical Tech,2,"Ground grid, bonding, testing per block"
+1.2.10,Pre-Functional Checklists Review,N/A - Labor Task,1,40,0,0,0,40,0,0,0,40,2/1/2026,2/8/2026,8,CxA,1,Compile and review all contractor pre-functional checklists
+,,,,,,,Subtotal L2:,2954.9,0,0,0,2954.9,,,,,Note: Busway hours dominate; consider if spot-check sampling approach reduces hours,
+,,,,,,,,,,,,,,,,,,
+1.3,L2/L3 STARTUP & COMMISSIONING,,,,,,,0,3286.8,0,0,3286.8,2/9/2026,3/17/2026,37,,,Formal commissioning during construction startup
+1.3.1,MV System Energization & Testing,Transformer,27,0,1.6,0,0,0,43.2,0,0,43.2,2/9/2026,2/10/2026,2,Electrical Eng + 2 Tech,3,"Transformer ratio, voltage, phasing, oil testing"
+1.3.2,Electrical Skid Startup,LV Switchboard,27,0,3.2,0,0,0,86.4,0,0,86.4,2/11/2026,2/13/2026,3,Electrical Eng + 2 Tech,3,"Switchboard energization, breaker testing, relay functional tests"
+1.3.3,Chiller System Flush/Fill,Chiller,24,0,1.6,0,0,0,38.4,0,0,38.4,2/13/2026,2/15/2026,3,Mechanical Eng + 2 Tech,3,"Water quality, hydrotest, chemical treatment, flow verification"
+1.3.4,Chiller Startup & Performance,Chiller,24,0,1.6,0,0,0,38.4,0,0,38.4,2/18/2026,2/22/2026,5,Mechanical Eng + 2 Tech,3,"Individual chiller startup, capacity testing, controls verification"
+1.3.5,UPS System Startup,UPS,62,0,2.4,0,0,0,148.8,0,0,148.8,2/25/2026,2/26/2026,2,Electrical Eng + 2 Tech,3,"Rectifier/inverter startup, bypass testing, initial parallel operation"
+1.3.6,Battery String Testing,Battery Cabinets,62,0,0.8,0,0,0,49.6,0,0,49.6,2/25/2026,2/26/2026,2,Electrical Tech,2,"String voltage, initial capacity check (not full discharge)"
+1.3.7,Static Transfer Switch Startup,N/A - STS Count,72,0,2,0,0,0,144,0,0,144,2/27/2026,2/28/2026,2,Electrical Eng + 2 Tech,3,"PA blocks: 4 STS x 18 blocks = 72 STS units; manual transfer testing, control verification"
+1.3.8,Data Hall Chiller Final Testing,N/A - System Test,1,0,80,0,0,0,80,0,0,80,3/2/2026,3/3/2026,2,Mechanical Eng + 3 Tech,4,"System-level testing, balance, controls integration"
+1.3.9,Busway Energization & Testing,Busway,24000,0,0.1,0,0,0,2400,0,0,2400,3/7/2026,3/9/2026,3,Electrical Eng + 3 Tech,4,"Energize busways, load bank testing, voltage drop, thermal imaging"
+1.3.10,Fan Wall Startup & Airflow,CRAH/Fan Wall,62,0,2.4,0,0,0,148.8,0,0,148.8,3/9/2026,3/11/2026,3,Mechanical Eng + 2 Tech,3,"Individual fan testing, VFD programming, airflow measurements"
+1.3.11,Air-Water Test & Balance,N/A - System Test,1,0,100,0,0,0,100,0,0,100,3/12/2026,3/15/2026,4,T&B Specialist + 2 Tech,3,"CHW pumps VFD, system balance, temperature control, BMS integration"
+1.3.12,Final L2/L3 Documentation & Punch,N/A - Labor Task,1,0,60,0,0,0,60,0,0,60,3/16/2026,3/17/2026,2,CxA,1,"Compile startup reports, deficiency resolution, readiness verification"
+,,,,,,,Subtotal L3:,0,3337.6,0,0,3337.6,,,,,,
+,,,,,,,,,,,,,,,,,,
+1.4,L4 PERFORMANCE COMMISSIONING,,,,,,,0,0,742.2,0,742.2,3/18/2026,4/6/2026,14,,,"Parallel testing teams; hours shown are total labor, not elapsed"
+1.4.1,Commissioning Kickoff & Mobilization,N/A - Labor Task,1,0,0,16,0,0,0,16,0,16,3/18/2026,3/18/2026,1,CxA + 3 Teams,10,"Safety briefing, test procedure review, equipment staging"
+,,,,,,,,,,,,,,,,,,
+1.4.2,TEAM 1: POWER SYSTEMS TESTING,,,,,,,0,0,379.8,0,379.8,3/19/2026,4/5/2026,13,Electrical Eng + 2 Tech,3,Parallel testing team
+1.4.2.1,UPS Performance Testing,UPS,62,0,0,1.8,0,0,0,111.6,0,111.6,3/19/2026,3/20/2026,2,Electrical Eng + 2 Tech,3,"Parallel operation, load sharing, transfer testing, load steps"
+1.4.2.2,Battery Discharge Testing,Battery Cabinets,62,0,0,0.4,0,0,0,24.8,0,24.8,3/19/2026,3/20/2026,2,Electrical Tech,2,"Full 5-minute discharge test at 100% load, recharge verification"
+1.4.2.3,Transformer Load Testing,Transformer,27,0,0,0.7,0,0,0,18.9,0,18.9,3/25/2026,3/27/2026,3,Electrical Eng + Tech,2,"Load bank testing, thermal performance, voltage regulation"
+1.4.2.4,Switchboard & Distribution Testing,LV Switchboard,27,0,0,1.5,0,0,0,40.5,0,40.5,3/25/2026,3/27/2026,3,Electrical Eng + 2 Tech,3,"Breaker testing, relay verification, power quality monitoring"
+1.4.2.5,Protective Systems Testing,N/A - Labor Task,27,0,0,3,0,0,0,81,0,81,3/28/2026,3/29/2026,2,Electrical Eng + Tech,2,"Primary injection, ground fault, coordination verification per block"
+1.4.2.6,Power Quality Survey,N/A - Labor Task,27,0,0,2,0,0,0,54,0,54,3/30/2026,3/31/2026,2,Electrical Eng + Tech,2,"24-hour monitoring, harmonics, neutral current per block"
+1.4.2.7,Final Electrical Documentation,N/A - Labor Task,1,0,0,48,0,0,0,48,0,48,4/4/2026,4/5/2026,2,CxA,1,Compile all electrical test reports and data
+,,,,,,,,,,,,,,,,,,
+1.4.3,TEAM 2: MECHANICAL SYSTEMS TESTING,,,,,,,0,0,138,0,138,3/21/2026,4/3/2026,10,Mechanical Eng + 2 Tech,3,Parallel testing team
+1.4.3.1,Chiller Performance Testing,Chiller,24,0,0,1.5,0,0,0,36,0,36,3/21/2026,3/22/2026,2,Mechanical Eng + 2 Tech,3,"Capacity, efficiency, staging, alarms, N+1 redundancy"
+1.4.3.2,VFD & Pump Testing,N/A - Pump Count,24,0,0,1.5,0,0,0,36,0,36,3/25/2026,3/27/2026,3,Mechanical Eng + Tech,2,"CHW pumps: 3 per MA block x 8 blocks = 24 pumps; speed range, motor performance, controls"
+1.4.3.3,Fan Wall Performance Testing,CRAH/Fan Wall,62,0,0,0.7,0,0,0,43.4,0,43.4,3/25/2026,3/27/2026,3,Mechanical Eng + Tech,2,"Airflow, controls, staging sequences"
+1.4.3.4,HVAC Test & Balance Verification,N/A - System Test,1,0,0,16,0,0,0,16,0,16,4/1/2026,4/3/2026,3,T&B Specialist,1,"Verify T&B work from L3, final adjustments"
+1.4.3.5,Final Mechanical Documentation,N/A - Labor Task,1,0,0,6,0,0,0,6,0,6,4/3/2026,4/3/2026,1,CxA,1,Compile mechanical test reports
+,,,,,,,,,,,,,,,,,,
+1.4.4,TEAM 3: INTEGRATION & CONTROLS TESTING,,,,,,,0,0,168.4,0,168.4,3/21/2026,4/3/2026,10,Controls Eng + 2 Tech,3,Parallel testing team
+1.4.4.1,Static Transfer Switch Performance,N/A - STS Count,72,0,0,2,0,0,0,144,0,144,3/21/2026,3/22/2026,2,Controls Eng + 2 Tech,3,"Transfer time with oscilloscope (<10ms), load testing to 800A, failure mode initiation"
+1.4.4.2,Busway Load Testing,Busway,24000,0,0,0.1,0,0,0,2400,0,2400,3/25/2026,3/27/2026,3,Electrical Tech,2,"Note: This may be spot-check sampling, not every foot; thermal imaging under load"
+1.4.4.3,BMS/SCADA Integration,N/A - System Test,27,0,0,4,0,0,0,108,0,108,3/28/2026,3/31/2026,4,Controls Eng + Tech,2,"Verify all points, alarms, sequences, graphics per block"
+1.4.4.4,Sequence of Operations Verification,N/A - System Test,27,0,0,2,0,0,0,54,0,54,4/1/2026,4/2/2026,2,Controls Eng,1,"Equipment staging, setpoints, interlocks per block"
+1.4.4.5,Final Controls Documentation,N/A - Labor Task,1,0,0,8,0,0,0,8,0,8,4/3/2026,4/3/2026,1,CxA,1,Compile controls and integration test reports
+,,,,,,,,,,,,,,,,,,
+1.4.5,INTEGRATED SYSTEMS TESTING,,,,,,,0,0,40,0,40,3/25/2026,3/27/2026,3,All Teams Coordinated,9,All teams working together
+1.4.5.1,Full Building Load Test,N/A - System Test,1,0,0,24,0,0,0,24,0,24,3/25/2026,3/27/2026,3,All 3 Teams,9,"Ramp all blocks to 100% load, 4+ hours sustained, all monitoring"
+1.4.5.2,Integrated Systems Performance,N/A - System Test,1,0,0,16,0,0,0,16,0,16,3/26/2026,3/27/2026,2,CxA + Lead Engineers,4,Verify entire facility operates as integrated system
+,,,,,,,,,,,,,,,,,,
+1.4.6,L4 CLOSEOUT & TURNOVER,,,,,,,0,0,16,0,16,4/4/2026,4/6/2026,3,CxA + Leads,4,
+1.4.6.1,Deficiency Resolution & Re-Testing,N/A - Labor Task,1,0,0,24,0,0,0,24,0,24,4/4/2026,4/5/2026,2,All Teams,6,Correct deficiencies and re-test; hours are contingency
+1.4.6.2,Final Documentation Package,N/A - Labor Task,1,0,0,40,0,0,0,40,0,40,4/4/2026,4/5/2026,2,CxA,2,"Compile all test reports, as-builts, deficiency log"
+1.4.6.3,Turnover Meeting & Walkthrough,N/A - Labor Task,1,0,0,8,0,0,0,8,0,8,4/6/2026,4/6/2026,1,CxA + Owner + Ops,6,"Final acceptance, system demonstration"
+,,,,,,,Subtotal L4:,0,0,9334.2,0,9334.2,,,,Note: Busway hours (2400) may be reduced significantly if spot-sampling approach used,,
+,,,,,,,,,,,,,,,,,,
+1.5,L5 RELIABILITY & FAILURE MODE TESTING,,,,,,,0,0,0,100,100,4/7/2026,4/13/2026,5,,,Coordinated with customer activities; focused on critical tests only
+1.5.1,UPS Redundancy Testing,UPS,62,0,0,0,0.5,0,0,0,31,31,4/7/2026,4/7/2026,1,Electrical Eng + Tech,2,"Single module failure per block, load redistribution verification"
+1.5.2,STS Automatic Transfer Testing,N/A - STS Count,72,0,0,0,0.5,0,0,0,36,36,4/8/2026,4/8/2026,1,Electrical Eng + 2 Tech,3,"Source failure simulation, transfer time, load continuity - sample testing"
+1.5.3,Chiller N+1 Redundancy Testing,Chiller,24,0,0,0,0.5,0,0,0,12,12,4/9/2026,4/9/2026,1,Mechanical Eng + Tech,2,"Single chiller offline per block, temperature monitoring"
+1.5.4,Operational Scenarios,N/A - System Test,1,0,0,0,8,0,0,0,8,8,4/11/2026,4/11/2026,1,CxA + Ops Team,4,"Maintenance bypass procedures, emergency scenarios"
+1.5.5,Operator Training,N/A - Training,1,0,0,0,16,0,0,0,16,16,4/12/2026,4/12/2026,1,CxA + All Ops Staff,8,"Hands-on training during testing, normal operations, emergencies"
+1.5.6,L5 Final Documentation,N/A - Labor Task,1,0,0,0,16,0,0,0,16,16,4/13/2026,4/13/2026,1,CxA,2,"Final commissioning report, training records, O&M manuals"
+,,,,,,,Subtotal L5:,0,0,0,119,119,,,,,,
+,,,,,,,,,,,,,,,,,,
+1.6,POST-HANDOFF DOCUMENTATION,,,,,,,0,0,0,0,80,5/1/2026,5/15/2026,15,CxA,2,Final deliverables preparation
+1.6.1,Final O&M Manuals Assembly,N/A - Labor Task,1,0,0,0,0,0,0,0,0,40,5/1/2026,5/8/2026,8,CxA,2,"3 hard copies + electronic, complete with all test reports"
+1.6.2,Final As-Built Drawings Coordination,N/A - Labor Task,1,0,0,0,0,0,0,0,0,16,5/1/2026,5/8/2026,8,CxA,1,"Coordinate with contractors, verify CAD files"
+1.6.3,Final Commissioning Summary Report,N/A - Labor Task,1,0,0,0,0,0,0,0,0,24,5/9/2026,5/15/2026,7,CxA,1,"Executive summary, lessons learned, recommendations"
+,,,,,,,Subtotal Post-Handoff:,0,0,0,0,80,,,,,,
+,,,,,,,,,,,,,,,,,,
+,,,,,,,TOTAL HOURS:,2954.9,3337.6,9334.2,119,15825.7,,,,,,
+,,,,,,,TOTAL PERSON-WEEKS:,73.9,83.4,233.4,3,395.6,,,,Assuming 40-hour work week,,
+,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+RESOURCE SUMMARY BY PHASE,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+Phase,Total Labor Hours,Elapsed Days,Avg Daily Labor Hours,Peak Team Size,Resource Type,Notes,,,,,,,,,,,,
+L1 Factory Testing,0,30,0,2,CxA + Owner,"Travel to factories, witness major equipment FAT",,,,,,,,,,,,
+L2 Pre-Functional,2954.9,94,31.4,4-Feb,Electrical/Mechanical Eng + Techs,Integrated with construction; spot checks and inspections,,,,,,,,,,,,
+L2/L3 Startup,3337.6,37,90.2,4-Mar,Electrical/Mechanical Eng + Techs,Formal commissioning during startup; manufacturer support,,,,,,,,,,,,
+L4 Performance Cx,9334.2,14,666.7,10-Sep,3 Parallel Teams (Electrical/Mechanical/Controls),CRITICAL: Very high intensity; 3 teams working simultaneously,,,,,,,,,,,,
+L5 Reliability Cx,119,5,23.8,4-Feb,CxA + Engineers,Focused on critical failure modes only; coordinated with customer,,,,,,,,,,,,
+Post-Handoff,80,15,5.3,2-Jan,CxA,Final documentation assembly,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+TOTAL,15825.7,195,81.2,Varies,Multi-discipline,Note: Busway hours dominate L4 (2400 hrs); may be reduced via sampling,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+RECOMMENDED STAFFING BY PHASE,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+Phase,Dates,Commissioning Authority,Electrical Engineer,Mechanical Engineer,Controls Engineer,Electrical Tech,Mechanical Tech,Test & Balance,Manufacturer Reps,Notes,,,,,,,,
+L1 Factory,Pre-Nov 2025,1 (travel),1 (travel),0,0,0,0,0,Multiple,Witness testing at various factories,,,,,,,,
+L2 Pre-Functional,Nov 7 - Feb 8,1 FTE,0.5 FTE,0.5 FTE,0,2 FTE,2 FTE,0,As needed,Spot checks during construction; 31.4 hrs/day avg ÷ 40 hrs/wk = ~0.8 FTE total,,,,,,,,
+L2/L3 Startup,Feb 9 - Mar 17,1 FTE,1 FTE,1 FTE,0.5 FTE,2 FTE,2 FTE,1 FTE,Yes (critical),90.2 hrs/day avg; ~2.25 FTE total; but need multi-discipline team,,,,,,,,
+L4 Performance,Mar 18 - Apr 6,1 FTE,2 FTE,2 FTE,2 FTE,4 FTE,3 FTE,1 FTE,On-call,666.7 hrs/day; 3 parallel teams operating simultaneously; PEAK STAFFING,,,,,,,,
+L5 Reliability,Apr 7 - Apr 13,1 FTE,1 FTE,0.5 FTE,0.5 FTE,2 FTE,1 FTE,0,No,23.8 hrs/day; scaled down team,,,,,,,,
+Post-Handoff,May 1 - May 15,1 FTE,0,0,0,0,0,0,No,5.3 hrs/day; CxA documentation only,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+PEAK STAFFING REQUIREMENTS (L4 Phase: Mar 18 - Apr 6),,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+Role,Quantity,Hours Per Day,Total Daily Hours,Responsibility,Equipment/Skills Required,,,,,,,,,,,,,
+Commissioning Authority Lead,1,12,12,"Overall coordination, final approvals, documentation",Project management experience,,,,,,,,,,,,,
+Team 1 Lead - Electrical Engineer,1,12,12,"Power systems testing leadership, UPS/battery/distribution",PE license preferred; NETA certification beneficial,,,,,,,,,,,,,
+Team 1 - Electrical Technician,2,12,24,"Electrical testing execution, data recording",NETA Level III or IV; calibrated test equipment,,,,,,,,,,,,,
+Team 2 Lead - Mechanical Engineer,1,10,10,"Chiller/HVAC testing leadership, T&B coordination",PE license preferred; ASHRAE experience,,,,,,,,,,,,,
+Team 2 - Mechanical Technician,2,10,20,"Mechanical testing execution, instrumentation",T&B certification; flow measurement expertise,,,,,,,,,,,,,
+Team 3 Lead - Controls Engineer,1,10,10,"STS testing, BMS/SCADA integration, sequences",PLC/BMS programming; oscilloscope proficiency,,,,,,,,,,,,,
+Team 3 - Controls Technician,2,10,20,"Controls testing, programming verification, data collection",BMS platforms (e.g. Tridium, Schneider),,,,,,,,,,,,
+Test & Balance Specialist,1,8,8,"Final T&B verification, system balancing",AABC or NEBB certification,,,,,,,,,,,,,
+Support/Documentation,2,8,16,"Data entry, report drafting, coordination support",Technical writing; familiarity with commissioning process,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+TOTAL PEAK TEAM,13,,132,Note: This is for ONE DAY during L4; total daily hours = 132; spread across 14 days with 666.7 avg hrs/day suggests some tasks are sequential while others parallel,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+CRITICAL NOTES,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+1. Busway Testing Hours: The 24000 LF of busway x 0.1 hrs/LF = 2400 hours dominates L4 testing. This assumes testing EVERY linear foot. In practice commissioning uses representative sampling (e.g. test 10% of busway runs thoroughly). If sampling approach reduces this to 240 hours instead of 2400 hours the total L4 hours drop from 9334 to 7174 hours and daily average drops from 667 hrs/day to 512 hrs/day. RECOMMENDATION: Clarify busway testing scope—full testing or statistical sampling?,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+2. L4 Schedule Intensity: Even with reduced busway hours (512 hrs/day) this requires 12-13 FTE working 40-hour weeks or 6-7 FTE working extended shifts (10-12 hour days). The 14-day L4 window is EXTREMELY compressed for this scope of work. The parallel team approach is ESSENTIAL to meet schedule.,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+3. Manufacturer Support: During L2/L3 startup (Feb 9 - Mar 17) manufacturer representatives are CRITICAL for initial energization of UPS chillers and major equipment. These costs are typically included in equipment purchase but must be scheduled well in advance.,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+4. Test Equipment: Load banks (3000kW + 800kW units) must be reserved and scheduled by January 2026 at latest. Lead time for large load bank rental can be 8-12 weeks. Budget: ~$50-100K for 4-week rental during L3/L4 phases.,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+5. Weekend/Extended Hours: The 14-day L4 schedule will almost certainly require weekend work and extended shifts (10-12 hour days). Budget for overtime labor costs and ensure contractor agreements allow for extended hours.,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+6. Customer Coordination (L5): The L5 phase (Apr 7-13) intentionally uses minimal hours (119 total ~24 hrs/day) because it must coordinate with customer rack installation and CDU commissioning. More extensive reliability testing may need to be deferred to post-handoff period.,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+7. Contingency: This plan includes 24 hours for deficiency re-testing in L4. Actual deficiency correction hours will vary. Recommend 10-15% labor hour contingency budget for unanticipated issues.,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+COST ESTIMATE (ORDER OF MAGNITUDE),,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+Resource Type,Loaded Rate ($/hr),Total Hours,Estimated Cost,Notes,,,,,,,,,,,,,,
+Commissioning Authority (CxA),$150 ,1200,"$180,000 ",Lead CxA across all phases; assume 1 FTE x 30 weeks x 40 hrs/wk = 1200 hrs,,,,,,,,,,,,,,
+Electrical Engineer,$125 ,800,"$100,000 ",Peak during L3/L4; avg ~0.75 FTE across project,,,,,,,,,,,,,,
+Mechanical Engineer,$125 ,600,"$75,000 ",Peak during L3/L4; avg ~0.6 FTE across project,,,,,,,,,,,,,,
+Controls Engineer,$125 ,400,"$50,000 ",Primary during L4; avg ~0.4 FTE,,,,,,,,,,,,,,
+Electrical Technician,$85 ,2400,"$204,000 ",2 FTE during L2-L4; includes overtime,,,,,,,,,,,,,,
+Mechanical Technician,$85 ,1800,"$153,000 ",2 FTE during L2-L4,,,,,,,,,,,,,,
+Test & Balance Specialist,$95 ,400,"$38,000 ",Primarily L3/L4,,,,,,,,,,,,,,
+Support/Documentation,$75 ,400,"$30,000 ",Part-time throughout,,,,,,,,,,,,,,
+Travel (FAT Witness),"$5,000 ",1,"$5,000 ",Lump sum for factory visits (estimate 4-6 trips),,,,,,,,,,,,,,
+Test Equipment Rental,"$75,000 ",1,"$75,000 ",Load banks major equipment calibration,,,,,,,,,,,,,,
+Contingency (15%),,,"$127,500 ",,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+TOTAL ESTIMATED COMMISSIONING COST,,,"$1,037,500 ",~$1.04M for Building H commissioning labor and equipment; Does NOT include equipment manufacturer startup costs (typically included in equipment purchase),,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+Per Block Cost (27 power blocks),,,"$38,426 ",Average cost per power block,,,,,,,,,,,,,,
+Cost per kVA (assuming ~50 MVA total capacity),,,$20.75 ,$/kVA commissioned,,,,,,,,,,,,,,

@@ -1,0 +1,17 @@
+﻿Equipment Type,L2 Labor Hours Per Unit,L3 Labor Hours Per Unit,L4 Labor Hours Per Unit,L5 Labor Hours Per Unit,L6 Labor Hours Per Unit,Units 
+Transformer,0.9,1.6,0.7,0.5,0.5,Each
+Busway,0.1,0.1,0.1,0.1,0.1,Linear Feet (LF)
+Metal Enclosed Busduct,0.1,0.1,0.1,0.1,0.1,Linear Feet (LF)
+Ring Main Unit,0.9,1.6,0.7,0.5,0.5,Each
+Generator,1.35,1.6,1.5,0.5,0.5,Each
+MV Switchboard,2.7,4.8,2.2,0.5,0.5,Each
+Chiller,1.35,1.6,1.5,0.5,0.5,Each
+Buffer Tank/Thermal Storage,0.45,0.8,0.7,0.5,0.5,Each
+LV Switchboard,2.7,3.2,1.5,0.5,0.5,Each
+UPS,0.9,2.4,1.8,0.5,0.5,Each
+CRAH/Fan Wall,1.35,2.4,0.7,0.5,0.5,Each
+Battery Cabinets,1.35,0.8,0.4,0.5,0.5,Each
+HAC - SmartRun,1.8,3.2,0.7,0.5,0.5,Each
+Rack Power Panel,0.9,1.6,1.1,0.5,0.5,Each
+Remote Distribution Panel,1.35,1.6,1.1,0.5,0.5,Each
+CDU,0.9,2.4,1.5,0.5,0.5,Each
