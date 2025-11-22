@@ -133,6 +133,12 @@ function formatColonLabels(markdown) {
   for (let i = 0; i < lines.length; i++) {
     let line = lines[i];
 
+    // Skip heading lines (start with #)
+    if (line.trim().startsWith('#')) {
+      result.push(line);
+      continue;
+    }
+
     // Pattern 1: Line starts with text ending in colon (e.g., "Company Structure:")
     // Pattern 2: Bulleted list item with label: (e.g., "- Label: text")
     // Pattern 3: Numbered list item with label: (e.g., "1. Label: text")
@@ -195,8 +201,8 @@ async function main() {
     }
 
     // Clean up extra newlines and whitespace
-    console.log('🧹 Cleaning extra newlines...');
-    markdown = cleanExtraNewlines(markdown);
+    // console.log('🧹 Cleaning extra newlines...');
+    // markdown = cleanExtraNewlines(markdown);
 
     // Fix numbered list numbering
     console.log('🔢 Fixing list numbering...');

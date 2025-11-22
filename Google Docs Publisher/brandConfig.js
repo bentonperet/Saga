@@ -78,8 +78,8 @@ const BRAND = {
     color: '#222222',
     fontSizePt: 10,
     lineSpacing: 1.15,
-    beforeSpacingPt: 0,
-    afterSpacingPt: 0
+    beforeSpacingPt: 6,
+    afterSpacingPt: 3
   },
   LIST: {
     fontFamily: 'Poppins',

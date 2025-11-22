@@ -9,3 +9,7 @@
 # Plugin-specific
 .obsidian/plugins/*/data.json
 .trash/
+
+# OAuth and secrets
+client_secret.json
+token.json
